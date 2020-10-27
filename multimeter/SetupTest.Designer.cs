@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TextBox ChannelTextBox2_13;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -507,10 +507,29 @@
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.skinGroupBox2 = new CCWin.SkinControl.SkinGroupBox();
-            this.edit_save_interval = new System.Windows.Forms.TextBox();
-            this.edit_scan_interval = new System.Windows.Forms.TextBox();
+            this.factordataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listview_card_hide = new System.Windows.Forms.GroupBox();
+            this.skinLabel4 = new CCWin.SkinControl.SkinLabel();
+            this.listview_card2 = new CCWin.SkinControl.SkinListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.combox_card1 = new CCWin.SkinControl.SkinComboBox();
+            this.combox_card2 = new CCWin.SkinControl.SkinComboBox();
+            this.skinLabel5 = new CCWin.SkinControl.SkinLabel();
+            this.listview_card1 = new CCWin.SkinControl.SkinListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
+            this.edit_save_interval = new System.Windows.Forms.TextBox();
             this.skinLabel10 = new CCWin.SkinControl.SkinLabel();
+            this.edit_scan_interval = new System.Windows.Forms.TextBox();
             this.combox_parity = new CCWin.SkinControl.SkinComboBox();
             this.skinLabel6 = new CCWin.SkinControl.SkinLabel();
             this.combox_stopbits = new CCWin.SkinControl.SkinComboBox();
@@ -518,39 +537,20 @@
             this.combox_databits = new CCWin.SkinControl.SkinComboBox();
             this.combox_comport = new CCWin.SkinControl.SkinComboBox();
             this.combox_baudrate = new CCWin.SkinControl.SkinComboBox();
-            this.skinLabel2 = new CCWin.SkinControl.SkinLabel();
-            this.skinLabel3 = new CCWin.SkinControl.SkinLabel();
-            this.listview_card1 = new CCWin.SkinControl.SkinListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.combox_card1 = new CCWin.SkinControl.SkinComboBox();
-            this.skinLabel4 = new CCWin.SkinControl.SkinLabel();
-            this.combox_card2 = new CCWin.SkinControl.SkinComboBox();
-            this.skinLabel5 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel7 = new CCWin.SkinControl.SkinLabel();
-            this.combox_func2 = new CCWin.SkinControl.SkinComboBox();
+            this.skinLabel2 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel11 = new CCWin.SkinControl.SkinLabel();
+            this.skinLabel3 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel9 = new CCWin.SkinControl.SkinLabel();
-            this.listview_card2 = new CCWin.SkinControl.SkinListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.combox_func = new CCWin.SkinControl.SkinComboBox();
             this.skinLabel8 = new CCWin.SkinControl.SkinLabel();
+            this.combox_func2 = new CCWin.SkinControl.SkinComboBox();
+            this.combox_func = new CCWin.SkinControl.SkinComboBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.LastScan = new System.Windows.Forms.TextBox();
             this.listView_main = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ResultGroupBox = new System.Windows.Forms.GroupBox();
-            this.listview_card_hide = new System.Windows.Forms.GroupBox();
-            this.factordataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ChannelTextBox2_13 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
@@ -635,10 +635,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.skinGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).BeginInit();
+            this.listview_card_hide.SuspendLayout();
             this.skinGroupBox1.SuspendLayout();
             this.ResultGroupBox.SuspendLayout();
-            this.listview_card_hide.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ChannelTextBox2_13
@@ -5717,27 +5717,27 @@
             // chart1
             // 
             this.chart1.BorderlineWidth = 0;
-            chartArea4.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea4.AxisX.Title = "Distance(m)";
-            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea4.AxisY.Title = "Temperature(℃)";
-            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
+            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea1.AxisX.Title = "Distance(m)";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea1.AxisY.Title = "Temperature(℃)";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(1086, 456);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series7.Color = System.Drawing.Color.Red;
-            series7.Name = "Series0";
-            series7.YValuesPerPoint = 2;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Color = System.Drawing.SystemColors.Highlight;
-            series8.Name = "Series1";
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.Color = System.Drawing.Color.Red;
+            series1.Name = "Series0";
+            series1.YValuesPerPoint = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.SystemColors.Highlight;
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(0, 0);
             this.chart1.TabIndex = 96;
             this.chart1.Text = "chart1";
@@ -5763,21 +5763,189 @@
             this.skinGroupBox2.TitleRectBackColor = System.Drawing.Color.White;
             this.skinGroupBox2.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
             // 
-            // edit_save_interval
+            // factordataGridView
             // 
-            this.edit_save_interval.Location = new System.Drawing.Point(72, 158);
-            this.edit_save_interval.Name = "edit_save_interval";
-            this.edit_save_interval.Size = new System.Drawing.Size(49, 26);
-            this.edit_save_interval.TabIndex = 35;
-            this.edit_save_interval.TextChanged += new System.EventHandler(this.edit_save_interval_TextChanged);
+            this.factordataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.factordataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.factordataGridView.Location = new System.Drawing.Point(616, 86);
+            this.factordataGridView.Name = "factordataGridView";
+            this.factordataGridView.RowTemplate.Height = 23;
+            this.factordataGridView.Size = new System.Drawing.Size(283, 445);
+            this.factordataGridView.TabIndex = 38;
             // 
-            // edit_scan_interval
+            // Column1
             // 
-            this.edit_scan_interval.Location = new System.Drawing.Point(99, 113);
-            this.edit_scan_interval.Name = "edit_scan_interval";
-            this.edit_scan_interval.Size = new System.Drawing.Size(72, 26);
-            this.edit_scan_interval.TabIndex = 35;
-            this.edit_scan_interval.TextChanged += new System.EventHandler(this.edit_scan_interval_TextChanged);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "通道";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.HeaderText = "系数1";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 80;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.HeaderText = "系数2";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 80;
+            // 
+            // listview_card_hide
+            // 
+            this.listview_card_hide.Controls.Add(this.skinLabel4);
+            this.listview_card_hide.Controls.Add(this.listview_card2);
+            this.listview_card_hide.Controls.Add(this.combox_card1);
+            this.listview_card_hide.Controls.Add(this.combox_card2);
+            this.listview_card_hide.Controls.Add(this.skinLabel5);
+            this.listview_card_hide.Controls.Add(this.listview_card1);
+            this.listview_card_hide.Location = new System.Drawing.Point(917, 86);
+            this.listview_card_hide.Name = "listview_card_hide";
+            this.listview_card_hide.Size = new System.Drawing.Size(536, 475);
+            this.listview_card_hide.TabIndex = 36;
+            this.listview_card_hide.TabStop = false;
+            // 
+            // skinLabel4
+            // 
+            this.skinLabel4.AutoSize = true;
+            this.skinLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel4.BorderColor = System.Drawing.Color.White;
+            this.skinLabel4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel4.Location = new System.Drawing.Point(142, 60);
+            this.skinLabel4.Name = "skinLabel4";
+            this.skinLabel4.Size = new System.Drawing.Size(59, 20);
+            this.skinLabel4.TabIndex = 29;
+            this.skinLabel4.Text = "插槽1：";
+            // 
+            // listview_card2
+            // 
+            this.listview_card2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.listview_card2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listview_card2.FullRowSelect = true;
+            this.listview_card2.GridLines = true;
+            this.listview_card2.HideSelection = false;
+            this.listview_card2.Location = new System.Drawing.Point(432, 92);
+            this.listview_card2.Name = "listview_card2";
+            this.listview_card2.OwnerDraw = true;
+            this.listview_card2.Size = new System.Drawing.Size(311, 436);
+            this.listview_card2.TabIndex = 31;
+            this.listview_card2.UseCompatibleStateImageBehavior = false;
+            this.listview_card2.View = System.Windows.Forms.View.Details;
+            this.listview_card2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listview_card2_MouseUp);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "   通道";
+            this.columnHeader5.Width = 65;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "名称";
+            this.columnHeader6.Width = 80;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "功能";
+            this.columnHeader7.Width = 80;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "图形";
+            this.columnHeader8.Width = 80;
+            // 
+            // combox_card1
+            // 
+            this.combox_card1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combox_card1.FormattingEnabled = true;
+            this.combox_card1.Items.AddRange(new object[] {
+            "无",
+            "7700"});
+            this.combox_card1.Location = new System.Drawing.Point(214, 59);
+            this.combox_card1.Name = "combox_card1";
+            this.combox_card1.Size = new System.Drawing.Size(121, 22);
+            this.combox_card1.TabIndex = 30;
+            this.combox_card1.WaterText = "";
+            this.combox_card1.SelectedValueChanged += new System.EventHandler(this.combox_card1_SelectedValueChanged);
+            // 
+            // combox_card2
+            // 
+            this.combox_card2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combox_card2.FormattingEnabled = true;
+            this.combox_card2.Items.AddRange(new object[] {
+            "无",
+            "7700"});
+            this.combox_card2.Location = new System.Drawing.Point(547, 60);
+            this.combox_card2.Name = "combox_card2";
+            this.combox_card2.Size = new System.Drawing.Size(121, 22);
+            this.combox_card2.TabIndex = 30;
+            this.combox_card2.WaterText = "";
+            this.combox_card2.SelectedValueChanged += new System.EventHandler(this.combox_card2_SelectedValueChanged);
+            this.combox_card2.TextChanged += new System.EventHandler(this.combox_card2_TextChanged);
+            // 
+            // skinLabel5
+            // 
+            this.skinLabel5.AutoSize = true;
+            this.skinLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel5.BorderColor = System.Drawing.Color.White;
+            this.skinLabel5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel5.Location = new System.Drawing.Point(479, 62);
+            this.skinLabel5.Name = "skinLabel5";
+            this.skinLabel5.Size = new System.Drawing.Size(59, 20);
+            this.skinLabel5.TabIndex = 29;
+            this.skinLabel5.Text = "插槽2：";
+            // 
+            // listview_card1
+            // 
+            this.listview_card1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listview_card1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.listview_card1.FullRowSelect = true;
+            this.listview_card1.GridLines = true;
+            this.listview_card1.HideSelection = false;
+            this.listview_card1.Location = new System.Drawing.Point(72, 94);
+            this.listview_card1.Name = "listview_card1";
+            this.listview_card1.OwnerDraw = true;
+            this.listview_card1.Size = new System.Drawing.Size(310, 436);
+            this.listview_card1.TabIndex = 31;
+            this.listview_card1.UseCompatibleStateImageBehavior = false;
+            this.listview_card1.View = System.Windows.Forms.View.Details;
+            this.listview_card1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listview_card1_MouseUp);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "   通道";
+            this.columnHeader1.Width = 65;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "名称";
+            this.columnHeader2.Width = 80;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "功能";
+            this.columnHeader3.Width = 80;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "图形";
+            this.columnHeader4.Width = 80;
             // 
             // skinGroupBox1
             // 
@@ -5813,6 +5981,14 @@
             this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.White;
             this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
             // 
+            // edit_save_interval
+            // 
+            this.edit_save_interval.Location = new System.Drawing.Point(72, 158);
+            this.edit_save_interval.Name = "edit_save_interval";
+            this.edit_save_interval.Size = new System.Drawing.Size(49, 26);
+            this.edit_save_interval.TabIndex = 35;
+            this.edit_save_interval.TextChanged += new System.EventHandler(this.edit_save_interval_TextChanged);
+            // 
             // skinLabel10
             // 
             this.skinLabel10.AutoSize = true;
@@ -5824,6 +6000,14 @@
             this.skinLabel10.Size = new System.Drawing.Size(51, 20);
             this.skinLabel10.TabIndex = 4;
             this.skinLabel10.Text = "串口：";
+            // 
+            // edit_scan_interval
+            // 
+            this.edit_scan_interval.Location = new System.Drawing.Point(99, 113);
+            this.edit_scan_interval.Name = "edit_scan_interval";
+            this.edit_scan_interval.Size = new System.Drawing.Size(72, 26);
+            this.edit_scan_interval.TabIndex = 35;
+            this.edit_scan_interval.TextChanged += new System.EventHandler(this.edit_scan_interval_TextChanged);
             // 
             // combox_parity
             // 
@@ -5937,6 +6121,18 @@
             this.combox_baudrate.WaterText = "";
             this.combox_baudrate.SelectedValueChanged += new System.EventHandler(this.combox_baudrate_SelectedValueChanged);
             // 
+            // skinLabel7
+            // 
+            this.skinLabel7.AutoSize = true;
+            this.skinLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel7.BorderColor = System.Drawing.Color.White;
+            this.skinLabel7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel7.Location = new System.Drawing.Point(27, 113);
+            this.skinLabel7.Name = "skinLabel7";
+            this.skinLabel7.Size = new System.Drawing.Size(79, 20);
+            this.skinLabel7.TabIndex = 29;
+            this.skinLabel7.Text = "扫描间隔：";
+            // 
             // skinLabel2
             // 
             this.skinLabel2.AutoSize = true;
@@ -5948,6 +6144,18 @@
             this.skinLabel2.Size = new System.Drawing.Size(65, 20);
             this.skinLabel2.TabIndex = 3;
             this.skinLabel2.Text = "停止位：";
+            // 
+            // skinLabel11
+            // 
+            this.skinLabel11.AutoSize = true;
+            this.skinLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel11.BorderColor = System.Drawing.Color.White;
+            this.skinLabel11.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel11.Location = new System.Drawing.Point(127, 159);
+            this.skinLabel11.Name = "skinLabel11";
+            this.skinLabel11.Size = new System.Drawing.Size(107, 20);
+            this.skinLabel11.TabIndex = 29;
+            this.skinLabel11.Text = "次扫描保存数据";
             // 
             // skinLabel3
             // 
@@ -5961,109 +6169,29 @@
             this.skinLabel3.TabIndex = 3;
             this.skinLabel3.Text = "校验：";
             // 
-            // listview_card1
+            // skinLabel9
             // 
-            this.listview_card1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listview_card1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listview_card1.FullRowSelect = true;
-            this.listview_card1.GridLines = true;
-            this.listview_card1.Location = new System.Drawing.Point(72, 94);
-            this.listview_card1.Name = "listview_card1";
-            this.listview_card1.OwnerDraw = true;
-            this.listview_card1.Size = new System.Drawing.Size(310, 436);
-            this.listview_card1.TabIndex = 31;
-            this.listview_card1.UseCompatibleStateImageBehavior = false;
-            this.listview_card1.View = System.Windows.Forms.View.Details;
-            this.listview_card1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listview_card1_MouseUp);
+            this.skinLabel9.AutoSize = true;
+            this.skinLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel9.BorderColor = System.Drawing.Color.White;
+            this.skinLabel9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel9.Location = new System.Drawing.Point(29, 159);
+            this.skinLabel9.Name = "skinLabel9";
+            this.skinLabel9.Size = new System.Drawing.Size(37, 20);
+            this.skinLabel9.TabIndex = 29;
+            this.skinLabel9.Text = "每隔";
             // 
-            // columnHeader1
+            // skinLabel8
             // 
-            this.columnHeader1.Text = "   通道";
-            this.columnHeader1.Width = 65;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "名称";
-            this.columnHeader2.Width = 80;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "功能";
-            this.columnHeader3.Width = 80;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "图形";
-            this.columnHeader4.Width = 80;
-            // 
-            // combox_card1
-            // 
-            this.combox_card1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combox_card1.FormattingEnabled = true;
-            this.combox_card1.Items.AddRange(new object[] {
-            "无",
-            "7700"});
-            this.combox_card1.Location = new System.Drawing.Point(214, 59);
-            this.combox_card1.Name = "combox_card1";
-            this.combox_card1.Size = new System.Drawing.Size(121, 22);
-            this.combox_card1.TabIndex = 30;
-            this.combox_card1.WaterText = "";
-            this.combox_card1.SelectedValueChanged += new System.EventHandler(this.combox_card1_SelectedValueChanged);
-            // 
-            // skinLabel4
-            // 
-            this.skinLabel4.AutoSize = true;
-            this.skinLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel4.BorderColor = System.Drawing.Color.White;
-            this.skinLabel4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel4.Location = new System.Drawing.Point(142, 60);
-            this.skinLabel4.Name = "skinLabel4";
-            this.skinLabel4.Size = new System.Drawing.Size(59, 20);
-            this.skinLabel4.TabIndex = 29;
-            this.skinLabel4.Text = "插槽1：";
-            // 
-            // combox_card2
-            // 
-            this.combox_card2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combox_card2.FormattingEnabled = true;
-            this.combox_card2.Items.AddRange(new object[] {
-            "无",
-            "7700"});
-            this.combox_card2.Location = new System.Drawing.Point(547, 60);
-            this.combox_card2.Name = "combox_card2";
-            this.combox_card2.Size = new System.Drawing.Size(121, 22);
-            this.combox_card2.TabIndex = 30;
-            this.combox_card2.WaterText = "";
-            this.combox_card2.SelectedValueChanged += new System.EventHandler(this.combox_card2_SelectedValueChanged);
-            this.combox_card2.TextChanged += new System.EventHandler(this.combox_card2_TextChanged);
-            // 
-            // skinLabel5
-            // 
-            this.skinLabel5.AutoSize = true;
-            this.skinLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel5.BorderColor = System.Drawing.Color.White;
-            this.skinLabel5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel5.Location = new System.Drawing.Point(479, 62);
-            this.skinLabel5.Name = "skinLabel5";
-            this.skinLabel5.Size = new System.Drawing.Size(59, 20);
-            this.skinLabel5.TabIndex = 29;
-            this.skinLabel5.Text = "插槽2：";
-            // 
-            // skinLabel7
-            // 
-            this.skinLabel7.AutoSize = true;
-            this.skinLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel7.BorderColor = System.Drawing.Color.White;
-            this.skinLabel7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel7.Location = new System.Drawing.Point(27, 113);
-            this.skinLabel7.Name = "skinLabel7";
-            this.skinLabel7.Size = new System.Drawing.Size(79, 20);
-            this.skinLabel7.TabIndex = 29;
-            this.skinLabel7.Text = "扫描间隔：";
+            this.skinLabel8.AutoSize = true;
+            this.skinLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel8.BorderColor = System.Drawing.Color.White;
+            this.skinLabel8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel8.Location = new System.Drawing.Point(177, 113);
+            this.skinLabel8.Name = "skinLabel8";
+            this.skinLabel8.Size = new System.Drawing.Size(37, 20);
+            this.skinLabel8.TabIndex = 29;
+            this.skinLabel8.Text = "毫秒";
             // 
             // combox_func2
             // 
@@ -6082,69 +6210,6 @@
             this.combox_func2.WaterText = "";
             this.combox_func2.DropDownClosed += new System.EventHandler(this.combox_func2_DropDownClosed);
             // 
-            // skinLabel11
-            // 
-            this.skinLabel11.AutoSize = true;
-            this.skinLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel11.BorderColor = System.Drawing.Color.White;
-            this.skinLabel11.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel11.Location = new System.Drawing.Point(127, 159);
-            this.skinLabel11.Name = "skinLabel11";
-            this.skinLabel11.Size = new System.Drawing.Size(107, 20);
-            this.skinLabel11.TabIndex = 29;
-            this.skinLabel11.Text = "次扫描保存数据";
-            // 
-            // skinLabel9
-            // 
-            this.skinLabel9.AutoSize = true;
-            this.skinLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel9.BorderColor = System.Drawing.Color.White;
-            this.skinLabel9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel9.Location = new System.Drawing.Point(29, 159);
-            this.skinLabel9.Name = "skinLabel9";
-            this.skinLabel9.Size = new System.Drawing.Size(37, 20);
-            this.skinLabel9.TabIndex = 29;
-            this.skinLabel9.Text = "每隔";
-            // 
-            // listview_card2
-            // 
-            this.listview_card2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
-            this.listview_card2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listview_card2.FullRowSelect = true;
-            this.listview_card2.GridLines = true;
-            this.listview_card2.Location = new System.Drawing.Point(432, 92);
-            this.listview_card2.Name = "listview_card2";
-            this.listview_card2.OwnerDraw = true;
-            this.listview_card2.Size = new System.Drawing.Size(311, 436);
-            this.listview_card2.TabIndex = 31;
-            this.listview_card2.UseCompatibleStateImageBehavior = false;
-            this.listview_card2.View = System.Windows.Forms.View.Details;
-            this.listview_card2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listview_card2_MouseUp);
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "   通道";
-            this.columnHeader5.Width = 65;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "名称";
-            this.columnHeader6.Width = 80;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "功能";
-            this.columnHeader7.Width = 80;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "图形";
-            this.columnHeader8.Width = 80;
-            // 
             // combox_func
             // 
             this.combox_func.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -6162,18 +6227,6 @@
             this.combox_func.WaterText = "";
             this.combox_func.DropDownClosed += new System.EventHandler(this.combox_func_DropDownClosed);
             this.combox_func.TextChanged += new System.EventHandler(this.combox_func_TextChanged);
-            // 
-            // skinLabel8
-            // 
-            this.skinLabel8.AutoSize = true;
-            this.skinLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel8.BorderColor = System.Drawing.Color.White;
-            this.skinLabel8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinLabel8.Location = new System.Drawing.Point(177, 113);
-            this.skinLabel8.Name = "skinLabel8";
-            this.skinLabel8.Size = new System.Drawing.Size(37, 20);
-            this.skinLabel8.TabIndex = 29;
-            this.skinLabel8.Text = "毫秒";
             // 
             // serialPort1
             // 
@@ -6206,6 +6259,7 @@
             this.listView_main.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader9});
             this.listView_main.GridLines = true;
+            this.listView_main.HideSelection = false;
             this.listView_main.Location = new System.Drawing.Point(12, 72);
             this.listView_main.Name = "listView_main";
             this.listView_main.Size = new System.Drawing.Size(0, 0);
@@ -6227,57 +6281,6 @@
             this.ResultGroupBox.Size = new System.Drawing.Size(0, 0);
             this.ResultGroupBox.TabIndex = 101;
             this.ResultGroupBox.TabStop = false;
-            // 
-            // listview_card_hide
-            // 
-            this.listview_card_hide.Controls.Add(this.skinLabel4);
-            this.listview_card_hide.Controls.Add(this.listview_card2);
-            this.listview_card_hide.Controls.Add(this.combox_card1);
-            this.listview_card_hide.Controls.Add(this.combox_card2);
-            this.listview_card_hide.Controls.Add(this.skinLabel5);
-            this.listview_card_hide.Controls.Add(this.listview_card1);
-            this.listview_card_hide.Location = new System.Drawing.Point(917, 86);
-            this.listview_card_hide.Name = "listview_card_hide";
-            this.listview_card_hide.Size = new System.Drawing.Size(536, 475);
-            this.listview_card_hide.TabIndex = 36;
-            this.listview_card_hide.TabStop = false;
-            // 
-            // factordataGridView
-            // 
-            this.factordataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.factordataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.factordataGridView.Location = new System.Drawing.Point(616, 86);
-            this.factordataGridView.Name = "factordataGridView";
-            this.factordataGridView.RowTemplate.Height = 23;
-            this.factordataGridView.Size = new System.Drawing.Size(283, 445);
-            this.factordataGridView.TabIndex = 38;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column1.HeaderText = "通道";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column2.HeaderText = "系数1";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 80;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column3.HeaderText = "系数2";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 80;
             // 
             // SetupTest
             // 
@@ -6398,13 +6401,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.skinGroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).EndInit();
+            this.listview_card_hide.ResumeLayout(false);
+            this.listview_card_hide.PerformLayout();
             this.skinGroupBox1.ResumeLayout(false);
             this.skinGroupBox1.PerformLayout();
             this.ResultGroupBox.ResumeLayout(false);
             this.ResultGroupBox.PerformLayout();
-            this.listview_card_hide.ResumeLayout(false);
-            this.listview_card_hide.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

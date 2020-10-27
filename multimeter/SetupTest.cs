@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-
+using DataProcessor;
 using System.IO;
 using CCWin;
 using CCWin.SkinControl;
@@ -2293,8 +2293,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 
     }
 }
