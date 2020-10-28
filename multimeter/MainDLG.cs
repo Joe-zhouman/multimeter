@@ -12,6 +12,7 @@ using CCWin.SkinControl;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
+using DataProcessor;
 
 
 namespace multimeter

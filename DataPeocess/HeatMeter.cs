@@ -13,11 +13,11 @@ namespace DataProcessor {
         public string[] Alpha { get; set; }
         public string[] T0 { get; set; }
 
-        public HeatMeter() {
-            Name = "";
-            Kappa = "0";
-            Diameter = "0";
-            Channel = new[] {"000", "000", "000", "000"};
+        public HeatMeter(string name) {
+            Name = name;
+            Kappa = "0.0";
+            Diameter = "0.0";
+            Channel = new[] {"201", "201", "201", "201" };
             Position = new[] {"0.0", "0.0", "0.0", "0.0"};
             Alpha = new[] { "0.0", "0.0", "0.0", "0.0"};
             T0 = new[] { "0.0", "0.0", "0.0", "0.0"};
@@ -26,10 +26,9 @@ namespace DataProcessor {
         public void ReadFromIni(string filePath) {
             for (int i = 0; i < 4; i++) {
            
-                    Channel[i] = INIHelper.Read($"{Name}.{i}", "channel", "000", filePath);
+                    Channel[i] = INIHelper.Read($"{Name}.{i}", "channel", "201", filePath);
                     Position[i] = INIHelper.Read($"{Name}.{i}", "position", "0.0", filePath);
-                    Alpha[i] = INIHelper.Read(Channel[i], "alpha", "0.0", filePath);
-                    T0[i] = INIHelper.Read(Channel[i], "T0", "0.0", filePath);
+                    
                 
                
             }
@@ -38,17 +37,20 @@ namespace DataProcessor {
         }
 
         public void SaveToIni(string filePath) {
+            INIHelper.Write(Name, "kappa", Kappa, filePath);
+            INIHelper.Write(Name, "diameter", Diameter, filePath);
             for (int i = 0; i < 4; i++) {
 
                 INIHelper.Write($"{Name}.{i}", "channel", Channel[i], filePath);
                 INIHelper.Write($"{Name}.{i}", "position", Position[i], filePath);
-                INIHelper.Write(Channel[i], "alpha", Alpha[i], filePath);
-                INIHelper.Write(Channel[i], "T0", T0[i], filePath);
-
-
             }
-            INIHelper.Write(Name, "kappa", Kappa, filePath);
-            INIHelper.Write(Name, "diameter", Diameter, filePath);
+        }
+
+        public void LoadTempPara(string filePath) {
+            for (int i = 0; i < 4; i++) {
+                Alpha[i] = INIHelper.Read(Channel[i], "alpha", "0.0", filePath);
+                T0[i] = INIHelper.Read(Channel[i], "T0", "0.0", filePath);
+            }
         }
         
     }

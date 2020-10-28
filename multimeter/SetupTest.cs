@@ -23,6 +23,9 @@ namespace multimeter
         public string TestChoose;                      //测试方法选择标志符
         public string PatternChoose = "normal";       // 软件模式选择，分为“高级模式”和“普通模式”
         ListViewItem m_SelectedItem;
+
+        HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
+        HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
         #region  //串口采集
         string TotalCHN = "";
         int TotalNum = 0;
@@ -276,6 +279,12 @@ namespace multimeter
             CheckForIllegalCrossThreadCalls = false;
             CreateDefaultIni();
             ReadPara();
+            #endregion
+
+            #region //热流计属性读取
+
+            string slnFilePath = SlnIni.CreateDefaultSlnIni();
+            SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
             #endregion
 
         }
@@ -1194,8 +1203,11 @@ namespace multimeter
         private void ParSetting_Click(object sender, EventArgs e)
         {
             #region   //参数设置窗口打开
+            
+            string force;
             switch (TestChoose)
             {
+                
                 case "Test1":
                     {
                         //显示对应设置窗口TEST1
@@ -1211,6 +1223,26 @@ namespace multimeter
                         chart1.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        string filePath = SlnIni.CreateDefaultKappaIni();
+                        Sample sample1 = new Sample("Sample1");
+                        SlnIni.LoadKappaInfo(ref sample1,out force,filePath);
+                        ForceTextBox1.Text = force;
+                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>() 
+                            {LengthTextBox1_1,LengthTextBox1_2,LengthTextBox1_3,LengthTextBox1_4 };
+                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>() 
+                            {LengthTextBox1_8,LengthTextBox1_9,LengthTextBox1_10,LengthTextBox1_11};
+                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
+                            {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4};
+                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
+                            {ChannelTextBox1_8, ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11};
+                        HeatMeterToBox(heatMeter1,heatMeterPositionBoxes1,heatMeterChannelBoxes1,K1TextBox1_1);
+                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox1_2);
+
+                        List<TextBox> samplePositionBoxes = new List<TextBox>()
+                            {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
+                        List<TextBox> sampleChannelBoxes = new List<TextBox>() {
+                            ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7};
+                        SampleToBox(sample1,samplePositionBoxes,sampleChannelBoxes);
                     }
                     break;
                 case "Test2":
@@ -1228,6 +1260,31 @@ namespace multimeter
                         chart1.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        string filePath = SlnIni.CreateDefaultItcIni();
+                        Sample sample1 = new Sample("Sample1");
+                        Sample sample2 = new Sample("Sample2");
+                        SlnIni.LoadItcInfo(ref sample1,ref sample2,out force,filePath);
+                        ForceTextBox2.Text = force;
+                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
+                            {LengthTextBox2_1,LengthTextBox2_2,LengthTextBox2_3,LengthTextBox2_4 };
+                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
+                            {LengthTextBox2_11,LengthTextBox2_12,LengthTextBox2_13,LengthTextBox2_14};
+                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
+                            {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4};
+                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
+                            {ChannelTextBox2_11, ChannelTextBox2_12, ChannelTextBox2_13, ChannelTextBox2_14};
+                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox2_1);
+                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox2_2);
+                        List<TextBox> samplePositionBoxes1 = new List<TextBox>()
+                            {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
+                        List<TextBox> sampleChannelBoxes1 = new List<TextBox>() {
+                            ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7};
+                        SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
+                        List<TextBox> samplePositionBoxes2 = new List<TextBox>()
+                            {LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10};
+                        List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
+                            ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10};
+                        SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
                     }
                     break;
                 case "Test3":
@@ -1245,6 +1302,20 @@ namespace multimeter
                         chart1.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        string filePath = SlnIni.CreateDefaultItmIni();
+                        SlnIni.LoadItmInfo(out force,out string thickness,filePath);
+                        ForceTextBox3.Text = force;
+                        FilmThickness1.Text = thickness;
+                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
+                            {LengthTextBox3_1,LengthTextBox3_2,LengthTextBox3_3,LengthTextBox3_4 };
+                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
+                            {LengthTextBox3_5,LengthTextBox3_6,LengthTextBox3_7,LengthTextBox3_8};
+                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
+                            {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4};
+                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
+                            {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
+                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox3_1);
+                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_1);
                     }
                     break;
                 case "Test4":
@@ -1262,6 +1333,33 @@ namespace multimeter
                         chart1.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        string filePath = SlnIni.CreateDefaultItmsIni();
+                        Sample sample1 = new Sample("Sample1");
+                        Sample sample2 = new Sample("Sample2");
+                        SlnIni.LoadItmsInfo(ref sample1, ref sample2, out force, out string thickness,
+                            filePath);
+                        ForceTextBox4.Text = force;
+                        FilmThickness2.Text = thickness;
+                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
+                            {LengthTextBox4_1,LengthTextBox4_2,LengthTextBox4_3,LengthTextBox4_4 };
+                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
+                            {LengthTextBox4_11,LengthTextBox4_12,LengthTextBox4_13,LengthTextBox4_14};
+                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
+                            {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4};
+                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
+                            {ChannelTextBox4_11, ChannelTextBox4_12, ChannelTextBox4_13, ChannelTextBox4_14};
+                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox4_1);
+                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_4);
+                        List<TextBox> samplePositionBoxes1 = new List<TextBox>()
+                            {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};
+                        List<TextBox> sampleChannelBoxes1 = new List<TextBox>() {
+                            ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7};
+                        SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
+                        List<TextBox> samplePositionBoxes2 = new List<TextBox>()
+                            {LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10};
+                        List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
+                            ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10};
+                        SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
                     }
                     break;
                 default:
@@ -1285,33 +1383,34 @@ namespace multimeter
             TestStop.Enabled = true;
             Monitor.Enabled = true;
             Monitor.Enabled = true;
-            TestResult.Enabled = true;
+            TestResult.Enabled = false;
 
-            switch (TestChoose)
-            {
-                case "Test1":
-                    {
-                        Test1Run();
-                    }
-                    break;
-                case "Test2":
-                    {
-                        Test2Run();
-                    }
-                    break;
-                case "Test3":
-                    {
-                        Test3Run();
-                    }
-                    break;
-                case "Test4":
-                    {
-                        Test4Run();
-                    }
-                    break;
-                default:
-                    break;
-            }
+            btn_start();
+            //switch (TestChoose)
+            //{
+            //    case "Test1":
+            //        {
+            //            Test1Run();
+            //        }
+            //        break;
+            //    case "Test2":
+            //        {
+            //            Test2Run();
+            //        }
+            //        break;
+            //    case "Test3":
+            //        {
+            //            Test3Run();
+            //        }
+            //        break;
+            //    case "Test4":
+            //        {
+            //            Test4Run();
+            //        }
+            //        break;
+            //    default:
+            //        break;
+            //}
             #endregion
         }
 
@@ -1329,8 +1428,9 @@ namespace multimeter
             TestStop.Enabled = false;
             Monitor.Enabled = false;
             Monitor.Enabled = false;
-            TestResult.Enabled = false;
+            TestResult.Enabled = true;
             #endregion 
+            btn_stop();
         }
 
         private void Monitor_Click(object sender, EventArgs e)
@@ -1797,6 +1897,7 @@ namespace multimeter
             #region  //开始串口采集
             //btn_stop.Enabled = true;
             //btn_start.Enabled = false;
+            ReadPara();
             try
             {
 
@@ -1904,112 +2005,112 @@ namespace multimeter
                 }
             }
 
-
-
-
-
             string FourRlist = "";
             int FourR_num = 0;
-            if (AppCfg.devicepara.Card1_enable != 0)
-            {
-                foreach (Card i in AppCfg.devicepara.Cardlist1)
-                {
-                    if (i.func == 2)
-                    {
-                        FourR_num++;
-                        if (FourRlist.Length == 0)
-                        {
-                            FourRlist = i.CHN;
-                            if (TotalCHN.Length == 0)
-                                TotalCHN = i.CHN;
-                            else
-                                TotalCHN = TotalCHN + "," + i.CHN;
 
-                        }
-                        else
-                        {
-                            FourRlist = FourRlist + "," + i.CHN;
-                            TotalCHN = TotalCHN + "," + i.CHN;
-                        }
-                    }
-                }
-            }
+            #region 四线电阻选项,当前版本无用
+            //if (AppCfg.devicepara.Card1_enable != 0)
+            //{
+            //    foreach (Card i in AppCfg.devicepara.Cardlist1)
+            //    {
+            //        if (i.func == 2)
+            //        {
+            //            FourR_num++;
+            //            if (FourRlist.Length == 0)
+            //            {
+            //                FourRlist = i.CHN;
+            //                if (TotalCHN.Length == 0)
+            //                    TotalCHN = i.CHN;
+            //                else
+            //                    TotalCHN = TotalCHN + "," + i.CHN;
 
-            if (AppCfg.devicepara.Card2_enable != 0)
-            {
-                foreach (Card i in AppCfg.devicepara.Cardlist2)
-                {
-                    if (i.func == 2)
-                    {
-                        FourR_num++;
-                        if (FourRlist.Length == 0)
-                        {
-                            FourRlist = i.CHN;
-                            if (TotalCHN.Length == 0)
-                                TotalCHN = i.CHN;
-                            else
-                                TotalCHN = TotalCHN + "," + i.CHN;
-                        }
-                        else
-                        {
-                            FourRlist = FourRlist + "," + i.CHN;
-                            TotalCHN = TotalCHN + "," + i.CHN;
-                        }
-                    }
-                }
-            }
+            //            }
+            //            else
+            //            {
+            //                FourRlist = FourRlist + "," + i.CHN;
+            //                TotalCHN = TotalCHN + "," + i.CHN;
+            //            }
+            //        }
+            //    }
+            //}
 
+            //if (AppCfg.devicepara.Card2_enable != 0)
+            //{
+            //    foreach (Card i in AppCfg.devicepara.Cardlist2)
+            //    {
+            //        if (i.func == 2)
+            //        {
+            //            FourR_num++;
+            //            if (FourRlist.Length == 0)
+            //            {
+            //                FourRlist = i.CHN;
+            //                if (TotalCHN.Length == 0)
+            //                    TotalCHN = i.CHN;
+            //                else
+            //                    TotalCHN = TotalCHN + "," + i.CHN;
+            //            }
+            //            else
+            //            {
+            //                FourRlist = FourRlist + "," + i.CHN;
+            //                TotalCHN = TotalCHN + "," + i.CHN;
+            //            }
+            //        }
+            //    }
+            //}
+            #endregion
 
             string Templist = "";
             int Temp_num = 0;
-            if (AppCfg.devicepara.Card1_enable != 0)
-            {
-                foreach (Card i in AppCfg.devicepara.Cardlist1)
-                {
-                    if (i.func == 3)
-                    {
-                        Temp_num++;
-                        if (Templist.Length == 0)
-                        {
-                            Templist = i.CHN;
-                            if (TotalCHN.Length == 0)
-                                TotalCHN = i.CHN;
-                            else
-                                TotalCHN = TotalCHN + "," + i.CHN;
-                        }
-                        else
-                        {
-                            Templist = Templist + "," + i.CHN;
-                            TotalCHN = TotalCHN + "," + i.CHN;
-                        }
-                    }
-                }
-            }
 
-            if (AppCfg.devicepara.Card2_enable != 0)
-            {
-                foreach (Card i in AppCfg.devicepara.Cardlist2)
-                {
-                    if (i.func == 3)
-                    {
-                        Temp_num++;
-                        if (Templist.Length == 0)
-                        {
-                            Templist = i.CHN;
-                            if (TotalCHN.Length == 0)
-                                TotalCHN = i.CHN;
-                            else
-                                TotalCHN = TotalCHN + "," + i.CHN;
-                        }
-                        else
-                        {
-                            Templist = Templist + "," + i.CHN;
-                            TotalCHN = TotalCHN + "," + i.CHN;
-                        }
-                    }
-                }
-            }
+            #region 热电偶选项,当前版本无用
+            //if (AppCfg.devicepara.Card1_enable != 0)
+            //{
+            //    foreach (Card i in AppCfg.devicepara.Cardlist1)
+            //    {
+            //        if (i.func == 3)
+            //        {
+            //            Temp_num++;
+            //            if (Templist.Length == 0)
+            //            {
+            //                Templist = i.CHN;
+            //                if (TotalCHN.Length == 0)
+            //                    TotalCHN = i.CHN;
+            //                else
+            //                    TotalCHN = TotalCHN + "," + i.CHN;
+            //            }
+            //            else
+            //            {
+            //                Templist = Templist + "," + i.CHN;
+            //                TotalCHN = TotalCHN + "," + i.CHN;
+            //            }
+            //        }
+            //    }
+            //}
 
+            //if (AppCfg.devicepara.Card2_enable != 0)
+            //{
+            //    foreach (Card i in AppCfg.devicepara.Cardlist2)
+            //    {
+            //        if (i.func == 3)
+            //        {
+            //            Temp_num++;
+            //            if (Templist.Length == 0)
+            //            {
+            //                Templist = i.CHN;
+            //                if (TotalCHN.Length == 0)
+            //                    TotalCHN = i.CHN;
+            //                else
+            //                    TotalCHN = TotalCHN + "," + i.CHN;
+            //            }
+            //            else
+            //            {
+            //                Templist = Templist + "," + i.CHN;
+            //                TotalCHN = TotalCHN + "," + i.CHN;
+            //            }
+            //        }
+            //    }
+            //}
+            #endregion
             TotalNum = TwoR_num + FourR_num + Temp_num;
 
             sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
@@ -2150,7 +2251,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 return;
             }
           
-            string FileName = Name  + DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ffff")+".csv";
+            string FileName = Name+ "-"  + DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ffff")+".csv";
 
             try
             {
@@ -2158,7 +2259,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     int size = 1024;
                     int sizeCnt = (int)Math.Ceiling((Double)listView.Items.Count / (Double)2000);
                     StreamWriter write = new StreamWriter(FileName, false, Encoding.Default, size * sizeCnt);
-                    write.Write;
+                    
                     //获取listView标题行
                     for (int t = 0; t < listView.Columns.Count; t++)
                     {
@@ -2290,6 +2391,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //}
             #endregion
         }
+
+        
 
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

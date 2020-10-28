@@ -66,6 +66,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyBtnClick.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="test_file.cs" />
     <Compile Include="MainDLG.cs">
       <SubType>Form</SubType>
@@ -88,7 +91,9 @@
     <Compile Include="SetupTest.Designer.cs">
       <DependentUpon>SetupTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Slnlni.cs" />
+    <Compile Include="TextBoxChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="MainDLG.resx">
       <DependentUpon>MainDLG.cs</DependentUpon>
     </EmbeddedResource>

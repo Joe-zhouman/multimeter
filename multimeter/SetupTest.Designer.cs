@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TextBox ChannelTextBox2_13;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -61,13 +60,10 @@
             this.ChannelTextBox1_10 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_11 = new System.Windows.Forms.TextBox();
             this.TextGroupbox1 = new System.Windows.Forms.GroupBox();
-            this.label51 = new System.Windows.Forms.Label();
+            this.apply_btm_1 = new System.Windows.Forms.Button();
             this.K2TextBox1_2 = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
             this.K1TextBox1_1 = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
             this.K1_2 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.K1_1 = new System.Windows.Forms.Label();
             this.pictureBox1_13 = new System.Windows.Forms.PictureBox();
             this.pictureBox1_12 = new System.Windows.Forms.PictureBox();
@@ -111,6 +107,7 @@
             this.LengthTextBox1_8 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.TextGroupbox2 = new System.Windows.Forms.GroupBox();
+            this.apply_btm_2 = new System.Windows.Forms.Button();
             this.label43 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -205,6 +202,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Unit2_17 = new System.Windows.Forms.Label();
             this.TextGroupbox3 = new System.Windows.Forms.GroupBox();
+            this.apply_btm_3 = new System.Windows.Forms.Button();
             this.FilmThickness1 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -265,6 +263,7 @@
             this.LengthTextBox3_6 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_5 = new System.Windows.Forms.TextBox();
             this.TextGroupbox4 = new System.Windows.Forms.GroupBox();
+            this.apply_btm_4 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -551,7 +550,7 @@
             this.listView_main = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ResultGroupBox = new System.Windows.Forms.GroupBox();
-            ChannelTextBox2_13 = new System.Windows.Forms.TextBox();
+            this.ChannelTextBox2_13 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1_13)).BeginInit();
@@ -640,15 +639,6 @@
             this.skinGroupBox1.SuspendLayout();
             this.ResultGroupBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ChannelTextBox2_13
-            // 
-            ChannelTextBox2_13.Enabled = false;
-            ChannelTextBox2_13.Location = new System.Drawing.Point(691, 618);
-            ChannelTextBox2_13.Name = "ChannelTextBox2_13";
-            ChannelTextBox2_13.Size = new System.Drawing.Size(64, 23);
-            ChannelTextBox2_13.TabIndex = 73;
-            ChannelTextBox2_13.Text = "13";
             // 
             // pictureTest1
             // 
@@ -877,13 +867,10 @@
             // TextGroupbox1
             // 
             this.TextGroupbox1.BackColor = System.Drawing.Color.White;
-            this.TextGroupbox1.Controls.Add(this.label51);
+            this.TextGroupbox1.Controls.Add(this.apply_btm_1);
             this.TextGroupbox1.Controls.Add(this.K2TextBox1_2);
-            this.TextGroupbox1.Controls.Add(this.label47);
             this.TextGroupbox1.Controls.Add(this.K1TextBox1_1);
-            this.TextGroupbox1.Controls.Add(this.label44);
             this.TextGroupbox1.Controls.Add(this.K1_2);
-            this.TextGroupbox1.Controls.Add(this.label27);
             this.TextGroupbox1.Controls.Add(this.K1_1);
             this.TextGroupbox1.Controls.Add(this.pictureBox1_13);
             this.TextGroupbox1.Controls.Add(this.pictureBox1_12);
@@ -955,15 +942,15 @@
             this.TextGroupbox1.TabIndex = 24;
             this.TextGroupbox1.TabStop = false;
             // 
-            // label51
+            // apply_btm_1
             // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(1058, 417);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(295, 16);
-            this.label51.TabIndex = 83;
-            this.label51.Text = "2、由热流计温度及热导率，计算得到热流密度";
+            this.apply_btm_1.Location = new System.Drawing.Point(1015, 687);
+            this.apply_btm_1.Name = "apply_btm_1";
+            this.apply_btm_1.Size = new System.Drawing.Size(102, 41);
+            this.apply_btm_1.TabIndex = 69;
+            this.apply_btm_1.Text = "应用设置";
+            this.apply_btm_1.UseVisualStyleBackColor = true;
+            this.apply_btm_1.Click += new System.EventHandler(this.apply_btm_1_Click);
             // 
             // K2TextBox1_2
             // 
@@ -973,16 +960,6 @@
             this.K2TextBox1_2.TabIndex = 68;
             this.K2TextBox1_2.Text = "237";
             // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(1058, 442);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(253, 16);
-            this.label47.TabIndex = 82;
-            this.label47.Text = "3、由试件温度，线性拟合得到温度梯度";
-            // 
             // K1TextBox1_1
             // 
             this.K1TextBox1_1.Location = new System.Drawing.Point(987, 262);
@@ -990,16 +967,6 @@
             this.K1TextBox1_1.Size = new System.Drawing.Size(64, 23);
             this.K1TextBox1_1.TabIndex = 67;
             this.K1TextBox1_1.Text = "237";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(1058, 467);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(211, 16);
-            this.label44.TabIndex = 81;
-            this.label44.Text = "4、热导率 = 热流密度 / 温度梯度";
             // 
             // K1_2
             // 
@@ -1010,16 +977,6 @@
             this.K1_2.Size = new System.Drawing.Size(38, 24);
             this.K1_2.TabIndex = 66;
             this.K1_2.Text = "K2";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(1058, 390);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(267, 16);
-            this.label27.TabIndex = 80;
-            this.label27.Text = "1、待热电偶阻值稳定下来，得到各点温度";
             // 
             // K1_1
             // 
@@ -1427,6 +1384,8 @@
             // TextGroupbox2
             // 
             this.TextGroupbox2.BackColor = System.Drawing.Color.White;
+            this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_13);
+            this.TextGroupbox2.Controls.Add(this.apply_btm_2);
             this.TextGroupbox2.Controls.Add(this.label43);
             this.TextGroupbox2.Controls.Add(this.label30);
             this.TextGroupbox2.Controls.Add(this.label29);
@@ -1441,7 +1400,6 @@
             this.TextGroupbox2.Controls.Add(this.Unit2_15);
             this.TextGroupbox2.Controls.Add(this.Unit2_14);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_14);
-            this.TextGroupbox2.Controls.Add(ChannelTextBox2_13);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_12);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_14);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_13);
@@ -1516,9 +1474,19 @@
             this.TextGroupbox2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox2.Location = new System.Drawing.Point(393, 85);
             this.TextGroupbox2.Name = "TextGroupbox2";
-            this.TextGroupbox2.Size = new System.Drawing.Size(0, 0);
+            this.TextGroupbox2.Size = new System.Drawing.Size(1531, 966);
             this.TextGroupbox2.TabIndex = 69;
             this.TextGroupbox2.TabStop = false;
+            // 
+            // apply_btm_2
+            // 
+            this.apply_btm_2.Location = new System.Drawing.Point(1100, 571);
+            this.apply_btm_2.Name = "apply_btm_2";
+            this.apply_btm_2.Size = new System.Drawing.Size(115, 29);
+            this.apply_btm_2.TabIndex = 85;
+            this.apply_btm_2.Text = "button2";
+            this.apply_btm_2.UseVisualStyleBackColor = true;
+            this.apply_btm_2.Click += new System.EventHandler(this.apply_btm_2_Click);
             // 
             // label43
             // 
@@ -2431,6 +2399,7 @@
             // TextGroupbox3
             // 
             this.TextGroupbox3.BackColor = System.Drawing.Color.White;
+            this.TextGroupbox3.Controls.Add(this.apply_btm_3);
             this.TextGroupbox3.Controls.Add(this.FilmThickness1);
             this.TextGroupbox3.Controls.Add(this.label22);
             this.TextGroupbox3.Controls.Add(this.label3);
@@ -2496,6 +2465,16 @@
             this.TextGroupbox3.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox3.TabIndex = 69;
             this.TextGroupbox3.TabStop = false;
+            // 
+            // apply_btm_3
+            // 
+            this.apply_btm_3.Location = new System.Drawing.Point(1093, 659);
+            this.apply_btm_3.Name = "apply_btm_3";
+            this.apply_btm_3.Size = new System.Drawing.Size(81, 49);
+            this.apply_btm_3.TabIndex = 76;
+            this.apply_btm_3.Text = "button2";
+            this.apply_btm_3.UseVisualStyleBackColor = true;
+            this.apply_btm_3.Click += new System.EventHandler(this.apply_btm_3_Click);
             // 
             // FilmThickness1
             // 
@@ -3070,6 +3049,7 @@
             // TextGroupbox4
             // 
             this.TextGroupbox4.BackColor = System.Drawing.Color.White;
+            this.TextGroupbox4.Controls.Add(this.apply_btm_4);
             this.TextGroupbox4.Controls.Add(this.label26);
             this.TextGroupbox4.Controls.Add(this.label25);
             this.TextGroupbox4.Controls.Add(this.label24);
@@ -3165,6 +3145,16 @@
             this.TextGroupbox4.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox4.TabIndex = 69;
             this.TextGroupbox4.TabStop = false;
+            // 
+            // apply_btm_4
+            // 
+            this.apply_btm_4.Location = new System.Drawing.Point(1141, 566);
+            this.apply_btm_4.Name = "apply_btm_4";
+            this.apply_btm_4.Size = new System.Drawing.Size(77, 32);
+            this.apply_btm_4.TabIndex = 87;
+            this.apply_btm_4.Text = "button2";
+            this.apply_btm_4.UseVisualStyleBackColor = true;
+            this.apply_btm_4.Click += new System.EventHandler(this.apply_btm_4_Click);
             // 
             // label26
             // 
@@ -4385,7 +4375,7 @@
             this.SerialPort.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SerialPort.Location = new System.Drawing.Point(25, 21);
             this.SerialPort.Name = "SerialPort";
-            this.SerialPort.Size = new System.Drawing.Size(100, 107);
+            this.SerialPort.Size = new System.Drawing.Size(106, 106);
             this.SerialPort.TabIndex = 97;
             this.SerialPort.Text = "串口设置";
             this.SerialPort.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -5717,27 +5707,27 @@
             // chart1
             // 
             this.chart1.BorderlineWidth = 0;
-            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea1.AxisX.Title = "Distance(m)";
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea1.AxisY.Title = "Temperature(℃)";
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea2.AxisX.Title = "Distance(m)";
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea2.AxisY.Title = "Temperature(℃)";
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(1086, 456);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series1.Color = System.Drawing.Color.Red;
-            series1.Name = "Series0";
-            series1.YValuesPerPoint = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.SystemColors.Highlight;
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.Color = System.Drawing.Color.Red;
+            series3.Name = "Series0";
+            series3.YValuesPerPoint = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.SystemColors.Highlight;
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(0, 0);
             this.chart1.TabIndex = 96;
             this.chart1.Text = "chart1";
@@ -5756,7 +5746,7 @@
             this.skinGroupBox2.Name = "skinGroupBox2";
             this.skinGroupBox2.RectBackColor = System.Drawing.Color.White;
             this.skinGroupBox2.RoundStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinGroupBox2.Size = new System.Drawing.Size(911, 966);
+            this.skinGroupBox2.Size = new System.Drawing.Size(0, 0);
             this.skinGroupBox2.TabIndex = 97;
             this.skinGroupBox2.TabStop = false;
             this.skinGroupBox2.TitleBorderColor = System.Drawing.Color.White;
@@ -5778,24 +5768,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -6282,6 +6272,15 @@
             this.ResultGroupBox.TabIndex = 101;
             this.ResultGroupBox.TabStop = false;
             // 
+            // ChannelTextBox2_13
+            // 
+            this.ChannelTextBox2_13.Enabled = false;
+            this.ChannelTextBox2_13.Location = new System.Drawing.Point(690, 617);
+            this.ChannelTextBox2_13.Name = "ChannelTextBox2_13";
+            this.ChannelTextBox2_13.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_13.TabIndex = 86;
+            this.ChannelTextBox2_13.Text = "12";
+            // 
             // SetupTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6731,14 +6730,10 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label44;
         private CCWin.SkinControl.SkinButton skinButton10;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -6928,5 +6923,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button apply_btm_1;
+        private System.Windows.Forms.Button apply_btm_2;
+        private System.Windows.Forms.Button apply_btm_3;
+        private System.Windows.Forms.Button apply_btm_4;
+        private System.Windows.Forms.TextBox ChannelTextBox2_13;
     }
 }
