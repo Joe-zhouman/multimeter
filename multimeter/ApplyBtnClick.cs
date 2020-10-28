@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using DataProcessor;
 using System.IO;
-using System.Runtime.CompilerServices;
 using CCWin;
 using CCWin.SkinControl;
 using System.Runtime.InteropServices;
@@ -29,13 +28,7 @@ namespace multimeter {
                 ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7};
             BoxToSample(ref sample1, samplePositionBoxes, sampleChannelBoxes);
 
-            List<string> channelList = new List<string>();
-            if (CheckChannelList(ref channelList, sample1)) {
-                sample1.SaveToIni(filePath);
-            }
-            else {
-                MessageBox.Show(@"错误的频道,请重新设置!",@"警告",MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            sample1.SaveToIni(filePath);
         }
 
         private void apply_btm_2_Click(object sender, EventArgs e) {
@@ -56,24 +49,17 @@ namespace multimeter {
             List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
                 ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10};
             BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2);
-            List<string> channelList = new List<string>();
-            if (CheckChannelList(ref channelList, sample1)) {
-                sample1.SaveToIni(filePath);
-                sample2.SaveToIni(filePath);
-            } else {
-                MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            sample1.SaveToIni(filePath);
+            sample2.SaveToIni(filePath);
         }
 
         private void apply_btm_3_Click(object sender, EventArgs e) {
             string filePath = SlnIni.CreateDefaultItmIni();
             INIHelper.Write("Pressure", "force", ForceTextBox3.Text, filePath);
             INIHelper.Write("ITM", "thickness", FilmThickness1.Text, filePath);
-            List<string> channelList = new List<string>();
-            if (!CheckChannelList(ref channelList)) {
-                MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
+            
         }
 
         private void apply_btm_4_Click(object sender, EventArgs e) {
@@ -92,37 +78,18 @@ namespace multimeter {
             List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
                 ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10};
             BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2);
-            List<string> channelList = new List<string>();
-            if (CheckChannelList(ref channelList, sample1)) {
-                sample1.SaveToIni(filePath);
-                sample2.SaveToIni(filePath);
-            } else {
-                MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+
+            sample1.SaveToIni(filePath);
+            sample2.SaveToIni(filePath);
         }
         private bool CheckChannelList(List<string> channelList) {
-            List<int> chnIntList = new List<int>();
             foreach (string chn in channelList) {
-                try {
-                    chnIntList.Add(Convert.ToInt16(chn));
-                }
-                catch (Exception) {
-                    return false;
-                }
-            }
-            chnIntList.Sort();
-            if (chnIntList.First() >= 101 && chnIntList.Last() <=122) {
-                return !HasSameElem(chnIntList);
-            }
-
-            if (chnIntList.First() >= 201 && chnIntList.Last() <= 222) {
-                return !HasSameElem(chnIntList);
+                
             }
             return true;
         }
-        private bool CheckChannelList(ref List<string> channelList,Sample sample1 = null, Sample sample2 = null) {
-            
+        private bool CheckChannelList(Sample sample1 = null, Sample sample2 = null) {
+            List<string> channelList = new List<string>();
             channelList.AddRange(heatMeter1.Channel);
             channelList.AddRange(heatMeter2.Channel);
             if(sample1 != null)
@@ -132,30 +99,5 @@ namespace multimeter {
             return CheckChannelList(channelList);
         }
 
-        private bool HasSameElem<T>(IReadOnlyCollection<T> list) {
-            if (list == null) return false;
-            for (int i = 0; i < list.Count() - 1; i++) {
-                if (list.ElementAt(i).Equals(list.ElementAt(i + 1)) ) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private void WriteChannelInfo(List<string> channelList) {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-            if (channelList.First().First() == '1') {
-                INIHelper.Write("Card1", "enable", "0", filePath);
-                for (int i = 101; i < 122; i++) {
-                    INIHelper.Write(i.ToString(), "func", channelList.Contains(i.ToString()) ? "1" : "0", filePath);
-                }
-            }
-            else {
-                INIHelper.Write("Card1", "enable", "0", filePath);
-                for (int i = 201; i < 222; i++) {
-                    INIHelper.Write(i.ToString(), "func", channelList.Contains(i.ToString()) ? "1" : "0", filePath);
-                }
-            }
-        }
     }
 }
