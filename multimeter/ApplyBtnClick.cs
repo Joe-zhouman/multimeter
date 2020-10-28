@@ -32,6 +32,7 @@ namespace multimeter {
             List<string> channelList = new List<string>();
             if (CheckChannelList(ref channelList, sample1)) {
                 sample1.SaveToIni(filePath);
+                WriteChannelInfo(channelList);
             }
             else {
                 MessageBox.Show(@"错误的频道,请重新设置!",@"警告",MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,6 +61,7 @@ namespace multimeter {
             if (CheckChannelList(ref channelList, sample1)) {
                 sample1.SaveToIni(filePath);
                 sample2.SaveToIni(filePath);
+                WriteChannelInfo(channelList);
             } else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -70,7 +72,10 @@ namespace multimeter {
             INIHelper.Write("Pressure", "force", ForceTextBox3.Text, filePath);
             INIHelper.Write("ITM", "thickness", FilmThickness1.Text, filePath);
             List<string> channelList = new List<string>();
-            if (!CheckChannelList(ref channelList)) {
+            if (CheckChannelList(ref channelList)) {
+                WriteChannelInfo(channelList);
+            }
+            else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -96,6 +101,7 @@ namespace multimeter {
             if (CheckChannelList(ref channelList, sample1)) {
                 sample1.SaveToIni(filePath);
                 sample2.SaveToIni(filePath);
+                WriteChannelInfo(channelList);
             } else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
