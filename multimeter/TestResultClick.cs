@@ -39,7 +39,7 @@ namespace multimeter {
                 latestDataFile = file.FileName;
             }
             if (latestDataFile == "") {
-                MessageBox.Show(@"请选择配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"请选择数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             chart1.BringToFront(); //将曲线表格放在最顶层
             chart1.Size = new Size(806, 439);
@@ -58,6 +58,9 @@ namespace multimeter {
                         chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        if ("kappa" != INIHelper.Read("TestMethod", "method", "", latestIniFile)) {
+                            MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     break;
                 case "Test2": {
@@ -73,6 +76,9 @@ namespace multimeter {
                         ViewGroupBox4.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        if ("itc" != INIHelper.Read("TestMethod", "method", "", latestIniFile)) {
+                            MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     break;
                 case "Test3": {
@@ -88,6 +94,9 @@ namespace multimeter {
                         ViewGroupBox4.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        if ("itm" != INIHelper.Read("TestMethod", "method", "", latestIniFile)) {
+                            MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     break;
                 case "Test4": {
@@ -103,8 +112,15 @@ namespace multimeter {
                         ViewGroupBox4.Size = new Size(1531, 966);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
+                        if ("itms" != INIHelper.Read("TestMethod", "method", "", latestIniFile)) {
+                            MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     break;
+                default: {
+                        MessageBox.Show(@"请选择测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
             }
 
             #endregion

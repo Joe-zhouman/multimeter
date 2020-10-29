@@ -67,8 +67,9 @@ namespace DataProcessor {
             if (INIHelper.CheckPath(filePath))
                 return filePath;
             File.Create(filePath).Close();
+            INIHelper.Write("TestMethod", "method", "kappa", filePath);
             INIHelper.Write("Pressure", "force", "0", filePath); //施加压力 Unit kg
-
+            
             Sample sample = new Sample("Sample1");
             sample.SaveToIni(filePath);
 
@@ -80,7 +81,7 @@ namespace DataProcessor {
             if (INIHelper.CheckPath(filePath))
                 return filePath;
             File.Create(filePath).Close();
-
+            INIHelper.Write("TestMethod", "method", "itc", filePath);
             INIHelper.Write("Pressure", "force", "0", filePath); //施加压力 Unit kg
 
             Sample sample1 = new Sample("Sample1");
@@ -96,7 +97,7 @@ namespace DataProcessor {
             if (INIHelper.CheckPath(filePath))
                 return filePath;
             File.Create(filePath).Close();
-
+            INIHelper.Write("TestMethod", "method", "itm", filePath);
             INIHelper.Write("Pressure", "force", "0", filePath); //施加压力 Unit kg
             INIHelper.Write("ITM", "thickness", "0", filePath); //热界面材料厚度 Unit um
             
@@ -108,7 +109,7 @@ namespace DataProcessor {
             if (INIHelper.CheckPath(filePath))
                 return filePath;
             File.Create(filePath).Close();
-
+            INIHelper.Write("TestMethod", "method", "itms", filePath);
             INIHelper.Write("Pressure", "force", "0", filePath); //施加压力 Unit kg
             INIHelper.Write("ITM", "thickness", "0", filePath); //热界面材料厚度 Unit um
 
