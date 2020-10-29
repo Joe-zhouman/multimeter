@@ -65,7 +65,7 @@ namespace multimeter {
             }
 
             List<string> channelList = new List<string>();
-            if (CheckChannelText(ref channelList, sample1)) {
+            if (CheckChannelText(ref channelList, sample1,sample2)) {
                 SlnIni.SaveItcInfo(sample1,sample2, ForceTextBox2.Text, filePath);
                 SlnIni.WriteChannelInfo(channelList);
             } else {
@@ -113,7 +113,7 @@ namespace multimeter {
             List<string> channelList = new List<string>();
 
             
-            if (CheckChannelText(ref channelList, sample1)) {
+            if (CheckChannelText(ref channelList, sample1,sample2)) {
                 SlnIni.SaveItmsInfo(sample1,sample2,ForceTextBox4.Text,FilmThickness2.Text,filePath);
                 SlnIni.WriteChannelInfo(channelList);
             } else {

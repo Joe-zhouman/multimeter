@@ -1490,6 +1490,7 @@ namespace multimeter {
             //btn_stop.Enabled = true;
             //btn_start.Enabled = false;
             ReadPara();
+            TotalCHN = "";
             if (!SlnIni.AutoSaveIni(TestChoose)) {
                 MessageBox.Show(@"请选择测试方法后在进行测试", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1807,6 +1808,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             serialPort1.Close();
             //btn_start.Enabled = true;
             //btn_stop.Enabled = false;
+            listView_main.Clear();
+            count = 0;
             enablescan = false;
         }
 
@@ -1818,8 +1821,9 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 // MessageBox.Show("未找到可导入的数据");
                 return;
 
-            string FileName = Name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ffff") + ".csv";
+            string FileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", FileName);
+            //MessageBox.Show(filePath);
             try {
                 int size = 1024;
                 int sizeCnt = (int) Math.Ceiling(listView.Items.Count / (double) 2000);
