@@ -964,7 +964,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
             string[] chn = TotalCHN.Split(',');
             listView_main.Clear();
-            listView_main.Columns.Add("序号", 120);
+            listView_main.Columns.Add(TestChoose, 120);
             for (int i = 0; i < TotalNum; i++) listView_main.Columns.Add(chn[i], 120);
             enablescan = true;
             thread = new Thread(() => //新开线程，执行接收数据操作
