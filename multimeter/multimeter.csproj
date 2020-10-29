@@ -69,7 +69,9 @@
     <Compile Include="ApplyBtnClick.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataResult.cs" />
+    <Compile Include="TestResultClick.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="test_file.cs" />
     <Compile Include="ParaInfo.cs" />
     <Compile Include="Program.cs" />

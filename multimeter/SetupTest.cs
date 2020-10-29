@@ -19,9 +19,11 @@ namespace multimeter {
         private HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
         private string PatternChoose = "normal"; // 软件模式选择，分为“高级模式”和“普通模式”
 
+        private string latestDataFile;
+        private string latestIniFile;
         private string recvstr;
         private string TestChoose; //测试方法选择标志符
-
+        private List<string> recentTenData;
         public SetupTest() {
             InitializeComponent();
         }
@@ -47,7 +49,6 @@ namespace multimeter {
             TestStop.Enabled = false;
             Monitor.Enabled = false;
             Monitor.Enabled = false;
-            TestResult.Enabled = false;
 
             #endregion
 
@@ -193,6 +194,8 @@ namespace multimeter {
             //创建必要的文件夹
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
+            latestIniFile = "";
+            latestDataFile = "";
         }
 
         private void label1_Click(object sender, EventArgs e) {
@@ -1326,77 +1329,7 @@ namespace multimeter {
             #endregion
         }
 
-        private void TestResult_Click(object sender, EventArgs e) {
-            #region //数据结果
-
-            chart1.BringToFront(); //将曲线表格放在最顶层
-            chart1.Size = new Size(806, 439);
-            switch (TestChoose) {
-                case "Test1": {
-                    //显示对应监视窗口TEST1
-                    NoneGroupBox.Size = new Size(0, 0);
-                    TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(0, 0);
-                    ViewGroupBox1.Size = new Size(1531, 966);
-                    ViewGroupBox2.Size = new Size(0, 0);
-                    ViewGroupBox3.Size = new Size(0, 0);
-                    ViewGroupBox4.Size = new Size(0, 0);
-                    chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
-                    ResultGroupBox.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
-                }
-                    break;
-                case "Test2": {
-                    //显示对应监视窗口TEST2
-                    NoneGroupBox.Size = new Size(0, 0);
-                    TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(0, 0);
-                    ViewGroupBox1.Size = new Size(0, 0);
-                    ViewGroupBox2.Size = new Size(1531, 966);
-                    ViewGroupBox3.Size = new Size(0, 0);
-                    ViewGroupBox4.Size = new Size(0, 0);
-                    ResultGroupBox.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
-                }
-                    break;
-                case "Test3": {
-                    //显示对应监视窗口TEST3
-                    NoneGroupBox.Size = new Size(0, 0);
-                    TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(0, 0);
-                    ViewGroupBox1.Size = new Size(0, 0);
-                    ViewGroupBox2.Size = new Size(0, 0);
-                    ViewGroupBox3.Size = new Size(1531, 966);
-                    ViewGroupBox4.Size = new Size(0, 0);
-                    ResultGroupBox.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
-                }
-                    break;
-                case "Test4": {
-                    //显示对应监视窗口TEST4
-                    NoneGroupBox.Size = new Size(0, 0);
-                    TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(0, 0);
-                    ViewGroupBox1.Size = new Size(0, 0);
-                    ViewGroupBox2.Size = new Size(0, 0);
-                    ViewGroupBox3.Size = new Size(0, 0);
-                    ViewGroupBox4.Size = new Size(1531, 966);
-                    ResultGroupBox.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
-                }
-                    break;
-            }
-
-            #endregion
-        }
+        
 
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
 
@@ -1491,7 +1424,11 @@ namespace multimeter {
             //btn_start.Enabled = false;
             ReadPara();
             TotalCHN = "";
-            if (!SlnIni.AutoSaveIni(TestChoose)) {
+            count = 0;
+            recentTenData.Clear();
+            latestDataFile = "";
+            latestIniFile = "";
+            if ((latestIniFile = SlnIni.AutoSaveIni(TestChoose))=="") {
                 MessageBox.Show(@"请选择测试方法后在进行测试", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -1809,7 +1746,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //btn_start.Enabled = true;
             //btn_stop.Enabled = false;
             listView_main.Clear();
-            count = 0;
+            
             enablescan = false;
         }
 
@@ -1823,6 +1760,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
             string FileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", FileName);
+            latestDataFile = filePath;
             //MessageBox.Show(filePath);
             try {
                 int size = 1024;
@@ -1891,11 +1829,20 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     ListViewItem item = new ListViewItem(tmp.Split(','));
                     listView_main.Items.Add(item);
                     LastScan.Text = recvstr;
+                    if(count % 50 == 0) {
+                        recentTenData.Add(recvstr);
 
+                    }
+                    if (recentTenData.Count > 10) {
+                        recentTenData.RemoveAt(0);
+                    }
+                    
                     if (count % AppCfg.devicepara.Save_interval == 0) {
                         SavetData("AutoSave", listView_main);
                         listView_main.Items.Clear();
                     }
+                    MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                 }
 
                 //if(str.IndexOf((char)13)!=)

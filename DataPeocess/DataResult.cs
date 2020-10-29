@@ -8,9 +8,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace multimeter
 {
-    class DataResult
+    static class DataResult
     {
-        public void Test1DataProcess(double [] T,double[] HMLocation, double A1, double A2, double As, double k1, double k2,
+        public static void Test1DataProcess(double [] T,double[] HMLocation, double A1, double A2, double As, double k1, double k2,
                                      double k_s)
         {
             #region //导热系数测量
@@ -78,7 +78,7 @@ namespace multimeter
             #endregion
         }
 
-        public void Test2DataProcess(double[] T, double[] HMLocation, double k1, double k2, double A1, double A2, double Asu, double Asl, 
+        public static void Test2DataProcess(double[] T, double[] HMLocation, double k1, double k2, double A1, double A2, double Asu, double Asl, 
                                      double ks1, double ks2 , double contactR, Chart chart)
         {
             #region //固_固接触热阻测量
@@ -179,7 +179,7 @@ namespace multimeter
                           L_su1 + L_su2 + L_su3, Tchart_x[5], a_sl, b_sl, chart); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
             #endregion
         }
-        public void Test3DataProcess(double[] T, double[] HMLocation, double Thickness, double k1, double k2, double A1, double A2,  
+        public static void Test3DataProcess(double[] T, double[] HMLocation, double Thickness, double k1, double k2, double A1, double A2,  
                                      double k_s, double contactR, Chart chart)
         {
             #region //热界面材料测量_热流计间
@@ -249,7 +249,7 @@ namespace multimeter
 
             #endregion
         }
-        public void Test4DataProcess(double[] T, double[] HMLocation, double Thickness, double k1, double k2, double A1, double A2, double Asu, double Asl,  
+        public static void Test4DataProcess(double[] T, double[] HMLocation, double Thickness, double k1, double k2, double A1, double A2, double Asu, double Asl,  
                                      double ks1, double ks2, double k_s, double contactR, Chart chart)
         {
             #region //热界面材料测量_试件间
@@ -353,7 +353,7 @@ namespace multimeter
                           L_su1 + L_su2 + L_su3 + Thickness_s, Tchart_x[5], a_sl, b_sl, chart); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
             #endregion
         }
-        private int CalcRegress(double[] x, double[] y, int dataCnt, out double a, out double b, out double maxErr) //最小二乘法线性回归
+        private static int CalcRegress(double[] x, double[] y, int dataCnt, out double a, out double b, out double maxErr) //最小二乘法线性回归
         {
             #region //拟合函数
             double sumX = 0;
@@ -428,7 +428,7 @@ namespace multimeter
             #endregion
         }
 
-        private int Test1ViewPoint(double[] x, double[] y, int dataCnt, Chart chart) //绘制温度离散点
+        private static int Test1ViewPoint(double[] x, double[] y, int dataCnt, Chart chart) //绘制温度离散点
         {
             #region  //绘制温度离散点
             Series T_point = chart.Series[0];
@@ -441,7 +441,7 @@ namespace multimeter
             #endregion
         }
 
-        private int Test1ViewLine(double x1_1, double x1_2, double a1, double b1,
+        private static int Test1ViewLine(double x1_1, double x1_2, double a1, double b1,
                                   double x2_1, double x2_2, double a2, double b2, Chart chart) //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
         {
             #region  //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl

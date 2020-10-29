@@ -202,7 +202,7 @@ namespace DataProcessor {
                 }
             }
         }//将频道信息写入系统配置文件
-        public static bool AutoSaveIni(string testChoose) {
+        public static string AutoSaveIni(string testChoose) {
             string iniFileName;
             switch (testChoose) {
                 case "Test1":
@@ -219,7 +219,7 @@ namespace DataProcessor {
                     break;
                 default:
 
-                    return false;
+                    return "";
             }
 
             string iniFilePath =
@@ -238,7 +238,7 @@ namespace DataProcessor {
             }
 
             File.Copy(iniFilePath, autoSaveFilePath);
-            return true;
+            return autoSaveFilePath;
         }//自动保存当前的测试配置文件
     }
 }
