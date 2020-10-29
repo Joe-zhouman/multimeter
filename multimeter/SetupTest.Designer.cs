@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -107,6 +107,7 @@
             this.LengthTextBox1_8 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.TextGroupbox2 = new System.Windows.Forms.GroupBox();
+            this.ChannelTextBox2_13 = new System.Windows.Forms.TextBox();
             this.apply_btm_2 = new System.Windows.Forms.Button();
             this.label43 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -517,8 +518,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.combox_card1 = new CCWin.SkinControl.SkinComboBox();
-            this.combox_card2 = new CCWin.SkinControl.SkinComboBox();
             this.skinLabel5 = new CCWin.SkinControl.SkinLabel();
             this.listview_card1 = new CCWin.SkinControl.SkinListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -542,15 +541,12 @@
             this.skinLabel3 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel9 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel8 = new CCWin.SkinControl.SkinLabel();
-            this.combox_func2 = new CCWin.SkinControl.SkinComboBox();
-            this.combox_func = new CCWin.SkinControl.SkinComboBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.LastScan = new System.Windows.Forms.TextBox();
             this.listView_main = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ResultGroupBox = new System.Windows.Forms.GroupBox();
-            this.ChannelTextBox2_13 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1_13)).BeginInit();
@@ -1474,9 +1470,18 @@
             this.TextGroupbox2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox2.Location = new System.Drawing.Point(393, 85);
             this.TextGroupbox2.Name = "TextGroupbox2";
-            this.TextGroupbox2.Size = new System.Drawing.Size(1531, 966);
+            this.TextGroupbox2.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox2.TabIndex = 69;
             this.TextGroupbox2.TabStop = false;
+            // 
+            // ChannelTextBox2_13
+            // 
+            this.ChannelTextBox2_13.Enabled = false;
+            this.ChannelTextBox2_13.Location = new System.Drawing.Point(690, 617);
+            this.ChannelTextBox2_13.Name = "ChannelTextBox2_13";
+            this.ChannelTextBox2_13.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_13.TabIndex = 86;
+            this.ChannelTextBox2_13.Text = "12";
             // 
             // apply_btm_2
             // 
@@ -5707,27 +5712,27 @@
             // chart1
             // 
             this.chart1.BorderlineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea2.AxisX.Title = "Distance(m)";
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea2.AxisY.Title = "Temperature(℃)";
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea1.AxisX.Title = "Distance(m)";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea1.AxisY.Title = "Temperature(℃)";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(1086, 456);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series3.Color = System.Drawing.Color.Red;
-            series3.Name = "Series0";
-            series3.YValuesPerPoint = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Color = System.Drawing.SystemColors.Highlight;
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.Color = System.Drawing.Color.Red;
+            series1.Name = "Series0";
+            series1.YValuesPerPoint = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.SystemColors.Highlight;
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(0, 0);
             this.chart1.TabIndex = 96;
             this.chart1.Text = "chart1";
@@ -5739,8 +5744,6 @@
             this.skinGroupBox2.Controls.Add(this.factordataGridView);
             this.skinGroupBox2.Controls.Add(this.listview_card_hide);
             this.skinGroupBox2.Controls.Add(this.skinGroupBox1);
-            this.skinGroupBox2.Controls.Add(this.combox_func2);
-            this.skinGroupBox2.Controls.Add(this.combox_func);
             this.skinGroupBox2.ForeColor = System.Drawing.Color.Black;
             this.skinGroupBox2.Location = new System.Drawing.Point(393, 85);
             this.skinGroupBox2.Name = "skinGroupBox2";
@@ -5768,24 +5771,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5794,8 +5797,6 @@
             // 
             this.listview_card_hide.Controls.Add(this.skinLabel4);
             this.listview_card_hide.Controls.Add(this.listview_card2);
-            this.listview_card_hide.Controls.Add(this.combox_card1);
-            this.listview_card_hide.Controls.Add(this.combox_card2);
             this.listview_card_hide.Controls.Add(this.skinLabel5);
             this.listview_card_hide.Controls.Add(this.listview_card1);
             this.listview_card_hide.Location = new System.Drawing.Point(917, 86);
@@ -5834,7 +5835,6 @@
             this.listview_card2.TabIndex = 31;
             this.listview_card2.UseCompatibleStateImageBehavior = false;
             this.listview_card2.View = System.Windows.Forms.View.Details;
-            this.listview_card2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listview_card2_MouseUp);
             // 
             // columnHeader5
             // 
@@ -5855,35 +5855,6 @@
             // 
             this.columnHeader8.Text = "图形";
             this.columnHeader8.Width = 80;
-            // 
-            // combox_card1
-            // 
-            this.combox_card1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combox_card1.FormattingEnabled = true;
-            this.combox_card1.Items.AddRange(new object[] {
-            "无",
-            "7700"});
-            this.combox_card1.Location = new System.Drawing.Point(214, 59);
-            this.combox_card1.Name = "combox_card1";
-            this.combox_card1.Size = new System.Drawing.Size(121, 22);
-            this.combox_card1.TabIndex = 30;
-            this.combox_card1.WaterText = "";
-            this.combox_card1.SelectedValueChanged += new System.EventHandler(this.combox_card1_SelectedValueChanged);
-            // 
-            // combox_card2
-            // 
-            this.combox_card2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combox_card2.FormattingEnabled = true;
-            this.combox_card2.Items.AddRange(new object[] {
-            "无",
-            "7700"});
-            this.combox_card2.Location = new System.Drawing.Point(547, 60);
-            this.combox_card2.Name = "combox_card2";
-            this.combox_card2.Size = new System.Drawing.Size(121, 22);
-            this.combox_card2.TabIndex = 30;
-            this.combox_card2.WaterText = "";
-            this.combox_card2.SelectedValueChanged += new System.EventHandler(this.combox_card2_SelectedValueChanged);
-            this.combox_card2.TextChanged += new System.EventHandler(this.combox_card2_TextChanged);
             // 
             // skinLabel5
             // 
@@ -5915,7 +5886,6 @@
             this.listview_card1.TabIndex = 31;
             this.listview_card1.UseCompatibleStateImageBehavior = false;
             this.listview_card1.View = System.Windows.Forms.View.Details;
-            this.listview_card1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.listview_card1_MouseUp);
             // 
             // columnHeader1
             // 
@@ -6183,41 +6153,6 @@
             this.skinLabel8.TabIndex = 29;
             this.skinLabel8.Text = "毫秒";
             // 
-            // combox_func2
-            // 
-            this.combox_func2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combox_func2.FormattingEnabled = true;
-            this.combox_func2.Items.AddRange(new object[] {
-            "空",
-            "两线电阻",
-            "四线电阻",
-            "热电偶"});
-            this.combox_func2.Location = new System.Drawing.Point(100, 362);
-            this.combox_func2.Name = "combox_func2";
-            this.combox_func2.Size = new System.Drawing.Size(93, 22);
-            this.combox_func2.TabIndex = 34;
-            this.combox_func2.Visible = false;
-            this.combox_func2.WaterText = "";
-            this.combox_func2.DropDownClosed += new System.EventHandler(this.combox_func2_DropDownClosed);
-            // 
-            // combox_func
-            // 
-            this.combox_func.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combox_func.FormattingEnabled = true;
-            this.combox_func.Items.AddRange(new object[] {
-            "空",
-            "两线电阻",
-            "四线电阻",
-            "热电偶"});
-            this.combox_func.Location = new System.Drawing.Point(100, 311);
-            this.combox_func.Name = "combox_func";
-            this.combox_func.Size = new System.Drawing.Size(93, 22);
-            this.combox_func.TabIndex = 34;
-            this.combox_func.Visible = false;
-            this.combox_func.WaterText = "";
-            this.combox_func.DropDownClosed += new System.EventHandler(this.combox_func_DropDownClosed);
-            this.combox_func.TextChanged += new System.EventHandler(this.combox_func_TextChanged);
-            // 
             // serialPort1
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived_1);
@@ -6271,15 +6206,6 @@
             this.ResultGroupBox.Size = new System.Drawing.Size(0, 0);
             this.ResultGroupBox.TabIndex = 101;
             this.ResultGroupBox.TabStop = false;
-            // 
-            // ChannelTextBox2_13
-            // 
-            this.ChannelTextBox2_13.Enabled = false;
-            this.ChannelTextBox2_13.Location = new System.Drawing.Point(690, 617);
-            this.ChannelTextBox2_13.Name = "ChannelTextBox2_13";
-            this.ChannelTextBox2_13.Size = new System.Drawing.Size(64, 23);
-            this.ChannelTextBox2_13.TabIndex = 86;
-            this.ChannelTextBox2_13.Text = "12";
             // 
             // SetupTest
             // 
@@ -6896,12 +6822,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private CCWin.SkinControl.SkinComboBox combox_card1;
         private CCWin.SkinControl.SkinLabel skinLabel4;
-        private CCWin.SkinControl.SkinComboBox combox_card2;
         private CCWin.SkinControl.SkinLabel skinLabel5;
         private CCWin.SkinControl.SkinLabel skinLabel7;
-        private CCWin.SkinControl.SkinComboBox combox_func2;
         private CCWin.SkinControl.SkinLabel skinLabel11;
         private CCWin.SkinControl.SkinLabel skinLabel9;
         private CCWin.SkinControl.SkinListView listview_card2;
@@ -6909,7 +6832,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private CCWin.SkinControl.SkinComboBox combox_func;
         private CCWin.SkinControl.SkinLabel skinLabel8;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Label label13;

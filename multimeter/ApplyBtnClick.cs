@@ -138,7 +138,7 @@ namespace multimeter {
             return CheckChannelList(channelList);
         }
 
-        private bool HasSameElem<T>(IReadOnlyCollection<T> list) {
+        private static bool HasSameElem<T>(IReadOnlyCollection<T> list) {
             if (list == null) return false;
             for (int i = 0; i < list.Count() - 1; i++) {
                 if (list.ElementAt(i).Equals(list.ElementAt(i + 1)) ) {
@@ -148,16 +148,18 @@ namespace multimeter {
             return false;
         }
 
-        private void WriteChannelInfo(List<string> channelList) {
+        private static void WriteChannelInfo(List<string> channelList) {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
             if (channelList.First().First() == '1') {
-                INIHelper.Write("Card1", "enable", "0", filePath);
+                INIHelper.Write("Card1", "enable", "1", filePath);
+                INIHelper.Write("Card2", "enable", "0", filePath);
                 for (int i = 101; i < 122; i++) {
                     INIHelper.Write(i.ToString(), "func", channelList.Contains(i.ToString()) ? "1" : "0", filePath);
                 }
             }
             else {
                 INIHelper.Write("Card1", "enable", "0", filePath);
+                INIHelper.Write("Card2", "enable", "1", filePath);
                 for (int i = 201; i < 222; i++) {
                     INIHelper.Write(i.ToString(), "func", channelList.Contains(i.ToString()) ? "1" : "0", filePath);
                 }

@@ -68,29 +68,7 @@ namespace multimeter
             edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
             edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
 
-            if (AppCfg.devicepara.Card1_enable == 0)
-            {
-                combox_card1.SelectedIndex = 0;
-                listview_card1.Enabled = false;
-            }
-            else
-            {
-                combox_card1.SelectedIndex = 1;
-                listview_card1.Enabled = true;
-
-            }
-
-            if (AppCfg.devicepara.Card2_enable == 0)
-            {
-                combox_card2.SelectedIndex = 0;
-                listview_card2.Enabled = false;
-            }
-            else
-            {
-                combox_card2.SelectedIndex = 1;
-                listview_card2.Enabled = true;
-
-            }
+            
 
 
             foreach (Card i in AppCfg.devicepara.Cardlist1)
@@ -1531,252 +1509,7 @@ namespace multimeter
         }
 
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
-        private void combox_card1_SelectedValueChanged(object sender, EventArgs e)
-        {
-            #region
-            int i = combox_card1.SelectedIndex;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-            INIHelper.Write("Card1", "enable", i.ToString(), filePath);
 
-            AppCfg.devicepara.Card1_enable = i;
-
-            if (AppCfg.devicepara.Card1_enable == 0)
-            {
-                combox_card1.SelectedIndex = 0;
-                listview_card1.Enabled = false;
-            }
-            else
-            {
-                combox_card1.SelectedIndex = 1;
-                listview_card1.Enabled = true;
-
-            }
-            #endregion
-        }
-        public void ChoiceBox(ListView lst, int box, int combox, MouseEventArgs e)  //把combox放到listview上
-        {
-            #region
-            m_SelectedItem = lst.GetItemAt(e.X, e.Y);//先判断是否有选中行
-            if (m_SelectedItem != null)
-            {
-                //获取选中行的Bounds
-                System.Drawing.Rectangle Rect = m_SelectedItem.Bounds;
-
-                int LX5 = 0;
-                for (int i = 0; i <= box; i++)
-                {
-                    LX5 += lst.Columns[i].Width;
-                }
-                int RX5 = LX5 + lst.Columns[box + 1].Width;
-
-                //修改Rect的范围使其与第二列的单元格的大小相同，为了好看 ，左边缩进了2个单位
-                Rect.X += lst.Left + LX5 + 2;
-                Rect.Y += lst.Top + 2;
-                Rect.Width = lst.Columns[box + 1].Width + 2;
-
-                if (box == 1)
-                {
-                    if (combox == 1)
-                    {
-                        this.combox_func.SelectedIndex = -1;
-                        this.combox_func.Bounds = Rect;
-                        this.combox_func.Text = "";
-                        this.combox_func.Visible = true;
-                        this.combox_func.BringToFront();
-                        this.combox_func.Focus();
-                        this.combox_func.DroppedDown = true;
-                        return;
-                    }
-                    if (combox == 2)
-                    {
-                        this.combox_func2.SelectedIndex = -1;
-                        this.combox_func2.Bounds = Rect;
-                        this.combox_func2.Text = "";
-                        this.combox_func2.Visible = true;
-                        this.combox_func2.BringToFront();
-                        this.combox_func2.Focus();
-                        this.combox_func2.DroppedDown = true;
-                        return;
-                    }
-                }
-            }
-            #endregion
-        }
-
-        private void listview_card1_MouseUp(object sender, MouseEventArgs e)
-        {
-            #region
-            try
-            {
-                m_SelectedItem = this.listview_card1.GetItemAt(e.X, e.Y);//先判断是否有选中行
-                if (m_SelectedItem != null)
-                {
-                    int LX = 0;
-                    int RX = 0;
-                    for (int j = 1; j < 5; j++)
-                    {
-                        LX = 0;
-                        RX = 0;
-                        for (int i = 0; i <= j; i++)
-                        {
-                            LX += listview_card1.Columns[i].Width;
-                        }
-                        RX = LX + listview_card1.Columns[j + 1].Width;
-
-                        if (e.X < RX && e.X > LX)
-                        {
-                            ChoiceBox(listview_card1, j, 1, e);
-
-                        }
-
-                    }
-                }
-
-            }
-            catch
-            {
-            }
-            #endregion
-        }
-
-        private void combox_func_DropDownClosed(object sender, EventArgs e)
-        {
-            combox_func.Visible = false;
-        }
-
-        private void combox_func_TextChanged(object sender, EventArgs e)
-        {
-            #region
-            if (combox_func.Text.Length != 0)
-            {
-
-                m_SelectedItem.SubItems[2].Text = combox_func.Text;
-
-
-                int i = combox_func.SelectedIndex;
-                if (i == 0)
-                {
-                    m_SelectedItem.SubItems[2].Text = "";
-                    AppCfg.devicepara.Card1_enable = 0;
-                }
-                else
-                {
-                    m_SelectedItem.SubItems[2].Text = combox_func.Text;
-                    AppCfg.devicepara.Card1_enable = 1;
-                }
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-                INIHelper.Write(m_SelectedItem.SubItems[0].Text, "func", i.ToString(), filePath);
-
-
-                foreach (Card j in AppCfg.devicepara.Cardlist2)
-                {
-                    if (j.CHN == m_SelectedItem.SubItems[0].Text)
-                        j.func = i;
-                }
-
-            }
-            combox_func.Visible = false;
-            #endregion
-        }
-
-        private void combox_card2_SelectedValueChanged(object sender, EventArgs e)
-        {
-            #region
-            int i = combox_card2.SelectedIndex;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-            INIHelper.Write("Card2", "enable", i.ToString(), filePath);
-
-            AppCfg.devicepara.Card2_enable = i;
-
-            if (AppCfg.devicepara.Card2_enable == 0)
-            {
-                combox_card2.SelectedIndex = 0;
-                listview_card2.Enabled = false;
-            }
-            else
-            {
-                combox_card2.SelectedIndex = 1;
-                listview_card2.Enabled = true;
-
-            }
-            #endregion
-        }
-
-        private void listview_card2_MouseUp(object sender, MouseEventArgs e)
-        {
-            #region
-            try
-            {
-                m_SelectedItem = this.listview_card2.GetItemAt(e.X, e.Y);//先判断是否有选中行
-                if (m_SelectedItem != null)
-                {
-                    int LX = 0;
-                    int RX = 0;
-                    for (int j = 1; j < 5; j++)
-                    {
-                        LX = 0;
-                        RX = 0;
-                        for (int i = 0; i <= j; i++)
-                        {
-                            LX += listview_card2.Columns[i].Width;
-                        }
-                        RX = LX + listview_card2.Columns[j + 1].Width;
-
-                        if (e.X < RX && e.X > LX)
-                        {
-                            ChoiceBox(listview_card2, j, 2, e);
-
-                        }
-
-                    }
-                }
-
-            }
-            catch
-            {
-            }
-            #endregion
-        }
-
-        private void combox_func2_DropDownClosed(object sender, EventArgs e)
-        {
-            combox_func2.Visible = false;
-        }
-
-        private void combox_card2_TextChanged(object sender, EventArgs e)
-        {
-            #region
-            if (combox_func2.Text.Length != 0)
-            {
-
-                m_SelectedItem.SubItems[2].Text = combox_func2.Text;
-
-
-                int i = combox_func2.SelectedIndex;
-                if (i == 0)
-                {
-                    m_SelectedItem.SubItems[2].Text = "";
-                    AppCfg.devicepara.Card2_enable = 0;
-                }
-                else
-                {
-                    m_SelectedItem.SubItems[2].Text = combox_func2.Text;
-                    AppCfg.devicepara.Card2_enable = 1;
-                }
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-                INIHelper.Write(m_SelectedItem.SubItems[0].Text, "func", i.ToString(), filePath);
-
-
-                foreach (Card j in AppCfg.devicepara.Cardlist2)
-                {
-                    if (j.CHN == m_SelectedItem.SubItems[0].Text)
-                        j.func = i;
-                }
-
-            }
-            combox_func2.Visible = false;
-            #endregion
-        }
 
         private void combox_comport_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -1813,10 +1546,17 @@ namespace multimeter
             INIHelper.Write("Serial", "parity", combox_parity.Text, filePath);
         }
 
-        private void edit_scan_interval_TextChanged(object sender, EventArgs e)
-        {
-            AppCfg.devicepara.Scan_interval = int.Parse(edit_scan_interval.Text);
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+        private void edit_scan_interval_TextChanged(object sender, EventArgs e) {
+            
+            int scanInterval;
+            try {
+                scanInterval = int.Parse(edit_scan_interval.Text);
+            }
+            catch {
+                return;
+            }
+            AppCfg.devicepara.Scan_interval = scanInterval;
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("SYS", "scan_interval", edit_scan_interval.Text, filePath);
         }
 
