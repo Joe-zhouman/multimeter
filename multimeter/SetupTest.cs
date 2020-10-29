@@ -1547,13 +1547,10 @@ namespace multimeter
         }
 
         private void edit_scan_interval_TextChanged(object sender, EventArgs e) {
-            
-            int scanInterval;
-            try {
-                scanInterval = int.Parse(edit_scan_interval.Text);
-            }
-            catch {
-                return;
+            if(edit_scan_interval.Text == "") return;
+            int scanInterval = CheckTextChange(edit_scan_interval.Text);
+            if (scanInterval == -1) {
+                MessageBox.Show(@"错误的采集频率", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             AppCfg.devicepara.Scan_interval = scanInterval;
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
@@ -1562,7 +1559,13 @@ namespace multimeter
 
         private void edit_save_interval_TextChanged(object sender, EventArgs e)
         {
-            AppCfg.devicepara.Save_interval = int.Parse(edit_save_interval.Text);
+            if (edit_save_interval.Text == "")
+                return;
+            int saveInterval = CheckTextChange(edit_save_interval.Text);
+            if (saveInterval == -1) {
+                MessageBox.Show(@"错误的自动保存频率", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            AppCfg.devicepara.Save_interval = saveInterval;
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
             INIHelper.Write("SYS", "save_interval", edit_save_interval.Text, filePath);
         }
@@ -2137,5 +2140,14 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+        private int CheckTextChange(string text) {
+            int num;
+            try {
+                num = int.Parse(text);
+            } catch {
+                return -1;
+            }
+            return num>0?num:-1;
+        }
     }
 }
