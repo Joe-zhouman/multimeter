@@ -15,19 +15,19 @@ namespace DataProcessor {
 
         public HeatMeter(string name) {
             Name = name;
-            Kappa = "0.0";
-            Diameter = "0.0";
+            Kappa = "10.0";
+            Diameter = "10.0";
             Channel = new[] {"201", "201", "201", "201" };
-            Position = new[] {"0.0", "0.0", "0.0", "0.0"};
-            Alpha = new[] { "0.0", "0.0", "0.0", "0.0"};
-            T0 = new[] { "0.0", "0.0", "0.0", "0.0"};
+            Position = new[] {"10.0", "10.0", "10.0", "10.0"};
+            Alpha = new[] { "10.0", "10.0", "10.0", "10.0"};
+            T0 = new[] { "10.0", "10.0", "10.0", "10.0"};
         }
 
         public void ReadFromIni(string filePath) {
             for (int i = 0; i < 4; i++) {
            
                     Channel[i] = INIHelper.Read($"{Name}.{i}", "channel", "201", filePath);
-                    Position[i] = INIHelper.Read($"{Name}.{i}", "position", "0.0", filePath);
+                    Position[i] = INIHelper.Read($"{Name}.{i}", "position", "10.0", filePath);
                     
                 
                
@@ -48,8 +48,8 @@ namespace DataProcessor {
 
         public void LoadTempPara(string filePath) {
             for (int i = 0; i < 4; i++) {
-                Alpha[i] = INIHelper.Read(Channel[i], "alpha", "0.0", filePath);
-                T0[i] = INIHelper.Read(Channel[i], "T0", "0.0", filePath);
+                Alpha[i] = INIHelper.Read(Channel[i], "alpha", "10.0", filePath);
+                T0[i] = INIHelper.Read(Channel[i], "T0", "10.0", filePath);
             }
         }
         

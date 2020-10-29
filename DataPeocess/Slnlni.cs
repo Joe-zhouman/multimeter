@@ -120,7 +120,7 @@ namespace DataProcessor {
         } // 读取 试件间 热界面材料 热导率测量 属性设置
 
         public static void SaveHeatMeterInfo(HeatMeter heatMeter1, HeatMeter heatMeter2, string filePath) {
-            string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak\\", "sln.ini.",
+            string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", "sln.ini.",
                 DateTime.Now.ToString("yyyy-MM-dd"), ".bak");
             File.Copy(filePath, bakFilePath);
             heatMeter1.SaveToIni(filePath);

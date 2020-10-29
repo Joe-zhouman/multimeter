@@ -21,7 +21,7 @@ namespace multimeter {
         private void apply_btm_1_Click(object sender, EventArgs e) {
             
             string filePath = SlnIni.CreateDefaultKappaIni();
-            INIHelper.Write("Pressure", "force", ForceTextBox1.Text, filePath);
+
             Sample sample1 = new Sample("Sample1");
             List<TextBox> samplePositionBoxes = new List<TextBox>()
                 {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
@@ -29,9 +29,13 @@ namespace multimeter {
                 ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7};
             BoxToSample(ref sample1, samplePositionBoxes, sampleChannelBoxes);
 
+            if (!CheckOtherText(ForceTextBox1.Text, sample1)) {
+                MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             List<string> channelList = new List<string>();
-            if (CheckChannelList(ref channelList, sample1)) {
-                sample1.SaveToIni(filePath);
+            if (CheckChannelText(ref channelList, sample1)) {
+                SlnIni.SaveKappaInfo(sample1,ForceTextBox1.Text,filePath);
                 WriteChannelInfo(channelList);
             }
             else {
@@ -43,7 +47,6 @@ namespace multimeter {
 
             string filePath = SlnIni.CreateDefaultItcIni();
 
-            INIHelper.Write("Pressure", "force", ForceTextBox2.Text, filePath);
 
             Sample sample1 = new Sample("Sample1");
             Sample sample2 = new Sample("Sample2");
@@ -57,10 +60,13 @@ namespace multimeter {
             List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
                 ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10};
             BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2);
+            if (!CheckOtherText(ForceTextBox2.Text, sample1,sample2)) {
+                MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             List<string> channelList = new List<string>();
-            if (CheckChannelList(ref channelList, sample1)) {
-                sample1.SaveToIni(filePath);
-                sample2.SaveToIni(filePath);
+            if (CheckChannelText(ref channelList, sample1)) {
+                SlnIni.SaveItcInfo(sample1,sample2, ForceTextBox2.Text, filePath);
                 WriteChannelInfo(channelList);
             } else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -69,10 +75,13 @@ namespace multimeter {
 
         private void apply_btm_3_Click(object sender, EventArgs e) {
             string filePath = SlnIni.CreateDefaultItmIni();
-            INIHelper.Write("Pressure", "force", ForceTextBox3.Text, filePath);
-            INIHelper.Write("ITM", "thickness", FilmThickness1.Text, filePath);
+            
+            if (!CheckOtherText(ForceTextBox3.Text,thickness: FilmThickness1.Text)) {
+                MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            SlnIni.SaveItmInfo(ForceTextBox3.Text, FilmThickness1.Text, filePath);
             List<string> channelList = new List<string>();
-            if (CheckChannelList(ref channelList)) {
+            if (CheckChannelText(ref channelList)) {
                 WriteChannelInfo(channelList);
             }
             else {
@@ -83,8 +92,7 @@ namespace multimeter {
 
         private void apply_btm_4_Click(object sender, EventArgs e) {
             string filePath = SlnIni.CreateDefaultItmsIni();
-            INIHelper.Write("Pressure", "force", ForceTextBox4.Text, filePath);
-            INIHelper.Write("ITM", "thickness", FilmThickness2.Text, filePath);
+            
             Sample sample1 = new Sample("Sample1");
             Sample sample2 = new Sample("Sample2");
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
@@ -97,10 +105,16 @@ namespace multimeter {
             List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
                 ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10};
             BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2);
+
+            if (!CheckOtherText(ForceTextBox4.Text, sample1, sample2,FilmThickness2.Text)) {
+                MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             List<string> channelList = new List<string>();
-            if (CheckChannelList(ref channelList, sample1)) {
-                sample1.SaveToIni(filePath);
-                sample2.SaveToIni(filePath);
+
+            
+            if (CheckChannelText(ref channelList, sample1)) {
+                SlnIni.SaveItmsInfo(sample1,sample2,ForceTextBox4.Text,FilmThickness2.Text,filePath);
                 WriteChannelInfo(channelList);
             } else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -127,7 +141,7 @@ namespace multimeter {
             }
             return true;
         }
-        private bool CheckChannelList(ref List<string> channelList,Sample sample1 = null, Sample sample2 = null) {
+        private bool CheckChannelText(ref List<string> channelList,Sample sample1 = null, Sample sample2 = null) {
             
             channelList.AddRange(heatMeter1.Channel);
             channelList.AddRange(heatMeter2.Channel);
@@ -138,6 +152,40 @@ namespace multimeter {
             return CheckChannelList(channelList);
         }
 
+        private bool CheckOtherText(string force,Sample sample1 = null, Sample sample2 = null,string thickness = null) {  
+            List<string> positionList = new List<string>();
+            positionList.AddRange(heatMeter1.Position);
+            positionList.Add(heatMeter1.Diameter);
+            positionList.AddRange(heatMeter2.Position);
+            positionList.Add(heatMeter2.Diameter);
+            positionList.Add(force);
+            if (sample1 != null) {
+                positionList.AddRange(sample1.Position);
+                positionList.Add(sample1.Diameter);
+            }
+
+            if (sample2 != null) {
+                positionList.AddRange(sample2.Position);
+                positionList.Add(sample2.Diameter);
+            }
+
+            if (thickness != null) {
+                positionList.Add(thickness);
+            }
+            return CheckDoubleList(positionList);
+        }
+
+        private bool CheckDoubleList(List<string> doubleList) {
+            foreach (string num in doubleList) {
+                try {
+                    if (double.Parse(num) <= 0) return false;
+                }
+                catch (Exception) {
+                    return false;
+                }
+            }
+            return true;
+        }
         private static bool HasSameElem<T>(IReadOnlyCollection<T> list) {
             if (list == null) return false;
             for (int i = 0; i < list.Count() - 1; i++) {
