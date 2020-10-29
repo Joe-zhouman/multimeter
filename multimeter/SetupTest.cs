@@ -1280,6 +1280,7 @@ namespace multimeter {
             TestResult.Enabled = false;
 
             btn_start();
+
             #endregion
         }
 
@@ -1429,7 +1430,7 @@ namespace multimeter {
 
         private void edit_scan_interval_TextChanged(object sender, EventArgs e) {
             if (edit_scan_interval.Text == "") return;
-            int scanInterval = CheckTextChange(edit_scan_interval.Text);
+            int scanInterval = CheckData.CheckTextChange(edit_scan_interval.Text);
             if (scanInterval == -1) MessageBox.Show(@"错误的采集频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             AppCfg.devicepara.Scan_interval = scanInterval;
@@ -1440,7 +1441,7 @@ namespace multimeter {
         private void edit_save_interval_TextChanged(object sender, EventArgs e) {
             if (edit_save_interval.Text == "")
                 return;
-            int saveInterval = CheckTextChange(edit_save_interval.Text);
+            int saveInterval = CheckData.CheckTextChange(edit_save_interval.Text);
             if (saveInterval == -1) MessageBox.Show(@"错误的自动保存频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             AppCfg.devicepara.Save_interval = saveInterval;
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
@@ -1965,17 +1966,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        private int CheckTextChange(string text) {
-            int num;
-            try {
-                num = int.Parse(text);
-            }
-            catch {
-                return -1;
-            }
-
-            return num > 0 ? num : -1;
-        }
 
         private bool AutoSaveIni() {
             string iniFileName;
@@ -1993,26 +1983,30 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     iniFileName = "itms";
                     break;
                 default:
-                    
+
                     return false;
             }
-            string iniFilePath = 
-                
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName+".ini");
-            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"AutoSave", iniFileName+"-" + DateTime.Now.ToString("yyyy-MM-dd-HH")+ ".ini");
+
+            string iniFilePath =
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName + ".ini");
+            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
+                iniFileName + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH") + ".ini");
             while (File.Exists(autoSaveFilePath)) {
-                var results =  MessageBox.Show(@"该文件已存在,是否覆盖?", @"提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult results = MessageBox.Show(@"该文件已存在,是否覆盖?", @"提示", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
                 if (results == DialogResult.Yes) {
                     File.Delete(autoSaveFilePath);
                 }
                 else {
-                    var insertIdx = autoSaveFilePath.LastIndexOf(".ini", StringComparison.Ordinal);
+                    int insertIdx = autoSaveFilePath.LastIndexOf(".ini", StringComparison.Ordinal);
                     autoSaveFilePath = autoSaveFilePath.Insert(insertIdx, "(1)");
                 }
             }
-            File.Copy(iniFilePath,autoSaveFilePath);
+
+            File.Copy(iniFilePath, autoSaveFilePath);
             return true;
         }
+
         internal class AppCfg //全局变量
         {
             internal static ParaInfo devicepara = new ParaInfo();

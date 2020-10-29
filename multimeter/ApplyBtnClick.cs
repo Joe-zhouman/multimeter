@@ -36,7 +36,7 @@ namespace multimeter {
             List<string> channelList = new List<string>();
             if (CheckChannelText(ref channelList, sample1)) {
                 SlnIni.SaveKappaInfo(sample1,ForceTextBox1.Text,filePath);
-                WriteChannelInfo(channelList);
+                SlnIni.WriteChannelInfo(channelList);
             }
             else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -67,7 +67,7 @@ namespace multimeter {
             List<string> channelList = new List<string>();
             if (CheckChannelText(ref channelList, sample1)) {
                 SlnIni.SaveItcInfo(sample1,sample2, ForceTextBox2.Text, filePath);
-                WriteChannelInfo(channelList);
+                SlnIni.WriteChannelInfo(channelList);
             } else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -82,7 +82,7 @@ namespace multimeter {
             SlnIni.SaveItmInfo(ForceTextBox3.Text, FilmThickness1.Text, filePath);
             List<string> channelList = new List<string>();
             if (CheckChannelText(ref channelList)) {
-                WriteChannelInfo(channelList);
+                SlnIni.WriteChannelInfo(channelList);
             }
             else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -115,32 +115,13 @@ namespace multimeter {
             
             if (CheckChannelText(ref channelList, sample1)) {
                 SlnIni.SaveItmsInfo(sample1,sample2,ForceTextBox4.Text,FilmThickness2.Text,filePath);
-                WriteChannelInfo(channelList);
+                SlnIni.WriteChannelInfo(channelList);
             } else {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
-        private bool CheckChannelList(List<string> channelList) {
-            List<int> chnIntList = new List<int>();
-            foreach (string chn in channelList) {
-                try {
-                    chnIntList.Add(Convert.ToInt16(chn));
-                }
-                catch (Exception) {
-                    return false;
-                }
-            }
-            chnIntList.Sort();
-            if (chnIntList.First() >= 101 && chnIntList.Last() <=122) {
-                return !HasSameElem(chnIntList);
-            }
-
-            if (chnIntList.First() >= 201 && chnIntList.Last() <= 222) {
-                return !HasSameElem(chnIntList);
-            }
-            return true;
-        }
+        
         private bool CheckChannelText(ref List<string> channelList,Sample sample1 = null, Sample sample2 = null) {
             
             channelList.AddRange(heatMeter1.Channel);
@@ -149,7 +130,7 @@ namespace multimeter {
                 channelList.AddRange(sample1.Channel);
             if(sample2 != null)
                 channelList.AddRange(sample2.Channel);
-            return CheckChannelList(channelList);
+            return CheckData.CheckChannelList(channelList);
         }
 
         private bool CheckOtherText(string force,Sample sample1 = null, Sample sample2 = null,string thickness = null) {  
@@ -172,46 +153,12 @@ namespace multimeter {
             if (thickness != null) {
                 positionList.Add(thickness);
             }
-            return CheckDoubleList(positionList);
+            return CheckData.CheckDoubleList(positionList);
         }
 
-        private bool CheckDoubleList(List<string> doubleList) {
-            foreach (string num in doubleList) {
-                try {
-                    if (double.Parse(num) <= 0) return false;
-                }
-                catch (Exception) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        private static bool HasSameElem<T>(IReadOnlyCollection<T> list) {
-            if (list == null) return false;
-            for (int i = 0; i < list.Count() - 1; i++) {
-                if (list.ElementAt(i).Equals(list.ElementAt(i + 1)) ) {
-                    return true;
-                }
-            }
-            return false;
-        }
+        
+        
 
-        private static void WriteChannelInfo(List<string> channelList) {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-            if (channelList.First().First() == '1') {
-                INIHelper.Write("Card1", "enable", "1", filePath);
-                INIHelper.Write("Card2", "enable", "0", filePath);
-                for (int i = 101; i < 122; i++) {
-                    INIHelper.Write(i.ToString(), "func", channelList.Contains(i.ToString()) ? "1" : "0", filePath);
-                }
-            }
-            else {
-                INIHelper.Write("Card1", "enable", "0", filePath);
-                INIHelper.Write("Card2", "enable", "1", filePath);
-                for (int i = 201; i < 222; i++) {
-                    INIHelper.Write(i.ToString(), "func", channelList.Contains(i.ToString()) ? "1" : "0", filePath);
-                }
-            }
-        }
+        
     }
 }
