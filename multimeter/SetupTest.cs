@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using CCWin.Win32.Const;
 using DataProcessor;
 
 namespace multimeter {
@@ -179,7 +180,7 @@ namespace multimeter {
             #region //串口采集
 
             CheckForIllegalCrossThreadCalls = false;
-            CreateDefaultIni();
+            SlnIni.CreateDefaultIni();
             ReadPara();
 
             #endregion
@@ -188,8 +189,10 @@ namespace multimeter {
 
             string slnFilePath = SlnIni.CreateDefaultSlnIni();
             SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
-
             #endregion
+            //创建必要的文件夹
+            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
+            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
         }
 
         private void label1_Click(object sender, EventArgs e) {
@@ -1449,36 +1452,7 @@ namespace multimeter {
         }
 
         //--------------------------------------------------------------------------------------------串口采集--------------------------------------------------------------------------------------------------
-        private void CreateDefaultIni() {
-            #region
-
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            if (INIHelper.CheckPath(filePath)) return;
-
-            File.Create(filePath).Close();
-            INIHelper.Write("Serial", "port", "COM1", filePath);
-            INIHelper.Write("Serial", "baudrate", "9600", filePath);
-            INIHelper.Write("Serial", "databits", "8", filePath);
-            INIHelper.Write("Serial", "stopbites", "1", filePath);
-            INIHelper.Write("Serial", "parity", "None", filePath);
-            INIHelper.Write("Card1", "enable", "0", filePath);
-            INIHelper.Write("Card2", "enable", "0", filePath);
-            INIHelper.Write("SYS", "save_interval", "50", filePath);
-            INIHelper.Write("SYS", "scan_interval", "2000", filePath);
-
-            for (int i = 0; i < 22; i++) //每个7700卡22个通道
-            {
-                INIHelper.Write((i + 101).ToString(), "name", "", filePath);
-                INIHelper.Write((i + 101).ToString(), "func", "0", filePath);
-            }
-
-            for (int i = 0; i < 22; i++) {
-                INIHelper.Write((i + 201).ToString(), "name", "", filePath);
-                INIHelper.Write((i + 201).ToString(), "func", "0", filePath);
-            }
-
-            #endregion
-        }
+        
 
         private void ReadPara() {
             #region //读取ini
@@ -1516,7 +1490,7 @@ namespace multimeter {
             //btn_stop.Enabled = true;
             //btn_start.Enabled = false;
             ReadPara();
-            if (!AutoSaveIni()) {
+            if (!SlnIni.AutoSaveIni(TestChoose)) {
                 MessageBox.Show(@"请选择测试方法后在进行测试", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -1967,45 +1941,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-        private bool AutoSaveIni() {
-            string iniFileName;
-            switch (TestChoose) {
-                case "Test1":
-                    iniFileName = "kappa";
-                    break;
-                case "Test2":
-                    iniFileName = "itc";
-                    break;
-                case "Test3":
-                    iniFileName = "itm";
-                    break;
-                case "Test4":
-                    iniFileName = "itms";
-                    break;
-                default:
-
-                    return false;
-            }
-
-            string iniFilePath =
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName + ".ini");
-            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
-                iniFileName + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH") + ".ini");
-            while (File.Exists(autoSaveFilePath)) {
-                DialogResult results = MessageBox.Show(@"该文件已存在,是否覆盖?", @"提示", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (results == DialogResult.Yes) {
-                    File.Delete(autoSaveFilePath);
-                }
-                else {
-                    int insertIdx = autoSaveFilePath.LastIndexOf(".ini", StringComparison.Ordinal);
-                    autoSaveFilePath = autoSaveFilePath.Insert(insertIdx, "(1)");
-                }
-            }
-
-            File.Copy(iniFilePath, autoSaveFilePath);
-            return true;
-        }
+        
 
         internal class AppCfg //全局变量
         {

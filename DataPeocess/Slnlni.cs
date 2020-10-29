@@ -2,9 +2,41 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace DataProcessor {
     public static class SlnIni {
+        public static void CreateDefaultIni() {
+            #region
+
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
+            if (INIHelper.CheckPath(filePath))
+                return;
+
+            File.Create(filePath).Close();
+            INIHelper.Write("Serial", "port", "COM1", filePath);
+            INIHelper.Write("Serial", "baudrate", "9600", filePath);
+            INIHelper.Write("Serial", "databits", "8", filePath);
+            INIHelper.Write("Serial", "stopbites", "1", filePath);
+            INIHelper.Write("Serial", "parity", "None", filePath);
+            INIHelper.Write("Card1", "enable", "0", filePath);
+            INIHelper.Write("Card2", "enable", "0", filePath);
+            INIHelper.Write("SYS", "save_interval", "50", filePath);
+            INIHelper.Write("SYS", "scan_interval", "2000", filePath);
+
+            for (int i = 0; i < 22; i++) //每个7700卡22个通道
+            {
+                INIHelper.Write((i + 101).ToString(), "name", "", filePath);
+                INIHelper.Write((i + 101).ToString(), "func", "0", filePath);
+            }
+
+            for (int i = 0; i < 22; i++) {
+                INIHelper.Write((i + 201).ToString(), "name", "", filePath);
+                INIHelper.Write((i + 201).ToString(), "func", "0", filePath);
+            }
+
+            #endregion
+        }
         public static string CreateDefaultSlnIni() {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sln.ini"); //在当前程序路径创建
             if (INIHelper.CheckPath(filePath))
@@ -169,6 +201,44 @@ namespace DataProcessor {
                     INIHelper.Write(i.ToString(), "func", channelList.Contains(i.ToString()) ? "1" : "0", filePath);
                 }
             }
-        }
+        }//将频道信息写入系统配置文件
+        public static bool AutoSaveIni(string testChoose) {
+            string iniFileName;
+            switch (testChoose) {
+                case "Test1":
+                    iniFileName = "kappa";
+                    break;
+                case "Test2":
+                    iniFileName = "itc";
+                    break;
+                case "Test3":
+                    iniFileName = "itm";
+                    break;
+                case "Test4":
+                    iniFileName = "itms";
+                    break;
+                default:
+
+                    return false;
+            }
+
+            string iniFilePath =
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName + ".ini");
+            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
+                iniFileName + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH") + ".ini");
+            while (File.Exists(autoSaveFilePath)) {
+                DialogResult results = MessageBox.Show(@"该文件已存在,是否覆盖?", @"提示", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (results == DialogResult.Yes) {
+                    File.Delete(autoSaveFilePath);
+                } else {
+                    int insertIdx = autoSaveFilePath.LastIndexOf(".ini", StringComparison.Ordinal);
+                    autoSaveFilePath = autoSaveFilePath.Insert(insertIdx, "(1)");
+                }
+            }
+
+            File.Copy(iniFilePath, autoSaveFilePath);
+            return true;
+        }//自动保存当前的测试配置文件
     }
 }
