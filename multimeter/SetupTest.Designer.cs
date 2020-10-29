@@ -372,10 +372,7 @@
             this.TestChoose4 = new System.Windows.Forms.Button();
             this.TestChoose2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Pattern = new System.Windows.Forms.Button();
-            this.ExitApplication = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.FileControl = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TestResult = new System.Windows.Forms.Button();
             this.Monitor = new System.Windows.Forms.Button();
@@ -383,12 +380,8 @@
             this.ParSetting = new System.Windows.Forms.Button();
             this.TestRun = new System.Windows.Forms.Button();
             this.SerialPort = new System.Windows.Forms.Button();
-            this.FileGroupBox = new System.Windows.Forms.GroupBox();
-            this.OpenFile = new System.Windows.Forms.Button();
-            this.SaveFile = new System.Windows.Forms.Button();
             this.NoneGroupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.DelayTimer = new System.Windows.Forms.Timer(this.components);
             this.ViewGroupBox1 = new System.Windows.Forms.GroupBox();
             this.ForceView = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -608,7 +601,6 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.FileGroupBox.SuspendLayout();
             this.NoneGroupBox.SuspendLayout();
             this.ViewGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
@@ -645,7 +637,6 @@
             this.ChannelLabel1_1.Size = new System.Drawing.Size(47, 24);
             this.ChannelLabel1_1.TabIndex = 1;
             this.ChannelLabel1_1.Text = "Chn";
-            this.ChannelLabel1_1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ChannelLabel1_2
             // 
@@ -839,7 +830,6 @@
             this.ChannelTextBox1_10.Size = new System.Drawing.Size(64, 23);
             this.ChannelTextBox1_10.TabIndex = 22;
             this.ChannelTextBox1_10.Text = "10";
-            this.ChannelTextBox1_10.TextChanged += new System.EventHandler(this.ChannelTextBox1_10_TextChanged);
             // 
             // ChannelTextBox1_11
             // 
@@ -1061,7 +1051,6 @@
             this.label1.Size = new System.Drawing.Size(89, 19);
             this.label1.TabIndex = 58;
             this.label1.Text = "加载压力";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // pictureLabel1_2
             // 
@@ -1347,7 +1336,6 @@
             this.LengthTextBox1_7.Size = new System.Drawing.Size(64, 23);
             this.LengthTextBox1_7.TabIndex = 42;
             this.LengthTextBox1_7.Text = "4";
-            this.LengthTextBox1_7.TextChanged += new System.EventHandler(this.LengthTextBox1_7_TextChanged);
             // 
             // LengthTextBox1_9
             // 
@@ -1947,7 +1935,6 @@
             this.pictureLabel2_7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureLabel2_7.TabIndex = 31;
             this.pictureLabel2_7.TabStop = false;
-            this.pictureLabel2_7.Click += new System.EventHandler(this.pictureLabel2_7_Click);
             // 
             // ChannelTextBox2_5
             // 
@@ -2295,7 +2282,6 @@
             this.LengthTextBox2_7.Size = new System.Drawing.Size(64, 23);
             this.LengthTextBox2_7.TabIndex = 42;
             this.LengthTextBox2_7.Text = "5";
-            this.LengthTextBox2_7.TextChanged += new System.EventHandler(this.LengthTextBox2_7_TextChanged);
             // 
             // LengthTextBox2_9
             // 
@@ -2548,7 +2534,6 @@
             this.label19.Size = new System.Drawing.Size(281, 16);
             this.label19.TabIndex = 72;
             this.label19.Text = "1、待热电偶阻值稳定下来，得到各点的温度";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // K1TextBox3_1
             // 
@@ -3190,7 +3175,6 @@
             this.label23.Size = new System.Drawing.Size(271, 16);
             this.label23.TabIndex = 76;
             this.label23.Text = "1、 待热电偶阻值稳定下来，得到各点温度";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // Unit4_14
             // 
@@ -4196,49 +4180,13 @@
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
             this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox2.Controls.Add(this.Pattern);
-            this.groupBox2.Controls.Add(this.ExitApplication);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.FileControl);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(-10, -10);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1940, 98);
             this.groupBox2.TabIndex = 90;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
-            // 
-            // Pattern
-            // 
-            this.Pattern.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pattern.BackgroundImage")));
-            this.Pattern.FlatAppearance.BorderSize = 0;
-            this.Pattern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pattern.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Pattern.ForeColor = System.Drawing.Color.White;
-            this.Pattern.Location = new System.Drawing.Point(1671, 23);
-            this.Pattern.Name = "Pattern";
-            this.Pattern.Size = new System.Drawing.Size(65, 69);
-            this.Pattern.TabIndex = 93;
-            this.Pattern.Text = "模式";
-            this.Pattern.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Pattern.UseVisualStyleBackColor = true;
-            this.Pattern.Click += new System.EventHandler(this.Pattern_Click);
-            // 
-            // ExitApplication
-            // 
-            this.ExitApplication.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitApplication.BackgroundImage")));
-            this.ExitApplication.FlatAppearance.BorderSize = 0;
-            this.ExitApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitApplication.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ExitApplication.ForeColor = System.Drawing.Color.White;
-            this.ExitApplication.Location = new System.Drawing.Point(1742, 23);
-            this.ExitApplication.Name = "ExitApplication";
-            this.ExitApplication.Size = new System.Drawing.Size(52, 69);
-            this.ExitApplication.TabIndex = 92;
-            this.ExitApplication.Text = "退出";
-            this.ExitApplication.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ExitApplication.UseVisualStyleBackColor = true;
-            this.ExitApplication.Click += new System.EventHandler(this.ExitApplication_Click);
             // 
             // label12
             // 
@@ -4252,24 +4200,6 @@
             this.label12.Size = new System.Drawing.Size(433, 40);
             this.label12.TabIndex = 0;
             this.label12.Text = "************测试平台";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // FileControl
-            // 
-            this.FileControl.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FileControl.BackgroundImage")));
-            this.FileControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FileControl.FlatAppearance.BorderSize = 0;
-            this.FileControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FileControl.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.FileControl.ForeColor = System.Drawing.Color.White;
-            this.FileControl.Location = new System.Drawing.Point(1607, 25);
-            this.FileControl.Name = "FileControl";
-            this.FileControl.Size = new System.Drawing.Size(65, 67);
-            this.FileControl.TabIndex = 91;
-            this.FileControl.Text = "文件";
-            this.FileControl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.FileControl.UseVisualStyleBackColor = true;
-            this.FileControl.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox3
             // 
@@ -4377,46 +4307,6 @@
             this.SerialPort.UseVisualStyleBackColor = true;
             this.SerialPort.Click += new System.EventHandler(this.SerialPort_Click);
             // 
-            // FileGroupBox
-            // 
-            this.FileGroupBox.Controls.Add(this.OpenFile);
-            this.FileGroupBox.Controls.Add(this.SaveFile);
-            this.FileGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FileGroupBox.Location = new System.Drawing.Point(1608, 94);
-            this.FileGroupBox.Name = "FileGroupBox";
-            this.FileGroupBox.Size = new System.Drawing.Size(0, 0);
-            this.FileGroupBox.TabIndex = 92;
-            this.FileGroupBox.TabStop = false;
-            // 
-            // OpenFile
-            // 
-            this.OpenFile.BackColor = System.Drawing.Color.Silver;
-            this.OpenFile.FlatAppearance.BorderSize = 0;
-            this.OpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OpenFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OpenFile.Location = new System.Drawing.Point(3, 7);
-            this.OpenFile.Name = "OpenFile";
-            this.OpenFile.Size = new System.Drawing.Size(128, 37);
-            this.OpenFile.TabIndex = 93;
-            this.OpenFile.Text = "打开配置文件";
-            this.OpenFile.UseVisualStyleBackColor = false;
-            this.OpenFile.Click += new System.EventHandler(this.OpenFile_Click);
-            // 
-            // SaveFile
-            // 
-            this.SaveFile.BackColor = System.Drawing.Color.Silver;
-            this.SaveFile.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.SaveFile.FlatAppearance.BorderSize = 0;
-            this.SaveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SaveFile.Location = new System.Drawing.Point(3, 50);
-            this.SaveFile.Name = "SaveFile";
-            this.SaveFile.Size = new System.Drawing.Size(128, 42);
-            this.SaveFile.TabIndex = 93;
-            this.SaveFile.Text = "保存配置文件";
-            this.SaveFile.UseVisualStyleBackColor = false;
-            this.SaveFile.Click += new System.EventHandler(this.SaveFile_Click);
-            // 
             // NoneGroupBox
             // 
             this.NoneGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NoneGroupBox.BackgroundImage")));
@@ -4439,11 +4329,6 @@
             this.button1.TabIndex = 93;
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // DelayTimer
-            // 
-            this.DelayTimer.Interval = 3000;
-            this.DelayTimer.Tick += new System.EventHandler(this.DelayTimer_Tick);
             // 
             // ViewGroupBox1
             // 
@@ -6131,7 +6016,6 @@
             this.Controls.Add(this.ViewGroupBox2);
             this.Controls.Add(this.ViewGroupBox1);
             this.Controls.Add(this.NoneGroupBox);
-            this.Controls.Add(this.FileGroupBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -6220,7 +6104,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.FileGroupBox.ResumeLayout(false);
             this.NoneGroupBox.ResumeLayout(false);
             this.ViewGroupBox1.ResumeLayout(false);
             this.ViewGroupBox1.PerformLayout();
@@ -6581,8 +6464,6 @@
         private System.Windows.Forms.Button TestChoose4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button FileControl;
-        private System.Windows.Forms.Button ExitApplication;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button ParSetting;
         private System.Windows.Forms.Button TestResult;
@@ -6590,12 +6471,8 @@
         private System.Windows.Forms.Button TestRun;
         private System.Windows.Forms.Button TestStop;
         private System.Windows.Forms.Button SerialPort;
-        private System.Windows.Forms.GroupBox FileGroupBox;
-        private System.Windows.Forms.Button OpenFile;
-        private System.Windows.Forms.Button SaveFile;
         private System.Windows.Forms.GroupBox NoneGroupBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer DelayTimer;
         private System.Windows.Forms.GroupBox ViewGroupBox1;
         private System.Windows.Forms.TextBox ForceView;
         private System.Windows.Forms.Label label41;
@@ -6739,7 +6616,6 @@
         private System.Windows.Forms.ListView listView_main;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.GroupBox ResultGroupBox;
-        private System.Windows.Forms.Button Pattern;
         private System.Windows.Forms.GroupBox listview_card_hide;
         private System.Windows.Forms.DataGridView factordataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
