@@ -513,17 +513,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listview_card_hide = new System.Windows.Forms.GroupBox();
             this.skinLabel4 = new CCWin.SkinControl.SkinLabel();
-            this.listview_card2 = new CCWin.SkinControl.SkinListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.skinLabel5 = new CCWin.SkinControl.SkinLabel();
-            this.listview_card1 = new CCWin.SkinControl.SkinListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
             this.edit_save_interval = new System.Windows.Forms.TextBox();
             this.skinLabel10 = new CCWin.SkinControl.SkinLabel();
@@ -5796,9 +5786,7 @@
             // listview_card_hide
             // 
             this.listview_card_hide.Controls.Add(this.skinLabel4);
-            this.listview_card_hide.Controls.Add(this.listview_card2);
             this.listview_card_hide.Controls.Add(this.skinLabel5);
-            this.listview_card_hide.Controls.Add(this.listview_card1);
             this.listview_card_hide.Location = new System.Drawing.Point(917, 86);
             this.listview_card_hide.Name = "listview_card_hide";
             this.listview_card_hide.Size = new System.Drawing.Size(536, 475);
@@ -5817,45 +5805,6 @@
             this.skinLabel4.TabIndex = 29;
             this.skinLabel4.Text = "插槽1：";
             // 
-            // listview_card2
-            // 
-            this.listview_card2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
-            this.listview_card2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listview_card2.FullRowSelect = true;
-            this.listview_card2.GridLines = true;
-            this.listview_card2.HideSelection = false;
-            this.listview_card2.Location = new System.Drawing.Point(432, 92);
-            this.listview_card2.Name = "listview_card2";
-            this.listview_card2.OwnerDraw = true;
-            this.listview_card2.Size = new System.Drawing.Size(311, 436);
-            this.listview_card2.TabIndex = 31;
-            this.listview_card2.UseCompatibleStateImageBehavior = false;
-            this.listview_card2.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "   通道";
-            this.columnHeader5.Width = 65;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "名称";
-            this.columnHeader6.Width = 80;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "功能";
-            this.columnHeader7.Width = 80;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "图形";
-            this.columnHeader8.Width = 80;
-            // 
             // skinLabel5
             // 
             this.skinLabel5.AutoSize = true;
@@ -5867,45 +5816,6 @@
             this.skinLabel5.Size = new System.Drawing.Size(59, 20);
             this.skinLabel5.TabIndex = 29;
             this.skinLabel5.Text = "插槽2：";
-            // 
-            // listview_card1
-            // 
-            this.listview_card1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listview_card1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listview_card1.FullRowSelect = true;
-            this.listview_card1.GridLines = true;
-            this.listview_card1.HideSelection = false;
-            this.listview_card1.Location = new System.Drawing.Point(72, 94);
-            this.listview_card1.Name = "listview_card1";
-            this.listview_card1.OwnerDraw = true;
-            this.listview_card1.Size = new System.Drawing.Size(310, 436);
-            this.listview_card1.TabIndex = 31;
-            this.listview_card1.UseCompatibleStateImageBehavior = false;
-            this.listview_card1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "   通道";
-            this.columnHeader1.Width = 65;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "名称";
-            this.columnHeader2.Width = 80;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "功能";
-            this.columnHeader3.Width = 80;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "图形";
-            this.columnHeader4.Width = 80;
             // 
             // skinGroupBox1
             // 
@@ -6817,21 +6727,11 @@
         private CCWin.SkinControl.SkinComboBox combox_baudrate;
         private CCWin.SkinControl.SkinLabel skinLabel2;
         private CCWin.SkinControl.SkinLabel skinLabel3;
-        private CCWin.SkinControl.SkinListView listview_card1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private CCWin.SkinControl.SkinLabel skinLabel4;
         private CCWin.SkinControl.SkinLabel skinLabel5;
         private CCWin.SkinControl.SkinLabel skinLabel7;
         private CCWin.SkinControl.SkinLabel skinLabel11;
         private CCWin.SkinControl.SkinLabel skinLabel9;
-        private CCWin.SkinControl.SkinListView listview_card2;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
         private CCWin.SkinControl.SkinLabel skinLabel8;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Label label13;

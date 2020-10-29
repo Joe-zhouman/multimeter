@@ -1,46 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using DataProcessor;
-using System.IO;
-using CCWin;
-using CCWin.SkinControl;
-using System.Runtime.InteropServices;
-using System.Threading;
 
-namespace multimeter
-{
-    public partial class SetupTest : Form
-    {
-        public string[] formData = new string[64];     //设置所有的界面输入框的数据为全局变量，方便存储数据到本地，或者从文件更新数据
-        public string TestChoose;                      //测试方法选择标志符
-        public string PatternChoose = "normal";       // 软件模式选择，分为“高级模式”和“普通模式”
-        ListViewItem m_SelectedItem;
+namespace multimeter {
+    public partial class SetupTest : Form {
+        public string[] formData = new string[64]; //设置所有的界面输入框的数据为全局变量，方便存储数据到本地，或者从文件更新数据
 
-        HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
-        HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
-        #region  //串口采集
-        string TotalCHN = "";
-        int TotalNum = 0;
-        int count = 0;
-        bool enablescan = false;
-        #endregion 
+        private HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
+        private HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
+        public string PatternChoose = "normal"; // 软件模式选择，分为“高级模式”和“普通模式”
 
-        public SetupTest()
-        {
+        private string recvstr;
+        public string TestChoose; //测试方法选择标志符
+
+        public SetupTest() {
             InitializeComponent();
         }
 
-        private void 导热系数测量_Load(object sender, EventArgs e)
-        {
-            #region  //不同设置窗口默认显示
+        private void 导热系数测量_Load(object sender, EventArgs e) {
+            #region //不同设置窗口默认显示
+
             NoneGroupBox.Size = new Size(1531, 966);
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
@@ -51,80 +38,26 @@ namespace multimeter
             ViewGroupBox3.Size = new Size(0, 0);
             ViewGroupBox4.Size = new Size(0, 0);
             ResultGroupBox.Size = new Size(0, 0);
-            FileGroupBox.Size = new Size(0, 0);   //“文件”按钮子目录
-            chart1.Size = new Size(0, 0);//将曲线表格放在隐藏
-            skinGroupBox1.Size = new Size(263, 218);  //普通模式下窗口尺寸
+            FileGroupBox.Size = new Size(0, 0); //“文件”按钮子目录
+            chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
+            skinGroupBox1.Size = new Size(263, 218); //普通模式下窗口尺寸
             //skinGroupBox1.Size = new Size(521, 218);  //高级模式下窗口尺寸
             skinGroupBox2.Size = new Size(0, 0);
             TestStop.Enabled = false;
             Monitor.Enabled = false;
             Monitor.Enabled = false;
             TestResult.Enabled = false;
+
             #endregion
 
-            #region  //串口设置
-            CheckForIllegalCrossThreadCalls = false;//去掉线程安全
+            #region //串口设置
+
+            CheckForIllegalCrossThreadCalls = false; //去掉线程安全
 
             edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
             edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
 
-            
-
-
-            foreach (Card i in AppCfg.devicepara.Cardlist1)
-            {
-                string func = "";
-                switch (i.func)
-                {
-                    case 1:
-                        func = "两线电阻";
-                        break;
-                    case 2:
-                        func = "四线电阻";
-                        break;
-                    case 3:
-                        func = "热电偶";
-                        break;
-                    default:
-                        func = "";
-                        break;
-
-                }
-
-                ListViewItem item = new ListViewItem(new string[] { i.CHN, i.name, func });
-                listview_card1.Items.Add(item);
-
-            }
-
-            foreach (Card i in AppCfg.devicepara.Cardlist2)
-            {
-                string func = "";
-                switch (i.func)
-                {
-                    case 1:
-                        func = "两线电阻";
-                        break;
-                    case 2:
-                        func = "四线电阻";
-                        break;
-                    case 3:
-                        func = "热电偶";
-                        break;
-                    default:
-                        func = "";
-                        break;
-
-                }
-
-                ListViewItem item = new ListViewItem(new string[] { i.CHN, i.name, func });
-                listview_card2.Items.Add(item);
-
-            }
-
-
-
-            switch (AppCfg.devicepara.SerialPort)
-            {
+            switch (AppCfg.devicepara.SerialPort) {
                 case "COM1":
                     combox_comport.SelectedIndex = 0;
                     break;
@@ -152,12 +85,10 @@ namespace multimeter
                 default:
                     combox_comport.SelectedIndex = 0;
                     break;
-
             }
 
 
-            switch (AppCfg.devicepara.SerialBaudRate)
-            {
+            switch (AppCfg.devicepara.SerialBaudRate) {
                 case "4800":
                     combox_baudrate.SelectedIndex = 0;
                     break;
@@ -182,13 +113,10 @@ namespace multimeter
                 default:
                     combox_baudrate.SelectedIndex = 2;
                     break;
-
             }
 
 
-
-            switch (AppCfg.devicepara.SerialDataBits)
-            {
+            switch (AppCfg.devicepara.SerialDataBits) {
                 case "8":
                     combox_databits.SelectedIndex = 0;
                     break;
@@ -205,11 +133,9 @@ namespace multimeter
                 default:
                     combox_databits.SelectedIndex = 2;
                     break;
-
             }
 
-            switch (AppCfg.devicepara.SerialStopBits)
-            {
+            switch (AppCfg.devicepara.SerialStopBits) {
                 case "1":
                     combox_stopbits.SelectedIndex = 0;
                     break;
@@ -223,13 +149,10 @@ namespace multimeter
                 default:
                     combox_stopbits.SelectedIndex = 0;
                     break;
-
             }
 
 
-
-            switch (AppCfg.devicepara.SerialParity)
-            {
+            switch (AppCfg.devicepara.SerialParity) {
                 case "None":
                     combox_parity.SelectedIndex = 0;
                     break;
@@ -249,102 +172,79 @@ namespace multimeter
                 default:
                     combox_parity.SelectedIndex = 0;
                     break;
-
             }
+
             #endregion
 
-            #region  //串口采集
+            #region //串口采集
+
             CheckForIllegalCrossThreadCalls = false;
             CreateDefaultIni();
             ReadPara();
+
             #endregion
 
             #region //热流计属性读取
 
             string slnFilePath = SlnIni.CreateDefaultSlnIni();
             SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
+
             #endregion
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+        private void label1_Click(object sender, EventArgs e) {
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
+        private void label1_Click_1(object sender, EventArgs e) {
         }
 
-        private void ChannelTextBox1_10_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void pictureLabel2_7_Click(object sender, EventArgs e)
-        {
-
+        private void ChannelTextBox1_10_TextChanged(object sender, EventArgs e) {
         }
 
-        private void LengthTextBox2_7_TextChanged(object sender, EventArgs e)
-        {
-
+        private void pictureLabel2_7_Click(object sender, EventArgs e) {
         }
 
-        private void label19_Click(object sender, EventArgs e)
-        {
-
+        private void LengthTextBox2_7_TextChanged(object sender, EventArgs e) {
         }
 
-        private void label23_Click(object sender, EventArgs e)
-        {
-
+        private void label19_Click(object sender, EventArgs e) {
         }
 
-        private void LengthTextBox1_7_TextChanged(object sender, EventArgs e)
-        {
+        private void label23_Click(object sender, EventArgs e) {
+        }
 
+        private void LengthTextBox1_7_TextChanged(object sender, EventArgs e) {
         }
 
 
-        private void groupBox2_Paint(object sender, PaintEventArgs e)
-        {
-
+        private void groupBox2_Paint(object sender, PaintEventArgs e) {
         }
 
-        private void label12_Click(object sender, EventArgs e)
-        {
-
+        private void label12_Click(object sender, EventArgs e) {
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            FileGroupBox.BringToFront();            //将“文件”按钮子目录设置为最顶层
-            FileGroupBox.Size = new Size(131, 98);   //显示“文件”按钮子目录
-            DelayTimer.Enabled = true;              //“文件”按钮子目录隐藏倒计时
+        private void button5_Click(object sender, EventArgs e) {
+            FileGroupBox.BringToFront(); //将“文件”按钮子目录设置为最顶层
+            FileGroupBox.Size = new Size(131, 98); //显示“文件”按钮子目录
+            DelayTimer.Enabled = true; //“文件”按钮子目录隐藏倒计时
         }
 
-        private void OpenFile_Click(object sender, EventArgs e)
-        {
+        private void OpenFile_Click(object sender, EventArgs e) {
             conf_fileR();
-            FileGroupBox.Size = new Size(0, 0);   //隐藏“文件”按钮子目录
+            FileGroupBox.Size = new Size(0, 0); //隐藏“文件”按钮子目录
         }
 
-        private void SaveFile_Click(object sender, EventArgs e)
-        {
+        private void SaveFile_Click(object sender, EventArgs e) {
             conf_fileW();
-            FileGroupBox.Size = new Size(0, 0);   //隐藏“文件”按钮子目录
+            FileGroupBox.Size = new Size(0, 0); //隐藏“文件”按钮子目录
         }
 
-        private void Pattern_Click(object sender, EventArgs e)
-        {
-            if (PatternChoose == "normal")
-            {
+        private void Pattern_Click(object sender, EventArgs e) {
+            if (PatternChoose == "normal") {
                 MessageBox.Show("高级模式已打开");
                 PatternChoose = "advanced";
             }
-            else
-            {
+            else {
                 MessageBox.Show("高级模式已关闭");
                 PatternChoose = "normal";
             }
@@ -354,103 +254,106 @@ namespace multimeter
             //INIHelper.Write("Serial", "baudrate1", "1", filePath);  //写
             //MessageBox.Show(INIHelper.Read("Serial", "baudrate", "", filePath).ToString());  //读取
         }
-        private void ExitApplication_Click(object sender, EventArgs e)
-        {
-            conf_fileW();   //关闭前提示保存配置文件
+
+        private void ExitApplication_Click(object sender, EventArgs e) {
+            conf_fileW(); //关闭前提示保存配置文件
             Application.Exit();
         }
 
 
         //---------------------------------------------------------------子函数区--------------------------------------------------------------------------------------------------------------------------------
-        public void conf_fileW()        //保存数据设置
+        public void conf_fileW() //保存数据设置
         {
-            #region  //保存数据设置
-            string[] formData = new string[64]
-                {   //test1的数据
-                    LengthTextBox1_1.Text,
-                    LengthTextBox1_2.Text,
-                    LengthTextBox1_3.Text,
-                    LengthTextBox1_4.Text,
-                    LengthTextBox1_5.Text,
-                    LengthTextBox1_6.Text,
-                    LengthTextBox1_7.Text,
-                    LengthTextBox1_8.Text,
-                    LengthTextBox1_9.Text,
-                    LengthTextBox1_10.Text,
-                    LengthTextBox1_11.Text,
-                    K1TextBox1_1.Text,
-                    K2TextBox1_2.Text,
-                    ForceTextBox1.Text,
+            #region //保存数据设置
 
-                    //test2的数据
-                    LengthTextBox2_1.Text,
-                    LengthTextBox2_2.Text,
-                    LengthTextBox2_3.Text,
-                    LengthTextBox2_4.Text,
-                    LengthTextBox2_5.Text,
-                    LengthTextBox2_6.Text,
-                    LengthTextBox2_7.Text,
-                    LengthTextBox2_8.Text,
-                    LengthTextBox2_9.Text,
-                    LengthTextBox2_10.Text,
-                    LengthTextBox2_11.Text,
-                    LengthTextBox2_12.Text,
-                    LengthTextBox2_13.Text,
-                    LengthTextBox2_14.Text,
-                    K1TextBox2_1.Text,
-                    Ks1TextBox2_3.Text,
-                    Ks2TextBox2_4.Text,
-                    K2TextBox2_2.Text,
-                    ForceTextBox2.Text,
+            string[] formData = new string[64] {
+                //test1的数据
+                LengthTextBox1_1.Text,
+                LengthTextBox1_2.Text,
+                LengthTextBox1_3.Text,
+                LengthTextBox1_4.Text,
+                LengthTextBox1_5.Text,
+                LengthTextBox1_6.Text,
+                LengthTextBox1_7.Text,
+                LengthTextBox1_8.Text,
+                LengthTextBox1_9.Text,
+                LengthTextBox1_10.Text,
+                LengthTextBox1_11.Text,
+                K1TextBox1_1.Text,
+                K2TextBox1_2.Text,
+                ForceTextBox1.Text,
 
-                    //test3的数据
-                    LengthTextBox3_1.Text,
-                    LengthTextBox3_2.Text,
-                    LengthTextBox3_3.Text,
-                    LengthTextBox3_4.Text,
-                    LengthTextBox3_5.Text,
-                    LengthTextBox3_6.Text,
-                    LengthTextBox3_7.Text,
-                    LengthTextBox3_8.Text,
-                    K1TextBox3_1.Text,
-                    K2TextBox3_1.Text,
-                    ForceTextBox3.Text,
-                    FilmThickness1.Text,
+                //test2的数据
+                LengthTextBox2_1.Text,
+                LengthTextBox2_2.Text,
+                LengthTextBox2_3.Text,
+                LengthTextBox2_4.Text,
+                LengthTextBox2_5.Text,
+                LengthTextBox2_6.Text,
+                LengthTextBox2_7.Text,
+                LengthTextBox2_8.Text,
+                LengthTextBox2_9.Text,
+                LengthTextBox2_10.Text,
+                LengthTextBox2_11.Text,
+                LengthTextBox2_12.Text,
+                LengthTextBox2_13.Text,
+                LengthTextBox2_14.Text,
+                K1TextBox2_1.Text,
+                Ks1TextBox2_3.Text,
+                Ks2TextBox2_4.Text,
+                K2TextBox2_2.Text,
+                ForceTextBox2.Text,
 
-                    //test4的数据
-                    LengthTextBox4_1.Text,
-                    LengthTextBox4_2.Text,
-                    LengthTextBox4_3.Text,
-                    LengthTextBox4_4.Text,
-                    LengthTextBox4_5.Text,
-                    LengthTextBox4_6.Text,
-                    LengthTextBox4_7.Text,
-                    LengthTextBox4_8.Text,
-                    LengthTextBox4_9.Text,
-                    LengthTextBox4_10.Text,
-                    LengthTextBox4_10.Text,
-                    LengthTextBox4_12.Text,
-                    LengthTextBox4_13.Text,
-                    LengthTextBox4_14.Text,
-                    K1TextBox4_1.Text,
-                    Ks1TextBox4_2.Text,
-                    Ks2TextBox4_3.Text,
-                    K4TextBox4_4.Text,
-                    ForceTextBox4.Text
-                };
+                //test3的数据
+                LengthTextBox3_1.Text,
+                LengthTextBox3_2.Text,
+                LengthTextBox3_3.Text,
+                LengthTextBox3_4.Text,
+                LengthTextBox3_5.Text,
+                LengthTextBox3_6.Text,
+                LengthTextBox3_7.Text,
+                LengthTextBox3_8.Text,
+                K1TextBox3_1.Text,
+                K2TextBox3_1.Text,
+                ForceTextBox3.Text,
+                FilmThickness1.Text,
+
+                //test4的数据
+                LengthTextBox4_1.Text,
+                LengthTextBox4_2.Text,
+                LengthTextBox4_3.Text,
+                LengthTextBox4_4.Text,
+                LengthTextBox4_5.Text,
+                LengthTextBox4_6.Text,
+                LengthTextBox4_7.Text,
+                LengthTextBox4_8.Text,
+                LengthTextBox4_9.Text,
+                LengthTextBox4_10.Text,
+                LengthTextBox4_10.Text,
+                LengthTextBox4_12.Text,
+                LengthTextBox4_13.Text,
+                LengthTextBox4_14.Text,
+                K1TextBox4_1.Text,
+                Ks1TextBox4_2.Text,
+                Ks2TextBox4_3.Text,
+                K4TextBox4_4.Text,
+                ForceTextBox4.Text
+            };
             saveFileDialog1.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                multimeter.test_file conf = new test_file();
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
+                test_file conf = new test_file();
                 string str = saveFileDialog1.FileName;
                 //conf.FileWrite(64, str, formData);
             }
-            else MessageBox.Show("配置文件保存失败");
+            else {
+                MessageBox.Show("配置文件保存失败");
+            }
+
             #endregion
         }
 
 
-        public void conf_fileR()        //更新数据设置
+        public void conf_fileR() //更新数据设置
         {
             /* #region  //更新数据设置
              openFileDialog1.Filter = "文本文件(*.txt)|*.txt|所有文件(*.*)|*.*";
@@ -535,20 +438,29 @@ namespace multimeter
              else MessageBox.Show("配置文件读取失败");
              #endregion  */
 
-            multimeter.test_file conf = new test_file();
+            test_file conf = new test_file();
             string[][] d1 = new string [20][];
             conf.ReadtData("1.csv", d1);
         }
 
-        public void Test1Run()
-        {
+        public void Test1Run() {
             #region //导热系数测量
-            double T_u1, T_u2, T_u3, T_u4, T_s1, T_s2, T_s3, T_l1, T_l2, T_l3, T_l4;                                  //定义热电偶温度
-            double k1 = double.Parse(K1TextBox1_1.Text); double k2 = double.Parse(K2TextBox1_2.Text);         //定义“流量计”热导率，单位w/((m*k)
-            double q_u, q_s, q_l;                                                                                     //定义“流量计”“试件”热流密度
-            T_u1 = 80; T_u2 = 70; T_u3 = 60; T_u4 = 50;
-            T_l1 = 30; T_l2 = 20; T_l3 = 10; T_l4 = 0;
-            T_s1 = 45; T_s2 = 40; T_s3 = 35;
+
+            double T_u1, T_u2, T_u3, T_u4, T_s1, T_s2, T_s3, T_l1, T_l2, T_l3, T_l4; //定义热电偶温度
+            double k1 = double.Parse(K1TextBox1_1.Text);
+            double k2 = double.Parse(K2TextBox1_2.Text); //定义“流量计”热导率，单位w/((m*k)
+            double q_u, q_s, q_l; //定义“流量计”“试件”热流密度
+            T_u1 = 80;
+            T_u2 = 70;
+            T_u3 = 60;
+            T_u4 = 50;
+            T_l1 = 30;
+            T_l2 = 20;
+            T_l3 = 10;
+            T_l4 = 0;
+            T_s1 = 45;
+            T_s2 = 40;
+            T_s3 = 35;
 
             //以下代码为读取热电偶位置值，单位mm,转换为m
             double L_u1 = 0.001 * double.Parse(LengthTextBox1_1.Text);
@@ -564,52 +476,42 @@ namespace multimeter
             double L_l4 = 0.001 * double.Parse(LengthTextBox1_11.Text);
 
             //以下代码计算“上流量计”热流密度q_u ，热导率为 k1 ,温度为T_u1, T_u2, T_u3, T_u4 ，热电偶位置为L_u1，L_u2，L_u3，L_u4 ,线性拟合方程为Y_u = b_u * X_u + a_u
-            double[] x_u = new double[4] { 0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3 };
-            double[] y_u = new double[4] { T_u1, T_u2, T_u3, T_u4 };
+            double[] x_u = new double[4] {0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3};
+            double[] y_u = new double[4] {T_u1, T_u2, T_u3, T_u4};
             double a_u, b_u, maxErr_u;
-            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0)
-            {
+            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-               // MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
-                q_u = k1 * Math.Abs(b_u);
 
-            }
+            // MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
+            q_u = k1 * Math.Abs(b_u);
 
             //以下代码计算“下流量计”热流密度q_l ，热导率为 k2 ,温度为T_l1, T_l2, T_l3, T_l4 ，热电偶位置为L_l1，L_l2，L_l3，L_l4 ,线性拟合方程为Y_l = b_l * X_l + a_l
-            double[] x_l = new double[4] { 0, L_l2, L_l2 + L_l3, L_l2 + L_l3 + L_l4 };
-            double[] y_l = new double[4] { T_l1, T_l2, T_l3, T_l4 };
+            double[] x_l = new double[4] {0, L_l2, L_l2 + L_l3, L_l2 + L_l3 + L_l4};
+            double[] y_l = new double[4] {T_l1, T_l2, T_l3, T_l4};
             double a_l, b_l, maxErr_l;
-            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0)
-            {
+            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-               // MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
-                q_l = k2 * Math.Abs(b_l);
-            }
+
+            // MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
+            q_l = k2 * Math.Abs(b_l);
 
             //以下代码计算“试件”导热系数 k_s ,其中热流密度q_s ，温度为T_s1, T_s2, T_s3，热电偶位置为L_s1，L_s2，L_s3 ,线性拟合方程为Y_s = b_s * X_s + a_s
             q_s = (q_u + q_l) * 0.5;
-            double[] x_s = new double[3] { 0, L_s1, L_s1 + L_s2 };
-            double[] y_s = new double[3] { T_s1, T_s2, T_s3 };
+            double[] x_s = new double[3] {0, L_s1, L_s1 + L_s2};
+            double[] y_s = new double[3] {T_s1, T_s2, T_s3};
             double a_s, b_s, maxErr_s, k_s;
-            if (CalcRegress(x_s, y_s, 3, out a_s, out b_s, out maxErr_s) != 0)
-            {
+            if (CalcRegress(x_s, y_s, 3, out a_s, out b_s, out maxErr_s) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_s = " + b_s.ToString() + " X_s +" + a_s.ToString() + "   maxErr_s=" + maxErr_s.ToString());
-                k_s = q_s / Math.Abs(b_s);  //求得“试件”导热系数 k_s ，单位为w/(m*k)
-               // MessageBox.Show("k_s = " + k_s.ToString() + "w/(m*k)");
-            }
+
+            //MessageBox.Show("Y_s = " + b_s.ToString() + " X_s +" + a_s.ToString() + "   maxErr_s=" + maxErr_s.ToString());
+            k_s = q_s / Math.Abs(b_s); //求得“试件”导热系数 k_s ，单位为w/(m*k)
+            // MessageBox.Show("k_s = " + k_s.ToString() + "w/(m*k)");
 
             //以下代码为更新监视温度  T_u1, T_u2, T_u3, T_u4, T_s1, T_s2, T_s3, T_l1, T_l2, T_l3, T_l4 
             T_TextBox1_1.Text = T_u1.ToString();
@@ -623,20 +525,32 @@ namespace multimeter
             T_TextBox1_9.Text = T_l2.ToString();
             T_TextBox1_10.Text = T_l3.ToString();
             T_TextBox1_11.Text = T_l4.ToString();
+
             #endregion
         }
 
-        public void Test2Run()
-        {
+        public void Test2Run() {
             #region //固_固接触热阻测量
-            double T_u1, T_u2, T_u3, T_u4, T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3, T_l1, T_l2, T_l3, T_l4;                                  //定义热电偶温度
-            double k1 = double.Parse(K1TextBox2_1.Text); double k2 = double.Parse(K2TextBox2_2.Text);     //定义“流量计”热导率，单位w/((m*k)
-            double ks1, ks2 ;                                                                                //定义“试件”热导率，单位w/((m*k)
-            double q_u, q_s, q_l;                                                                                     //定义“流量计”“试件”热流密度
-            T_u1 = 80; T_u2 = 70; T_u3 = 60; T_u4 = 50;
-            T_l1 = 30; T_l2 = 20; T_l3 = 10; T_l4 = 0;
-            T_su1 = 45; T_su2 = 44; T_su3 = 43;
-            T_sl1 = 40; T_sl2 = 37; T_sl3 = 35;
+
+            double T_u1, T_u2, T_u3, T_u4, T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3, T_l1, T_l2, T_l3, T_l4; //定义热电偶温度
+            double k1 = double.Parse(K1TextBox2_1.Text);
+            double k2 = double.Parse(K2TextBox2_2.Text); //定义“流量计”热导率，单位w/((m*k)
+            double ks1, ks2; //定义“试件”热导率，单位w/((m*k)
+            double q_u, q_s, q_l; //定义“流量计”“试件”热流密度
+            T_u1 = 80;
+            T_u2 = 70;
+            T_u3 = 60;
+            T_u4 = 50;
+            T_l1 = 30;
+            T_l2 = 20;
+            T_l3 = 10;
+            T_l4 = 0;
+            T_su1 = 45;
+            T_su2 = 44;
+            T_su3 = 43;
+            T_sl1 = 40;
+            T_sl2 = 37;
+            T_sl3 = 35;
 
             //以下代码为读取热电偶位置值，单位mm，转换为m
             double L_u1 = 0.001 * double.Parse(LengthTextBox2_1.Text);
@@ -655,72 +569,59 @@ namespace multimeter
             double L_l4 = 0.001 * double.Parse(LengthTextBox2_14.Text);
 
             //以下代码计算“上流量计”热流密度q_u ，热导率为 k1 ,温度为T_u1, T_u2, T_u3, T_u4 ，热电偶位置为L_u1，L_u2，L_u3，L_u4 ,线性拟合方程为Y_u = b_u * X_u + a_u
-            double[] x_u = new double[4] { 0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3 };
-            double[] y_u = new double[4] { T_u1, T_u2, T_u3, T_u4 };
+            double[] x_u = new double[4] {0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3};
+            double[] y_u = new double[4] {T_u1, T_u2, T_u3, T_u4};
             double a_u, b_u, maxErr_u;
-            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0)
-            {
+            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
-                q_u = k1 * Math.Abs(b_u);
 
-            }
+            //MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
+            q_u = k1 * Math.Abs(b_u);
 
             //以下代码计算“下流量计”热流密度q_l ，热导率为 k2 ,温度为T_l1, T_l2, T_l3, T_l4 ，热电偶位置为L_l1，L_l2，L_l3，L_l4 ,线性拟合方程为Y_l = b_l * X_l + a_l
-            double[] x_l = new double[4] { 0, L_l2, L_l2 + L_l3, L_l2 + L_l3 + L_l4 };
-            double[] y_l = new double[4] { T_l1, T_l2, T_l3, T_l4 };
+            double[] x_l = new double[4] {0, L_l2, L_l2 + L_l3, L_l2 + L_l3 + L_l4};
+            double[] y_l = new double[4] {T_l1, T_l2, T_l3, T_l4};
             double a_l, b_l, maxErr_l;
-            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0)
-            {
+            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
-                q_l = k2 * Math.Abs(b_l);
-            }
+
+            //MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
+            q_l = k2 * Math.Abs(b_l);
 
             //以下代码计算“试件1”接触面温度contactT_u，导热系数 ks1 ,其中热流密度 q_s ，温度为T_su1, T_su2, T_su3 ，热电偶位置为L_su1，L_su2，L_su3 ,线性拟合方程为Y_su = b_su * X_su + a_su
             q_s = (q_u + q_l) * 0.5;
-            double[] x_su = new double[3] { 0, L_su1, L_su1 + L_su2 };
-            double[] y_su = new double[3] { T_su1, T_su2, T_su3 };
+            double[] x_su = new double[3] {0, L_su1, L_su1 + L_su2};
+            double[] y_su = new double[3] {T_su1, T_su2, T_su3};
             double a_su, b_su, maxErr_su, contactT_u;
-            if (CalcRegress(x_su, y_su, 3, out a_su, out b_su, out maxErr_su) != 0)
-            {
+            if (CalcRegress(x_su, y_su, 3, out a_su, out b_su, out maxErr_su) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_su = " + b_su.ToString() + " X_su +" + a_su.ToString() + "   maxErr_su=" + maxErr_su.ToString());
-                contactT_u = b_su * (L_su1 + L_su2 + L_su3) + a_su;
-                ks1 = q_s / Math.Abs(b_su);            //计算“试件1”热导率，单位w/((m*k)
-                Ks1TextBox2_3.Text = ks1.ToString();
-            }
+
+            //MessageBox.Show("Y_su = " + b_su.ToString() + " X_su +" + a_su.ToString() + "   maxErr_su=" + maxErr_su.ToString());
+            contactT_u = b_su * (L_su1 + L_su2 + L_su3) + a_su;
+            ks1 = q_s / Math.Abs(b_su); //计算“试件1”热导率，单位w/((m*k)
+            Ks1TextBox2_3.Text = ks1.ToString();
 
             //以下代码计算“试件2”接触面温度contactT_l，导热系数 ks2 ,其中热流密度 q_s ，温度为T_sl1, T_sl2, T_sl3 ，热电偶位置为L_sl1，L_sl2，L_sl3 ,线性拟合方程为Y_sl = b_sl * X_sl + a_sl
-            double[] x_sl = new double[3] { L_sl1, L_sl1 + L_sl2, L_sl1 + L_sl2 + L_sl3 };
-            double[] y_sl = new double[3] { T_sl1, T_sl2, T_sl3 };
+            double[] x_sl = new double[3] {L_sl1, L_sl1 + L_sl2, L_sl1 + L_sl2 + L_sl3};
+            double[] y_sl = new double[3] {T_sl1, T_sl2, T_sl3};
             double a_sl, b_sl, maxErr_sl, contactT_l;
-            if (CalcRegress(x_sl, y_sl, 3, out a_sl, out b_sl, out maxErr_sl) != 0)
-            {
+            if (CalcRegress(x_sl, y_sl, 3, out a_sl, out b_sl, out maxErr_sl) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_sl = " + b_sl.ToString() + " X_sl +" + a_sl.ToString() + "   maxErr_sl=" + maxErr_sl.ToString());
-                contactT_l = a_sl;
-                ks2 = q_s / Math.Abs(b_sl);             //计算“试件2”热导率，单位w/((m*k)
-                Ks2TextBox2_4.Text = ks2.ToString();
-            }
 
-            double contactR = Math.Abs(contactT_u - contactT_l) / q_s;                                                   //代码计算试件1、2的接触热阻，单位(m^2 * K)/W
+            //MessageBox.Show("Y_sl = " + b_sl.ToString() + " X_sl +" + a_sl.ToString() + "   maxErr_sl=" + maxErr_sl.ToString());
+            contactT_l = a_sl;
+            ks2 = q_s / Math.Abs(b_sl); //计算“试件2”热导率，单位w/((m*k)
+            Ks2TextBox2_4.Text = ks2.ToString();
+
+            double contactR = Math.Abs(contactT_u - contactT_l) / q_s; //代码计算试件1、2的接触热阻，单位(m^2 * K)/W
             //MessageBox.Show(contactR.ToString() + "(m^2 * K)/W");
 
             //以下代码为更新监视温度 T_u1, T_u2, T_u3, T_u4, T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3, T_l1, T_l2, T_l3, T_l4
@@ -740,27 +641,38 @@ namespace multimeter
             T_TextBox2_14.Text = T_l4.ToString();
 
 
-            double[] Tchart_x = new double[6] { 0, L_su1, L_su1 + L_su2,
-                                                L_su1 + L_su2 + L_su3 + L_sl1,
-                                                L_su1 + L_su2 + L_su3 + L_sl1 + L_sl2,
-                                                L_su1 + L_su2 + L_su3 + L_sl1 + L_sl2 + L_sl3 };
+            double[] Tchart_x = new double[6] {
+                0, L_su1, L_su1 + L_su2,
+                L_su1 + L_su2 + L_su3 + L_sl1,
+                L_su1 + L_su2 + L_su3 + L_sl1 + L_sl2,
+                L_su1 + L_su2 + L_su3 + L_sl1 + L_sl2 + L_sl3
+            };
 
-            double[] Tchart_y = new double[6] { T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3 };
+            double[] Tchart_y = new double[6] {T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3};
             Test1ViewPoint(Tchart_x, Tchart_y, 6); //绘制温度点
 
             Test1ViewLine(0, L_su1 + L_su2 + L_su3, a_su, b_su,
-                          L_su1 + L_su2 + L_su3, Tchart_x[5], a_sl, b_sl); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+                L_su1 + L_su2 + L_su3, Tchart_x[5], a_sl, b_sl); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+
             #endregion
         }
-        public void Test3Run()
-        {
+
+        public void Test3Run() {
             #region //热界面材料测量_热流计间
-            double T_u1, T_u2, T_u3, T_u4, T_l1, T_l2, T_l3, T_l4;                                  //定义热电偶温度
-            double k1 = double.Parse(K1TextBox3_1.Text); double k2 = double.Parse(K2TextBox3_1.Text);     //定义“流量计”热导率，单位w/((m*k)
-            double q_u, q_s, q_l;                                                                                     //定义“流量计”“试件”热流密度
-            double Thickness_s = 0.000001 * double.Parse(FilmThickness1.Text);       //定义热界面材料厚度，单位um，转换为m
-            T_u1 = 80; T_u2 = 70; T_u3 = 60; T_u4 = 50;
-            T_l1 = 30; T_l2 = 20; T_l3 = 10; T_l4 = 0;
+
+            double T_u1, T_u2, T_u3, T_u4, T_l1, T_l2, T_l3, T_l4; //定义热电偶温度
+            double k1 = double.Parse(K1TextBox3_1.Text);
+            double k2 = double.Parse(K2TextBox3_1.Text); //定义“流量计”热导率，单位w/((m*k)
+            double q_u, q_s, q_l; //定义“流量计”“试件”热流密度
+            double Thickness_s = 0.000001 * double.Parse(FilmThickness1.Text); //定义热界面材料厚度，单位um，转换为m
+            T_u1 = 80;
+            T_u2 = 70;
+            T_u3 = 60;
+            T_u4 = 50;
+            T_l1 = 30;
+            T_l2 = 20;
+            T_l3 = 10;
+            T_l4 = 0;
 
             //以下代码为读取热电偶位置值，单位mm，转换为m
             double L_u1 = 0.001 * double.Parse(LengthTextBox3_1.Text);
@@ -773,42 +685,35 @@ namespace multimeter
             double L_l4 = 0.001 * double.Parse(LengthTextBox3_8.Text);
 
             //以下代码计算“上流量计”热流密度q_u ，“热界面材料”上部接触温度为contactT_u，热导率为 k1 ,温度为T_u1, T_u2, T_u3, T_u4 ，热电偶位置为L_u1，L_u2，L_u3，L_u4 ,线性拟合方程为Y_u = b_u * X_u + a_u
-            double[] x_u = new double[4] { 0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3 };
-            double[] y_u = new double[4] { T_u1, T_u2, T_u3, T_u4 };
+            double[] x_u = new double[4] {0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3};
+            double[] y_u = new double[4] {T_u1, T_u2, T_u3, T_u4};
             double a_u, b_u, maxErr_u, contactT_u;
-            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0)
-            {
+            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
-                q_u = k1 * Math.Abs(b_u);
-                contactT_u = b_u * (L_u1 + L_u2 + L_u3 + L_u4) + a_u;
 
-            }
+            //MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
+            q_u = k1 * Math.Abs(b_u);
+            contactT_u = b_u * (L_u1 + L_u2 + L_u3 + L_u4) + a_u;
 
             //以下代码计算“下流量计”热流密度q_l ，“热界面材料”下部接触温度为contactT_l，热导率为 k2 ,温度为T_l1, T_l2, T_l3, T_l4 ，热电偶位置为L_l1，L_l2，L_l3，L_l4 ,线性拟合方程为Y_l = b_l * X_l + a_l
-            double[] x_l = new double[4] { L_l1, L_l1 + L_l2, L_l1 + L_l2 + L_l3, L_l1 + L_l2 + L_l3 + L_l4 };
-            double[] y_l = new double[4] { T_l1, T_l2, T_l3, T_l4 };
+            double[] x_l = new double[4] {L_l1, L_l1 + L_l2, L_l1 + L_l2 + L_l3, L_l1 + L_l2 + L_l3 + L_l4};
+            double[] y_l = new double[4] {T_l1, T_l2, T_l3, T_l4};
             double a_l, b_l, maxErr_l, contactT_l;
-            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0)
-            {
+            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
-                q_l = k2 * Math.Abs(b_l);
-                contactT_l = a_l;
-            }
+
+            //MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
+            q_l = k2 * Math.Abs(b_l);
+            contactT_l = a_l;
 
             //以下代码计算“热界面材料”热阻contactR和导热系数 k_s ,其中热流密度q_s
             q_s = (q_u + q_l) * 0.5;
             double contactR = Math.Abs(contactT_u - contactT_l) / q_s;
-            double k_s = (Thickness_s * q_s) / Math.Abs(contactT_u - contactT_l);
+            double k_s = Thickness_s * q_s / Math.Abs(contactT_u - contactT_l);
             //MessageBox.Show("接触热阻=" + contactR.ToString() + "(m^2)K/W  \n" + "导热系数=" + k_s.ToString() + "W/(m*K)");
 
             //以下代码为更新监视温度  T_u1, T_u2, T_u3, T_u4, T_l1, T_l2, T_l3, T_l4
@@ -821,32 +726,46 @@ namespace multimeter
             T_TextBox3_7.Text = T_l3.ToString();
             T_TextBox3_8.Text = T_l4.ToString();
 
-            double[] Tchart_x = new double[8] { 0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3, 
-                                               L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1,
-                                               L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1 + L_l2, 
-                                               L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1 + L_l2 + L_l3, 
-                                               L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1 + L_l2 + L_l3 + L_l4 };
+            double[] Tchart_x = new double[8] {
+                0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3,
+                L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1,
+                L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1 + L_l2,
+                L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1 + L_l2 + L_l3,
+                L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s + L_l1 + L_l2 + L_l3 + L_l4
+            };
 
-            double[] Tchart_y = new double[8] { T_u1, T_u2, T_u3, T_u4, T_l1, T_l2, T_l3, T_l4 };
+            double[] Tchart_y = new double[8] {T_u1, T_u2, T_u3, T_u4, T_l1, T_l2, T_l3, T_l4};
             Test1ViewPoint(Tchart_x, Tchart_y, 8); //绘制温度点
 
             Test1ViewLine(0, L_u1 + L_u2 + L_u3 + L_u4, a_u, b_u,
-                                  L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s, Tchart_x[7], a_l, b_l); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+                L_u1 + L_u2 + L_u3 + L_u4 + Thickness_s, Tchart_x[7], a_l, b_l); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
 
             #endregion
         }
-        public void Test4Run()
-        {
+
+        public void Test4Run() {
             #region //热界面材料测量_试件间
-            double T_u1, T_u2, T_u3, T_u4, T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3, T_l1, T_l2, T_l3, T_l4;                                  //定义热电偶温度
-            double k1 = double.Parse(K1TextBox4_1.Text); double k2 = double.Parse(K4TextBox4_4.Text);     //定义“流量计”热导率，单位w/((m*k)
-            double ks1 ,ks2 ;                                                                            //定义“试件”热导率，单位w/((m*k)
-            double q_u, q_s, q_l;                                                                                     //定义“流量计”“试件”热流密度
-            double Thickness_s = 0.000001 * double.Parse(FilmThickness2.Text);       //定义热界面材料厚度，单位um，转换为m
-            T_u1 = 80; T_u2 = 70; T_u3 = 60; T_u4 = 50;
-            T_l1 = 30; T_l2 = 20; T_l3 = 10; T_l4 = 0;
-            T_su1 = 45; T_su2 = 44; T_su3 = 43;
-            T_sl1 = 38; T_sl2 = 37; T_sl3 = 35;
+
+            double T_u1, T_u2, T_u3, T_u4, T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3, T_l1, T_l2, T_l3, T_l4; //定义热电偶温度
+            double k1 = double.Parse(K1TextBox4_1.Text);
+            double k2 = double.Parse(K4TextBox4_4.Text); //定义“流量计”热导率，单位w/((m*k)
+            double ks1, ks2; //定义“试件”热导率，单位w/((m*k)
+            double q_u, q_s, q_l; //定义“流量计”“试件”热流密度
+            double Thickness_s = 0.000001 * double.Parse(FilmThickness2.Text); //定义热界面材料厚度，单位um，转换为m
+            T_u1 = 80;
+            T_u2 = 70;
+            T_u3 = 60;
+            T_u4 = 50;
+            T_l1 = 30;
+            T_l2 = 20;
+            T_l3 = 10;
+            T_l4 = 0;
+            T_su1 = 45;
+            T_su2 = 44;
+            T_su3 = 43;
+            T_sl1 = 38;
+            T_sl2 = 37;
+            T_sl3 = 35;
 
             //以下代码为读取热电偶位置值，单位mm，转换为m
             double L_u1 = 0.001 * double.Parse(LengthTextBox4_1.Text);
@@ -865,74 +784,61 @@ namespace multimeter
             double L_l4 = 0.001 * double.Parse(LengthTextBox4_14.Text);
 
             //以下代码计算“上流量计”热流密度q_u ，热导率为 k1 ,温度为T_u1, T_u2, T_u3, T_u4 ，热电偶位置为L_u1，L_u2，L_u3，L_u4 ,线性拟合方程为Y_u = b_u * X_u + a_u
-            double[] x_u = new double[4] { 0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3 };
-            double[] y_u = new double[4] { T_u1, T_u2, T_u3, T_u4 };
+            double[] x_u = new double[4] {0, L_u1, L_u1 + L_u2, L_u1 + L_u2 + L_u3};
+            double[] y_u = new double[4] {T_u1, T_u2, T_u3, T_u4};
             double a_u, b_u, maxErr_u;
-            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0)
-            {
+            if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
-                q_u = k1 * Math.Abs(b_u);
 
-            }
+            //MessageBox.Show("Y_u = " + b_u.ToString() + " X_u +" + a_u.ToString() + "   maxErr_u=" + maxErr_u.ToString());
+            q_u = k1 * Math.Abs(b_u);
 
             //以下代码计算“下流量计”热流密度q_l ，热导率为 k2 ,温度为T_l1, T_l2, T_l3, T_l4 ，热电偶位置为L_l1，L_l2，L_l3，L_l4 ,线性拟合方程为Y_l = b_l * X_l + a_l
-            double[] x_l = new double[4] { 0, L_l2, L_l2 + L_l3, L_l2 + L_l3 + L_l4 };
-            double[] y_l = new double[4] { T_l1, T_l2, T_l3, T_l4 };
+            double[] x_l = new double[4] {0, L_l2, L_l2 + L_l3, L_l2 + L_l3 + L_l4};
+            double[] y_l = new double[4] {T_l1, T_l2, T_l3, T_l4};
             double a_l, b_l, maxErr_l;
-            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0)
-            {
+            if (CalcRegress(x_l, y_l, 4, out a_l, out b_l, out maxErr_l) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
-                q_l = k2 * Math.Abs(b_l);
-            }
+
+            //MessageBox.Show("Y_l = " + b_l.ToString() + " X_l +" + a_l.ToString() + "   maxErr_l=" + maxErr_l.ToString());
+            q_l = k2 * Math.Abs(b_l);
 
             //以下代码计算“试件1”接触面温度contactT_u，导热系数 ks1 ,其中热流密度q_s ，温度为T_su1, T_su2, T_su3 ，热电偶位置为L_su1，L_su2，L_su3 ,线性拟合方程为Y_su = b_su * X_su + a_su
             q_s = (q_u + q_l) * 0.5;
-            double[] x_su = new double[3] { 0, L_su1, L_su1 + L_su2 };
-            double[] y_su = new double[3] { T_su1, T_su2, T_su3 };
+            double[] x_su = new double[3] {0, L_su1, L_su1 + L_su2};
+            double[] y_su = new double[3] {T_su1, T_su2, T_su3};
             double a_su, b_su, maxErr_su, contactT_u;
-            if (CalcRegress(x_su, y_su, 3, out a_su, out b_su, out maxErr_su) != 0)
-            {
+            if (CalcRegress(x_su, y_su, 3, out a_su, out b_su, out maxErr_su) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_su = " + b_su.ToString() + " X_su +" + a_su.ToString() + "   maxErr_su=" + maxErr_su.ToString());
-                contactT_u = b_su * (L_su1 + L_su2 + L_su3) + a_su;
-                ks1 = q_s / Math.Abs(b_su);                                  //计算“试件1”热导率，单位w/((m*k)
-                Ks1TextBox4_2.Text = ks1.ToString();
-            }
+
+            //MessageBox.Show("Y_su = " + b_su.ToString() + " X_su +" + a_su.ToString() + "   maxErr_su=" + maxErr_su.ToString());
+            contactT_u = b_su * (L_su1 + L_su2 + L_su3) + a_su;
+            ks1 = q_s / Math.Abs(b_su); //计算“试件1”热导率，单位w/((m*k)
+            Ks1TextBox4_2.Text = ks1.ToString();
 
             //以下代码计算“试件2”接触面温度contactT_l，导热系数 ks2 ,其中热流密度q_s ，温度为T_sl1, T_sl2, T_sl3 ，热电偶位置为L_sl1，L_sl2，L_sl3 ,线性拟合方程为Y_sl = b_sl * X_sl + a_sl
-            double[] x_sl = new double[3] { L_sl1, L_sl1 + L_sl2, L_sl1 + L_sl2 + L_sl3 };
-            double[] y_sl = new double[3] { T_sl1, T_sl2, T_sl3 };
+            double[] x_sl = new double[3] {L_sl1, L_sl1 + L_sl2, L_sl1 + L_sl2 + L_sl3};
+            double[] y_sl = new double[3] {T_sl1, T_sl2, T_sl3};
             double a_sl, b_sl, maxErr_sl, contactT_l;
-            if (CalcRegress(x_sl, y_sl, 3, out a_sl, out b_sl, out maxErr_sl) != 0)
-            {
+            if (CalcRegress(x_sl, y_sl, 3, out a_sl, out b_sl, out maxErr_sl) != 0) {
                 MessageBox.Show("计算出错！");
                 return;
             }
-            else
-            {
-                //MessageBox.Show("Y_sl = " + b_sl.ToString() + " X_sl +" + a_sl.ToString() + "   maxErr_sl=" + maxErr_sl.ToString());
-                contactT_l = a_sl;
-                ks2 = q_s / Math.Abs(b_sl);                                  //计算“试件2”热导率，单位w/((m*k)
-                Ks2TextBox4_3.Text = ks2.ToString();      
-            }
+
+            //MessageBox.Show("Y_sl = " + b_sl.ToString() + " X_sl +" + a_sl.ToString() + "   maxErr_sl=" + maxErr_sl.ToString());
+            contactT_l = a_sl;
+            ks2 = q_s / Math.Abs(b_sl); //计算“试件2”热导率，单位w/((m*k)
+            Ks2TextBox4_3.Text = ks2.ToString();
 
             //以下代码计算“热界面材料_试件间”热阻contactR和导热系数 k_s ,其中热流密度q_s 
-            double contactR = Math.Abs(contactT_u - contactT_l) / q_s;                                                   //计算试件1、2的接触热阻，单位(m^2*K)/W 
-            double k_s = (Thickness_s * q_s) / (Math.Abs(contactT_u - contactT_l));                     //计算热界面材料导热系数，单位W/(m*K)
+            double contactR = Math.Abs(contactT_u - contactT_l) / q_s; //计算试件1、2的接触热阻，单位(m^2*K)/W 
+            double k_s = Thickness_s * q_s / Math.Abs(contactT_u - contactT_l); //计算热界面材料导热系数，单位W/(m*K)
             //MessageBox.Show("接触热阻=" + contactR.ToString() + "(m^2*K)/W  \n" + "导热系数=" + k_s.ToString() + "W/(m*K)");
 
             //以下代码为更新监视温度 T_u1, T_u2, T_u3, T_u4, T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3, T_l1, T_l2, T_l3, T_l4
@@ -951,36 +857,40 @@ namespace multimeter
             T_TextBox4_13.Text = T_l3.ToString();
             T_TextBox4_14.Text = T_l4.ToString();
 
-            double[] Tchart_x = new double[6] { 0, L_su1, L_su1 + L_su2, 
-                                                L_su1 + L_su2 + L_su3 + Thickness_s + L_sl1,
-                                                L_su1 + L_su2 + L_su3 + Thickness_s + L_sl1 + L_sl2, 
-                                                L_su1 + L_su2 + L_su3 + Thickness_s + L_sl1 + L_sl2 + L_sl3 };
+            double[] Tchart_x = new double[6] {
+                0, L_su1, L_su1 + L_su2,
+                L_su1 + L_su2 + L_su3 + Thickness_s + L_sl1,
+                L_su1 + L_su2 + L_su3 + Thickness_s + L_sl1 + L_sl2,
+                L_su1 + L_su2 + L_su3 + Thickness_s + L_sl1 + L_sl2 + L_sl3
+            };
 
-            double[] Tchart_y = new double[6] { T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3 };
+            double[] Tchart_y = new double[6] {T_su1, T_su2, T_su3, T_sl1, T_sl2, T_sl3};
             Test1ViewPoint(Tchart_x, Tchart_y, 6); //绘制温度点
 
             Test1ViewLine(0, L_su1 + L_su2 + L_su3, a_su, b_su,
-                          L_su1 + L_su2 + L_su3 + Thickness_s, Tchart_x[5], a_sl, b_sl); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+                L_su1 + L_su2 + L_su3 + Thickness_s, Tchart_x[5], a_sl, b_sl); //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+
             #endregion
         }
-        private int CalcRegress(double[] x, double[] y, int dataCnt, out double a, out double b, out double maxErr) //最小二乘法线性回归
+
+        private int CalcRegress(double[] x, double[] y, int dataCnt, out double a, out double b,
+            out double maxErr) //最小二乘法线性回归
         {
             #region //拟合函数
+
             double sumX = 0;
             double sum_y = 0;
             double avgX;
             double avg_y;
 
-            if (dataCnt < 2)
-            {
+            if (dataCnt < 2) {
                 a = 0;
                 b = 0;
                 maxErr = 0;
                 return -1;
             }
 
-            for (int i = 0; i < dataCnt; i++)
-            {
+            for (int i = 0; i < dataCnt; i++) {
                 sumX += x[i];
                 sum_y += y[i];
             }
@@ -991,33 +901,29 @@ namespace multimeter
             double SPxy = 0;
             double SSx = 0;
 
-            for (int i = 0; i < dataCnt; i++)
-            {
+            for (int i = 0; i < dataCnt; i++) {
                 SPxy += (x[i] - avgX) * (y[i] - avg_y);
                 SSx += (x[i] - avgX) * (x[i] - avgX);
             }
 
-            if (SSx == 0)
-            {
+            if (SSx == 0) {
                 a = 0;
                 b = 0;
                 maxErr = 0;
                 return -1;
             }
+
             b = SPxy / SSx;
             a = avg_y - b * avgX;
             //下面代码计算最大偏差            
             maxErr = 0;
-            for (int i = 0; i < dataCnt; i++)
-            {
+            for (int i = 0; i < dataCnt; i++) {
                 double yi = a + b * x[i];
                 double absErrYi = Math.Abs(yi - y[i]);
 
-                if (absErrYi > maxErr)
-                {
-                    maxErr = absErrYi;
-                }
+                if (absErrYi > maxErr) maxErr = absErrYi;
             }
+
             return 0;
 
             /*拟合函数测试
@@ -1035,135 +941,147 @@ namespace multimeter
                   MessageBox.Show("y=" + b1.ToString() + "x+" + a1.ToString() + "   maxErr=" + maxErr.ToString());
               }
               */
+
             #endregion
         }
 
         private int Test1ViewPoint(double[] x, double[] y, int dataCnt) //绘制温度离散点
         {
-            #region  //绘制温度离散点
+            #region //绘制温度离散点
+
             Series T_point = chart1.Series[0];
-            T_point.Points.Clear();  
-            for (int i = 0; i < dataCnt; i++)
-            {
-                T_point.Points.AddXY(x[i], y[i]);
-            }
+            T_point.Points.Clear();
+            for (int i = 0; i < dataCnt; i++) T_point.Points.AddXY(x[i], y[i]);
             return 0;
+
             #endregion
         }
 
         private int Test1ViewLine(double x1_1, double x1_2, double a1, double b1,
-                                  double x2_1, double x2_2, double a2, double b2) //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+            double x2_1, double x2_2, double a2, double b2) //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
         {
-            #region  //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+            #region //绘制拟合曲线  Y_sl = b_sl * X_sl + a_sl
+
             Series T_fittingLine = chart1.Series[1];
             T_fittingLine.Points.Clear();
-            for (double i = x1_1 - 0.01; i < x1_2; )
-            {
-                T_fittingLine.Points.AddXY(i, (b1 * i + a1));
+            for (double i = x1_1 - 0.01; i < x1_2;) {
+                T_fittingLine.Points.AddXY(i, b1 * i + a1);
                 i += 0.002;
             }
-            T_fittingLine.Points.AddXY(x1_2, (b1 * x1_2 + a1));
-            for (double i = x2_1; i < x2_2 + 0.01; )
-            {
-                T_fittingLine.Points.AddXY(i, (b2 * (i - x2_1) + a2));
+
+            T_fittingLine.Points.AddXY(x1_2, b1 * x1_2 + a1);
+            for (double i = x2_1; i < x2_2 + 0.01;) {
+                T_fittingLine.Points.AddXY(i, b2 * (i - x2_1) + a2);
                 i += 0.002;
             }
 
             // chart1.ChartAreas[0].AxisX.Maximum = x2_2 + 0.02;
             //chart1.ChartAreas[0].AxisX.Interval = (x2_2 + 0.02)/10;
             return 0;
+
             #endregion
         }
 
-        private void DelayTimer_Tick(object sender, EventArgs e)   //定时器倒计时
+        private void DelayTimer_Tick(object sender, EventArgs e) //定时器倒计时
         {
-            #region  //时钟倒计时
-            FileGroupBox.Size = new Size(0, 0);   //隐藏“文件”按钮子目录
+            #region //时钟倒计时
+
+            FileGroupBox.Size = new Size(0, 0); //隐藏“文件”按钮子目录
             DelayTimer.Enabled = false;
+
             #endregion
         }
 
-        private double StableTemp(double [] temp, double stableDif, double stableTemp)  //判断温度是否稳定，并求出稳定温度 
+        private double StableTemp(double[] temp, double stableDif, double stableTemp) //判断温度是否稳定，并求出稳定温度 
         {
-            #region  //判断温度是否稳定，并求出稳定温度
+            #region //判断温度是否稳定，并求出稳定温度
+
             if (Math.Abs(temp.Max() - temp.Min()) < stableDif)
                 stableTemp = temp.Average();
-            else 
+            else
                 return -1;
             return stableTemp;
+
             #endregion
         }
 
-        private int FactorStandView(int chn ,double[] k1, double[] k2)    //显示factordataGridView数据
+        private int FactorStandView(int chn, double[] k1, double[] k2) //显示factordataGridView数据
         {
-            #region  //显示factordataGridView数据
+            #region //显示factordataGridView数据
+
             factordataGridView.Rows.Clear();
-            for (int i = 0; i < chn; i++)  
-            { 
-                factordataGridView.Rows.Add(i.ToString(), k1[i].ToString(), k2[i].ToString());
-            }
+            for (int i = 0; i < chn; i++) factordataGridView.Rows.Add(i.ToString(), k1[i].ToString(), k2[i].ToString());
             return 0;
+
             #endregion
         }
-        private int FactorStandUpdate(int chn, double[] k1, double[] k2)  //更新factordataGridView数据
+
+        private int FactorStandUpdate(int chn, double[] k1, double[] k2) //更新factordataGridView数据
         {
-            #region  //更新factordataGridView数据
-            for (int i = 0; i < chn; i++)   
-            {
+            #region //更新factordataGridView数据
+
+            for (int i = 0; i < chn; i++) {
                 k1[chn] = double.Parse(factordataGridView.Rows[chn].Cells[1].ToolTipText);
                 k2[chn] = double.Parse(factordataGridView.Rows[chn].Cells[2].ToolTipText);
             }
+
             return 0;
+
             #endregion
         }
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            #region  //选择测试方法1
+        private void button1_Click(object sender, EventArgs e) {
+            #region //选择测试方法1
+
             TestChoose1.ForeColor = Color.LightSkyBlue;
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.White;
             TestChoose = "Test1";
-            #endregion
 
+            #endregion
         }
-        private void TestChoose2_Click(object sender, EventArgs e)
-        {
-            #region  //选择测试方法2
+
+        private void TestChoose2_Click(object sender, EventArgs e) {
+            #region //选择测试方法2
+
             TestChoose1.ForeColor = Color.White;
             TestChoose2.ForeColor = Color.LightSkyBlue;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.White;
             TestChoose = "Test2";
+
             #endregion
         }
 
-        private void TestChoose3_Click(object sender, EventArgs e)
-        {
-            #region  //选择测试方法3
+        private void TestChoose3_Click(object sender, EventArgs e) {
+            #region //选择测试方法3
+
             TestChoose1.ForeColor = Color.White;
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.LightSkyBlue;
             TestChoose4.ForeColor = Color.White;
             TestChoose = "Test3";
+
             #endregion
         }
 
-        private void TestChoose4_Click(object sender, EventArgs e)
-        {
-            #region  //选择测试方法4
+        private void TestChoose4_Click(object sender, EventArgs e) {
+            #region //选择测试方法4
+
             TestChoose1.ForeColor = Color.White;
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.LightSkyBlue;
             TestChoose = "Test4";
+
             #endregion
         }
-        private void SerialPort_Click(object sender, EventArgs e)
-        {
+
+        private void SerialPort_Click(object sender, EventArgs e) {
             #region //串口设置
+
             NoneGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
@@ -1174,182 +1092,180 @@ namespace multimeter
             ViewGroupBox3.Size = new Size(0, 0);
             ViewGroupBox4.Size = new Size(0, 0);
             ResultGroupBox.Size = new Size(0, 0);
-            skinGroupBox1.Size = new Size(263, 218);  //普通模式下窗口尺寸
+            skinGroupBox1.Size = new Size(263, 218); //普通模式下窗口尺寸
             skinGroupBox2.Size = new Size(911, 966);
+
             #endregion
         }
-        private void ParSetting_Click(object sender, EventArgs e)
-        {
-            #region   //参数设置窗口打开
-            
+
+        private void ParSetting_Click(object sender, EventArgs e) {
+            #region //参数设置窗口打开
+
             string force;
-            switch (TestChoose)
-            {
-                
-                case "Test1":
-                    {
-                        //显示对应设置窗口TEST1
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(1531, 966);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        chart1.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                        string filePath = SlnIni.CreateDefaultKappaIni();
-                        Sample sample1 = new Sample("Sample1");
-                        SlnIni.LoadKappaInfo(ref sample1,out force,filePath);
-                        ForceTextBox1.Text = force;
-                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>() 
-                            {LengthTextBox1_1,LengthTextBox1_2,LengthTextBox1_3,LengthTextBox1_4 };
-                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>() 
-                            {LengthTextBox1_8,LengthTextBox1_9,LengthTextBox1_10,LengthTextBox1_11};
-                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
-                            {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4};
-                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
-                            {ChannelTextBox1_8, ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11};
-                        HeatMeterToBox(heatMeter1,heatMeterPositionBoxes1,heatMeterChannelBoxes1,K1TextBox1_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox1_2);
+            switch (TestChoose) {
+                case "Test1": {
+                    //显示对应设置窗口TEST1
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(1531, 966);
+                    TextGroupbox2.Size = new Size(0, 0);
+                    TextGroupbox3.Size = new Size(0, 0);
+                    TextGroupbox4.Size = new Size(0, 0);
+                    ViewGroupBox1.Size = new Size(0, 0);
+                    ViewGroupBox2.Size = new Size(0, 0);
+                    ViewGroupBox3.Size = new Size(0, 0);
+                    ViewGroupBox4.Size = new Size(0, 0);
+                    chart1.Size = new Size(0, 0);
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                    string filePath = SlnIni.CreateDefaultKappaIni();
+                    Sample sample1 = new Sample("Sample1");
+                    SlnIni.LoadKappaInfo(ref sample1, out force, filePath);
+                    ForceTextBox1.Text = force;
+                    List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
+                        {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
+                    List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>
+                        {LengthTextBox1_8, LengthTextBox1_9, LengthTextBox1_10, LengthTextBox1_11};
+                    List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>
+                        {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4};
+                    List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
+                        {ChannelTextBox1_8, ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11};
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox1_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox1_2);
 
-                        List<TextBox> samplePositionBoxes = new List<TextBox>()
-                            {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
-                        List<TextBox> sampleChannelBoxes = new List<TextBox>() {
-                            ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7};
-                        SampleToBox(sample1,samplePositionBoxes,sampleChannelBoxes);
-                    }
+                    List<TextBox> samplePositionBoxes = new List<TextBox>
+                        {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
+                    List<TextBox> sampleChannelBoxes = new List<TextBox> {
+                        ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7
+                    };
+                    SampleToBox(sample1, samplePositionBoxes, sampleChannelBoxes);
+                }
                     break;
-                case "Test2":
-                    {
-                        //显示对应设置窗口TEST2
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(1531, 966);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        chart1.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                        string filePath = SlnIni.CreateDefaultItcIni();
-                        Sample sample1 = new Sample("Sample1");
-                        Sample sample2 = new Sample("Sample2");
-                        SlnIni.LoadItcInfo(ref sample1,ref sample2,out force,filePath);
-                        ForceTextBox2.Text = force;
-                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
-                            {LengthTextBox2_1,LengthTextBox2_2,LengthTextBox2_3,LengthTextBox2_4 };
-                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
-                            {LengthTextBox2_11,LengthTextBox2_12,LengthTextBox2_13,LengthTextBox2_14};
-                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
-                            {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4};
-                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
-                            {ChannelTextBox2_11, ChannelTextBox2_12, ChannelTextBox2_13, ChannelTextBox2_14};
-                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox2_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox2_2);
-                        List<TextBox> samplePositionBoxes1 = new List<TextBox>()
-                            {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
-                        List<TextBox> sampleChannelBoxes1 = new List<TextBox>() {
-                            ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7};
-                        SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
-                        List<TextBox> samplePositionBoxes2 = new List<TextBox>()
-                            {LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10};
-                        List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
-                            ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10};
-                        SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
-                    }
+                case "Test2": {
+                    //显示对应设置窗口TEST2
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(0, 0);
+                    TextGroupbox2.Size = new Size(1531, 966);
+                    TextGroupbox3.Size = new Size(0, 0);
+                    TextGroupbox4.Size = new Size(0, 0);
+                    ViewGroupBox1.Size = new Size(0, 0);
+                    ViewGroupBox2.Size = new Size(0, 0);
+                    ViewGroupBox3.Size = new Size(0, 0);
+                    ViewGroupBox4.Size = new Size(0, 0);
+                    chart1.Size = new Size(0, 0);
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                    string filePath = SlnIni.CreateDefaultItcIni();
+                    Sample sample1 = new Sample("Sample1");
+                    Sample sample2 = new Sample("Sample2");
+                    SlnIni.LoadItcInfo(ref sample1, ref sample2, out force, filePath);
+                    ForceTextBox2.Text = force;
+                    List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
+                        {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
+                    List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>
+                        {LengthTextBox2_11, LengthTextBox2_12, LengthTextBox2_13, LengthTextBox2_14};
+                    List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>
+                        {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4};
+                    List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
+                        {ChannelTextBox2_11, ChannelTextBox2_12, ChannelTextBox2_13, ChannelTextBox2_14};
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox2_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox2_2);
+                    List<TextBox> samplePositionBoxes1 = new List<TextBox>
+                        {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
+                    List<TextBox> sampleChannelBoxes1 = new List<TextBox> {
+                        ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7
+                    };
+                    SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
+                    List<TextBox> samplePositionBoxes2 = new List<TextBox>
+                        {LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10};
+                    List<TextBox> sampleChannelBoxes2 = new List<TextBox> {
+                        ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10
+                    };
+                    SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
+                }
                     break;
-                case "Test3":
-                    {
-                        //显示对应设置窗口TEST3
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(1531, 966);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        chart1.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                        string filePath = SlnIni.CreateDefaultItmIni();
-                        SlnIni.LoadItmInfo(out force,out string thickness,filePath);
-                        ForceTextBox3.Text = force;
-                        FilmThickness1.Text = thickness;
-                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
-                            {LengthTextBox3_1,LengthTextBox3_2,LengthTextBox3_3,LengthTextBox3_4 };
-                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
-                            {LengthTextBox3_5,LengthTextBox3_6,LengthTextBox3_7,LengthTextBox3_8};
-                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
-                            {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4};
-                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
-                            {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
-                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox3_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_1);
-                    }
+                case "Test3": {
+                    //显示对应设置窗口TEST3
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(0, 0);
+                    TextGroupbox2.Size = new Size(0, 0);
+                    TextGroupbox3.Size = new Size(1531, 966);
+                    TextGroupbox4.Size = new Size(0, 0);
+                    ViewGroupBox1.Size = new Size(0, 0);
+                    ViewGroupBox2.Size = new Size(0, 0);
+                    ViewGroupBox3.Size = new Size(0, 0);
+                    ViewGroupBox4.Size = new Size(0, 0);
+                    chart1.Size = new Size(0, 0);
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                    string filePath = SlnIni.CreateDefaultItmIni();
+                    SlnIni.LoadItmInfo(out force, out string thickness, filePath);
+                    ForceTextBox3.Text = force;
+                    FilmThickness1.Text = thickness;
+                    List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
+                        {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3, LengthTextBox3_4};
+                    List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>
+                        {LengthTextBox3_5, LengthTextBox3_6, LengthTextBox3_7, LengthTextBox3_8};
+                    List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>
+                        {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4};
+                    List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
+                        {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox3_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_1);
+                }
                     break;
-                case "Test4":
-                    {
-                        //显示对应设置窗口TEST4
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(1531, 966);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        chart1.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                        string filePath = SlnIni.CreateDefaultItmsIni();
-                        Sample sample1 = new Sample("Sample1");
-                        Sample sample2 = new Sample("Sample2");
-                        SlnIni.LoadItmsInfo(ref sample1, ref sample2, out force, out string thickness,
-                            filePath);
-                        ForceTextBox4.Text = force;
-                        FilmThickness2.Text = thickness;
-                        List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
-                            {LengthTextBox4_1,LengthTextBox4_2,LengthTextBox4_3,LengthTextBox4_4 };
-                        List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
-                            {LengthTextBox4_11,LengthTextBox4_12,LengthTextBox4_13,LengthTextBox4_14};
-                        List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
-                            {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4};
-                        List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>()
-                            {ChannelTextBox4_11, ChannelTextBox4_12, ChannelTextBox4_13, ChannelTextBox4_14};
-                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox4_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_4);
-                        List<TextBox> samplePositionBoxes1 = new List<TextBox>()
-                            {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};
-                        List<TextBox> sampleChannelBoxes1 = new List<TextBox>() {
-                            ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7};
-                        SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
-                        List<TextBox> samplePositionBoxes2 = new List<TextBox>()
-                            {LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10};
-                        List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
-                            ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10};
-                        SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
-                    }
+                case "Test4": {
+                    //显示对应设置窗口TEST4
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(0, 0);
+                    TextGroupbox2.Size = new Size(0, 0);
+                    TextGroupbox3.Size = new Size(0, 0);
+                    TextGroupbox4.Size = new Size(1531, 966);
+                    ViewGroupBox1.Size = new Size(0, 0);
+                    ViewGroupBox2.Size = new Size(0, 0);
+                    ViewGroupBox3.Size = new Size(0, 0);
+                    ViewGroupBox4.Size = new Size(0, 0);
+                    chart1.Size = new Size(0, 0);
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                    string filePath = SlnIni.CreateDefaultItmsIni();
+                    Sample sample1 = new Sample("Sample1");
+                    Sample sample2 = new Sample("Sample2");
+                    SlnIni.LoadItmsInfo(ref sample1, ref sample2, out force, out string thickness,
+                        filePath);
+                    ForceTextBox4.Text = force;
+                    FilmThickness2.Text = thickness;
+                    List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
+                        {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3, LengthTextBox4_4};
+                    List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>
+                        {LengthTextBox4_11, LengthTextBox4_12, LengthTextBox4_13, LengthTextBox4_14};
+                    List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>
+                        {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4};
+                    List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
+                        {ChannelTextBox4_11, ChannelTextBox4_12, ChannelTextBox4_13, ChannelTextBox4_14};
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox4_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_4);
+                    List<TextBox> samplePositionBoxes1 = new List<TextBox>
+                        {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};
+                    List<TextBox> sampleChannelBoxes1 = new List<TextBox> {
+                        ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7
+                    };
+                    SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
+                    List<TextBox> samplePositionBoxes2 = new List<TextBox>
+                        {LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10};
+                    List<TextBox> sampleChannelBoxes2 = new List<TextBox> {
+                        ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10
+                    };
+                    SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
+                }
                     break;
-                default:
-                    break;
-
             }
+
             #endregion
         }
 
-        private void TestRun_Click(object sender, EventArgs e)
-        {
+        private void TestRun_Click(object sender, EventArgs e) {
             #region //测试运行
+
             //以下代码为在测试运行时，一部分按键失效
             TestChoose1.Enabled = false;
             TestChoose2.Enabled = false;
@@ -1364,37 +1280,12 @@ namespace multimeter
             TestResult.Enabled = false;
 
             btn_start();
-            //switch (TestChoose)
-            //{
-            //    case "Test1":
-            //        {
-            //            Test1Run();
-            //        }
-            //        break;
-            //    case "Test2":
-            //        {
-            //            Test2Run();
-            //        }
-            //        break;
-            //    case "Test3":
-            //        {
-            //            Test3Run();
-            //        }
-            //        break;
-            //    case "Test4":
-            //        {
-            //            Test4Run();
-            //        }
-            //        break;
-            //    default:
-            //        break;
-            //}
             #endregion
         }
 
-        private void TestStop_Click(object sender, EventArgs e)
-        {
+        private void TestStop_Click(object sender, EventArgs e) {
             #region //测试暂停
+
             //以下代码为在测试暂停时，一部分按键恢复
             TestChoose1.Enabled = true;
             TestChoose2.Enabled = true;
@@ -1407,14 +1298,15 @@ namespace multimeter
             Monitor.Enabled = false;
             Monitor.Enabled = false;
             TestResult.Enabled = true;
-            #endregion 
+
+            #endregion
+
             btn_stop();
         }
 
-        private void Monitor_Click(object sender, EventArgs e)
-        {
+        private void Monitor_Click(object sender, EventArgs e) {
+            #region //温度监视
 
-            #region  //温度监视
             NoneGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
@@ -1424,188 +1316,172 @@ namespace multimeter
             ViewGroupBox2.Size = new Size(0, 0);
             ViewGroupBox3.Size = new Size(0, 0);
             ViewGroupBox4.Size = new Size(0, 0);
-            chart1.Size = new Size(0, 0);  //将曲线表格放在隐藏
+            chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
             ResultGroupBox.Size = new Size(1531, 966);
+
             #endregion
         }
 
-        private void TestResult_Click(object sender, EventArgs e)
-        {
-            #region  //数据结果
-            chart1.BringToFront();            //将曲线表格放在最顶层
-            chart1.Size = new Size(806,439);
-            switch (TestChoose)
-            {
-                case "Test1":
-                    {
-                        //显示对应监视窗口TEST1
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(1531, 966);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        chart1.Size = new Size(0, 0);  //将曲线表格放在隐藏
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                    }
-                    break;
-                case "Test2":
-                    {
-                        //显示对应监视窗口TEST2
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(1531, 966);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                    }
-                    break;
-                case "Test3":
-                    {
-                        //显示对应监视窗口TEST3
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(1531, 966);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                    }
-                    break;
-                case "Test4":
-                    {
-                        //显示对应监视窗口TEST4
-                        NoneGroupBox.Size = new Size(0, 0);
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(1531, 966);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                    }
-                    break;
-                default:
-                    break;
+        private void TestResult_Click(object sender, EventArgs e) {
+            #region //数据结果
 
+            chart1.BringToFront(); //将曲线表格放在最顶层
+            chart1.Size = new Size(806, 439);
+            switch (TestChoose) {
+                case "Test1": {
+                    //显示对应监视窗口TEST1
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(0, 0);
+                    TextGroupbox2.Size = new Size(0, 0);
+                    TextGroupbox3.Size = new Size(0, 0);
+                    TextGroupbox4.Size = new Size(0, 0);
+                    ViewGroupBox1.Size = new Size(1531, 966);
+                    ViewGroupBox2.Size = new Size(0, 0);
+                    ViewGroupBox3.Size = new Size(0, 0);
+                    ViewGroupBox4.Size = new Size(0, 0);
+                    chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                }
+                    break;
+                case "Test2": {
+                    //显示对应监视窗口TEST2
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(0, 0);
+                    TextGroupbox2.Size = new Size(0, 0);
+                    TextGroupbox3.Size = new Size(0, 0);
+                    TextGroupbox4.Size = new Size(0, 0);
+                    ViewGroupBox1.Size = new Size(0, 0);
+                    ViewGroupBox2.Size = new Size(1531, 966);
+                    ViewGroupBox3.Size = new Size(0, 0);
+                    ViewGroupBox4.Size = new Size(0, 0);
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                }
+                    break;
+                case "Test3": {
+                    //显示对应监视窗口TEST3
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(0, 0);
+                    TextGroupbox2.Size = new Size(0, 0);
+                    TextGroupbox3.Size = new Size(0, 0);
+                    TextGroupbox4.Size = new Size(0, 0);
+                    ViewGroupBox1.Size = new Size(0, 0);
+                    ViewGroupBox2.Size = new Size(0, 0);
+                    ViewGroupBox3.Size = new Size(1531, 966);
+                    ViewGroupBox4.Size = new Size(0, 0);
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                }
+                    break;
+                case "Test4": {
+                    //显示对应监视窗口TEST4
+                    NoneGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(0, 0);
+                    TextGroupbox2.Size = new Size(0, 0);
+                    TextGroupbox3.Size = new Size(0, 0);
+                    TextGroupbox4.Size = new Size(0, 0);
+                    ViewGroupBox1.Size = new Size(0, 0);
+                    ViewGroupBox2.Size = new Size(0, 0);
+                    ViewGroupBox3.Size = new Size(0, 0);
+                    ViewGroupBox4.Size = new Size(1531, 966);
+                    ResultGroupBox.Size = new Size(0, 0);
+                    skinGroupBox2.Size = new Size(0, 0);
+                }
+                    break;
             }
+
             #endregion
         }
 
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
 
 
-        private void combox_comport_SelectedValueChanged(object sender, EventArgs e)
-        {
+        private void combox_comport_SelectedValueChanged(object sender, EventArgs e) {
             AppCfg.devicepara.SerialPort = combox_comport.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("Serial", "port", combox_comport.Text, filePath);
         }
 
-        private void combox_baudrate_SelectedValueChanged(object sender, EventArgs e)
-        {
+        private void combox_baudrate_SelectedValueChanged(object sender, EventArgs e) {
             AppCfg.devicepara.SerialBaudRate = combox_baudrate.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("Serial", "baudrate", combox_baudrate.Text, filePath);
         }
 
-        private void combox_databits_SelectedValueChanged(object sender, EventArgs e)
-        {
+        private void combox_databits_SelectedValueChanged(object sender, EventArgs e) {
             AppCfg.devicepara.SerialDataBits = combox_databits.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("Serial", "databits", combox_databits.Text, filePath);
         }
 
-        private void combox_stopbits_SelectedValueChanged(object sender, EventArgs e)
-        {
+        private void combox_stopbits_SelectedValueChanged(object sender, EventArgs e) {
             AppCfg.devicepara.SerialStopBits = combox_stopbits.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("Serial", "stopbites", combox_stopbits.Text, filePath);
         }
 
-        private void combox_parity_SelectedValueChanged(object sender, EventArgs e)
-        {
+        private void combox_parity_SelectedValueChanged(object sender, EventArgs e) {
             AppCfg.devicepara.SerialParity = combox_parity.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("Serial", "parity", combox_parity.Text, filePath);
         }
 
         private void edit_scan_interval_TextChanged(object sender, EventArgs e) {
-            if(edit_scan_interval.Text == "") return;
+            if (edit_scan_interval.Text == "") return;
             int scanInterval = CheckTextChange(edit_scan_interval.Text);
-            if (scanInterval == -1) {
-                MessageBox.Show(@"错误的采集频率", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            if (scanInterval == -1) MessageBox.Show(@"错误的采集频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             AppCfg.devicepara.Scan_interval = scanInterval;
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("SYS", "scan_interval", edit_scan_interval.Text, filePath);
         }
 
-        private void edit_save_interval_TextChanged(object sender, EventArgs e)
-        {
+        private void edit_save_interval_TextChanged(object sender, EventArgs e) {
             if (edit_save_interval.Text == "")
                 return;
             int saveInterval = CheckTextChange(edit_save_interval.Text);
-            if (saveInterval == -1) {
-                MessageBox.Show(@"错误的自动保存频率", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            if (saveInterval == -1) MessageBox.Show(@"错误的自动保存频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             AppCfg.devicepara.Save_interval = saveInterval;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             INIHelper.Write("SYS", "save_interval", edit_save_interval.Text, filePath);
         }
+
         //--------------------------------------------------------------------------------------------串口采集--------------------------------------------------------------------------------------------------
-        private void CreateDefaultIni()
-        {
+        private void CreateDefaultIni() {
             #region
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");//在当前程序路径创建
-            if (INIHelper.CheckPath(filePath))
-                return;
-            else
+
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
+            if (INIHelper.CheckPath(filePath)) return;
+
+            File.Create(filePath).Close();
+            INIHelper.Write("Serial", "port", "COM1", filePath);
+            INIHelper.Write("Serial", "baudrate", "9600", filePath);
+            INIHelper.Write("Serial", "databits", "8", filePath);
+            INIHelper.Write("Serial", "stopbites", "1", filePath);
+            INIHelper.Write("Serial", "parity", "None", filePath);
+            INIHelper.Write("Card1", "enable", "0", filePath);
+            INIHelper.Write("Card2", "enable", "0", filePath);
+            INIHelper.Write("SYS", "save_interval", "50", filePath);
+            INIHelper.Write("SYS", "scan_interval", "2000", filePath);
+
+            for (int i = 0; i < 22; i++) //每个7700卡22个通道
             {
-                File.Create(filePath).Close();
-                INIHelper.Write("Serial", "port", "COM1", filePath);
-                INIHelper.Write("Serial", "baudrate", "9600", filePath);
-                INIHelper.Write("Serial", "databits", "8", filePath);
-                INIHelper.Write("Serial", "stopbites", "1", filePath);
-                INIHelper.Write("Serial", "parity", "None", filePath);
-                INIHelper.Write("Card1", "enable", "0", filePath);
-                INIHelper.Write("Card2", "enable", "0", filePath);
-                INIHelper.Write("SYS", "save_interval", "50", filePath);
-                INIHelper.Write("SYS", "scan_interval", "2000", filePath);
-
-                for (int i = 0; i < 22; i++)          //每个7700卡22个通道
-                {
-                    INIHelper.Write((i + 101).ToString(), "name", "", filePath);
-                    INIHelper.Write((i + 101).ToString(), "func", "0", filePath);
-                }
-
-                for (int i = 0; i < 22; i++)
-                {
-                    INIHelper.Write((i + 201).ToString(), "name", "", filePath);
-                    INIHelper.Write((i + 201).ToString(), "func", "0", filePath);
-                }
+                INIHelper.Write((i + 101).ToString(), "name", "", filePath);
+                INIHelper.Write((i + 101).ToString(), "func", "0", filePath);
             }
+
+            for (int i = 0; i < 22; i++) {
+                INIHelper.Write((i + 201).ToString(), "name", "", filePath);
+                INIHelper.Write((i + 201).ToString(), "func", "0", filePath);
+            }
+
             #endregion
         }
-        private void ReadPara()
-        {
-            #region  //读取ini
+
+        private void ReadPara() {
+            #region //读取ini
+
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
             AppCfg.devicepara.SerialPort = INIHelper.Read("Serial", "port", "COM1", filePath);
             AppCfg.devicepara.SerialBaudRate = INIHelper.Read("Serial", "baudrate", "9600", filePath);
@@ -1613,16 +1489,13 @@ namespace multimeter
 
             AppCfg.devicepara.SerialStopBits = INIHelper.Read("Serial", "stopbites", "1", filePath);
             AppCfg.devicepara.SerialParity = INIHelper.Read("Serial", "parity", "none", filePath);
-            foreach (Card i in AppCfg.devicepara.Cardlist1)
-            {
+            foreach (Card i in AppCfg.devicepara.Cardlist1) {
                 i.name = INIHelper.Read(i.CHN, "name", "", filePath);
                 string func = INIHelper.Read(i.CHN, "func", "0", filePath);
                 i.func = int.Parse(func);
-
             }
 
-            foreach (Card i in AppCfg.devicepara.Cardlist2)
-            {
+            foreach (Card i in AppCfg.devicepara.Cardlist2) {
                 i.name = INIHelper.Read(i.CHN, "name", "", filePath);
                 string func = INIHelper.Read(i.CHN, "func", "0", filePath);
                 i.func = int.Parse(func);
@@ -1632,56 +1505,53 @@ namespace multimeter
             AppCfg.devicepara.Card2_enable = int.Parse(INIHelper.Read("Card2", "enable", "", filePath));
             AppCfg.devicepara.Scan_interval = int.Parse(INIHelper.Read("SYS", "scan_interval", "2000", filePath));
             AppCfg.devicepara.Save_interval = int.Parse(INIHelper.Read("SYS", "save_interval", "50", filePath));
+
             #endregion
         }
 
-        private void btn_start()
-        {
-            #region  //开始串口采集
+        private void btn_start() {
+            #region //开始串口采集
+
             //btn_stop.Enabled = true;
             //btn_start.Enabled = false;
             ReadPara();
-            try
-            {
-
+            try {
                 serialPort1.BaudRate = int.Parse(AppCfg.devicepara.SerialBaudRate);
                 serialPort1.PortName = AppCfg.devicepara.SerialPort;
-                switch (AppCfg.devicepara.SerialParity)
-                {
+                switch (AppCfg.devicepara.SerialParity) {
                     case "None":
-                        serialPort1.Parity = System.IO.Ports.Parity.None;
+                        serialPort1.Parity = Parity.None;
                         break;
                     case "奇校验":
-                        serialPort1.Parity = System.IO.Ports.Parity.Odd;
+                        serialPort1.Parity = Parity.Odd;
                         break;
                     case "偶校验":
-                        serialPort1.Parity = System.IO.Ports.Parity.Even;
+                        serialPort1.Parity = Parity.Even;
                         break;
                     case "Mark":
-                        serialPort1.Parity = System.IO.Ports.Parity.Mark;
+                        serialPort1.Parity = Parity.Mark;
                         break;
                     case "Space":
-                        serialPort1.Parity = System.IO.Ports.Parity.Space;
+                        serialPort1.Parity = Parity.Space;
                         break;
                     default:
-                        serialPort1.Parity = System.IO.Ports.Parity.None;
+                        serialPort1.Parity = Parity.None;
                         break;
                 }
 
-                switch (AppCfg.devicepara.SerialStopBits)
-                {
+                switch (AppCfg.devicepara.SerialStopBits) {
                     case "1":
-                        serialPort1.StopBits = System.IO.Ports.StopBits.One;
+                        serialPort1.StopBits = StopBits.One;
                         break;
                     case "2":
-                        serialPort1.StopBits = System.IO.Ports.StopBits.Two;
+                        serialPort1.StopBits = StopBits.Two;
                         break;
                     case "1.5":
-                        serialPort1.StopBits = System.IO.Ports.StopBits.OnePointFive;
+                        serialPort1.StopBits = StopBits.OnePointFive;
                         break;
 
                     default:
-                        serialPort1.Parity = System.IO.Ports.Parity.None;
+                        serialPort1.Parity = Parity.None;
                         break;
                 }
 
@@ -1689,8 +1559,7 @@ namespace multimeter
 
                 serialPort1.Open();
             }
-            catch
-            {
+            catch {
                 MessageBox.Show("无法打开串口！");
                 //btn_start.Enabled = true;
                 //btn_stop.Enabled = false;
@@ -1700,58 +1569,44 @@ namespace multimeter
             string TwoRlist = "";
             int TwoR_num = 0;
             if (AppCfg.devicepara.Card1_enable != 0)
-            {
                 foreach (Card i in AppCfg.devicepara.Cardlist1)
-                {
-                    if (i.func == 1)
-                    {
+                    if (i.func == 1) {
                         TwoR_num++;
-                        if (TwoRlist.Length == 0)
-                        {
+                        if (TwoRlist.Length == 0) {
                             TwoRlist = i.CHN;
                             if (TotalCHN.Length == 0)
                                 TotalCHN = i.CHN;
                             else
                                 TotalCHN = TotalCHN + "," + i.CHN;
                         }
-                        else
-                        {
+                        else {
                             TwoRlist = TwoRlist + "," + i.CHN;
                             TotalCHN = TotalCHN + "," + i.CHN;
                         }
                     }
-                }
-            }
 
             if (AppCfg.devicepara.Card2_enable != 0)
-            {
                 foreach (Card i in AppCfg.devicepara.Cardlist2)
-                {
-                    if (i.func == 1)
-                    {
+                    if (i.func == 1) {
                         TwoR_num++;
-                        if (TwoRlist.Length == 0)
-                        {
+                        if (TwoRlist.Length == 0) {
                             TwoRlist = i.CHN;
                             if (TotalCHN.Length == 0)
                                 TotalCHN = i.CHN;
                             else
                                 TotalCHN = TotalCHN + "," + i.CHN;
-
                         }
-                        else
-                        {
+                        else {
                             TwoRlist = TwoRlist + "," + i.CHN;
                             TotalCHN = TotalCHN + "," + i.CHN;
                         }
                     }
-                }
-            }
 
             string FourRlist = "";
             int FourR_num = 0;
 
             #region 四线电阻选项,当前版本无用
+
             //if (AppCfg.devicepara.Card1_enable != 0)
             //{
             //    foreach (Card i in AppCfg.devicepara.Cardlist1)
@@ -1800,12 +1655,14 @@ namespace multimeter
             //        }
             //    }
             //}
+
             #endregion
 
             string Templist = "";
             int Temp_num = 0;
 
             #region 热电偶选项,当前版本无用
+
             //if (AppCfg.devicepara.Card1_enable != 0)
             //{
             //    foreach (Card i in AppCfg.devicepara.Cardlist1)
@@ -1853,16 +1710,19 @@ namespace multimeter
             //        }
             //    }
             //}
+
             #endregion
+
             TotalNum = TwoR_num + FourR_num + Temp_num;
 
             sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
+
             #endregion
         }
 
-        public string resolvcmd(string s1, string s2, string s3, int i1, int i2, int i3)
-        {
+        public string resolvcmd(string s1, string s2, string s3, int i1, int i2, int i3) {
             #region
+
             string st = @"*CLS 
 *RST   
 FORM:ELEM READ 
@@ -1886,8 +1746,7 @@ ROUT:SCAN:TSO IMM
 ROUT:SCAN:LSEL INT";
 
 
-            if (i1 > 0)
-            {
+            if (i1 > 0) {
                 string str = @"SENS:FUNC 'RES',(@*channel*)   
 SENS:RES:NPLC 1,(@*channel*)   
 SENS:RES:RANG:AUTO ON,(@*channel*)";
@@ -1895,8 +1754,7 @@ SENS:RES:RANG:AUTO ON,(@*channel*)";
                 st = st.Replace("*s1*", str);
             }
 
-            if (i2 > 0)
-            {
+            if (i2 > 0) {
                 string str = @"SENS:FUNC 'TEMP',(@*channel*)   
 SENS:TEMP:NPLC 1,(@*channel*)   
 :TEMP:TRAN TC,(@*channel*)   
@@ -1904,8 +1762,8 @@ SENS:TEMP:NPLC 1,(@*channel*)
                 str = str.Replace("*channel*", s2);
                 st = st.Replace("*s2*", str);
             }
-            if (i3 > 0)
-            {
+
+            if (i3 > 0) {
                 string str = @"SENS:FUNC 'FRES',(@*channel*)
 SENS:FRES:NPLC 1,(@*channel*)
 SENS:FRES:RANG:AUTO ON,(@*channel*)";
@@ -1914,70 +1772,58 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
 
             int num = i1 + i2 + i3;
-            if (num > 0)
-            {
-                st = st.Replace("*nchannel*", num.ToString());
-            }
+            if (num > 0) st = st.Replace("*nchannel*", num.ToString());
             st = st.Replace("*allchannel*", TotalCHN);
             return st;
+
             #endregion
         }
 
-         public void sendmsg(string s1,string s2,string s3,int i1,int i2,int i3)
-        {
+        public void sendmsg(string s1, string s2, string s3, int i1, int i2, int i3) {
             #region
+
             string st3 = resolvcmd(s1, s2, s3, i1, i2, i3);
 
             string[] str = st3.Split('\n');
-            foreach (string i in str)
-            {
+            foreach (string i in str) {
                 serialPort1.WriteLine(i);
                 Thread.Sleep(100);
             }
+
             Thread.Sleep(100);
 
             Thread thread;
 
             string[] chn = TotalCHN.Split(',');
-            this.listView_main.Clear();
-            this.listView_main.Columns.Add("序号", 120);
-            for (int i = 0; i < TotalNum; i++)
-            {
-                this.listView_main.Columns.Add(chn[i], 120);
-            }
+            listView_main.Clear();
+            listView_main.Columns.Add("序号", 120);
+            for (int i = 0; i < TotalNum; i++) listView_main.Columns.Add(chn[i], 120);
             enablescan = true;
-            thread = new Thread(() =>//新开线程，执行接收数据操作
+            thread = new Thread(() => //新开线程，执行接收数据操作
             {
-                while (enablescan)//如果标识为true
+                while (enablescan) //如果标识为true
                 {
                     Thread.Sleep(1);
-                    try
-                    {
+                    try {
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(AppCfg.devicepara.Scan_interval);
-
                     }
-                    catch (Exception ex)
-                    {
+                    catch (Exception ex) {
                         ;
                     }
                 }
             });
-            thread.Start();//启动线程
+            thread.Start(); //启动线程
             thread.IsBackground = true;
-            #endregion
 
+            #endregion
         }
 
-        public  byte[] str2ASCII(String xmlStr)
-        {
+        public byte[] str2ASCII(string xmlStr) {
             return Encoding.Default.GetBytes(xmlStr);
         }
 
-        string recvstr;
-
-        private void btn_stop()
-        {
+        private void btn_stop() {
             serialPort1.Close();
             //btn_start.Enabled = true;
             //btn_stop.Enabled = false;
@@ -1985,65 +1831,48 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         }
 
 
-        public void SavetData(string name,ListView listView)
-        {
+        public void SavetData(string name, ListView listView) {
             #region
-            if (listView.Items.Count == 0)
-            {
-               // MessageBox.Show("未找到可导入的数据");
-                return;
-            }
-          
-            string FileName = Name+ "-"  + DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ffff")+".csv";
 
-            try
-            {
-           
-                    int size = 1024;
-                    int sizeCnt = (int)Math.Ceiling((Double)listView.Items.Count / (Double)2000);
-                    StreamWriter write = new StreamWriter(FileName, false, Encoding.Default, size * sizeCnt);
-                    
-                    //获取listView标题行
-                    for (int t = 0; t < listView.Columns.Count; t++)
-                    {
-                        write.Write(listView.Columns[t].Text + ",");
+            if (listView.Items.Count == 0)
+                // MessageBox.Show("未找到可导入的数据");
+                return;
+
+            string FileName = Name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ffff") + ".csv";
+
+            try {
+                int size = 1024;
+                int sizeCnt = (int) Math.Ceiling(listView.Items.Count / (double) 2000);
+                StreamWriter write = new StreamWriter(FileName, false, Encoding.Default, size * sizeCnt);
+
+                //获取listView标题行
+                for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
+                write.WriteLine();
+                //获取listView数据行
+                for (int lin = 0; lin < listView.Items.Count; lin++) {
+                    string Tem = null;
+                    for (int k = 0; k < listView.Columns.Count; k++) {
+                        string TemString = listView.Items[lin].SubItems[k].Text;
+                        Tem += TemString;
+                        Tem += ",";
                     }
-                    write.WriteLine();
-                    //获取listView数据行
-                    for (int lin = 0; lin < listView.Items.Count; lin++)
-                    {
-                        string Tem = null;
-                        for (int k = 0; k < listView.Columns.Count; k++)
-                        {
-                            string TemString = listView.Items[lin].SubItems[k].Text;
-                            Tem += TemString;
-                            Tem += ",";
-                        }
-                        write.WriteLine(Tem);
-                    }
-                    write.Flush();
-                    write.Close();
-                
+
+                    write.WriteLine(Tem);
+                }
+
+                write.Flush();
+                write.Close();
             }
-            catch (System.Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show(ex.ToString());
             }
+
             #endregion
         }
 
-        internal class AppCfg //全局变量
-        {
-            public AppCfg()
-            {
-
-            }
-            internal static ParaInfo devicepara = new ParaInfo();
-        }
-
-        private void serialPort1_DataReceived_1(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
-        {
+        private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e) {
             #region
+
             string str = serialPort1.ReadExisting();
 
             //richTextBox1.Text = richTextBox1.Text + str+"\n";
@@ -2058,46 +1887,38 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //richTextBox2.Text = richTextBox2.Text + ASCIIstr2;
 
 
-            if (str.IndexOf((char)19) != -1)
-            {
-                str = str.Substring(str.IndexOf((char)19), str.Length - str.IndexOf((char)19));
-            }
+            if (str.IndexOf((char) 19) != -1)
+                str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
 
             string nextstr = "";
-            if (str.IndexOf((char)13) != -1)
-            {
-                str = str.Substring(0, str.IndexOf((char)13));
+            if (str.IndexOf((char) 13) != -1) {
+                str = str.Substring(0, str.IndexOf((char) 13));
                 recvstr = recvstr + str;
 
-                if (recvstr.Length > 0)
-                {
+                if (recvstr.Length > 0) {
                     count++;
-                    recvstr = recvstr.Replace((char)19, (char)0);
-                    recvstr = recvstr.Replace((char)13, (char)0);
-                    recvstr = recvstr.Replace((char)0x11, (char)0);
+                    recvstr = recvstr.Replace((char) 19, (char) 0);
+                    recvstr = recvstr.Replace((char) 13, (char) 0);
+                    recvstr = recvstr.Replace((char) 0x11, (char) 0);
                     recvstr = recvstr.Replace("\0", "");
 
 
-
-                    string tmp = count.ToString() + "," + recvstr;
+                    string tmp = count + "," + recvstr;
                     ListViewItem item = new ListViewItem(tmp.Split(','));
                     listView_main.Items.Add(item);
                     LastScan.Text = recvstr;
 
-                    if (count % AppCfg.devicepara.Save_interval == 0)
-                    {
+                    if (count % AppCfg.devicepara.Save_interval == 0) {
                         SavetData("sss", listView_main);
                         listView_main.Items.Clear();
                     }
-
                 }
+
                 //if(str.IndexOf((char)13)!=)
                 //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
                 recvstr = "";
-
             }
-            else
-            {
+            else {
                 recvstr += str;
             }
 
@@ -2132,10 +1953,9 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //        listView_main.Items.Clear();
             //    }         
             //}
+
             #endregion
         }
-
-        
 
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2144,10 +1964,26 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             int num;
             try {
                 num = int.Parse(text);
-            } catch {
+            }
+            catch {
                 return -1;
             }
-            return num>0?num:-1;
+
+            return num > 0 ? num : -1;
         }
+
+        internal class AppCfg //全局变量
+        {
+            internal static ParaInfo devicepara = new ParaInfo();
+        }
+
+        #region //串口采集
+
+        private string TotalCHN = "";
+        private int TotalNum;
+        private int count;
+        private bool enablescan;
+
+        #endregion
     }
 }

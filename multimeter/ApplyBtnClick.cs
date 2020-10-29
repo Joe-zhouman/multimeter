@@ -35,7 +35,7 @@ namespace multimeter {
                 WriteChannelInfo(channelList);
             }
             else {
-                MessageBox.Show(@"错误的频道,请重新设置!",@"警告",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -63,7 +63,7 @@ namespace multimeter {
                 sample2.SaveToIni(filePath);
                 WriteChannelInfo(channelList);
             } else {
-                MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -76,7 +76,7 @@ namespace multimeter {
                 WriteChannelInfo(channelList);
             }
             else {
-                MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -103,7 +103,7 @@ namespace multimeter {
                 sample2.SaveToIni(filePath);
                 WriteChannelInfo(channelList);
             } else {
-                MessageBox.Show(@"错误的频道,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
