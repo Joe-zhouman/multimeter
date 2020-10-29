@@ -16,10 +16,10 @@ namespace multimeter {
 
         private HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
         private HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
-        public string PatternChoose = "normal"; // 软件模式选择，分为“高级模式”和“普通模式”
+        private string PatternChoose = "normal"; // 软件模式选择，分为“高级模式”和“普通模式”
 
         private string recvstr;
-        public string TestChoose; //测试方法选择标志符
+        private string TestChoose; //测试方法选择标志符
 
         public SetupTest() {
             InitializeComponent();
