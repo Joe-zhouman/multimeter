@@ -1515,6 +1515,11 @@ namespace multimeter {
             //btn_stop.Enabled = true;
             //btn_start.Enabled = false;
             ReadPara();
+            if (!AutoSaveIni()) {
+                MessageBox.Show(@"请选择测试方法后在进行测试", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try {
                 serialPort1.BaudRate = int.Parse(AppCfg.devicepara.SerialBaudRate);
                 serialPort1.PortName = AppCfg.devicepara.SerialPort;
@@ -1839,11 +1844,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 return;
 
             string FileName = Name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss.ffff") + ".csv";
-
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", FileName);
             try {
                 int size = 1024;
                 int sizeCnt = (int) Math.Ceiling(listView.Items.Count / (double) 2000);
-                StreamWriter write = new StreamWriter(FileName, false, Encoding.Default, size * sizeCnt);
+                StreamWriter write = new StreamWriter(filePath, false, Encoding.Default, size * sizeCnt);
 
                 //获取listView标题行
                 for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
@@ -1909,7 +1914,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     LastScan.Text = recvstr;
 
                     if (count % AppCfg.devicepara.Save_interval == 0) {
-                        SavetData("sss", listView_main);
+                        SavetData("AutoSave", listView_main);
                         listView_main.Items.Clear();
                     }
                 }
@@ -1972,6 +1977,42 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             return num > 0 ? num : -1;
         }
 
+        private bool AutoSaveIni() {
+            string iniFileName;
+            switch (TestChoose) {
+                case "Test1":
+                    iniFileName = "kappa";
+                    break;
+                case "Test2":
+                    iniFileName = "itc";
+                    break;
+                case "Test3":
+                    iniFileName = "itm";
+                    break;
+                case "Test4":
+                    iniFileName = "itms";
+                    break;
+                default:
+                    
+                    return false;
+            }
+            string iniFilePath = 
+                
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName+".ini");
+            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"AutoSave", iniFileName+"-" + DateTime.Now.ToString("yyyy-MM-dd-HH")+ ".ini");
+            while (File.Exists(autoSaveFilePath)) {
+                var results =  MessageBox.Show(@"该文件已存在,是否覆盖?", @"提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (results == DialogResult.Yes) {
+                    File.Delete(autoSaveFilePath);
+                }
+                else {
+                    var insertIdx = autoSaveFilePath.LastIndexOf(".ini", StringComparison.Ordinal);
+                    autoSaveFilePath = autoSaveFilePath.Insert(insertIdx, "(1)");
+                }
+            }
+            File.Copy(iniFilePath,autoSaveFilePath);
+            return true;
+        }
         internal class AppCfg //全局变量
         {
             internal static ParaInfo devicepara = new ParaInfo();
