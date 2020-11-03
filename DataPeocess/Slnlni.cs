@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using multimeter;
 
 namespace DataProcessor {
     public static class SlnIni {
@@ -203,26 +204,12 @@ namespace DataProcessor {
                 }
             }
         }//将频道信息写入系统配置文件
-        public static string AutoSaveIni(string testChoose) {
-            string iniFileName;
-            switch (testChoose) {
-                case "Test1":
-                    iniFileName = "kappa";
-                    break;
-                case "Test2":
-                    iniFileName = "itc";
-                    break;
-                case "Test3":
-                    iniFileName = "itm";
-                    break;
-                case "Test4":
-                    iniFileName = "itms";
-                    break;
-                default:
-
-                    return "";
+        public static string AutoSaveIni(TestMethod method) {
+            if (TestMethod.NotSet == method) {
+                return null;
             }
 
+            var iniFileName = method.ToString().ToLower();
             string iniFilePath =
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName + ".ini");
             string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",

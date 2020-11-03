@@ -13,17 +13,15 @@ using DataProcessor;
 
 namespace multimeter {
     public partial class SetupTest : Form {
-        public string[] formData = new string[64]; //设置所有的界面输入框的数据为全局变量，方便存储数据到本地，或者从文件更新数据
 
         private HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
         private HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
-        private string PatternChoose = "normal"; // 软件模式选择，分为“高级模式”和“普通模式”
 
         private string latestDataFile;
         private string latestIniFile;
         private string recvstr;
-        private string TestChoose; //测试方法选择标志符
         private List<string> recentTenData;
+        private TestMethod _method;
         public SetupTest() {
             InitializeComponent();
         }
@@ -231,7 +229,8 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.White;
-            TestChoose = "Test1";
+            ParSetting_Click(sender,e);
+            _method = TestMethod.Kappa;
 
             #endregion
         }
@@ -243,7 +242,8 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.LightSkyBlue;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.White;
-            TestChoose = "Test2";
+            ParSetting_Click(sender, e);
+            _method = TestMethod.ITC;
 
             #endregion
         }
@@ -255,7 +255,9 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.LightSkyBlue;
             TestChoose4.ForeColor = Color.White;
-            TestChoose = "Test3";
+            
+            ParSetting_Click(sender, e);
+            _method = TestMethod.ITM;
 
             #endregion
         }
@@ -267,7 +269,8 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.LightSkyBlue;
-            TestChoose = "Test4";
+            _method = TestMethod.ITMS;
+            ParSetting_Click(sender, e);
 
             #endregion
         }
@@ -295,8 +298,8 @@ namespace multimeter {
             #region //参数设置窗口打开
 
             string force;
-            switch (TestChoose) {
-                case "Test1": {
+            switch (_method) {
+                case TestMethod.Kappa: {
                     //显示对应设置窗口TEST1
                     NoneGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(1531, 966);
@@ -333,7 +336,7 @@ namespace multimeter {
                     SampleToBox(sample1, samplePositionBoxes, sampleChannelBoxes);
                 }
                     break;
-                case "Test2": {
+                case TestMethod.ITC: {
                     //显示对应设置窗口TEST2
                     NoneGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
@@ -376,7 +379,7 @@ namespace multimeter {
                     SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
                 }
                     break;
-                case "Test3": {
+                case TestMethod.ITM: {
                     //显示对应设置窗口TEST3
                     NoneGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
@@ -406,7 +409,7 @@ namespace multimeter {
                     HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_1);
                 }
                     break;
-                case "Test4": {
+                case TestMethod.ITMS: {
                     //显示对应设置窗口TEST4
                     NoneGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
@@ -612,10 +615,12 @@ namespace multimeter {
             ReadPara();
             TotalCHN = "";
             count = 0;
-            recentTenData.Clear();
+            if (recentTenData != null) {
+                recentTenData.Clear();
+            }
             latestDataFile = "";
             latestIniFile = "";
-            if ((latestIniFile = SlnIni.AutoSaveIni(TestChoose))=="") {
+            if ((latestIniFile = SlnIni.AutoSaveIni(_method))==null) {
                 MessageBox.Show(@"请选择测试方法后在进行测试", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -901,7 +906,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
             string[] chn = TotalCHN.Split(',');
             listView_main.Clear();
-            listView_main.Columns.Add(TestChoose, 120);
+            listView_main.Columns.Add(((int)_method).ToString(), 120);
             for (int i = 0; i < TotalNum; i++) listView_main.Columns.Add(chn[i], 120);
             enablescan = true;
             thread = new Thread(() => //新开线程，执行接收数据操作

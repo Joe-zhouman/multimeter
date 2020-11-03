@@ -13,7 +13,7 @@ namespace multimeter
     public static class TestFileRead
     {
 
-        public static string[,] ReadtData(string FileName,int linNum, string TestChoose) {
+        public static string[,] ReadtData(string FileName,int linNum, out string TestChoose) {
             int lin = 0;                 //行
             int column = 0;              //列
             int i=0, j=0;
@@ -36,7 +36,7 @@ namespace multimeter
                 read.Close();      
             }
             catch (System.Exception ex){
-                //MessageBox.Show(ex.ToString());
+                TestChoose = "";
             }
 
         int linBegin;

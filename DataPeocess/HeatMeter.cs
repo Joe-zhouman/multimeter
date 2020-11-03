@@ -12,6 +12,7 @@ namespace DataProcessor {
         public string[] Position { get; set; }
         public string[] Alpha { get; set; }
         public string[] T0 { get; set; }
+        public double[] Temp { get; private set; }
 
         public HeatMeter(string name) {
             Name = name;
@@ -21,6 +22,7 @@ namespace DataProcessor {
             Position = new[] {"10.0", "10.0", "10.0", "10.0"};
             Alpha = new[] { "10.0", "10.0", "10.0", "10.0"};
             T0 = new[] { "10.0", "10.0", "10.0", "10.0"};
+            Temp = new[] {0.0, 0.0, 0.0, 0.0};
         }
 
         public void ReadFromIni(string filePath) {
@@ -28,9 +30,7 @@ namespace DataProcessor {
            
                     Channel[i] = INIHelper.Read($"{Name}.{i}", "channel", "201", filePath);
                     Position[i] = INIHelper.Read($"{Name}.{i}", "position", "10.0", filePath);
-                    
-                
-               
+
             }
             Kappa = INIHelper.Read(Name, "kappa", "0", filePath);
             Diameter = INIHelper.Read(Name, "diameter", "0", filePath);
@@ -52,6 +52,10 @@ namespace DataProcessor {
                 T0[i] = INIHelper.Read(Channel[i], "T0", "10.0", filePath);
             }
         }
-        
+        public void SetTemp(Dictionary<string,double> testResult) {
+            for (int i = 0; i < 4; i++) {
+                Temp[i] = double.Parse(Alpha[i]) * testResult[Channel[i]] + double.Parse(T0[i]);
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace multimeter
 {
-    static class DataResult
+    public static class DataResult
     {
         public static void Test1DataProcess(double [] T,double[] HMLocation, double A1, double A2, double As, double k1, double k2,
                                      double k_s)
