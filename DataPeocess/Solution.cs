@@ -66,21 +66,37 @@ namespace DataProcessor {
             }
             var aveX = x.Average();
             var aveY = y.Average();
-            List<double> xDotY = new List<double>();
-            List<double> xSquare = new List<double>();
-            for (int i = 0; i < x.Count; i++) {
-                xDotY[i] = x[i] * y[i];
-                xSquare[i] = x[i] * x[i];
-            }
+
+            List<double> xDotY = x.Select(t => t * t).ToList();
+            List<double> xSquare = x.Select((t,i)=>t*y[i]).ToList();
+            
 
             try {
                 k = (xDotY.Average() - aveX * aveY) / (xSquare.Average() - aveX * aveX);
                 b = aveY - k * aveX;
+                var stdX = GetStd(x,aveX);
+                var stdY = GetStd(y, aveY);
+                err=x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToList().Sum()/x.Count/stdX/stdY;
                 return true;
             }
             catch (Exception ) {
                 return false;
             }
+        }//线性拟合
+
+        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2) {
+
+        }
+
+        public static double GetHeatFlux(HeatMeter heatMeter) {
+            double k;
+            double b;
+
+        }
+
+        public static double GetStd(List<double> x, double aveX) {
+            var sum = x.Sum(d => (d - aveX));
+            return Math.Sqrt(sum / x.Count);
         }
     }
 }
