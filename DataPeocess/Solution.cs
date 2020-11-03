@@ -85,13 +85,13 @@ namespace DataProcessor {
         }//线性拟合
 
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2) {
-
+            return true;
         }
 
         public static double GetHeatFlux(HeatMeter heatMeter) {
             double k;
             double b;
-
+            return 0.0;
         }
 
         public static double GetStd(List<double> x, double aveX) {
