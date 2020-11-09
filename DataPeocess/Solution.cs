@@ -56,7 +56,7 @@ namespace DataProcessor {
             return testResult;
         }//求平均值
 
-        public static bool LinearFit(List<double> x, List<double> y, ref double k, ref double b,ref double err) {
+        public static bool LinearFit(List<double> x, List<double> y, ref double k, ref double b) {
             if (x.Count != y.Count) {
                 return false;
             }
@@ -76,8 +76,9 @@ namespace DataProcessor {
                 b = aveY - k * aveX;
                 var stdX = GetStd(x,aveX);
                 var stdY = GetStd(y, aveY);
-                err=x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToList().Sum()/x.Count/stdX/stdY;
-                return true;
+                var err=x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToList().Sum()/x.Count/stdX/stdY;
+                
+                return err < 0.7;
             }
             catch (Exception ) {
                 return false;
@@ -88,11 +89,17 @@ namespace DataProcessor {
             return true;
         }
 
-        public static double GetHeatFlux(HeatMeter heatMeter) {
-            double k;
-            double b;
-            return 0.0;
-        }
+        public static bool GetHeatFlow(HeatMeter heatMeter,out double heatFlow) {
+            double k = 0.0;
+            double b = 0.0;
+            heatFlow = 0.0;
+            var numPosition = heatMeter.Position.Select(double.Parse).ToList();
+            var p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToList();
+            if (true == LinearFit(numPosition,heatMeter.Temp.ToList(),ref k,ref b)) {
+                heatFlow = double.Parse(heatMeter.Kappa) * Math.PI * Math.Pow(double.Parse(heatMeter.Diameter), 2) * k;
+            }
+            return false;
+        } 
 
         public static double GetStd(List<double> x, double aveX) {
             var sum = x.Sum(d => (d - aveX));

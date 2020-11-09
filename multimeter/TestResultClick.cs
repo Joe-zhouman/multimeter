@@ -110,10 +110,25 @@ namespace multimeter {
                         T.AddRange(sample2.Temp);
                         T.AddRange(heatMeter2.Temp);
                         List<double> position = new List<double>();
-                        position.AddRange(heatMeter1.Position.ConvertTo<double[]>());
-                        position.AddRange(sample1.Position.ConvertTo<double[]>());
-                        position.AddRange(sample2.Position.ConvertTo<double[]>());
-                        position.AddRange(heatMeter2.Position.ConvertTo<double[]>());
+                        for (int i = 0; i < 4; i++) {
+                            position.Add(double.Parse(heatMeter1.Position[i]));
+                        }
+                        for (int i = 0; i < 4; i++)
+                        {
+                            position.Add(double.Parse(heatMeter2.Position[i]));
+                        }
+                        for (int i = 0; i < 3; i++)
+                        {
+                            position.Add(double.Parse(sample1.Position[i]));
+                        }
+                        for (int i = 0; i < 3; i++)
+                        {
+                            position.Add(double.Parse(sample2.Position[i]));
+                        }
+                        //position.AddRange(heatMeter1.Position.ConvertTo<double[]>());
+                        //position.AddRange(sample1.Position.ConvertTo<double[]>());
+                        //position.AddRange(sample2.Position.ConvertTo<double[]>());
+                        //position.AddRange(heatMeter2.Position.ConvertTo<double[]>());
                         DataResult.Test2DataProcess(T.ToArray(), position.ToArray(), 300, 300, 1256, 1256, 425.16,426.16,
                                      10, 10, 10, chart1);
                     }

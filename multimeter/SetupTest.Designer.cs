@@ -4132,7 +4132,7 @@
             // 
             this.TestChoose1.BackColor = System.Drawing.Color.White;
             this.TestChoose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestChoose1.BackgroundImage")));
-            this.TestChoose1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.TestChoose1.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.TestChoose1.FlatAppearance.BorderSize = 0;
             this.TestChoose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestChoose1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -6027,7 +6027,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SetupTest";
             this.Text = "************测试平台";
-            this.Load += new System.EventHandler(this.导热系数测量_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).EndInit();
             this.TextGroupbox1.ResumeLayout(false);
             this.TextGroupbox1.PerformLayout();

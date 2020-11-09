@@ -26,7 +26,7 @@ namespace multimeter {
             InitializeComponent();
         }
 
-        private void 导热系数测量_Load(object sender, EventArgs e) {
+        private void MainForm_Load(object sender, EventArgs e) {
             #region //不同设置窗口默认显示
 
             NoneGroupBox.Size = new Size(1531, 966);
@@ -229,8 +229,13 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.White;
-            ParSetting_Click(sender,e);
+
+            TestChoose1.BackColor = Color.White;
+            TestChoose2.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.Black;
             _method = TestMethod.Kappa;
+            ParSetting_Click(sender,e);
 
             #endregion
         }
@@ -242,8 +247,14 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.LightSkyBlue;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.White;
-            ParSetting_Click(sender, e);
+
+            TestChoose1.BackColor = Color.Black;
+            TestChoose2.BackColor = Color.White;
+            TestChoose1.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.Black;
             _method = TestMethod.ITC;
+            ParSetting_Click(sender, e);
+            
 
             #endregion
         }
@@ -255,9 +266,14 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.LightSkyBlue;
             TestChoose4.ForeColor = Color.White;
-            
-            ParSetting_Click(sender, e);
+
+            TestChoose1.BackColor = Color.Black;
+            TestChoose2.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.White;
+            TestChoose1.BackColor = Color.Black;
             _method = TestMethod.ITM;
+            ParSetting_Click(sender, e);
+            
 
             #endregion
         }
@@ -269,6 +285,11 @@ namespace multimeter {
             TestChoose2.ForeColor = Color.White;
             TestChoose3.ForeColor = Color.White;
             TestChoose4.ForeColor = Color.LightSkyBlue;
+
+            TestChoose1.BackColor = Color.Black;
+            TestChoose2.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.White;
             _method = TestMethod.ITMS;
             ParSetting_Click(sender, e);
 
@@ -1022,10 +1043,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     listView_main.Items.Add(item);
                     LastScan.Text = recvstr;
                     if(count % 50 == 0) {
-                        recentTenData.Add(recvstr);
+                        //recentTenData.Add(recvstr);
 
                     }
-                    if (recentTenData.Count > 10) {
+
+                    if (recentTenData != null && recentTenData.Count > 10) {
                         recentTenData.RemoveAt(0);
                     }
                     
@@ -1033,7 +1055,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         SavetData("AutoSave", listView_main);
                         listView_main.Items.Clear();
                     }
-                    MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                 }
 

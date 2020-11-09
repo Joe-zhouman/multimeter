@@ -48,7 +48,7 @@ namespace DataProcessor {
         }
 
         public void SetTemp(Dictionary<string, double> testResult) {
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 3; i++) {
                 Temp[i] = double.Parse(Alpha[i]) * testResult[Channel[i]] + double.Parse(T0[i]);
             }
         }
