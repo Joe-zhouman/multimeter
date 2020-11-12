@@ -29,8 +29,9 @@ namespace multimeter {
         private void MainForm_Load(object sender, EventArgs e) {
             #region //不同设置窗口默认显示
 
-            NoneGroupBox.Size = new Size(1531, 966);
-            TextGroupbox1.Size = new Size(0, 0);
+            //NoneGroupBox.Size = new Size(1531, 966);
+            NoneGroupBox.Size = new Size(0, 0);
+            TextGroupbox1.Size = new Size(582, 926);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
@@ -38,17 +39,16 @@ namespace multimeter {
             ViewGroupBox2.Size = new Size(0, 0);
             ViewGroupBox3.Size = new Size(0, 0);
             ViewGroupBox4.Size = new Size(0, 0);
-            ResultGroupBox.Size = new Size(0, 0);
+            ResultGroupBox.Size = new Size(650, 920);
             chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
-            skinGroupBox1.Size = new Size(263, 218); //普通模式下窗口尺寸
-            //skinGroupBox1.Size = new Size(521, 218);  //高级模式下窗口尺寸
-            skinGroupBox2.Size = new Size(0, 0);
+            skinGroupBox1.Size = new Size(0, 0); //普通模式下窗口尺寸
+            //skinGroupBox2.Size = new Size(0, 0);
             TestStop.Enabled = false;
             Monitor.Enabled = false;
             Monitor.Enabled = false;
 
             #endregion
-
+           /*
             #region //串口设置
 
             CheckForIllegalCrossThreadCalls = false; //去掉线程安全
@@ -193,6 +193,7 @@ namespace multimeter {
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
             latestIniFile = "";
             latestDataFile = "";
+           */
         }
         //---------------------------------------------------------------子函数区-------------------------------------------------------------------------------------------------------------------------------
 
@@ -299,7 +300,7 @@ namespace multimeter {
         private void SerialPort_Click(object sender, EventArgs e) {
             #region //串口设置
 
-            NoneGroupBox.Size = new Size(0, 0);
+           /* NoneGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
@@ -308,11 +309,16 @@ namespace multimeter {
             ViewGroupBox2.Size = new Size(0, 0);
             ViewGroupBox3.Size = new Size(0, 0);
             ViewGroupBox4.Size = new Size(0, 0);
-            ResultGroupBox.Size = new Size(0, 0);
-            skinGroupBox1.Size = new Size(263, 218); //普通模式下窗口尺寸
-            skinGroupBox2.Size = new Size(911, 966);
+            ResultGroupBox.Size = new Size(0, 0);     */
+            skinGroupBox1.Size = new Size(248, 247); //普通模式下窗口尺寸
+            //skinGroupBox2.Size = new Size(911, 966);
 
             #endregion
+        }
+
+        private void SerialPortEnsure_Click(object sender, EventArgs e)
+        {
+            skinGroupBox1.Size = new Size(0, 0);
         }
 
         private void ParSetting_Click(object sender, EventArgs e) {
@@ -332,8 +338,7 @@ namespace multimeter {
                     ViewGroupBox3.Size = new Size(0, 0);
                     ViewGroupBox4.Size = new Size(0, 0);
                     chart1.Size = new Size(0, 0);
-                    ResultGroupBox.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
+                    //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultKappaIni();
                     Sample sample1 = new Sample("Sample1");
                     SlnIni.LoadKappaInfo(ref sample1, out force, filePath);
@@ -369,8 +374,7 @@ namespace multimeter {
                     ViewGroupBox3.Size = new Size(0, 0);
                     ViewGroupBox4.Size = new Size(0, 0);
                     chart1.Size = new Size(0, 0);
-                    ResultGroupBox.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
+                    //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
                     Sample sample1 = new Sample("Sample1");
                     Sample sample2 = new Sample("Sample2");
@@ -412,7 +416,6 @@ namespace multimeter {
                     ViewGroupBox3.Size = new Size(0, 0);
                     ViewGroupBox4.Size = new Size(0, 0);
                     chart1.Size = new Size(0, 0);
-                    ResultGroupBox.Size = new Size(0, 0);
                     skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
                     SlnIni.LoadItmInfo(out force, out string thickness, filePath);
@@ -442,8 +445,7 @@ namespace multimeter {
                     ViewGroupBox3.Size = new Size(0, 0);
                     ViewGroupBox4.Size = new Size(0, 0);
                     chart1.Size = new Size(0, 0);
-                    ResultGroupBox.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
+                    //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmsIni();
                     Sample sample1 = new Sample("Sample1");
                     Sample sample2 = new Sample("Sample2");
@@ -535,7 +537,6 @@ namespace multimeter {
             ViewGroupBox3.Size = new Size(0, 0);
             ViewGroupBox4.Size = new Size(0, 0);
             chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
-            ResultGroupBox.Size = new Size(1531, 966);
 
             #endregion
         }
@@ -1119,6 +1120,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         private int TotalNum;
         private int count;
         private bool enablescan;
+
 
         #endregion
     }
