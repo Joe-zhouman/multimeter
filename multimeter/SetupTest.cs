@@ -34,13 +34,8 @@ namespace multimeter {
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
-            ViewGroupBox1.Size = new Size(0, 0);
-            ViewGroupBox2.Size = new Size(0, 0);
-            ViewGroupBox3.Size = new Size(0, 0);
-            ViewGroupBox4.Size = new Size(0, 0);
             ResultGroupBox.Size = new Size(650, 920);
             skinGroupBox1.Size = new Size(0, 0);
-            //skinGroupBox2.Size = new Size(0, 0);
             TestRun.BringToFront();
             TestStop.BringToFront();
             Monitor.BringToFront();
@@ -319,10 +314,6 @@ namespace multimeter {
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
-                    ViewGroupBox1.Size = new Size(0, 0);
-                    ViewGroupBox2.Size = new Size(0, 0);
-                    ViewGroupBox3.Size = new Size(0, 0);
-                    ViewGroupBox4.Size = new Size(0, 0);
                     //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultKappaIni();
                         sample1 = new Sample("Sample1");
@@ -354,11 +345,6 @@ namespace multimeter {
                     TextGroupbox2.Size = new Size(582, 926);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
-                    ViewGroupBox1.Size = new Size(0, 0);
-                    ViewGroupBox2.Size = new Size(0, 0);
-                    ViewGroupBox3.Size = new Size(0, 0);
-                    ViewGroupBox4.Size = new Size(0, 0);
-                    //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
                     sample1 = new Sample("Sample1");
                     sample2 = new Sample("Sample2");
@@ -394,11 +380,6 @@ namespace multimeter {
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(582, 926);
                     TextGroupbox4.Size = new Size(0, 0);
-                    ViewGroupBox1.Size = new Size(0, 0);
-                    ViewGroupBox2.Size = new Size(0, 0);
-                    ViewGroupBox3.Size = new Size(0, 0);
-                    ViewGroupBox4.Size = new Size(0, 0);
-                    skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
                         sample1 = null;
                         sample2 = null;
@@ -423,11 +404,6 @@ namespace multimeter {
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(582, 926);
-                    ViewGroupBox1.Size = new Size(0, 0);
-                    ViewGroupBox2.Size = new Size(0, 0);
-                    ViewGroupBox3.Size = new Size(0, 0);
-                    ViewGroupBox4.Size = new Size(0, 0);
-                    //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmsIni();
                     sample1 = new Sample("Sample1");
                     sample2 = new Sample("Sample2");
@@ -508,15 +484,6 @@ namespace multimeter {
 
         private void Monitor_Click(object sender, EventArgs e) {
             #region //温度监视
-
-            TextGroupbox1.Size = new Size(0, 0);
-            TextGroupbox2.Size = new Size(0, 0);
-            TextGroupbox3.Size = new Size(0, 0);
-            TextGroupbox4.Size = new Size(0, 0);
-            ViewGroupBox1.Size = new Size(0, 0);
-            ViewGroupBox2.Size = new Size(0, 0);
-            ViewGroupBox3.Size = new Size(0, 0);
-            ViewGroupBox4.Size = new Size(0, 0);
 
             #endregion
         }
