@@ -18,9 +18,12 @@ using System.Threading;
 using CCWin.SkinClass;
 
 namespace multimeter {
-    public partial class SetupTest {
+    public partial class SetupTest  {
         private void TestResult_Click(object sender, EventArgs e) {
             #region //数据结果
+            TestResultForm result = new TestResultForm();
+            result.Show();
+
             SetIniFileName();
             if(latestIniFile == "") {
                 MessageBox.Show(@"请选择配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,12 +60,9 @@ namespace multimeter {
             }
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
-            chart1.BringToFront(); //将曲线表格放在最顶层
-            chart1.Size = new Size(806, 439);
             switch (_method) {
                 case TestMethod.Kappa: {
                         //显示对应监视窗口TEST1
-                        NoneGroupBox.Size = new Size(0, 0);
                         TextGroupbox1.Size = new Size(0, 0);
                         TextGroupbox2.Size = new Size(0, 0);
                         TextGroupbox3.Size = new Size(0, 0);
@@ -71,7 +71,6 @@ namespace multimeter {
                         ViewGroupBox2.Size = new Size(0, 0);
                         ViewGroupBox3.Size = new Size(0, 0);
                         ViewGroupBox4.Size = new Size(0, 0);
-                        chart1.Size = new Size(0, 0); //将曲线表格放在隐藏
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
                         
@@ -83,7 +82,6 @@ namespace multimeter {
                     break;
                 case TestMethod.ITC: {
                         //显示对应监视窗口TEST2
-                        NoneGroupBox.Size = new Size(0, 0);
                         TextGroupbox1.Size = new Size(0, 0);
                         TextGroupbox2.Size = new Size(0, 0);
                         TextGroupbox3.Size = new Size(0, 0);
@@ -135,7 +133,6 @@ namespace multimeter {
                     break;
                 case TestMethod.ITM: {
                         //显示对应监视窗口TEST3
-                        NoneGroupBox.Size = new Size(0, 0);
                         TextGroupbox1.Size = new Size(0, 0);
                         TextGroupbox2.Size = new Size(0, 0);
                         TextGroupbox3.Size = new Size(0, 0);
@@ -155,7 +152,6 @@ namespace multimeter {
                     break;
                 case TestMethod.ITMS: {
                         //显示对应监视窗口TEST4
-                        NoneGroupBox.Size = new Size(0, 0);
                         TextGroupbox1.Size = new Size(0, 0);
                         TextGroupbox2.Size = new Size(0, 0);
                         TextGroupbox3.Size = new Size(0, 0);

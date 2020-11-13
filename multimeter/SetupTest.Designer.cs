@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -60,15 +60,11 @@
             this.ChannelTextBox1_10 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_11 = new System.Windows.Forms.TextBox();
             this.TextGroupbox1 = new System.Windows.Forms.GroupBox();
-            this.TestResult = new System.Windows.Forms.Button();
             this.apply_btm_1 = new System.Windows.Forms.Button();
             this.K2TextBox1_2 = new System.Windows.Forms.TextBox();
             this.K1TextBox1_1 = new System.Windows.Forms.TextBox();
-            this.Monitor = new System.Windows.Forms.Button();
             this.K1_2 = new System.Windows.Forms.Label();
             this.K1_1 = new System.Windows.Forms.Label();
-            this.TestStop = new System.Windows.Forms.Button();
-            this.TestRun = new System.Windows.Forms.Button();
             this.Unit1_13 = new System.Windows.Forms.Label();
             this.Unit1_12 = new System.Windows.Forms.Label();
             this.ForceTextBox1 = new System.Windows.Forms.TextBox();
@@ -96,17 +92,14 @@
             this.LengthTextBox1_7 = new System.Windows.Forms.TextBox();
             this.LengthTextBox1_9 = new System.Windows.Forms.TextBox();
             this.LengthTextBox1_8 = new System.Windows.Forms.TextBox();
+            this.TestResult = new System.Windows.Forms.Button();
+            this.Monitor = new System.Windows.Forms.Button();
+            this.TestStop = new System.Windows.Forms.Button();
+            this.TestRun = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.TextGroupbox2 = new System.Windows.Forms.GroupBox();
             this.ChannelTextBox2_13 = new System.Windows.Forms.TextBox();
             this.apply_btm_2 = new System.Windows.Forms.Button();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.pictureLabel2_14 = new System.Windows.Forms.PictureBox();
-            this.pictureLabel2_13 = new System.Windows.Forms.PictureBox();
-            this.pictureLabel2_12 = new System.Windows.Forms.PictureBox();
             this.LengthTextBox2_14 = new System.Windows.Forms.TextBox();
             this.LengthTextBox2_13 = new System.Windows.Forms.TextBox();
             this.LengthTextBox2_12 = new System.Windows.Forms.TextBox();
@@ -122,48 +115,35 @@
             this.K1TextBox2_1 = new System.Windows.Forms.TextBox();
             this.K2_2 = new System.Windows.Forms.Label();
             this.K2_1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Unit2_13 = new System.Windows.Forms.Label();
             this.Unit2_12 = new System.Windows.Forms.Label();
             this.ForceTextBox2 = new System.Windows.Forms.TextBox();
-            this.pictureLabel2_1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.LengthTextBox2_1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureLabel2_2 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel2_2 = new System.Windows.Forms.Label();
-            this.pictureLabel2_3 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel2_1 = new System.Windows.Forms.Label();
-            this.pictureLabel2_4 = new System.Windows.Forms.PictureBox();
             this.ChannelTextBox2_11 = new System.Windows.Forms.TextBox();
             this.Unit2_11 = new System.Windows.Forms.Label();
             this.ChannelTextBox2_10 = new System.Windows.Forms.TextBox();
-            this.pictureLabel2_5 = new System.Windows.Forms.PictureBox();
             this.ChannelTextBox2_9 = new System.Windows.Forms.TextBox();
             this.Unit2_10 = new System.Windows.Forms.Label();
             this.ChannelTextBox2_8 = new System.Windows.Forms.TextBox();
-            this.pictureLabel2_6 = new System.Windows.Forms.PictureBox();
             this.ChannelTextBox2_7 = new System.Windows.Forms.TextBox();
             this.Unit2_9 = new System.Windows.Forms.Label();
             this.ChannelTextBox2_6 = new System.Windows.Forms.TextBox();
-            this.pictureLabel2_7 = new System.Windows.Forms.PictureBox();
             this.ChannelTextBox2_5 = new System.Windows.Forms.TextBox();
             this.Unit2_8 = new System.Windows.Forms.Label();
             this.ChannelTextBox2_4 = new System.Windows.Forms.TextBox();
-            this.pictureLabel2_8 = new System.Windows.Forms.PictureBox();
             this.ChannelTextBox2_3 = new System.Windows.Forms.TextBox();
             this.Unit2_7 = new System.Windows.Forms.Label();
             this.ChannelTextBox2_2 = new System.Windows.Forms.TextBox();
-            this.pictureLabel2_9 = new System.Windows.Forms.PictureBox();
             this.ChannelTextBox2_1 = new System.Windows.Forms.TextBox();
             this.Unit2_6 = new System.Windows.Forms.Label();
             this.ChannelLabel2_9 = new System.Windows.Forms.Label();
-            this.pictureLabel2_10 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel2_10 = new System.Windows.Forms.Label();
             this.Unit2_5 = new System.Windows.Forms.Label();
             this.ChannelLabel2_11 = new System.Windows.Forms.Label();
-            this.pictureLabel2_11 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel2_8 = new System.Windows.Forms.Label();
             this.Unit2_4 = new System.Windows.Forms.Label();
             this.ChannelLabel2_7 = new System.Windows.Forms.Label();
@@ -354,7 +334,6 @@
             this.pictureLabel4_17 = new System.Windows.Forms.PictureBox();
             this.Unit4_17 = new System.Windows.Forms.Label();
             this.skinButton10 = new CCWin.SkinControl.SkinButton();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.TestChoose3 = new System.Windows.Forms.Button();
@@ -363,8 +342,6 @@
             this.TestChoose2 = new System.Windows.Forms.Button();
             this.ParSetting = new System.Windows.Forms.Button();
             this.SerialPort = new System.Windows.Forms.Button();
-            this.NoneGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.ViewGroupBox1 = new System.Windows.Forms.GroupBox();
             this.ForceView = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -481,7 +458,6 @@
             this.label138 = new System.Windows.Forms.Label();
             this.label140 = new System.Windows.Forms.Label();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.skinGroupBox2 = new CCWin.SkinControl.SkinGroupBox();
             this.factordataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -514,25 +490,11 @@
             this.listView_main = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ResultGroupBox = new System.Windows.Forms.GroupBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
             this.TextGroupbox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -568,8 +530,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.NoneGroupBox.SuspendLayout();
             this.ViewGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.ViewGroupBox2.SuspendLayout();
@@ -578,12 +538,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.ViewGroupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.skinGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).BeginInit();
             this.listview_card_hide.SuspendLayout();
             this.skinGroupBox1.SuspendLayout();
             this.ResultGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureTest1
@@ -811,15 +772,11 @@
             // TextGroupbox1
             // 
             this.TextGroupbox1.BackColor = System.Drawing.Color.White;
-            this.TextGroupbox1.Controls.Add(this.TestResult);
             this.TextGroupbox1.Controls.Add(this.apply_btm_1);
             this.TextGroupbox1.Controls.Add(this.K2TextBox1_2);
             this.TextGroupbox1.Controls.Add(this.K1TextBox1_1);
-            this.TextGroupbox1.Controls.Add(this.Monitor);
             this.TextGroupbox1.Controls.Add(this.K1_2);
             this.TextGroupbox1.Controls.Add(this.K1_1);
-            this.TextGroupbox1.Controls.Add(this.TestStop);
-            this.TextGroupbox1.Controls.Add(this.TestRun);
             this.TextGroupbox1.Controls.Add(this.Unit1_13);
             this.TextGroupbox1.Controls.Add(this.Unit1_12);
             this.TextGroupbox1.Controls.Add(this.ForceTextBox1);
@@ -873,24 +830,10 @@
             this.TextGroupbox1.Font = new System.Drawing.Font("宋体", 12F);
             this.TextGroupbox1.Location = new System.Drawing.Point(6, 57);
             this.TextGroupbox1.Name = "TextGroupbox1";
-            this.TextGroupbox1.Size = new System.Drawing.Size(582, 926);
+            this.TextGroupbox1.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox1.TabIndex = 24;
             this.TextGroupbox1.TabStop = false;
             this.TextGroupbox1.Text = "导热系数测量";
-            // 
-            // TestResult
-            // 
-            this.TestResult.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestResult.BackgroundImage")));
-            this.TestResult.FlatAppearance.BorderSize = 0;
-            this.TestResult.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TestResult.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestResult.Location = new System.Drawing.Point(375, 870);
-            this.TestResult.Name = "TestResult";
-            this.TestResult.Size = new System.Drawing.Size(96, 34);
-            this.TestResult.TabIndex = 93;
-            this.TestResult.Text = "数据结果";
-            this.TestResult.UseVisualStyleBackColor = true;
-            this.TestResult.Click += new System.EventHandler(this.TestResult_Click);
             // 
             // apply_btm_1
             // 
@@ -918,20 +861,6 @@
             this.K1TextBox1_1.TabIndex = 67;
             this.K1TextBox1_1.Text = "237";
             // 
-            // Monitor
-            // 
-            this.Monitor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Monitor.BackgroundImage")));
-            this.Monitor.FlatAppearance.BorderSize = 0;
-            this.Monitor.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Monitor.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Monitor.Location = new System.Drawing.Point(88, 869);
-            this.Monitor.Name = "Monitor";
-            this.Monitor.Size = new System.Drawing.Size(96, 35);
-            this.Monitor.TabIndex = 94;
-            this.Monitor.Text = "图形显示";
-            this.Monitor.UseVisualStyleBackColor = true;
-            this.Monitor.Click += new System.EventHandler(this.Monitor_Click);
-            // 
             // K1_2
             // 
             this.K1_2.AutoSize = true;
@@ -951,34 +880,6 @@
             this.K1_1.Size = new System.Drawing.Size(32, 21);
             this.K1_1.TabIndex = 65;
             this.K1_1.Text = "K1";
-            // 
-            // TestStop
-            // 
-            this.TestStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestStop.BackgroundImage")));
-            this.TestStop.FlatAppearance.BorderSize = 0;
-            this.TestStop.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TestStop.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestStop.Location = new System.Drawing.Point(235, 29);
-            this.TestStop.Name = "TestStop";
-            this.TestStop.Size = new System.Drawing.Size(102, 29);
-            this.TestStop.TabIndex = 96;
-            this.TestStop.Text = "停止";
-            this.TestStop.UseVisualStyleBackColor = true;
-            this.TestStop.Click += new System.EventHandler(this.TestStop_Click);
-            // 
-            // TestRun
-            // 
-            this.TestRun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestRun.BackgroundImage")));
-            this.TestRun.FlatAppearance.BorderSize = 0;
-            this.TestRun.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TestRun.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestRun.Location = new System.Drawing.Point(127, 29);
-            this.TestRun.Name = "TestRun";
-            this.TestRun.Size = new System.Drawing.Size(102, 29);
-            this.TestRun.TabIndex = 95;
-            this.TestRun.Text = "检测";
-            this.TestRun.UseVisualStyleBackColor = true;
-            this.TestRun.Click += new System.EventHandler(this.TestRun_Click);
             // 
             // Unit1_13
             // 
@@ -1241,18 +1142,67 @@
             this.LengthTextBox1_8.TabIndex = 43;
             this.LengthTextBox1_8.Text = "4";
             // 
+            // TestResult
+            // 
+            this.TestResult.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestResult.BackgroundImage")));
+            this.TestResult.FlatAppearance.BorderSize = 0;
+            this.TestResult.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.TestResult.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestResult.Location = new System.Drawing.Point(381, 927);
+            this.TestResult.Name = "TestResult";
+            this.TestResult.Size = new System.Drawing.Size(96, 34);
+            this.TestResult.TabIndex = 93;
+            this.TestResult.Text = "数据结果";
+            this.TestResult.UseVisualStyleBackColor = true;
+            this.TestResult.Click += new System.EventHandler(this.TestResult_Click);
+            // 
+            // Monitor
+            // 
+            this.Monitor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Monitor.BackgroundImage")));
+            this.Monitor.FlatAppearance.BorderSize = 0;
+            this.Monitor.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Monitor.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Monitor.Location = new System.Drawing.Point(94, 927);
+            this.Monitor.Name = "Monitor";
+            this.Monitor.Size = new System.Drawing.Size(96, 35);
+            this.Monitor.TabIndex = 94;
+            this.Monitor.Text = "图形显示";
+            this.Monitor.UseVisualStyleBackColor = true;
+            this.Monitor.Click += new System.EventHandler(this.Monitor_Click);
+            // 
+            // TestStop
+            // 
+            this.TestStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestStop.BackgroundImage")));
+            this.TestStop.FlatAppearance.BorderSize = 0;
+            this.TestStop.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.TestStop.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestStop.Location = new System.Drawing.Point(241, 86);
+            this.TestStop.Name = "TestStop";
+            this.TestStop.Size = new System.Drawing.Size(90, 29);
+            this.TestStop.TabIndex = 96;
+            this.TestStop.Text = "停止";
+            this.TestStop.UseVisualStyleBackColor = true;
+            this.TestStop.Click += new System.EventHandler(this.TestStop_Click);
+            // 
+            // TestRun
+            // 
+            this.TestRun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestRun.BackgroundImage")));
+            this.TestRun.FlatAppearance.BorderSize = 0;
+            this.TestRun.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.TestRun.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestRun.Location = new System.Drawing.Point(133, 86);
+            this.TestRun.Name = "TestRun";
+            this.TestRun.Size = new System.Drawing.Size(102, 29);
+            this.TestRun.TabIndex = 95;
+            this.TestRun.Text = "检测";
+            this.TestRun.UseVisualStyleBackColor = true;
+            this.TestRun.Click += new System.EventHandler(this.TestRun_Click);
+            // 
             // TextGroupbox2
             // 
             this.TextGroupbox2.BackColor = System.Drawing.Color.White;
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_13);
             this.TextGroupbox2.Controls.Add(this.apply_btm_2);
-            this.TextGroupbox2.Controls.Add(this.label43);
-            this.TextGroupbox2.Controls.Add(this.label30);
-            this.TextGroupbox2.Controls.Add(this.label29);
-            this.TextGroupbox2.Controls.Add(this.label28);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_14);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_13);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_12);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_14);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_13);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_12);
@@ -1268,48 +1218,35 @@
             this.TextGroupbox2.Controls.Add(this.K1TextBox2_1);
             this.TextGroupbox2.Controls.Add(this.K2_2);
             this.TextGroupbox2.Controls.Add(this.K2_1);
-            this.TextGroupbox2.Controls.Add(this.pictureBox2);
-            this.TextGroupbox2.Controls.Add(this.pictureBox3);
             this.TextGroupbox2.Controls.Add(this.Unit2_13);
             this.TextGroupbox2.Controls.Add(this.Unit2_12);
             this.TextGroupbox2.Controls.Add(this.ForceTextBox2);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_1);
             this.TextGroupbox2.Controls.Add(this.label7);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_1);
             this.TextGroupbox2.Controls.Add(this.label8);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_2);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_2);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_3);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_1);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_4);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_11);
             this.TextGroupbox2.Controls.Add(this.Unit2_11);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_10);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_5);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_9);
             this.TextGroupbox2.Controls.Add(this.Unit2_10);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_8);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_6);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_7);
             this.TextGroupbox2.Controls.Add(this.Unit2_9);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_6);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_7);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_5);
             this.TextGroupbox2.Controls.Add(this.Unit2_8);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_4);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_8);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_3);
             this.TextGroupbox2.Controls.Add(this.Unit2_7);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_2);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_9);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_1);
             this.TextGroupbox2.Controls.Add(this.Unit2_6);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_9);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_10);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_10);
             this.TextGroupbox2.Controls.Add(this.Unit2_5);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_11);
-            this.TextGroupbox2.Controls.Add(this.pictureLabel2_11);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_8);
             this.TextGroupbox2.Controls.Add(this.Unit2_4);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_7);
@@ -1331,306 +1268,207 @@
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_7);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_9);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_8);
-            this.TextGroupbox2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextGroupbox2.Location = new System.Drawing.Point(393, 92);
+            this.TextGroupbox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TextGroupbox2.Location = new System.Drawing.Point(6, 57);
             this.TextGroupbox2.Name = "TextGroupbox2";
             this.TextGroupbox2.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox2.TabIndex = 69;
             this.TextGroupbox2.TabStop = false;
+            this.TextGroupbox2.Text = "固_固接触热阻测量";
             // 
             // ChannelTextBox2_13
             // 
             this.ChannelTextBox2_13.Enabled = false;
-            this.ChannelTextBox2_13.Location = new System.Drawing.Point(690, 668);
+            this.ChannelTextBox2_13.Location = new System.Drawing.Point(470, 667);
             this.ChannelTextBox2_13.Name = "ChannelTextBox2_13";
-            this.ChannelTextBox2_13.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_13.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_13.TabIndex = 86;
             this.ChannelTextBox2_13.Text = "12";
             // 
             // apply_btm_2
             // 
-            this.apply_btm_2.Location = new System.Drawing.Point(1100, 619);
+            this.apply_btm_2.Location = new System.Drawing.Point(19, 28);
             this.apply_btm_2.Name = "apply_btm_2";
-            this.apply_btm_2.Size = new System.Drawing.Size(115, 31);
+            this.apply_btm_2.Size = new System.Drawing.Size(102, 30);
             this.apply_btm_2.TabIndex = 85;
-            this.apply_btm_2.Text = "button2";
+            this.apply_btm_2.Text = "保存参数";
             this.apply_btm_2.UseVisualStyleBackColor = true;
             this.apply_btm_2.Click += new System.EventHandler(this.apply_btm_2_Click);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(1048, 499);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(221, 16);
-            this.label43.TabIndex = 84;
-            this.label43.Text = "4、 接触热阻 = 界面温差/热流密度";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(1048, 473);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(285, 16);
-            this.label30.TabIndex = 83;
-            this.label30.Text = "3、 由上下试件温度，线性拟合得到界面温度";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(1048, 446);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(299, 16);
-            this.label29.TabIndex = 82;
-            this.label29.Text = "2、 由热流计温度及热导率，计算得到热流密度";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(1048, 418);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(271, 16);
-            this.label28.TabIndex = 81;
-            this.label28.Text = "1、 待热电偶阻值稳定下来，得到各点温度";
-            // 
-            // pictureLabel2_14
-            // 
-            this.pictureLabel2_14.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_14.Image")));
-            this.pictureLabel2_14.Location = new System.Drawing.Point(268, 681);
-            this.pictureLabel2_14.Name = "pictureLabel2_14";
-            this.pictureLabel2_14.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_14.TabIndex = 83;
-            this.pictureLabel2_14.TabStop = false;
-            // 
-            // pictureLabel2_13
-            // 
-            this.pictureLabel2_13.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_13.Image")));
-            this.pictureLabel2_13.Location = new System.Drawing.Point(268, 653);
-            this.pictureLabel2_13.Name = "pictureLabel2_13";
-            this.pictureLabel2_13.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_13.TabIndex = 82;
-            this.pictureLabel2_13.TabStop = false;
-            // 
-            // pictureLabel2_12
-            // 
-            this.pictureLabel2_12.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_12.Image")));
-            this.pictureLabel2_12.Location = new System.Drawing.Point(268, 624);
-            this.pictureLabel2_12.Name = "pictureLabel2_12";
-            this.pictureLabel2_12.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_12.TabIndex = 81;
-            this.pictureLabel2_12.TabStop = false;
             // 
             // LengthTextBox2_14
             // 
             this.LengthTextBox2_14.Enabled = false;
-            this.LengthTextBox2_14.Location = new System.Drawing.Point(294, 680);
+            this.LengthTextBox2_14.Location = new System.Drawing.Point(29, 687);
             this.LengthTextBox2_14.Name = "LengthTextBox2_14";
-            this.LengthTextBox2_14.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_14.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_14.TabIndex = 80;
             this.LengthTextBox2_14.Text = "10";
             // 
             // LengthTextBox2_13
             // 
             this.LengthTextBox2_13.Enabled = false;
-            this.LengthTextBox2_13.Location = new System.Drawing.Point(294, 653);
+            this.LengthTextBox2_13.Location = new System.Drawing.Point(29, 655);
             this.LengthTextBox2_13.Name = "LengthTextBox2_13";
-            this.LengthTextBox2_13.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_13.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_13.TabIndex = 79;
             this.LengthTextBox2_13.Text = "8";
             // 
             // LengthTextBox2_12
             // 
             this.LengthTextBox2_12.Enabled = false;
-            this.LengthTextBox2_12.Location = new System.Drawing.Point(294, 624);
+            this.LengthTextBox2_12.Location = new System.Drawing.Point(29, 621);
             this.LengthTextBox2_12.Name = "LengthTextBox2_12";
-            this.LengthTextBox2_12.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_12.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_12.TabIndex = 78;
             this.LengthTextBox2_12.Text = "15";
             // 
             // Unit2_16
             // 
             this.Unit2_16.AutoSize = true;
-            this.Unit2_16.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_16.Location = new System.Drawing.Point(365, 681);
+            this.Unit2_16.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_16.Location = new System.Drawing.Point(100, 688);
             this.Unit2_16.Name = "Unit2_16";
-            this.Unit2_16.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_16.Size = new System.Drawing.Size(42, 23);
             this.Unit2_16.TabIndex = 77;
             this.Unit2_16.Text = "mm";
             // 
             // Unit2_15
             // 
             this.Unit2_15.AutoSize = true;
-            this.Unit2_15.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_15.Location = new System.Drawing.Point(365, 650);
+            this.Unit2_15.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_15.Location = new System.Drawing.Point(100, 655);
             this.Unit2_15.Name = "Unit2_15";
-            this.Unit2_15.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_15.Size = new System.Drawing.Size(42, 23);
             this.Unit2_15.TabIndex = 76;
             this.Unit2_15.Text = "mm";
             // 
             // Unit2_14
             // 
             this.Unit2_14.AutoSize = true;
-            this.Unit2_14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_14.Location = new System.Drawing.Point(365, 619);
+            this.Unit2_14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_14.Location = new System.Drawing.Point(100, 621);
             this.Unit2_14.Name = "Unit2_14";
-            this.Unit2_14.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_14.Size = new System.Drawing.Size(42, 23);
             this.Unit2_14.TabIndex = 75;
             this.Unit2_14.Text = "mm";
             // 
             // ChannelTextBox2_14
             // 
             this.ChannelTextBox2_14.Enabled = false;
-            this.ChannelTextBox2_14.Location = new System.Drawing.Point(691, 707);
+            this.ChannelTextBox2_14.Location = new System.Drawing.Point(470, 696);
             this.ChannelTextBox2_14.Name = "ChannelTextBox2_14";
-            this.ChannelTextBox2_14.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_14.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_14.TabIndex = 74;
             this.ChannelTextBox2_14.Text = "14";
             // 
             // ChannelTextBox2_12
             // 
             this.ChannelTextBox2_12.Enabled = false;
-            this.ChannelTextBox2_12.Location = new System.Drawing.Point(691, 636);
+            this.ChannelTextBox2_12.Location = new System.Drawing.Point(470, 637);
             this.ChannelTextBox2_12.Name = "ChannelTextBox2_12";
-            this.ChannelTextBox2_12.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_12.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_12.TabIndex = 72;
             this.ChannelTextBox2_12.Text = "12";
             // 
             // ChannelLabel2_14
             // 
             this.ChannelLabel2_14.AutoSize = true;
-            this.ChannelLabel2_14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_14.Location = new System.Drawing.Point(638, 702);
+            this.ChannelLabel2_14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_14.Location = new System.Drawing.Point(418, 696);
             this.ChannelLabel2_14.Name = "ChannelLabel2_14";
-            this.ChannelLabel2_14.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_14.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_14.TabIndex = 71;
             this.ChannelLabel2_14.Text = "Chn";
             // 
             // ChannelLabel2_13
             // 
             this.ChannelLabel2_13.AutoSize = true;
-            this.ChannelLabel2_13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_13.Location = new System.Drawing.Point(638, 668);
+            this.ChannelLabel2_13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_13.Location = new System.Drawing.Point(417, 670);
             this.ChannelLabel2_13.Name = "ChannelLabel2_13";
-            this.ChannelLabel2_13.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_13.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_13.TabIndex = 70;
             this.ChannelLabel2_13.Text = "Chn";
             // 
             // ChannelLabel2_12
             // 
             this.ChannelLabel2_12.AutoSize = true;
-            this.ChannelLabel2_12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_12.Location = new System.Drawing.Point(638, 632);
+            this.ChannelLabel2_12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_12.Location = new System.Drawing.Point(417, 640);
             this.ChannelLabel2_12.Name = "ChannelLabel2_12";
-            this.ChannelLabel2_12.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_12.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_12.TabIndex = 69;
             this.ChannelLabel2_12.Text = "Chn";
             // 
             // K2TextBox2_2
             // 
-            this.K2TextBox2_2.Location = new System.Drawing.Point(885, 654);
+            this.K2TextBox2_2.Location = new System.Drawing.Point(378, 719);
             this.K2TextBox2_2.Name = "K2TextBox2_2";
-            this.K2TextBox2_2.Size = new System.Drawing.Size(64, 23);
+            this.K2TextBox2_2.Size = new System.Drawing.Size(64, 26);
             this.K2TextBox2_2.TabIndex = 68;
             this.K2TextBox2_2.Text = "237";
             // 
             // K1TextBox2_1
             // 
-            this.K1TextBox2_1.Location = new System.Drawing.Point(885, 255);
+            this.K1TextBox2_1.Location = new System.Drawing.Point(378, 148);
             this.K1TextBox2_1.Name = "K1TextBox2_1";
-            this.K1TextBox2_1.Size = new System.Drawing.Size(64, 23);
+            this.K1TextBox2_1.Size = new System.Drawing.Size(64, 26);
             this.K1TextBox2_1.TabIndex = 67;
             this.K1TextBox2_1.Text = "237";
             // 
             // K2_2
             // 
             this.K2_2.AutoSize = true;
-            this.K2_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.K2_2.Location = new System.Drawing.Point(841, 653);
+            this.K2_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.K2_2.Location = new System.Drawing.Point(343, 722);
             this.K2_2.Name = "K2_2";
-            this.K2_2.Size = new System.Drawing.Size(38, 24);
+            this.K2_2.Size = new System.Drawing.Size(36, 23);
             this.K2_2.TabIndex = 66;
             this.K2_2.Text = "K2";
             // 
             // K2_1
             // 
             this.K2_1.AutoSize = true;
-            this.K2_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.K2_1.Location = new System.Drawing.Point(841, 255);
+            this.K2_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.K2_1.Location = new System.Drawing.Point(336, 151);
             this.K2_1.Name = "K2_1";
-            this.K2_1.Size = new System.Drawing.Size(38, 24);
+            this.K2_1.Size = new System.Drawing.Size(36, 23);
             this.K2_1.TabIndex = 65;
             this.K2_1.Text = "K1";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(824, 658);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 64;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(824, 259);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 63;
-            this.pictureBox3.TabStop = false;
             // 
             // Unit2_13
             // 
             this.Unit2_13.AutoSize = true;
-            this.Unit2_13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_13.Location = new System.Drawing.Point(955, 654);
+            this.Unit2_13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_13.Location = new System.Drawing.Point(445, 725);
             this.Unit2_13.Name = "Unit2_13";
-            this.Unit2_13.Size = new System.Drawing.Size(70, 24);
+            this.Unit2_13.Size = new System.Drawing.Size(51, 19);
             this.Unit2_13.TabIndex = 62;
             this.Unit2_13.Text = "W/mK";
             // 
             // Unit2_12
             // 
             this.Unit2_12.AutoSize = true;
-            this.Unit2_12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_12.Location = new System.Drawing.Point(955, 255);
+            this.Unit2_12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_12.Location = new System.Drawing.Point(445, 151);
             this.Unit2_12.Name = "Unit2_12";
-            this.Unit2_12.Size = new System.Drawing.Size(70, 24);
+            this.Unit2_12.Size = new System.Drawing.Size(51, 19);
             this.Unit2_12.TabIndex = 61;
             this.Unit2_12.Text = "W/mK";
             // 
             // ForceTextBox2
             // 
-            this.ForceTextBox2.Location = new System.Drawing.Point(658, 823);
+            this.ForceTextBox2.Location = new System.Drawing.Point(378, 822);
             this.ForceTextBox2.Name = "ForceTextBox2";
-            this.ForceTextBox2.Size = new System.Drawing.Size(64, 23);
+            this.ForceTextBox2.Size = new System.Drawing.Size(64, 26);
             this.ForceTextBox2.TabIndex = 60;
-            // 
-            // pictureLabel2_1
-            // 
-            this.pictureLabel2_1.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_1.Image")));
-            this.pictureLabel2_1.Location = new System.Drawing.Point(270, 223);
-            this.pictureLabel2_1.Name = "pictureLabel2_1";
-            this.pictureLabel2_1.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_1.TabIndex = 25;
-            this.pictureLabel2_1.TabStop = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label7.Location = new System.Drawing.Point(728, 824);
+            this.label7.Location = new System.Drawing.Point(448, 822);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 22);
             this.label7.TabIndex = 59;
@@ -1639,9 +1477,9 @@
             // LengthTextBox2_1
             // 
             this.LengthTextBox2_1.Enabled = false;
-            this.LengthTextBox2_1.Location = new System.Drawing.Point(295, 223);
+            this.LengthTextBox2_1.Location = new System.Drawing.Point(29, 193);
             this.LengthTextBox2_1.Name = "LengthTextBox2_1";
-            this.LengthTextBox2_1.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_1.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_1.TabIndex = 36;
             this.LengthTextBox2_1.Text = "10";
             // 
@@ -1650,540 +1488,440 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label8.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label8.Location = new System.Drawing.Point(563, 823);
+            this.label8.Location = new System.Drawing.Point(290, 827);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 19);
             this.label8.TabIndex = 58;
             this.label8.Text = "加载压力";
             // 
-            // pictureLabel2_2
-            // 
-            this.pictureLabel2_2.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_2.Image")));
-            this.pictureLabel2_2.Location = new System.Drawing.Point(270, 255);
-            this.pictureLabel2_2.Name = "pictureLabel2_2";
-            this.pictureLabel2_2.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_2.TabIndex = 26;
-            this.pictureLabel2_2.TabStop = false;
-            // 
             // ChannelLabel2_2
             // 
             this.ChannelLabel2_2.AutoSize = true;
-            this.ChannelLabel2_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_2.Location = new System.Drawing.Point(638, 232);
+            this.ChannelLabel2_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_2.Location = new System.Drawing.Point(418, 204);
             this.ChannelLabel2_2.Name = "ChannelLabel2_2";
-            this.ChannelLabel2_2.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_2.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_2.TabIndex = 2;
             this.ChannelLabel2_2.Text = "Chn";
-            // 
-            // pictureLabel2_3
-            // 
-            this.pictureLabel2_3.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_3.Image")));
-            this.pictureLabel2_3.Location = new System.Drawing.Point(268, 287);
-            this.pictureLabel2_3.Name = "pictureLabel2_3";
-            this.pictureLabel2_3.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_3.TabIndex = 27;
-            this.pictureLabel2_3.TabStop = false;
             // 
             // ChannelLabel2_1
             // 
             this.ChannelLabel2_1.AutoSize = true;
-            this.ChannelLabel2_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_1.Location = new System.Drawing.Point(638, 206);
+            this.ChannelLabel2_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_1.Location = new System.Drawing.Point(418, 177);
             this.ChannelLabel2_1.Name = "ChannelLabel2_1";
-            this.ChannelLabel2_1.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_1.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_1.TabIndex = 1;
             this.ChannelLabel2_1.Text = "Chn";
-            // 
-            // pictureLabel2_4
-            // 
-            this.pictureLabel2_4.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_4.Image")));
-            this.pictureLabel2_4.Location = new System.Drawing.Point(268, 316);
-            this.pictureLabel2_4.Name = "pictureLabel2_4";
-            this.pictureLabel2_4.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_4.TabIndex = 28;
-            this.pictureLabel2_4.TabStop = false;
             // 
             // ChannelTextBox2_11
             // 
             this.ChannelTextBox2_11.Enabled = false;
-            this.ChannelTextBox2_11.Location = new System.Drawing.Point(691, 598);
+            this.ChannelTextBox2_11.Location = new System.Drawing.Point(470, 598);
             this.ChannelTextBox2_11.Name = "ChannelTextBox2_11";
-            this.ChannelTextBox2_11.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_11.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_11.TabIndex = 23;
             this.ChannelTextBox2_11.Text = "11";
             // 
             // Unit2_11
             // 
             this.Unit2_11.AutoSize = true;
-            this.Unit2_11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_11.Location = new System.Drawing.Point(365, 593);
+            this.Unit2_11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_11.Location = new System.Drawing.Point(99, 591);
             this.Unit2_11.Name = "Unit2_11";
-            this.Unit2_11.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_11.Size = new System.Drawing.Size(42, 23);
             this.Unit2_11.TabIndex = 57;
             this.Unit2_11.Text = "mm";
             // 
             // ChannelTextBox2_10
             // 
             this.ChannelTextBox2_10.ForeColor = System.Drawing.Color.Red;
-            this.ChannelTextBox2_10.Location = new System.Drawing.Point(691, 567);
+            this.ChannelTextBox2_10.Location = new System.Drawing.Point(471, 562);
             this.ChannelTextBox2_10.Name = "ChannelTextBox2_10";
-            this.ChannelTextBox2_10.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_10.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_10.TabIndex = 22;
             this.ChannelTextBox2_10.Text = "10";
-            // 
-            // pictureLabel2_5
-            // 
-            this.pictureLabel2_5.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_5.Image")));
-            this.pictureLabel2_5.Location = new System.Drawing.Point(268, 363);
-            this.pictureLabel2_5.Name = "pictureLabel2_5";
-            this.pictureLabel2_5.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_5.TabIndex = 29;
-            this.pictureLabel2_5.TabStop = false;
             // 
             // ChannelTextBox2_9
             // 
             this.ChannelTextBox2_9.ForeColor = System.Drawing.Color.Red;
-            this.ChannelTextBox2_9.Location = new System.Drawing.Point(691, 519);
+            this.ChannelTextBox2_9.Location = new System.Drawing.Point(471, 507);
             this.ChannelTextBox2_9.Name = "ChannelTextBox2_9";
-            this.ChannelTextBox2_9.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_9.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_9.TabIndex = 21;
             this.ChannelTextBox2_9.Text = "9";
             // 
             // Unit2_10
             // 
             this.Unit2_10.AutoSize = true;
-            this.Unit2_10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unit2_10.ForeColor = System.Drawing.Color.Red;
-            this.Unit2_10.Location = new System.Drawing.Point(365, 541);
+            this.Unit2_10.Location = new System.Drawing.Point(98, 535);
             this.Unit2_10.Name = "Unit2_10";
-            this.Unit2_10.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_10.Size = new System.Drawing.Size(42, 23);
             this.Unit2_10.TabIndex = 56;
             this.Unit2_10.Text = "mm";
             // 
             // ChannelTextBox2_8
             // 
             this.ChannelTextBox2_8.ForeColor = System.Drawing.Color.Red;
-            this.ChannelTextBox2_8.Location = new System.Drawing.Point(691, 485);
+            this.ChannelTextBox2_8.Location = new System.Drawing.Point(471, 468);
             this.ChannelTextBox2_8.Name = "ChannelTextBox2_8";
-            this.ChannelTextBox2_8.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_8.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_8.TabIndex = 20;
             this.ChannelTextBox2_8.Text = "8";
-            // 
-            // pictureLabel2_6
-            // 
-            this.pictureLabel2_6.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_6.Image")));
-            this.pictureLabel2_6.Location = new System.Drawing.Point(269, 408);
-            this.pictureLabel2_6.Name = "pictureLabel2_6";
-            this.pictureLabel2_6.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_6.TabIndex = 30;
-            this.pictureLabel2_6.TabStop = false;
             // 
             // ChannelTextBox2_7
             // 
             this.ChannelTextBox2_7.ForeColor = System.Drawing.Color.Red;
-            this.ChannelTextBox2_7.Location = new System.Drawing.Point(691, 432);
+            this.ChannelTextBox2_7.Location = new System.Drawing.Point(470, 414);
             this.ChannelTextBox2_7.Name = "ChannelTextBox2_7";
-            this.ChannelTextBox2_7.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_7.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_7.TabIndex = 19;
             this.ChannelTextBox2_7.Text = "7";
             // 
             // Unit2_9
             // 
             this.Unit2_9.AutoSize = true;
-            this.Unit2_9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unit2_9.ForeColor = System.Drawing.Color.Red;
-            this.Unit2_9.Location = new System.Drawing.Point(365, 499);
+            this.Unit2_9.Location = new System.Drawing.Point(99, 492);
             this.Unit2_9.Name = "Unit2_9";
-            this.Unit2_9.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_9.Size = new System.Drawing.Size(42, 23);
             this.Unit2_9.TabIndex = 55;
             this.Unit2_9.Text = "mm";
             // 
             // ChannelTextBox2_6
             // 
             this.ChannelTextBox2_6.ForeColor = System.Drawing.Color.Red;
-            this.ChannelTextBox2_6.Location = new System.Drawing.Point(691, 388);
+            this.ChannelTextBox2_6.Location = new System.Drawing.Point(471, 370);
             this.ChannelTextBox2_6.Name = "ChannelTextBox2_6";
-            this.ChannelTextBox2_6.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_6.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_6.TabIndex = 18;
             this.ChannelTextBox2_6.Text = "6";
-            // 
-            // pictureLabel2_7
-            // 
-            this.pictureLabel2_7.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_7.Image")));
-            this.pictureLabel2_7.Location = new System.Drawing.Point(269, 440);
-            this.pictureLabel2_7.Name = "pictureLabel2_7";
-            this.pictureLabel2_7.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_7.TabIndex = 31;
-            this.pictureLabel2_7.TabStop = false;
             // 
             // ChannelTextBox2_5
             // 
             this.ChannelTextBox2_5.ForeColor = System.Drawing.Color.Red;
-            this.ChannelTextBox2_5.Location = new System.Drawing.Point(691, 337);
+            this.ChannelTextBox2_5.Location = new System.Drawing.Point(471, 314);
             this.ChannelTextBox2_5.Name = "ChannelTextBox2_5";
-            this.ChannelTextBox2_5.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_5.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_5.TabIndex = 17;
             this.ChannelTextBox2_5.Text = "5";
             // 
             // Unit2_8
             // 
             this.Unit2_8.AutoSize = true;
-            this.Unit2_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unit2_8.ForeColor = System.Drawing.Color.Red;
-            this.Unit2_8.Location = new System.Drawing.Point(365, 467);
+            this.Unit2_8.Location = new System.Drawing.Point(99, 461);
             this.Unit2_8.Name = "Unit2_8";
-            this.Unit2_8.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_8.Size = new System.Drawing.Size(42, 23);
             this.Unit2_8.TabIndex = 54;
             this.Unit2_8.Text = "mm";
             // 
             // ChannelTextBox2_4
             // 
             this.ChannelTextBox2_4.Enabled = false;
-            this.ChannelTextBox2_4.Location = new System.Drawing.Point(691, 310);
+            this.ChannelTextBox2_4.Location = new System.Drawing.Point(471, 277);
             this.ChannelTextBox2_4.Name = "ChannelTextBox2_4";
-            this.ChannelTextBox2_4.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_4.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_4.TabIndex = 16;
             this.ChannelTextBox2_4.Text = "4";
-            // 
-            // pictureLabel2_8
-            // 
-            this.pictureLabel2_8.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_8.Image")));
-            this.pictureLabel2_8.Location = new System.Drawing.Point(270, 471);
-            this.pictureLabel2_8.Name = "pictureLabel2_8";
-            this.pictureLabel2_8.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_8.TabIndex = 32;
-            this.pictureLabel2_8.TabStop = false;
             // 
             // ChannelTextBox2_3
             // 
             this.ChannelTextBox2_3.Enabled = false;
-            this.ChannelTextBox2_3.Location = new System.Drawing.Point(691, 272);
+            this.ChannelTextBox2_3.Location = new System.Drawing.Point(471, 244);
             this.ChannelTextBox2_3.Name = "ChannelTextBox2_3";
-            this.ChannelTextBox2_3.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_3.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_3.TabIndex = 15;
             this.ChannelTextBox2_3.Text = "3";
             // 
             // Unit2_7
             // 
             this.Unit2_7.AutoSize = true;
-            this.Unit2_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unit2_7.ForeColor = System.Drawing.Color.Red;
-            this.Unit2_7.Location = new System.Drawing.Point(365, 438);
+            this.Unit2_7.Location = new System.Drawing.Point(99, 426);
             this.Unit2_7.Name = "Unit2_7";
-            this.Unit2_7.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_7.Size = new System.Drawing.Size(42, 23);
             this.Unit2_7.TabIndex = 53;
             this.Unit2_7.Text = "mm";
             // 
             // ChannelTextBox2_2
             // 
             this.ChannelTextBox2_2.Enabled = false;
-            this.ChannelTextBox2_2.Location = new System.Drawing.Point(691, 233);
+            this.ChannelTextBox2_2.Location = new System.Drawing.Point(471, 205);
             this.ChannelTextBox2_2.Name = "ChannelTextBox2_2";
-            this.ChannelTextBox2_2.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_2.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_2.TabIndex = 14;
             this.ChannelTextBox2_2.Text = "2";
-            // 
-            // pictureLabel2_9
-            // 
-            this.pictureLabel2_9.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_9.Image")));
-            this.pictureLabel2_9.Location = new System.Drawing.Point(270, 504);
-            this.pictureLabel2_9.Name = "pictureLabel2_9";
-            this.pictureLabel2_9.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_9.TabIndex = 33;
-            this.pictureLabel2_9.TabStop = false;
             // 
             // ChannelTextBox2_1
             // 
             this.ChannelTextBox2_1.Enabled = false;
-            this.ChannelTextBox2_1.Location = new System.Drawing.Point(691, 206);
+            this.ChannelTextBox2_1.Location = new System.Drawing.Point(471, 177);
             this.ChannelTextBox2_1.Name = "ChannelTextBox2_1";
-            this.ChannelTextBox2_1.Size = new System.Drawing.Size(64, 23);
+            this.ChannelTextBox2_1.Size = new System.Drawing.Size(64, 26);
             this.ChannelTextBox2_1.TabIndex = 12;
             this.ChannelTextBox2_1.Text = "1";
             // 
             // Unit2_6
             // 
             this.Unit2_6.AutoSize = true;
-            this.Unit2_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unit2_6.ForeColor = System.Drawing.Color.Red;
-            this.Unit2_6.Location = new System.Drawing.Point(365, 407);
+            this.Unit2_6.Location = new System.Drawing.Point(99, 390);
             this.Unit2_6.Name = "Unit2_6";
-            this.Unit2_6.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_6.Size = new System.Drawing.Size(42, 23);
             this.Unit2_6.TabIndex = 52;
             this.Unit2_6.Text = "mm";
             // 
             // ChannelLabel2_9
             // 
             this.ChannelLabel2_9.AutoSize = true;
-            this.ChannelLabel2_9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChannelLabel2_9.ForeColor = System.Drawing.Color.Red;
-            this.ChannelLabel2_9.Location = new System.Drawing.Point(638, 518);
+            this.ChannelLabel2_9.Location = new System.Drawing.Point(418, 506);
             this.ChannelLabel2_9.Name = "ChannelLabel2_9";
-            this.ChannelLabel2_9.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_9.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_9.TabIndex = 11;
             this.ChannelLabel2_9.Text = "Chn";
-            // 
-            // pictureLabel2_10
-            // 
-            this.pictureLabel2_10.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_10.Image")));
-            this.pictureLabel2_10.Location = new System.Drawing.Point(270, 541);
-            this.pictureLabel2_10.Name = "pictureLabel2_10";
-            this.pictureLabel2_10.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_10.TabIndex = 34;
-            this.pictureLabel2_10.TabStop = false;
             // 
             // ChannelLabel2_10
             // 
             this.ChannelLabel2_10.AutoSize = true;
-            this.ChannelLabel2_10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChannelLabel2_10.ForeColor = System.Drawing.Color.Red;
-            this.ChannelLabel2_10.Location = new System.Drawing.Point(638, 567);
+            this.ChannelLabel2_10.Location = new System.Drawing.Point(418, 562);
             this.ChannelLabel2_10.Name = "ChannelLabel2_10";
-            this.ChannelLabel2_10.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_10.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_10.TabIndex = 10;
             this.ChannelLabel2_10.Text = "Chn";
             // 
             // Unit2_5
             // 
             this.Unit2_5.AutoSize = true;
-            this.Unit2_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unit2_5.ForeColor = System.Drawing.Color.Red;
-            this.Unit2_5.Location = new System.Drawing.Point(365, 359);
+            this.Unit2_5.Location = new System.Drawing.Point(100, 338);
             this.Unit2_5.Name = "Unit2_5";
-            this.Unit2_5.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_5.Size = new System.Drawing.Size(42, 23);
             this.Unit2_5.TabIndex = 51;
             this.Unit2_5.Text = "mm";
             // 
             // ChannelLabel2_11
             // 
             this.ChannelLabel2_11.AutoSize = true;
-            this.ChannelLabel2_11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_11.Location = new System.Drawing.Point(638, 597);
+            this.ChannelLabel2_11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_11.Location = new System.Drawing.Point(417, 597);
             this.ChannelLabel2_11.Name = "ChannelLabel2_11";
-            this.ChannelLabel2_11.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_11.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_11.TabIndex = 9;
             this.ChannelLabel2_11.Text = "Chn";
-            // 
-            // pictureLabel2_11
-            // 
-            this.pictureLabel2_11.Image = ((System.Drawing.Image)(resources.GetObject("pictureLabel2_11.Image")));
-            this.pictureLabel2_11.Location = new System.Drawing.Point(270, 596);
-            this.pictureLabel2_11.Name = "pictureLabel2_11";
-            this.pictureLabel2_11.Size = new System.Drawing.Size(20, 22);
-            this.pictureLabel2_11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureLabel2_11.TabIndex = 35;
-            this.pictureLabel2_11.TabStop = false;
             // 
             // ChannelLabel2_8
             // 
             this.ChannelLabel2_8.AutoSize = true;
-            this.ChannelLabel2_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChannelLabel2_8.ForeColor = System.Drawing.Color.Red;
-            this.ChannelLabel2_8.Location = new System.Drawing.Point(638, 485);
+            this.ChannelLabel2_8.Location = new System.Drawing.Point(418, 468);
             this.ChannelLabel2_8.Name = "ChannelLabel2_8";
-            this.ChannelLabel2_8.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_8.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_8.TabIndex = 8;
             this.ChannelLabel2_8.Text = "Chn";
             // 
             // Unit2_4
             // 
             this.Unit2_4.AutoSize = true;
-            this.Unit2_4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_4.Location = new System.Drawing.Point(365, 313);
+            this.Unit2_4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_4.Location = new System.Drawing.Point(100, 295);
             this.Unit2_4.Name = "Unit2_4";
-            this.Unit2_4.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_4.Size = new System.Drawing.Size(42, 23);
             this.Unit2_4.TabIndex = 50;
             this.Unit2_4.Text = "mm";
             // 
             // ChannelLabel2_7
             // 
             this.ChannelLabel2_7.AutoSize = true;
-            this.ChannelLabel2_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChannelLabel2_7.ForeColor = System.Drawing.Color.Red;
-            this.ChannelLabel2_7.Location = new System.Drawing.Point(638, 432);
+            this.ChannelLabel2_7.Location = new System.Drawing.Point(417, 414);
             this.ChannelLabel2_7.Name = "ChannelLabel2_7";
-            this.ChannelLabel2_7.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_7.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_7.TabIndex = 7;
             this.ChannelLabel2_7.Text = "Chn";
             // 
             // LengthTextBox2_2
             // 
             this.LengthTextBox2_2.Enabled = false;
-            this.LengthTextBox2_2.Location = new System.Drawing.Point(295, 256);
+            this.LengthTextBox2_2.Location = new System.Drawing.Point(29, 233);
             this.LengthTextBox2_2.Name = "LengthTextBox2_2";
-            this.LengthTextBox2_2.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_2.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_2.TabIndex = 37;
             this.LengthTextBox2_2.Text = "12";
             // 
             // ChannelLabel2_6
             // 
             this.ChannelLabel2_6.AutoSize = true;
-            this.ChannelLabel2_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChannelLabel2_6.ForeColor = System.Drawing.Color.Red;
-            this.ChannelLabel2_6.Location = new System.Drawing.Point(638, 385);
+            this.ChannelLabel2_6.Location = new System.Drawing.Point(418, 367);
             this.ChannelLabel2_6.Name = "ChannelLabel2_6";
-            this.ChannelLabel2_6.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_6.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_6.TabIndex = 6;
             this.ChannelLabel2_6.Text = "Chn";
             // 
             // Unit2_3
             // 
             this.Unit2_3.AutoSize = true;
-            this.Unit2_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_3.Location = new System.Drawing.Point(365, 287);
+            this.Unit2_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_3.Location = new System.Drawing.Point(100, 266);
             this.Unit2_3.Name = "Unit2_3";
-            this.Unit2_3.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_3.Size = new System.Drawing.Size(42, 23);
             this.Unit2_3.TabIndex = 49;
             this.Unit2_3.Text = "mm";
             // 
             // ChannelLabel2_5
             // 
             this.ChannelLabel2_5.AutoSize = true;
-            this.ChannelLabel2_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChannelLabel2_5.ForeColor = System.Drawing.Color.Red;
-            this.ChannelLabel2_5.Location = new System.Drawing.Point(638, 335);
+            this.ChannelLabel2_5.Location = new System.Drawing.Point(418, 312);
             this.ChannelLabel2_5.Name = "ChannelLabel2_5";
-            this.ChannelLabel2_5.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_5.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_5.TabIndex = 5;
             this.ChannelLabel2_5.Text = "Chn";
             // 
             // LengthTextBox2_3
             // 
             this.LengthTextBox2_3.Enabled = false;
-            this.LengthTextBox2_3.Location = new System.Drawing.Point(294, 287);
+            this.LengthTextBox2_3.Location = new System.Drawing.Point(29, 266);
             this.LengthTextBox2_3.Name = "LengthTextBox2_3";
-            this.LengthTextBox2_3.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_3.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_3.TabIndex = 38;
             this.LengthTextBox2_3.Text = "12";
             // 
             // ChannelLabel2_4
             // 
             this.ChannelLabel2_4.AutoSize = true;
-            this.ChannelLabel2_4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_4.Location = new System.Drawing.Point(638, 309);
+            this.ChannelLabel2_4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_4.Location = new System.Drawing.Point(418, 276);
             this.ChannelLabel2_4.Name = "ChannelLabel2_4";
-            this.ChannelLabel2_4.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_4.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_4.TabIndex = 4;
             this.ChannelLabel2_4.Text = "Chn";
             // 
             // Unit2_2
             // 
             this.Unit2_2.AutoSize = true;
-            this.Unit2_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_2.Location = new System.Drawing.Point(365, 255);
+            this.Unit2_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_2.Location = new System.Drawing.Point(99, 232);
             this.Unit2_2.Name = "Unit2_2";
-            this.Unit2_2.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_2.Size = new System.Drawing.Size(42, 23);
             this.Unit2_2.TabIndex = 48;
             this.Unit2_2.Text = "mm";
             // 
             // ChannelLabel2_3
             // 
             this.ChannelLabel2_3.AutoSize = true;
-            this.ChannelLabel2_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_3.Location = new System.Drawing.Point(638, 272);
+            this.ChannelLabel2_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChannelLabel2_3.Location = new System.Drawing.Point(418, 244);
             this.ChannelLabel2_3.Name = "ChannelLabel2_3";
-            this.ChannelLabel2_3.Size = new System.Drawing.Size(47, 24);
+            this.ChannelLabel2_3.Size = new System.Drawing.Size(44, 23);
             this.ChannelLabel2_3.TabIndex = 3;
             this.ChannelLabel2_3.Text = "Chn";
             // 
             // LengthTextBox2_4
             // 
             this.LengthTextBox2_4.Enabled = false;
-            this.LengthTextBox2_4.Location = new System.Drawing.Point(294, 313);
+            this.LengthTextBox2_4.Location = new System.Drawing.Point(29, 295);
             this.LengthTextBox2_4.Name = "LengthTextBox2_4";
-            this.LengthTextBox2_4.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_4.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_4.TabIndex = 39;
             this.LengthTextBox2_4.Text = "5";
             // 
             // Unit2_1
             // 
             this.Unit2_1.AutoSize = true;
-            this.Unit2_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unit2_1.Location = new System.Drawing.Point(365, 223);
+            this.Unit2_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit2_1.Location = new System.Drawing.Point(99, 193);
             this.Unit2_1.Name = "Unit2_1";
-            this.Unit2_1.Size = new System.Drawing.Size(44, 24);
+            this.Unit2_1.Size = new System.Drawing.Size(42, 23);
             this.Unit2_1.TabIndex = 47;
             this.Unit2_1.Text = "mm";
             // 
             // pictureTest2
             // 
             this.pictureTest2.Image = ((System.Drawing.Image)(resources.GetObject("pictureTest2.Image")));
-            this.pictureTest2.Location = new System.Drawing.Point(415, 122);
+            this.pictureTest2.Location = new System.Drawing.Point(126, 82);
             this.pictureTest2.Name = "pictureTest2";
-            this.pictureTest2.Size = new System.Drawing.Size(403, 742);
-            this.pictureTest2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureTest2.Size = new System.Drawing.Size(300, 799);
+            this.pictureTest2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureTest2.TabIndex = 0;
             this.pictureTest2.TabStop = false;
             // 
             // LengthTextBox2_5
             // 
             this.LengthTextBox2_5.ForeColor = System.Drawing.Color.Red;
-            this.LengthTextBox2_5.Location = new System.Drawing.Point(294, 363);
+            this.LengthTextBox2_5.Location = new System.Drawing.Point(29, 337);
             this.LengthTextBox2_5.Name = "LengthTextBox2_5";
-            this.LengthTextBox2_5.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_5.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_5.TabIndex = 40;
             this.LengthTextBox2_5.Text = "15";
             // 
             // LengthTextBox2_11
             // 
             this.LengthTextBox2_11.Enabled = false;
-            this.LengthTextBox2_11.Location = new System.Drawing.Point(295, 596);
+            this.LengthTextBox2_11.Location = new System.Drawing.Point(29, 589);
             this.LengthTextBox2_11.Name = "LengthTextBox2_11";
-            this.LengthTextBox2_11.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_11.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_11.TabIndex = 46;
             this.LengthTextBox2_11.Text = "5";
             // 
             // LengthTextBox2_6
             // 
             this.LengthTextBox2_6.ForeColor = System.Drawing.Color.Red;
-            this.LengthTextBox2_6.Location = new System.Drawing.Point(295, 408);
+            this.LengthTextBox2_6.Location = new System.Drawing.Point(29, 391);
             this.LengthTextBox2_6.Name = "LengthTextBox2_6";
-            this.LengthTextBox2_6.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_6.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_6.TabIndex = 41;
             this.LengthTextBox2_6.Text = "15";
             // 
             // LengthTextBox2_10
             // 
             this.LengthTextBox2_10.ForeColor = System.Drawing.Color.Red;
-            this.LengthTextBox2_10.Location = new System.Drawing.Point(296, 541);
+            this.LengthTextBox2_10.Location = new System.Drawing.Point(29, 535);
             this.LengthTextBox2_10.Name = "LengthTextBox2_10";
-            this.LengthTextBox2_10.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_10.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_10.TabIndex = 45;
             this.LengthTextBox2_10.Text = "20";
             // 
             // LengthTextBox2_7
             // 
             this.LengthTextBox2_7.ForeColor = System.Drawing.Color.Red;
-            this.LengthTextBox2_7.Location = new System.Drawing.Point(295, 440);
+            this.LengthTextBox2_7.Location = new System.Drawing.Point(29, 428);
             this.LengthTextBox2_7.Name = "LengthTextBox2_7";
-            this.LengthTextBox2_7.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_7.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_7.TabIndex = 42;
             this.LengthTextBox2_7.Text = "5";
             // 
             // LengthTextBox2_9
             // 
             this.LengthTextBox2_9.ForeColor = System.Drawing.Color.Red;
-            this.LengthTextBox2_9.Location = new System.Drawing.Point(295, 504);
+            this.LengthTextBox2_9.Location = new System.Drawing.Point(29, 497);
             this.LengthTextBox2_9.Name = "LengthTextBox2_9";
-            this.LengthTextBox2_9.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_9.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_9.TabIndex = 44;
             this.LengthTextBox2_9.Text = "10";
             // 
             // LengthTextBox2_8
             // 
             this.LengthTextBox2_8.ForeColor = System.Drawing.Color.Red;
-            this.LengthTextBox2_8.Location = new System.Drawing.Point(295, 471);
+            this.LengthTextBox2_8.Location = new System.Drawing.Point(29, 465);
             this.LengthTextBox2_8.Name = "LengthTextBox2_8";
-            this.LengthTextBox2_8.Size = new System.Drawing.Size(64, 23);
+            this.LengthTextBox2_8.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox2_8.TabIndex = 43;
             this.LengthTextBox2_8.Text = "8";
             // 
@@ -4075,29 +3813,6 @@
             this.SerialPort.UseVisualStyleBackColor = true;
             this.SerialPort.Click += new System.EventHandler(this.SerialPort_Click);
             // 
-            // NoneGroupBox
-            // 
-            this.NoneGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NoneGroupBox.BackgroundImage")));
-            this.NoneGroupBox.Controls.Add(this.button1);
-            this.NoneGroupBox.Location = new System.Drawing.Point(393, 102);
-            this.NoneGroupBox.Name = "NoneGroupBox";
-            this.NoneGroupBox.Size = new System.Drawing.Size(0, 0);
-            this.NoneGroupBox.TabIndex = 93;
-            this.NoneGroupBox.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(547, 366);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(355, 251);
-            this.button1.TabIndex = 93;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // ViewGroupBox1
             // 
             this.ViewGroupBox1.BackColor = System.Drawing.Color.White;
@@ -4429,7 +4144,7 @@
             this.ViewGroupBox2.Controls.Add(this.label111);
             this.ViewGroupBox2.Controls.Add(this.pictureBox24);
             this.ViewGroupBox2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ViewGroupBox2.Location = new System.Drawing.Point(393, 92);
+            this.ViewGroupBox2.Location = new System.Drawing.Point(6, 157);
             this.ViewGroupBox2.Name = "ViewGroupBox2";
             this.ViewGroupBox2.Size = new System.Drawing.Size(0, 0);
             this.ViewGroupBox2.TabIndex = 92;
@@ -5352,34 +5067,6 @@
             this.pictureBox26.TabIndex = 0;
             this.pictureBox26.TabStop = false;
             // 
-            // chart1
-            // 
-            this.chart1.BorderlineWidth = 0;
-            chartArea4.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea4.AxisX.Title = "Distance(m)";
-            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
-            chartArea4.AxisY.Title = "Temperature(℃)";
-            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            this.chart1.Location = new System.Drawing.Point(1086, 494);
-            this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series7.Color = System.Drawing.Color.Red;
-            series7.Name = "Series0";
-            series7.YValuesPerPoint = 2;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Color = System.Drawing.SystemColors.Highlight;
-            series8.Name = "Series1";
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Size = new System.Drawing.Size(0, 0);
-            this.chart1.TabIndex = 96;
-            this.chart1.Text = "chart1";
-            // 
             // skinGroupBox2
             // 
             this.skinGroupBox2.BackColor = System.Drawing.Color.Transparent;
@@ -5496,7 +5183,7 @@
             this.skinGroupBox1.Name = "skinGroupBox1";
             this.skinGroupBox1.RectBackColor = System.Drawing.Color.White;
             this.skinGroupBox1.RoundStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinGroupBox1.Size = new System.Drawing.Size(248, 247);
+            this.skinGroupBox1.Size = new System.Drawing.Size(0, 0);
             this.skinGroupBox1.TabIndex = 27;
             this.skinGroupBox1.TabStop = false;
             this.skinGroupBox1.Text = "串口设置";
@@ -5783,27 +5470,58 @@
             this.ResultGroupBox.TabStop = false;
             this.ResultGroupBox.Text = "即时检测列表";
             // 
+            // chart1
+            // 
+            this.chart1.BorderlineWidth = 0;
+            chartArea4.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea4.AxisX.Title = "Distance(m)";
+            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea4.AxisY.Title = "Temperature(℃)";
+            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            this.chart1.Location = new System.Drawing.Point(143, 223);
+            this.chart1.Name = "chart1";
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series7.Color = System.Drawing.Color.Red;
+            series7.Name = "Series0";
+            series7.YValuesPerPoint = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Color = System.Drawing.SystemColors.Highlight;
+            series8.Name = "Series1";
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
+            this.chart1.Size = new System.Drawing.Size(0, 0);
+            this.chart1.TabIndex = 102;
+            this.chart1.Text = "chart1";
+            // 
             // SetupTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.TestResult);
             this.Controls.Add(this.TestChoose4);
             this.Controls.Add(this.skinGroupBox1);
             this.Controls.Add(this.TestChoose3);
             this.Controls.Add(this.ResultGroupBox);
+            this.Controls.Add(this.Monitor);
             this.Controls.Add(this.ParSetting);
             this.Controls.Add(this.TestChoose1);
             this.Controls.Add(this.TestChoose2);
+            this.Controls.Add(this.TestRun);
+            this.Controls.Add(this.TestStop);
             this.Controls.Add(this.SerialPort);
             this.Controls.Add(this.skinGroupBox2);
-            this.Controls.Add(this.chart1);
             this.Controls.Add(this.ViewGroupBox4);
             this.Controls.Add(this.ViewGroupBox3);
             this.Controls.Add(this.ViewGroupBox2);
             this.Controls.Add(this.ViewGroupBox1);
-            this.Controls.Add(this.NoneGroupBox);
             this.Controls.Add(this.skinButton10);
             this.Controls.Add(this.TextGroupbox4);
             this.Controls.Add(this.TextGroupbox1);
@@ -5821,22 +5539,6 @@
             this.TextGroupbox1.PerformLayout();
             this.TextGroupbox2.ResumeLayout(false);
             this.TextGroupbox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLabel2_11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -5874,8 +5576,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.NoneGroupBox.ResumeLayout(false);
             this.ViewGroupBox1.ResumeLayout(false);
             this.ViewGroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
@@ -5888,7 +5588,6 @@
             this.ViewGroupBox4.ResumeLayout(false);
             this.ViewGroupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.skinGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).EndInit();
             this.listview_card_hide.ResumeLayout(false);
@@ -5897,6 +5596,8 @@
             this.skinGroupBox1.PerformLayout();
             this.ResultGroupBox.ResumeLayout(false);
             this.ResultGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5964,48 +5665,35 @@
         private System.Windows.Forms.TextBox K1TextBox2_1;
         private System.Windows.Forms.Label K2_2;
         private System.Windows.Forms.Label K2_1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label Unit2_13;
         private System.Windows.Forms.Label Unit2_12;
         private System.Windows.Forms.TextBox ForceTextBox2;
-        private System.Windows.Forms.PictureBox pictureLabel2_1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox LengthTextBox2_1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureLabel2_2;
         private System.Windows.Forms.Label ChannelLabel2_2;
-        private System.Windows.Forms.PictureBox pictureLabel2_3;
         private System.Windows.Forms.Label ChannelLabel2_1;
-        private System.Windows.Forms.PictureBox pictureLabel2_4;
         private System.Windows.Forms.TextBox ChannelTextBox2_11;
         private System.Windows.Forms.Label Unit2_11;
         private System.Windows.Forms.TextBox ChannelTextBox2_10;
-        private System.Windows.Forms.PictureBox pictureLabel2_5;
         private System.Windows.Forms.TextBox ChannelTextBox2_9;
         private System.Windows.Forms.Label Unit2_10;
         private System.Windows.Forms.TextBox ChannelTextBox2_8;
-        private System.Windows.Forms.PictureBox pictureLabel2_6;
         private System.Windows.Forms.TextBox ChannelTextBox2_7;
         private System.Windows.Forms.Label Unit2_9;
         private System.Windows.Forms.TextBox ChannelTextBox2_6;
-        private System.Windows.Forms.PictureBox pictureLabel2_7;
         private System.Windows.Forms.TextBox ChannelTextBox2_5;
         private System.Windows.Forms.Label Unit2_8;
         private System.Windows.Forms.TextBox ChannelTextBox2_4;
-        private System.Windows.Forms.PictureBox pictureLabel2_8;
         private System.Windows.Forms.TextBox ChannelTextBox2_3;
         private System.Windows.Forms.Label Unit2_7;
         private System.Windows.Forms.TextBox ChannelTextBox2_2;
-        private System.Windows.Forms.PictureBox pictureLabel2_9;
         private System.Windows.Forms.TextBox ChannelTextBox2_1;
         private System.Windows.Forms.Label Unit2_6;
         private System.Windows.Forms.Label ChannelLabel2_9;
-        private System.Windows.Forms.PictureBox pictureLabel2_10;
         private System.Windows.Forms.Label ChannelLabel2_10;
         private System.Windows.Forms.Label Unit2_5;
         private System.Windows.Forms.Label ChannelLabel2_11;
-        private System.Windows.Forms.PictureBox pictureLabel2_11;
         private System.Windows.Forms.Label ChannelLabel2_8;
         private System.Windows.Forms.Label Unit2_4;
         private System.Windows.Forms.Label ChannelLabel2_7;
@@ -6159,9 +5847,6 @@
         private System.Windows.Forms.TextBox LengthTextBox2_14;
         private System.Windows.Forms.TextBox LengthTextBox2_13;
         private System.Windows.Forms.TextBox LengthTextBox2_12;
-        private System.Windows.Forms.PictureBox pictureLabel2_14;
-        private System.Windows.Forms.PictureBox pictureLabel2_13;
-        private System.Windows.Forms.PictureBox pictureLabel2_12;
         private System.Windows.Forms.TextBox Ks2TextBox2_4;
         private System.Windows.Forms.Label K2_s2;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -6207,10 +5892,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
         private CCWin.SkinControl.SkinButton skinButton10;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -6225,8 +5906,6 @@
         private System.Windows.Forms.Button TestRun;
         private System.Windows.Forms.Button TestStop;
         private System.Windows.Forms.Button SerialPort;
-        private System.Windows.Forms.GroupBox NoneGroupBox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox ViewGroupBox1;
         private System.Windows.Forms.TextBox ForceView;
         private System.Windows.Forms.Label label41;
@@ -6343,7 +6022,6 @@
         private System.Windows.Forms.Label label140;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.TextBox T_TextBox2_13;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private CCWin.SkinControl.SkinGroupBox skinGroupBox2;
         private System.Windows.Forms.TextBox edit_save_interval;
         private System.Windows.Forms.TextBox edit_scan_interval;
@@ -6381,5 +6059,6 @@
         private System.Windows.Forms.Button apply_btm_4;
         private System.Windows.Forms.TextBox ChannelTextBox2_13;
         private System.Windows.Forms.Button SerialPortEnsure;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
