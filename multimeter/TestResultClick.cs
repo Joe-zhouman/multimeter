@@ -63,21 +63,10 @@ namespace multimeter {
             
             switch (_method) {
                 case TestMethod.Kappa: {
-                        //显示对应监视窗口TEST1
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(1531, 966);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                        sample1.SetTemp(testResult);
+                        //显示对应监视窗口TEST1       
                         double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40.9, 30, 20.1, 10.8, 0.9 };
                         double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 12, 10, 10 };
-                        DataResult.Test1DataProcess(T, HMLocation, 1256, 1256, 452.16, 300, 300, 10);
+                        //DataResult.Test1DataProcess(T, HMLocation, 1256, 1256, 452.16, 300, 300, 10);
 
                     }
                     break;
@@ -130,17 +119,6 @@ namespace multimeter {
                     break;
                 case TestMethod.ITM: {
                         //显示对应监视窗口TEST3
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(1531, 966);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                        
                         double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40, 37, 35, 30, 20.1, 10.8, 0.9 };
                         double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 9, 19, 4, 12, 10, 10 };
                         //DataResult.Test3DataProcess(T, HMLocation, 300, 300, 1256, 1256, 425.16, 426.16,
@@ -148,23 +126,11 @@ namespace multimeter {
                     }
                     break;
                 case TestMethod.ITMS: {
-                        //显示对应监视窗口TEST4
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(0, 0);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(1531, 966);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
-                        sample1.SetTemp(testResult);
-                        sample2.SetTemp(testResult);
+                        //显示对应监视窗口TEST4 
                         double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40, 37, 35, 30, 20.1, 10.8, 0.9 };
                         double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 9, 19, 4, 12, 10, 10 };
-                        DataResult.Test4DataProcess(T, HMLocation,100, 300, 300, 1256, 1256, 425.16, 426.16,
-                                     10, 10, 10,10, chart1);
+                        //DataResult.Test4DataProcess(T, HMLocation,100, 300, 300, 1256, 1256, 425.16, 426.16,
+                                     //10, 10, 10,10, chart1);
                     }
                     break;
                 default: {

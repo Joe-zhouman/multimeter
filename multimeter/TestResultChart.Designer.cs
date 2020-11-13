@@ -71,6 +71,7 @@
             this.Controls.Add(this.chart1);
             this.Name = "TestResultChart";
             this.Text = "TestResultChart";
+            this.Load += new System.EventHandler(this.TestResultChart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
