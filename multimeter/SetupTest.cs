@@ -16,7 +16,8 @@ namespace multimeter {
 
         private HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
         private HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
-
+        private Sample sample1;
+        private Sample sample2;
         private string latestDataFile;
         private string latestIniFile;
         private string recvstr;
@@ -324,7 +325,8 @@ namespace multimeter {
                     ViewGroupBox4.Size = new Size(0, 0);
                     //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultKappaIni();
-                    Sample sample1 = new Sample("Sample1");
+                        sample1 = new Sample("Sample1");
+                        sample2 = null;
                     SlnIni.LoadKappaInfo(ref sample1, out force, filePath);
                     ForceTextBox1.Text = force;
                     List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
@@ -358,8 +360,8 @@ namespace multimeter {
                     ViewGroupBox4.Size = new Size(0, 0);
                     //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
-                    Sample sample1 = new Sample("Sample1");
-                    Sample sample2 = new Sample("Sample2");
+                    sample1 = new Sample("Sample1");
+                    sample2 = new Sample("Sample2");
                     SlnIni.LoadItcInfo(ref sample1, ref sample2, out force, filePath);
                     ForceTextBox2.Text = force;
                     List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
@@ -398,6 +400,8 @@ namespace multimeter {
                     ViewGroupBox4.Size = new Size(0, 0);
                     skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
+                        sample1 = null;
+                        sample2 = null;
                     SlnIni.LoadItmInfo(out force, out string thickness, filePath);
                     ForceTextBox3.Text = force;
                     FilmThickness1.Text = thickness;
@@ -425,8 +429,8 @@ namespace multimeter {
                     ViewGroupBox4.Size = new Size(0, 0);
                     //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmsIni();
-                    Sample sample1 = new Sample("Sample1");
-                    Sample sample2 = new Sample("Sample2");
+                    sample1 = new Sample("Sample1");
+                    sample2 = new Sample("Sample2");
                     SlnIni.LoadItmsInfo(ref sample1, ref sample2, out force, out string thickness,
                         filePath);
                     ForceTextBox4.Text = force;
@@ -1101,9 +1105,5 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         #endregion
 
-        private void TestResult_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

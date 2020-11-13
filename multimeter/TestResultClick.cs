@@ -21,8 +21,6 @@ namespace multimeter {
     public partial class SetupTest  {
         private void TestResult_Click(object sender, EventArgs e) {
             #region //数据结果
-            TestResultForm result = new TestResultForm();
-            result.Show();
 
             SetIniFileName();
             if(latestIniFile == "") {
@@ -60,6 +58,7 @@ namespace multimeter {
             }
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
+            
             switch (_method) {
                 case TestMethod.Kappa: {
                         //显示对应监视窗口TEST1
@@ -174,7 +173,10 @@ namespace multimeter {
                         return;
                     }
             }
-
+            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
+            testResultChart.Show();
+            TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method);
+            testResultTemp.Show();
             #endregion
         }
 

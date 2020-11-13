@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DataProcessor;
 namespace multimeter
 {
     public partial class TestResultTemp : Form
     {
-        public TestResultTemp()
+        private HeatMeter heatMeter1;
+        private HeatMeter heatMeter2;
+        private Sample sample1;
+        private Sample sample2;
+        private TestMethod testMethod;
+        public TestResultTemp(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, TestMethod testMethod)
         {
             InitializeComponent();
+            this.heatMeter1 = heatMeter1;
+            this.heatMeter2 = heatMeter2;
+            this.sample1 = sample1;
+            this.sample2 = sample2;
+            this.testMethod = testMethod;
         }
 
         private void TestResultTemp_Load(object sender, EventArgs e)
