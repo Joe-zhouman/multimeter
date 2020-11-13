@@ -79,7 +79,7 @@ namespace multimeter
         }
 
         public static void Test2DataProcess(double[] T, double[] HMLocation, double k1, double k2, double A1, double A2, double Asu, double Asl, 
-                                     double ks1, double ks2 , double contactR, Chart chart)
+                                     ref double ks1, ref double ks2 , double contactR, Chart chart)
         {
             #region //固_固接触热阻测量
             double Q_u, Q_s, Q_l;                                                                                     //定义“流量计”“试件”热流量
@@ -106,8 +106,8 @@ namespace multimeter
             double a_u, b_u, maxErr_u;
             if (CalcRegress(x_u, y_u, 4, out a_u, out b_u, out maxErr_u) != 0)
             {
-                MessageBox.Show("计算出错！");
-                return;
+                MessageBox.Show("计算出错！"); 
+                return ;
             }
             else
             {

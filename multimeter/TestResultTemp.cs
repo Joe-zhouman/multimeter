@@ -33,6 +33,54 @@ namespace multimeter
             ViewGroupBox2.Size = new Size(607, 811);
             //ViewGroupBox3.Size = new Size(0, 0);
             //ViewGroupBox4.Size = new Size(0, 0);
+            switch (testMethod)
+            {
+                case TestMethod.Kappa:
+                    ShowKappa();
+                    break;
+                case TestMethod.ITC:
+                    ShowItc();
+                    break;
+                case TestMethod.ITM:
+                    ShowItm();
+                    break;
+                case TestMethod.ITMS:
+                    ShowItms();
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void ShowKappa()
+        {
+
+        }
+        private void ShowItc()
+        {
+            T_TextBox2_1.Text = heatMeter1.Temp[0].ToString();
+            T_TextBox2_2.Text = heatMeter1.Temp[1].ToString();
+            T_TextBox2_3.Text = heatMeter1.Temp[2].ToString();
+            T_TextBox2_4.Text = heatMeter1.Temp[3].ToString();
+            T_TextBox2_5.Text = sample1.Temp[0].ToString();
+            T_TextBox2_6.Text = sample1.Temp[1].ToString();
+            T_TextBox2_7.Text = sample1.Temp[2].ToString();
+            T_TextBox2_8.Text = sample2.Temp[0].ToString();
+            T_TextBox2_9.Text = sample2.Temp[1].ToString();
+            T_TextBox2_10.Text = sample2.Temp[2].ToString();
+            T_TextBox2_11.Text = heatMeter2.Temp[0].ToString();
+            T_TextBox2_12.Text = heatMeter2.Temp[1].ToString();
+            T_TextBox2_13.Text = heatMeter2.Temp[2].ToString();
+            T_TextBox2_14.Text = heatMeter2.Temp[3].ToString();
+            Ks1TextBox2_3.Text = sample1.Kappa;
+            Ks1TextBox2_3.Text = sample2.Kappa;
+        }
+        private void ShowItm()
+        {
+
+        }
+        private void ShowItms()
+        {
+
         }
     }
 }

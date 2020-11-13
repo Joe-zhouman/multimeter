@@ -21,7 +21,9 @@ namespace multimeter {
     public partial class SetupTest  {
         private void TestResult_Click(object sender, EventArgs e) {
             #region //数据结果
-
+            //测试
+            latestIniFile = @"C:\Users\Joe\source\Joe-zhouman\multimeter\multimeter\bin\Debug\AutoSave\itc-2020-11-09-12.ini";
+            latestDataFile = @"C:\Users\Joe\source\Joe-zhouman\multimeter\multimeter\bin\Debug\AutoSave\AutoSave-2020-11-09-12-17-45.5147.csv";
             SetIniFileName();
             if(latestIniFile == "") {
                 MessageBox.Show(@"请选择配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -45,17 +47,17 @@ namespace multimeter {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             var filepath = SlnIni.CreateDefaultSlnIni();
-            if (heatMeter1 == null) {
-                heatMeter1 = new HeatMeter("HeatMeter1");
-                heatMeter1.ReadFromIni(filepath);
-                heatMeter1.LoadTempPara(filepath);
-            }
+            //if (heatMeter1 == null) {
+            //    heatMeter1 = new HeatMeter("HeatMeter1");
+            //    heatMeter1.ReadFromIni(filepath);
+            //    heatMeter1.LoadTempPara(filepath);
+            //}
 
-            if (heatMeter2 == null) {
-                heatMeter2 = new HeatMeter("HeatMeter2");
-                heatMeter2.ReadFromIni(filepath);
-                heatMeter2.LoadTempPara(filepath);
-            }
+            //if (heatMeter2 == null) {
+            //    heatMeter2 = new HeatMeter("HeatMeter2");
+            //    heatMeter2.ReadFromIni(filepath);
+            //    heatMeter2.LoadTempPara(filepath);
+            //}
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
             
@@ -72,7 +74,7 @@ namespace multimeter {
                         ViewGroupBox4.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
-                        
+                        sample1.SetTemp(testResult);
                         double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40.9, 30, 20.1, 10.8, 0.9 };
                         double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 12, 10, 10 };
                         DataResult.Test1DataProcess(T, HMLocation, 1256, 1256, 452.16, 300, 300, 10);
@@ -91,16 +93,8 @@ namespace multimeter {
                         ViewGroupBox4.Size = new Size(0, 0);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
-                        
-                        Sample sample1 = new Sample("Sample1");
-                        Sample sample2 = new Sample("Sample2");
-                        sample1.ReadFromIni(latestIniFile);
-                        sample1.LoadTempPara(filepath);
-                        sample2.ReadFromIni(latestIniFile);
-                        sample2.LoadTempPara(filepath);
                         sample1.SetTemp(testResult);
                         sample2.SetTemp(testResult);
-
                         List<double> T = new List<double>();
                         T.AddRange(heatMeter1.Temp);
                         T.AddRange(sample1.Temp);
@@ -126,8 +120,12 @@ namespace multimeter {
                         //position.AddRange(sample1.Position.ConvertTo<double[]>());
                         //position.AddRange(sample2.Position.ConvertTo<double[]>());
                         //position.AddRange(heatMeter2.Position.ConvertTo<double[]>());
+                        double ks1 = 0.0;
+                        double ks2 = 0.0;
                         DataResult.Test2DataProcess(T.ToArray(), position.ToArray(), 300, 300, 1256, 1256, 425.16,426.16,
-                                     10, 10, 10, chart1);
+                                     ref ks1, ref ks2, 10, chart1);
+                        sample1.Kappa = ks1.ToString();
+                        sample2.Kappa = ks2.ToString();
                     }
                     break;
                 case TestMethod.ITM: {
@@ -145,8 +143,8 @@ namespace multimeter {
                         
                         double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40, 37, 35, 30, 20.1, 10.8, 0.9 };
                         double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 9, 19, 4, 12, 10, 10 };
-                        DataResult.Test2DataProcess(T, HMLocation, 300, 300, 1256, 1256, 425.16, 426.16,
-                                     10, 10, 10, chart1);
+                        //DataResult.Test3DataProcess(T, HMLocation, 300, 300, 1256, 1256, 425.16, 426.16,
+                        //             10, 10, 10, chart1);
                     }
                     break;
                 case TestMethod.ITMS: {
@@ -161,7 +159,8 @@ namespace multimeter {
                         ViewGroupBox4.Size = new Size(1531, 966);
                         ResultGroupBox.Size = new Size(0, 0);
                         skinGroupBox2.Size = new Size(0, 0);
-                        
+                        sample1.SetTemp(testResult);
+                        sample2.SetTemp(testResult);
                         double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40, 37, 35, 30, 20.1, 10.8, 0.9 };
                         double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 9, 19, 4, 12, 10, 10 };
                         DataResult.Test4DataProcess(T, HMLocation,100, 300, 300, 1256, 1256, 425.16, 426.16,
