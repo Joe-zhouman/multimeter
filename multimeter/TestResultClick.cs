@@ -72,49 +72,40 @@ namespace multimeter {
                     break;
                 case TestMethod.ITC: {
                         //显示对应监视窗口TEST2
-                        TextGroupbox1.Size = new Size(0, 0);
-                        TextGroupbox2.Size = new Size(0, 0);
-                        TextGroupbox3.Size = new Size(0, 0);
-                        TextGroupbox4.Size = new Size(0, 0);
-                        ViewGroupBox1.Size = new Size(0, 0);
-                        ViewGroupBox2.Size = new Size(1531, 966);
-                        ViewGroupBox3.Size = new Size(0, 0);
-                        ViewGroupBox4.Size = new Size(0, 0);
-                        ResultGroupBox.Size = new Size(0, 0);
-                        skinGroupBox2.Size = new Size(0, 0);
                         sample1.SetTemp(testResult);
                         sample2.SetTemp(testResult);
-                        List<double> T = new List<double>();
-                        T.AddRange(heatMeter1.Temp);
-                        T.AddRange(sample1.Temp);
-                        T.AddRange(sample2.Temp);
-                        T.AddRange(heatMeter2.Temp);
-                        List<double> position = new List<double>();
-                        for (int i = 0; i < 4; i++) {
-                            position.Add(double.Parse(heatMeter1.Position[i]));
-                        }
-                        for (int i = 0; i < 4; i++)
-                        {
-                            position.Add(double.Parse(heatMeter2.Position[i]));
-                        }
-                        for (int i = 0; i < 3; i++)
-                        {
-                            position.Add(double.Parse(sample1.Position[i]));
-                        }
-                        for (int i = 0; i < 3; i++)
-                        {
-                            position.Add(double.Parse(sample2.Position[i]));
-                        }
-                        //position.AddRange(heatMeter1.Position.ConvertTo<double[]>());
-                        //position.AddRange(sample1.Position.ConvertTo<double[]>());
-                        //position.AddRange(sample2.Position.ConvertTo<double[]>());
-                        //position.AddRange(heatMeter2.Position.ConvertTo<double[]>());
-                        double ks1 = 0.0;
-                        double ks2 = 0.0;
-                        DataResult.Test2DataProcess(T.ToArray(), position.ToArray(), 300, 300, 1256, 1256, 425.16,426.16,
-                                     ref ks1, ref ks2, 10, chart1);
-                        sample1.Kappa = ks1.ToString();
-                        sample2.Kappa = ks2.ToString();
+                        //List<double> T = new List<double>();
+                        //T.AddRange(heatMeter1.Temp);
+                        //T.AddRange(sample1.Temp);
+                        //T.AddRange(sample2.Temp);
+                        //T.AddRange(heatMeter2.Temp);
+                        //List<double> position = new List<double>();
+                        //for (int i = 0; i < 4; i++) {
+                        //    position.Add(double.Parse(heatMeter1.Position[i]));
+                        //}
+                        //for (int i = 0; i < 4; i++)
+                        //{
+                        //    position.Add(double.Parse(heatMeter2.Position[i]));
+                        //}
+                        //for (int i = 0; i < 3; i++)
+                        //{
+                        //    position.Add(double.Parse(sample1.Position[i]));
+                        //}
+                        //for (int i = 0; i < 3; i++)
+                        //{
+                        //    position.Add(double.Parse(sample2.Position[i]));
+                        //}
+                        ////position.AddRange(heatMeter1.Position.ConvertTo<double[]>());
+                        ////position.AddRange(sample1.Position.ConvertTo<double[]>());
+                        ////position.AddRange(sample2.Position.ConvertTo<double[]>());
+                        ////position.AddRange(heatMeter2.Position.ConvertTo<double[]>());
+                        //double ks1 = 0.0;
+                        //double ks2 = 0.0;
+                        //Chart c = new Chart();
+                        //DataResult.Test2DataProcess(T.ToArray(), position.ToArray(), 300, 300, 1256, 1256, 425.16,426.16,
+                        //             ref ks1, ref ks2, 10, c);
+                        //sample1.Kappa = ks1.ToString();
+                        //sample2.Kappa = ks2.ToString();
                     }
                     break;
                 case TestMethod.ITM: {

@@ -36,16 +36,32 @@ namespace multimeter
             switch (testMethod)
             {
                 case TestMethod.Kappa:
-                    ShowKappa();
+                    {
+                        ShowKappa();
+                    }
                     break;
                 case TestMethod.ITC:
-                    ShowItc();
+                    {
+                        double[] k = new double[4];
+                        double[] b = new double[4];
+                        double itc = 0.0;
+                        if(true !=Solution.GetResults(heatMeter1, heatMeter2, sample1, sample2, ref k, ref b, ref itc))
+                        {
+                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        
+                        ShowItc();
+                    }
                     break;
                 case TestMethod.ITM:
-                    ShowItm();
+                    {
+                        ShowItm();
+                    }
                     break;
                 case TestMethod.ITMS:
-                    ShowItms();
+                    {
+                        ShowItms();
+                    }
                     break;
                 default:
                     break;
