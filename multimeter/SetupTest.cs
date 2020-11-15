@@ -36,6 +36,10 @@ namespace multimeter {
             TextGroupbox4.Size = new Size(0, 0);
             ResultGroupBox.Size = new Size(650, 920);
             skinGroupBox1.Size = new Size(0, 0);
+            TestRun.Size = new Size(102,29);
+            TestStop.Size = new Size(102, 29);
+            Monitor.Size = new Size(102, 29);
+            TestResult.Size = new Size(102, 29);
             TestRun.BringToFront();
             TestStop.BringToFront();
             Monitor.BringToFront();
@@ -397,7 +401,7 @@ namespace multimeter {
                     List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
                     HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox3_1);
-                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_2);
                 }
                     break;
                 case TestMethod.ITMS: {
@@ -422,7 +426,7 @@ namespace multimeter {
                     List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox4_11, ChannelTextBox4_12, ChannelTextBox4_13, ChannelTextBox4_14};
                     HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox4_1);
-                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_4);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_2);
                     List<TextBox> samplePositionBoxes1 = new List<TextBox>
                         {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};
                     List<TextBox> sampleChannelBoxes1 = new List<TextBox> {
@@ -1073,6 +1077,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
 
         #endregion
+
 
     }
 }
