@@ -14,8 +14,8 @@ using DataProcessor;
 namespace multimeter {
     public partial class SetupTest : Form {
 
-        private HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
-        private HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
+        private HeatMeter heatMeter1; 
+        private HeatMeter heatMeter2;
         private Sample sample1;
         private Sample sample2;
         private string latestDataFile;
@@ -190,7 +190,9 @@ namespace multimeter {
              Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
              latestIniFile = "";
              latestDataFile = "";
-            
+            heatMeter1 = new HeatMeter("HeatMeter1");
+            heatMeter2 = new HeatMeter("HeatMeter2");
+            recentTenData = new List<string>();
         }
         //---------------------------------------------------------------子函数区-------------------------------------------------------------------------------------------------------------------------------
 

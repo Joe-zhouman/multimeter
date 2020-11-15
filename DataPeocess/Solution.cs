@@ -116,7 +116,7 @@ namespace DataProcessor {
                 return false;
             }
             sample1.Kappa = (heatFlow1 / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[2]).ToString();
-            itc = (b[1] - b[2]) / heatFlow1;
+            itc = (b[1] - b[2]) / heatFlow1 * 1000;
             return true;
         }
 
