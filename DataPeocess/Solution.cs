@@ -85,9 +85,11 @@ namespace DataProcessor {
             }
         }//线性拟合
 
-        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2,ref double[] k,ref double [] b,ref double itc) {
+        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2,ref Sample sample1,ref Sample sample2,ref double itc) {
             double heatFlow1 = 0.0;
             double heatFlow2 = 0.0;
+            double[] k = new double[4];
+            double[] b = new double[4];
             if(true != GetHeatFlow(heatMeter1,ref heatFlow1,ref k[0],ref b[0]))
             {
                 return false;
@@ -115,7 +117,7 @@ namespace DataProcessor {
             {
                 return false;
             }
-            sample1.Kappa = (heatFlow1 / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[2]).ToString();
+            sample2.Kappa = (heatFlow1 / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[2]).ToString();
             itc = (b[1] - b[2]) / heatFlow1 * 1000;
             return true;
         }

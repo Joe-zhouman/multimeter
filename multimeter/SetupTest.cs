@@ -179,15 +179,14 @@ namespace multimeter {
              #region //串口采集
 
              CheckForIllegalCrossThreadCalls = false;
-             SlnIni.CreateDefaultIni();
+             
              ReadPara();
 
              #endregion
 
              #region //热流计属性读取
 
-             string slnFilePath = SlnIni.CreateDefaultSlnIni();
-             SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
+             
              #endregion
              //创建必要的文件夹
              Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
@@ -196,6 +195,9 @@ namespace multimeter {
              latestDataFile = "";
             heatMeter1 = new HeatMeter("HeatMeter1");
             heatMeter2 = new HeatMeter("HeatMeter2");
+            SlnIni.CreateDefaultIni();
+            string slnFilePath = SlnIni.CreateDefaultSlnIni();
+            SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
             recentTenData = new List<string>();
         }
         //---------------------------------------------------------------子函数区-------------------------------------------------------------------------------------------------------------------------------
@@ -334,15 +336,15 @@ namespace multimeter {
                         {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4};
                     List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox1_8, ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11};
-                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox1_1);
-                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox1_2);
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,D1TextBox1_1, K1TextBox1_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,D2TextBox1_2, K2TextBox1_2);
 
                     List<TextBox> samplePositionBoxes = new List<TextBox>
                         {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
                     List<TextBox> sampleChannelBoxes = new List<TextBox> {
                         ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7
                     };
-                    SampleToBox(sample1, samplePositionBoxes, sampleChannelBoxes);
+                    SampleToBox(sample1, samplePositionBoxes, sampleChannelBoxes,dsTextBox1_1);
                 }
                     break;
                 case TestMethod.ITC: {
@@ -364,20 +366,20 @@ namespace multimeter {
                         {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4};
                     List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox2_11, ChannelTextBox2_12, ChannelTextBox2_13, ChannelTextBox2_14};
-                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox2_1);
-                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox2_2);
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,D1TextBox2_1, K1TextBox2_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,D2TextBox2_2, K2TextBox2_2);
                     List<TextBox> samplePositionBoxes1 = new List<TextBox>
                         {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
                     List<TextBox> sampleChannelBoxes1 = new List<TextBox> {
                         ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7
                     };
-                    SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
+                    SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1,ds1TextBox2_1);
                     List<TextBox> samplePositionBoxes2 = new List<TextBox>
                         {LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10};
                     List<TextBox> sampleChannelBoxes2 = new List<TextBox> {
                         ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10
                     };
-                    SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
+                    SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2,ds2TextBox2_2);
                 }
                     break;
                 case TestMethod.ITM: {
@@ -400,8 +402,8 @@ namespace multimeter {
                         {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4};
                     List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
-                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox3_1);
-                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_2);
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,D1TextBox3_1, K1TextBox3_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,D2TextBox3_2, K2TextBox3_2);
                 }
                     break;
                 case TestMethod.ITMS: {
@@ -425,20 +427,20 @@ namespace multimeter {
                         {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4};
                     List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox4_11, ChannelTextBox4_12, ChannelTextBox4_13, ChannelTextBox4_14};
-                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox4_1);
-                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_2);
+                    HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,D1TextBox4_1, K1TextBox4_1);
+                    HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,D2TextBox4_2, K4TextBox4_2);
                     List<TextBox> samplePositionBoxes1 = new List<TextBox>
                         {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};
                     List<TextBox> sampleChannelBoxes1 = new List<TextBox> {
                         ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7
                     };
-                    SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1);
+                    SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1,ds1TextBox4_1);
                     List<TextBox> samplePositionBoxes2 = new List<TextBox>
                         {LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10};
                     List<TextBox> sampleChannelBoxes2 = new List<TextBox> {
                         ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10
                     };
-                    SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2);
+                    SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2,ds2TextBox4_2);
                 }
                     break;
             }

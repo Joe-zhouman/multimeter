@@ -12,12 +12,13 @@ namespace multimeter
 {
     public partial class TestResultTemp : Form
     {
-        private HeatMeter heatMeter1;
-        private HeatMeter heatMeter2;
+        private readonly HeatMeter heatMeter1;
+        private readonly HeatMeter heatMeter2;
         private Sample sample1;
         private Sample sample2;
-        private TestMethod testMethod;
-        public TestResultTemp(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, TestMethod testMethod)
+        private readonly TestMethod testMethod;
+        private readonly string force;
+        public TestResultTemp(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2,string force, TestMethod testMethod)
         {
             InitializeComponent();
             this.heatMeter1 = heatMeter1;
@@ -25,6 +26,7 @@ namespace multimeter
             this.sample1 = sample1;
             this.sample2 = sample2;
             this.testMethod = testMethod;
+            this.force = force;
         }
 
         private void TestResultTemp_Load(object sender, EventArgs e)
@@ -42,15 +44,13 @@ namespace multimeter
                     break;
                 case TestMethod.ITC:
                     {
-                        double[] k = new double[4];
-                        double[] b = new double[4];
                         double itc = 0.0;
-                        if(true !=Solution.GetResults(heatMeter1, heatMeter2, sample1, sample2, ref k, ref b, ref itc))
+                        if(true !=Solution.GetResults(heatMeter1, heatMeter2,ref sample1,ref sample2, ref itc))
                         {
                             MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         
-                        ShowItc();
+                        ShowItc(itc);
                     }
                     break;
                 case TestMethod.ITM:
@@ -71,24 +71,26 @@ namespace multimeter
         {
 
         }
-        private void ShowItc()
+        private void ShowItc(double itc)
         {
-            Tlable2_1.Text = heatMeter1.Temp[0].ToString();
-            Tlable2_2.Text = heatMeter1.Temp[1].ToString();
-            Tlable2_3.Text = heatMeter1.Temp[2].ToString();
-            Tlable2_4.Text = heatMeter1.Temp[3].ToString();
-            Tlable2_5.Text = sample1.Temp[0].ToString();
-            Tlable2_6.Text = sample1.Temp[1].ToString();
-            Tlable2_7.Text = sample1.Temp[2].ToString();
-            Tlable2_8.Text = sample2.Temp[0].ToString();
-            Tlable2_9.Text = sample2.Temp[1].ToString();
-            Tlable2_10.Text = sample2.Temp[2].ToString();
-            Tlable2_11.Text = heatMeter2.Temp[0].ToString();
-            Tlable2_12.Text = heatMeter2.Temp[1].ToString();
-            Tlable2_13.Text = heatMeter2.Temp[2].ToString();
-            Tlable2_14.Text = heatMeter2.Temp[3].ToString();
-            K2_s1.Text = sample1.Kappa;
-            K2_s2.Text = sample2.Kappa;
+            Tlable2_1.Text = "Tu1 = " + heatMeter1.Temp[0].ToString() + " ℃";
+            Tlable2_2.Text = "Tu2 = " + heatMeter1.Temp[1].ToString() + " ℃";
+            Tlable2_3.Text = "Tu3 = " + heatMeter1.Temp[2].ToString() + " ℃";
+            Tlable2_4.Text = "Tu4 = " + heatMeter1.Temp[3].ToString() + " ℃";
+            Tlable2_5.Text = "Tsu1 = " + sample1.Temp[0].ToString() + " ℃";
+            Tlable2_6.Text = "Tsu2 = " + sample1.Temp[1].ToString() + " ℃";
+            Tlable2_7.Text = "Tsu3 = " + sample1.Temp[2].ToString() + " ℃";
+            Tlable2_8.Text = "Tsl1 = " + sample2.Temp[0].ToString() + " ℃";
+            Tlable2_9.Text = "Tsl2= " + sample2.Temp[1].ToString() + " ℃";
+            Tlable2_10.Text = "Tsl3 = " + sample2.Temp[2].ToString() + " ℃";
+            Tlable2_11.Text = "Tl1 = " + heatMeter2.Temp[0].ToString() + " ℃";
+            Tlable2_12.Text = "Tl2 = " + heatMeter2.Temp[1].ToString() + " ℃";
+            Tlable2_13.Text = "Tl3 = " + heatMeter2.Temp[2].ToString() + " ℃";
+            Tlable2_14.Text = "Tl4 = " + heatMeter2.Temp[3].ToString() + " ℃";
+            K2_s1.Text = "Ks1 = " + sample1.Kappa + "W/mK";
+            K2_s2.Text = "Ks2 = " + sample2.Kappa + "W/mK";
+            TCRtest2.Text = "Rt = " + itc.ToString() + "K/(W mm^2)";
+            ForceView2.Text = force;
         }
         private void ShowItm()
         {

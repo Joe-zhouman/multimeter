@@ -46,21 +46,9 @@ namespace multimeter {
             if (_method != csvType) {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            var filepath = SlnIni.CreateDefaultSlnIni();
-            //if (heatMeter1 == null) {
-            //    heatMeter1 = new HeatMeter("HeatMeter1");
-            //    heatMeter1.ReadFromIni(filepath);
-            //    heatMeter1.LoadTempPara(filepath);
-            //}
-
-            //if (heatMeter2 == null) {
-            //    heatMeter2 = new HeatMeter("HeatMeter2");
-            //    heatMeter2.ReadFromIni(filepath);
-            //    heatMeter2.LoadTempPara(filepath);
-            //}
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
-            
+            string force = INIHelper.Read("Pressure", "force", "1", latestIniFile);
             switch (_method) {
                 case TestMethod.Kappa: {
                         //显示对应监视窗口TEST1       
@@ -74,38 +62,6 @@ namespace multimeter {
                         //显示对应监视窗口TEST2
                         sample1.SetTemp(testResult);
                         sample2.SetTemp(testResult);
-                        //List<double> T = new List<double>();
-                        //T.AddRange(heatMeter1.Temp);
-                        //T.AddRange(sample1.Temp);
-                        //T.AddRange(sample2.Temp);
-                        //T.AddRange(heatMeter2.Temp);
-                        //List<double> position = new List<double>();
-                        //for (int i = 0; i < 4; i++) {
-                        //    position.Add(double.Parse(heatMeter1.Position[i]));
-                        //}
-                        //for (int i = 0; i < 4; i++)
-                        //{
-                        //    position.Add(double.Parse(heatMeter2.Position[i]));
-                        //}
-                        //for (int i = 0; i < 3; i++)
-                        //{
-                        //    position.Add(double.Parse(sample1.Position[i]));
-                        //}
-                        //for (int i = 0; i < 3; i++)
-                        //{
-                        //    position.Add(double.Parse(sample2.Position[i]));
-                        //}
-                        ////position.AddRange(heatMeter1.Position.ConvertTo<double[]>());
-                        ////position.AddRange(sample1.Position.ConvertTo<double[]>());
-                        ////position.AddRange(sample2.Position.ConvertTo<double[]>());
-                        ////position.AddRange(heatMeter2.Position.ConvertTo<double[]>());
-                        //double ks1 = 0.0;
-                        //double ks2 = 0.0;
-                        //Chart c = new Chart();
-                        //DataResult.Test2DataProcess(T.ToArray(), position.ToArray(), 300, 300, 1256, 1256, 425.16,426.16,
-                        //             ref ks1, ref ks2, 10, c);
-                        //sample1.Kappa = ks1.ToString();
-                        //sample2.Kappa = ks2.ToString();
                     }
                     break;
                 case TestMethod.ITM: {
@@ -131,7 +87,7 @@ namespace multimeter {
             }
             TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
             testResultChart.Show();
-            TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method);
+            TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, force, _method);
             testResultTemp.Show();
             #endregion
         }

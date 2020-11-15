@@ -22,12 +22,11 @@ namespace multimeter {
             
             string filePath = SlnIni.CreateDefaultKappaIni();
 
-            Sample sample1 = new Sample("Sample1");
             List<TextBox> samplePositionBoxes = new List<TextBox>()
                 {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
             List<TextBox> sampleChannelBoxes = new List<TextBox>() {
                 ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7};
-            BoxToSample(ref sample1, samplePositionBoxes, sampleChannelBoxes);
+            BoxToSample(ref sample1, samplePositionBoxes, sampleChannelBoxes,ds1TextBox2_1);
 
             if (!CheckOtherText(ForceTextBox1.Text, sample1)) {
                 MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -47,19 +46,16 @@ namespace multimeter {
 
             string filePath = SlnIni.CreateDefaultItcIni();
 
-
-            Sample sample1 = new Sample("Sample1");
-            Sample sample2 = new Sample("Sample2");
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
             List<TextBox> sampleChannelBoxes1 = new List<TextBox>() {
                 ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7};
-            BoxToSample(ref sample1, samplePositionBoxes1, sampleChannelBoxes1);
+            BoxToSample(ref sample1, samplePositionBoxes1, sampleChannelBoxes1,ds1TextBox2_1);
             List<TextBox> samplePositionBoxes2 = new List<TextBox>()
                 {LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10};
             List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
                 ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10};
-            BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2);
+            BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2,ds2TextBox2_2);
             if (!CheckOtherText(ForceTextBox2.Text, sample1,sample2)) {
                 MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -92,19 +88,17 @@ namespace multimeter {
 
         private void apply_btm_4_Click(object sender, EventArgs e) {
             string filePath = SlnIni.CreateDefaultItmsIni();
-            
-            Sample sample1 = new Sample("Sample1");
-            Sample sample2 = new Sample("Sample2");
+
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};
             List<TextBox> sampleChannelBoxes1 = new List<TextBox>() {
                 ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7};
-            BoxToSample(ref sample1, samplePositionBoxes1, sampleChannelBoxes1);
+            BoxToSample(ref sample1, samplePositionBoxes1, sampleChannelBoxes1,ds1TextBox4_1);
             List<TextBox> samplePositionBoxes2 = new List<TextBox>()
                 {LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10};
             List<TextBox> sampleChannelBoxes2 = new List<TextBox>() {
                 ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10};
-            BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2);
+            BoxToSample(ref sample2, samplePositionBoxes2, sampleChannelBoxes2,ds2TextBox4_2);
 
             if (!CheckOtherText(ForceTextBox4.Text, sample1, sample2,FilmThickness2.Text)) {
                 MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);

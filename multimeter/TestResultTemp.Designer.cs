@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestResultTemp));
             this.ViewGroupBox2 = new System.Windows.Forms.GroupBox();
+            this.TCRtest2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Tlable2_14 = new System.Windows.Forms.Label();
             this.K2_s2 = new System.Windows.Forms.Label();
             this.Tlable2_13 = new System.Windows.Forms.Label();
@@ -53,6 +55,8 @@
             this.Tlable2_3 = new System.Windows.Forms.Label();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.ViewGroupBox1 = new System.Windows.Forms.GroupBox();
+            this.k1_s = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.ForceView = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
@@ -69,6 +73,10 @@
             this.Tlable1_3 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.ViewGroupBox4 = new System.Windows.Forms.GroupBox();
+            this.TCRtest4 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.k4_f = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label95 = new System.Windows.Forms.Label();
             this.Tlable4_14 = new System.Windows.Forms.Label();
             this.k4_s1 = new System.Windows.Forms.Label();
@@ -92,8 +100,6 @@
             this.Tlable4_4 = new System.Windows.Forms.Label();
             this.Tlable4_3 = new System.Windows.Forms.Label();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.TCRtest2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.Tlable3_3 = new System.Windows.Forms.Label();
             this.Tlable3_4 = new System.Windows.Forms.Label();
@@ -108,34 +114,28 @@
             this.ForceView3 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.ViewGroupBox3 = new System.Windows.Forms.GroupBox();
-            this.k1_s = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.k3_s = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.TCRtest3 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.k4_f = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.TCRtest4 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.k3_s = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.ViewGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.ViewGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.ViewGroupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.ViewGroupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // ViewGroupBox2
@@ -171,6 +171,26 @@
             this.ViewGroupBox2.Size = new System.Drawing.Size(607, 811);
             this.ViewGroupBox2.TabIndex = 105;
             this.ViewGroupBox2.TabStop = false;
+            // 
+            // TCRtest2
+            // 
+            this.TCRtest2.AutoSize = true;
+            this.TCRtest2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCRtest2.Location = new System.Drawing.Point(421, 356);
+            this.TCRtest2.Name = "TCRtest2";
+            this.TCRtest2.Size = new System.Drawing.Size(90, 23);
+            this.TCRtest2.TabIndex = 92;
+            this.TCRtest2.Text = "TCRtest2";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(399, 357);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 91;
+            this.pictureBox2.TabStop = false;
             // 
             // Tlable2_14
             // 
@@ -214,10 +234,14 @@
             // 
             // ForceView2
             // 
+            this.ForceView2.CausesValidation = false;
             this.ForceView2.Location = new System.Drawing.Point(228, 691);
             this.ForceView2.Name = "ForceView2";
+            this.ForceView2.ReadOnly = true;
             this.ForceView2.Size = new System.Drawing.Size(64, 23);
             this.ForceView2.TabIndex = 60;
+            this.ForceView2.TabStop = false;
+            this.ForceView2.WordWrap = false;
             // 
             // label89
             // 
@@ -424,6 +448,26 @@
             this.ViewGroupBox1.TabIndex = 106;
             this.ViewGroupBox1.TabStop = false;
             // 
+            // k1_s
+            // 
+            this.k1_s.AutoSize = true;
+            this.k1_s.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.k1_s.Location = new System.Drawing.Point(421, 375);
+            this.k1_s.Name = "k1_s";
+            this.k1_s.Size = new System.Drawing.Size(33, 23);
+            this.k1_s.TabIndex = 88;
+            this.k1_s.Text = "Ks";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(395, 375);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 87;
+            this.pictureBox3.TabStop = false;
+            // 
             // ForceView
             // 
             this.ForceView.Location = new System.Drawing.Point(256, 724);
@@ -612,6 +656,46 @@
             this.ViewGroupBox4.Size = new System.Drawing.Size(0, 0);
             this.ViewGroupBox4.TabIndex = 108;
             this.ViewGroupBox4.TabStop = false;
+            // 
+            // TCRtest4
+            // 
+            this.TCRtest4.AutoSize = true;
+            this.TCRtest4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCRtest4.Location = new System.Drawing.Point(403, 383);
+            this.TCRtest4.Name = "TCRtest4";
+            this.TCRtest4.Size = new System.Drawing.Size(90, 23);
+            this.TCRtest4.TabIndex = 97;
+            this.TCRtest4.Text = "TCRtest4";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(372, 385);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 96;
+            this.pictureBox8.TabStop = false;
+            // 
+            // k4_f
+            // 
+            this.k4_f.AutoSize = true;
+            this.k4_f.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.k4_f.Location = new System.Drawing.Point(403, 355);
+            this.k4_f.Name = "k4_f";
+            this.k4_f.Size = new System.Drawing.Size(32, 23);
+            this.k4_f.TabIndex = 95;
+            this.k4_f.Text = "Kf";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(372, 357);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 94;
+            this.pictureBox7.TabStop = false;
             // 
             // label95
             // 
@@ -849,26 +933,6 @@
             this.pictureBox26.TabIndex = 0;
             this.pictureBox26.TabStop = false;
             // 
-            // TCRtest2
-            // 
-            this.TCRtest2.AutoSize = true;
-            this.TCRtest2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCRtest2.Location = new System.Drawing.Point(421, 356);
-            this.TCRtest2.Name = "TCRtest2";
-            this.TCRtest2.Size = new System.Drawing.Size(90, 23);
-            this.TCRtest2.TabIndex = 92;
-            this.TCRtest2.Text = "TCRtest2";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(399, 357);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 91;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox15
             // 
             this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
@@ -1026,25 +1090,25 @@
             this.ViewGroupBox3.TabIndex = 107;
             this.ViewGroupBox3.TabStop = false;
             // 
-            // k1_s
+            // TCRtest3
             // 
-            this.k1_s.AutoSize = true;
-            this.k1_s.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.k1_s.Location = new System.Drawing.Point(421, 375);
-            this.k1_s.Name = "k1_s";
-            this.k1_s.Size = new System.Drawing.Size(33, 23);
-            this.k1_s.TabIndex = 88;
-            this.k1_s.Text = "Ks";
+            this.TCRtest3.AutoSize = true;
+            this.TCRtest3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCRtest3.Location = new System.Drawing.Point(428, 373);
+            this.TCRtest3.Name = "TCRtest3";
+            this.TCRtest3.Size = new System.Drawing.Size(90, 23);
+            this.TCRtest3.TabIndex = 90;
+            this.TCRtest3.Text = "TCRtest3";
             // 
-            // pictureBox3
+            // pictureBox6
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(395, 375);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 87;
-            this.pictureBox3.TabStop = false;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(402, 373);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(20, 22);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 89;
+            this.pictureBox6.TabStop = false;
             // 
             // k3_s
             // 
@@ -1066,66 +1130,6 @@
             this.pictureBox5.TabIndex = 87;
             this.pictureBox5.TabStop = false;
             // 
-            // TCRtest3
-            // 
-            this.TCRtest3.AutoSize = true;
-            this.TCRtest3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCRtest3.Location = new System.Drawing.Point(428, 373);
-            this.TCRtest3.Name = "TCRtest3";
-            this.TCRtest3.Size = new System.Drawing.Size(90, 23);
-            this.TCRtest3.TabIndex = 90;
-            this.TCRtest3.Text = "TCRtest3";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(402, 373);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 89;
-            this.pictureBox6.TabStop = false;
-            // 
-            // k4_f
-            // 
-            this.k4_f.AutoSize = true;
-            this.k4_f.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.k4_f.Location = new System.Drawing.Point(403, 355);
-            this.k4_f.Name = "k4_f";
-            this.k4_f.Size = new System.Drawing.Size(32, 23);
-            this.k4_f.TabIndex = 95;
-            this.k4_f.Text = "Kf";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(372, 357);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 94;
-            this.pictureBox7.TabStop = false;
-            // 
-            // TCRtest4
-            // 
-            this.TCRtest4.AutoSize = true;
-            this.TCRtest4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TCRtest4.Location = new System.Drawing.Point(403, 383);
-            this.TCRtest4.Name = "TCRtest4";
-            this.TCRtest4.Size = new System.Drawing.Size(90, 23);
-            this.TCRtest4.TabIndex = 97;
-            this.TCRtest4.Text = "TCRtest4";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(372, 385);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 96;
-            this.pictureBox8.TabStop = false;
-            // 
             // TestResultTemp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1140,26 +1144,26 @@
             this.Load += new System.EventHandler(this.TestResultTemp_Load);
             this.ViewGroupBox2.ResumeLayout(false);
             this.ViewGroupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.ViewGroupBox1.ResumeLayout(false);
             this.ViewGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.ViewGroupBox4.ResumeLayout(false);
             this.ViewGroupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLabel4_17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.ViewGroupBox3.ResumeLayout(false);
             this.ViewGroupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
