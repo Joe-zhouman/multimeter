@@ -49,13 +49,10 @@ namespace multimeter {
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
             string force = INIHelper.Read("Pressure", "force", "1", latestIniFile);
+            string thickness = null;
             switch (_method) {
                 case TestMethod.Kappa: {
-                        //显示对应监视窗口TEST1       
-                        double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40.9, 30, 20.1, 10.8, 0.9 };
-                        double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 12, 10, 10 };
-                        //DataResult.Test1DataProcess(T, HMLocation, 1256, 1256, 452.16, 300, 300, 10);
-
+                        sample1.SetTemp(testResult);
                     }
                     break;
                 case TestMethod.ITC: {
@@ -65,19 +62,13 @@ namespace multimeter {
                     }
                     break;
                 case TestMethod.ITM: {
-                        //显示对应监视窗口TEST3
-                        double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40, 37, 35, 30, 20.1, 10.8, 0.9 };
-                        double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 9, 19, 4, 12, 10, 10 };
-                        //DataResult.Test3DataProcess(T, HMLocation, 300, 300, 1256, 1256, 425.16, 426.16,
-                        //             10, 10, 10, chart1);
+                        thickness = INIHelper.Read("ITM", "thickness", "1", latestIniFile);
                     }
                     break;
                 case TestMethod.ITMS: {
-                        //显示对应监视窗口TEST4 
-                        double[] T = { 81.2, 70.1, 59.8, 50, 45, 44, 43, 40, 37, 35, 30, 20.1, 10.8, 0.9 };
-                        double[] HMLocation = { 10, 11, 10, 4, 10, 9, 4, 4, 9, 19, 4, 12, 10, 10 };
-                        //DataResult.Test4DataProcess(T, HMLocation,100, 300, 300, 1256, 1256, 425.16, 426.16,
-                                     //10, 10, 10,10, chart1);
+                        sample1.SetTemp(testResult);
+                        sample2.SetTemp(testResult);
+                        thickness = INIHelper.Read("ITM", "thickness", "1", latestIniFile);
                     }
                     break;
                 default: {
@@ -87,7 +78,7 @@ namespace multimeter {
             }
             TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
             testResultChart.Show();
-            TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, force, _method);
+            TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method, force, thickness);
             testResultTemp.Show();
             #endregion
         }
