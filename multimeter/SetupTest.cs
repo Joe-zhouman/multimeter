@@ -935,7 +935,18 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 #region //串口设置
 
                 CheckForIllegalCrossThreadCalls = false; //去掉线程安全
-
+                #region //初始化变量
+                Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
+                Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
+                latestIniFile = "";
+                latestDataFile = "";
+                heatMeter1 = new HeatMeter("HeatMeter1");
+                heatMeter2 = new HeatMeter("HeatMeter2");
+                SlnIni.CreateDefaultIni();
+                string slnFilePath = SlnIni.CreateDefaultSlnIni();
+                SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
+                recentTenData = new List<string>();
+                #endregion
                 edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
                 edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
 
@@ -1071,16 +1082,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 //创建必要的文件夹
 
 
-                Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
-                Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
-                latestIniFile = "";
-                latestDataFile = "";
-                heatMeter1 = new HeatMeter("HeatMeter1");
-                heatMeter2 = new HeatMeter("HeatMeter2");
-                SlnIni.CreateDefaultIni();
-                string slnFilePath = SlnIni.CreateDefaultSlnIni();
-                SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
-                recentTenData = new List<string>();
+                
                 ReadPara();
             }
         }

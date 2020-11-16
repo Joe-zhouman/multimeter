@@ -27,24 +27,29 @@ namespace multimeter {
             SetIniFileName();
             if(latestIniFile == "") {
                 MessageBox.Show(@"请选择配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             SetCsvFileName();
             if (latestDataFile == "") {
                 MessageBox.Show(@"请选择数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             DataTable channelTable = new DataTable();
             var csvExp = Solution.ReadCsvFile(ref channelTable, latestDataFile);
             if (null != csvExp) {
-                MessageBox.Show(@"请选择数据文件!"+"\n"+csvExp.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"请选择正确的数据文件!"+"\n"+csvExp.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             if (_method.ToString().ToLower() != INIHelper.Read("TestMethod", "method", "", latestIniFile)) {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             var testResult = Solution.CalAve(channelTable);
             var csvType = (TestMethod) (int) testResult["TestMethod"];
             if (_method != csvType) {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
@@ -76,8 +81,8 @@ namespace multimeter {
                         return;
                     }
             }
-            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
-            testResultChart.Show();
+            //TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
+            //testResultChart.Show();
             TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method, force, thickness);
             testResultTemp.Show();
             #endregion

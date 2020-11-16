@@ -11,8 +11,8 @@ namespace DataProcessor {
             #region
 
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            if (INIHelper.CheckPath(filePath))
-                return;
+            if (INIHelper.CheckPath(filePath)) { return; }
+                
 
             File.Create(filePath).Close();
             INIHelper.Write("Serial", "port", "COM1", filePath);
