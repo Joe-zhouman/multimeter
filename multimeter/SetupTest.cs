@@ -708,7 +708,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             Thread.Sleep(100);
 
             Thread thread;
-
+            MessageBox.Show(TotalCHN);
             string[] chn = TotalCHN.Split(',');
             listView_main.Clear();
             listView_main.Columns.Add(((int)_method).ToString(), 120);
@@ -763,21 +763,21 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 int size = 1024;
                 int sizeCnt = (int) Math.Ceiling(listView.Items.Count / (double) 2000);
                 StreamWriter write = new StreamWriter(filePath, false, Encoding.Default, size * sizeCnt);
-
+                write.Write(recvstr);
                 //获取listView标题行
-                for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
-                write.WriteLine();
-                //获取listView数据行
-                for (int lin = 0; lin < listView.Items.Count; lin++) {
-                    string Tem = null;
-                    for (int k = 0; k < listView.Columns.Count; k++) {
-                        string TemString = listView.Items[lin].SubItems[k].Text;
-                        Tem += TemString;
-                        Tem += ",";
-                    }
+                //for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
+                //write.WriteLine();
+                ////获取listView数据行
+                //for (int lin = 0; lin < listView.Items.Count; lin++) {
+                //    string Tem = null;
+                //    for (int k = 0; k < listView.Columns.Count; k++) {
+                //        string TemString = listView.Items[lin].SubItems[k].Text;
+                //        Tem += TemString;
+                //        Tem += ",";
+                //    }
 
-                    write.WriteLine(Tem);
-                }
+                //    write.WriteLine(Tem);
+                //}
 
                 write.Flush();
                 write.Close();
@@ -1075,13 +1075,18 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 #endregion
 
                 #region //串口采集
-                
-                
+
+
                 #endregion
 
                 //创建必要的文件夹
 
-
+                //this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+                
+                this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+                this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+                this.Height = Screen.PrimaryScreen.WorkingArea.Height-40;
+                //MessageBox.Show((1024-Screen.PrimaryScreen.WorkingArea.Height).ToString());
                 
                 ReadPara();
             }
