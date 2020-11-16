@@ -58,16 +58,8 @@ namespace multimeter {
 
         private void button1_Click(object sender, EventArgs e) {
             #region //选择测试方法1
-
-            TestChoose1.ForeColor = Color.LightSkyBlue;
-            TestChoose2.ForeColor = Color.White;
-            TestChoose3.ForeColor = Color.White;
-            TestChoose4.ForeColor = Color.White;
-
-            TestChoose1.BackColor = Color.White;
-            TestChoose2.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.Kappa;
             ParSetting_Click(sender,e);
 
@@ -76,16 +68,8 @@ namespace multimeter {
 
         private void TestChoose2_Click(object sender, EventArgs e) {
             #region //选择测试方法2
-
-            TestChoose1.ForeColor = Color.White;
-            TestChoose2.ForeColor = Color.LightSkyBlue;
-            TestChoose3.ForeColor = Color.White;
-            TestChoose4.ForeColor = Color.White;
-
-            TestChoose1.BackColor = Color.Black;
-            TestChoose2.BackColor = Color.White;
-            TestChoose1.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.ITC;
             ParSetting_Click(sender, e);
             
@@ -95,16 +79,8 @@ namespace multimeter {
 
         private void TestChoose3_Click(object sender, EventArgs e) {
             #region //选择测试方法3
-
-            TestChoose1.ForeColor = Color.White;
-            TestChoose2.ForeColor = Color.White;
-            TestChoose3.ForeColor = Color.LightSkyBlue;
-            TestChoose4.ForeColor = Color.White;
-
-            TestChoose1.BackColor = Color.Black;
-            TestChoose2.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.White;
-            TestChoose1.BackColor = Color.Black;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.ITM;
             ParSetting_Click(sender, e);
             
@@ -114,16 +90,8 @@ namespace multimeter {
 
         private void TestChoose4_Click(object sender, EventArgs e) {
             #region //选择测试方法4
-
-            TestChoose1.ForeColor = Color.White;
-            TestChoose2.ForeColor = Color.White;
-            TestChoose3.ForeColor = Color.White;
-            TestChoose4.ForeColor = Color.LightSkyBlue;
-
-            TestChoose1.BackColor = Color.Black;
-            TestChoose2.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.White;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.ITMS;
             ParSetting_Click(sender, e);
 
@@ -145,8 +113,9 @@ namespace multimeter {
             string force;
             switch (_method) {
                 case TestMethod.Kappa: {
-                    //显示对应设置窗口TEST1
-                    TextGroupbox1.Size = new Size(582, 926);
+                        //显示对应设置窗口TEST1
+                    EmptyGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(582, 886);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
@@ -176,9 +145,10 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITC: {
-                    //显示对应设置窗口TEST2
+                        //显示对应设置窗口TEST2
+                    EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(582, 926);
+                    TextGroupbox2.Size = new Size(582, 886);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
@@ -211,10 +181,11 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITM: {
-                    //显示对应设置窗口TEST3
+                        //显示对应设置窗口TEST3
+                    EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(582, 926);
+                    TextGroupbox3.Size = new Size(582, 886);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
                         sample1 = null;
@@ -235,11 +206,12 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITMS: {
-                    //显示对应设置窗口TEST4
+                        //显示对应设置窗口TEST4
+                    EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(582, 926);
+                    TextGroupbox4.Size = new Size(582, 886);
                     string filePath = SlnIni.CreateDefaultItmsIni();
                     sample1 = new Sample("Sample1");
                     sample2 = new Sample("Sample2");
@@ -289,7 +261,6 @@ namespace multimeter {
             TestRun.Enabled = false;
             TestStop.Enabled = true;
             Monitor.Enabled = true;
-            Monitor.Enabled = true;
             TestResult.Enabled = false;
 
             btn_start();
@@ -309,7 +280,6 @@ namespace multimeter {
             ParSetting.Enabled = true;
             TestRun.Enabled = true;
             TestStop.Enabled = false;
-            Monitor.Enabled = false;
             Monitor.Enabled = false;
             TestResult.Enabled = true;
 
@@ -909,14 +879,14 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         private void SetupTest_Load(object sender, EventArgs e)
         {
             {
-                
-                #region //不同设置窗口默认显示
 
-                TextGroupbox1.Size = new Size(582, 926);
+                #region //不同设置窗口默认显示
+                EmptyGroupBox.Size = new Size(582, 886);
+                TextGroupbox1.Size = new Size(0, 0);
                 TextGroupbox2.Size = new Size(0, 0);
                 TextGroupbox3.Size = new Size(0, 0);
                 TextGroupbox4.Size = new Size(0, 0);
-                ResultGroupBox.Size = new Size(650, 920);
+                ResultGroupBox.Size = new Size(650, 886);
                 skinGroupBox1.Size = new Size(0, 0);
                 TestRun.Size = new Size(102, 29);
                 TestStop.Size = new Size(102, 29);
@@ -926,9 +896,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 TestStop.BringToFront();
                 Monitor.BringToFront();
                 TestResult.BringToFront();
+                TestRun.Enabled = false;
                 TestStop.Enabled = false;
                 Monitor.Enabled = false;
-                Monitor.Enabled = false;
+                TestResult.Enabled = false;
 
                 #endregion
 
@@ -1085,11 +1056,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 
                 this.Location = Screen.PrimaryScreen.WorkingArea.Location;
                 this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                this.Height = Screen.PrimaryScreen.WorkingArea.Height-40;
-                //MessageBox.Show((1024-Screen.PrimaryScreen.WorkingArea.Height).ToString());
-                
-                ReadPara();
+                this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+
+                //ReadPara();
             }
         }
+
+
+
     }
 }
