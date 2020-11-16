@@ -27,179 +27,7 @@ namespace multimeter {
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e) {
-            #region //不同设置窗口默认显示
-
-            TextGroupbox1.Size = new Size(582, 926);
-            TextGroupbox2.Size = new Size(0, 0);
-            TextGroupbox3.Size = new Size(0, 0);
-            TextGroupbox4.Size = new Size(0, 0);
-            ResultGroupBox.Size = new Size(650, 920);
-            skinGroupBox1.Size = new Size(0, 0);
-            TestRun.Size = new Size(102,29);
-            TestStop.Size = new Size(102, 29);
-            Monitor.Size = new Size(102, 29);
-            TestResult.Size = new Size(102, 29);
-            TestRun.BringToFront();
-            TestStop.BringToFront();
-            Monitor.BringToFront();
-            TestResult.BringToFront();
-            TestStop.Enabled = false;
-            Monitor.Enabled = false;
-            Monitor.Enabled = false;
-
-            #endregion
-            
-             #region //串口设置
-
-             CheckForIllegalCrossThreadCalls = false; //去掉线程安全
-
-             edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
-             edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
-
-             switch (AppCfg.devicepara.SerialPort) {
-                 case "COM1":
-                     combox_comport.SelectedIndex = 0;
-                     break;
-                 case "COM2":
-                     combox_comport.SelectedIndex = 1;
-                     break;
-                 case "COM3":
-                     combox_comport.SelectedIndex = 2;
-                     break;
-                 case "COM4":
-                     combox_comport.SelectedIndex = 3;
-                     break;
-                 case "COM5":
-                     combox_comport.SelectedIndex = 4;
-                     break;
-                 case "COM6":
-                     combox_comport.SelectedIndex = 5;
-                     break;
-                 case "COM7":
-                     combox_comport.SelectedIndex = 6;
-                     break;
-                 case "COM8":
-                     combox_comport.SelectedIndex = 7;
-                     break;
-                 default:
-                     combox_comport.SelectedIndex = 0;
-                     break;
-             }
-
-
-             switch (AppCfg.devicepara.SerialBaudRate) {
-                 case "4800":
-                     combox_baudrate.SelectedIndex = 0;
-                     break;
-                 case "9600":
-                     combox_baudrate.SelectedIndex = 1;
-                     break;
-                 case "14400":
-                     combox_baudrate.SelectedIndex = 2;
-                     break;
-                 case "19200":
-                     combox_baudrate.SelectedIndex = 3;
-                     break;
-                 case "38400":
-                     combox_baudrate.SelectedIndex = 4;
-                     break;
-                 case "57600":
-                     combox_baudrate.SelectedIndex = 5;
-                     break;
-                 case "115200":
-                     combox_baudrate.SelectedIndex = 6;
-                     break;
-                 default:
-                     combox_baudrate.SelectedIndex = 2;
-                     break;
-             }
-
-
-             switch (AppCfg.devicepara.SerialDataBits) {
-                 case "8":
-                     combox_databits.SelectedIndex = 0;
-                     break;
-                 case "7":
-                     combox_databits.SelectedIndex = 1;
-                     break;
-                 case "6":
-                     combox_databits.SelectedIndex = 2;
-                     break;
-                 case "5":
-                     combox_databits.SelectedIndex = 3;
-                     break;
-
-                 default:
-                     combox_databits.SelectedIndex = 2;
-                     break;
-             }
-
-             switch (AppCfg.devicepara.SerialStopBits) {
-                 case "1":
-                     combox_stopbits.SelectedIndex = 0;
-                     break;
-                 case "1.5":
-                     combox_stopbits.SelectedIndex = 1;
-                     break;
-                 case "2":
-                     combox_stopbits.SelectedIndex = 2;
-                     break;
-
-                 default:
-                     combox_stopbits.SelectedIndex = 0;
-                     break;
-             }
-
-
-             switch (AppCfg.devicepara.SerialParity) {
-                 case "None":
-                     combox_parity.SelectedIndex = 0;
-                     break;
-                 case "奇校验":
-                     combox_parity.SelectedIndex = 1;
-                     break;
-                 case "偶校验":
-                     combox_parity.SelectedIndex = 2;
-                     break;
-                 case "Mark":
-                     combox_parity.SelectedIndex = 3;
-                     break;
-                 case "Space":
-                     combox_parity.SelectedIndex = 4;
-                     break;
-
-                 default:
-                     combox_parity.SelectedIndex = 0;
-                     break;
-             }
-
-             #endregion
-
-             #region //串口采集
-
-             CheckForIllegalCrossThreadCalls = false;
-             
-             ReadPara();
-
-             #endregion
-
-             #region //热流计属性读取
-
-             
-             #endregion
-             //创建必要的文件夹
-             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
-             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
-             latestIniFile = "";
-             latestDataFile = "";
-            heatMeter1 = new HeatMeter("HeatMeter1");
-            heatMeter2 = new HeatMeter("HeatMeter2");
-            SlnIni.CreateDefaultIni();
-            string slnFilePath = SlnIni.CreateDefaultSlnIni();
-            SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
-            recentTenData = new List<string>();
-        }
+        
         //---------------------------------------------------------------子函数区-------------------------------------------------------------------------------------------------------------------------------
 
         private int FactorStandView(int chn, double[] k1, double[] k2) //显示factordataGridView数据
@@ -1076,10 +904,185 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         private int count;
         private bool enablescan;
 
-
-
         #endregion
 
+        private void SetupTest_Load(object sender, EventArgs e)
+        {
+            {
+                
+                #region //不同设置窗口默认显示
 
+                TextGroupbox1.Size = new Size(582, 926);
+                TextGroupbox2.Size = new Size(0, 0);
+                TextGroupbox3.Size = new Size(0, 0);
+                TextGroupbox4.Size = new Size(0, 0);
+                ResultGroupBox.Size = new Size(650, 920);
+                skinGroupBox1.Size = new Size(0, 0);
+                TestRun.Size = new Size(102, 29);
+                TestStop.Size = new Size(102, 29);
+                Monitor.Size = new Size(102, 29);
+                TestResult.Size = new Size(102, 29);
+                TestRun.BringToFront();
+                TestStop.BringToFront();
+                Monitor.BringToFront();
+                TestResult.BringToFront();
+                TestStop.Enabled = false;
+                Monitor.Enabled = false;
+                Monitor.Enabled = false;
+
+                #endregion
+
+                #region //串口设置
+
+                CheckForIllegalCrossThreadCalls = false; //去掉线程安全
+
+                edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
+                edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
+
+                switch (AppCfg.devicepara.SerialPort)
+                {
+                    case "COM1":
+                        combox_comport.SelectedIndex = 0;
+                        break;
+                    case "COM2":
+                        combox_comport.SelectedIndex = 1;
+                        break;
+                    case "COM3":
+                        combox_comport.SelectedIndex = 2;
+                        break;
+                    case "COM4":
+                        combox_comport.SelectedIndex = 3;
+                        break;
+                    case "COM5":
+                        combox_comport.SelectedIndex = 4;
+                        break;
+                    case "COM6":
+                        combox_comport.SelectedIndex = 5;
+                        break;
+                    case "COM7":
+                        combox_comport.SelectedIndex = 6;
+                        break;
+                    case "COM8":
+                        combox_comport.SelectedIndex = 7;
+                        break;
+                    default:
+                        combox_comport.SelectedIndex = 0;
+                        break;
+                }
+
+
+                switch (AppCfg.devicepara.SerialBaudRate)
+                {
+                    case "4800":
+                        combox_baudrate.SelectedIndex = 0;
+                        break;
+                    case "9600":
+                        combox_baudrate.SelectedIndex = 1;
+                        break;
+                    case "14400":
+                        combox_baudrate.SelectedIndex = 2;
+                        break;
+                    case "19200":
+                        combox_baudrate.SelectedIndex = 3;
+                        break;
+                    case "38400":
+                        combox_baudrate.SelectedIndex = 4;
+                        break;
+                    case "57600":
+                        combox_baudrate.SelectedIndex = 5;
+                        break;
+                    case "115200":
+                        combox_baudrate.SelectedIndex = 6;
+                        break;
+                    default:
+                        combox_baudrate.SelectedIndex = 2;
+                        break;
+                }
+
+
+                switch (AppCfg.devicepara.SerialDataBits)
+                {
+                    case "8":
+                        combox_databits.SelectedIndex = 0;
+                        break;
+                    case "7":
+                        combox_databits.SelectedIndex = 1;
+                        break;
+                    case "6":
+                        combox_databits.SelectedIndex = 2;
+                        break;
+                    case "5":
+                        combox_databits.SelectedIndex = 3;
+                        break;
+
+                    default:
+                        combox_databits.SelectedIndex = 2;
+                        break;
+                }
+
+                switch (AppCfg.devicepara.SerialStopBits)
+                {
+                    case "1":
+                        combox_stopbits.SelectedIndex = 0;
+                        break;
+                    case "1.5":
+                        combox_stopbits.SelectedIndex = 1;
+                        break;
+                    case "2":
+                        combox_stopbits.SelectedIndex = 2;
+                        break;
+
+                    default:
+                        combox_stopbits.SelectedIndex = 0;
+                        break;
+                }
+
+
+                switch (AppCfg.devicepara.SerialParity)
+                {
+                    case "None":
+                        combox_parity.SelectedIndex = 0;
+                        break;
+                    case "奇校验":
+                        combox_parity.SelectedIndex = 1;
+                        break;
+                    case "偶校验":
+                        combox_parity.SelectedIndex = 2;
+                        break;
+                    case "Mark":
+                        combox_parity.SelectedIndex = 3;
+                        break;
+                    case "Space":
+                        combox_parity.SelectedIndex = 4;
+                        break;
+
+                    default:
+                        combox_parity.SelectedIndex = 0;
+                        break;
+                }
+
+                #endregion
+
+                #region //串口采集
+                
+                
+                #endregion
+
+                //创建必要的文件夹
+
+
+                Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
+                Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
+                latestIniFile = "";
+                latestDataFile = "";
+                heatMeter1 = new HeatMeter("HeatMeter1");
+                heatMeter2 = new HeatMeter("HeatMeter2");
+                SlnIni.CreateDefaultIni();
+                string slnFilePath = SlnIni.CreateDefaultSlnIni();
+                SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
+                recentTenData = new List<string>();
+                ReadPara();
+            }
+        }
     }
 }
