@@ -242,7 +242,7 @@ namespace DataProcessor {
         /// <param name="k"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static bool 计(HeatMeter heatMeter,ref double heatFlow,ref double k,ref double b) {
+        public static bool GetHeatFlow(HeatMeter heatMeter,ref double heatFlow,ref double k,ref double b) {
             var numPosition = heatMeter.Position.Select(double.Parse).ToList();
             var p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToList();
             if (true == LinearFit(numPosition,heatMeter.Temp.ToList(),ref k,ref b)) {
