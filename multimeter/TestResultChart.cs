@@ -17,26 +17,29 @@ namespace multimeter
         private HeatMeter heatMeter2;
         private Sample sample1;
         private Sample sample2;
-        private TestMethod testMethod;
+        //private TestMethod testMethod;
         private int chartX;
-        public TestResultChart(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, TestMethod testMethod)   
+
+        public TestResultChart()     //HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, TestMethod testMethod
         {
             InitializeComponent();
-            this.heatMeter1 = heatMeter1;
-            this.heatMeter2 = heatMeter2;
-            this.sample1 = sample1;
-            this.sample2 = sample2;     
-            this.testMethod = testMethod;    
+            //this.heatMeter1 = heatMeter1;
+            //this.heatMeter2 = heatMeter2;
+            //this.sample1 = sample1;
+            //this.sample2 = sample2;     
+            //this.testMethod = testMethod;
+            
         }
 
         private void TestResultChart_Load(object sender, EventArgs e)
-        {                
+        {
+           
         }
 
-        public void Chart_Init()
+        public void Chart_Init(TestMethod testMethod)
         {
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
-            chart1.ChartAreas[0].AxisX.Maximum = 500;
+            chart1.ChartAreas[0].AxisX.Maximum = 250;
             switch (testMethod)
             {
                 case TestMethod.Kappa:{
@@ -121,7 +124,8 @@ namespace multimeter
              }                 
         }
 
-        public void showChart(){
+        public void ShowChart(TestMethod testMethod)
+        {
             switch (testMethod){
                 case TestMethod.Kappa:{
                         List<double> T = new List<double>();
@@ -131,8 +135,8 @@ namespace multimeter
                         for (int i = 0; i < 11; i++){
                             chart1.Series[i].Points.AddXY(chartX, T[i]);
                         }
-                        if (chartX > 500){
-                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 500;
+                        if (chartX > 250){
+                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 250;
                             chart1.ChartAreas[0].AxisX.Maximum = chartX;
                         }
                         chartX++;
@@ -144,12 +148,13 @@ namespace multimeter
                           T.AddRange(sample1.Temp);
                           T.AddRange(sample2.Temp);
                           T.AddRange(heatMeter2.Temp);  */
-                        double[] T = new double[14] { 1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+                        double[] T = new double[14] { 0.1*chartX, 0.2 * chartX, 0.3 * chartX, 0.4 * chartX, 0.5 * chartX, 0.6 * chartX , 0.7 * chartX ,
+                                                      0.8*chartX, 0.9*chartX,  1*chartX,  1.1*chartX,  1.2*chartX,  1.3*chartX,  1.4*chartX};
                         for (int i = 0; i < 14; i++){
                             chart1.Series[i].Points.AddXY(chartX, T[i]);
-                        }
-                        if (chartX > 500){
-                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 500;
+                        }                                                         
+                        if (chartX > 250){
+                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 250;
                             chart1.ChartAreas[0].AxisX.Maximum = chartX;
                         }
                         chartX++;
@@ -162,8 +167,8 @@ namespace multimeter
                         for (int i = 0; i < 8; i++){
                             chart1.Series[i].Points.AddXY(chartX, T[i]);
                         }
-                        if (chartX > 500){
-                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 500;
+                        if (chartX > 250){
+                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 250;
                             chart1.ChartAreas[0].AxisX.Maximum = chartX;
                         }
                         chartX++;
@@ -179,8 +184,8 @@ namespace multimeter
                         for (int i = 0; i < 14; i++){
                             chart1.Series[i].Points.AddXY(chartX, T[i]);
                         }
-                        if (chartX > 500){
-                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 500;
+                        if (chartX > 250){
+                            chart1.ChartAreas[0].AxisX.Minimum = chartX - 250;
                             chart1.ChartAreas[0].AxisX.Maximum = chartX;
                         }
                         chartX++;
@@ -190,8 +195,11 @@ namespace multimeter
                         return;
                     }
             }
+            
         }
-
-
+        private void TestResultChart_FormClosing(object sender, FormClosingEventArgs e){
+            Hide();
+            e.Cancel = true;         
+        }
     }
 }

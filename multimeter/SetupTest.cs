@@ -23,7 +23,10 @@ namespace multimeter {
         private string recvstr;
         private List<string> recentTenData;
         private TestMethod _method;
+        private TestResultChart testResultChart=new TestResultChart();
+
         public SetupTest() {
+            
             InitializeComponent();
         }
 
@@ -261,8 +264,8 @@ namespace multimeter {
                     break;
             }
 
-            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
-            testResultChart.Chart_Init();
+            testResultChart.Chart_Init(_method);
+            timer1.Enabled = true;
             #endregion
         }
 
@@ -303,8 +306,12 @@ namespace multimeter {
 
             btn_stop();
         }
-
-        
+        private void Monitor_Click(object sender, EventArgs e)
+        {
+            if (testResultChart.IsAccessible == true)
+                testResultChart.Hide();
+            else testResultChart.Show();
+        }
 
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
 
@@ -610,10 +617,7 @@ namespace multimeter {
 
             TotalNum = TwoR_num + FourR_num + Temp_num;
 
-            sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
-
-            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
-            testResultChart.Show();
+            sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);       
             #endregion
         }
 
@@ -865,8 +869,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //    }         
             //}
 
-            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
-            testResultChart.showChart();
+            testResultChart.ShowChart(_method);
             #endregion
         }
 
@@ -904,10 +907,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 skinGroupBox1.Size = new Size(0, 0);
                 TestRun.Size = new Size(102, 29);
                 TestStop.Size = new Size(102, 29);
-                TestResult.Size = new Size(102, 29);
+                Monitor.Size = new Size(102, 29);
                 TestResult.Size = new Size(102, 29);
                 TestRun.BringToFront();
                 TestStop.BringToFront();
+                Monitor.BringToFront();
                 TestResult.BringToFront();
                 TestRun.Enabled = false;
                 TestStop.Enabled = false;
@@ -1073,6 +1077,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
         }
 
-  
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            testResultChart.ShowChart(_method);
+        }
+
+
     }
 }
