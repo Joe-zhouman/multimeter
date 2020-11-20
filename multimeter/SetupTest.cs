@@ -264,7 +264,7 @@ namespace multimeter {
                     break;
             }
 
-            testResultChart.Chart_Init(_method);
+            testResultChart.Chart_Init(heatMeter1,heatMeter2,sample1,sample2,_method);
             timer1.Enabled = true;
             #endregion
         }
@@ -798,7 +798,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             string nextstr = "";
             if (str.IndexOf((char) 13) != -1) {
                 str = str.Substring(0, str.IndexOf((char) 13));
-                recvstr = recvstr + str;
+                recvstr += str;
 
                 if (recvstr.Length > 0) {
                     count++;
@@ -868,8 +868,15 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //        listView_main.Items.Clear();
             //    }         
             //}
-
-            testResultChart.ShowChart(_method);
+            List<string> channels = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<double> dataList = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(double.Parse).ToList();
+            Dictionary<string, double> testResult = new Dictionary<string, double>();
+            for (int i = 0; i < channels.Count; i++)
+            {
+                testResult.Add(channels[i], dataList[i]);
+            }
+            testResultChart.ShowChart(testResult);
             #endregion
         }
 
@@ -1077,10 +1084,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            testResultChart.ShowChart(_method);
-        }
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    testResultChart.ShowChart(Dictionary<string, double>testResult);
+        //}
 
 
     }

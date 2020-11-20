@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DataProcessor {
     public class Sample {
@@ -53,5 +55,6 @@ namespace DataProcessor {
                 Temp[i] = Math.Round(double.Parse(Alpha[i]) * testResult[Channel[i]] + double.Parse(T0[i]),2);
             }
         }
+
     }
 }

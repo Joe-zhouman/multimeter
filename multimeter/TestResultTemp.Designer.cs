@@ -656,7 +656,6 @@
             this.ViewGroupBox4.Size = new System.Drawing.Size(607, 811);
             this.ViewGroupBox4.TabIndex = 108;
             this.ViewGroupBox4.TabStop = false;
-            this.ViewGroupBox4.Enter += new System.EventHandler(this.ViewGroupBox4_Enter);
             // 
             // TCRtest4
             // 
