@@ -93,6 +93,6 @@ namespace multimeter {
 
         private void ShowItm() { }
 
-        private void ShowItms() { }
+        }
     }
 }

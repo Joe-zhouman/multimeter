@@ -23,7 +23,10 @@ namespace multimeter {
         private string recvstr;
         private List<string> recentTenData;
         private TestMethod _method;
+        private TestResultChart testResultChart=new TestResultChart();
+
         public SetupTest() {
+            
             InitializeComponent();
         }
 
@@ -58,34 +61,26 @@ namespace multimeter {
 
         private void button1_Click(object sender, EventArgs e) {
             #region //选择测试方法1
-
-            TestChoose1.ForeColor = Color.LightSkyBlue;
-            TestChoose2.ForeColor = Color.White;
-            TestChoose3.ForeColor = Color.White;
-            TestChoose4.ForeColor = Color.White;
-
-            TestChoose1.BackColor = Color.White;
-            TestChoose2.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.DodgerBlue;
+            TestChoose2.BackColor = Color.LightGray;
+            TestChoose3.BackColor = Color.LightGray;
+            TestChoose4.BackColor = Color.LightGray;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.Kappa;
             ParSetting_Click(sender,e);
-
+            
             #endregion
         }
 
         private void TestChoose2_Click(object sender, EventArgs e) {
             #region //选择测试方法2
-
-            TestChoose1.ForeColor = Color.White;
-            TestChoose2.ForeColor = Color.LightSkyBlue;
-            TestChoose3.ForeColor = Color.White;
-            TestChoose4.ForeColor = Color.White;
-
-            TestChoose1.BackColor = Color.Black;
-            TestChoose2.BackColor = Color.White;
-            TestChoose1.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.LightGray;
+            TestChoose2.BackColor = Color.DodgerBlue;
+            TestChoose3.BackColor = Color.LightGray;
+            TestChoose4.BackColor = Color.LightGray;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.ITC;
             ParSetting_Click(sender, e);
             
@@ -95,16 +90,12 @@ namespace multimeter {
 
         private void TestChoose3_Click(object sender, EventArgs e) {
             #region //选择测试方法3
-
-            TestChoose1.ForeColor = Color.White;
-            TestChoose2.ForeColor = Color.White;
-            TestChoose3.ForeColor = Color.LightSkyBlue;
-            TestChoose4.ForeColor = Color.White;
-
-            TestChoose1.BackColor = Color.Black;
-            TestChoose2.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.White;
-            TestChoose1.BackColor = Color.Black;
+            TestChoose1.BackColor = Color.LightGray;
+            TestChoose2.BackColor = Color.LightGray;
+            TestChoose3.BackColor = Color.DodgerBlue;
+            TestChoose4.BackColor = Color.LightGray;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.ITM;
             ParSetting_Click(sender, e);
             
@@ -114,16 +105,12 @@ namespace multimeter {
 
         private void TestChoose4_Click(object sender, EventArgs e) {
             #region //选择测试方法4
-
-            TestChoose1.ForeColor = Color.White;
-            TestChoose2.ForeColor = Color.White;
-            TestChoose3.ForeColor = Color.White;
-            TestChoose4.ForeColor = Color.LightSkyBlue;
-
-            TestChoose1.BackColor = Color.Black;
-            TestChoose2.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.Black;
-            TestChoose1.BackColor = Color.White;
+            TestChoose1.BackColor = Color.LightGray;
+            TestChoose2.BackColor = Color.LightGray;
+            TestChoose3.BackColor = Color.LightGray;
+            TestChoose4.BackColor = Color.DodgerBlue;
+            TestRun.Enabled = true;
+            TestResult.Enabled = true;
             _method = TestMethod.ITMS;
             ParSetting_Click(sender, e);
 
@@ -145,8 +132,9 @@ namespace multimeter {
             string force;
             switch (_method) {
                 case TestMethod.Kappa: {
-                    //显示对应设置窗口TEST1
-                    TextGroupbox1.Size = new Size(582, 926);
+                        //显示对应设置窗口TEST1
+                    EmptyGroupBox.Size = new Size(0, 0);
+                    TextGroupbox1.Size = new Size(1250, 926);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
@@ -176,9 +164,10 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITC: {
-                    //显示对应设置窗口TEST2
+                        //显示对应设置窗口TEST2
+                    EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(582, 926);
+                    TextGroupbox2.Size = new Size(1250, 926);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
@@ -211,10 +200,11 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITM: {
-                    //显示对应设置窗口TEST3
+                        //显示对应设置窗口TEST3
+                    EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(582, 926);
+                    TextGroupbox3.Size = new Size(1250, 926);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
                         sample1 = null;
@@ -235,11 +225,12 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITMS: {
-                    //显示对应设置窗口TEST4
+                        //显示对应设置窗口TEST4
+                    EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(582, 926);
+                    TextGroupbox4.Size = new Size(1250, 926);
                     string filePath = SlnIni.CreateDefaultItmsIni();
                     sample1 = new Sample("Sample1");
                     sample2 = new Sample("Sample2");
@@ -273,6 +264,8 @@ namespace multimeter {
                     break;
             }
 
+            testResultChart.Chart_Init(_method);
+            timer1.Enabled = true;
             #endregion
         }
 
@@ -288,8 +281,6 @@ namespace multimeter {
             ParSetting.Enabled = false;
             TestRun.Enabled = false;
             TestStop.Enabled = true;
-            Monitor.Enabled = true;
-            Monitor.Enabled = true;
             TestResult.Enabled = false;
 
             btn_start();
@@ -309,22 +300,18 @@ namespace multimeter {
             ParSetting.Enabled = true;
             TestRun.Enabled = true;
             TestStop.Enabled = false;
-            Monitor.Enabled = false;
-            Monitor.Enabled = false;
             TestResult.Enabled = true;
 
             #endregion
 
             btn_stop();
         }
-
-        private void Monitor_Click(object sender, EventArgs e) {
-            #region //温度监视
-
-            #endregion
+        private void Monitor_Click(object sender, EventArgs e)
+        {
+            if (testResultChart.IsAccessible == true)
+                testResultChart.Hide();
+            else testResultChart.Show();
         }
-
-        
 
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
 
@@ -630,8 +617,7 @@ namespace multimeter {
 
             TotalNum = TwoR_num + FourR_num + Temp_num;
 
-            sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
-
+            sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);       
             #endregion
         }
 
@@ -708,7 +694,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             Thread.Sleep(100);
 
             Thread thread;
-
+            MessageBox.Show(TotalCHN);
             string[] chn = TotalCHN.Split(',');
             listView_main.Clear();
             listView_main.Columns.Add(((int)_method).ToString(), 120);
@@ -763,21 +749,21 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 int size = 1024;
                 int sizeCnt = (int) Math.Ceiling(listView.Items.Count / (double) 2000);
                 StreamWriter write = new StreamWriter(filePath, false, Encoding.Default, size * sizeCnt);
-
+                write.Write(recvstr);
                 //获取listView标题行
-                for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
-                write.WriteLine();
-                //获取listView数据行
-                for (int lin = 0; lin < listView.Items.Count; lin++) {
-                    string Tem = null;
-                    for (int k = 0; k < listView.Columns.Count; k++) {
-                        string TemString = listView.Items[lin].SubItems[k].Text;
-                        Tem += TemString;
-                        Tem += ",";
-                    }
+                //for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
+                //write.WriteLine();
+                ////获取listView数据行
+                //for (int lin = 0; lin < listView.Items.Count; lin++) {
+                //    string Tem = null;
+                //    for (int k = 0; k < listView.Columns.Count; k++) {
+                //        string TemString = listView.Items[lin].SubItems[k].Text;
+                //        Tem += TemString;
+                //        Tem += ",";
+                //    }
 
-                    write.WriteLine(Tem);
-                }
+                //    write.WriteLine(Tem);
+                //}
 
                 write.Flush();
                 write.Close();
@@ -883,6 +869,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //    }         
             //}
 
+            testResultChart.ShowChart(_method);
             #endregion
         }
 
@@ -890,7 +877,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-        
+
 
         internal class AppCfg //全局变量
         {
@@ -909,14 +896,14 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         private void SetupTest_Load(object sender, EventArgs e)
         {
             {
-                
-                #region //不同设置窗口默认显示
 
-                TextGroupbox1.Size = new Size(582, 926);
+                #region //不同设置窗口默认显示
+                EmptyGroupBox.Size = new Size(1250, 926);
+                TextGroupbox1.Size = new Size(0, 0);
                 TextGroupbox2.Size = new Size(0, 0);
                 TextGroupbox3.Size = new Size(0, 0);
                 TextGroupbox4.Size = new Size(0, 0);
-                ResultGroupBox.Size = new Size(650, 920);
+                //ResultGroupBox.Size = new Size(650, 886);
                 skinGroupBox1.Size = new Size(0, 0);
                 TestRun.Size = new Size(102, 29);
                 TestStop.Size = new Size(102, 29);
@@ -926,9 +913,9 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 TestStop.BringToFront();
                 Monitor.BringToFront();
                 TestResult.BringToFront();
+                TestRun.Enabled = false;
                 TestStop.Enabled = false;
-                Monitor.Enabled = false;
-                Monitor.Enabled = false;
+                TestResult.Enabled = false;
 
                 #endregion
 
@@ -1075,16 +1062,26 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 #endregion
 
                 #region //串口采集
-                
-                
+
+
                 #endregion
 
                 //创建必要的文件夹
 
-
+                //this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
                 
+                //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+                //this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+                //this.Height = Screen.PrimaryScreen.WorkingArea.Height;
                 ReadPara();
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            testResultChart.ShowChart(_method);
+        }
+
+
     }
 }
