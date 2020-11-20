@@ -110,5 +110,10 @@ namespace multimeter
         {
 
         }
+
+        private void ViewGroupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

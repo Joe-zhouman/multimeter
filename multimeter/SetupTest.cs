@@ -58,16 +58,24 @@ namespace multimeter {
 
         private void button1_Click(object sender, EventArgs e) {
             #region //选择测试方法1
+            TestChoose1.BackColor = Color.DodgerBlue;
+            TestChoose2.BackColor = Color.LightGray;
+            TestChoose3.BackColor = Color.LightGray;
+            TestChoose4.BackColor = Color.LightGray;
             TestRun.Enabled = true;
             TestResult.Enabled = true;
             _method = TestMethod.Kappa;
             ParSetting_Click(sender,e);
-
+            
             #endregion
         }
 
         private void TestChoose2_Click(object sender, EventArgs e) {
             #region //选择测试方法2
+            TestChoose1.BackColor = Color.LightGray;
+            TestChoose2.BackColor = Color.DodgerBlue;
+            TestChoose3.BackColor = Color.LightGray;
+            TestChoose4.BackColor = Color.LightGray;
             TestRun.Enabled = true;
             TestResult.Enabled = true;
             _method = TestMethod.ITC;
@@ -79,6 +87,10 @@ namespace multimeter {
 
         private void TestChoose3_Click(object sender, EventArgs e) {
             #region //选择测试方法3
+            TestChoose1.BackColor = Color.LightGray;
+            TestChoose2.BackColor = Color.LightGray;
+            TestChoose3.BackColor = Color.DodgerBlue;
+            TestChoose4.BackColor = Color.LightGray;
             TestRun.Enabled = true;
             TestResult.Enabled = true;
             _method = TestMethod.ITM;
@@ -90,6 +102,10 @@ namespace multimeter {
 
         private void TestChoose4_Click(object sender, EventArgs e) {
             #region //选择测试方法4
+            TestChoose1.BackColor = Color.LightGray;
+            TestChoose2.BackColor = Color.LightGray;
+            TestChoose3.BackColor = Color.LightGray;
+            TestChoose4.BackColor = Color.DodgerBlue;
             TestRun.Enabled = true;
             TestResult.Enabled = true;
             _method = TestMethod.ITMS;
@@ -115,7 +131,7 @@ namespace multimeter {
                 case TestMethod.Kappa: {
                         //显示对应设置窗口TEST1
                     EmptyGroupBox.Size = new Size(0, 0);
-                    TextGroupbox1.Size = new Size(582, 886);
+                    TextGroupbox1.Size = new Size(1250, 926);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
@@ -148,7 +164,7 @@ namespace multimeter {
                         //显示对应设置窗口TEST2
                     EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(582, 886);
+                    TextGroupbox2.Size = new Size(1250, 926);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
@@ -185,7 +201,7 @@ namespace multimeter {
                     EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(582, 886);
+                    TextGroupbox3.Size = new Size(1250, 926);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
                         sample1 = null;
@@ -211,7 +227,7 @@ namespace multimeter {
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(582, 886);
+                    TextGroupbox4.Size = new Size(1250, 926);
                     string filePath = SlnIni.CreateDefaultItmsIni();
                     sample1 = new Sample("Sample1");
                     sample2 = new Sample("Sample2");
@@ -245,6 +261,8 @@ namespace multimeter {
                     break;
             }
 
+            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
+            testResultChart.Chart_Init();
             #endregion
         }
 
@@ -260,7 +278,6 @@ namespace multimeter {
             ParSetting.Enabled = false;
             TestRun.Enabled = false;
             TestStop.Enabled = true;
-            Monitor.Enabled = true;
             TestResult.Enabled = false;
 
             btn_start();
@@ -280,18 +297,11 @@ namespace multimeter {
             ParSetting.Enabled = true;
             TestRun.Enabled = true;
             TestStop.Enabled = false;
-            Monitor.Enabled = false;
             TestResult.Enabled = true;
 
             #endregion
 
             btn_stop();
-        }
-
-        private void Monitor_Click(object sender, EventArgs e) {
-            #region //温度监视
-
-            #endregion
         }
 
         
@@ -602,6 +612,8 @@ namespace multimeter {
 
             sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
 
+            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
+            testResultChart.Show();
             #endregion
         }
 
@@ -853,6 +865,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //    }         
             //}
 
+            TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
+            testResultChart.showChart();
             #endregion
         }
 
@@ -860,7 +874,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-        
+
 
         internal class AppCfg //全局变量
         {
@@ -881,24 +895,22 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             {
 
                 #region //不同设置窗口默认显示
-                EmptyGroupBox.Size = new Size(582, 886);
+                EmptyGroupBox.Size = new Size(1250, 926);
                 TextGroupbox1.Size = new Size(0, 0);
                 TextGroupbox2.Size = new Size(0, 0);
                 TextGroupbox3.Size = new Size(0, 0);
                 TextGroupbox4.Size = new Size(0, 0);
-                ResultGroupBox.Size = new Size(650, 886);
+                //ResultGroupBox.Size = new Size(650, 886);
                 skinGroupBox1.Size = new Size(0, 0);
                 TestRun.Size = new Size(102, 29);
                 TestStop.Size = new Size(102, 29);
-                Monitor.Size = new Size(102, 29);
+                TestResult.Size = new Size(102, 29);
                 TestResult.Size = new Size(102, 29);
                 TestRun.BringToFront();
                 TestStop.BringToFront();
-                Monitor.BringToFront();
                 TestResult.BringToFront();
                 TestRun.Enabled = false;
                 TestStop.Enabled = false;
-                Monitor.Enabled = false;
                 TestResult.Enabled = false;
 
                 #endregion
@@ -1054,15 +1066,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
                 //this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
                 
-                this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-                this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-
-                //ReadPara();
+                //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+                //this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+                //this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+                ReadPara();
             }
         }
 
-
-
+  
     }
 }
