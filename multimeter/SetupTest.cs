@@ -28,6 +28,7 @@ namespace multimeter {
         public SetupTest() {
             
             InitializeComponent();
+
         }
 
         
@@ -118,6 +119,7 @@ namespace multimeter {
         }
 
         private void SerialPort_Click(object sender, EventArgs e) {
+            skinGroupBox1.BringToFront();
             skinGroupBox1.Size = new Size(248, 247); 
         }
 
@@ -134,13 +136,13 @@ namespace multimeter {
                 case TestMethod.Kappa: {
                         //显示对应设置窗口TEST1
                     EmptyGroupBox.Size = new Size(0, 0);
-                    TextGroupbox1.Size = new Size(1250, 926);
+                    TextGroupbox1.Size = new Size(1250, 885);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
                     //skinGroupBox2.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultKappaIni();
-                        sample1 = new Sample("Sample1");
+                    sample1 = new Sample("Sample1");
                         sample2 = null;
                     SlnIni.LoadKappaInfo(ref sample1, out force, filePath);
                     ForceTextBox1.Text = force;
@@ -167,7 +169,7 @@ namespace multimeter {
                         //显示对应设置窗口TEST2
                     EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(1250, 926);
+                    TextGroupbox2.Size = new Size(1250, 885);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
@@ -204,7 +206,7 @@ namespace multimeter {
                     EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(1250, 926);
+                    TextGroupbox3.Size = new Size(1250, 885);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
                         sample1 = null;
@@ -230,7 +232,7 @@ namespace multimeter {
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(1250, 926);
+                    TextGroupbox4.Size = new Size(1250, 885);
                     string filePath = SlnIni.CreateDefaultItmsIni();
                     sample1 = new Sample("Sample1");
                     sample2 = new Sample("Sample2");
@@ -265,7 +267,6 @@ namespace multimeter {
             }
 
             testResultChart.Chart_Init(heatMeter1,heatMeter2,sample1,sample2,_method);
-            timer1.Enabled = true;
             #endregion
         }
 
@@ -905,7 +906,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             {
 
                 #region //不同设置窗口默认显示
-                EmptyGroupBox.Size = new Size(1250, 926);
+                EmptyGroupBox.Size = new Size(1250, 885);
                 TextGroupbox1.Size = new Size(0, 0);
                 TextGroupbox2.Size = new Size(0, 0);
                 TextGroupbox3.Size = new Size(0, 0);

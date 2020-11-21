@@ -111,6 +111,7 @@ namespace DataProcessor {
         /// <param name="heatMeter2"></param>
         /// <param name="sample1"></param>
         /// <returns></returns>
+        
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1)
         {
             double heatFlow1 = 0.0;
@@ -139,6 +140,7 @@ namespace DataProcessor {
             sample1.Kappa = (heatFlow1 / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k).ToString();
             return true;
         }
+
         /// <summary>
         /// 计算试件间接触热阻
         /// </summary>

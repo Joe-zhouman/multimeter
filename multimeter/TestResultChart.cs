@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataProcessor;
 using CCWin.SkinClass;
+using System.Windows.Forms.DataVisualization.Charting;
 namespace multimeter
 {
     public partial class TestResultChart : Form
@@ -41,6 +42,7 @@ namespace multimeter
             this.testMethod = testMethod;
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
             chart1.ChartAreas[0].AxisX.Maximum = 250;
+            
             int numChannel = 0;
             List<string> channelList = new List<string>();
             if (heatMeter1 != null) {
@@ -107,6 +109,23 @@ namespace multimeter
         private void TestResultChart_FormClosing(object sender, FormClosingEventArgs e){
             Hide();
             e.Cancel = true;         
+        }
+
+        private void chart1_MouseMove(object sender, MouseEventArgs e)
+        {
+            HitTestResult result = chart1.HitTest(e.X, e.Y);
+            if (result.ChartElementType == ChartElementType.DataPoint)
+            {
+                var a = result.Object as DataPoint;
+                chartValue.BringToFront();
+                chartValue.Location = e.Location;
+                chartValue.Text = "(" + a.XValue.ToString() + "," + a.YValues[0].ToString() + ")";
+
+            }
+            else if (result.ChartElementType != ChartElementType.Nothing)
+            {
+                Cursor = Cursors.Default;
+            }       
         }
     }
 }

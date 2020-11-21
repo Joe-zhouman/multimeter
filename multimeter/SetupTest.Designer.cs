@@ -428,7 +428,6 @@
             this.ResultGroupBox = new System.Windows.Forms.GroupBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Monitor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
@@ -1296,7 +1295,7 @@
             // 
             // TestResult
             // 
-            this.TestResult.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestResult.BackgroundImage")));
+            this.TestResult.BackColor = System.Drawing.Color.LightGray;
             this.TestResult.FlatAppearance.BorderSize = 0;
             this.TestResult.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.TestResult.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -1305,7 +1304,7 @@
             this.TestResult.Size = new System.Drawing.Size(0, 0);
             this.TestResult.TabIndex = 93;
             this.TestResult.Text = "数据结果";
-            this.TestResult.UseVisualStyleBackColor = true;
+            this.TestResult.UseVisualStyleBackColor = false;
             this.TestResult.Click += new System.EventHandler(this.TestResult_Click);
             // 
             // TestStop
@@ -4271,8 +4270,10 @@
             // TestChoose3
             // 
             this.TestChoose3.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose3.FlatAppearance.BorderSize = 0;
-            this.TestChoose3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestChoose3.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.TestChoose3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.TestChoose3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestChoose3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestChoose3.ForeColor = System.Drawing.Color.Black;
             this.TestChoose3.Location = new System.Drawing.Point(386, 1);
             this.TestChoose3.Name = "TestChoose3";
@@ -4285,9 +4286,10 @@
             // TestChoose1
             // 
             this.TestChoose1.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose1.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.TestChoose1.FlatAppearance.BorderSize = 0;
-            this.TestChoose1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestChoose1.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.TestChoose1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.TestChoose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestChoose1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestChoose1.ForeColor = System.Drawing.Color.Black;
             this.TestChoose1.Location = new System.Drawing.Point(5, 1);
             this.TestChoose1.Name = "TestChoose1";
@@ -4300,8 +4302,10 @@
             // TestChoose4
             // 
             this.TestChoose4.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose4.FlatAppearance.BorderSize = 0;
-            this.TestChoose4.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestChoose4.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.TestChoose4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.TestChoose4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestChoose4.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestChoose4.ForeColor = System.Drawing.Color.Black;
             this.TestChoose4.Location = new System.Drawing.Point(663, 1);
             this.TestChoose4.Name = "TestChoose4";
@@ -4314,8 +4318,10 @@
             // TestChoose2
             // 
             this.TestChoose2.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose2.FlatAppearance.BorderSize = 0;
-            this.TestChoose2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestChoose2.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.TestChoose2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.TestChoose2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestChoose2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestChoose2.ForeColor = System.Drawing.Color.Black;
             this.TestChoose2.Location = new System.Drawing.Point(170, 1);
             this.TestChoose2.Name = "TestChoose2";
@@ -4343,8 +4349,10 @@
             // SerialPort
             // 
             this.SerialPort.BackColor = System.Drawing.Color.LightGray;
-            this.SerialPort.FlatAppearance.BorderSize = 0;
-            this.SerialPort.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SerialPort.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.SerialPort.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.SerialPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SerialPort.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SerialPort.Location = new System.Drawing.Point(919, 1);
             this.SerialPort.Name = "SerialPort";
             this.SerialPort.Size = new System.Drawing.Size(126, 50);
@@ -4465,14 +4473,13 @@
             this.skinGroupBox1.Controls.Add(this.skinLabel8);
             this.skinGroupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.Location = new System.Drawing.Point(924, 48);
+            this.skinGroupBox1.Location = new System.Drawing.Point(924, 57);
             this.skinGroupBox1.Name = "skinGroupBox1";
-            this.skinGroupBox1.RectBackColor = System.Drawing.Color.White;
+            this.skinGroupBox1.RectBackColor = System.Drawing.Color.LightGray;
             this.skinGroupBox1.RoundStyle = CCWin.SkinClass.RoundStyle.All;
             this.skinGroupBox1.Size = new System.Drawing.Size(0, 0);
             this.skinGroupBox1.TabIndex = 27;
             this.skinGroupBox1.TabStop = false;
-            this.skinGroupBox1.Text = "串口设置";
             this.skinGroupBox1.TitleBorderColor = System.Drawing.Color.White;
             this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.White;
             this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
@@ -4734,7 +4741,7 @@
             this.listView_main.HideSelection = false;
             this.listView_main.Location = new System.Drawing.Point(9, 26);
             this.listView_main.Name = "listView_main";
-            this.listView_main.Size = new System.Drawing.Size(0, 0);
+            this.listView_main.Size = new System.Drawing.Size(1, 2);
             this.listView_main.TabIndex = 100;
             this.listView_main.UseCompatibleStateImageBehavior = false;
             this.listView_main.View = System.Windows.Forms.View.Details;
@@ -4770,9 +4777,6 @@
             this.EmptyGroupBox.TabStop = false;
             this.EmptyGroupBox.Text = "请选择测试方法";
             // 
-            // timer1
-            // 
-            // 
             // Monitor
             // 
             this.Monitor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Monitor.BackgroundImage")));
@@ -4791,7 +4795,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 945);
             this.Controls.Add(this.Monitor);
             this.Controls.Add(this.EmptyGroupBox);
@@ -4813,12 +4817,9 @@
             this.Controls.Add(this.TextGroupbox3);
             this.Controls.Add(this.TextGroupbox2);
             this.Font = new System.Drawing.Font("Ebrima", 8.25F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SetupTest";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "************测试平台";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SetupTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).EndInit();
             this.TextGroupbox1.ResumeLayout(false);
@@ -5252,7 +5253,6 @@
         private System.Windows.Forms.Label Tlable4_5;
         private System.Windows.Forms.Label Tlable4_4;
         private System.Windows.Forms.Label Tlable4_3;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button Monitor;
     }
 }
