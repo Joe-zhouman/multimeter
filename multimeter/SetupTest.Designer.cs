@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -403,6 +403,7 @@
             this.skinLabel4 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel5 = new CCWin.SkinControl.SkinLabel();
             this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
+            this.AdvancedSetting = new System.Windows.Forms.Button();
             this.SerialPortEnsure = new System.Windows.Forms.Button();
             this.edit_save_interval = new System.Windows.Forms.TextBox();
             this.skinLabel10 = new CCWin.SkinControl.SkinLabel();
@@ -760,7 +761,7 @@
             this.TextGroupbox1.Font = new System.Drawing.Font("宋体", 12F);
             this.TextGroupbox1.Location = new System.Drawing.Point(6, 57);
             this.TextGroupbox1.Name = "TextGroupbox1";
-            this.TextGroupbox1.Size = new System.Drawing.Size(0, 0);
+            this.TextGroupbox1.Size = new System.Drawing.Size(1250, 885);
             this.TextGroupbox1.TabIndex = 24;
             this.TextGroupbox1.TabStop = false;
             this.TextGroupbox1.Text = "导热系数测量";
@@ -4394,24 +4395,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -4454,6 +4455,7 @@
             // 
             this.skinGroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.skinGroupBox1.BorderColor = System.Drawing.Color.Silver;
+            this.skinGroupBox1.Controls.Add(this.AdvancedSetting);
             this.skinGroupBox1.Controls.Add(this.SerialPortEnsure);
             this.skinGroupBox1.Controls.Add(this.edit_save_interval);
             this.skinGroupBox1.Controls.Add(this.skinLabel10);
@@ -4484,9 +4486,21 @@
             this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.White;
             this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
             // 
+            // AdvancedSetting
+            // 
+            this.AdvancedSetting.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.AdvancedSetting.ForeColor = System.Drawing.Color.Black;
+            this.AdvancedSetting.Location = new System.Drawing.Point(31, 210);
+            this.AdvancedSetting.Name = "AdvancedSetting";
+            this.AdvancedSetting.Size = new System.Drawing.Size(90, 30);
+            this.AdvancedSetting.TabIndex = 103;
+            this.AdvancedSetting.Text = "高级设置";
+            this.AdvancedSetting.UseVisualStyleBackColor = true;
+            this.AdvancedSetting.Click += new System.EventHandler(this.AdvancedSetting_Click);
+            // 
             // SerialPortEnsure
             // 
-            this.SerialPortEnsure.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SerialPortEnsure.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.SerialPortEnsure.Location = new System.Drawing.Point(151, 210);
             this.SerialPortEnsure.Name = "SerialPortEnsure";
             this.SerialPortEnsure.Size = new System.Drawing.Size(90, 30);
@@ -5254,5 +5268,6 @@
         private System.Windows.Forms.Label Tlable4_4;
         private System.Windows.Forms.Label Tlable4_3;
         private System.Windows.Forms.Button Monitor;
+        private System.Windows.Forms.Button AdvancedSetting;
     }
 }

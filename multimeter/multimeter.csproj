@@ -66,8 +66,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlphaT0Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlphaT0Setting.Designer.cs">
+      <DependentUpon>AlphaT0Setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplyBtnClick.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TestResultChart.cs">
       <SubType>Form</SubType>
@@ -97,6 +109,12 @@
     <Compile Include="TextBoxChange.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="AlphaT0Setting.resx">
+      <DependentUpon>AlphaT0Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -24,41 +24,14 @@ namespace multimeter {
         private List<string> recentTenData;
         private TestMethod _method;
         private TestResultChart testResultChart=new TestResultChart();
+        
 
-        public SetupTest() {
-            
+        public SetupTest()
+        {
+
             InitializeComponent();
 
         }
-
-        
-        //---------------------------------------------------------------子函数区-------------------------------------------------------------------------------------------------------------------------------
-
-        private int FactorStandView(int chn, double[] k1, double[] k2) //显示factordataGridView数据
-        {
-            #region //显示factordataGridView数据
-
-            factordataGridView.Rows.Clear();
-            for (int i = 0; i < chn; i++) factordataGridView.Rows.Add(i.ToString(), k1[i].ToString(), k2[i].ToString());
-            return 0;
-
-            #endregion
-        }
-
-        private int FactorStandUpdate(int chn, double[] k1, double[] k2) //更新factordataGridView数据
-        {
-            #region //更新factordataGridView数据
-
-            for (int i = 0; i < chn; i++) {
-                k1[chn] = double.Parse(factordataGridView.Rows[chn].Cells[1].ToolTipText);
-                k2[chn] = double.Parse(factordataGridView.Rows[chn].Cells[2].ToolTipText);
-            }
-
-            return 0;
-
-            #endregion
-        }
-        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         private void button1_Click(object sender, EventArgs e) {
             #region //选择测试方法1
@@ -120,14 +93,19 @@ namespace multimeter {
 
         private void SerialPort_Click(object sender, EventArgs e) {
             skinGroupBox1.BringToFront();
-            skinGroupBox1.Size = new Size(248, 247); 
+            skinGroupBox1.Size = new Size(248, 247);
+            
         }
 
         private void SerialPortEnsure_Click(object sender, EventArgs e)
         {
             skinGroupBox1.Size = new Size(0, 0);
         }
-
+        public void AdvancedSetting_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm=new LoginForm();
+            loginForm.Show(this);
+        }
         private void ParSetting_Click(object sender, EventArgs e) {
             #region //参数设置窗口打开
 
@@ -1077,18 +1055,16 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 //创建必要的文件夹
 
                 //this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-                
+
                 //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
                 //this.Width = Screen.PrimaryScreen.WorkingArea.Width;
                 //this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-                ReadPara();
+                ReadPara(); ;
+
+                
             }
         }
 
-        //private void timer1_Tick(object sender, EventArgs e)
-        //{
-        //    testResultChart.ShowChart(Dictionary<string, double>testResult);
-        //}
 
 
     }
