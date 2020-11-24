@@ -63,24 +63,26 @@ namespace multimeter
             // 
             // login
             // 
+            this.login.BackColor = System.Drawing.SystemColors.Control;
             this.login.Location = new System.Drawing.Point(56, 185);
             this.login.Margin = new System.Windows.Forms.Padding(5);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(95, 47);
             this.login.TabIndex = 2;
             this.login.Text = "登录";
-            this.login.UseVisualStyleBackColor = true;
+            this.login.UseVisualStyleBackColor = false;
             this.login.Click += new System.EventHandler(this.login_Click);
             // 
             // cancel
             // 
+            this.cancel.BackColor = System.Drawing.SystemColors.Control;
             this.cancel.Location = new System.Drawing.Point(231, 185);
             this.cancel.Margin = new System.Windows.Forms.Padding(5);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(95, 47);
             this.cancel.TabIndex = 3;
             this.cancel.Text = "取消";
-            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.UseVisualStyleBackColor = false;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // usernameTBox
@@ -126,6 +128,7 @@ namespace multimeter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(372, 267);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.label3);

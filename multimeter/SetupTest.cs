@@ -33,7 +33,7 @@ namespace multimeter {
 
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        public void button1_Click(object sender, EventArgs e) {
             #region //选择测试方法1
             TestChoose1.BackColor = Color.DodgerBlue;
             TestChoose2.BackColor = Color.LightGray;
@@ -47,7 +47,7 @@ namespace multimeter {
             #endregion
         }
 
-        private void TestChoose2_Click(object sender, EventArgs e) {
+        public void TestChoose2_Click(object sender, EventArgs e) {
             #region //选择测试方法2
             TestChoose1.BackColor = Color.LightGray;
             TestChoose2.BackColor = Color.DodgerBlue;
@@ -62,7 +62,7 @@ namespace multimeter {
             #endregion
         }
 
-        private void TestChoose3_Click(object sender, EventArgs e) {
+        public void TestChoose3_Click(object sender, EventArgs e) {
             #region //选择测试方法3
             TestChoose1.BackColor = Color.LightGray;
             TestChoose2.BackColor = Color.LightGray;
@@ -77,7 +77,7 @@ namespace multimeter {
             #endregion
         }
 
-        private void TestChoose4_Click(object sender, EventArgs e) {
+        public void TestChoose4_Click(object sender, EventArgs e) {
             #region //选择测试方法4
             TestChoose1.BackColor = Color.LightGray;
             TestChoose2.BackColor = Color.LightGray;
@@ -114,7 +114,7 @@ namespace multimeter {
                 case TestMethod.Kappa: {
                         //显示对应设置窗口TEST1
                     EmptyGroupBox.Size = new Size(0, 0);
-                    TextGroupbox1.Size = new Size(1250, 885);
+                    TextGroupbox1.Size = new Size(1250, 855);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
@@ -147,7 +147,7 @@ namespace multimeter {
                         //显示对应设置窗口TEST2
                     EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
-                    TextGroupbox2.Size = new Size(1250, 885);
+                    TextGroupbox2.Size = new Size(1250, 855);
                     TextGroupbox3.Size = new Size(0, 0);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItcIni();
@@ -184,7 +184,7 @@ namespace multimeter {
                     EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
-                    TextGroupbox3.Size = new Size(1250, 885);
+                    TextGroupbox3.Size = new Size(1250, 855);
                     TextGroupbox4.Size = new Size(0, 0);
                     string filePath = SlnIni.CreateDefaultItmIni();
                         sample1 = null;
@@ -210,7 +210,7 @@ namespace multimeter {
                     TextGroupbox1.Size = new Size(0, 0);
                     TextGroupbox2.Size = new Size(0, 0);
                     TextGroupbox3.Size = new Size(0, 0);
-                    TextGroupbox4.Size = new Size(1250, 885);
+                    TextGroupbox4.Size = new Size(1250, 855);
                     string filePath = SlnIni.CreateDefaultItmsIni();
                     sample1 = new Sample("Sample1");
                     sample2 = new Sample("Sample2");
@@ -884,21 +884,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             {
 
                 #region //不同设置窗口默认显示
-                EmptyGroupBox.Size = new Size(1250, 885);
+                EmptyGroupBox.Size = new Size(1250, 855);
                 TextGroupbox1.Size = new Size(0, 0);
                 TextGroupbox2.Size = new Size(0, 0);
                 TextGroupbox3.Size = new Size(0, 0);
                 TextGroupbox4.Size = new Size(0, 0);
                 //ResultGroupBox.Size = new Size(650, 886);
                 skinGroupBox1.Size = new Size(0, 0);
-                TestRun.Size = new Size(102, 29);
-                TestStop.Size = new Size(102, 29);
-                Monitor.Size = new Size(102, 29);
-                TestResult.Size = new Size(102, 29);
-                TestRun.BringToFront();
-                TestStop.BringToFront();
-                Monitor.BringToFront();
-                TestResult.BringToFront();
                 TestRun.Enabled = false;
                 TestStop.Enabled = false;
                 TestResult.Enabled = false;
@@ -1047,9 +1039,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
                 #endregion
 
-                #region //串口采集
-
-
+                #region //加载测试选择窗口
+                TestChoose testChoose=new TestChoose();
+                this.Enabled = false;
+                testChoose.Show(this);
                 #endregion
 
                 //创建必要的文件夹
@@ -1060,6 +1053,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 //this.Width = Screen.PrimaryScreen.WorkingArea.Width;
                 //this.Height = Screen.PrimaryScreen.WorkingArea.Height;
                 ReadPara(); ;
+
+
 
                 
             }

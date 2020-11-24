@@ -403,7 +403,6 @@
             this.skinLabel4 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel5 = new CCWin.SkinControl.SkinLabel();
             this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
-            this.AdvancedSetting = new System.Windows.Forms.Button();
             this.SerialPortEnsure = new System.Windows.Forms.Button();
             this.edit_save_interval = new System.Windows.Forms.TextBox();
             this.skinLabel10 = new CCWin.SkinControl.SkinLabel();
@@ -421,6 +420,7 @@
             this.skinLabel3 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel9 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel8 = new CCWin.SkinControl.SkinLabel();
+            this.AdvancedSetting = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.LastScan = new System.Windows.Forms.TextBox();
@@ -430,6 +430,16 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.Monitor = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -454,6 +464,7 @@
             this.skinGroupBox1.SuspendLayout();
             this.ResultGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureTest1
@@ -759,9 +770,9 @@
             this.TextGroupbox1.Controls.Add(this.LengthTextBox1_9);
             this.TextGroupbox1.Controls.Add(this.LengthTextBox1_8);
             this.TextGroupbox1.Font = new System.Drawing.Font("宋体", 12F);
-            this.TextGroupbox1.Location = new System.Drawing.Point(6, 57);
+            this.TextGroupbox1.Location = new System.Drawing.Point(6, 87);
             this.TextGroupbox1.Name = "TextGroupbox1";
-            this.TextGroupbox1.Size = new System.Drawing.Size(1250, 885);
+            this.TextGroupbox1.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox1.TabIndex = 24;
             this.TextGroupbox1.TabStop = false;
             this.TextGroupbox1.Text = "导热系数测量";
@@ -1296,44 +1307,49 @@
             // 
             // TestResult
             // 
-            this.TestResult.BackColor = System.Drawing.Color.LightGray;
+            this.TestResult.BackColor = System.Drawing.SystemColors.Control;
+            this.TestResult.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestResult.BackgroundImage")));
+            this.TestResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.TestResult.FlatAppearance.BorderSize = 0;
-            this.TestResult.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TestResult.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestResult.Location = new System.Drawing.Point(457, 86);
+            this.TestResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestResult.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestResult.Location = new System.Drawing.Point(215, 8);
             this.TestResult.Name = "TestResult";
-            this.TestResult.Size = new System.Drawing.Size(0, 0);
+            this.TestResult.Size = new System.Drawing.Size(40, 40);
             this.TestResult.TabIndex = 93;
-            this.TestResult.Text = "数据结果";
+            this.TestResult.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.TestResult.UseVisualStyleBackColor = false;
             this.TestResult.Click += new System.EventHandler(this.TestResult_Click);
             // 
             // TestStop
             // 
             this.TestStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestStop.BackgroundImage")));
+            this.TestStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.TestStop.FlatAppearance.BorderSize = 0;
-            this.TestStop.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TestStop.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestStop.Location = new System.Drawing.Point(241, 86);
+            this.TestStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestStop.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestStop.Location = new System.Drawing.Point(65, 8);
             this.TestStop.Name = "TestStop";
-            this.TestStop.Size = new System.Drawing.Size(0, 0);
+            this.TestStop.Size = new System.Drawing.Size(41, 40);
             this.TestStop.TabIndex = 96;
-            this.TestStop.Text = "停止";
+            this.TestStop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.TestStop.UseVisualStyleBackColor = true;
             this.TestStop.Click += new System.EventHandler(this.TestStop_Click);
             // 
             // TestRun
             // 
+            this.TestRun.BackColor = System.Drawing.SystemColors.Control;
             this.TestRun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestRun.BackgroundImage")));
+            this.TestRun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.TestRun.FlatAppearance.BorderSize = 0;
-            this.TestRun.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TestRun.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestRun.Location = new System.Drawing.Point(133, 86);
+            this.TestRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestRun.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestRun.Location = new System.Drawing.Point(14, 8);
             this.TestRun.Name = "TestRun";
-            this.TestRun.Size = new System.Drawing.Size(0, 0);
+            this.TestRun.Size = new System.Drawing.Size(40, 40);
             this.TestRun.TabIndex = 95;
-            this.TestRun.Text = "检测";
-            this.TestRun.UseVisualStyleBackColor = true;
+            this.TestRun.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TestRun.UseVisualStyleBackColor = false;
             this.TestRun.Click += new System.EventHandler(this.TestRun_Click);
             // 
             // TextGroupbox2
@@ -1439,7 +1455,7 @@
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_9);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_8);
             this.TextGroupbox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextGroupbox2.Location = new System.Drawing.Point(6, 57);
+            this.TextGroupbox2.Location = new System.Drawing.Point(6, 87);
             this.TextGroupbox2.Name = "TextGroupbox2";
             this.TextGroupbox2.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox2.TabIndex = 69;
@@ -2485,7 +2501,7 @@
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_6);
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_5);
             this.TextGroupbox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextGroupbox3.Location = new System.Drawing.Point(6, 57);
+            this.TextGroupbox3.Location = new System.Drawing.Point(6, 87);
             this.TextGroupbox3.Name = "TextGroupbox3";
             this.TextGroupbox3.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox3.TabIndex = 69;
@@ -3219,7 +3235,7 @@
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_9);
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_8);
             this.TextGroupbox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextGroupbox4.Location = new System.Drawing.Point(6, 57);
+            this.TextGroupbox4.Location = new System.Drawing.Point(6, 87);
             this.TextGroupbox4.Name = "TextGroupbox4";
             this.TextGroupbox4.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox4.TabIndex = 69;
@@ -4278,7 +4294,7 @@
             this.TestChoose3.ForeColor = System.Drawing.Color.Black;
             this.TestChoose3.Location = new System.Drawing.Point(386, 1);
             this.TestChoose3.Name = "TestChoose3";
-            this.TestChoose3.Size = new System.Drawing.Size(283, 50);
+            this.TestChoose3.Size = new System.Drawing.Size(0, 0);
             this.TestChoose3.TabIndex = 2;
             this.TestChoose3.Text = "热界面材料测量_热流计间";
             this.TestChoose3.UseVisualStyleBackColor = true;
@@ -4294,7 +4310,7 @@
             this.TestChoose1.ForeColor = System.Drawing.Color.Black;
             this.TestChoose1.Location = new System.Drawing.Point(5, 1);
             this.TestChoose1.Name = "TestChoose1";
-            this.TestChoose1.Size = new System.Drawing.Size(172, 50);
+            this.TestChoose1.Size = new System.Drawing.Size(0, 0);
             this.TestChoose1.TabIndex = 0;
             this.TestChoose1.Text = "导热系数测量";
             this.TestChoose1.UseVisualStyleBackColor = true;
@@ -4310,7 +4326,7 @@
             this.TestChoose4.ForeColor = System.Drawing.Color.Black;
             this.TestChoose4.Location = new System.Drawing.Point(663, 1);
             this.TestChoose4.Name = "TestChoose4";
-            this.TestChoose4.Size = new System.Drawing.Size(263, 50);
+            this.TestChoose4.Size = new System.Drawing.Size(0, 0);
             this.TestChoose4.TabIndex = 89;
             this.TestChoose4.Text = "热界面材料测量_试件间";
             this.TestChoose4.UseVisualStyleBackColor = true;
@@ -4326,7 +4342,7 @@
             this.TestChoose2.ForeColor = System.Drawing.Color.Black;
             this.TestChoose2.Location = new System.Drawing.Point(170, 1);
             this.TestChoose2.Name = "TestChoose2";
-            this.TestChoose2.Size = new System.Drawing.Size(223, 50);
+            this.TestChoose2.Size = new System.Drawing.Size(0, 0);
             this.TestChoose2.TabIndex = 1;
             this.TestChoose2.Text = "固_固接触热阻测量";
             this.TestChoose2.UseVisualStyleBackColor = true;
@@ -4349,17 +4365,20 @@
             // 
             // SerialPort
             // 
-            this.SerialPort.BackColor = System.Drawing.Color.LightGray;
+            this.SerialPort.BackColor = System.Drawing.SystemColors.Control;
+            this.SerialPort.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SerialPort.BackgroundImage")));
+            this.SerialPort.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SerialPort.Cursor = System.Windows.Forms.Cursors.PanSE;
             this.SerialPort.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.SerialPort.FlatAppearance.BorderSize = 0;
             this.SerialPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SerialPort.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SerialPort.Location = new System.Drawing.Point(919, 1);
+            this.SerialPort.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SerialPort.Location = new System.Drawing.Point(298, 8);
             this.SerialPort.Name = "SerialPort";
-            this.SerialPort.Size = new System.Drawing.Size(126, 50);
+            this.SerialPort.Size = new System.Drawing.Size(40, 40);
             this.SerialPort.TabIndex = 97;
-            this.SerialPort.Text = "系统设置";
-            this.SerialPort.UseVisualStyleBackColor = true;
+            this.SerialPort.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.SerialPort.UseVisualStyleBackColor = false;
             this.SerialPort.Click += new System.EventHandler(this.SerialPort_Click);
             // 
             // skinGroupBox2
@@ -4455,7 +4474,6 @@
             // 
             this.skinGroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.skinGroupBox1.BorderColor = System.Drawing.Color.Silver;
-            this.skinGroupBox1.Controls.Add(this.AdvancedSetting);
             this.skinGroupBox1.Controls.Add(this.SerialPortEnsure);
             this.skinGroupBox1.Controls.Add(this.edit_save_interval);
             this.skinGroupBox1.Controls.Add(this.skinLabel10);
@@ -4475,7 +4493,7 @@
             this.skinGroupBox1.Controls.Add(this.skinLabel8);
             this.skinGroupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.Location = new System.Drawing.Point(924, 57);
+            this.skinGroupBox1.Location = new System.Drawing.Point(272, 57);
             this.skinGroupBox1.Name = "skinGroupBox1";
             this.skinGroupBox1.RectBackColor = System.Drawing.Color.LightGray;
             this.skinGroupBox1.RoundStyle = CCWin.SkinClass.RoundStyle.All;
@@ -4485,18 +4503,6 @@
             this.skinGroupBox1.TitleBorderColor = System.Drawing.Color.White;
             this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.White;
             this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
-            // 
-            // AdvancedSetting
-            // 
-            this.AdvancedSetting.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.AdvancedSetting.ForeColor = System.Drawing.Color.Black;
-            this.AdvancedSetting.Location = new System.Drawing.Point(31, 210);
-            this.AdvancedSetting.Name = "AdvancedSetting";
-            this.AdvancedSetting.Size = new System.Drawing.Size(90, 30);
-            this.AdvancedSetting.TabIndex = 103;
-            this.AdvancedSetting.Text = "高级设置";
-            this.AdvancedSetting.UseVisualStyleBackColor = true;
-            this.AdvancedSetting.Click += new System.EventHandler(this.AdvancedSetting_Click);
             // 
             // SerialPortEnsure
             // 
@@ -4721,6 +4727,22 @@
             this.skinLabel8.TabIndex = 29;
             this.skinLabel8.Text = "毫秒";
             // 
+            // AdvancedSetting
+            // 
+            this.AdvancedSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AdvancedSetting.BackgroundImage")));
+            this.AdvancedSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.AdvancedSetting.FlatAppearance.BorderSize = 0;
+            this.AdvancedSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdvancedSetting.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AdvancedSetting.ForeColor = System.Drawing.Color.Black;
+            this.AdvancedSetting.Location = new System.Drawing.Point(365, 8);
+            this.AdvancedSetting.Name = "AdvancedSetting";
+            this.AdvancedSetting.Size = new System.Drawing.Size(40, 40);
+            this.AdvancedSetting.TabIndex = 103;
+            this.AdvancedSetting.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AdvancedSetting.UseVisualStyleBackColor = true;
+            this.AdvancedSetting.Click += new System.EventHandler(this.AdvancedSetting_Click);
+            // 
             // serialPort1
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived_1);
@@ -4770,7 +4792,7 @@
             this.ResultGroupBox.Controls.Add(this.listView_main);
             this.ResultGroupBox.Controls.Add(this.LastScan);
             this.ResultGroupBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ResultGroupBox.Location = new System.Drawing.Point(610, 57);
+            this.ResultGroupBox.Location = new System.Drawing.Point(270, 8);
             this.ResultGroupBox.Name = "ResultGroupBox";
             this.ResultGroupBox.Size = new System.Drawing.Size(0, 0);
             this.ResultGroupBox.TabIndex = 101;
@@ -4784,7 +4806,7 @@
             this.EmptyGroupBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EmptyGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EmptyGroupBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EmptyGroupBox.Location = new System.Drawing.Point(6, 57);
+            this.EmptyGroupBox.Location = new System.Drawing.Point(6, 87);
             this.EmptyGroupBox.Name = "EmptyGroupBox";
             this.EmptyGroupBox.Size = new System.Drawing.Size(0, 0);
             this.EmptyGroupBox.TabIndex = 99;
@@ -4794,16 +4816,135 @@
             // Monitor
             // 
             this.Monitor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Monitor.BackgroundImage")));
+            this.Monitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Monitor.FlatAppearance.BorderSize = 0;
-            this.Monitor.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Monitor.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Monitor.Location = new System.Drawing.Point(349, 86);
+            this.Monitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Monitor.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Monitor.Location = new System.Drawing.Point(145, 8);
             this.Monitor.Name = "Monitor";
-            this.Monitor.Size = new System.Drawing.Size(0, 0);
+            this.Monitor.Size = new System.Drawing.Size(40, 40);
             this.Monitor.TabIndex = 102;
-            this.Monitor.Text = "温度监视";
+            this.Monitor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Monitor.UseVisualStyleBackColor = true;
             this.Monitor.Click += new System.EventHandler(this.Monitor_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
+            this.groupBox1.Controls.Add(this.label61);
+            this.groupBox1.Controls.Add(this.label58);
+            this.groupBox1.Controls.Add(this.label56);
+            this.groupBox1.Controls.Add(this.label54);
+            this.groupBox1.Controls.Add(this.label53);
+            this.groupBox1.Controls.Add(this.label52);
+            this.groupBox1.Controls.Add(this.label51);
+            this.groupBox1.Controls.Add(this.label50);
+            this.groupBox1.Controls.Add(this.label47);
+            this.groupBox1.Controls.Add(this.AdvancedSetting);
+            this.groupBox1.Controls.Add(this.ResultGroupBox);
+            this.groupBox1.Controls.Add(this.TestRun);
+            this.groupBox1.Controls.Add(this.SerialPort);
+            this.groupBox1.Controls.Add(this.Monitor);
+            this.groupBox1.Controls.Add(this.TestStop);
+            this.groupBox1.Controls.Add(this.TestResult);
+            this.groupBox1.Location = new System.Drawing.Point(-2, -5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1279, 90);
+            this.groupBox1.TabIndex = 103;
+            this.groupBox1.TabStop = false;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label61.Location = new System.Drawing.Point(339, 72);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(37, 20);
+            this.label61.TabIndex = 111;
+            this.label61.Text = "设置";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label58.Location = new System.Drawing.Point(186, 72);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(37, 20);
+            this.label58.TabIndex = 110;
+            this.label58.Text = "显示";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label56.Location = new System.Drawing.Point(42, 72);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(37, 20);
+            this.label56.TabIndex = 109;
+            this.label56.Text = "测量";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label54.Location = new System.Drawing.Point(356, 42);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(65, 20);
+            this.label54.TabIndex = 108;
+            this.label54.Text = "高级调试";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label53.Location = new System.Drawing.Point(285, 42);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(65, 20);
+            this.label53.TabIndex = 107;
+            this.label53.Text = "串口设置";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label52.Location = new System.Drawing.Point(205, 42);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(65, 20);
+            this.label52.TabIndex = 106;
+            this.label52.Text = "测试结果";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label51.Location = new System.Drawing.Point(134, 42);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(65, 20);
+            this.label51.TabIndex = 105;
+            this.label51.Text = "温度监视";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label50.Location = new System.Drawing.Point(67, 42);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(37, 20);
+            this.label50.TabIndex = 105;
+            this.label50.Text = "停止";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label47.Location = new System.Drawing.Point(16, 42);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(37, 20);
+            this.label47.TabIndex = 104;
+            this.label47.Text = "运行";
             // 
             // SetupTest
             // 
@@ -4811,19 +4952,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 945);
-            this.Controls.Add(this.Monitor);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.EmptyGroupBox);
-            this.Controls.Add(this.TestResult);
             this.Controls.Add(this.TestChoose4);
             this.Controls.Add(this.skinGroupBox1);
             this.Controls.Add(this.TestChoose3);
-            this.Controls.Add(this.ResultGroupBox);
             this.Controls.Add(this.ParSetting);
             this.Controls.Add(this.TestChoose1);
             this.Controls.Add(this.TestChoose2);
-            this.Controls.Add(this.TestRun);
-            this.Controls.Add(this.TestStop);
-            this.Controls.Add(this.SerialPort);
             this.Controls.Add(this.skinGroupBox2);
             this.Controls.Add(this.skinButton10);
             this.Controls.Add(this.TextGroupbox4);
@@ -4866,6 +5002,8 @@
             this.ResultGroupBox.ResumeLayout(false);
             this.ResultGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -5269,5 +5407,15 @@
         private System.Windows.Forms.Label Tlable4_3;
         private System.Windows.Forms.Button Monitor;
         private System.Windows.Forms.Button AdvancedSetting;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label58;
     }
 }

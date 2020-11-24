@@ -81,6 +81,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestChoose.Designer.cs">
+      <DependentUpon>TestChoose.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestResultChart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="SetupTest.resx">
       <DependentUpon>SetupTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestChoose.resx">
+      <DependentUpon>TestChoose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestResultChart.resx">
       <DependentUpon>TestResultChart.cs</DependentUpon>
