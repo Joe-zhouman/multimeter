@@ -33,6 +33,7 @@ namespace multimeter
             this.testchoose2 = new System.Windows.Forms.Button();
             this.testchoose3 = new System.Windows.Forms.Button();
             this.testchoose4 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // testchoose1
@@ -99,12 +100,23 @@ namespace multimeter
             this.testchoose4.UseVisualStyleBackColor = false;
             this.testchoose4.Click += new System.EventHandler(this.testchoose4_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label1.Location = new System.Drawing.Point(139, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 30);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "请选择实验类型";
+            // 
             // TestChoose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(471, 285);
+            this.ClientSize = new System.Drawing.Size(471, 272);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.testchoose4);
             this.Controls.Add(this.testchoose3);
             this.Controls.Add(this.testchoose2);
@@ -114,6 +126,7 @@ namespace multimeter
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "实验类型选项";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -123,5 +136,6 @@ namespace multimeter
         private System.Windows.Forms.Button testchoose2;
         private System.Windows.Forms.Button testchoose3;
         private System.Windows.Forms.Button testchoose4;
+        private System.Windows.Forms.Label label1;
     }
 }

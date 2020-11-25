@@ -1060,7 +1060,14 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
         }
 
+        private void label114_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void Unit4_15_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
