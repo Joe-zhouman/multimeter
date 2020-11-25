@@ -261,7 +261,6 @@ namespace multimeter {
             TestRun.Enabled = false;
             TestStop.Enabled = true;
             TestResult.Enabled = false;
-
             btn_start();
 
             #endregion
@@ -805,7 +804,17 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         listView_main.Items.Clear();
                     }
                     //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    List<string> channels = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                    List<double> dataList = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(double.Parse).ToList();
+                    Dictionary<string, double> testResult = new Dictionary<string, double>();
+                    for (int i = 0; i < channels.Count; i++)
+                    {
+                        testResult.Add(channels[i], dataList[i]);
+                    }
+
+                    testResultChart.ShowChart(testResult);
+
                 }
 
                 //if(str.IndexOf((char)13)!=)
@@ -847,15 +856,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //        listView_main.Items.Clear();
             //    }         
             //}
-            List<string> channels = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            List<double> dataList = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(double.Parse).ToList();
-            Dictionary<string, double> testResult = new Dictionary<string, double>();
-            for (int i = 0; i < channels.Count; i++)
-            {
-                testResult.Add(channels[i], dataList[i]);
-            }
-            testResultChart.ShowChart(testResult);
+            
+         
+            
+            
             #endregion
         }
 
