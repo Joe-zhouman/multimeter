@@ -114,7 +114,6 @@ namespace multimeter {
         }
 
         private void TestResultChart_FormClosing(object sender, FormClosingEventArgs e) {
-            DialogResult = DialogResult.Cancel;
             Hide();
             e.Cancel = true;
         }
@@ -129,6 +128,7 @@ namespace multimeter {
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
                 Cursor = Cursors.Default;
+                chartValue.Text = "";
             }
         }
     }
