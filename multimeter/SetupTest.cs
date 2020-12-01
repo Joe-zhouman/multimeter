@@ -26,11 +26,8 @@ namespace multimeter {
         private TestResultChart testResultChart=new TestResultChart();
         
 
-        public SetupTest()
-        {
-
+        public SetupTest() {
             InitializeComponent();
-
         }
 
         public void button1_Click(object sender, EventArgs e) {
@@ -94,17 +91,14 @@ namespace multimeter {
         private void SerialPort_Click(object sender, EventArgs e) {
             skinGroupBox1.BringToFront();
             skinGroupBox1.Size = new Size(248, 247);
-            
         }
 
-        private void SerialPortEnsure_Click(object sender, EventArgs e)
-        {
+        private void SerialPortEnsure_Click(object sender, EventArgs e) {
             skinGroupBox1.Size = new Size(0, 0);
         }
-        public void AdvancedSetting_Click(object sender, EventArgs e)
-        {
-            LoginForm loginForm=new LoginForm();
-            loginForm.Show(this);
+        public void AdvancedSetting_Click(object sender, EventArgs e) {
+            AlphaT0Setting alphaT0Setting = new AlphaT0Setting();
+            alphaT0Setting.Show();
         }
         private void ParSetting_Click(object sender, EventArgs e) {
             #region //参数设置窗口打开
@@ -284,8 +278,7 @@ namespace multimeter {
 
             btn_stop();
         }
-        private void Monitor_Click(object sender, EventArgs e)
-        {
+        private void Monitor_Click(object sender, EventArgs e) {
             if (testResultChart.IsAccessible == true)
                 testResultChart.Hide();
             else testResultChart.Show();
@@ -755,7 +748,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e) {
             #region
-
             string str = serialPort1.ReadExisting();
 
             //richTextBox1.Text = richTextBox1.Text + str+"\n";
@@ -772,12 +764,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
             if (str.IndexOf((char) 19) != -1)
                 str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-
             string nextstr = "";
             if (str.IndexOf((char) 13) != -1) {
                 str = str.Substring(0, str.IndexOf((char) 13));
                 recvstr += str;
-
                 if (recvstr.Length > 0) {
                     count++;
                     recvstr = recvstr.Replace((char) 19, (char) 0);
@@ -1043,10 +1033,12 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
                 #endregion
 
-                #region //加载测试选择窗口
-                TestChoose testChoose=new TestChoose();
+               
+
+                #region //加载用户类型登陆窗口
+                LoginForm loginForm = new LoginForm();
                 this.Enabled = false;
-                testChoose.Show(this);
+                loginForm.Show(this);
                 #endregion
 
                 //创建必要的文件夹
@@ -1063,15 +1055,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 
             }
         }
-
-        private void label114_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Unit4_15_Click(object sender, EventArgs e)
-        {
-
+        public void TestChooseFormShow_Click(object sender, EventArgs e) {
+            TestChoose testChoose = new TestChoose();
+            this.Enabled = false;
+            testChoose.Show(this);
         }
     }
 }

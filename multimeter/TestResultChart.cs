@@ -41,8 +41,11 @@ namespace multimeter
             this.sample2 = sample2;
             this.testMethod = testMethod;
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
+            chart1.ChartAreas[0].AxisY.IsStartedFromZero = false;       //y轴自适应
             chart1.ChartAreas[0].AxisX.Maximum = 250;
-            
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+
+
             int numChannel = 0;
             List<string> channelList = new List<string>();
             if (heatMeter1 != null) {
@@ -125,6 +128,7 @@ namespace multimeter
             else if (result.ChartElementType != ChartElementType.Nothing)
             {
                 Cursor = Cursors.Default;
+                chartValue.Text = "";
             }       
         }
     }

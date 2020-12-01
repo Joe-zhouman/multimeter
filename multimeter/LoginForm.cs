@@ -10,53 +10,56 @@ using System.Windows.Forms;
 
 namespace multimeter
 {
-    public partial class LoginForm : Form
-    {
-        public LoginForm()
-        {
+    public partial class LoginForm : Form {
+        public LoginForm() {
             InitializeComponent();
         }
 
-        private void login_Click(object sender, EventArgs e)
-        {
-            string userName = this.usernameTBox.Text;
+        private void login_Click(object sender, EventArgs e) {
+            string userName = this.usernameTBox.Text; 
+                
             string userPassword = this.userpasswordTBox.Text;
-            if (comboBox.SelectedItem.ToString() != "热电偶标定系数" && comboBox.SelectedItem.ToString() != "测试参数") {
-                MessageBox.Show("请输入正确修改方法！", "警告", MessageBoxButtons.OK);
+            if (comboBox.SelectedItem.ToString() != "普通用户" && comboBox.SelectedItem.ToString() != "高级用户") {
+                MessageBox.Show("请输入用户类型！", "警告", MessageBoxButtons.OK);
                 return;
             }
-            if (userName.Equals("123") && userPassword.Equals("123")) {
-                MessageBox.Show("登录成功！", "提示", MessageBoxButtons.OK);
-                if (comboBox.SelectedItem.ToString() == "热电偶标定系数") {
-                    AlphaT0Setting alphaT0Setting = new AlphaT0Setting();
-                    alphaT0Setting.Show();
-                    Close();
-                }
-                else {
-                    SetupTest setupTest=(SetupTest)this.Owner;
-                    setupTest.TextBoxEnable();
-                    Close();
-                }
-               
-            }
+            if (userName.Equals("123") && userPassword.Equals("123") && comboBox.SelectedItem.ToString() == "普通用户") {
+                // MessageBox.Show("登录成功！", "提示", MessageBoxButtons.OK);
+                SetupTest setupTest = (SetupTest)this.Owner;
+                setupTest.TestChooseFormShow_Click(sender,e);
+                setupTest.AdvancedSetting.Visible = false;
+                setupTest.AdvancedSettingLabel.Visible = false;
+                Hide();
+            }//普通用户登录操作
+            else if (userName.Equals("admin") && userPassword.Equals("admin") && comboBox.SelectedItem.ToString() == "高级用户") {
+                // MessageBox.Show("登录成功！", "提示", MessageBoxButtons.OK);
+                SetupTest setupTest = (SetupTest)this.Owner;
+                setupTest.TestChooseFormShow_Click(sender, e);
+                setupTest.TextBoxEnable();
+                setupTest.AdvancedSetting.Visible = true;
+                setupTest.AdvancedSettingLabel.Visible = true;
+                Hide();
+            }//高级用户登录操作
+
             else {
                 MessageBox.Show("用户密码或密码错误！", "警告", MessageBoxButtons.OK);
             }
 
-}
+        }
 
         private void cancel_Click(object sender, EventArgs e) {
             Close();
+            Application.Exit();
         }
         private void userpasswordTBox_TextChanged(object sender, EventArgs e) {
             userpasswordTBox.PasswordChar = '*';
         }
         private void LoginForm_Load(object sender, EventArgs e) {
-
+            comboBox.SelectedItem= "普通用户";
         }
 
-
-
-
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e) {
+            Application.Exit();
+        }
     }
 }

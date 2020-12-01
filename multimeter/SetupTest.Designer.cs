@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -57,6 +57,21 @@
             this.ChannelTextBox1_10 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_11 = new System.Windows.Forms.TextBox();
             this.TextGroupbox1 = new System.Windows.Forms.GroupBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
             this.k1_s = new System.Windows.Forms.Label();
             this.Tlable1_2 = new System.Windows.Forms.Label();
             this.Tlable1_1 = new System.Windows.Forms.Label();
@@ -115,6 +130,26 @@
             this.TestRun = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.TextGroupbox2 = new System.Windows.Forms.GroupBox();
+            this.label113 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.label110 = new System.Windows.Forms.Label();
+            this.label109 = new System.Windows.Forms.Label();
+            this.label108 = new System.Windows.Forms.Label();
+            this.label107 = new System.Windows.Forms.Label();
+            this.label106 = new System.Windows.Forms.Label();
+            this.label105 = new System.Windows.Forms.Label();
+            this.label104 = new System.Windows.Forms.Label();
+            this.label103 = new System.Windows.Forms.Label();
+            this.label102 = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label93 = new System.Windows.Forms.Label();
             this.TCRtest2 = new System.Windows.Forms.Label();
             this.Tlable2_14 = new System.Windows.Forms.Label();
             this.K2_s2 = new System.Windows.Forms.Label();
@@ -212,6 +247,19 @@
             this.LengthTextBox2_9 = new System.Windows.Forms.TextBox();
             this.LengthTextBox2_8 = new System.Windows.Forms.TextBox();
             this.TextGroupbox3 = new System.Windows.Forms.GroupBox();
+            this.label126 = new System.Windows.Forms.Label();
+            this.label125 = new System.Windows.Forms.Label();
+            this.label124 = new System.Windows.Forms.Label();
+            this.label123 = new System.Windows.Forms.Label();
+            this.label122 = new System.Windows.Forms.Label();
+            this.label121 = new System.Windows.Forms.Label();
+            this.label120 = new System.Windows.Forms.Label();
+            this.label119 = new System.Windows.Forms.Label();
+            this.label118 = new System.Windows.Forms.Label();
+            this.label117 = new System.Windows.Forms.Label();
+            this.label116 = new System.Windows.Forms.Label();
+            this.label115 = new System.Windows.Forms.Label();
+            this.label114 = new System.Windows.Forms.Label();
             this.TCRtest3 = new System.Windows.Forms.Label();
             this.k3_s = new System.Windows.Forms.Label();
             this.Tlable3_2 = new System.Windows.Forms.Label();
@@ -275,6 +323,27 @@
             this.LengthTextBox3_6 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_5 = new System.Windows.Forms.TextBox();
             this.TextGroupbox4 = new System.Windows.Forms.GroupBox();
+            this.label147 = new System.Windows.Forms.Label();
+            this.label146 = new System.Windows.Forms.Label();
+            this.label145 = new System.Windows.Forms.Label();
+            this.label144 = new System.Windows.Forms.Label();
+            this.label143 = new System.Windows.Forms.Label();
+            this.label142 = new System.Windows.Forms.Label();
+            this.label141 = new System.Windows.Forms.Label();
+            this.label140 = new System.Windows.Forms.Label();
+            this.label139 = new System.Windows.Forms.Label();
+            this.label138 = new System.Windows.Forms.Label();
+            this.label137 = new System.Windows.Forms.Label();
+            this.label136 = new System.Windows.Forms.Label();
+            this.label135 = new System.Windows.Forms.Label();
+            this.label134 = new System.Windows.Forms.Label();
+            this.label133 = new System.Windows.Forms.Label();
+            this.label132 = new System.Windows.Forms.Label();
+            this.label131 = new System.Windows.Forms.Label();
+            this.label130 = new System.Windows.Forms.Label();
+            this.label129 = new System.Windows.Forms.Label();
+            this.label128 = new System.Windows.Forms.Label();
+            this.label127 = new System.Windows.Forms.Label();
             this.TCRtest4 = new System.Windows.Forms.Label();
             this.k4_f = new System.Windows.Forms.Label();
             this.Tlable4_14 = new System.Windows.Forms.Label();
@@ -421,84 +490,17 @@
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.Monitor = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TestChooseFormShow = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
+            this.AdvancedSettingLabel = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label93 = new System.Windows.Forms.Label();
-            this.label94 = new System.Windows.Forms.Label();
-            this.label95 = new System.Windows.Forms.Label();
-            this.label97 = new System.Windows.Forms.Label();
-            this.label98 = new System.Windows.Forms.Label();
-            this.label99 = new System.Windows.Forms.Label();
-            this.label100 = new System.Windows.Forms.Label();
-            this.label101 = new System.Windows.Forms.Label();
-            this.label102 = new System.Windows.Forms.Label();
-            this.label103 = new System.Windows.Forms.Label();
-            this.label104 = new System.Windows.Forms.Label();
-            this.label105 = new System.Windows.Forms.Label();
-            this.label106 = new System.Windows.Forms.Label();
-            this.label107 = new System.Windows.Forms.Label();
-            this.label108 = new System.Windows.Forms.Label();
-            this.label109 = new System.Windows.Forms.Label();
-            this.label110 = new System.Windows.Forms.Label();
-            this.label111 = new System.Windows.Forms.Label();
-            this.label112 = new System.Windows.Forms.Label();
-            this.label113 = new System.Windows.Forms.Label();
-            this.label114 = new System.Windows.Forms.Label();
-            this.label115 = new System.Windows.Forms.Label();
-            this.label116 = new System.Windows.Forms.Label();
-            this.label117 = new System.Windows.Forms.Label();
-            this.label118 = new System.Windows.Forms.Label();
-            this.label119 = new System.Windows.Forms.Label();
-            this.label120 = new System.Windows.Forms.Label();
-            this.label121 = new System.Windows.Forms.Label();
-            this.label122 = new System.Windows.Forms.Label();
-            this.label123 = new System.Windows.Forms.Label();
-            this.label124 = new System.Windows.Forms.Label();
-            this.label125 = new System.Windows.Forms.Label();
-            this.label126 = new System.Windows.Forms.Label();
-            this.label127 = new System.Windows.Forms.Label();
-            this.label128 = new System.Windows.Forms.Label();
-            this.label129 = new System.Windows.Forms.Label();
-            this.label130 = new System.Windows.Forms.Label();
-            this.label131 = new System.Windows.Forms.Label();
-            this.label132 = new System.Windows.Forms.Label();
-            this.label133 = new System.Windows.Forms.Label();
-            this.label134 = new System.Windows.Forms.Label();
-            this.label135 = new System.Windows.Forms.Label();
-            this.label136 = new System.Windows.Forms.Label();
-            this.label137 = new System.Windows.Forms.Label();
-            this.label138 = new System.Windows.Forms.Label();
-            this.label139 = new System.Windows.Forms.Label();
-            this.label140 = new System.Windows.Forms.Label();
-            this.label141 = new System.Windows.Forms.Label();
-            this.label142 = new System.Windows.Forms.Label();
-            this.label143 = new System.Windows.Forms.Label();
-            this.label144 = new System.Windows.Forms.Label();
-            this.label145 = new System.Windows.Forms.Label();
-            this.label146 = new System.Windows.Forms.Label();
-            this.label147 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
             this.TextGroupbox2.SuspendLayout();
@@ -838,6 +840,160 @@
             this.TextGroupbox1.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox1.TabIndex = 24;
             this.TextGroupbox1.TabStop = false;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label91.Location = new System.Drawing.Point(801, 63);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(142, 23);
+            this.label91.TabIndex = 116;
+            this.label91.Text = "试件导热系数";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label90.Location = new System.Drawing.Point(637, 41);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(186, 23);
+            this.label90.TabIndex = 115;
+            this.label90.Text = "求解得测试结果：";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label89.Location = new System.Drawing.Point(771, 603);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(110, 30);
+            this.label89.TabIndex = 114;
+            this.label89.Text = "-------->";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.Location = new System.Drawing.Point(770, 557);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(110, 30);
+            this.label88.TabIndex = 113;
+            this.label88.Text = "-------->";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.Location = new System.Drawing.Point(770, 522);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(110, 30);
+            this.label87.TabIndex = 112;
+            this.label87.Text = "-------->";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.Location = new System.Drawing.Point(771, 468);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(110, 30);
+            this.label86.TabIndex = 111;
+            this.label86.Text = "-------->";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label84.ForeColor = System.Drawing.Color.Red;
+            this.label84.Location = new System.Drawing.Point(771, 429);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(110, 30);
+            this.label84.TabIndex = 110;
+            this.label84.Text = "-------->";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label81.ForeColor = System.Drawing.Color.Red;
+            this.label81.Location = new System.Drawing.Point(768, 385);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(110, 30);
+            this.label81.TabIndex = 109;
+            this.label81.Text = "-------->";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.ForeColor = System.Drawing.Color.Red;
+            this.label78.Location = new System.Drawing.Point(771, 342);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(110, 30);
+            this.label78.TabIndex = 108;
+            this.label78.Text = "-------->";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Location = new System.Drawing.Point(771, 303);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(110, 30);
+            this.label75.TabIndex = 107;
+            this.label75.Text = "-------->";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.Location = new System.Drawing.Point(770, 263);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(110, 30);
+            this.label72.TabIndex = 106;
+            this.label72.Text = "-------->";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.Location = new System.Drawing.Point(770, 213);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(110, 30);
+            this.label71.TabIndex = 105;
+            this.label71.Text = "-------->";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(769, 174);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(90, 21);
+            this.label68.TabIndex = 104;
+            this.label68.Text = "对应温度";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(770, 180);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(110, 30);
+            this.label67.TabIndex = 103;
+            this.label67.Text = "-------->";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label62.ForeColor = System.Drawing.Color.Black;
+            this.label62.Location = new System.Drawing.Point(391, 25);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(158, 31);
+            this.label62.TabIndex = 102;
+            this.label62.Text = "导热系数测量";
             // 
             // k1_s
             // 
@@ -1529,6 +1685,213 @@
             this.TextGroupbox2.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox2.TabIndex = 69;
             this.TextGroupbox2.TabStop = false;
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label113.Location = new System.Drawing.Point(921, 108);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(98, 23);
+            this.label113.TabIndex = 135;
+            this.label113.Text = "接触热阻";
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label112.Location = new System.Drawing.Point(866, 82);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(153, 23);
+            this.label112.TabIndex = 134;
+            this.label112.Text = "试件2导热系数";
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label111.Location = new System.Drawing.Point(866, 53);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(153, 23);
+            this.label111.TabIndex = 133;
+            this.label111.Text = "试件1导热系数";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label110.Location = new System.Drawing.Point(709, 25);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(186, 23);
+            this.label110.TabIndex = 121;
+            this.label110.Text = "求解得测试结果：";
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label109.Location = new System.Drawing.Point(761, 666);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(110, 30);
+            this.label109.TabIndex = 132;
+            this.label109.Text = "-------->";
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label108.Location = new System.Drawing.Point(761, 634);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(110, 30);
+            this.label108.TabIndex = 131;
+            this.label108.Text = "-------->";
+            // 
+            // label107
+            // 
+            this.label107.AutoSize = true;
+            this.label107.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label107.Location = new System.Drawing.Point(761, 605);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(110, 30);
+            this.label107.TabIndex = 130;
+            this.label107.Text = "-------->";
+            // 
+            // label106
+            // 
+            this.label106.AutoSize = true;
+            this.label106.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label106.Location = new System.Drawing.Point(761, 565);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(110, 30);
+            this.label106.TabIndex = 129;
+            this.label106.Text = "-------->";
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label105.ForeColor = System.Drawing.Color.Red;
+            this.label105.Location = new System.Drawing.Point(761, 531);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(110, 30);
+            this.label105.TabIndex = 128;
+            this.label105.Text = "-------->";
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label104.ForeColor = System.Drawing.Color.Red;
+            this.label104.Location = new System.Drawing.Point(761, 473);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(110, 30);
+            this.label104.TabIndex = 127;
+            this.label104.Text = "-------->";
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label103.ForeColor = System.Drawing.Color.Red;
+            this.label103.Location = new System.Drawing.Point(761, 435);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(110, 30);
+            this.label103.TabIndex = 126;
+            this.label103.Text = "-------->";
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label102.ForeColor = System.Drawing.Color.Red;
+            this.label102.Location = new System.Drawing.Point(761, 380);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(110, 30);
+            this.label102.TabIndex = 125;
+            this.label102.Text = "-------->";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label101.ForeColor = System.Drawing.Color.Red;
+            this.label101.Location = new System.Drawing.Point(761, 338);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(110, 30);
+            this.label101.TabIndex = 124;
+            this.label101.Text = "-------->";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.ForeColor = System.Drawing.Color.Red;
+            this.label100.Location = new System.Drawing.Point(761, 280);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(110, 30);
+            this.label100.TabIndex = 123;
+            this.label100.Text = "-------->";
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label99.Location = new System.Drawing.Point(761, 244);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(110, 30);
+            this.label99.TabIndex = 122;
+            this.label99.Text = "-------->";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label98.Location = new System.Drawing.Point(761, 211);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(110, 30);
+            this.label98.TabIndex = 121;
+            this.label98.Text = "-------->";
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label97.Location = new System.Drawing.Point(761, 167);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(110, 30);
+            this.label97.TabIndex = 120;
+            this.label97.Text = "-------->";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label95.Location = new System.Drawing.Point(762, 128);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(90, 21);
+            this.label95.TabIndex = 119;
+            this.label95.Text = "对应温度";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Location = new System.Drawing.Point(761, 144);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(110, 30);
+            this.label94.TabIndex = 118;
+            this.label94.Text = "-------->";
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label93.ForeColor = System.Drawing.Color.Black;
+            this.label93.Location = new System.Drawing.Point(374, 16);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(217, 31);
+            this.label93.TabIndex = 118;
+            this.label93.Text = "固_固接触热阻测量";
             // 
             // TCRtest2
             // 
@@ -2557,6 +2920,137 @@
             this.TextGroupbox3.TabIndex = 69;
             this.TextGroupbox3.TabStop = false;
             // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label126.Location = new System.Drawing.Point(838, 92);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(208, 23);
+            this.label126.TabIndex = 130;
+            this.label126.Text = "热界面材料接触热阻";
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label125.Location = new System.Drawing.Point(838, 63);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(208, 23);
+            this.label125.TabIndex = 129;
+            this.label125.Text = "热界面材料导热系数";
+            // 
+            // label124
+            // 
+            this.label124.AutoSize = true;
+            this.label124.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label124.Location = new System.Drawing.Point(676, 32);
+            this.label124.Name = "label124";
+            this.label124.Size = new System.Drawing.Size(186, 23);
+            this.label124.TabIndex = 121;
+            this.label124.Text = "求解得测试结果：";
+            // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label123.Location = new System.Drawing.Point(785, 177);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(90, 21);
+            this.label123.TabIndex = 121;
+            this.label123.Text = "对应温度";
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label122.Location = new System.Drawing.Point(792, 582);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(110, 30);
+            this.label122.TabIndex = 128;
+            this.label122.Text = "-------->";
+            // 
+            // label121
+            // 
+            this.label121.AutoSize = true;
+            this.label121.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label121.Location = new System.Drawing.Point(792, 542);
+            this.label121.Name = "label121";
+            this.label121.Size = new System.Drawing.Size(110, 30);
+            this.label121.TabIndex = 127;
+            this.label121.Text = "-------->";
+            // 
+            // label120
+            // 
+            this.label120.AutoSize = true;
+            this.label120.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label120.Location = new System.Drawing.Point(792, 497);
+            this.label120.Name = "label120";
+            this.label120.Size = new System.Drawing.Size(110, 30);
+            this.label120.TabIndex = 126;
+            this.label120.Text = "-------->";
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label119.Location = new System.Drawing.Point(794, 446);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(110, 30);
+            this.label119.TabIndex = 125;
+            this.label119.Text = "-------->";
+            // 
+            // label118
+            // 
+            this.label118.AutoSize = true;
+            this.label118.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label118.Location = new System.Drawing.Point(794, 326);
+            this.label118.Name = "label118";
+            this.label118.Size = new System.Drawing.Size(110, 30);
+            this.label118.TabIndex = 124;
+            this.label118.Text = "-------->";
+            // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label117.Location = new System.Drawing.Point(792, 274);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(110, 30);
+            this.label117.TabIndex = 123;
+            this.label117.Text = "-------->";
+            // 
+            // label116
+            // 
+            this.label116.AutoSize = true;
+            this.label116.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label116.Location = new System.Drawing.Point(792, 222);
+            this.label116.Name = "label116";
+            this.label116.Size = new System.Drawing.Size(110, 30);
+            this.label116.TabIndex = 122;
+            this.label116.Text = "-------->";
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label115.Location = new System.Drawing.Point(792, 188);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(110, 30);
+            this.label115.TabIndex = 121;
+            this.label115.Text = "-------->";
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label114.ForeColor = System.Drawing.Color.Black;
+            this.label114.Location = new System.Drawing.Point(337, 22);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(289, 31);
+            this.label114.TabIndex = 121;
+            this.label114.Text = "热界面材料测量_热流计间";
+            // 
             // TCRtest3
             // 
             this.TCRtest3.AutoSize = true;
@@ -2753,7 +3247,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 19);
             this.label4.TabIndex = 69;
-            this.label4.Text = "BLT";
+            this.label4.Text = "BMT";
             // 
             // K2TextBox3_2
             // 
@@ -3287,6 +3781,223 @@
             this.TextGroupbox4.TabIndex = 69;
             this.TextGroupbox4.TabStop = false;
             // 
+            // label147
+            // 
+            this.label147.AutoSize = true;
+            this.label147.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label147.Location = new System.Drawing.Point(796, 72);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(208, 23);
+            this.label147.TabIndex = 138;
+            this.label147.Text = "热界面材料接触热阻";
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label146.Location = new System.Drawing.Point(796, 48);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(208, 23);
+            this.label146.TabIndex = 137;
+            this.label146.Text = "热界面材料导热系数";
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label145.Location = new System.Drawing.Point(851, 118);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(153, 23);
+            this.label145.TabIndex = 136;
+            this.label145.Text = "试件2导热系数";
+            // 
+            // label144
+            // 
+            this.label144.AutoSize = true;
+            this.label144.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label144.Location = new System.Drawing.Point(851, 95);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(153, 23);
+            this.label144.TabIndex = 135;
+            this.label144.Text = "试件1导热系数";
+            // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.label143.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label143.Location = new System.Drawing.Point(637, 25);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(186, 23);
+            this.label143.TabIndex = 121;
+            this.label143.Text = "求解得测试结果：";
+            // 
+            // label142
+            // 
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Location = new System.Drawing.Point(733, 132);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(90, 21);
+            this.label142.TabIndex = 121;
+            this.label142.Text = "对应温度";
+            // 
+            // label141
+            // 
+            this.label141.AutoSize = true;
+            this.label141.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label141.Location = new System.Drawing.Point(738, 668);
+            this.label141.Name = "label141";
+            this.label141.Size = new System.Drawing.Size(110, 30);
+            this.label141.TabIndex = 134;
+            this.label141.Text = "-------->";
+            // 
+            // label140
+            // 
+            this.label140.AutoSize = true;
+            this.label140.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label140.Location = new System.Drawing.Point(738, 634);
+            this.label140.Name = "label140";
+            this.label140.Size = new System.Drawing.Size(110, 30);
+            this.label140.TabIndex = 133;
+            this.label140.Text = "-------->";
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label139.Location = new System.Drawing.Point(738, 603);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(110, 30);
+            this.label139.TabIndex = 132;
+            this.label139.Text = "-------->";
+            // 
+            // label138
+            // 
+            this.label138.AutoSize = true;
+            this.label138.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label138.Location = new System.Drawing.Point(738, 561);
+            this.label138.Name = "label138";
+            this.label138.Size = new System.Drawing.Size(110, 30);
+            this.label138.TabIndex = 131;
+            this.label138.Text = "-------->";
+            // 
+            // label137
+            // 
+            this.label137.AutoSize = true;
+            this.label137.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label137.ForeColor = System.Drawing.Color.Red;
+            this.label137.Location = new System.Drawing.Point(738, 529);
+            this.label137.Name = "label137";
+            this.label137.Size = new System.Drawing.Size(110, 30);
+            this.label137.TabIndex = 130;
+            this.label137.Text = "-------->";
+            // 
+            // label136
+            // 
+            this.label136.AutoSize = true;
+            this.label136.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label136.ForeColor = System.Drawing.Color.Red;
+            this.label136.Location = new System.Drawing.Point(738, 489);
+            this.label136.Name = "label136";
+            this.label136.Size = new System.Drawing.Size(110, 30);
+            this.label136.TabIndex = 129;
+            this.label136.Text = "-------->";
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label135.ForeColor = System.Drawing.Color.Red;
+            this.label135.Location = new System.Drawing.Point(738, 454);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(110, 30);
+            this.label135.TabIndex = 128;
+            this.label135.Text = "-------->";
+            // 
+            // label134
+            // 
+            this.label134.AutoSize = true;
+            this.label134.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label134.ForeColor = System.Drawing.Color.Red;
+            this.label134.Location = new System.Drawing.Point(733, 353);
+            this.label134.Name = "label134";
+            this.label134.Size = new System.Drawing.Size(110, 30);
+            this.label134.TabIndex = 127;
+            this.label134.Text = "-------->";
+            // 
+            // label133
+            // 
+            this.label133.AutoSize = true;
+            this.label133.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label133.ForeColor = System.Drawing.Color.Red;
+            this.label133.Location = new System.Drawing.Point(733, 320);
+            this.label133.Name = "label133";
+            this.label133.Size = new System.Drawing.Size(110, 30);
+            this.label133.TabIndex = 126;
+            this.label133.Text = "-------->";
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label132.ForeColor = System.Drawing.Color.Red;
+            this.label132.Location = new System.Drawing.Point(733, 269);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(110, 30);
+            this.label132.TabIndex = 125;
+            this.label132.Text = "-------->";
+            // 
+            // label131
+            // 
+            this.label131.AutoSize = true;
+            this.label131.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label131.Location = new System.Drawing.Point(733, 238);
+            this.label131.Name = "label131";
+            this.label131.Size = new System.Drawing.Size(110, 30);
+            this.label131.TabIndex = 124;
+            this.label131.Text = "-------->";
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label130.Location = new System.Drawing.Point(733, 208);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(110, 30);
+            this.label130.TabIndex = 123;
+            this.label130.Text = "-------->";
+            // 
+            // label129
+            // 
+            this.label129.AutoSize = true;
+            this.label129.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label129.Location = new System.Drawing.Point(733, 171);
+            this.label129.Name = "label129";
+            this.label129.Size = new System.Drawing.Size(110, 30);
+            this.label129.TabIndex = 122;
+            this.label129.Text = "-------->";
+            // 
+            // label128
+            // 
+            this.label128.AutoSize = true;
+            this.label128.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label128.Location = new System.Drawing.Point(733, 143);
+            this.label128.Name = "label128";
+            this.label128.Size = new System.Drawing.Size(110, 30);
+            this.label128.TabIndex = 121;
+            this.label128.Text = "-------->";
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label127.ForeColor = System.Drawing.Color.Black;
+            this.label127.Location = new System.Drawing.Point(319, 16);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(265, 31);
+            this.label127.TabIndex = 121;
+            this.label127.Text = "热界面材料测量_试件间";
+            // 
             // TCRtest4
             // 
             this.TCRtest4.AutoSize = true;
@@ -3684,7 +4395,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 19);
             this.label11.TabIndex = 75;
-            this.label11.Text = "BLT";
+            this.label11.Text = "BMT";
             // 
             // ChannelTextBox4_14
             // 
@@ -3800,7 +4511,6 @@
             this.Unit4_15.Size = new System.Drawing.Size(60, 21);
             this.Unit4_15.TabIndex = 61;
             this.Unit4_15.Text = "W/mK";
-            this.Unit4_15.Click += new System.EventHandler(this.Unit4_15_Click);
             // 
             // ForceTextBox4
             // 
@@ -4420,24 +5130,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -4741,7 +5451,7 @@
             this.AdvancedSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdvancedSetting.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AdvancedSetting.ForeColor = System.Drawing.Color.Black;
-            this.AdvancedSetting.Location = new System.Drawing.Point(365, 8);
+            this.AdvancedSetting.Location = new System.Drawing.Point(430, 8);
             this.AdvancedSetting.Name = "AdvancedSetting";
             this.AdvancedSetting.Size = new System.Drawing.Size(40, 40);
             this.AdvancedSetting.TabIndex = 103;
@@ -4836,10 +5546,12 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
+            this.groupBox1.Controls.Add(this.label54);
+            this.groupBox1.Controls.Add(this.TestChooseFormShow);
             this.groupBox1.Controls.Add(this.label61);
             this.groupBox1.Controls.Add(this.label58);
             this.groupBox1.Controls.Add(this.label56);
-            this.groupBox1.Controls.Add(this.label54);
+            this.groupBox1.Controls.Add(this.AdvancedSettingLabel);
             this.groupBox1.Controls.Add(this.label53);
             this.groupBox1.Controls.Add(this.label52);
             this.groupBox1.Controls.Add(this.label51);
@@ -4857,6 +5569,22 @@
             this.groupBox1.Size = new System.Drawing.Size(1279, 90);
             this.groupBox1.TabIndex = 103;
             this.groupBox1.TabStop = false;
+            // 
+            // TestChooseFormShow
+            // 
+            this.TestChooseFormShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestChooseFormShow.BackgroundImage")));
+            this.TestChooseFormShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.TestChooseFormShow.FlatAppearance.BorderSize = 0;
+            this.TestChooseFormShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestChooseFormShow.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestChooseFormShow.ForeColor = System.Drawing.Color.Black;
+            this.TestChooseFormShow.Location = new System.Drawing.Point(362, 8);
+            this.TestChooseFormShow.Name = "TestChooseFormShow";
+            this.TestChooseFormShow.Size = new System.Drawing.Size(40, 40);
+            this.TestChooseFormShow.TabIndex = 112;
+            this.TestChooseFormShow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TestChooseFormShow.UseVisualStyleBackColor = true;
+            this.TestChooseFormShow.Click += new System.EventHandler(this.TestChooseFormShow_Click);
             // 
             // label61
             // 
@@ -4891,15 +5619,15 @@
             this.label56.TabIndex = 109;
             this.label56.Text = "测量";
             // 
-            // label54
+            // AdvancedSettingLabel
             // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label54.Location = new System.Drawing.Point(356, 42);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(65, 20);
-            this.label54.TabIndex = 108;
-            this.label54.Text = "高级调试";
+            this.AdvancedSettingLabel.AutoSize = true;
+            this.AdvancedSettingLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.AdvancedSettingLabel.Location = new System.Drawing.Point(418, 42);
+            this.AdvancedSettingLabel.Name = "AdvancedSettingLabel";
+            this.AdvancedSettingLabel.Size = new System.Drawing.Size(65, 20);
+            this.AdvancedSettingLabel.TabIndex = 108;
+            this.AdvancedSettingLabel.Text = "参数标定";
             // 
             // label53
             // 
@@ -4951,715 +5679,15 @@
             this.label47.TabIndex = 104;
             this.label47.Text = "运行";
             // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label62.ForeColor = System.Drawing.Color.Black;
-            this.label62.Location = new System.Drawing.Point(391, 25);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(158, 31);
-            this.label62.TabIndex = 102;
-            this.label62.Text = "导热系数测量";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(770, 180);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(110, 30);
-            this.label67.TabIndex = 103;
-            this.label67.Text = "-------->";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label68.Location = new System.Drawing.Point(769, 174);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(90, 21);
-            this.label68.TabIndex = 104;
-            this.label68.Text = "对应温度";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.Location = new System.Drawing.Point(770, 213);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(110, 30);
-            this.label71.TabIndex = 105;
-            this.label71.Text = "-------->";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.Location = new System.Drawing.Point(770, 263);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(110, 30);
-            this.label72.TabIndex = 106;
-            this.label72.Text = "-------->";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(771, 303);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(110, 30);
-            this.label75.TabIndex = 107;
-            this.label75.Text = "-------->";
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label78.ForeColor = System.Drawing.Color.Red;
-            this.label78.Location = new System.Drawing.Point(771, 342);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(110, 30);
-            this.label78.TabIndex = 108;
-            this.label78.Text = "-------->";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label81.ForeColor = System.Drawing.Color.Red;
-            this.label81.Location = new System.Drawing.Point(768, 385);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(110, 30);
-            this.label81.TabIndex = 109;
-            this.label81.Text = "-------->";
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label84.ForeColor = System.Drawing.Color.Red;
-            this.label84.Location = new System.Drawing.Point(771, 429);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(110, 30);
-            this.label84.TabIndex = 110;
-            this.label84.Text = "-------->";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label86.Location = new System.Drawing.Point(771, 468);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(110, 30);
-            this.label86.TabIndex = 111;
-            this.label86.Text = "-------->";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label87.Location = new System.Drawing.Point(770, 522);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(110, 30);
-            this.label87.TabIndex = 112;
-            this.label87.Text = "-------->";
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label88.Location = new System.Drawing.Point(770, 557);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(110, 30);
-            this.label88.TabIndex = 113;
-            this.label88.Text = "-------->";
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label89.Location = new System.Drawing.Point(771, 603);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(110, 30);
-            this.label89.TabIndex = 114;
-            this.label89.Text = "-------->";
-            // 
-            // label90
-            // 
-            this.label90.AutoSize = true;
-            this.label90.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label90.Location = new System.Drawing.Point(637, 41);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(186, 23);
-            this.label90.TabIndex = 115;
-            this.label90.Text = "求解得测试结果：";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label91.Location = new System.Drawing.Point(801, 63);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(142, 23);
-            this.label91.TabIndex = 116;
-            this.label91.Text = "试件导热系数";
-            // 
-            // label93
-            // 
-            this.label93.AutoSize = true;
-            this.label93.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label93.ForeColor = System.Drawing.Color.Black;
-            this.label93.Location = new System.Drawing.Point(374, 16);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(217, 31);
-            this.label93.TabIndex = 118;
-            this.label93.Text = "固_固接触热阻测量";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label94.Location = new System.Drawing.Point(761, 144);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(110, 30);
-            this.label94.TabIndex = 118;
-            this.label94.Text = "-------->";
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label95.Location = new System.Drawing.Point(762, 128);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(90, 21);
-            this.label95.TabIndex = 119;
-            this.label95.Text = "对应温度";
-            // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label97.Location = new System.Drawing.Point(761, 167);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(110, 30);
-            this.label97.TabIndex = 120;
-            this.label97.Text = "-------->";
-            // 
-            // label98
-            // 
-            this.label98.AutoSize = true;
-            this.label98.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label98.Location = new System.Drawing.Point(761, 211);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(110, 30);
-            this.label98.TabIndex = 121;
-            this.label98.Text = "-------->";
-            // 
-            // label99
-            // 
-            this.label99.AutoSize = true;
-            this.label99.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label99.Location = new System.Drawing.Point(761, 244);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(110, 30);
-            this.label99.TabIndex = 122;
-            this.label99.Text = "-------->";
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.ForeColor = System.Drawing.Color.Red;
-            this.label100.Location = new System.Drawing.Point(761, 280);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(110, 30);
-            this.label100.TabIndex = 123;
-            this.label100.Text = "-------->";
-            // 
-            // label101
-            // 
-            this.label101.AutoSize = true;
-            this.label101.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label101.ForeColor = System.Drawing.Color.Red;
-            this.label101.Location = new System.Drawing.Point(761, 338);
-            this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(110, 30);
-            this.label101.TabIndex = 124;
-            this.label101.Text = "-------->";
-            // 
-            // label102
-            // 
-            this.label102.AutoSize = true;
-            this.label102.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label102.ForeColor = System.Drawing.Color.Red;
-            this.label102.Location = new System.Drawing.Point(761, 380);
-            this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(110, 30);
-            this.label102.TabIndex = 125;
-            this.label102.Text = "-------->";
-            // 
-            // label103
-            // 
-            this.label103.AutoSize = true;
-            this.label103.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label103.ForeColor = System.Drawing.Color.Red;
-            this.label103.Location = new System.Drawing.Point(761, 435);
-            this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(110, 30);
-            this.label103.TabIndex = 126;
-            this.label103.Text = "-------->";
-            // 
-            // label104
-            // 
-            this.label104.AutoSize = true;
-            this.label104.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label104.ForeColor = System.Drawing.Color.Red;
-            this.label104.Location = new System.Drawing.Point(761, 473);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(110, 30);
-            this.label104.TabIndex = 127;
-            this.label104.Text = "-------->";
-            // 
-            // label105
-            // 
-            this.label105.AutoSize = true;
-            this.label105.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label105.ForeColor = System.Drawing.Color.Red;
-            this.label105.Location = new System.Drawing.Point(761, 531);
-            this.label105.Name = "label105";
-            this.label105.Size = new System.Drawing.Size(110, 30);
-            this.label105.TabIndex = 128;
-            this.label105.Text = "-------->";
-            // 
-            // label106
-            // 
-            this.label106.AutoSize = true;
-            this.label106.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label106.Location = new System.Drawing.Point(761, 565);
-            this.label106.Name = "label106";
-            this.label106.Size = new System.Drawing.Size(110, 30);
-            this.label106.TabIndex = 129;
-            this.label106.Text = "-------->";
-            // 
-            // label107
-            // 
-            this.label107.AutoSize = true;
-            this.label107.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label107.Location = new System.Drawing.Point(761, 605);
-            this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(110, 30);
-            this.label107.TabIndex = 130;
-            this.label107.Text = "-------->";
-            // 
-            // label108
-            // 
-            this.label108.AutoSize = true;
-            this.label108.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.Location = new System.Drawing.Point(761, 634);
-            this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(110, 30);
-            this.label108.TabIndex = 131;
-            this.label108.Text = "-------->";
-            // 
-            // label109
-            // 
-            this.label109.AutoSize = true;
-            this.label109.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(761, 666);
-            this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(110, 30);
-            this.label109.TabIndex = 132;
-            this.label109.Text = "-------->";
-            // 
-            // label110
-            // 
-            this.label110.AutoSize = true;
-            this.label110.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label110.Location = new System.Drawing.Point(709, 25);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(186, 23);
-            this.label110.TabIndex = 121;
-            this.label110.Text = "求解得测试结果：";
-            // 
-            // label111
-            // 
-            this.label111.AutoSize = true;
-            this.label111.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label111.Location = new System.Drawing.Point(866, 53);
-            this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(153, 23);
-            this.label111.TabIndex = 133;
-            this.label111.Text = "试件1导热系数";
-            // 
-            // label112
-            // 
-            this.label112.AutoSize = true;
-            this.label112.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label112.Location = new System.Drawing.Point(866, 82);
-            this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(153, 23);
-            this.label112.TabIndex = 134;
-            this.label112.Text = "试件2导热系数";
-            // 
-            // label113
-            // 
-            this.label113.AutoSize = true;
-            this.label113.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label113.Location = new System.Drawing.Point(921, 108);
-            this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(98, 23);
-            this.label113.TabIndex = 135;
-            this.label113.Text = "接触热阻";
-            // 
-            // label114
-            // 
-            this.label114.AutoSize = true;
-            this.label114.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label114.ForeColor = System.Drawing.Color.Black;
-            this.label114.Location = new System.Drawing.Point(337, 22);
-            this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(289, 31);
-            this.label114.TabIndex = 121;
-            this.label114.Text = "热界面材料测量_热流计间";
-            this.label114.Click += new System.EventHandler(this.label114_Click);
-            // 
-            // label115
-            // 
-            this.label115.AutoSize = true;
-            this.label115.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label115.Location = new System.Drawing.Point(792, 188);
-            this.label115.Name = "label115";
-            this.label115.Size = new System.Drawing.Size(110, 30);
-            this.label115.TabIndex = 121;
-            this.label115.Text = "-------->";
-            // 
-            // label116
-            // 
-            this.label116.AutoSize = true;
-            this.label116.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label116.Location = new System.Drawing.Point(792, 222);
-            this.label116.Name = "label116";
-            this.label116.Size = new System.Drawing.Size(110, 30);
-            this.label116.TabIndex = 122;
-            this.label116.Text = "-------->";
-            // 
-            // label117
-            // 
-            this.label117.AutoSize = true;
-            this.label117.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label117.Location = new System.Drawing.Point(792, 274);
-            this.label117.Name = "label117";
-            this.label117.Size = new System.Drawing.Size(110, 30);
-            this.label117.TabIndex = 123;
-            this.label117.Text = "-------->";
-            // 
-            // label118
-            // 
-            this.label118.AutoSize = true;
-            this.label118.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label118.Location = new System.Drawing.Point(794, 326);
-            this.label118.Name = "label118";
-            this.label118.Size = new System.Drawing.Size(110, 30);
-            this.label118.TabIndex = 124;
-            this.label118.Text = "-------->";
-            // 
-            // label119
-            // 
-            this.label119.AutoSize = true;
-            this.label119.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label119.Location = new System.Drawing.Point(794, 446);
-            this.label119.Name = "label119";
-            this.label119.Size = new System.Drawing.Size(110, 30);
-            this.label119.TabIndex = 125;
-            this.label119.Text = "-------->";
-            // 
-            // label120
-            // 
-            this.label120.AutoSize = true;
-            this.label120.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label120.Location = new System.Drawing.Point(792, 497);
-            this.label120.Name = "label120";
-            this.label120.Size = new System.Drawing.Size(110, 30);
-            this.label120.TabIndex = 126;
-            this.label120.Text = "-------->";
-            // 
-            // label121
-            // 
-            this.label121.AutoSize = true;
-            this.label121.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label121.Location = new System.Drawing.Point(792, 542);
-            this.label121.Name = "label121";
-            this.label121.Size = new System.Drawing.Size(110, 30);
-            this.label121.TabIndex = 127;
-            this.label121.Text = "-------->";
-            // 
-            // label122
-            // 
-            this.label122.AutoSize = true;
-            this.label122.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label122.Location = new System.Drawing.Point(792, 582);
-            this.label122.Name = "label122";
-            this.label122.Size = new System.Drawing.Size(110, 30);
-            this.label122.TabIndex = 128;
-            this.label122.Text = "-------->";
-            // 
-            // label123
-            // 
-            this.label123.AutoSize = true;
-            this.label123.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label123.Location = new System.Drawing.Point(785, 177);
-            this.label123.Name = "label123";
-            this.label123.Size = new System.Drawing.Size(90, 21);
-            this.label123.TabIndex = 121;
-            this.label123.Text = "对应温度";
-            // 
-            // label124
-            // 
-            this.label124.AutoSize = true;
-            this.label124.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label124.Location = new System.Drawing.Point(676, 32);
-            this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(186, 23);
-            this.label124.TabIndex = 121;
-            this.label124.Text = "求解得测试结果：";
-            // 
-            // label125
-            // 
-            this.label125.AutoSize = true;
-            this.label125.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label125.Location = new System.Drawing.Point(838, 63);
-            this.label125.Name = "label125";
-            this.label125.Size = new System.Drawing.Size(208, 23);
-            this.label125.TabIndex = 129;
-            this.label125.Text = "热界面材料导热系数";
-            // 
-            // label126
-            // 
-            this.label126.AutoSize = true;
-            this.label126.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label126.Location = new System.Drawing.Point(838, 92);
-            this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(208, 23);
-            this.label126.TabIndex = 130;
-            this.label126.Text = "热界面材料接触热阻";
-            // 
-            // label127
-            // 
-            this.label127.AutoSize = true;
-            this.label127.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label127.ForeColor = System.Drawing.Color.Black;
-            this.label127.Location = new System.Drawing.Point(319, 16);
-            this.label127.Name = "label127";
-            this.label127.Size = new System.Drawing.Size(265, 31);
-            this.label127.TabIndex = 121;
-            this.label127.Text = "热界面材料测量_试件间";
-            // 
-            // label128
-            // 
-            this.label128.AutoSize = true;
-            this.label128.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label128.Location = new System.Drawing.Point(733, 143);
-            this.label128.Name = "label128";
-            this.label128.Size = new System.Drawing.Size(110, 30);
-            this.label128.TabIndex = 121;
-            this.label128.Text = "-------->";
-            // 
-            // label129
-            // 
-            this.label129.AutoSize = true;
-            this.label129.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label129.Location = new System.Drawing.Point(733, 171);
-            this.label129.Name = "label129";
-            this.label129.Size = new System.Drawing.Size(110, 30);
-            this.label129.TabIndex = 122;
-            this.label129.Text = "-------->";
-            // 
-            // label130
-            // 
-            this.label130.AutoSize = true;
-            this.label130.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label130.Location = new System.Drawing.Point(733, 208);
-            this.label130.Name = "label130";
-            this.label130.Size = new System.Drawing.Size(110, 30);
-            this.label130.TabIndex = 123;
-            this.label130.Text = "-------->";
-            // 
-            // label131
-            // 
-            this.label131.AutoSize = true;
-            this.label131.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label131.Location = new System.Drawing.Point(733, 238);
-            this.label131.Name = "label131";
-            this.label131.Size = new System.Drawing.Size(110, 30);
-            this.label131.TabIndex = 124;
-            this.label131.Text = "-------->";
-            // 
-            // label132
-            // 
-            this.label132.AutoSize = true;
-            this.label132.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label132.ForeColor = System.Drawing.Color.Red;
-            this.label132.Location = new System.Drawing.Point(733, 269);
-            this.label132.Name = "label132";
-            this.label132.Size = new System.Drawing.Size(110, 30);
-            this.label132.TabIndex = 125;
-            this.label132.Text = "-------->";
-            // 
-            // label133
-            // 
-            this.label133.AutoSize = true;
-            this.label133.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label133.ForeColor = System.Drawing.Color.Red;
-            this.label133.Location = new System.Drawing.Point(733, 320);
-            this.label133.Name = "label133";
-            this.label133.Size = new System.Drawing.Size(110, 30);
-            this.label133.TabIndex = 126;
-            this.label133.Text = "-------->";
-            // 
-            // label134
-            // 
-            this.label134.AutoSize = true;
-            this.label134.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label134.ForeColor = System.Drawing.Color.Red;
-            this.label134.Location = new System.Drawing.Point(733, 353);
-            this.label134.Name = "label134";
-            this.label134.Size = new System.Drawing.Size(110, 30);
-            this.label134.TabIndex = 127;
-            this.label134.Text = "-------->";
-            // 
-            // label135
-            // 
-            this.label135.AutoSize = true;
-            this.label135.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label135.ForeColor = System.Drawing.Color.Red;
-            this.label135.Location = new System.Drawing.Point(738, 454);
-            this.label135.Name = "label135";
-            this.label135.Size = new System.Drawing.Size(110, 30);
-            this.label135.TabIndex = 128;
-            this.label135.Text = "-------->";
-            // 
-            // label136
-            // 
-            this.label136.AutoSize = true;
-            this.label136.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label136.ForeColor = System.Drawing.Color.Red;
-            this.label136.Location = new System.Drawing.Point(738, 489);
-            this.label136.Name = "label136";
-            this.label136.Size = new System.Drawing.Size(110, 30);
-            this.label136.TabIndex = 129;
-            this.label136.Text = "-------->";
-            // 
-            // label137
-            // 
-            this.label137.AutoSize = true;
-            this.label137.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label137.ForeColor = System.Drawing.Color.Red;
-            this.label137.Location = new System.Drawing.Point(738, 529);
-            this.label137.Name = "label137";
-            this.label137.Size = new System.Drawing.Size(110, 30);
-            this.label137.TabIndex = 130;
-            this.label137.Text = "-------->";
-            // 
-            // label138
-            // 
-            this.label138.AutoSize = true;
-            this.label138.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label138.Location = new System.Drawing.Point(738, 561);
-            this.label138.Name = "label138";
-            this.label138.Size = new System.Drawing.Size(110, 30);
-            this.label138.TabIndex = 131;
-            this.label138.Text = "-------->";
-            // 
-            // label139
-            // 
-            this.label139.AutoSize = true;
-            this.label139.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label139.Location = new System.Drawing.Point(738, 603);
-            this.label139.Name = "label139";
-            this.label139.Size = new System.Drawing.Size(110, 30);
-            this.label139.TabIndex = 132;
-            this.label139.Text = "-------->";
-            // 
-            // label140
-            // 
-            this.label140.AutoSize = true;
-            this.label140.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label140.Location = new System.Drawing.Point(738, 634);
-            this.label140.Name = "label140";
-            this.label140.Size = new System.Drawing.Size(110, 30);
-            this.label140.TabIndex = 133;
-            this.label140.Text = "-------->";
-            // 
-            // label141
-            // 
-            this.label141.AutoSize = true;
-            this.label141.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label141.Location = new System.Drawing.Point(738, 668);
-            this.label141.Name = "label141";
-            this.label141.Size = new System.Drawing.Size(110, 30);
-            this.label141.TabIndex = 134;
-            this.label141.Text = "-------->";
-            // 
-            // label142
-            // 
-            this.label142.AutoSize = true;
-            this.label142.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label142.Location = new System.Drawing.Point(733, 132);
-            this.label142.Name = "label142";
-            this.label142.Size = new System.Drawing.Size(90, 21);
-            this.label142.TabIndex = 121;
-            this.label142.Text = "对应温度";
-            // 
-            // label143
-            // 
-            this.label143.AutoSize = true;
-            this.label143.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label143.Location = new System.Drawing.Point(637, 25);
-            this.label143.Name = "label143";
-            this.label143.Size = new System.Drawing.Size(186, 23);
-            this.label143.TabIndex = 121;
-            this.label143.Text = "求解得测试结果：";
-            // 
-            // label144
-            // 
-            this.label144.AutoSize = true;
-            this.label144.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label144.Location = new System.Drawing.Point(851, 95);
-            this.label144.Name = "label144";
-            this.label144.Size = new System.Drawing.Size(153, 23);
-            this.label144.TabIndex = 135;
-            this.label144.Text = "试件1导热系数";
-            // 
-            // label145
-            // 
-            this.label145.AutoSize = true;
-            this.label145.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label145.Location = new System.Drawing.Point(851, 118);
-            this.label145.Name = "label145";
-            this.label145.Size = new System.Drawing.Size(153, 23);
-            this.label145.TabIndex = 136;
-            this.label145.Text = "试件2导热系数";
-            // 
-            // label146
-            // 
-            this.label146.AutoSize = true;
-            this.label146.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label146.Location = new System.Drawing.Point(796, 48);
-            this.label146.Name = "label146";
-            this.label146.Size = new System.Drawing.Size(208, 23);
-            this.label146.TabIndex = 137;
-            this.label146.Text = "热界面材料导热系数";
-            // 
-            // label147
-            // 
-            this.label147.AutoSize = true;
-            this.label147.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label147.Location = new System.Drawing.Point(796, 72);
-            this.label147.Name = "label147";
-            this.label147.Size = new System.Drawing.Size(208, 23);
-            this.label147.TabIndex = 138;
-            this.label147.Text = "热界面材料接触热阻";
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label54.Location = new System.Drawing.Point(351, 42);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(65, 20);
+            this.label54.TabIndex = 113;
+            this.label54.Text = "切换方法";
             // 
             // SetupTest
             // 
@@ -6101,10 +6129,8 @@
         private System.Windows.Forms.Label Tlable4_4;
         private System.Windows.Forms.Label Tlable4_3;
         private System.Windows.Forms.Button Monitor;
-        private System.Windows.Forms.Button AdvancedSetting;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label51;
@@ -6181,5 +6207,9 @@
         private System.Windows.Forms.Label label131;
         private System.Windows.Forms.Label label130;
         private System.Windows.Forms.Label label129;
+        private System.Windows.Forms.Button TestChooseFormShow;
+        public System.Windows.Forms.Button AdvancedSetting;
+        public System.Windows.Forms.Label AdvancedSettingLabel;
+        private System.Windows.Forms.Label label54;
     }
 }
