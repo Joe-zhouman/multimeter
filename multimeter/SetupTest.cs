@@ -239,6 +239,8 @@ namespace multimeter {
             }
 
             testResultChart.Chart_Init(heatMeter1,heatMeter2,sample1,sample2,_method);
+            
+
             #endregion
         }
 
@@ -283,7 +285,15 @@ namespace multimeter {
                 testResultChart.Hide();
             else testResultChart.Show();
         }
+        private void TestResultChart_FormClosing(object sender, EventArgs e) {
+            if(testResultChart.DialogResult == DialogResult.Cancel) return;
+            btn_stop();
+            MessageBox.Show(@"计算已收敛,是否结束计算并显示结果?", @"提示", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (testResultChart.DialogResult != DialogResult.Yes) return;
+            TestResult_Click(this,e);
 
+        }
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
 
 
@@ -1048,6 +1058,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
                 //this.Width = Screen.PrimaryScreen.WorkingArea.Width;
                 //this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+                testResultChart.FormClosing += TestResultChart_FormClosing;
                 ReadPara(); ;
 
 
@@ -1060,5 +1071,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             this.Enabled = false;
             testChoose.Show(this);
         }
+
     }
 }
