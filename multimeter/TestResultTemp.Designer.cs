@@ -168,7 +168,7 @@
             this.ViewGroupBox2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ViewGroupBox2.Location = new System.Drawing.Point(2, 2);
             this.ViewGroupBox2.Name = "ViewGroupBox2";
-            this.ViewGroupBox2.Size = new System.Drawing.Size(607, 811);
+            this.ViewGroupBox2.Size = new System.Drawing.Size(0, 0);
             this.ViewGroupBox2.TabIndex = 105;
             this.ViewGroupBox2.TabStop = false;
             // 
@@ -653,7 +653,7 @@
             this.ViewGroupBox4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ViewGroupBox4.Location = new System.Drawing.Point(2, 2);
             this.ViewGroupBox4.Name = "ViewGroupBox4";
-            this.ViewGroupBox4.Size = new System.Drawing.Size(0, 0);
+            this.ViewGroupBox4.Size = new System.Drawing.Size(607, 811);
             this.ViewGroupBox4.TabIndex = 108;
             this.ViewGroupBox4.TabStop = false;
             // 

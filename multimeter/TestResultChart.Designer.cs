@@ -183,10 +183,10 @@
             // 
             this.chartValue.AutoSize = true;
             this.chartValue.BackColor = System.Drawing.Color.Transparent;
-            this.chartValue.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chartValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chartValue.Location = new System.Drawing.Point(89, 28);
             this.chartValue.Name = "chartValue";
-            this.chartValue.Size = new System.Drawing.Size(69, 20);
+            this.chartValue.Size = new System.Drawing.Size(56, 16);
             this.chartValue.TabIndex = 105;
             this.chartValue.Text = "label1";
             // 
