@@ -19,6 +19,7 @@ using CCWin.SkinClass;
 
 namespace multimeter {
     public partial class SetupTest  {
+        private string thickness = null;
         private void TestResult_Click(object sender, EventArgs e) {
             #region //数据结果
             //测试
@@ -54,7 +55,7 @@ namespace multimeter {
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
             string force = INIHelper.Read("Pressure", "force", "1", latestIniFile);
-            string thickness = null;
+            //string thickness = null;
             switch (_method) {
                 case TestMethod.Kappa: {
                         sample1.SetTemp(testResult);
@@ -114,50 +115,62 @@ namespace multimeter {
         }
 
         //-----------------
-        private void TestResultTemp()
-        {
-            switch (_method)
-            {
-                case TestMethod.Kappa:
-                    {
-                        if (true != Solution.GetResults(heatMeter1, heatMeter2, ref sample1))
-                        {
+        private void TestResultTemp() {
+            switch (_method) {
+                case TestMethod.Kappa: {
+                        if (true != Solution.GetResults(heatMeter1, heatMeter2, ref sample1)) {
                             MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         ShowKappa();
                     }
                     break;
-                case TestMethod.ITC:
-                    {
+                case TestMethod.ITC: {
                         double itc = 0.0;
-                        if (true != Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc))
-                        {
+                        if (true != Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc)) {
                             MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         ShowItc(itc);
                     }
                     break;
-                case TestMethod.ITM:
-                    {
-                        ShowItm();
+                case TestMethod.ITM: {
+                        double itmKappa = 0.0;
+                        double Thickness = double.Parse(thickness);
+                        if (true!=Solution.GetResults(heatMeter1, heatMeter2, Thickness, ref itmKappa)) {
+                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        ShowItm(itmKappa);
                     }
                     break;
                 case TestMethod.ITMS:
-                    {
-                        ShowItms();
+                {
+                        double itmKappa = 0.0;
+                        double Thickness = double.Parse(thickness);
+                        if (true!= Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, Thickness, ref itmKappa)) {
+                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        ShowItms(itmKappa);
                     }
                     break;
                 default:
                     break;
             }
         }
-        private void ShowKappa()
-        {
-
+        private void ShowKappa() {
+            Tlable1_1.Text = "Tu1 = " + heatMeter1.Temp[0].ToString() + " ℃";
+            Tlable1_2.Text = "Tu2 = " + heatMeter1.Temp[1].ToString() + " ℃";
+            Tlable1_3.Text = "Tu3 = " + heatMeter1.Temp[2].ToString() + " ℃";
+            Tlable1_4.Text = "Tu4 = " + heatMeter1.Temp[3].ToString() + " ℃";
+            Tlable1_5.Text = "Ts1 = " + sample1.Temp[0].ToString() + " ℃";
+            Tlable1_6.Text = "Ts2 = " + sample1.Temp[1].ToString() + " ℃";
+            Tlable1_7.Text = "Ts3 = " + sample1.Temp[2].ToString() + " ℃";
+            Tlable1_8.Text = "Tl1 = " + heatMeter2.Temp[0].ToString() + " ℃";
+            Tlable1_9.Text = "Tl2 = " + heatMeter2.Temp[1].ToString() + " ℃";
+            Tlable1_10.Text = "Tl3 = " + heatMeter2.Temp[2].ToString() + " ℃";
+            Tlable1_11.Text = "Tl4 = " + heatMeter2.Temp[3].ToString() + " ℃";
+            k1_s.Text = "Ks = " + sample1.Kappa + "W/mK";
         }
-        private void ShowItc(double itc)
-        {
+        private void ShowItc(double itc) {
             Tlable2_1.Text = "Tu1 = " + heatMeter1.Temp[0].ToString() + " ℃";
             Tlable2_2.Text = "Tu2 = " + heatMeter1.Temp[1].ToString() + " ℃";
             Tlable2_3.Text = "Tu3 = " + heatMeter1.Temp[2].ToString() + " ℃";
@@ -176,13 +189,35 @@ namespace multimeter {
             K2_s2.Text = "Ks2 = " + sample2.Kappa + "W/mK";
             TCRtest2.Text = "Rt = " + itc.ToString() + "K/(W mm^2)";
         }
-        private void ShowItm()
-        {
-
+        private void ShowItm(double itmKappa) {
+            Tlable3_1.Text = "Tu1 = " + heatMeter1.Temp[0].ToString() + " ℃";
+            Tlable3_2.Text = "Tu2 = " + heatMeter1.Temp[1].ToString() + " ℃";
+            Tlable3_3.Text = "Tu3 = " + heatMeter1.Temp[2].ToString() + " ℃";
+            Tlable3_4.Text = "Tu4 = " + heatMeter1.Temp[3].ToString() + " ℃";
+            Tlable3_5.Text = "Tl1 = " + heatMeter2.Temp[0].ToString() + " ℃";
+            Tlable3_6.Text = "Tl2 = " + heatMeter2.Temp[1].ToString() + " ℃";
+            Tlable3_7.Text = "Tl3 = " + heatMeter2.Temp[2].ToString() + " ℃";
+            Tlable3_8.Text = "Tl4 = " + heatMeter2.Temp[3].ToString() + " ℃";
+            k3_s.Text = "Ks=" + itmKappa.ToString() + "K/(W mm^2)";
         }
-        private void ShowItms()
-        {
-
+        private void ShowItms(double itmKappa) {
+            Tlable4_1.Text = "Tu1 = " + heatMeter1.Temp[0].ToString() + " ℃";
+            Tlable4_2.Text = "Tu2 = " + heatMeter1.Temp[1].ToString() + " ℃";
+            Tlable4_3.Text = "Tu3 = " + heatMeter1.Temp[2].ToString() + " ℃";
+            Tlable4_4.Text = "Tu4 = " + heatMeter1.Temp[3].ToString() + " ℃";
+            Tlable4_5.Text = "Tsu1 = " + sample1.Temp[0].ToString() + " ℃";
+            Tlable4_6.Text = "Tsu2 = " + sample1.Temp[1].ToString() + " ℃";
+            Tlable4_7.Text = "Tsu3 = " + sample1.Temp[2].ToString() + " ℃";
+            Tlable4_8.Text = "Tsl1 = " + sample2.Temp[0].ToString() + " ℃";
+            Tlable4_9.Text = "Tsl2= " + sample2.Temp[1].ToString() + " ℃";
+            Tlable4_10.Text = "Tsl3 = " + sample2.Temp[2].ToString() + " ℃";
+            Tlable4_11.Text = "Tl1 = " + heatMeter2.Temp[0].ToString() + " ℃";
+            Tlable4_12.Text = "Tl2 = " + heatMeter2.Temp[1].ToString() + " ℃";
+            Tlable4_13.Text = "Tl3 = " + heatMeter2.Temp[2].ToString() + " ℃";
+            Tlable4_14.Text = "Tl4 = " + heatMeter2.Temp[3].ToString() + " ℃";
+            k4_s1.Text = "Ks1 = " + sample1.Kappa + "W/mK";
+            k4_s2.Text = "Ks2 = " + sample2.Kappa + "W/mK";
+            k4_f.Text = "Ks = " + itmKappa.ToString() + "K/(W mm^2)";
         }
 
         //-----------------
