@@ -36,17 +36,17 @@ namespace multimeter {
             }
 
             DataTable channelTable = new DataTable();
-            var csvExp = Solution.ReadCsvFile(ref channelTable, latestDataFile);
+            Exception csvExp = Solution.ReadCsvFile(ref channelTable, latestDataFile);
             if (null != csvExp) {
-                MessageBox.Show(@"请选择正确的数据文件!"+"\n"+csvExp.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"请选择正确的数据文件!\n{csvExp.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (_method.ToString().ToLower() != INIHelper.Read("TestMethod", "method", "", latestIniFile)) {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            var testResult = Solution.CalAve(channelTable);
-            var csvType = (TestMethod) (int) testResult["TestMethod"];
+            Dictionary<string, double> testResult = Solution.CalAve(channelTable);
+            TestMethod csvType = (TestMethod) (int) testResult["TestMethod"];
             if (_method != csvType) {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -54,26 +54,49 @@ namespace multimeter {
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
             string force = INIHelper.Read("Pressure", "force", "1", latestIniFile);
-            string thickness = null;
             switch (_method) {
                 case TestMethod.KAPPA: {
                         sample1.SetTemp(testResult);
+                        if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1))
+                        {
+                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        ShowKappa();
                     }
                     break;
                 case TestMethod.ITC: {
                         //显示对应监视窗口TEST2
                         sample1.SetTemp(testResult);
                         sample2.SetTemp(testResult);
+                        double itc = 0.0;
+                        if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc))
+                        {
+                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        ShowItc(itc);
                     }
                     break;
                 case TestMethod.ITM: {
-                        thickness = INIHelper.Read("ITM", "thickness", "1", latestIniFile);
+                    double itmKappa = 0.0;
+                    double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", latestIniFile));
+                        if (!Solution.GetResults(heatMeter1, heatMeter2, thickness, ref itmKappa))
+                        {
+                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        ShowItm(itmKappa);
                     }
                     break;
                 case TestMethod.ITMS: {
                         sample1.SetTemp(testResult);
                         sample2.SetTemp(testResult);
-                        thickness = INIHelper.Read("ITM", "thickness", "1", latestIniFile);
+                        double itmKappa = 0.0;
+                        double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", latestIniFile));
+                        if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, thickness, ref itmKappa))
+                        {
+                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        ShowItms(itmKappa);
                     }
                     break;
                 default: {
@@ -85,76 +108,46 @@ namespace multimeter {
             //testResultChart.Show();
             //TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method, force, thickness);
             //testResultTemp.Show();
-            TestResultTemp();
             #endregion
         }
 
         private void SetCsvFileName() {
-            if (latestDataFile == "") {
-                OpenFileDialog file = new OpenFileDialog {
-                    Title = @"请选择测试的数据文件!",
-                    Filter = @"数据文件(*.csv)|*.csv",
-                    InitialDirectory = AppDomain.CurrentDomain.BaseDirectory
-                };
-                file.ShowDialog();
-                latestDataFile = file.FileName;
-            }
+            if (latestDataFile != "") return;
+            OpenFileDialog file = new OpenFileDialog {
+                Title = @"请选择测试的数据文件!",
+                Filter = @"数据文件(*.csv)|*.csv",
+                InitialDirectory = AppDomain.CurrentDomain.BaseDirectory
+            };
+            file.ShowDialog();
+            latestDataFile = file.FileName;
         }
 
         private void SetIniFileName() {
-            if (latestIniFile == "") {
-                OpenFileDialog file = new OpenFileDialog {
-                    Title = @"请选择测试的配置文件!",
-                    Filter = @"配置文件(*.ini)|*.ini",
-                    InitialDirectory = AppDomain.CurrentDomain.BaseDirectory
-                };
-                file.ShowDialog();
-                latestIniFile = file.FileName;
-            }
+            if (latestIniFile != "") return;
+            OpenFileDialog file = new OpenFileDialog {
+                Title = @"请选择测试的配置文件!",
+                Filter = @"配置文件(*.ini)|*.ini",
+                InitialDirectory = AppDomain.CurrentDomain.BaseDirectory
+            };
+            file.ShowDialog();
+            latestIniFile = file.FileName;
         }
 
         //-----------------
-        private void TestResultTemp()
-        {
-            switch (_method)
-            {
-                case TestMethod.KAPPA:
-                    {
-                        if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1))
-                        {
-                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        ShowKappa();
-                    }
-                    break;
-                case TestMethod.ITC:
-                    {
-                        double itc = 0.0;
-                        if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc))
-                        {
-                            MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-                        ShowItc(itc);
-                    }
-                    break;
-                case TestMethod.ITM:
-                    {
-                        ShowItm();
-                    }
-                    break;
-                case TestMethod.ITMS:
-                    {
-                        ShowItms();
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
         private void ShowKappa()
         {
-
+            Tlable1_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
+            Tlable1_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
+            Tlable1_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
+            Tlable1_4.Text = $@"Tu4 = {heatMeter1.Temp[3]} ℃";
+            Tlable1_5.Text = $@"Ts1 = {sample1.Temp[0]} ℃";
+            Tlable1_6.Text = $@"Ts2 = {sample1.Temp[1]} ℃";
+            Tlable1_7.Text = $@"Ts3 = {sample1.Temp[2]} ℃";
+            Tlable1_8.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
+            Tlable1_9.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
+            Tlable1_10.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
+            Tlable1_11.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            k1_s.Text = $@"Ks = {sample1.Kappa}W/mK";
         }
         private void ShowItc(double itc)
         {
@@ -176,13 +169,37 @@ namespace multimeter {
             K2_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
             TCRtest2.Text = $@"Rt = {itc}K/(W mm^2)";
         }
-        private void ShowItm()
+        private void ShowItm(double itmKappa)
         {
-
+            Tlable3_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
+            Tlable3_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
+            Tlable3_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
+            Tlable3_4.Text = $@"Tu4 = {heatMeter1.Temp[3]} ℃";
+            Tlable3_5.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
+            Tlable3_6.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
+            Tlable3_7.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
+            Tlable3_8.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            k3_s.Text = $@"Ks={itmKappa}K/(W mm^2)";
         }
-        private void ShowItms()
+        private void ShowItms(double itmKappa)
         {
-
+            Tlable4_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
+            Tlable4_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
+            Tlable4_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
+            Tlable4_4.Text = $@"Tu4 = {heatMeter1.Temp[3]} ℃";
+            Tlable4_5.Text = $@"Tsu1 = {sample1.Temp[0]} ℃";
+            Tlable4_6.Text = $@"Tsu2 = {sample1.Temp[1]} ℃";
+            Tlable4_7.Text = $@"Tsu3 = {sample1.Temp[2]} ℃";
+            Tlable4_8.Text = $@"Tsl1 = {sample2.Temp[0]} ℃";
+            Tlable4_9.Text = $@"Tsl2= {sample2.Temp[1]} ℃";
+            Tlable4_10.Text = $@"Tsl3 = {sample2.Temp[2]} ℃";
+            Tlable4_11.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
+            Tlable4_12.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
+            Tlable4_13.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
+            Tlable4_14.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            k4_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
+            k4_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
+            k4_f.Text = $@"Ks = {itmKappa}K/(W mm^2)";
         }
 
         //-----------------
