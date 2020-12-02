@@ -804,8 +804,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         listView_main.Items.Clear();
                     }
                     //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    List<string> channels = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                    List<double> dataList = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    List<string> channels = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                    List<double> dataList = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToList();
                     Dictionary<string, double> testResult = new Dictionary<string, double>();
                     for (int i = 0; i < channels.Count; i++)

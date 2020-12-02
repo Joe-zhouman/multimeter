@@ -205,10 +205,6 @@ namespace DataProcessor {
             }
         }//将频道信息写入系统配置文件
         public static string AutoSaveIni(TestMethod method) {
-            if (TestMethod.NotSet == method) {
-                return null;
-            }
-
             var iniFileName = method.ToString().ToLower();
             string iniFilePath =
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName + ".ini");
