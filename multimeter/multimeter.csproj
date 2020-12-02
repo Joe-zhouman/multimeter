@@ -96,12 +96,6 @@
     <Compile Include="TestResultClick.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestResultTemp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestResultTemp.Designer.cs">
-      <DependentUpon>TestResultTemp.cs</DependentUpon>
-    </Compile>
     <Compile Include="test_file.cs" />
     <Compile Include="ParaInfo.cs" />
     <Compile Include="Program.cs" />
@@ -139,9 +133,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestResultChart.resx">
       <DependentUpon>TestResultChart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestResultTemp.resx">
-      <DependentUpon>TestResultTemp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
