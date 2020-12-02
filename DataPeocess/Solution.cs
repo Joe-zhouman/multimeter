@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -114,30 +115,20 @@ namespace DataProcessor {
         
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1)
         {
-            double heatFlow1 = 0.0;
-            double heatFlow2 = 0.0;
-            double k = 0.0;
-            double b = 0.0;
-            if (true != GetHeatFlow(heatMeter1, ref heatFlow1,ref k, ref b))
+            double heatFlow = 0.0;
+            double[] k = new double[2];
+            double[] b = new double[2];
+            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b))
             {
                 return false;
             }
-            if (true != GetHeatFlow(heatMeter2, ref heatFlow2,ref k, ref b))
+            List<double> samplePosition1 = sample1.Position.Select(double.Parse).Reverse().ToList();
+            List<double> sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToList();
+            if (true != LinearFit(sampleLength1, sample1.Temp.ToList(), ref k[0], ref b[0]))
             {
                 return false;
             }
-            if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.2)
-            {
-                return false;
-            }
-            heatFlow1 = (heatFlow1 + heatFlow2) / 2;
-            var samplePosition1 = sample1.Position.Select(double.Parse).Reverse().ToList();
-            var sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToList();
-            if (true != LinearFit(samplePosition1, sample1.Temp.ToList(), ref k, ref b))
-            {
-                return false;
-            }
-            sample1.Kappa = (heatFlow1 / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k).ToString();
+            sample1.Kappa = (heatFlow / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[0]).ToString(CultureInfo.InvariantCulture);
             return true;
         }
 
@@ -151,39 +142,29 @@ namespace DataProcessor {
         /// <param name="itc"></param>
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2,ref Sample sample1,ref Sample sample2,ref double itc) {
-            double heatFlow1 = 0.0;
-            double heatFlow2 = 0.0;
+            double heatFlow = 0.0;
             double[] k = new double[2];
             double[] b = new double[2];
-            if(true != GetHeatFlow(heatMeter1,ref heatFlow1,ref k[0],ref b[0]))
+            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b))
             {
                 return false;
             }
-            if(true != GetHeatFlow(heatMeter2, ref heatFlow2,ref k[1],ref k[1]))
+            List<double> samplePosition1 = sample1.Position.Select(double.Parse).Reverse().ToList();
+            List<double> sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToList();
+            if (true != LinearFit(sampleLength1, sample1.Temp.ToList(), ref k[0], ref b[0]))
             {
                 return false;
             }
-            if(Math.Abs(1-heatFlow1/heatFlow1) > 0.2)
-            {
-                return false;
-            }
-            heatFlow1 = (heatFlow1 + heatFlow2) / 2;
-            var samplePosition1 = sample1.Position.Select(double.Parse).Reverse().ToList();
-            var sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToList();
-            if (true != LinearFit(samplePosition1, sample1.Temp.ToList(), ref k[0], ref b[0]))
-            {
-                return false;
-            }
-            sample1.Kappa = (heatFlow1 / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[0]).ToString();
+            sample1.Kappa = (heatFlow / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[0]).ToString(CultureInfo.InvariantCulture);
 
-            var samplePosition2 = sample2.Position.Select(double.Parse).ToList();
-            var sampleLength2 = samplePosition2.Select((_, i) => samplePosition2.Take(i + 1).Sum()).ToList();
-            if (true != LinearFit(samplePosition1, sample1.Temp.ToList(), ref k[1], ref b[1]))
+            List<double> samplePosition2 = sample2.Position.Select(double.Parse).ToList();
+            List<double> sampleLength2 = samplePosition2.Select((_, i) => samplePosition2.Take(i + 1).Sum()).ToList();
+            if (true != LinearFit(sampleLength2, sample1.Temp.ToList(), ref k[1], ref b[1]))
             {
                 return false;
             }
-            sample2.Kappa = (heatFlow1 / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[1]).ToString();
-            itc = (b[0] - b[1]) / heatFlow1 * 1000;
+            sample2.Kappa = (heatFlow / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[1]).ToString(CultureInfo.InvariantCulture);
+            itc = (b[0] - b[1]) / heatFlow * 1000;
             return true;
         }//接触热阻计算
         /// <summary>
@@ -199,7 +180,7 @@ namespace DataProcessor {
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1, ref Sample sample2, double thickness, ref double itmKappa)
         {
             double itc = 0.0;
-            if (true != GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc))
+            if (!GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc))
             {
                 return false;
             }
@@ -216,46 +197,48 @@ namespace DataProcessor {
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, double thickness, ref double itmKappa)
         {
-            double heatFlow1 = 0.0;
-            double heatFlow2 = 0.0;
+            double heatFlow = 0.0;
             double[] k = new double[2];
             double[] b = new double[2];
-            if (true != GetHeatFlow(heatMeter1, ref heatFlow1, ref k[0], ref b[0]))
-            {
-                return false;
-            }
-            if (true != GetHeatFlow(heatMeter2, ref heatFlow2, ref k[1], ref k[1]))
-            {
-                return false;
-            }
-            if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.2)
-            {
-                return false;
-            }
-            heatFlow1 = (heatFlow1 + heatFlow2) / 2;
-            itmKappa = thickness / (b[0] - b[1]) * heatFlow1 / 1000;
+            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) {
+                return false;}
+            itmKappa = thickness / (b[0] - b[1]) * heatFlow / 1000;
             return true;
         }
         /// <summary>
         /// 计算热流计热流密度
         /// </summary>
-        /// <param name="heatMeter"></param>
-        /// <param name="heatFlow"></param>
+        /// <param name="heatMeter1"></param>上热流计,四个测温点
+        /// <param name="heatMeter2"></param>下热流计,三个测温点
+        /// <param name="heatFlow"></param>热流密度
         /// <param name="k"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static bool GetHeatFlow(HeatMeter heatMeter,ref double heatFlow,ref double k,ref double b) {
-            var numPosition = heatMeter.Position.Select(double.Parse).ToList();
-            var p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToList();
-            if (true == LinearFit(numPosition,heatMeter.Temp.ToList(),ref k,ref b)) {
-                heatFlow = double.Parse(heatMeter.Kappa) * Math.PI * Math.Pow(double.Parse(heatMeter.Diameter), 2) * k;
-            }
-            return false;
-            
-        } 
+        private static bool GetHeatFlow(HeatMeter heatMeter1,HeatMeter heatMeter2,ref double heatFlow,ref double[] k,ref double[] b) {
+            List<double> numPosition = heatMeter1.Position.Select(double.Parse).ToList();
+            List<double> p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToList();
 
-        public static double GetStd(List<double> x, double aveX) {
-            var sum = x.Sum(d => (d - aveX));
+            if (!LinearFit(p, heatMeter1.Temp.ToList(),ref k[0],ref b[0])) {
+                return false;
+            }
+            double heatFlow1 = double.Parse(heatMeter1.Kappa) * Math.PI * Math.Pow(double.Parse(heatMeter1.Diameter), 2) * k[0];
+            numPosition = heatMeter2.Position.Take(3).Select(double.Parse).ToList();
+            p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToList();
+            if (!LinearFit(p, heatMeter2.Temp.Take(3).ToList(), ref k[1], ref b[1])) {
+                return false;
+            }
+            double heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI * Math.Pow(double.Parse(heatMeter1.Diameter), 2) * k[1];
+            if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.2)
+            {
+                return false;
+            }
+            heatFlow = (heatFlow1 + heatFlow2) / 2;
+            return true;
+            
+        }
+
+        private static double GetStd(List<double> x, double aveX) {
+            double sum = x.Sum(d => (d - aveX));
             return Math.Sqrt(sum / x.Count);
         }
     }

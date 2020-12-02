@@ -43,7 +43,7 @@ namespace multimeter {
             //ViewGroupBox3.Size = new Size(0, 0);
             //ViewGroupBox4.Size = new Size(0, 0);
             switch (TestMethod) {
-                case TestMethod.Kappa: {
+                case TestMethod.KAPPA: {
                     if (true != Solution.GetResults(HeatMeter1, HeatMeter2, ref _sample1))
                         MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ShowKappa();

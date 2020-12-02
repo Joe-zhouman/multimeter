@@ -4,8 +4,7 @@
 
 namespace multimeter {
     public enum TestMethod {
-        NotSet=0,
-        Kappa,
+        KAPPA = 1,
         ITC,
         ITM,
         ITMS

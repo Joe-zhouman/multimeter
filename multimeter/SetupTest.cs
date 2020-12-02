@@ -41,7 +41,7 @@ namespace multimeter {
             TestChoose4.BackColor = Color.LightGray;
             TestRun.Enabled = true;
             TestResult.Enabled = true;
-            _method = TestMethod.Kappa;
+            _method = TestMethod.KAPPA;
             ParSetting_Click(sender,e);
             
             #endregion
@@ -111,7 +111,7 @@ namespace multimeter {
 
             string force;
             switch (_method) {
-                case TestMethod.Kappa: {
+                case TestMethod.KAPPA: {
                         //显示对应设置窗口TEST1
                     EmptyGroupBox.Size = new Size(0, 0);
                     TextGroupbox1.Size = new Size(1250, 855);
@@ -814,8 +814,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         listView_main.Items.Clear();
                     }
                     //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    List<string> channels = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                    List<double> dataList = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    List<string> channels = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                    List<double> dataList = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToList();
                     Dictionary<string, double> testResult = new Dictionary<string, double>();
                     for (int i = 0; i < channels.Count; i++)
