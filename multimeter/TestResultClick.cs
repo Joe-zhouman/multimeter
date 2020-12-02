@@ -19,6 +19,7 @@ using CCWin.SkinClass;
 
 namespace multimeter {
     public partial class SetupTest  {
+        private string thickness = null;
         private void TestResult_Click(object sender, EventArgs e) {
             #region //数据结果
             //测试
@@ -54,7 +55,7 @@ namespace multimeter {
             heatMeter1.SetTemp(testResult);
             heatMeter2.SetTemp(testResult);
             string force = INIHelper.Read("Pressure", "force", "1", latestIniFile);
-            string thickness = null;
+            //string thickness = null;
             switch (_method) {
                 case TestMethod.KAPPA: {
                         sample1.SetTemp(testResult);
@@ -127,8 +128,7 @@ namespace multimeter {
                         ShowKappa();
                     }
                     break;
-                case TestMethod.ITC:
-                    {
+                case TestMethod.ITC: {
                         double itc = 0.0;
                         if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc))
                         {

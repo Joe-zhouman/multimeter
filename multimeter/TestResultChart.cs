@@ -33,6 +33,7 @@ namespace multimeter {
             this.sample2 = sample2;
             this.testMethod = testMethod;
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
+            chart1.ChartAreas[0].AxisY.IsStartedFromZero = false;       //y轴自适应
             chart1.ChartAreas[0].AxisX.Maximum = 250;
 
             int numChannel = 0;
@@ -113,7 +114,6 @@ namespace multimeter {
         }
 
         private void TestResultChart_FormClosing(object sender, FormClosingEventArgs e) {
-            DialogResult = DialogResult.Cancel;
             Hide();
             e.Cancel = true;
         }
@@ -128,6 +128,7 @@ namespace multimeter {
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
                 Cursor = Cursors.Default;
+                chartValue.Text = "";
             }
         }
     }
