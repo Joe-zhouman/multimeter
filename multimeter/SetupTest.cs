@@ -286,10 +286,11 @@ namespace multimeter {
             else testResultChart.Show();
         }
         private void TestResultChart_FormClosing(object sender, EventArgs e) {
-            if(testResultChart.DialogResult !=DialogResult.Yes) return;
+            if(testResultChart.DialogResult == DialogResult.Cancel) return;
             btn_stop();
-            if (DialogResult.Yes!=MessageBox.Show(@"计算已收敛,是否结束计算并显示结果?", @"提示", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question))return;
+            MessageBox.Show(@"计算已收敛,是否结束计算并显示结果?", @"提示", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (testResultChart.DialogResult != DialogResult.Yes) return;
             TestResult_Click(this,e);
 
         }
