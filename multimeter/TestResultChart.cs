@@ -125,10 +125,15 @@ namespace multimeter {
                 DataPoint a = result.Object as DataPoint;
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
-                chartValue.Text = "(" + a.XValue + "," + a.YValues[0] + ")";
+                chartValue.Text = "Channel:"+ ChartElementType.LegendTitle +"\n"
+                                  +"Time:" + a.XValue + "\n" 
+                                  + "Temp:"+a.YValues[0];
+
+
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
                 Cursor = Cursors.Default;
+                chartValue.Text = "";
             }
         }
 
