@@ -30,64 +30,46 @@ namespace multimeter {
             InitializeComponent();
         }
 
-        public void button1_Click(object sender, EventArgs e) {
-            #region //选择测试方法1
-            TestChoose1.BackColor = Color.DodgerBlue;
-            TestChoose2.BackColor = Color.LightGray;
-            TestChoose3.BackColor = Color.LightGray;
-            TestChoose4.BackColor = Color.LightGray;
-            TestRun.Enabled = true;
-            TestResult.Enabled = true;
-            _method = TestMethod.KAPPA;
-            ParSetting_Click(sender,e);
-            
-            #endregion
+        public void TestChooseFormShow_Click(object sender, EventArgs e) {
+            TextGroupbox1.Size = new Size(0, 0);
+            TextGroupbox2.Size = new Size(0, 0);
+            TextGroupbox3.Size = new Size(0, 0);
+            TextGroupbox4.Size = new Size(0, 0);
+            skinGroupBox1.Size = new Size(0, 0);
+            MenuGroupBox.Visible = false;
+            TestChoiseGroupBox.BringToFront();
+            TestChoiseGroupBox.Visible = true;
         }
-
-        public void TestChoose2_Click(object sender, EventArgs e) {
-            #region //选择测试方法2
-            TestChoose1.BackColor = Color.LightGray;
-            TestChoose2.BackColor = Color.DodgerBlue;
-            TestChoose3.BackColor = Color.LightGray;
-            TestChoose4.BackColor = Color.LightGray;
-            TestRun.Enabled = true;
-            TestResult.Enabled = true;
-            _method = TestMethod.ITC;
-            ParSetting_Click(sender, e);
-            
-
-            #endregion
+        private void TestRun_Click(object sender, EventArgs e) {
+            if (serialPort1.IsOpen) {
+                TestChooseFormShow_Enable(true);
+                TestRun_Enable(true);
+                //Monitor_Enable(false);
+                CurrentTestResult_Enable(true);
+                HistoryTestResult_Enable(true);
+                SerialPort_Enable(true);
+                AdvancedSetting_Enable(true);
+                TestRunLabel.Text = "运行";
+                btn_stop();
+            }
+            else {
+                TestChooseFormShow_Enable(false);
+                TestRun_Enable(false);
+                Monitor_Enable(true);
+                CurrentTestResult_Enable(true);
+                HistoryTestResult_Enable(true);
+                SerialPort_Enable(false);
+                AdvancedSetting_Enable(false);
+                TestRunLabel.Text = "停止";
+                btn_start();
+                Monitor_Click(sender, e);
+            }
         }
-
-        public void TestChoose3_Click(object sender, EventArgs e) {
-            #region //选择测试方法3
-            TestChoose1.BackColor = Color.LightGray;
-            TestChoose2.BackColor = Color.LightGray;
-            TestChoose3.BackColor = Color.DodgerBlue;
-            TestChoose4.BackColor = Color.LightGray;
-            TestRun.Enabled = true;
-            TestResult.Enabled = true;
-            _method = TestMethod.ITM;
-            ParSetting_Click(sender, e);
-            
-
-            #endregion
+        private void Monitor_Click(object sender, EventArgs e) {
+            if (testResultChart.IsAccessible == true)
+                testResultChart.Hide();
+            else testResultChart.Show();
         }
-
-        public void TestChoose4_Click(object sender, EventArgs e) {
-            #region //选择测试方法4
-            TestChoose1.BackColor = Color.LightGray;
-            TestChoose2.BackColor = Color.LightGray;
-            TestChoose3.BackColor = Color.LightGray;
-            TestChoose4.BackColor = Color.DodgerBlue;
-            TestRun.Enabled = true;
-            TestResult.Enabled = true;
-            _method = TestMethod.ITMS;
-            ParSetting_Click(sender, e);
-
-            #endregion
-        }
-
         private void SerialPort_Click(object sender, EventArgs e) {
             skinGroupBox1.BringToFront();
             skinGroupBox1.Size = new Size(248, 247);
@@ -244,54 +226,14 @@ namespace multimeter {
             #endregion
         }
 
-        private void TestRun_Click(object sender, EventArgs e) {
-            #region //测试运行
-
-            //以下代码为在测试运行时，一部分按键失效
-            TestChoose1.Enabled = false;
-            TestChoose2.Enabled = false;
-            TestChoose3.Enabled = false;
-            TestChoose4.Enabled = false;
-            SerialPort.Enabled = false;
-            ParSetting.Enabled = false;
-            TestRun.Enabled = false;
-            TestStop.Enabled = true;
-            TestResult.Enabled = false;
-            btn_start();
-
-            #endregion
-        }
-
-        private void TestStop_Click(object sender, EventArgs e) {
-            #region //测试暂停
-
-            //以下代码为在测试暂停时，一部分按键恢复
-            TestChoose1.Enabled = true;
-            TestChoose2.Enabled = true;
-            TestChoose3.Enabled = true;
-            TestChoose4.Enabled = true;
-            SerialPort.Enabled = true;
-            ParSetting.Enabled = true;
-            TestRun.Enabled = true;
-            TestStop.Enabled = false;
-            TestResult.Enabled = true;
-
-            #endregion
-
-            btn_stop();
-        }
-        private void Monitor_Click(object sender, EventArgs e) {
-            if (testResultChart.IsAccessible == true)
-                testResultChart.Hide();
-            else testResultChart.Show();
-        }
+        
         private void TestResultChart_FormClosing(object sender, EventArgs e) {
             if(testResultChart.DialogResult == DialogResult.Cancel) return;
             btn_stop();
             MessageBox.Show(@"计算已收敛,是否结束计算并显示结果?", @"提示", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
             if (testResultChart.DialogResult != DialogResult.Yes) return;
-            TestResult_Click(this,e);
+            CurrentTestResult_Click(this,e);
 
         }
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
@@ -675,7 +617,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             Thread.Sleep(100);
 
             Thread thread;
-            MessageBox.Show(TotalCHN);
+            //MessageBox.Show(TotalCHN);
             string[] chn = TotalCHN.Split(',');
             listView_main.Clear();
             listView_main.Columns.Add(((int)_method).ToString(), 120);
@@ -883,27 +825,21 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         #endregion
 
-        private void SetupTest_Load(object sender, EventArgs e)
-        {
-            {
-
-                #region //不同设置窗口默认显示
-                EmptyGroupBox.Size = new Size(1250, 855);
+        private void SetupTest_Load(object sender, EventArgs e) {
+            #region //不同设置窗口默认显示
+                //EmptyGroupBox.Size = new Size(1250, 855);
                 TextGroupbox1.Size = new Size(0, 0);
                 TextGroupbox2.Size = new Size(0, 0);
                 TextGroupbox3.Size = new Size(0, 0);
                 TextGroupbox4.Size = new Size(0, 0);
-                //ResultGroupBox.Size = new Size(650, 886);
                 skinGroupBox1.Size = new Size(0, 0);
-                TestRun.Enabled = false;
-                TestStop.Enabled = false;
-                TestResult.Enabled = false;
+                MenuGroupBox.Visible = false;
+                TestChoiseGroupBox.Visible = false;
+            #endregion
 
-                #endregion
+            #region //串口设置
 
-                #region //串口设置
-
-                CheckForIllegalCrossThreadCalls = false; //去掉线程安全
+            CheckForIllegalCrossThreadCalls = false; //去掉线程安全
                 #region //初始化变量
                 Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
                 Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
@@ -1043,34 +979,24 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
                 #endregion
 
-               
-
-                #region //加载用户类型登陆窗口
-                LoginForm loginForm = new LoginForm();
-                this.Enabled = false;
-                loginForm.Show(this);
-                #endregion
-
-                //创建必要的文件夹
-
-                //this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-
-                //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-                //this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                //this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-                testResultChart.FormClosing += TestResultChart_FormClosing;
-                ReadPara(); ;
-
-
-
                 
-            }
+                testResultChart.FormClosing += TestResultChart_FormClosing;
+                ReadPara();
+                LoginGroupBox.BringToFront();
+                LoginGroupBox.Visible = true;
+                comboBox.SelectedItem = "普通用户";
+
+
         }
-        public void TestChooseFormShow_Click(object sender, EventArgs e) {
-            TestChoose testChoose = new TestChoose();
-            this.Enabled = false;
-            testChoose.Show(this);
+
+
+ 
+
+        private void HistoryTestResult_Click(object sender, EventArgs e)
+        {
+
         }
+
 
     }
 }

@@ -8,46 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace multimeter
-{
-    public partial class TestChoose : Form {
-        public TestChoose() {
-            InitializeComponent();
-        }
+namespace multimeter {
+    public partial class SetupTest {
         private void testchoose1_Click(object sender, EventArgs e) {
-            SetupTest setupTest = (SetupTest)this.Owner;
-            setupTest.Enabled = true;
-            setupTest.button1_Click(sender, e);
-            Close();
+            ButtonEnable();
+            _method = TestMethod.KAPPA;
+            ParSetting_Click(sender, e);
         }
 
         private void testchoose2_Click(object sender, EventArgs e) {
-            SetupTest setupTest = (SetupTest)this.Owner;
-            setupTest.Enabled = true;
-            setupTest.TestChoose2_Click(sender, e);
-            Close();
+            ButtonEnable();
+            _method = TestMethod.ITC;
+            ParSetting_Click(sender, e);
         }
 
         private void testchoose3_Click(object sender, EventArgs e) {
-            SetupTest setupTest = (SetupTest)this.Owner;
-            setupTest.Enabled = true;
-            setupTest.TestChoose3_Click(sender, e);
-            Close();
+            ButtonEnable();
+            _method = TestMethod.ITM;
+            ParSetting_Click(sender, e);
         }
 
         private void testchoose4_Click(object sender, EventArgs e) {
-            SetupTest setupTest = (SetupTest)this.Owner;
-            setupTest.Enabled = true;
-            setupTest.TestChoose4_Click(sender, e);
-            Close();
+            ButtonEnable();
+            _method = TestMethod.ITMS;
+            ParSetting_Click(sender, e);
         }
 
-        private void TestChoose_Load(object sender, EventArgs e) {
-
-        }
 
         private void testchoose1_MouseMove(object sender, MouseEventArgs e) {
-            test1.BackColor=Color.Lime;
+            test1.BackColor = Color.Lime;
         }
 
         private void testchoose1_MouseLeave(object sender, EventArgs e) {
@@ -76,6 +65,17 @@ namespace multimeter
 
         private void testchoose4_MouseLeave(object sender, EventArgs e) {
             test4.BackColor = Color.White;
+        }
+
+        private void ButtonEnable() {
+            TestRun_Enable(true);
+            Monitor_Enable(false);
+            CurrentTestResult_Enable(false);
+            HistoryTestResult_Enable(true);
+            SerialPort_Enable(true);
+            AdvancedSetting_Enable(true);
+            MenuGroupBox.Visible = true;
+            TestChoiseGroupBox.Visible = false;
         }
     }
 }

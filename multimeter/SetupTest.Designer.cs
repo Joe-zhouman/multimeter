@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -125,8 +125,7 @@
             this.LengthTextBox1_7 = new System.Windows.Forms.TextBox();
             this.LengthTextBox1_9 = new System.Windows.Forms.TextBox();
             this.LengthTextBox1_8 = new System.Windows.Forms.TextBox();
-            this.TestResult = new System.Windows.Forms.Button();
-            this.TestStop = new System.Windows.Forms.Button();
+            this.CurrentTestResult = new System.Windows.Forms.Button();
             this.TestRun = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.TextGroupbox2 = new System.Windows.Forms.GroupBox();
@@ -447,10 +446,6 @@
             this.skinButton10 = new CCWin.SkinControl.SkinButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.TestChoose3 = new System.Windows.Forms.Button();
-            this.TestChoose1 = new System.Windows.Forms.Button();
-            this.TestChoose4 = new System.Windows.Forms.Button();
-            this.TestChoose2 = new System.Windows.Forms.Button();
             this.ParSetting = new System.Windows.Forms.Button();
             this.SerialPort = new System.Windows.Forms.Button();
             this.skinGroupBox2 = new CCWin.SkinControl.SkinGroupBox();
@@ -489,18 +484,51 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.Monitor = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TestChooseFormShow = new System.Windows.Forms.Button();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
+            this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.label56 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.TestChooseFormShow = new System.Windows.Forms.Button();
+            this.HistoryTestResult = new System.Windows.Forms.Button();
+            this.AdvancedLabel = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.lable80 = new System.Windows.Forms.Label();
             this.AdvancedSettingLabel = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
+            this.SerialPortLabel = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
+            this.TestRunLabel = new System.Windows.Forms.Label();
+            this.LoginGroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label69 = new System.Windows.Forms.Label();
+            this.login = new System.Windows.Forms.Button();
+            this.comboBox = new System.Windows.Forms.ComboBox();
+            this.cancel = new System.Windows.Forms.Button();
+            this.label70 = new System.Windows.Forms.Label();
+            this.usernameTBox = new System.Windows.Forms.TextBox();
+            this.userpasswordTBox = new System.Windows.Forms.TextBox();
+            this.TestChoiseGroupBox = new System.Windows.Forms.GroupBox();
+            this.test1 = new System.Windows.Forms.GroupBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.testchoose1 = new System.Windows.Forms.Button();
+            this.label96 = new System.Windows.Forms.Label();
+            this.test4 = new System.Windows.Forms.GroupBox();
+            this.label148 = new System.Windows.Forms.Label();
+            this.label149 = new System.Windows.Forms.Label();
+            this.label150 = new System.Windows.Forms.Label();
+            this.testchoose4 = new System.Windows.Forms.Button();
+            this.label151 = new System.Windows.Forms.Label();
+            this.test3 = new System.Windows.Forms.GroupBox();
+            this.label152 = new System.Windows.Forms.Label();
+            this.label153 = new System.Windows.Forms.Label();
+            this.label154 = new System.Windows.Forms.Label();
+            this.testchoose3 = new System.Windows.Forms.Button();
+            this.test2 = new System.Windows.Forms.GroupBox();
+            this.label155 = new System.Windows.Forms.Label();
+            this.label156 = new System.Windows.Forms.Label();
+            this.testchoose2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
             this.TextGroupbox2.SuspendLayout();
@@ -515,7 +543,13 @@
             this.skinGroupBox1.SuspendLayout();
             this.ResultGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.MenuGroupBox.SuspendLayout();
+            this.LoginGroupBox.SuspendLayout();
+            this.TestChoiseGroupBox.SuspendLayout();
+            this.test1.SuspendLayout();
+            this.test4.SuspendLayout();
+            this.test3.SuspendLayout();
+            this.test2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureTest1
@@ -855,11 +889,11 @@
             // 
             this.label90.AutoSize = true;
             this.label90.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label90.Location = new System.Drawing.Point(637, 41);
+            this.label90.Location = new System.Drawing.Point(703, 39);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(186, 23);
+            this.label90.Size = new System.Drawing.Size(120, 23);
             this.label90.TabIndex = 115;
-            this.label90.Text = "求解得测试结果：";
+            this.label90.Text = "测试结果：";
             // 
             // label89
             // 
@@ -1513,36 +1547,21 @@
             this.LengthTextBox1_8.TabIndex = 43;
             this.LengthTextBox1_8.Text = "4";
             // 
-            // TestResult
+            // CurrentTestResult
             // 
-            this.TestResult.BackColor = System.Drawing.SystemColors.Control;
-            this.TestResult.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestResult.BackgroundImage")));
-            this.TestResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.TestResult.FlatAppearance.BorderSize = 0;
-            this.TestResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestResult.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestResult.Location = new System.Drawing.Point(215, 8);
-            this.TestResult.Name = "TestResult";
-            this.TestResult.Size = new System.Drawing.Size(40, 40);
-            this.TestResult.TabIndex = 93;
-            this.TestResult.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.TestResult.UseVisualStyleBackColor = false;
-            this.TestResult.Click += new System.EventHandler(this.TestResult_Click);
-            // 
-            // TestStop
-            // 
-            this.TestStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestStop.BackgroundImage")));
-            this.TestStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.TestStop.FlatAppearance.BorderSize = 0;
-            this.TestStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestStop.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestStop.Location = new System.Drawing.Point(65, 8);
-            this.TestStop.Name = "TestStop";
-            this.TestStop.Size = new System.Drawing.Size(41, 40);
-            this.TestStop.TabIndex = 96;
-            this.TestStop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.TestStop.UseVisualStyleBackColor = true;
-            this.TestStop.Click += new System.EventHandler(this.TestStop_Click);
+            this.CurrentTestResult.BackColor = System.Drawing.SystemColors.Control;
+            this.CurrentTestResult.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CurrentTestResult.BackgroundImage")));
+            this.CurrentTestResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CurrentTestResult.FlatAppearance.BorderSize = 0;
+            this.CurrentTestResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CurrentTestResult.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CurrentTestResult.Location = new System.Drawing.Point(221, 14);
+            this.CurrentTestResult.Name = "CurrentTestResult";
+            this.CurrentTestResult.Size = new System.Drawing.Size(40, 30);
+            this.CurrentTestResult.TabIndex = 93;
+            this.CurrentTestResult.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.CurrentTestResult.UseVisualStyleBackColor = false;
+            this.CurrentTestResult.Click += new System.EventHandler(this.CurrentTestResult_Click);
             // 
             // TestRun
             // 
@@ -1552,7 +1571,7 @@
             this.TestRun.FlatAppearance.BorderSize = 0;
             this.TestRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestRun.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestRun.Location = new System.Drawing.Point(14, 8);
+            this.TestRun.Location = new System.Drawing.Point(85, 8);
             this.TestRun.Name = "TestRun";
             this.TestRun.Size = new System.Drawing.Size(40, 40);
             this.TestRun.TabIndex = 95;
@@ -1720,11 +1739,11 @@
             // 
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label110.Location = new System.Drawing.Point(709, 25);
+            this.label110.Location = new System.Drawing.Point(782, 30);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(186, 23);
+            this.label110.Size = new System.Drawing.Size(120, 23);
             this.label110.TabIndex = 121;
-            this.label110.Text = "求解得测试结果：";
+            this.label110.Text = "测试结果：";
             // 
             // label109
             // 
@@ -2944,11 +2963,11 @@
             // 
             this.label124.AutoSize = true;
             this.label124.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label124.Location = new System.Drawing.Point(676, 32);
+            this.label124.Location = new System.Drawing.Point(751, 32);
             this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(186, 23);
+            this.label124.Size = new System.Drawing.Size(120, 23);
             this.label124.TabIndex = 121;
-            this.label124.Text = "求解得测试结果：";
+            this.label124.Text = "测试结果：";
             // 
             // label123
             // 
@@ -3825,11 +3844,11 @@
             // 
             this.label143.AutoSize = true;
             this.label143.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label143.Location = new System.Drawing.Point(637, 25);
+            this.label143.Location = new System.Drawing.Point(708, 25);
             this.label143.Name = "label143";
-            this.label143.Size = new System.Drawing.Size(186, 23);
+            this.label143.Size = new System.Drawing.Size(120, 23);
             this.label143.TabIndex = 121;
-            this.label143.Text = "求解得测试结果：";
+            this.label143.Text = "测试结果：";
             // 
             // label142
             // 
@@ -5000,70 +5019,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // TestChoose3
-            // 
-            this.TestChoose3.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose3.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.TestChoose3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.TestChoose3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestChoose3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestChoose3.ForeColor = System.Drawing.Color.Black;
-            this.TestChoose3.Location = new System.Drawing.Point(386, 1);
-            this.TestChoose3.Name = "TestChoose3";
-            this.TestChoose3.Size = new System.Drawing.Size(0, 0);
-            this.TestChoose3.TabIndex = 2;
-            this.TestChoose3.Text = "热界面材料测量_热流计间";
-            this.TestChoose3.UseVisualStyleBackColor = true;
-            this.TestChoose3.Click += new System.EventHandler(this.TestChoose3_Click);
-            // 
-            // TestChoose1
-            // 
-            this.TestChoose1.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose1.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.TestChoose1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.TestChoose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestChoose1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestChoose1.ForeColor = System.Drawing.Color.Black;
-            this.TestChoose1.Location = new System.Drawing.Point(5, 1);
-            this.TestChoose1.Name = "TestChoose1";
-            this.TestChoose1.Size = new System.Drawing.Size(0, 0);
-            this.TestChoose1.TabIndex = 0;
-            this.TestChoose1.Text = "导热系数测量";
-            this.TestChoose1.UseVisualStyleBackColor = true;
-            this.TestChoose1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // TestChoose4
-            // 
-            this.TestChoose4.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose4.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.TestChoose4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.TestChoose4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestChoose4.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestChoose4.ForeColor = System.Drawing.Color.Black;
-            this.TestChoose4.Location = new System.Drawing.Point(663, 1);
-            this.TestChoose4.Name = "TestChoose4";
-            this.TestChoose4.Size = new System.Drawing.Size(0, 0);
-            this.TestChoose4.TabIndex = 89;
-            this.TestChoose4.Text = "热界面材料测量_试件间";
-            this.TestChoose4.UseVisualStyleBackColor = true;
-            this.TestChoose4.Click += new System.EventHandler(this.TestChoose4_Click);
-            // 
-            // TestChoose2
-            // 
-            this.TestChoose2.BackColor = System.Drawing.Color.LightGray;
-            this.TestChoose2.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.TestChoose2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.TestChoose2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestChoose2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestChoose2.ForeColor = System.Drawing.Color.Black;
-            this.TestChoose2.Location = new System.Drawing.Point(170, 1);
-            this.TestChoose2.Name = "TestChoose2";
-            this.TestChoose2.Size = new System.Drawing.Size(0, 0);
-            this.TestChoose2.TabIndex = 1;
-            this.TestChoose2.Text = "固_固接触热阻测量";
-            this.TestChoose2.UseVisualStyleBackColor = true;
-            this.TestChoose2.Click += new System.EventHandler(this.TestChoose2_Click);
-            // 
             // ParSetting
             // 
             this.ParSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ParSetting.BackgroundImage")));
@@ -5089,7 +5044,7 @@
             this.SerialPort.FlatAppearance.BorderSize = 0;
             this.SerialPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SerialPort.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SerialPort.Location = new System.Drawing.Point(298, 8);
+            this.SerialPort.Location = new System.Drawing.Point(384, 8);
             this.SerialPort.Name = "SerialPort";
             this.SerialPort.Size = new System.Drawing.Size(40, 40);
             this.SerialPort.TabIndex = 97;
@@ -5130,24 +5085,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle19;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle20;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle21;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5451,9 +5406,9 @@
             this.AdvancedSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdvancedSetting.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AdvancedSetting.ForeColor = System.Drawing.Color.Black;
-            this.AdvancedSetting.Location = new System.Drawing.Point(430, 8);
+            this.AdvancedSetting.Location = new System.Drawing.Point(464, 14);
             this.AdvancedSetting.Name = "AdvancedSetting";
-            this.AdvancedSetting.Size = new System.Drawing.Size(40, 40);
+            this.AdvancedSetting.Size = new System.Drawing.Size(40, 30);
             this.AdvancedSetting.TabIndex = 103;
             this.AdvancedSetting.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.AdvancedSetting.UseVisualStyleBackColor = true;
@@ -5535,7 +5490,7 @@
             this.Monitor.FlatAppearance.BorderSize = 0;
             this.Monitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Monitor.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Monitor.Location = new System.Drawing.Point(145, 8);
+            this.Monitor.Location = new System.Drawing.Point(139, 8);
             this.Monitor.Name = "Monitor";
             this.Monitor.Size = new System.Drawing.Size(40, 40);
             this.Monitor.TabIndex = 102;
@@ -5543,32 +5498,52 @@
             this.Monitor.UseVisualStyleBackColor = true;
             this.Monitor.Click += new System.EventHandler(this.Monitor_Click);
             // 
-            // groupBox1
+            // MenuGroupBox
             // 
-            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
-            this.groupBox1.Controls.Add(this.label54);
-            this.groupBox1.Controls.Add(this.TestChooseFormShow);
-            this.groupBox1.Controls.Add(this.label61);
-            this.groupBox1.Controls.Add(this.label58);
-            this.groupBox1.Controls.Add(this.label56);
-            this.groupBox1.Controls.Add(this.AdvancedSettingLabel);
-            this.groupBox1.Controls.Add(this.label53);
-            this.groupBox1.Controls.Add(this.label52);
-            this.groupBox1.Controls.Add(this.label51);
-            this.groupBox1.Controls.Add(this.label50);
-            this.groupBox1.Controls.Add(this.label47);
-            this.groupBox1.Controls.Add(this.AdvancedSetting);
-            this.groupBox1.Controls.Add(this.ResultGroupBox);
-            this.groupBox1.Controls.Add(this.TestRun);
-            this.groupBox1.Controls.Add(this.SerialPort);
-            this.groupBox1.Controls.Add(this.Monitor);
-            this.groupBox1.Controls.Add(this.TestStop);
-            this.groupBox1.Controls.Add(this.TestResult);
-            this.groupBox1.Location = new System.Drawing.Point(-2, -5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1279, 90);
-            this.groupBox1.TabIndex = 103;
-            this.groupBox1.TabStop = false;
+            this.MenuGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuGroupBox.BackgroundImage")));
+            this.MenuGroupBox.Controls.Add(this.label56);
+            this.MenuGroupBox.Controls.Add(this.label54);
+            this.MenuGroupBox.Controls.Add(this.TestChooseFormShow);
+            this.MenuGroupBox.Controls.Add(this.HistoryTestResult);
+            this.MenuGroupBox.Controls.Add(this.AdvancedLabel);
+            this.MenuGroupBox.Controls.Add(this.label58);
+            this.MenuGroupBox.Controls.Add(this.lable80);
+            this.MenuGroupBox.Controls.Add(this.AdvancedSettingLabel);
+            this.MenuGroupBox.Controls.Add(this.SerialPortLabel);
+            this.MenuGroupBox.Controls.Add(this.label52);
+            this.MenuGroupBox.Controls.Add(this.label51);
+            this.MenuGroupBox.Controls.Add(this.TestRunLabel);
+            this.MenuGroupBox.Controls.Add(this.AdvancedSetting);
+            this.MenuGroupBox.Controls.Add(this.ResultGroupBox);
+            this.MenuGroupBox.Controls.Add(this.TestRun);
+            this.MenuGroupBox.Controls.Add(this.SerialPort);
+            this.MenuGroupBox.Controls.Add(this.Monitor);
+            this.MenuGroupBox.Controls.Add(this.CurrentTestResult);
+            this.MenuGroupBox.Location = new System.Drawing.Point(-2, -5);
+            this.MenuGroupBox.Name = "MenuGroupBox";
+            this.MenuGroupBox.Size = new System.Drawing.Size(1279, 89);
+            this.MenuGroupBox.TabIndex = 103;
+            this.MenuGroupBox.TabStop = false;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label56.Location = new System.Drawing.Point(286, 44);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(65, 20);
+            this.label56.TabIndex = 115;
+            this.label56.Text = "历史测试";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label54.Location = new System.Drawing.Point(11, 44);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(65, 20);
+            this.label54.TabIndex = 113;
+            this.label54.Text = "切换方法";
             // 
             // TestChooseFormShow
             // 
@@ -5578,7 +5553,7 @@
             this.TestChooseFormShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestChooseFormShow.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestChooseFormShow.ForeColor = System.Drawing.Color.Black;
-            this.TestChooseFormShow.Location = new System.Drawing.Point(362, 8);
+            this.TestChooseFormShow.Location = new System.Drawing.Point(20, 8);
             this.TestChooseFormShow.Name = "TestChooseFormShow";
             this.TestChooseFormShow.Size = new System.Drawing.Size(40, 40);
             this.TestChooseFormShow.TabIndex = 112;
@@ -5586,108 +5561,520 @@
             this.TestChooseFormShow.UseVisualStyleBackColor = true;
             this.TestChooseFormShow.Click += new System.EventHandler(this.TestChooseFormShow_Click);
             // 
-            // label61
+            // HistoryTestResult
             // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label61.Location = new System.Drawing.Point(339, 72);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(37, 20);
-            this.label61.TabIndex = 111;
-            this.label61.Text = "设置";
+            this.HistoryTestResult.BackColor = System.Drawing.SystemColors.Control;
+            this.HistoryTestResult.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HistoryTestResult.BackgroundImage")));
+            this.HistoryTestResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.HistoryTestResult.FlatAppearance.BorderSize = 0;
+            this.HistoryTestResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HistoryTestResult.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.HistoryTestResult.Location = new System.Drawing.Point(295, 12);
+            this.HistoryTestResult.Name = "HistoryTestResult";
+            this.HistoryTestResult.Size = new System.Drawing.Size(40, 33);
+            this.HistoryTestResult.TabIndex = 114;
+            this.HistoryTestResult.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.HistoryTestResult.UseVisualStyleBackColor = false;
+            this.HistoryTestResult.Click += new System.EventHandler(this.HistoryTestResult_Click);
+            // 
+            // AdvancedLabel
+            // 
+            this.AdvancedLabel.AutoSize = true;
+            this.AdvancedLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.AdvancedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AdvancedLabel.Location = new System.Drawing.Point(413, 69);
+            this.AdvancedLabel.Name = "AdvancedLabel";
+            this.AdvancedLabel.Size = new System.Drawing.Size(65, 20);
+            this.AdvancedLabel.TabIndex = 111;
+            this.AdvancedLabel.Text = "高级设置";
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label58.Location = new System.Drawing.Point(186, 72);
+            this.label58.Location = new System.Drawing.Point(245, 69);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(37, 20);
+            this.label58.Size = new System.Drawing.Size(65, 20);
             this.label58.TabIndex = 110;
-            this.label58.Text = "显示";
+            this.label58.Text = "数据处理";
             // 
-            // label56
+            // lable80
             // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label56.Location = new System.Drawing.Point(42, 72);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(37, 20);
-            this.label56.TabIndex = 109;
-            this.label56.Text = "测量";
+            this.lable80.AutoSize = true;
+            this.lable80.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.lable80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lable80.Location = new System.Drawing.Point(85, 69);
+            this.lable80.Name = "lable80";
+            this.lable80.Size = new System.Drawing.Size(37, 20);
+            this.lable80.TabIndex = 109;
+            this.lable80.Text = "测量";
             // 
             // AdvancedSettingLabel
             // 
             this.AdvancedSettingLabel.AutoSize = true;
             this.AdvancedSettingLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.AdvancedSettingLabel.Location = new System.Drawing.Point(418, 42);
+            this.AdvancedSettingLabel.Location = new System.Drawing.Point(451, 44);
             this.AdvancedSettingLabel.Name = "AdvancedSettingLabel";
             this.AdvancedSettingLabel.Size = new System.Drawing.Size(65, 20);
             this.AdvancedSettingLabel.TabIndex = 108;
             this.AdvancedSettingLabel.Text = "参数标定";
             // 
-            // label53
+            // SerialPortLabel
             // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label53.Location = new System.Drawing.Point(285, 42);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(65, 20);
-            this.label53.TabIndex = 107;
-            this.label53.Text = "串口设置";
+            this.SerialPortLabel.AutoSize = true;
+            this.SerialPortLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.SerialPortLabel.Location = new System.Drawing.Point(371, 44);
+            this.SerialPortLabel.Name = "SerialPortLabel";
+            this.SerialPortLabel.Size = new System.Drawing.Size(65, 20);
+            this.SerialPortLabel.TabIndex = 107;
+            this.SerialPortLabel.Text = "串口设置";
             // 
             // label52
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label52.Location = new System.Drawing.Point(205, 42);
+            this.label52.Location = new System.Drawing.Point(209, 44);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(65, 20);
             this.label52.TabIndex = 106;
-            this.label52.Text = "测试结果";
+            this.label52.Text = "当前测试";
             // 
             // label51
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label51.Location = new System.Drawing.Point(134, 42);
+            this.label51.Location = new System.Drawing.Point(128, 44);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(65, 20);
             this.label51.TabIndex = 105;
             this.label51.Text = "温度监视";
             // 
+            // TestRunLabel
+            // 
+            this.TestRunLabel.AutoSize = true;
+            this.TestRunLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.TestRunLabel.Location = new System.Drawing.Point(85, 44);
+            this.TestRunLabel.Name = "TestRunLabel";
+            this.TestRunLabel.Size = new System.Drawing.Size(37, 20);
+            this.TestRunLabel.TabIndex = 104;
+            this.TestRunLabel.Text = "运行";
+            // 
+            // LoginGroupBox
+            // 
+            this.LoginGroupBox.Controls.Add(this.button1);
+            this.LoginGroupBox.Controls.Add(this.button3);
+            this.LoginGroupBox.Controls.Add(this.label50);
+            this.LoginGroupBox.Controls.Add(this.button2);
+            this.LoginGroupBox.Controls.Add(this.label69);
+            this.LoginGroupBox.Controls.Add(this.login);
+            this.LoginGroupBox.Controls.Add(this.comboBox);
+            this.LoginGroupBox.Controls.Add(this.cancel);
+            this.LoginGroupBox.Controls.Add(this.label70);
+            this.LoginGroupBox.Controls.Add(this.usernameTBox);
+            this.LoginGroupBox.Controls.Add(this.userpasswordTBox);
+            this.LoginGroupBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginGroupBox.Location = new System.Drawing.Point(485, 349);
+            this.LoginGroupBox.Name = "LoginGroupBox";
+            this.LoginGroupBox.Size = new System.Drawing.Size(309, 286);
+            this.LoginGroupBox.TabIndex = 104;
+            this.LoginGroupBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(6, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 96;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.Control;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(6, 115);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 98;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label50.Location = new System.Drawing.Point(67, 42);
+            this.label50.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label50.Location = new System.Drawing.Point(44, 80);
+            this.label50.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(37, 20);
-            this.label50.TabIndex = 105;
-            this.label50.Text = "停止";
+            this.label50.Size = new System.Drawing.Size(58, 21);
+            this.label50.TabIndex = 0;
+            this.label50.Text = "用户名";
             // 
-            // label47
+            // button2
             // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label47.Location = new System.Drawing.Point(16, 42);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(37, 20);
-            this.label47.TabIndex = 104;
-            this.label47.Text = "运行";
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(6, 74);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 35);
+            this.button2.TabIndex = 97;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // label54
+            // label69
             // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label54.Location = new System.Drawing.Point(351, 42);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(65, 20);
-            this.label54.TabIndex = 113;
-            this.label54.Text = "切换方法";
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label69.Location = new System.Drawing.Point(44, 124);
+            this.label69.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(42, 21);
+            this.label69.TabIndex = 1;
+            this.label69.Text = "密码";
+            // 
+            // login
+            // 
+            this.login.BackColor = System.Drawing.Color.DodgerBlue;
+            this.login.Location = new System.Drawing.Point(7, 171);
+            this.login.Margin = new System.Windows.Forms.Padding(5);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(294, 47);
+            this.login.TabIndex = 2;
+            this.login.Text = "确认登录";
+            this.login.UseVisualStyleBackColor = false;
+            this.login.Click += new System.EventHandler(this.login_Click);
+            // 
+            // comboBox
+            // 
+            this.comboBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Items.AddRange(new object[] {
+            "普通用户",
+            "高级用户"});
+            this.comboBox.Location = new System.Drawing.Point(112, 34);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(189, 29);
+            this.comboBox.TabIndex = 7;
+            // 
+            // cancel
+            // 
+            this.cancel.BackColor = System.Drawing.Color.Gold;
+            this.cancel.Location = new System.Drawing.Point(7, 228);
+            this.cancel.Margin = new System.Windows.Forms.Padding(5);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(294, 47);
+            this.cancel.TabIndex = 3;
+            this.cancel.Text = "取消登录";
+            this.cancel.UseVisualStyleBackColor = false;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label70.Location = new System.Drawing.Point(44, 37);
+            this.label70.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(42, 21);
+            this.label70.TabIndex = 6;
+            this.label70.Text = "类型";
+            // 
+            // usernameTBox
+            // 
+            this.usernameTBox.Location = new System.Drawing.Point(112, 77);
+            this.usernameTBox.Margin = new System.Windows.Forms.Padding(5);
+            this.usernameTBox.Name = "usernameTBox";
+            this.usernameTBox.Size = new System.Drawing.Size(189, 29);
+            this.usernameTBox.TabIndex = 4;
+            // 
+            // userpasswordTBox
+            // 
+            this.userpasswordTBox.Location = new System.Drawing.Point(112, 121);
+            this.userpasswordTBox.Margin = new System.Windows.Forms.Padding(5);
+            this.userpasswordTBox.Name = "userpasswordTBox";
+            this.userpasswordTBox.Size = new System.Drawing.Size(189, 29);
+            this.userpasswordTBox.TabIndex = 5;
+            this.userpasswordTBox.TextChanged += new System.EventHandler(this.userpasswordTBox_TextChanged);
+            // 
+            // TestChoiseGroupBox
+            // 
+            this.TestChoiseGroupBox.Controls.Add(this.test1);
+            this.TestChoiseGroupBox.Controls.Add(this.test4);
+            this.TestChoiseGroupBox.Controls.Add(this.label151);
+            this.TestChoiseGroupBox.Controls.Add(this.test3);
+            this.TestChoiseGroupBox.Controls.Add(this.test2);
+            this.TestChoiseGroupBox.Location = new System.Drawing.Point(213, 312);
+            this.TestChoiseGroupBox.Name = "TestChoiseGroupBox";
+            this.TestChoiseGroupBox.Size = new System.Drawing.Size(854, 360);
+            this.TestChoiseGroupBox.TabIndex = 105;
+            this.TestChoiseGroupBox.TabStop = false;
+            // 
+            // test1
+            // 
+            this.test1.BackColor = System.Drawing.SystemColors.Control;
+            this.test1.Controls.Add(this.label92);
+            this.test1.Controls.Add(this.testchoose1);
+            this.test1.Controls.Add(this.label96);
+            this.test1.ForeColor = System.Drawing.Color.Blue;
+            this.test1.Location = new System.Drawing.Point(6, 64);
+            this.test1.Name = "test1";
+            this.test1.Size = new System.Drawing.Size(177, 289);
+            this.test1.TabIndex = 92;
+            this.test1.TabStop = false;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label92.Location = new System.Drawing.Point(63, 17);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(42, 20);
+            this.label92.TabIndex = 94;
+            this.label92.Text = "(K)";
+            // 
+            // testchoose1
+            // 
+            this.testchoose1.BackColor = System.Drawing.SystemColors.Control;
+            this.testchoose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose1.BackgroundImage")));
+            this.testchoose1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.testchoose1.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.testchoose1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.testchoose1.FlatAppearance.BorderSize = 0;
+            this.testchoose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testchoose1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose1.ForeColor = System.Drawing.Color.Black;
+            this.testchoose1.Location = new System.Drawing.Point(21, 75);
+            this.testchoose1.Name = "testchoose1";
+            this.testchoose1.Size = new System.Drawing.Size(134, 179);
+            this.testchoose1.TabIndex = 1;
+            this.testchoose1.Text = "           ";
+            this.testchoose1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.testchoose1.UseVisualStyleBackColor = false;
+            this.testchoose1.Click += new System.EventHandler(this.testchoose1_Click);
+            this.testchoose1.MouseLeave += new System.EventHandler(this.testchoose1_MouseLeave);
+            this.testchoose1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose1_MouseMove);
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label96.Location = new System.Drawing.Point(29, 52);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(135, 20);
+            this.label96.TabIndex = 93;
+            this.label96.Text = "导热系数测量";
+            // 
+            // test4
+            // 
+            this.test4.BackColor = System.Drawing.SystemColors.Control;
+            this.test4.Controls.Add(this.label148);
+            this.test4.Controls.Add(this.label149);
+            this.test4.Controls.Add(this.label150);
+            this.test4.Controls.Add(this.testchoose4);
+            this.test4.ForeColor = System.Drawing.Color.Magenta;
+            this.test4.Location = new System.Drawing.Point(644, 64);
+            this.test4.Name = "test4";
+            this.test4.Size = new System.Drawing.Size(202, 289);
+            this.test4.TabIndex = 95;
+            this.test4.TabStop = false;
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label148.Location = new System.Drawing.Point(56, 72);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(116, 20);
+            this.label148.TabIndex = 95;
+            this.label148.Text = "(试件间)  ";
+            // 
+            // label149
+            // 
+            this.label149.AutoSize = true;
+            this.label149.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label149.Location = new System.Drawing.Point(77, 17);
+            this.label149.Name = "label149";
+            this.label149.Size = new System.Drawing.Size(42, 20);
+            this.label149.TabIndex = 94;
+            this.label149.Text = "(R)";
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label150.Location = new System.Drawing.Point(26, 52);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(156, 20);
+            this.label150.TabIndex = 93;
+            this.label150.Text = "热界面材料测量";
+            // 
+            // testchoose4
+            // 
+            this.testchoose4.BackColor = System.Drawing.SystemColors.Control;
+            this.testchoose4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose4.BackgroundImage")));
+            this.testchoose4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.testchoose4.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.testchoose4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.testchoose4.FlatAppearance.BorderSize = 0;
+            this.testchoose4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testchoose4.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose4.ForeColor = System.Drawing.Color.Black;
+            this.testchoose4.Location = new System.Drawing.Point(23, 107);
+            this.testchoose4.Name = "testchoose4";
+            this.testchoose4.Size = new System.Drawing.Size(159, 147);
+            this.testchoose4.TabIndex = 90;
+            this.testchoose4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.testchoose4.UseVisualStyleBackColor = false;
+            this.testchoose4.Click += new System.EventHandler(this.testchoose4_Click);
+            this.testchoose4.MouseLeave += new System.EventHandler(this.testchoose4_MouseLeave);
+            this.testchoose4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose4_MouseMove);
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label151.Location = new System.Drawing.Point(333, 15);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(167, 30);
+            this.label151.TabIndex = 91;
+            this.label151.Text = "请选择实验类型";
+            // 
+            // test3
+            // 
+            this.test3.BackColor = System.Drawing.SystemColors.Control;
+            this.test3.Controls.Add(this.label152);
+            this.test3.Controls.Add(this.label153);
+            this.test3.Controls.Add(this.label154);
+            this.test3.Controls.Add(this.testchoose3);
+            this.test3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.test3.Location = new System.Drawing.Point(420, 64);
+            this.test3.Name = "test3";
+            this.test3.Size = new System.Drawing.Size(218, 289);
+            this.test3.TabIndex = 95;
+            this.test3.TabStop = false;
+            // 
+            // label152
+            // 
+            this.label152.AutoSize = true;
+            this.label152.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label152.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label152.Location = new System.Drawing.Point(57, 72);
+            this.label152.Name = "label152";
+            this.label152.Size = new System.Drawing.Size(115, 20);
+            this.label152.TabIndex = 95;
+            this.label152.Text = "(热流计间)";
+            // 
+            // label153
+            // 
+            this.label153.AutoSize = true;
+            this.label153.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label153.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label153.Location = new System.Drawing.Point(87, 17);
+            this.label153.Name = "label153";
+            this.label153.Size = new System.Drawing.Size(42, 20);
+            this.label153.TabIndex = 94;
+            this.label153.Text = "(R)";
+            // 
+            // label154
+            // 
+            this.label154.AutoSize = true;
+            this.label154.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label154.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label154.Location = new System.Drawing.Point(39, 52);
+            this.label154.Name = "label154";
+            this.label154.Size = new System.Drawing.Size(156, 20);
+            this.label154.TabIndex = 93;
+            this.label154.Text = "热界面材料测量";
+            // 
+            // testchoose3
+            // 
+            this.testchoose3.BackColor = System.Drawing.SystemColors.Control;
+            this.testchoose3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose3.BackgroundImage")));
+            this.testchoose3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.testchoose3.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.testchoose3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.testchoose3.FlatAppearance.BorderSize = 0;
+            this.testchoose3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testchoose3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose3.ForeColor = System.Drawing.Color.Black;
+            this.testchoose3.Location = new System.Drawing.Point(31, 122);
+            this.testchoose3.Name = "testchoose3";
+            this.testchoose3.Size = new System.Drawing.Size(155, 132);
+            this.testchoose3.TabIndex = 3;
+            this.testchoose3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.testchoose3.UseVisualStyleBackColor = false;
+            this.testchoose3.Click += new System.EventHandler(this.testchoose3_Click);
+            this.testchoose3.MouseLeave += new System.EventHandler(this.testchoose3_MouseLeave);
+            this.testchoose3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose3_MouseMove);
+            // 
+            // test2
+            // 
+            this.test2.BackColor = System.Drawing.SystemColors.Control;
+            this.test2.Controls.Add(this.label155);
+            this.test2.Controls.Add(this.label156);
+            this.test2.Controls.Add(this.testchoose2);
+            this.test2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.test2.Location = new System.Drawing.Point(189, 64);
+            this.test2.Name = "test2";
+            this.test2.Size = new System.Drawing.Size(225, 289);
+            this.test2.TabIndex = 94;
+            this.test2.TabStop = false;
+            // 
+            // label155
+            // 
+            this.label155.AutoSize = true;
+            this.label155.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label155.Location = new System.Drawing.Point(90, 17);
+            this.label155.Name = "label155";
+            this.label155.Size = new System.Drawing.Size(42, 20);
+            this.label155.TabIndex = 94;
+            this.label155.Text = "(R)";
+            // 
+            // label156
+            // 
+            this.label156.AutoSize = true;
+            this.label156.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label156.Location = new System.Drawing.Point(16, 52);
+            this.label156.Name = "label156";
+            this.label156.Size = new System.Drawing.Size(188, 20);
+            this.label156.TabIndex = 93;
+            this.label156.Text = "固_固接触热阻测量";
+            // 
+            // testchoose2
+            // 
+            this.testchoose2.BackColor = System.Drawing.SystemColors.Control;
+            this.testchoose2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose2.BackgroundImage")));
+            this.testchoose2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.testchoose2.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.testchoose2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.testchoose2.FlatAppearance.BorderSize = 0;
+            this.testchoose2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testchoose2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose2.ForeColor = System.Drawing.Color.Black;
+            this.testchoose2.Location = new System.Drawing.Point(36, 122);
+            this.testchoose2.Name = "testchoose2";
+            this.testchoose2.Size = new System.Drawing.Size(151, 132);
+            this.testchoose2.TabIndex = 2;
+            this.testchoose2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.testchoose2.UseVisualStyleBackColor = false;
+            this.testchoose2.Click += new System.EventHandler(this.testchoose2_Click);
+            this.testchoose2.MouseLeave += new System.EventHandler(this.testchoose2_MouseLeave);
+            this.testchoose2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose2_MouseMove);
             // 
             // SetupTest
             // 
@@ -5695,14 +6082,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 945);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.TestChoiseGroupBox);
+            this.Controls.Add(this.LoginGroupBox);
+            this.Controls.Add(this.MenuGroupBox);
             this.Controls.Add(this.EmptyGroupBox);
-            this.Controls.Add(this.TestChoose4);
             this.Controls.Add(this.skinGroupBox1);
-            this.Controls.Add(this.TestChoose3);
             this.Controls.Add(this.ParSetting);
-            this.Controls.Add(this.TestChoose1);
-            this.Controls.Add(this.TestChoose2);
             this.Controls.Add(this.skinGroupBox2);
             this.Controls.Add(this.skinButton10);
             this.Controls.Add(this.TextGroupbox4);
@@ -5735,8 +6120,20 @@
             this.ResultGroupBox.ResumeLayout(false);
             this.ResultGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.MenuGroupBox.ResumeLayout(false);
+            this.MenuGroupBox.PerformLayout();
+            this.LoginGroupBox.ResumeLayout(false);
+            this.LoginGroupBox.PerformLayout();
+            this.TestChoiseGroupBox.ResumeLayout(false);
+            this.TestChoiseGroupBox.PerformLayout();
+            this.test1.ResumeLayout(false);
+            this.test1.PerformLayout();
+            this.test4.ResumeLayout(false);
+            this.test4.PerformLayout();
+            this.test3.ResumeLayout(false);
+            this.test3.PerformLayout();
+            this.test2.ResumeLayout(false);
+            this.test2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -5985,14 +6382,9 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button TestChoose1;
-        private System.Windows.Forms.Button TestChoose2;
-        private System.Windows.Forms.Button TestChoose3;
-        private System.Windows.Forms.Button TestChoose4;
         private System.Windows.Forms.Button ParSetting;
-        private System.Windows.Forms.Button TestResult;
+        private System.Windows.Forms.Button CurrentTestResult;
         private System.Windows.Forms.Button TestRun;
-        private System.Windows.Forms.Button TestStop;
         private System.Windows.Forms.Button SerialPort;
         private CCWin.SkinControl.SkinGroupBox skinGroupBox2;
         private System.Windows.Forms.TextBox edit_save_interval;
@@ -6129,14 +6521,13 @@
         private System.Windows.Forms.Label Tlable4_4;
         private System.Windows.Forms.Label Tlable4_3;
         private System.Windows.Forms.Button Monitor;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.GroupBox MenuGroupBox;
+        private System.Windows.Forms.Label lable80;
+        private System.Windows.Forms.Label SerialPortLabel;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label TestRunLabel;
+        private System.Windows.Forms.Label AdvancedLabel;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label68;
@@ -6211,5 +6602,39 @@
         public System.Windows.Forms.Button AdvancedSetting;
         public System.Windows.Forms.Label AdvancedSettingLabel;
         private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.GroupBox LoginGroupBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Button login;
+        private System.Windows.Forms.ComboBox comboBox;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.TextBox usernameTBox;
+        private System.Windows.Forms.TextBox userpasswordTBox;
+        private System.Windows.Forms.GroupBox TestChoiseGroupBox;
+        private System.Windows.Forms.GroupBox test1;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.Button testchoose1;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.GroupBox test4;
+        private System.Windows.Forms.Label label148;
+        private System.Windows.Forms.Label label149;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.Button testchoose4;
+        private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.GroupBox test3;
+        private System.Windows.Forms.Label label152;
+        private System.Windows.Forms.Label label153;
+        private System.Windows.Forms.Label label154;
+        private System.Windows.Forms.Button testchoose3;
+        private System.Windows.Forms.GroupBox test2;
+        private System.Windows.Forms.Label label155;
+        private System.Windows.Forms.Label label156;
+        private System.Windows.Forms.Button testchoose2;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Button HistoryTestResult;
     }
 }
