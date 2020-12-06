@@ -24,7 +24,8 @@ namespace multimeter {
         private List<string> recentTenData;
         private TestMethod _method;
         private TestResultChart testResultChart=new TestResultChart();
-        
+        private Dictionary<string, double> testResult = new Dictionary<string, double>();
+
 
         public SetupTest() {
             InitializeComponent();
@@ -749,13 +750,15 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     List<string> channels = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
                     List<double> dataList = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToList();
-                    Dictionary<string, double> testResult = new Dictionary<string, double>();
+                    //Dictionary<string, double> testResult = new Dictionary<string, double>();
                     for (int i = 0; i < channels.Count; i++)
                     {
                         testResult.Add(channels[i], dataList[i]);
                     }
 
-                    testResultChart.ShowChart(testResult);
+                    timer1.Enabled = true;
+                    timer1.Start();
+                    //testResultChart.ShowChart(testResult);
 
                 }
 
@@ -997,6 +1000,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         }
 
-
+        private void timer1_Tick(object sender, EventArgs e) {
+            testResultChart.ShowChart(testResult);
+            timer1.Stop();
+            timer1.Enabled = false;
+        }
     }
 }

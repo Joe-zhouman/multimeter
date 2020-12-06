@@ -131,5 +131,7 @@ namespace multimeter {
                 Cursor = Cursors.Default;
             }
         }
+
+
     }
 }
