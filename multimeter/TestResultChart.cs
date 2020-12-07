@@ -7,17 +7,15 @@ using DataProcessor;
 
 namespace multimeter {
     public partial class TestResultChart : Form {
-        private List<string> _channelList;
         private List<double> _latestTempList;
-        private int chartX;
-        private HeatMeter heatMeter1;
-        private HeatMeter heatMeter2;
-        private Sample sample1;
-        private Sample sample2;
-        private TestMethod testMethod;
+        private int _chartX;
+        private HeatMeter _heatMeter1;
+        private HeatMeter _heatMeter2;
+        private Sample _sample1;
+        private Sample _sample2;
 
         public
-            TestResultChart() //HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, TestMethod testMethod
+            TestResultChart() //HeatMeter _heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, TestMethod testMethod
         {
             InitializeComponent();
         }
@@ -25,13 +23,11 @@ namespace multimeter {
         private void TestResultChart_Load(object sender, EventArgs e) {
         }
 
-        public void Chart_Init(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2,
-            TestMethod testMethod) {
-            this.heatMeter1 = heatMeter1;
-            this.heatMeter2 = heatMeter2;
-            this.sample1 = sample1;
-            this.sample2 = sample2;
-            this.testMethod = testMethod;
+        public void Chart_Init(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2) {
+            _heatMeter1 = heatMeter1;
+            _heatMeter2 = heatMeter2;
+            _sample1 = sample1;
+            _sample2 = sample2;
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
             chart1.ChartAreas[0].AxisY.IsStartedFromZero = false;       //y轴自适应
             chart1.ChartAreas[0].AxisX.Maximum = 250;
@@ -70,34 +66,34 @@ namespace multimeter {
 
         public void ShowChart(Dictionary<string, double> testResult) {
             List<double> T = new List<double>();
-            if (heatMeter1 != null) {
-                heatMeter1.SetTemp(testResult);
+            if (_heatMeter1 != null) {
+                _heatMeter1.SetTemp(testResult);
 
-                T.AddRange(heatMeter1.Temp);
+                T.AddRange(_heatMeter1.Temp);
             }
 
-            if (sample1 != null) {
-                sample1.SetTemp(testResult);
-                T.AddRange(sample1.Temp);
+            if (_sample1 != null) {
+                _sample1.SetTemp(testResult);
+                T.AddRange(_sample1.Temp);
             }
 
-            if (sample2 != null) {
-                sample2.SetTemp(testResult);
-                T.AddRange(sample2.Temp);
+            if (_sample2 != null) {
+                _sample2.SetTemp(testResult);
+                T.AddRange(_sample2.Temp);
             }
 
-            if (heatMeter2 != null) {
-                heatMeter2.SetTemp(testResult);
-                T.AddRange(heatMeter2.Temp.Take(3));
+            if (_heatMeter2 != null) {
+                _heatMeter2.SetTemp(testResult);
+                T.AddRange(_heatMeter2.Temp.Take(3));
             }
 
-            for (int i = 0; i < T.Count; i++) chart1.Series[i].Points.AddXY(chartX, T[i]);
-            if (chartX > 250) {
-                chart1.ChartAreas[0].AxisX.Minimum = chartX - 250;
-                chart1.ChartAreas[0].AxisX.Maximum = chartX;
+            for (int i = 0; i < T.Count; i++) chart1.Series[i].Points.AddXY(_chartX, T[i]);
+            if (_chartX > 250) {
+                chart1.ChartAreas[0].AxisX.Minimum = _chartX - 250;
+                chart1.ChartAreas[0].AxisX.Maximum = _chartX;
             }
 
-            chartX++;
+            _chartX++;
             double residual = 1;
             if (_latestTempList != null) {
                 for (int i = 0; i < T.Count; i++) {
@@ -123,7 +119,7 @@ namespace multimeter {
         private void chart1_MouseMove(object sender, MouseEventArgs e) {
             HitTestResult result = chart1.HitTest(e.X, e.Y);
             if (result.ChartElementType == ChartElementType.DataPoint) {
-                DataPoint a = result.Object as DataPoint;
+                if (!(result.Object is DataPoint a)) return;
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
                 chartValue.Text = "Channel:"+ ChartElementType.LegendTitle +"\n"

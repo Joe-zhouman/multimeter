@@ -47,17 +47,19 @@ namespace DataProcessor {
             File.Create(filePath).Close();
             heatMeter1.SaveToIni(filePath);
             heatMeter2.SaveToIni(filePath);
-            //热电偶温度 T = alpha * U + T0
+            //热电偶温度 T = -273.15 + 1 / (alpha + beta * ln(x)+theta * ln(x)^3)
             //卡1 22个通道
             for (int i = 0; i < 22; i++) {
                 INIHelper.Write((i + 101).ToString(), "alpha", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
-                INIHelper.Write((i + 101).ToString(), "T0", "0.0", filePath); //热电偶标定系数 T0 Unit ℃
+                INIHelper.Write((i + 101).ToString(), "beta", "0.0", filePath); //热电偶标定系数 beta Unit ℃
+                INIHelper.Write((i + 101).ToString(), "theta", "0.0", filePath); //热电偶标定系数 theta Unit ℃
             }
 
             //卡2 22个通道
             for (int i = 0; i < 22; i++) {
                 INIHelper.Write((i + 201).ToString(), "alpha", "", filePath); // 热电偶标定系数 alpha Unit ℃/V
-                INIHelper.Write((i + 201).ToString(), "T0", "0.0", filePath); //热电偶标定系数 T0 Unit ℃
+                INIHelper.Write((i + 201).ToString(), "beta", "0.0", filePath); //热电偶标定系数 beta Unit ℃
+                INIHelper.Write((i + 101).ToString(), "theta", "0.0", filePath); //热电偶标定系数 theta Unit ℃
             }
 
             return filePath;
