@@ -19,7 +19,7 @@ using CCWin.SkinClass;
 
 namespace multimeter {
     public partial class SetupTest  {
-        private void TestResult_Click(object sender, EventArgs e) {
+        private void CurrentTestResult_Click(object sender, EventArgs e) {
             #region //数据结果
             //测试
             //latestIniFile = @"C:\Users\Joe\source\Joe-zhouman\multimeter\multimeter\bin\Debug\AutoSave\itc-2020-11-09-12.ini";
