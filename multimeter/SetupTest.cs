@@ -21,7 +21,6 @@ namespace multimeter {
         private string latestDataFile;
         private string latestIniFile;
         private string recvstr;
-        private List<string> recentTenData;
         private TestMethod _method;
         private TestResultChart testResultChart=new TestResultChart();
         
@@ -32,6 +31,8 @@ namespace multimeter {
 
         public void button1_Click(object sender, EventArgs e) {
             #region //选择测试方法1
+
+            K1_1.Text = "K" + "\x2080";
             TestChoose1.BackColor = Color.DodgerBlue;
             TestChoose2.BackColor = Color.LightGray;
             TestChoose3.BackColor = Color.LightGray;
@@ -238,7 +239,7 @@ namespace multimeter {
                     break;
             }
 
-            testResultChart.Chart_Init(heatMeter1,heatMeter2,sample1,sample2,_method);
+            testResultChart.Chart_Init(heatMeter1,heatMeter2,sample1,sample2);
             
 
             #endregion
@@ -388,9 +389,6 @@ namespace multimeter {
             ReadPara();
             TotalCHN = "";
             count = 0;
-            if (recentTenData != null) {
-                recentTenData.Clear();
-            }
             latestDataFile = "";
             latestIniFile = "";
             if ((latestIniFile = SlnIni.AutoSaveIni(_method))==null) {
@@ -790,15 +788,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     ListViewItem item = new ListViewItem(tmp.Split(','));
                     listView_main.Items.Add(item);
                     LastScan.Text = recvstr;
-                    if(count % 50 == 0) {
-                        //recentTenData.Add(recvstr);
-
-                    }
-
-                    if (recentTenData != null && recentTenData.Count > 10) {
-                        recentTenData.RemoveAt(0);
-                    }
-                    
                     if (count % AppCfg.devicepara.Save_interval == 0) {
                         SavetData("AutoSave", listView_main);
                         listView_main.Items.Clear();
@@ -914,7 +903,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 SlnIni.CreateDefaultIni();
                 string slnFilePath = SlnIni.CreateDefaultSlnIni();
                 SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
-                recentTenData = new List<string>();
                 #endregion
                 edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
                 edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();

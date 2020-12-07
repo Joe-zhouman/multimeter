@@ -167,7 +167,7 @@ namespace multimeter {
             Tlable2_14.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
             K2_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
             K2_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
-            TCRtest2.Text = $@"Rt = {itc}K/(W mm^2)";
+            TCRtest2.Text = $@"Rt = {itc}K/(W mm²)";
         }
         private void ShowItm(double itmKappa)
         {
@@ -179,10 +179,10 @@ namespace multimeter {
             Tlable3_6.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
             Tlable3_7.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
             Tlable3_8.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
-            k3_s.Text = $@"Ks={itmKappa}K/(W mm^2)";
+            k3_s.Text = $@"Ks={itmKappa}K/(W mm²)";
         }
-        private void ShowItms(double itmKappa)
-        {
+
+        private void ShowItms(double itmKappa) {
             Tlable4_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
             Tlable4_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
             Tlable4_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
@@ -199,9 +199,8 @@ namespace multimeter {
             Tlable4_14.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
             k4_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
             k4_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
-            k4_f.Text = $@"Ks = {itmKappa}K/(W mm^2)";
+            k4_f.Text = $@"Ks = {itmKappa}K/(W mm²)";
         }
-
         //-----------------
 
 

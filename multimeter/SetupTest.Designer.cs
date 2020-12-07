@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
@@ -490,6 +490,7 @@
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.Monitor = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label54 = new System.Windows.Forms.Label();
             this.TestChooseFormShow = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
@@ -500,7 +501,6 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox1.SuspendLayout();
             this.TextGroupbox2.SuspendLayout();
@@ -5130,24 +5130,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5570,6 +5570,16 @@
             this.groupBox1.TabIndex = 103;
             this.groupBox1.TabStop = false;
             // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label54.Location = new System.Drawing.Point(351, 42);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(65, 20);
+            this.label54.TabIndex = 113;
+            this.label54.Text = "切换方法";
+            // 
             // TestChooseFormShow
             // 
             this.TestChooseFormShow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TestChooseFormShow.BackgroundImage")));
@@ -5678,16 +5688,6 @@
             this.label47.Size = new System.Drawing.Size(37, 20);
             this.label47.TabIndex = 104;
             this.label47.Text = "运行";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label54.Location = new System.Drawing.Point(351, 42);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(65, 20);
-            this.label54.TabIndex = 113;
-            this.label54.Text = "切换方法";
             // 
             // SetupTest
             // 
