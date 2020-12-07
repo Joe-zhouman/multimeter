@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataProcessor {
+    /// <summary>
+    /// 测试件基类
+    /// </summary>
     public class Specimen {
         protected Specimen(string name) {
             Name = name;
             Kappa = "10.0";
             Diameter = "10.0";
-            Channel = new string[TestPoint];
-            Position = new string[TestPoint];
-            Alpha = new string[TestPoint];
-            T0 = new string[TestPoint];
-            Temp = new double[TestPoint];
-            for (int i = 0; i < TestPoint; i++)
-            {
-                Channel[i] = "201";
-                Position[i] = "10.0";
-                Alpha[i] = "1.0";
-                T0[i] = "1.0";
-                Temp[i] = 0.0;
-            }
+            
+            Channel = Enumerable.Repeat("201",TestPoint).ToArray();
+            Position = Enumerable.Repeat("1", TestPoint).ToArray();
+            Alpha = Enumerable.Repeat("1", TestPoint).ToArray();
+            Beta = Enumerable.Repeat("1", TestPoint).ToArray();
+            Theta = Enumerable.Repeat("1", TestPoint).ToArray();
+            Temp = Enumerable.Repeat(0.0, TestPoint).ToArray();
         }
 
         public string Name { get; set; }
@@ -28,7 +26,8 @@ namespace DataProcessor {
         public string[] Channel { get; set; }
         public string[] Position { get; set; }
         public string[] Alpha { get; set; }
-        public string[] T0 { get; set; }
+        public string[] Beta { get; set; }
+        public string[] Theta { get; set; }
         public double[] Temp { get; set; }
         public int TestPoint { get; set; }
 
@@ -54,13 +53,27 @@ namespace DataProcessor {
         public void LoadTempPara(string filePath) {
             for (int i = 0; i < TestPoint; i++) {
                 Alpha[i] = INIHelper.Read(Channel[i], "alpha", "10.0", filePath);
-                T0[i] = INIHelper.Read(Channel[i], "T0", "10.0", filePath);
+                Beta[i] = INIHelper.Read(Channel[i], "beta", "10.0", filePath);
+                Theta[i] = INIHelper.Read(Channel[i], "theta", "10.0", filePath);
             }
         }
 
+        /// <summary>
+        /// 电压转换为温度
+        /// T = -273.15 + 1 / (alpha + beta * ln(x)+theta * ln(x)^3)
+        /// </summary>
+        /// <param name="testResult"></param>
         public void SetTemp(Dictionary<string, double> testResult) {
-            for (int i = 0; i < TestPoint; i++)
-                Temp[i] = Math.Round(double.Parse(Alpha[i]) * testResult[Channel[i]] + double.Parse(T0[i]), 2);
+            for (int i = 0; i < TestPoint; i++) {
+                double tempVar = Math.Log(testResult[Channel[i]]);
+                Temp[i] = Math.Round(
+                    -273.15 + 1 / (double.Parse(Alpha[i]) + double.Parse(Beta[i]) * tempVar +
+                                   double.Parse(Theta[i]) * Math.Pow(tempVar, 3)), 2);
+            }
         }
+        //public void SetTemp(Dictionary<string, double> testResult) {
+        //    for (int i = 0; i < TestPoint; i++)
+        //        Temp[i] = Math.Round(double.Parse(Alpha[i]) * testResult[Channel[i]] + double.Parse(T0[i]), 2);
+        //}
     }
 }

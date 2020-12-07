@@ -10,7 +10,5 @@ namespace DataProcessor {
             INIHelper.Write(Name, "kappa", Kappa, filePath);
             base.SaveToIni(filePath);
         }
-
-
     }
 }
