@@ -15,72 +15,72 @@ namespace multimeter {
         public void TestChooseFormShow_Enable(bool enable) {
             if (enable) {
                 TestChooseFormShow.Enabled = true;
-                TestChooseFormShow.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "TestChooseFormShow_Enable.png"));
+                TestChooseFormShow.BackgroundImage = Resources.TestChooseFormShow_Enable;
             }
             else {
                 TestChooseFormShow.Enabled = false;
-                TestChooseFormShow.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "TestChooseFormShow_disable.png"));
+                TestChooseFormShow.BackgroundImage = Resources.TestChooseFormShow_disable;
             }
         }
 
         public void TestRun_Enable(bool enable) {
             if (enable) {
                 TestRun.Enabled = true;
-                TestRun.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "TestRun_Enable.png"));
+                TestRun.BackgroundImage = Resources.TestRun_Enable;
             }
             else {
                 //TestRun.Enabled = false;
-                TestRun.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "TestStop.png"));
+                TestRun.BackgroundImage = Resources.TestStop;
             }
         }
         public void Monitor_Enable(bool enable) {
             if (enable) {
                 Monitor.Enabled = true;
-                Monitor.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "Monitor_Enable.png"));
+                Monitor.BackgroundImage = Resources.Monitor_Enable;
             }
             else {
                 Monitor.Enabled = false;
-                Monitor.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "Monitor_Disable.png"));
+                Monitor.BackgroundImage = Resources.Monitor_Disable;
             }
         }
         public void CurrentTestResult_Enable(bool enable) {
             if (enable) {
                 CurrentTestResult.Enabled = true;
-                CurrentTestResult.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "CurrentDataProcess_Enable.png"));
+                CurrentTestResult.BackgroundImage = Resources.CurrentDataProcess_Enable;
             }
             else {
                 CurrentTestResult.Enabled = false;
-                CurrentTestResult.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "CurrentDataProcess_Disable.png"));
+                CurrentTestResult.BackgroundImage = Resources.CurrentDataProcess_Disable;
             }
         }
         public void HistoryTestResult_Enable(bool enable) {
             if (enable) {
                 HistoryTestResult.Enabled = true;
-                HistoryTestResult.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "HistoryDataProcess_Enable.png"));
+                HistoryTestResult.BackgroundImage = Resources.HistoryDataProcess_Enable;
             }
             else {
                 HistoryTestResult.Enabled = false;
-                HistoryTestResult.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "HistoryDataProcess_Disable.png"));
+                HistoryTestResult.BackgroundImage = Resources.HistoryDataProcess_Disable;
             }
         }
         public void SerialPort_Enable(bool enable) {
             if (enable) {
                 SerialPort.Enabled = true;
-                SerialPort.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "SerialPort_Enable.png"));
+                SerialPort.BackgroundImage = Resources.SerialPort_Enable;
             }
             else {
                 SerialPort.Enabled = false;
-                SerialPort.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "SerialPort_Disable.png"));
+                SerialPort.BackgroundImage = Resources.SerialPort_Disable;
             }
         }
         public void AdvancedSetting_Enable(bool enable) {
             if (enable) {
                 AdvancedSetting.Enabled = true;
-                AdvancedSetting.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "AdvancedSetting_Enable.png"));
+                AdvancedSetting.BackgroundImage = Resources.AdvancedSetting_Enable;
             }
             else {
                 AdvancedSetting.Enabled = false;
-                AdvancedSetting.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "AdvancedSetting_Disable.png"));
+                AdvancedSetting.BackgroundImage = Resources.AdvancedSetting_Disable;
             }
         }
 

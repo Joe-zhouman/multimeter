@@ -991,5 +991,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             timer1.Stop();
             timer1.Enabled = false;
         }
+
     }
 }
