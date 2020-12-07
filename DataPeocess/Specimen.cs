@@ -7,8 +7,10 @@ namespace DataProcessor {
     /// 测试件基类
     /// </summary>
     public class Specimen {
-        protected Specimen(string name) {
+        protected Specimen(string name,int testPoint) {
             Name = name;
+            TestPoint = testPoint;
+
             Kappa = "10.0";
             Diameter = "10.0";
             

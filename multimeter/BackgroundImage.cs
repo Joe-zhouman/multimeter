@@ -12,7 +12,7 @@ using System.IO;
 namespace multimeter {
     public partial class SetupTest {
         public void TestChooseFormShow_Enable(bool enable) {
-            if (enable == true) {
+            if (enable) {
                 TestChooseFormShow.Enabled = true;
                 TestChooseFormShow.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "TestChooseFormShow_Enable.png"));
             }
@@ -23,7 +23,7 @@ namespace multimeter {
         }
 
         public void TestRun_Enable(bool enable) {
-            if (enable == true) {
+            if (enable) {
                 TestRun.Enabled = true;
                 TestRun.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "TestRun_Enable.png"));
             }
@@ -33,7 +33,7 @@ namespace multimeter {
             }
         }
         public void Monitor_Enable(bool enable) {
-            if (enable == true) {
+            if (enable) {
                 Monitor.Enabled = true;
                 Monitor.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "Monitor_Enable.png"));
             }
@@ -43,7 +43,7 @@ namespace multimeter {
             }
         }
         public void CurrentTestResult_Enable(bool enable) {
-            if (enable == true) {
+            if (enable) {
                 CurrentTestResult.Enabled = true;
                 CurrentTestResult.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "CurrentDataProcess_Enable.png"));
             }
@@ -53,7 +53,7 @@ namespace multimeter {
             }
         }
         public void HistoryTestResult_Enable(bool enable) {
-            if (enable == true) {
+            if (enable) {
                 HistoryTestResult.Enabled = true;
                 HistoryTestResult.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "HistoryDataProcess_Enable.png"));
             }
@@ -63,7 +63,7 @@ namespace multimeter {
             }
         }
         public void SerialPort_Enable(bool enable) {
-            if (enable == true) {
+            if (enable) {
                 SerialPort.Enabled = true;
                 SerialPort.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "SerialPort_Enable.png"));
             }
@@ -73,7 +73,7 @@ namespace multimeter {
             }
         }
         public void AdvancedSetting_Enable(bool enable) {
-            if (enable == true) {
+            if (enable) {
                 AdvancedSetting.Enabled = true;
                 AdvancedSetting.BackgroundImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ButtonImage", "AdvancedSetting_Enable.png"));
             }
