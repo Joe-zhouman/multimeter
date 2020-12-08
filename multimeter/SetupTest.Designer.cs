@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
             this.ChannelLabel1_3 = new System.Windows.Forms.Label();
@@ -117,6 +117,7 @@
             this.Unit1_2 = new System.Windows.Forms.Label();
             this.LengthTextBox1_4 = new System.Windows.Forms.TextBox();
             this.Unit1_1 = new System.Windows.Forms.Label();
+            this.pictureTest1 = new System.Windows.Forms.PictureBox();
             this.LengthTextBox1_5 = new System.Windows.Forms.TextBox();
             this.LengthTextBox1_11 = new System.Windows.Forms.TextBox();
             this.LengthTextBox1_6 = new System.Windows.Forms.TextBox();
@@ -234,6 +235,7 @@
             this.ChannelLabel2_3 = new System.Windows.Forms.Label();
             this.LengthTextBox2_4 = new System.Windows.Forms.TextBox();
             this.Unit2_1 = new System.Windows.Forms.Label();
+            this.pictureTest2 = new System.Windows.Forms.PictureBox();
             this.LengthTextBox2_5 = new System.Windows.Forms.TextBox();
             this.LengthTextBox2_11 = new System.Windows.Forms.TextBox();
             this.LengthTextBox2_6 = new System.Windows.Forms.TextBox();
@@ -312,6 +314,7 @@
             this.label57 = new System.Windows.Forms.Label();
             this.LengthTextBox3_4 = new System.Windows.Forms.TextBox();
             this.Unit3_1 = new System.Windows.Forms.Label();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.LengthTextBox3_8 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_7 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_6 = new System.Windows.Forms.TextBox();
@@ -430,6 +433,7 @@
             this.label85 = new System.Windows.Forms.Label();
             this.LengthTextBox4_4 = new System.Windows.Forms.TextBox();
             this.Unit4_1 = new System.Windows.Forms.Label();
+            this.pictureBox43 = new System.Windows.Forms.PictureBox();
             this.LengthTextBox4_5 = new System.Windows.Forms.TextBox();
             this.LengthTextBox4_11 = new System.Windows.Forms.TextBox();
             this.LengthTextBox4_6 = new System.Windows.Forms.TextBox();
@@ -468,7 +472,10 @@
             this.skinLabel8 = new CCWin.SkinControl.SkinLabel();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.LoginGroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.label69 = new System.Windows.Forms.Label();
             this.login = new System.Windows.Forms.Button();
             this.comboBox = new System.Windows.Forms.ComboBox();
@@ -479,27 +486,24 @@
             this.TestChoiseGroupBox = new System.Windows.Forms.GroupBox();
             this.test1 = new System.Windows.Forms.GroupBox();
             this.label92 = new System.Windows.Forms.Label();
+            this.testchoose1 = new System.Windows.Forms.Button();
             this.label96 = new System.Windows.Forms.Label();
             this.test4 = new System.Windows.Forms.GroupBox();
             this.label148 = new System.Windows.Forms.Label();
             this.label149 = new System.Windows.Forms.Label();
             this.label150 = new System.Windows.Forms.Label();
+            this.testchoose4 = new System.Windows.Forms.Button();
             this.label151 = new System.Windows.Forms.Label();
             this.test3 = new System.Windows.Forms.GroupBox();
             this.label152 = new System.Windows.Forms.Label();
             this.label153 = new System.Windows.Forms.Label();
             this.label154 = new System.Windows.Forms.Label();
+            this.testchoose3 = new System.Windows.Forms.Button();
             this.test2 = new System.Windows.Forms.GroupBox();
             this.label155 = new System.Windows.Forms.Label();
             this.label156 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.testchoose1 = new System.Windows.Forms.Button();
-            this.testchoose4 = new System.Windows.Forms.Button();
-            this.testchoose3 = new System.Windows.Forms.Button();
             this.testchoose2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.label56 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -525,15 +529,15 @@
             this.CurrentTestResult = new System.Windows.Forms.Button();
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.ParSetting = new System.Windows.Forms.Button();
-            this.pictureBox43 = new System.Windows.Forms.PictureBox();
-            this.pictureTest1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.pictureTest2 = new System.Windows.Forms.PictureBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.TextGroupbox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).BeginInit();
             this.TextGroupbox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             this.TextGroupbox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
             this.skinGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).BeginInit();
             this.listview_card_hide.SuspendLayout();
@@ -546,10 +550,6 @@
             this.test2.SuspendLayout();
             this.MenuGroupBox.SuspendLayout();
             this.ResultGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1475,6 +1475,16 @@
             this.Unit1_1.TabIndex = 47;
             this.Unit1_1.Text = "mm";
             // 
+            // pictureTest1
+            // 
+            this.pictureTest1.Image = ((System.Drawing.Image)(resources.GetObject("pictureTest1.Image")));
+            this.pictureTest1.Location = new System.Drawing.Point(352, 72);
+            this.pictureTest1.Name = "pictureTest1";
+            this.pictureTest1.Size = new System.Drawing.Size(289, 741);
+            this.pictureTest1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureTest1.TabIndex = 0;
+            this.pictureTest1.TabStop = false;
+            // 
             // LengthTextBox1_5
             // 
             this.LengthTextBox1_5.ForeColor = System.Drawing.Color.Red;
@@ -2174,7 +2184,7 @@
             // 
             this.apply_btm_2.Location = new System.Drawing.Point(800, 792);
             this.apply_btm_2.Name = "apply_btm_2";
-            this.apply_btm_2.Size = new System.Drawing.Size(0, 0);
+            this.apply_btm_2.Size = new System.Drawing.Size(102, 30);
             this.apply_btm_2.TabIndex = 85;
             this.apply_btm_2.Text = "保存参数";
             this.apply_btm_2.UseVisualStyleBackColor = true;
@@ -2738,6 +2748,16 @@
             this.Unit2_1.Size = new System.Drawing.Size(42, 23);
             this.Unit2_1.TabIndex = 47;
             this.Unit2_1.Text = "mm";
+            // 
+            // pictureTest2
+            // 
+            this.pictureTest2.Image = ((System.Drawing.Image)(resources.GetObject("pictureTest2.Image")));
+            this.pictureTest2.Location = new System.Drawing.Point(352, 52);
+            this.pictureTest2.Name = "pictureTest2";
+            this.pictureTest2.Size = new System.Drawing.Size(300, 799);
+            this.pictureTest2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureTest2.TabIndex = 0;
+            this.pictureTest2.TabStop = false;
             // 
             // LengthTextBox2_5
             // 
@@ -3571,6 +3591,16 @@
             this.Unit3_1.Size = new System.Drawing.Size(42, 23);
             this.Unit3_1.TabIndex = 47;
             this.Unit3_1.Text = "mm";
+            // 
+            // pictureBox29
+            // 
+            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
+            this.pictureBox29.Location = new System.Drawing.Point(350, 65);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(311, 751);
+            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox29.TabIndex = 0;
+            this.pictureBox29.TabStop = false;
             // 
             // LengthTextBox3_8
             // 
@@ -4866,6 +4896,16 @@
             this.Unit4_1.TabIndex = 47;
             this.Unit4_1.Text = "mm";
             // 
+            // pictureBox43
+            // 
+            this.pictureBox43.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox43.Image")));
+            this.pictureBox43.Location = new System.Drawing.Point(342, 53);
+            this.pictureBox43.Name = "pictureBox43";
+            this.pictureBox43.Size = new System.Drawing.Size(265, 790);
+            this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox43.TabIndex = 0;
+            this.pictureBox43.TabStop = false;
+            // 
             // LengthTextBox4_5
             // 
             this.LengthTextBox4_5.ForeColor = System.Drawing.Color.Red;
@@ -4981,24 +5021,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5060,7 +5100,7 @@
             this.skinGroupBox1.Controls.Add(this.skinLabel8);
             this.skinGroupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.Location = new System.Drawing.Point(272, 57);
+            this.skinGroupBox1.Location = new System.Drawing.Point(356, 85);
             this.skinGroupBox1.Name = "skinGroupBox1";
             this.skinGroupBox1.RectBackColor = System.Drawing.Color.LightGray;
             this.skinGroupBox1.RoundStyle = CCWin.SkinClass.RoundStyle.All;
@@ -5318,6 +5358,36 @@
             this.LoginGroupBox.TabIndex = 104;
             this.LoginGroupBox.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(6, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 96;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.Control;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(6, 115);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 98;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // label50
             // 
             this.label50.AutoSize = true;
@@ -5328,6 +5398,21 @@
             this.label50.Size = new System.Drawing.Size(58, 21);
             this.label50.TabIndex = 0;
             this.label50.Text = "用户名";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(6, 74);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 35);
+            this.button2.TabIndex = 97;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // label69
             // 
@@ -5440,6 +5525,28 @@
             this.label92.TabIndex = 94;
             this.label92.Text = "(K)";
             // 
+            // testchoose1
+            // 
+            this.testchoose1.BackColor = System.Drawing.SystemColors.Control;
+            this.testchoose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose1.BackgroundImage")));
+            this.testchoose1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.testchoose1.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.testchoose1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.testchoose1.FlatAppearance.BorderSize = 0;
+            this.testchoose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testchoose1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose1.ForeColor = System.Drawing.Color.Black;
+            this.testchoose1.Location = new System.Drawing.Point(21, 75);
+            this.testchoose1.Name = "testchoose1";
+            this.testchoose1.Size = new System.Drawing.Size(134, 179);
+            this.testchoose1.TabIndex = 1;
+            this.testchoose1.Text = "           ";
+            this.testchoose1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.testchoose1.UseVisualStyleBackColor = false;
+            this.testchoose1.Click += new System.EventHandler(this.testchoose1_Click);
+            this.testchoose1.MouseLeave += new System.EventHandler(this.testchoose1_MouseLeave);
+            this.testchoose1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose1_MouseMove);
+            // 
             // label96
             // 
             this.label96.AutoSize = true;
@@ -5493,6 +5600,27 @@
             this.label150.Size = new System.Drawing.Size(156, 20);
             this.label150.TabIndex = 93;
             this.label150.Text = "热界面材料测量";
+            // 
+            // testchoose4
+            // 
+            this.testchoose4.BackColor = System.Drawing.SystemColors.Control;
+            this.testchoose4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose4.BackgroundImage")));
+            this.testchoose4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.testchoose4.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.testchoose4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.testchoose4.FlatAppearance.BorderSize = 0;
+            this.testchoose4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testchoose4.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose4.ForeColor = System.Drawing.Color.Black;
+            this.testchoose4.Location = new System.Drawing.Point(23, 107);
+            this.testchoose4.Name = "testchoose4";
+            this.testchoose4.Size = new System.Drawing.Size(159, 147);
+            this.testchoose4.TabIndex = 90;
+            this.testchoose4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.testchoose4.UseVisualStyleBackColor = false;
+            this.testchoose4.Click += new System.EventHandler(this.testchoose4_Click);
+            this.testchoose4.MouseLeave += new System.EventHandler(this.testchoose4_MouseLeave);
+            this.testchoose4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose4_MouseMove);
             // 
             // label151
             // 
@@ -5551,6 +5679,27 @@
             this.label154.TabIndex = 93;
             this.label154.Text = "热界面材料测量";
             // 
+            // testchoose3
+            // 
+            this.testchoose3.BackColor = System.Drawing.SystemColors.Control;
+            this.testchoose3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose3.BackgroundImage")));
+            this.testchoose3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.testchoose3.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.testchoose3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.testchoose3.FlatAppearance.BorderSize = 0;
+            this.testchoose3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testchoose3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose3.ForeColor = System.Drawing.Color.Black;
+            this.testchoose3.Location = new System.Drawing.Point(31, 122);
+            this.testchoose3.Name = "testchoose3";
+            this.testchoose3.Size = new System.Drawing.Size(155, 132);
+            this.testchoose3.TabIndex = 3;
+            this.testchoose3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.testchoose3.UseVisualStyleBackColor = false;
+            this.testchoose3.Click += new System.EventHandler(this.testchoose3_Click);
+            this.testchoose3.MouseLeave += new System.EventHandler(this.testchoose3_MouseLeave);
+            this.testchoose3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose3_MouseMove);
+            // 
             // test2
             // 
             this.test2.BackColor = System.Drawing.SystemColors.Control;
@@ -5584,75 +5733,6 @@
             this.label156.TabIndex = 93;
             this.label156.Text = "固_固接触热阻测量";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // testchoose1
-            // 
-            this.testchoose1.BackColor = System.Drawing.SystemColors.Control;
-            this.testchoose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose1.BackgroundImage")));
-            this.testchoose1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.testchoose1.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.testchoose1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.testchoose1.FlatAppearance.BorderSize = 0;
-            this.testchoose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testchoose1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.testchoose1.ForeColor = System.Drawing.Color.Black;
-            this.testchoose1.Location = new System.Drawing.Point(21, 75);
-            this.testchoose1.Name = "testchoose1";
-            this.testchoose1.Size = new System.Drawing.Size(134, 179);
-            this.testchoose1.TabIndex = 1;
-            this.testchoose1.Text = "           ";
-            this.testchoose1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.testchoose1.UseVisualStyleBackColor = false;
-            this.testchoose1.Click += new System.EventHandler(this.testchoose1_Click);
-            this.testchoose1.MouseLeave += new System.EventHandler(this.testchoose1_MouseLeave);
-            this.testchoose1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose1_MouseMove);
-            // 
-            // testchoose4
-            // 
-            this.testchoose4.BackColor = System.Drawing.SystemColors.Control;
-            this.testchoose4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose4.BackgroundImage")));
-            this.testchoose4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.testchoose4.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.testchoose4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.testchoose4.FlatAppearance.BorderSize = 0;
-            this.testchoose4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testchoose4.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.testchoose4.ForeColor = System.Drawing.Color.Black;
-            this.testchoose4.Location = new System.Drawing.Point(23, 107);
-            this.testchoose4.Name = "testchoose4";
-            this.testchoose4.Size = new System.Drawing.Size(159, 147);
-            this.testchoose4.TabIndex = 90;
-            this.testchoose4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.testchoose4.UseVisualStyleBackColor = false;
-            this.testchoose4.Click += new System.EventHandler(this.testchoose4_Click);
-            this.testchoose4.MouseLeave += new System.EventHandler(this.testchoose4_MouseLeave);
-            this.testchoose4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose4_MouseMove);
-            // 
-            // testchoose3
-            // 
-            this.testchoose3.BackColor = System.Drawing.SystemColors.Control;
-            this.testchoose3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("testchoose3.BackgroundImage")));
-            this.testchoose3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.testchoose3.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.testchoose3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.testchoose3.FlatAppearance.BorderSize = 0;
-            this.testchoose3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testchoose3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.testchoose3.ForeColor = System.Drawing.Color.Black;
-            this.testchoose3.Location = new System.Drawing.Point(31, 122);
-            this.testchoose3.Name = "testchoose3";
-            this.testchoose3.Size = new System.Drawing.Size(155, 132);
-            this.testchoose3.TabIndex = 3;
-            this.testchoose3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.testchoose3.UseVisualStyleBackColor = false;
-            this.testchoose3.Click += new System.EventHandler(this.testchoose3_Click);
-            this.testchoose3.MouseLeave += new System.EventHandler(this.testchoose3_MouseLeave);
-            this.testchoose3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose3_MouseMove);
-            // 
             // testchoose2
             // 
             this.testchoose2.BackColor = System.Drawing.SystemColors.Control;
@@ -5674,50 +5754,10 @@
             this.testchoose2.MouseLeave += new System.EventHandler(this.testchoose2_MouseLeave);
             this.testchoose2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose2_MouseMove);
             // 
-            // button1
+            // timer1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(6, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 96;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(6, 115);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 98;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(6, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 35);
-            this.button2.TabIndex = 97;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MenuGroupBox
             // 
@@ -6042,46 +6082,6 @@
             this.ParSetting.UseVisualStyleBackColor = true;
             this.ParSetting.Click += new System.EventHandler(this.ParSetting_Click);
             // 
-            // pictureBox43
-            // 
-            this.pictureBox43.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox43.Image")));
-            this.pictureBox43.Location = new System.Drawing.Point(342, 53);
-            this.pictureBox43.Name = "pictureBox43";
-            this.pictureBox43.Size = new System.Drawing.Size(265, 790);
-            this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox43.TabIndex = 0;
-            this.pictureBox43.TabStop = false;
-            // 
-            // pictureTest1
-            // 
-            this.pictureTest1.Image = ((System.Drawing.Image)(resources.GetObject("pictureTest1.Image")));
-            this.pictureTest1.Location = new System.Drawing.Point(352, 72);
-            this.pictureTest1.Name = "pictureTest1";
-            this.pictureTest1.Size = new System.Drawing.Size(289, 741);
-            this.pictureTest1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureTest1.TabIndex = 0;
-            this.pictureTest1.TabStop = false;
-            // 
-            // pictureBox29
-            // 
-            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
-            this.pictureBox29.Location = new System.Drawing.Point(350, 65);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(311, 751);
-            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox29.TabIndex = 0;
-            this.pictureBox29.TabStop = false;
-            // 
-            // pictureTest2
-            // 
-            this.pictureTest2.Image = ((System.Drawing.Image)(resources.GetObject("pictureTest2.Image")));
-            this.pictureTest2.Location = new System.Drawing.Point(352, 52);
-            this.pictureTest2.Name = "pictureTest2";
-            this.pictureTest2.Size = new System.Drawing.Size(300, 799);
-            this.pictureTest2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureTest2.TabIndex = 0;
-            this.pictureTest2.TabStop = false;
-            // 
             // SetupTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6107,12 +6107,16 @@
             this.Load += new System.EventHandler(this.SetupTest_Load);
             this.TextGroupbox1.ResumeLayout(false);
             this.TextGroupbox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).EndInit();
             this.TextGroupbox2.ResumeLayout(false);
             this.TextGroupbox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).EndInit();
             this.TextGroupbox3.ResumeLayout(false);
             this.TextGroupbox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             this.TextGroupbox4.ResumeLayout(false);
             this.TextGroupbox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
             this.skinGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).EndInit();
             this.listview_card_hide.ResumeLayout(false);
@@ -6135,10 +6139,6 @@
             this.MenuGroupBox.PerformLayout();
             this.ResultGroupBox.ResumeLayout(false);
             this.ResultGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
