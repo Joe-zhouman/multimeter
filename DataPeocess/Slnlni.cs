@@ -132,15 +132,18 @@ namespace DataProcessor {
             heatMeter2.LoadTempPara(filePath);
         } // 读取 热流计 属性设置
 
-        public static void LoadKappaInfo(ref Sample sample1, out string force,string filePath) {
+        public static void LoadKappaInfo(ref Sample sample1, out string force,string filePath,string slnFilePath) {
             sample1.ReadFromIni(filePath);
+            sample1.LoadTempPara(slnFilePath);
             force = INIHelper.Read("Pressure", "force", "0", filePath);
 
         } // 读取 试件热导率测量 属性设置
 
-        public static void LoadItcInfo(ref Sample sample1, ref Sample sample2, out string force, string filePath) {
+        public static void LoadItcInfo(ref Sample sample1, ref Sample sample2, out string force, string filePath, string slnFilePath) {
             sample1.ReadFromIni(filePath);
+            sample1.LoadTempPara(slnFilePath);
             sample2.ReadFromIni(filePath);
+            sample2.LoadTempPara(slnFilePath);
             force = INIHelper.Read("Pressure", "force", "0", filePath);
 
         } // 读取 试件间接触热阻测量 属性设置
@@ -150,17 +153,18 @@ namespace DataProcessor {
             force = INIHelper.Read("Pressure", "force", "0", filePath);
         } // 读取 热流计间 热界面材料 热导率测量 属性设置
 
-        public static void LoadItmsInfo(ref Sample sample1, ref Sample sample2, out string force, out string thickness, string filePath) {
+        public static void LoadItmsInfo(ref Sample sample1, ref Sample sample2, out string force, out string thickness, string filePath, string slnFilePath) {
             sample1.ReadFromIni(filePath);
+            sample1.LoadTempPara(slnFilePath);
             sample2.ReadFromIni(filePath);
+            sample2.LoadTempPara(slnFilePath);
             thickness = INIHelper.Read("ITM", "thickness", "0", filePath);
             force = INIHelper.Read("Pressure", "force", "0", filePath);
 
         } // 读取 试件间 热界面材料 热导率测量 属性设置
 
         public static void SaveHeatMeterInfo(HeatMeter heatMeter1, HeatMeter heatMeter2, string filePath) {
-            string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", "sln.ini.",
-                DateTime.Now.ToString("yyyy-MM-dd"), ".bak");
+            string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak",$"sln.ini.{DateTime.Now:yyyy-MM-dd-ss-ffff}.bak");
             File.Copy(filePath, bakFilePath);
             heatMeter1.SaveToIni(filePath);
             heatMeter2.SaveToIni(filePath);

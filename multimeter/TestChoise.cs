@@ -83,7 +83,7 @@ namespace multimeter {
             #region //参数设置窗口打开
 
             string force;
-            string filePath = SlnIni.CreateDefaultSlnIni();
+            string slnFilePath = SlnIni.CreateDefaultSlnIni();
             switch (_method)
             {
                 case TestMethod.KAPPA:
@@ -97,10 +97,9 @@ namespace multimeter {
                         //skinGroupBox2.Size = new Size(0, 0);
                         
                         _sample1 = new Sample("Sample1");
-                        _sample1.LoadTempPara(filePath);
                         _sample2 = null;
-                        filePath = SlnIni.CreateDefaultKappaIni();
-                        SlnIni.LoadKappaInfo(ref _sample1, out force, filePath);
+                        string filePath = SlnIni.CreateDefaultKappaIni();
+                        SlnIni.LoadKappaInfo(ref _sample1, out force, filePath,slnFilePath);
                         ForceTextBox1.Text = force;
                         List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
                         {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
@@ -131,11 +130,9 @@ namespace multimeter {
                         TextGroupbox4.Size = new Size(0, 0);
                         
                         _sample1 = new Sample("Sample1");
-                        _sample1.LoadTempPara(filePath);
                         _sample2 = new Sample("Sample2");
-                        _sample2.LoadTempPara(filePath);
-                        filePath = SlnIni.CreateDefaultSlnIni();
-                        SlnIni.LoadItcInfo(ref _sample1, ref _sample2, out force, filePath);
+                        string filePath = SlnIni.CreateDefaultSlnIni();
+                        SlnIni.LoadItcInfo(ref _sample1, ref _sample2, out force, filePath,slnFilePath);
                         ForceTextBox2.Text = force;
                         List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
                         {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
@@ -169,7 +166,7 @@ namespace multimeter {
                         TextGroupbox2.Size = new Size(0, 0);
                         TextGroupbox3.Size = new Size(1250, 855);
                         TextGroupbox4.Size = new Size(0, 0);
-                        filePath = SlnIni.CreateDefaultItmIni();
+                        string filePath = SlnIni.CreateDefaultItmIni();
                         _sample1 = null;
                         _sample2 = null;
                         SlnIni.LoadItmInfo(out force, out string thickness, filePath);
@@ -197,12 +194,10 @@ namespace multimeter {
                         TextGroupbox4.Size = new Size(1250, 855);
                         
                         _sample1 = new Sample("Sample1");
-                        _sample1.LoadTempPara(filePath);
                         _sample2 = new Sample("Sample2");
-                        _sample2.LoadTempPara(filePath);
-                        filePath = SlnIni.CreateDefaultItmsIni();
+                        string filePath = SlnIni.CreateDefaultItmsIni();
                         SlnIni.LoadItmsInfo(ref _sample1, ref _sample2, out force, out string thickness,
-                            filePath);
+                            filePath,slnFilePath);
                         ForceTextBox4.Text = force;
                         FilmThickness2.Text = thickness;
                         List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
