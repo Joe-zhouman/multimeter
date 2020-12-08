@@ -102,9 +102,6 @@
     <Compile Include="SetupTest.Designer.cs">
       <DependentUpon>SetupTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextBoxChange.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <EmbeddedResource Include="AlphaT0Setting.resx">
       <DependentUpon>AlphaT0Setting.cs</DependentUpon>
     </EmbeddedResource>
