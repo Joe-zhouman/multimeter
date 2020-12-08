@@ -1,6 +1,6 @@
 ﻿namespace DataProcessor {
     public class HeatMeter : Specimen {
-        public HeatMeter(string name) : base(name, 4) {
+        public HeatMeter(string name,int testPoint = 4) : base(name, testPoint) {
         }
 
         public override void SaveToIni(string filePath) {
