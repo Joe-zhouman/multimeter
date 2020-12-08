@@ -24,39 +24,68 @@ namespace multimeter {
             //测试
             //latestIniFile = @"C:\Users\Joe\source\Joe-zhouman\multimeter\multimeter\bin\Debug\AutoSave\itc-2020-11-09-12.ini";
             //latestDataFile = @"C:\Users\Joe\source\Joe-zhouman\multimeter\multimeter\bin\Debug\AutoSave\AutoSave-2020-11-09-12-17-45.5147.csv";
-            SetIniFileName();
             if(latestIniFile == "") {
                 MessageBox.Show(@"请选择配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            SetCsvFileName();
             if (latestDataFile == "") {
                 MessageBox.Show(@"请选择数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            GetResult();
+            //TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
+            //testResultChart.Show();
+            //TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method, force, thickness);
+            //testResultTemp.Show();
+            #endregion
+        }
+        private void HistoryTestResult_Click(object sender, EventArgs e) {
+            latestIniFile = "";
+            latestDataFile = "";
+            SetIniFileName();
+            if (latestIniFile == "")
+            {
+                MessageBox.Show(@"请选择配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            SetCsvFileName();
+            if (latestDataFile == "")
+            {
+                MessageBox.Show(@"请选择数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            GetResult();
+        }
+
+        private void GetResult() {
             DataTable channelTable = new DataTable();
             Exception csvExp = Solution.ReadCsvFile(ref channelTable, latestDataFile);
-            if (null != csvExp) {
+            if (null != csvExp)
+            {
                 MessageBox.Show($"请选择正确的数据文件!\n{csvExp.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (_method.ToString().ToLower() != INIHelper.Read("TestMethod", "method", "", latestIniFile)) {
+            if (_method.ToString().ToLower() != INIHelper.Read("TestMethod", "method", "", latestIniFile))
+            {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Dictionary<string, double> testResult = Solution.CalAve(channelTable);
-            TestMethod csvType = (TestMethod) (int) testResult["TestMethod"];
-            if (_method != csvType) {
+            Dictionary<string, double> result = Solution.CalAve(channelTable);
+            TestMethod csvType = (TestMethod)(int)result["TestMethod"];
+            if (_method != csvType)
+            {
                 MessageBox.Show(@"请选择对应的配置文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            heatMeter1.SetTemp(testResult);
-            heatMeter2.SetTemp(testResult);
+            heatMeter1.SetTemp(result);
+            heatMeter2.SetTemp(result);
             string force = INIHelper.Read("Pressure", "force", "1", latestIniFile);
-            switch (_method) {
-                case TestMethod.KAPPA: {
-                        sample1.SetTemp(testResult);
+            switch (_method)
+            {
+                case TestMethod.KAPPA:
+                    {
+                        sample1.SetTemp(result);
                         if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1))
                         {
                             MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -64,10 +93,11 @@ namespace multimeter {
                         ShowKappa();
                     }
                     break;
-                case TestMethod.ITC: {
+                case TestMethod.ITC:
+                    {
                         //显示对应监视窗口TEST2
-                        sample1.SetTemp(testResult);
-                        sample2.SetTemp(testResult);
+                        sample1.SetTemp(result);
+                        sample2.SetTemp(result);
                         double itc = 0.0;
                         if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc))
                         {
@@ -77,9 +107,10 @@ namespace multimeter {
                         ShowItc(itc);
                     }
                     break;
-                case TestMethod.ITM: {
-                    double itmKappa = 0.0;
-                    double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", latestIniFile));
+                case TestMethod.ITM:
+                    {
+                        double itmKappa = 0.0;
+                        double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", latestIniFile));
                         if (!Solution.GetResults(heatMeter1, heatMeter2, thickness, ref itmKappa))
                         {
                             MessageBox.Show(@"计算失败,数据误差过大", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -87,9 +118,10 @@ namespace multimeter {
                         ShowItm(itmKappa);
                     }
                     break;
-                case TestMethod.ITMS: {
-                        sample1.SetTemp(testResult);
-                        sample2.SetTemp(testResult);
+                case TestMethod.ITMS:
+                    {
+                        sample1.SetTemp(result);
+                        sample2.SetTemp(result);
                         double itmKappa = 0.0;
                         double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", latestIniFile));
                         if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, thickness, ref itmKappa))
@@ -99,18 +131,24 @@ namespace multimeter {
                         ShowItms(itmKappa);
                     }
                     break;
-                default: {
+                default:
+                    {
                         MessageBox.Show(@"请选择测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
             }
-            //TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
-            //testResultChart.Show();
-            //TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method, force, thickness);
-            //testResultTemp.Show();
-            #endregion
+            List<GroupBox> groupBox = new List<GroupBox>()
+                    {TextGroupbox1, TextGroupbox2, TextGroupbox3, TextGroupbox4};
+                groupBox.ForEach(c => {
+                    foreach (var control in c.Controls)
+                    {
+                        if (control.GetType().ToString() == "System.Windows.Forms.Label")
+                        {
+                            ((Label)control).Enabled = true;
+                        }
+                    }
+                });
         }
-
         private void SetCsvFileName() {
             if (latestDataFile != "") return;
             OpenFileDialog file = new OpenFileDialog {
