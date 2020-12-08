@@ -975,15 +975,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 LoginGroupBox.Visible = true;
                 comboBox.SelectedItem = "普通用户";
 
-
-        }
-
-
- 
-
-        private void HistoryTestResult_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
