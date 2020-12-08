@@ -9,4 +9,9 @@ namespace multimeter {
         ITM,
         ITMS
     }
+
+    public enum User {
+        NORMAL,
+        ADVANCE
+    }
 }

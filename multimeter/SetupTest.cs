@@ -14,23 +14,24 @@ using DataProcessor;
 namespace multimeter {
     public partial class SetupTest : Form {
 
-        private HeatMeter heatMeter1; 
-        private HeatMeter heatMeter2;
-        private Sample sample1;
-        private Sample sample2;
-        private string latestDataFile;
-        private string latestIniFile;
-        private string recvstr;
+        private HeatMeter _heatMeter1; 
+        private HeatMeter _heatMeter2;
+        private Sample _sample1;
+        private Sample _sample2;
+        private string _latestDataFile;
+        private string _latestIniFile;
+        private string _recvstr;
         private TestMethod _method;
-        private TestResultChart testResultChart=new TestResultChart();
-        private Dictionary<string, double> testResult = new Dictionary<string, double>();
+        private User _user;
+        private TestResultChart _testResultChart=new TestResultChart();
+        private Dictionary<string, double> _testResult = new Dictionary<string, double>();
 
 
         public SetupTest() {
             InitializeComponent();
         }
 
-        public void TestChooseFormShow_Click(object sender, EventArgs e) {
+        private void TestChooseFormShow_Click(object sender, EventArgs e) {
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
@@ -66,9 +67,9 @@ namespace multimeter {
             }
         }
         private void Monitor_Click(object sender, EventArgs e) {
-            if (testResultChart.IsAccessible == true)
-                testResultChart.Hide();
-            else testResultChart.Show();
+            if (_testResultChart.IsAccessible == true)
+                _testResultChart.Hide();
+            else _testResultChart.Show();
         }
         private void SerialPort_Click(object sender, EventArgs e) {
             skinGroupBox1.BringToFront();
@@ -86,11 +87,11 @@ namespace multimeter {
 
         
         private void TestResultChart_FormClosing(object sender, EventArgs e) {
-            if(testResultChart.DialogResult == DialogResult.Cancel) return;
+            if(_testResultChart.DialogResult == DialogResult.Cancel) return;
             btn_stop();
             MessageBox.Show(@"计算已收敛,是否结束计算并显示结果?", @"提示", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-            if (testResultChart.DialogResult != DialogResult.Yes) return;
+            if (_testResultChart.DialogResult != DialogResult.Yes) return;
             CurrentTestResult_Click(this,e);
 
         }
@@ -188,9 +189,9 @@ namespace multimeter {
             ReadPara();
             TotalCHN = "";
             count = 0;
-            latestDataFile = "";
-            latestIniFile = "";
-            if ((latestIniFile = SlnIni.AutoSaveIni(_method))==null) {
+            _latestDataFile = "";
+            _latestIniFile = "";
+            if ((_latestIniFile = SlnIni.AutoSaveIni(_method))==null) {
                 MessageBox.Show(@"请选择测试方法后在进行测试", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -521,13 +522,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
             string FileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", FileName);
-            latestDataFile = filePath;
+            _latestDataFile = filePath;
             //MessageBox.Show(filePath);
             try {
                 int size = 1024;
                 int sizeCnt = (int) Math.Ceiling(listView.Items.Count / (double) 2000);
                 StreamWriter write = new StreamWriter(filePath, false, Encoding.Default, size * sizeCnt);
-                write.Write(recvstr);
+                write.Write(_recvstr);
                 //获取listView标题行
                 //for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
                 //write.WriteLine();
@@ -574,46 +575,46 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             string nextstr = "";
             if (str.IndexOf((char) 13) != -1) {
                 str = str.Substring(0, str.IndexOf((char) 13));
-                recvstr += str;
-                if (recvstr.Length > 0) {
+                _recvstr += str;
+                if (_recvstr.Length > 0) {
                     count++;
-                    recvstr = recvstr.Replace((char) 19, (char) 0);
-                    recvstr = recvstr.Replace((char) 13, (char) 0);
-                    recvstr = recvstr.Replace((char) 0x11, (char) 0);
-                    recvstr = recvstr.Replace("\0", "");
+                    _recvstr = _recvstr.Replace((char) 19, (char) 0);
+                    _recvstr = _recvstr.Replace((char) 13, (char) 0);
+                    _recvstr = _recvstr.Replace((char) 0x11, (char) 0);
+                    _recvstr = _recvstr.Replace("\0", "");
 
 
-                    string tmp = count + "," + recvstr;
+                    string tmp = count + "," + _recvstr;
                     ListViewItem item = new ListViewItem(tmp.Split(','));
                     listView_main.Items.Add(item);
-                    LastScan.Text = recvstr;
+                    LastScan.Text = _recvstr;
                     if (count % AppCfg.devicepara.Save_interval == 0) {
                         SavetData("AutoSave", listView_main);
                         listView_main.Items.Clear();
                     }
                     //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     List<string> channels = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                    List<double> dataList = recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    List<double> dataList = _recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToList();
                     //Dictionary<string, double> testResult = new Dictionary<string, double>();
-                    testResult.Clear();
+                    _testResult.Clear();
                     for (int i = 0; i < channels.Count; i++)
                     {
-                        testResult.Add(channels[i], dataList[i]);
+                        _testResult.Add(channels[i], dataList[i]);
                     }
 
                     //timer1.Enabled = true;
                     //timer1.Start();
-                    testResultChart.ShowChart(testResult);
+                    _testResultChart.ShowChart(_testResult);
 
                 }
 
                 //if(str.IndexOf((char)13)!=)
                 //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
-                recvstr = "";
+                _recvstr = "";
             }
             else {
-                recvstr += str;
+                _recvstr += str;
             }
 
 
@@ -692,13 +693,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 #region //初始化变量
                 Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
                 Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
-                latestIniFile = "";
-                latestDataFile = "";
-                heatMeter1 = new HeatMeter("HeatMeter1");
-                heatMeter2 = new HeatMeter("HeatMeter2");
+                _latestIniFile = "";
+                _latestDataFile = "";
+                _heatMeter1 = new HeatMeter("HeatMeter1");
+                _heatMeter2 = new HeatMeter("HeatMeter2");
                 SlnIni.CreateDefaultIni();
                 string slnFilePath = SlnIni.CreateDefaultSlnIni();
-                SlnIni.LoadHeatMeterInfo(ref heatMeter1, ref heatMeter2, slnFilePath);
+                SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2, slnFilePath);
                 #endregion
                 edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
                 edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
@@ -828,7 +829,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 #endregion
 
                 
-                testResultChart.FormClosing += TestResultChart_FormClosing;
+                _testResultChart.FormClosing += TestResultChart_FormClosing;
                 ReadPara();
                 LoginGroupBox.BringToFront();
                 LoginGroupBox.Visible = true;
@@ -842,5 +843,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             //timer1.Enabled = false;
         }
 
+        
     }
 }

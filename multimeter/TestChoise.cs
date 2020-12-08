@@ -96,11 +96,11 @@ namespace multimeter {
                         TextGroupbox4.Size = new Size(0, 0);
                         //skinGroupBox2.Size = new Size(0, 0);
                         
-                        sample1 = new Sample("Sample1");
-                        sample1.LoadTempPara(filePath);
-                        sample2 = null;
+                        _sample1 = new Sample("Sample1");
+                        _sample1.LoadTempPara(filePath);
+                        _sample2 = null;
                         filePath = SlnIni.CreateDefaultKappaIni();
-                        SlnIni.LoadKappaInfo(ref sample1, out force, filePath);
+                        SlnIni.LoadKappaInfo(ref _sample1, out force, filePath);
                         ForceTextBox1.Text = force;
                         List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
                         {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
@@ -110,15 +110,15 @@ namespace multimeter {
                         {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4};
                         List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox1_8, ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11};
-                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox1_1, K1TextBox1_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox1_2, K2TextBox1_2);
+                        HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox1_1, K1TextBox1_1);
+                        HeatMeterToBox(_heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox1_2, K2TextBox1_2);
 
                         List<TextBox> samplePositionBoxes = new List<TextBox>
                         {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
                         List<TextBox> sampleChannelBoxes = new List<TextBox> {
                         ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7
                     };
-                        SampleToBox(sample1, samplePositionBoxes, sampleChannelBoxes, dsTextBox1_1);
+                        SampleToBox(_sample1, samplePositionBoxes, sampleChannelBoxes, dsTextBox1_1);
                     }
                     break;
                 case TestMethod.ITC:
@@ -130,12 +130,12 @@ namespace multimeter {
                         TextGroupbox3.Size = new Size(0, 0);
                         TextGroupbox4.Size = new Size(0, 0);
                         
-                        sample1 = new Sample("Sample1");
-                        sample1.LoadTempPara(filePath);
-                        sample2 = new Sample("Sample2");
-                        sample2.LoadTempPara(filePath);
+                        _sample1 = new Sample("Sample1");
+                        _sample1.LoadTempPara(filePath);
+                        _sample2 = new Sample("Sample2");
+                        _sample2.LoadTempPara(filePath);
                         filePath = SlnIni.CreateDefaultSlnIni();
-                        SlnIni.LoadItcInfo(ref sample1, ref sample2, out force, filePath);
+                        SlnIni.LoadItcInfo(ref _sample1, ref _sample2, out force, filePath);
                         ForceTextBox2.Text = force;
                         List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>
                         {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
@@ -145,20 +145,20 @@ namespace multimeter {
                         {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4};
                         List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox2_11, ChannelTextBox2_12, ChannelTextBox2_13, ChannelTextBox2_14};
-                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox2_1, K1TextBox2_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox2_2, K2TextBox2_2);
+                        HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox2_1, K1TextBox2_1);
+                        HeatMeterToBox(_heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox2_2, K2TextBox2_2);
                         List<TextBox> samplePositionBoxes1 = new List<TextBox>
                         {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
                         List<TextBox> sampleChannelBoxes1 = new List<TextBox> {
                         ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7
                     };
-                        SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1, ds1TextBox2_1);
+                        SampleToBox(_sample1, samplePositionBoxes1, sampleChannelBoxes1, ds1TextBox2_1);
                         List<TextBox> samplePositionBoxes2 = new List<TextBox>
                         {LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10};
                         List<TextBox> sampleChannelBoxes2 = new List<TextBox> {
                         ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10
                     };
-                        SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2, ds2TextBox2_2);
+                        SampleToBox(_sample2, samplePositionBoxes2, sampleChannelBoxes2, ds2TextBox2_2);
                     }
                     break;
                 case TestMethod.ITM:
@@ -170,8 +170,8 @@ namespace multimeter {
                         TextGroupbox3.Size = new Size(1250, 855);
                         TextGroupbox4.Size = new Size(0, 0);
                         filePath = SlnIni.CreateDefaultItmIni();
-                        sample1 = null;
-                        sample2 = null;
+                        _sample1 = null;
+                        _sample2 = null;
                         SlnIni.LoadItmInfo(out force, out string thickness, filePath);
                         ForceTextBox3.Text = force;
                         FilmThickness1.Text = thickness;
@@ -183,8 +183,8 @@ namespace multimeter {
                         {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4};
                         List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
-                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox3_1, K1TextBox3_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox3_2, K2TextBox3_2);
+                        HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox3_1, K1TextBox3_1);
+                        HeatMeterToBox(_heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox3_2, K2TextBox3_2);
                     }
                     break;
                 case TestMethod.ITMS:
@@ -196,12 +196,12 @@ namespace multimeter {
                         TextGroupbox3.Size = new Size(0, 0);
                         TextGroupbox4.Size = new Size(1250, 855);
                         
-                        sample1 = new Sample("Sample1");
-                        sample1.LoadTempPara(filePath);
-                        sample2 = new Sample("Sample2");
-                        sample2.LoadTempPara(filePath);
+                        _sample1 = new Sample("Sample1");
+                        _sample1.LoadTempPara(filePath);
+                        _sample2 = new Sample("Sample2");
+                        _sample2.LoadTempPara(filePath);
                         filePath = SlnIni.CreateDefaultItmsIni();
-                        SlnIni.LoadItmsInfo(ref sample1, ref sample2, out force, out string thickness,
+                        SlnIni.LoadItmsInfo(ref _sample1, ref _sample2, out force, out string thickness,
                             filePath);
                         ForceTextBox4.Text = force;
                         FilmThickness2.Text = thickness;
@@ -213,25 +213,25 @@ namespace multimeter {
                         {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4};
                         List<TextBox> heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox4_11, ChannelTextBox4_12, ChannelTextBox4_13, ChannelTextBox4_14};
-                        HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox4_1, K1TextBox4_1);
-                        HeatMeterToBox(heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox4_2, K4TextBox4_2);
+                        HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox4_1, K1TextBox4_1);
+                        HeatMeterToBox(_heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, D2TextBox4_2, K4TextBox4_2);
                         List<TextBox> samplePositionBoxes1 = new List<TextBox>
                         {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};
                         List<TextBox> sampleChannelBoxes1 = new List<TextBox> {
                         ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7
                     };
-                        SampleToBox(sample1, samplePositionBoxes1, sampleChannelBoxes1, ds1TextBox4_1);
+                        SampleToBox(_sample1, samplePositionBoxes1, sampleChannelBoxes1, ds1TextBox4_1);
                         List<TextBox> samplePositionBoxes2 = new List<TextBox>
                         {LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10};
                         List<TextBox> sampleChannelBoxes2 = new List<TextBox> {
                         ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10
                     };
-                        SampleToBox(sample2, samplePositionBoxes2, sampleChannelBoxes2, ds2TextBox4_2);
+                        SampleToBox(_sample2, samplePositionBoxes2, sampleChannelBoxes2, ds2TextBox4_2);
                     }
                     break;
             }
 
-            testResultChart.Chart_Init(heatMeter1, heatMeter2, sample1, sample2);
+            _testResultChart.Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
 
 
             #endregion
