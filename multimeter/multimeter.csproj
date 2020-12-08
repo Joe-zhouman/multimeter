@@ -150,6 +150,51 @@
       <Name>DataProcessor</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\AdvancedSetting_Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\AdvancedSetting_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\CurrentDataProcess_Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\CurrentDataProcess_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\HistoryDataProcess_Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\HistoryDataProcess_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\Monitor_Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\Monitor_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\SerialPort_Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\SerialPort_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\TestChooseFormShow_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\TestChooseFormShow_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\TestRun_Diable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\TestRun_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ButtonImage\TestStop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
