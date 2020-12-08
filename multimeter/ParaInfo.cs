@@ -152,7 +152,7 @@ namespace multimeter
 
         public ParaInfo()
         {
-            SerialPort = "COM2";
+            SerialPort = "COM7";
             SerialBaudRate = "9600";
 
             SerialDataBits = "8";

@@ -98,10 +98,10 @@ namespace multimeter {
             if (_latestTempList != null) {
                 for (int i = 0; i < T.Count; i++) {
                     residual = Math.Abs(1 - T[i] / _latestTempList[i]);
-                    if (residual > 1e-3) break;
+                    if (residual > 1e-4) break;
                 }
 
-                if (residual < 1e-3) {
+                if (residual < 1e-4) {
                     DialogResult = DialogResult.Yes;
                     TestResultChart_FormClosing(this, new FormClosingEventArgs(CloseReason.ApplicationExitCall, true));
                 }

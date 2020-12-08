@@ -127,7 +127,9 @@ namespace DataProcessor {
         public static void LoadHeatMeterInfo(ref HeatMeter heatMeter1,ref HeatMeter heatMeter2,string filePath) {
             
             heatMeter1.ReadFromIni(filePath);
+            heatMeter1.LoadTempPara(filePath);
             heatMeter2.ReadFromIni(filePath);
+            heatMeter2.LoadTempPara(filePath);
         } // 读取 热流计 属性设置
 
         public static void LoadKappaInfo(ref Sample sample1, out string force,string filePath) {
