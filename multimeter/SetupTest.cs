@@ -77,6 +77,44 @@ namespace multimeter {
         }
 
         private void SerialPortEnsure_Click(object sender, EventArgs e) {
+
+            AppCfg.devicepara.SerialPort = combox_comport.Text;
+
+            AppCfg.devicepara.SerialBaudRate = combox_baudrate.Text;
+
+            AppCfg.devicepara.SerialDataBits = combox_databits.Text;
+
+            AppCfg.devicepara.SerialStopBits = combox_stopbits.Text;
+
+            AppCfg.devicepara.SerialParity = combox_parity.Text;
+            if (edit_scan_interval.Text == "") {
+                return;
+            }
+
+            int scanInterval = CheckData.CheckTextChange(edit_scan_interval.Text);
+            if (scanInterval == -1) {
+                MessageBox.Show(@"错误的采集频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            AppCfg.devicepara.Scan_interval = scanInterval;
+            if (edit_save_interval.Text == "") {
+                return;
+            }
+
+            int saveInterval = CheckData.CheckTextChange(edit_save_interval.Text);
+            if (saveInterval == -1) {
+                MessageBox.Show(@"错误的自动保存频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            AppCfg.devicepara.Save_interval = saveInterval;
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
+            INIHelper.Write("Serial", "port", combox_comport.Text, filePath);
+            INIHelper.Write("Serial", "baudrate", combox_baudrate.Text, filePath);
+            INIHelper.Write("Serial", "databits", combox_databits.Text, filePath);
+            INIHelper.Write("Serial", "stopbites", combox_stopbits.Text, filePath);
+            INIHelper.Write("Serial", "parity", combox_parity.Text, filePath);
+            INIHelper.Write("SYS", "scan_interval", edit_scan_interval.Text, filePath);
+            INIHelper.Write("SYS", "save_interval", edit_save_interval.Text, filePath);
             skinGroupBox1.Size = new Size(0, 0);
         }
 
@@ -96,56 +134,6 @@ namespace multimeter {
         }
         //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
 
-
-        private void combox_comport_SelectedValueChanged(object sender, EventArgs e) {
-            AppCfg.devicepara.SerialPort = combox_comport.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            INIHelper.Write("Serial", "port", combox_comport.Text, filePath);
-        }
-
-        private void combox_baudrate_SelectedValueChanged(object sender, EventArgs e) {
-            AppCfg.devicepara.SerialBaudRate = combox_baudrate.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            INIHelper.Write("Serial", "baudrate", combox_baudrate.Text, filePath);
-        }
-
-        private void combox_databits_SelectedValueChanged(object sender, EventArgs e) {
-            AppCfg.devicepara.SerialDataBits = combox_databits.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            INIHelper.Write("Serial", "databits", combox_databits.Text, filePath);
-        }
-
-        private void combox_stopbits_SelectedValueChanged(object sender, EventArgs e) {
-            AppCfg.devicepara.SerialStopBits = combox_stopbits.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            INIHelper.Write("Serial", "stopbites", combox_stopbits.Text, filePath);
-        }
-
-        private void combox_parity_SelectedValueChanged(object sender, EventArgs e) {
-            AppCfg.devicepara.SerialParity = combox_parity.Text;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            INIHelper.Write("Serial", "parity", combox_parity.Text, filePath);
-        }
-
-        private void edit_scan_interval_TextChanged(object sender, EventArgs e) {
-            if (edit_scan_interval.Text == "") return;
-            int scanInterval = CheckData.CheckTextChange(edit_scan_interval.Text);
-            if (scanInterval == -1) MessageBox.Show(@"错误的采集频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            AppCfg.devicepara.Scan_interval = scanInterval;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            INIHelper.Write("SYS", "scan_interval", edit_scan_interval.Text, filePath);
-        }
-
-        private void edit_save_interval_TextChanged(object sender, EventArgs e) {
-            if (edit_save_interval.Text == "")
-                return;
-            int saveInterval = CheckData.CheckTextChange(edit_save_interval.Text);
-            if (saveInterval == -1) MessageBox.Show(@"错误的自动保存频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            AppCfg.devicepara.Save_interval = saveInterval;
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
-            INIHelper.Write("SYS", "save_interval", edit_save_interval.Text, filePath);
-        }
 
         //--------------------------------------------------------------------------------------------串口采集--------------------------------------------------------------------------------------------------
 
@@ -682,10 +670,18 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
             #endregion
 
+            
+
+            #endregion
+
+
+            _testResultChart.FormClosing += TestResultChart_FormClosing;
+            ReadPara();
             edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
             edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
 
-            switch (AppCfg.devicepara.SerialPort) {
+            switch (AppCfg.devicepara.SerialPort)
+            {
                 case "COM1":
                     combox_comport.SelectedIndex = 0;
                     break;
@@ -716,7 +712,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
 
 
-            switch (AppCfg.devicepara.SerialBaudRate) {
+            switch (AppCfg.devicepara.SerialBaudRate)
+            {
                 case "4800":
                     combox_baudrate.SelectedIndex = 0;
                     break;
@@ -744,7 +741,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
 
 
-            switch (AppCfg.devicepara.SerialDataBits) {
+            switch (AppCfg.devicepara.SerialDataBits)
+            {
                 case "8":
                     combox_databits.SelectedIndex = 0;
                     break;
@@ -763,7 +761,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     break;
             }
 
-            switch (AppCfg.devicepara.SerialStopBits) {
+            switch (AppCfg.devicepara.SerialStopBits)
+            {
                 case "1":
                     combox_stopbits.SelectedIndex = 0;
                     break;
@@ -780,7 +779,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
 
 
-            switch (AppCfg.devicepara.SerialParity) {
+            switch (AppCfg.devicepara.SerialParity)
+            {
                 case "None":
                     combox_parity.SelectedIndex = 0;
                     break;
@@ -801,12 +801,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     combox_parity.SelectedIndex = 0;
                     break;
             }
-
-            #endregion
-
-
-            _testResultChart.FormClosing += TestResultChart_FormClosing;
-            ReadPara();
             LoginGroupBox.BringToFront();
             LoginGroupBox.Visible = true;
             comboBox.SelectedItem = "普通用户";
