@@ -21,9 +21,9 @@ namespace multimeter {
         private Sample _sample2;
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private readonly TestResultChart _testResultChart = new TestResultChart();
+        private bool _testResultChartUpdate;
         private User _user;
-
-
+        
         public SetupTest() {
             InitializeComponent();
         }
@@ -50,6 +50,9 @@ namespace multimeter {
                 AdvancedSetting_Enable(true);
                 TestRunLabel.Text = "运行";
                 btn_stop();
+                SerialPort_Timer.Enabled = false;
+                ChartShow_Timer.Enabled = false;
+
             }
             else {
                 TestChooseFormShow_Enable(false);
@@ -62,6 +65,11 @@ namespace multimeter {
                 TestRunLabel.Text = "停止";
                 btn_start();
                 Monitor_Click(sender, e);
+                if (serialPort1.IsOpen) {
+                    SerialPort_Timer.Enabled = true;
+                    ChartShow_Timer.Enabled = true;
+                }
+                
             }
         }
 
@@ -384,7 +392,6 @@ namespace multimeter {
             TotalNum = TwoR_num + FourR_num + Temp_num;
 
             sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
-
             #endregion
         }
 
@@ -542,101 +549,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
         }
 
-        private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e) {
-            #region
 
-            string str = serialPort1.ReadExisting();
-
-            //richTextBox1.Text = richTextBox1.Text + str+"\n";
-
-            //byte[] array = System.Text.Encoding.ASCII.GetBytes(str);  //数组array为对应的ASCII数组     
-            //string ASCIIstr2 = null;
-            //for (int i = 0; i < array.Length; i++)
-            //{
-            //    int asciicode = (int)(array[i]);
-            //    ASCIIstr2 += Convert.ToString(asciicode);//字符串ASCIIstr2 为对应的ASCII字符串
-            //}
-            //richTextBox2.Text = richTextBox2.Text + ASCIIstr2;
-
-
-            if (str.IndexOf((char) 19) != -1)
-                str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-            string nextstr = "";
-            if (str.IndexOf((char) 13) != -1) {
-                str = str.Substring(0, str.IndexOf((char) 13));
-                _recvstr += str;
-                if (_recvstr.Length > 0) {
-                    count++;
-                    _recvstr = _recvstr.Replace((char) 19, (char) 0);
-                    _recvstr = _recvstr.Replace((char) 13, (char) 0);
-                    _recvstr = _recvstr.Replace((char) 0x11, (char) 0);
-                    _recvstr = _recvstr.Replace("\0", "");
-
-
-                    string tmp = count + "," + _recvstr;
-                    ListViewItem item = new ListViewItem(tmp.Split(','));
-                    listView_main.Items.Add(item);
-                    LastScan.Text = _recvstr;
-                    if (count % AppCfg.devicepara.Save_interval == 0) {
-                        SavetData("AutoSave", listView_main);
-                        listView_main.Items.Clear();
-                    }
-
-                    //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    List<string> channels = TotalCHN.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).ToList();
-                    List<double> dataList = _recvstr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
-                        .Select(double.Parse).ToList();
-                    //Dictionary<string, double> testResult = new Dictionary<string, double>();
-                    _testResult.Clear();
-                    for (int i = 0; i < channels.Count; i++) _testResult.Add(channels[i], dataList[i]);
-
-                    //timer1.Enabled = true;
-                    //timer1.Start();
-                    _testResultChart.ShowChart(_testResult);
-                }
-
-                //if(str.IndexOf((char)13)!=)
-                //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
-                _recvstr = "";
-            }
-            else {
-                _recvstr += str;
-            }
-
-
-            //int flag = 0;
-            //foreach (char i in str)
-            //{
-
-            //    if (i == 0x2b || i == 0x2d)
-            //    {
-            //        break;
-            //    }
-            //    flag++;
-            //}
-
-            //string recvcontent = str.Substring(flag, str.Length - flag);
-            //if (recvcontent.Length > 0)
-            //{
-            //    count++;
-            //    recvcontent=recvcontent.Replace((char)13, (char)0);          
-            //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
-            //    recvcontent = recvcontent.Replace("\0", "");
-
-            //    string tmp = count.ToString() + "," + recvcontent;
-            //    ListViewItem item = new ListViewItem(tmp.Split(','));
-            //    listView_main.Items.Add(item);
-            //    textBox1.Text = recvcontent;
-
-            //    if(count%AppCfg.devicepara.Save_interval==0)
-            //    {         
-            //        SavetData("sss", listView_main);
-            //        listView_main.Items.Clear();
-            //    }         
-            //}
-
-            #endregion
-        }
 
         private void SetupTest_Load(object sender, EventArgs e) {
             #region //不同设置窗口默认显示
@@ -647,17 +560,17 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
             skinGroupBox1.Size = new Size(0, 0);
+            LoginGroupBox.Size = new Size(309, 286);
+            TestChoiseGroupBox.Size = new Size(854,360);
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.Visible = false;
-
+            LoginGroupBox.BringToFront();
+            LoginGroupBox.Visible = true;
+            comboBox.SelectedItem = "普通用户";
             #endregion
 
-            #region //串口设置
-
             CheckForIllegalCrossThreadCalls = false; //去掉线程安全
-
             #region //初始化变量
-
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
             _latestIniFile = "";
@@ -667,14 +580,9 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             SlnIni.CreateDefaultIni();
             string slnFilePath = SlnIni.CreateDefaultSlnIni();
             SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2, slnFilePath);
-
             #endregion
 
-            
-
-            #endregion
-
-
+            #region //串口设置 
             _testResultChart.FormClosing += TestResultChart_FormClosing;
             ReadPara();
             edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
@@ -801,16 +709,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     combox_parity.SelectedIndex = 0;
                     break;
             }
-            LoginGroupBox.BringToFront();
-            LoginGroupBox.Visible = true;
-            comboBox.SelectedItem = "普通用户";
+            #endregion
+
         }
 
-        private void timer1_Tick(object sender, EventArgs e) {
-            //testResultChart.ShowChart(testResult);
-            //timer1.Stop();
-            //timer1.Enabled = false;
-        }
+
 
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -829,5 +732,111 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         private bool enablescan;
 
         #endregion
+
+        private void SerialPort_Timer_Tick(object sender, EventArgs e) {
+            #region
+            if (serialPort1.BytesToRead != 0) {
+                string str = serialPort1.ReadExisting();
+                serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
+                //richTextBox1.Text = richTextBox1.Text + str+"\n";
+
+                //byte[] array = System.Text.Encoding.ASCII.GetBytes(str);  //数组array为对应的ASCII数组     
+                //string ASCIIstr2 = null;
+                //for (int i = 0; i < array.Length; i++)
+                //{
+                //    int asciicode = (int)(array[i]);
+                //    ASCIIstr2 += Convert.ToString(asciicode);//字符串ASCIIstr2 为对应的ASCII字符串
+                //}
+                //richTextBox2.Text = richTextBox2.Text + ASCIIstr2;
+
+
+                if (str.IndexOf((char) 19) != -1)
+                    str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
+                string nextstr = "";
+                if (str.IndexOf((char) 13) != -1) {
+                    str = str.Substring(0, str.IndexOf((char) 13));
+                    _recvstr += str;
+                    if (_recvstr.Length > 0) {
+                        count++;
+                        _recvstr = _recvstr.Replace((char) 19, (char) 0);
+                        _recvstr = _recvstr.Replace((char) 13, (char) 0);
+                        _recvstr = _recvstr.Replace((char) 0x11, (char) 0);
+                        _recvstr = _recvstr.Replace("\0", "");
+
+
+                        string tmp = count + "," + _recvstr;
+                        ListViewItem item = new ListViewItem(tmp.Split(','));
+                        listView_main.Items.Add(item);
+                        LastScan.Text = _recvstr;
+                        if (count % AppCfg.devicepara.Save_interval == 0) {
+                            SavetData("AutoSave", listView_main);
+                            listView_main.Items.Clear();
+                        }
+
+                        //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        List<string> channels = TotalCHN.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                            .ToList();
+                        List<double> dataList = _recvstr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                            .Select(double.Parse).ToList();
+                        //Dictionary<string, double> testResult = new Dictionary<string, double>();
+                        _testResult.Clear();
+                        for (int i = 0; i < channels.Count; i++) _testResult.Add(channels[i], dataList[i]);
+                        _testResultChartUpdate = true;
+                        //timer1.Enabled = true;
+                        //timer1.Start();
+                        //_testResultChart.ShowChart(_testResult);
+                    }
+
+                    //if(str.IndexOf((char)13)!=)
+                    //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
+                    _recvstr = "";
+                }
+                else {
+                    _recvstr += str;
+                }
+
+
+                //int flag = 0;
+                //foreach (char i in str)
+                //{
+
+                //    if (i == 0x2b || i == 0x2d)
+                //    {
+                //        break;
+                //    }
+                //    flag++;
+                //}
+
+                //string recvcontent = str.Substring(flag, str.Length - flag);
+                //if (recvcontent.Length > 0)
+                //{
+                //    count++;
+                //    recvcontent=recvcontent.Replace((char)13, (char)0);          
+                //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
+                //    recvcontent = recvcontent.Replace("\0", "");
+
+                //    string tmp = count.ToString() + "," + recvcontent;
+                //    ListViewItem item = new ListViewItem(tmp.Split(','));
+                //    listView_main.Items.Add(item);
+                //    textBox1.Text = recvcontent;
+
+                //    if(count%AppCfg.devicepara.Save_interval==0)
+                //    {         
+                //        SavetData("sss", listView_main);
+                //        listView_main.Items.Clear();
+                //    }         
+                //}
+            }
+
+            #endregion
+        }
+
+        private void ChartShow_Timer_Tick(object sender, EventArgs e) {
+            if (_testResultChartUpdate) {
+                _testResultChart.ShowChart(_testResult);
+                _testResultChartUpdate = false;
+            }
+            
+        }
     }
 }

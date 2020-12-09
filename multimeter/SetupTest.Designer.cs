@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
             this.ChannelLabel1_3 = new System.Windows.Forms.Label();
@@ -503,7 +503,7 @@
             this.label155 = new System.Windows.Forms.Label();
             this.label156 = new System.Windows.Forms.Label();
             this.testchoose2 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SerialPort_Timer = new System.Windows.Forms.Timer(this.components);
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.label56 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -530,6 +530,7 @@
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.ParSetting = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ChartShow_Timer = new System.Windows.Forms.Timer(this.components);
             this.TextGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox2.SuspendLayout();
@@ -5021,24 +5022,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5329,7 +5330,7 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived_1);
+           
             // 
             // LoginGroupBox
             // 
@@ -5749,10 +5750,10 @@
             this.testchoose2.MouseLeave += new System.EventHandler(this.testchoose2_MouseLeave);
             this.testchoose2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose2_MouseMove);
             // 
-            // timer1
+            // SerialPort_Timer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.SerialPort_Timer.Interval = 1;
+            this.SerialPort_Timer.Tick += new System.EventHandler(this.SerialPort_Timer_Tick);
             // 
             // MenuGroupBox
             // 
@@ -6076,6 +6077,11 @@
             this.ParSetting.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ParSetting.UseVisualStyleBackColor = true;
             this.ParSetting.Click += new System.EventHandler(this.ParSetting_Click);
+            // 
+            // ChartShow_Timer
+            // 
+            this.ChartShow_Timer.Interval = 1;
+            this.ChartShow_Timer.Tick += new System.EventHandler(this.ChartShow_Timer_Tick);
             // 
             // SetupTest
             // 
@@ -6637,6 +6643,7 @@
         private System.Windows.Forms.Button testchoose2;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Button HistoryTestResult;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer SerialPort_Timer;
+        private System.Windows.Forms.Timer ChartShow_Timer;
     }
 }
