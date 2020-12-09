@@ -5354,7 +5354,7 @@
             this.LoginGroupBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginGroupBox.Location = new System.Drawing.Point(485, 349);
             this.LoginGroupBox.Name = "LoginGroupBox";
-            this.LoginGroupBox.Size = new System.Drawing.Size(309, 286);
+            this.LoginGroupBox.Size = new System.Drawing.Size(0, 0);
             this.LoginGroupBox.TabIndex = 104;
             this.LoginGroupBox.TabStop = false;
             // 
@@ -5500,7 +5500,7 @@
             this.TestChoiseGroupBox.Controls.Add(this.test2);
             this.TestChoiseGroupBox.Location = new System.Drawing.Point(213, 312);
             this.TestChoiseGroupBox.Name = "TestChoiseGroupBox";
-            this.TestChoiseGroupBox.Size = new System.Drawing.Size(854, 360);
+            this.TestChoiseGroupBox.Size = new System.Drawing.Size(0, 0);
             this.TestChoiseGroupBox.TabIndex = 105;
             this.TestChoiseGroupBox.TabStop = false;
             // 
