@@ -5128,7 +5128,6 @@
             this.edit_save_interval.Name = "edit_save_interval";
             this.edit_save_interval.Size = new System.Drawing.Size(49, 26);
             this.edit_save_interval.TabIndex = 35;
-            this.edit_save_interval.TextChanged += new System.EventHandler(this.edit_save_interval_TextChanged);
             // 
             // skinLabel10
             // 
@@ -5148,7 +5147,6 @@
             this.edit_scan_interval.Name = "edit_scan_interval";
             this.edit_scan_interval.Size = new System.Drawing.Size(72, 26);
             this.edit_scan_interval.TabIndex = 35;
-            this.edit_scan_interval.TextChanged += new System.EventHandler(this.edit_scan_interval_TextChanged);
             // 
             // combox_parity
             // 
@@ -5165,7 +5163,6 @@
             this.combox_parity.Size = new System.Drawing.Size(95, 27);
             this.combox_parity.TabIndex = 6;
             this.combox_parity.WaterText = "";
-            this.combox_parity.SelectedValueChanged += new System.EventHandler(this.combox_parity_SelectedValueChanged);
             // 
             // skinLabel6
             // 
@@ -5192,7 +5189,6 @@
             this.combox_stopbits.Size = new System.Drawing.Size(95, 27);
             this.combox_stopbits.TabIndex = 6;
             this.combox_stopbits.WaterText = "";
-            this.combox_stopbits.SelectedValueChanged += new System.EventHandler(this.combox_stopbits_SelectedValueChanged);
             // 
             // skinLabel1
             // 
@@ -5220,7 +5216,6 @@
             this.combox_databits.Size = new System.Drawing.Size(95, 27);
             this.combox_databits.TabIndex = 6;
             this.combox_databits.WaterText = "";
-            this.combox_databits.SelectedValueChanged += new System.EventHandler(this.combox_databits_SelectedValueChanged);
             // 
             // combox_comport
             // 
@@ -5241,7 +5236,6 @@
             this.combox_comport.Size = new System.Drawing.Size(95, 27);
             this.combox_comport.TabIndex = 6;
             this.combox_comport.WaterText = "";
-            this.combox_comport.SelectedValueChanged += new System.EventHandler(this.combox_comport_SelectedValueChanged);
             // 
             // combox_baudrate
             // 
@@ -5260,7 +5254,6 @@
             this.combox_baudrate.Size = new System.Drawing.Size(95, 27);
             this.combox_baudrate.TabIndex = 6;
             this.combox_baudrate.WaterText = "";
-            this.combox_baudrate.SelectedValueChanged += new System.EventHandler(this.combox_baudrate_SelectedValueChanged);
             // 
             // skinLabel7
             // 
