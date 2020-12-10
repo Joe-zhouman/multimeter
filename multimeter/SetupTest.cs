@@ -576,7 +576,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
             _latestIniFile = "";
             _latestDataFile = "";
-            _heatMeter1 = new HeatMeter("HeatMeter1");
+            _heatMeter1 = new HeatMeter("HeatMeter1",3);
             _heatMeter2 = new HeatMeter("HeatMeter2");
             SlnIni.CreateDefaultIni();
             string slnFilePath = SlnIni.CreateDefaultSlnIni();

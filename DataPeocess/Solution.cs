@@ -206,9 +206,9 @@ namespace DataProcessor {
             if (!LinearFit(p, heatMeter1.Temp, ref k[0], ref b[0])) return false;
             double heatFlow1 = double.Parse(heatMeter1.Kappa) * Math.PI *
                                Math.Pow(double.Parse(heatMeter1.Diameter), 2) * k[0];
-            numPosition = heatMeter2.Position.Take(3).Select(double.Parse).ToArray();
+            numPosition = heatMeter2.Position.Select(double.Parse).ToArray();
             p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToArray();
-            if (!LinearFit(p, heatMeter2.Temp.Take(3).ToArray(), ref k[1], ref b[1])) return false;
+            if (!LinearFit(p, heatMeter2.Temp.ToArray(), ref k[1], ref b[1])) return false;
             double heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI *
                                Math.Pow(double.Parse(heatMeter1.Diameter), 2) * k[1];
             if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.2) return false;

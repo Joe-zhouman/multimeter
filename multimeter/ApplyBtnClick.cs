@@ -12,10 +12,10 @@ namespace multimeter
             
             if (_user == User.ADVANCE) {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
-                    {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
+                    {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3};
                 List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
                 {
-                    ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4
+                    ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3
                 };
                 BoxToHeatMeter(ref _heatMeter1,heatMeterPositionBoxes1,heatMeterChannelBoxes1,K1TextBox1_1,D1TextBox1_1);
                 List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
@@ -62,10 +62,10 @@ namespace multimeter
             if (_user == User.ADVANCE)
             {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
-                    {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
+                    {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3};
                 List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
                 {
-                    ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4
+                    ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3
                 };
                 BoxToHeatMeter(ref _heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox2_1, D1TextBox2_1);
                 List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
@@ -119,10 +119,10 @@ namespace multimeter
             if (_user == User.ADVANCE)
             {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
-                    {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3, LengthTextBox3_4};
+                    {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3};
                 List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
                 {
-                    ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4
+                    ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3
                 };
                 BoxToHeatMeter(ref _heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox3_1, D1TextBox3_1);
                 List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
@@ -162,10 +162,10 @@ namespace multimeter
             if (_user == User.ADVANCE)
             {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
-                    {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3, LengthTextBox4_4};
+                    {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3};
                 List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
                 {
-                    ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4
+                    ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3
                 };
                 BoxToHeatMeter(ref _heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox4_1, D1TextBox4_1);
                 List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()

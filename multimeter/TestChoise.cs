@@ -25,11 +25,11 @@ namespace multimeter {
             SlnIni.LoadKappaInfo(ref _sample1, out force, filePath, slnFilePath);
             ForceTextBox1.Text = force;
             var heatMeterPositionBoxes1 = new List<TextBox>
-                        {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
+                        {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3};
             var heatMeterPositionBoxes2 = new List<TextBox>
                         {LengthTextBox1_8, LengthTextBox1_9, LengthTextBox1_10, LengthTextBox1_11};
             var heatMeterChannelBoxes1 = new List<TextBox>
-                        {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4};
+                        {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3};
             var heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox1_8, ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11};
             HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox1_1,
@@ -60,15 +60,15 @@ namespace multimeter {
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");
-            var filePath = SlnIni.CreateDefaultSlnIni();
+            var filePath = SlnIni.CreateDefaultItcIni();
             SlnIni.LoadItcInfo(ref _sample1, ref _sample2, out force, filePath, slnFilePath);
             ForceTextBox2.Text = force;
             var heatMeterPositionBoxes1 = new List<TextBox>
-                        {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
+                        {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3};
             var heatMeterPositionBoxes2 = new List<TextBox>
                         {LengthTextBox2_11, LengthTextBox2_12, LengthTextBox2_13, LengthTextBox2_14};
             var heatMeterChannelBoxes1 = new List<TextBox>
-                        {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4};
+                        {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3};
             var heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox2_11, ChannelTextBox2_12, ChannelTextBox2_13, ChannelTextBox2_14};
             HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox2_1,
@@ -108,11 +108,11 @@ namespace multimeter {
             ForceTextBox3.Text = force;
             FilmThickness1.Text = thickness;
             var heatMeterPositionBoxes1 = new List<TextBox>
-                {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3, LengthTextBox3_4};
+                {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3};
             var heatMeterPositionBoxes2 = new List<TextBox>
                 {LengthTextBox3_5, LengthTextBox3_6, LengthTextBox3_7, LengthTextBox3_8};
             var heatMeterChannelBoxes1 = new List<TextBox>
-                {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4};
+                {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3};
             var heatMeterChannelBoxes2 = new List<TextBox>
                 {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
             HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox3_1,
@@ -142,11 +142,11 @@ namespace multimeter {
             ForceTextBox4.Text = force;
             FilmThickness2.Text = thickness;
             var heatMeterPositionBoxes1 = new List<TextBox>
-                        {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3, LengthTextBox4_4};
+                        {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3};
             var heatMeterPositionBoxes2 = new List<TextBox>
                         {LengthTextBox4_11, LengthTextBox4_12, LengthTextBox4_13, LengthTextBox4_14};
             var heatMeterChannelBoxes1 = new List<TextBox>
-                        {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4};
+                        {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3};
             var heatMeterChannelBoxes2 = new List<TextBox>
                         {ChannelTextBox4_11, ChannelTextBox4_12, ChannelTextBox4_13, ChannelTextBox4_14};
             HeatMeterToBox(_heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, D1TextBox4_1,

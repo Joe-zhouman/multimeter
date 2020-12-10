@@ -36,23 +36,23 @@ namespace multimeter {
             int numChannel = 0;
             List<string> channelList = new List<string>();
             if (heatMeter1 != null) {
-                numChannel += 4;
+                numChannel += heatMeter1.TestPoint;
                 channelList.AddRange(heatMeter1.Channel);
             }
 
             if (sample1 != null) {
-                numChannel += 3;
+                numChannel += sample1.TestPoint;
                 channelList.AddRange(sample1.Channel);
             }
 
             if (sample2 != null) {
-                numChannel += 3;
+                numChannel += sample2.TestPoint;
                 channelList.AddRange(sample2.Channel);
             }
 
             if (heatMeter2 != null) {
-                numChannel += 3;
-                channelList.AddRange(heatMeter2.Channel.Take(3));
+                numChannel += heatMeter2.TestPoint;
+                channelList.AddRange(heatMeter2.Channel);
             }
 
             for (int i = 0; i < numChannel; i++) {
@@ -122,9 +122,7 @@ namespace multimeter {
                 if (!(result.Object is DataPoint a)) return;
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
-                chartValue.Text = "Channel:"+ ChartElementType.LegendTitle +"\n"
-                                  +"Time:" + a.XValue + "\n" 
-                                  + "Temp:"+a.YValues[0];
+                chartValue.Text = $@"Ch{a.LegendText},Time:{a.XValue},Temp:{a.YValues[0]}";
 
 
             }
