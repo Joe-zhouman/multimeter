@@ -86,7 +86,8 @@ namespace multimeter
             this.dataGridView.RowTemplate.Height = 23;
             this.dataGridView.Size = new System.Drawing.Size(396, 386);
             this.dataGridView.TabIndex = 1;
-            //this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             // 
             // Cancel
             // 
@@ -111,7 +112,6 @@ namespace multimeter
             this.button1.Size = new System.Drawing.Size(396, 81);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
-            //this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AlphaT0Setting
             // 

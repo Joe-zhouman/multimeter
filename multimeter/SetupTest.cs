@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;

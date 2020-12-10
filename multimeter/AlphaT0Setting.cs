@@ -26,24 +26,44 @@ namespace multimeter
             dataGridView.Columns.Add("alpha", "α");
             dataGridView.Columns.Add("beta", "β");
             dataGridView.Columns.Add("theta", "θ");
-            for (int i = 201; i < 214; i++) {
-                dataGridView.Rows.Add(i.ToString(), "", "");
+
+            for (int i = 0; i < 4; i++) {
+                dataGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+            for (int i = 0; i < 13; i++) {
+                dataGridView.Rows.Add((201+i).ToString(), "", "");
+                dataGridView["channel", i].ReadOnly = true;
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sln.ini");
+                dataGridView[1,i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "alpha", dataGridView[1, i].Value.ToString(),
+                    filePath);
+                dataGridView[1, i].ValueType = typeof(double);
+                dataGridView[2, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "beta", dataGridView[1, i].Value.ToString(),
+                    filePath);
+                dataGridView[2, i].ValueType = typeof(double);
+                dataGridView[3, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "theta", dataGridView[1, i].Value.ToString(),
+                    filePath);
+                dataGridView[3, i].ValueType = typeof(double);
+            }
+            
         }
 
         private void Confirm_Click(object sender, EventArgs e)
         {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sln.ini"); //在当前程序路径创建
-            for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
-            {
+            string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", $"sln.ini.{DateTime.Now:yyyy-MM-dd-ss-ffff}.bak");
+            File.Copy(filePath, bakFilePath);
+            for (int i = 0; i < dataGridView.Rows.Count - 1; i++) {
                 INIHelper.Write(dataGridView[0, i].Value.ToString(), "alpha", dataGridView[1, i].Value.ToString(),
                     filePath);
                 INIHelper.Write(dataGridView[0, i].Value.ToString(), "beta", dataGridView[2, i].Value.ToString(),
                     filePath);
                 INIHelper.Write(dataGridView[0, i].Value.ToString(), "theta", dataGridView[3, i].Value.ToString(),
                     filePath);
+                
             }
-
+            MessageBox.Show($@"修改成功!
+配置文件备份在{bakFilePath}.
+如需找回配置,将其重命名为'sln.ini',并替换{filePath}.", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
 
         }
@@ -51,5 +71,18 @@ namespace multimeter
             Close();
         }
 
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0&&e.RowIndex>0) {
+                dataGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
+            }
+        }
+
+        private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show(@"请输入一个正确的数字,如: 
+1.2345,1.2345e-3,1.2353E+04", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+        }
     }
 }
