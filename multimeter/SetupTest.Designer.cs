@@ -6076,7 +6076,6 @@
             this.ParSetting.Text = "参数设置";
             this.ParSetting.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ParSetting.UseVisualStyleBackColor = true;
-            this.ParSetting.Click += new System.EventHandler(this.ParSetting_Click);
             // 
             // ChartShow_Timer
             // 

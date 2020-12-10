@@ -509,7 +509,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         }
 
 
-        public void SavetData(string name, ListView listView) {
+        public void SaveToData(string name, ListView listView) {
             #region
 
             if (listView.Items.Count == 0)
@@ -770,7 +770,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         listView_main.Items.Add(item);
                         LastScan.Text = _recvstr;
                         if (count % AppCfg.devicepara.Save_interval == 0) {
-                            SavetData("AutoSave", listView_main);
+                            SaveToData("AutoSave", listView_main);
                             listView_main.Items.Clear();
                         }
 
@@ -823,7 +823,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
                 //    if(count%AppCfg.devicepara.Save_interval==0)
                 //    {         
-                //        SavetData("sss", listView_main);
+                //        SaveToData("sss", listView_main);
                 //        listView_main.Items.Clear();
                 //    }         
                 //}
