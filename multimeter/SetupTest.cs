@@ -24,6 +24,21 @@ namespace multimeter {
         private readonly TestResultChart _testResultChart = new TestResultChart();
         private bool _testResultChartUpdate;
         private User _user;
+
+        #region //串口采集
+
+        private string TotalCHN = "";
+        string[] channels;
+        private int TotalNum;
+        private int count;
+        private bool enablescan;
+
+        #endregion
+        internal class AppCfg //全局变量
+        {
+            internal static ParaInfo devicepara = new ParaInfo();
+        }
+
         
         public SetupTest() {
             InitializeComponent();
@@ -391,7 +406,7 @@ namespace multimeter {
             #endregion
 
             TotalNum = TwoR_num + FourR_num + Temp_num;
-
+            channels = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
             #endregion
         }
@@ -720,19 +735,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-        internal class AppCfg //全局变量
-        {
-            internal static ParaInfo devicepara = new ParaInfo();
-        }
 
-        #region //串口采集
-
-        private string TotalCHN = "";
-        private int TotalNum;
-        private int count;
-        private bool enablescan;
-
-        #endregion
 
         private void SerialPort_Timer_Tick(object sender, EventArgs e) {
             #region
@@ -758,15 +761,32 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     str = str.Substring(0, str.IndexOf((char) 13));
                     _recvstr += str;
                     if (_recvstr.Length > 0) {
-                        count++;
+                        int firstIdx = _recvstr.IndexOf((char) 13);
+                        int lastIdx = _recvstr.LastIndexOf((char) 13);
+                        if (-1 != firstIdx && firstIdx != lastIdx) {
+                            _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
+                        }
+                        
                         _recvstr = _recvstr.Replace((char) 19, (char) 0);
                         _recvstr = _recvstr.Replace((char) 13, (char) 0);
                         _recvstr = _recvstr.Replace((char) 0x11, (char) 0);
                         _recvstr = _recvstr.Replace("\0", "");
-
-
-                        string tmp = count + "," + _recvstr;
-                        ListViewItem item = new ListViewItem(tmp.Split(','));
+                        string[] dataStrList =
+                            _recvstr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+                        if (dataStrList.Length != channels.Length) {
+                            return;
+                        }
+                        double[] dataList;
+                        try {
+                             dataList = dataStrList.Select(double.Parse).ToArray();
+                        }
+                        catch {
+                            return;
+                        }
+                        count++;
+                        List<string> temp = new List<string>() {count.ToString()};
+                        temp.AddRange(dataStrList);
+                        ListViewItem item = new ListViewItem(temp.ToArray());
                         listView_main.Items.Add(item);
                         LastScan.Text = _recvstr;
                         if (count % AppCfg.devicepara.Save_interval == 0) {
@@ -775,13 +795,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         }
 
                         //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        List<string> channels = TotalCHN.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
-                            .ToList();
-                        List<double> dataList = _recvstr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
-                            .Select(double.Parse).ToList();
+                        
                         //Dictionary<string, double> testResult = new Dictionary<string, double>();
                         _testResult.Clear();
-                        for (int i = 0; i < channels.Count; i++) _testResult.Add(channels[i], dataList[i]);
+                        for (int i = 0; i < channels.Length; i++) _testResult.Add(channels[i], dataList[i]);
                         _testResultChartUpdate = true;
                         //timer1.Enabled = true;
                         //timer1.Start();
