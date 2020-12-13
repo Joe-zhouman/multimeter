@@ -54,31 +54,32 @@
             this.ChannelTextBox1_10 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_11 = new System.Windows.Forms.TextBox();
             this.TextGroupbox1 = new System.Windows.Forms.GroupBox();
-            this.label91 = new System.Windows.Forms.Label();
+            this.TextResultGroupbox1 = new System.Windows.Forms.GroupBox();
             this.label90 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.Tlable1_3 = new System.Windows.Forms.Label();
+            this.Tlable1_5 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
+            this.Tlable1_6 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
+            this.Tlable1_7 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
+            this.Tlable1_8 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
+            this.Tlable1_11 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
+            this.Tlable1_10 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
+            this.Tlable1_9 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
+            this.Tlable1_1 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
+            this.Tlable1_2 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
+            this.k1_s = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
-            this.k1_s = new System.Windows.Forms.Label();
-            this.Tlable1_2 = new System.Windows.Forms.Label();
-            this.Tlable1_1 = new System.Windows.Forms.Label();
-            this.Tlable1_9 = new System.Windows.Forms.Label();
-            this.Tlable1_10 = new System.Windows.Forms.Label();
-            this.Tlable1_11 = new System.Windows.Forms.Label();
-            this.Tlable1_8 = new System.Windows.Forms.Label();
-            this.Tlable1_7 = new System.Windows.Forms.Label();
-            this.Tlable1_6 = new System.Windows.Forms.Label();
-            this.Tlable1_5 = new System.Windows.Forms.Label();
-            this.Tlable1_3 = new System.Windows.Forms.Label();
             this.STextBox1_1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -120,41 +121,42 @@
             this.LengthTextBox1_8 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.TextGroupbox2 = new System.Windows.Forms.GroupBox();
-            this.label113 = new System.Windows.Forms.Label();
-            this.label112 = new System.Windows.Forms.Label();
-            this.label111 = new System.Windows.Forms.Label();
+            this.TextResultGroupbox2 = new System.Windows.Forms.GroupBox();
             this.label110 = new System.Windows.Forms.Label();
+            this.label113 = new System.Windows.Forms.Label();
+            this.Tlable2_3 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
+            this.Tlable2_5 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.Tlable2_6 = new System.Windows.Forms.Label();
+            this.Tlable2_7 = new System.Windows.Forms.Label();
             this.label109 = new System.Windows.Forms.Label();
+            this.Tlable2_8 = new System.Windows.Forms.Label();
             this.label108 = new System.Windows.Forms.Label();
+            this.Tlable2_11 = new System.Windows.Forms.Label();
             this.label107 = new System.Windows.Forms.Label();
+            this.Tlable2_10 = new System.Windows.Forms.Label();
             this.label106 = new System.Windows.Forms.Label();
+            this.Tlable2_9 = new System.Windows.Forms.Label();
             this.label105 = new System.Windows.Forms.Label();
+            this.K2_s1 = new System.Windows.Forms.Label();
             this.label104 = new System.Windows.Forms.Label();
+            this.Tlable2_1 = new System.Windows.Forms.Label();
             this.label103 = new System.Windows.Forms.Label();
+            this.Tlable2_2 = new System.Windows.Forms.Label();
             this.label102 = new System.Windows.Forms.Label();
+            this.Tlable2_12 = new System.Windows.Forms.Label();
             this.label101 = new System.Windows.Forms.Label();
+            this.Tlable2_13 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
+            this.K2_s2 = new System.Windows.Forms.Label();
             this.label98 = new System.Windows.Forms.Label();
+            this.Tlable2_14 = new System.Windows.Forms.Label();
             this.label97 = new System.Windows.Forms.Label();
+            this.TCRtest2 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
-            this.TCRtest2 = new System.Windows.Forms.Label();
-            this.Tlable2_14 = new System.Windows.Forms.Label();
-            this.K2_s2 = new System.Windows.Forms.Label();
-            this.Tlable2_13 = new System.Windows.Forms.Label();
-            this.Tlable2_12 = new System.Windows.Forms.Label();
-            this.Tlable2_2 = new System.Windows.Forms.Label();
-            this.Tlable2_1 = new System.Windows.Forms.Label();
-            this.K2_s1 = new System.Windows.Forms.Label();
-            this.Tlable2_9 = new System.Windows.Forms.Label();
-            this.Tlable2_10 = new System.Windows.Forms.Label();
-            this.Tlable2_11 = new System.Windows.Forms.Label();
-            this.Tlable2_8 = new System.Windows.Forms.Label();
-            this.Tlable2_7 = new System.Windows.Forms.Label();
-            this.Tlable2_6 = new System.Windows.Forms.Label();
-            this.Tlable2_5 = new System.Windows.Forms.Label();
-            this.Tlable2_3 = new System.Windows.Forms.Label();
             this.SlTextBox2_2 = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -230,27 +232,28 @@
             this.LengthTextBox2_9 = new System.Windows.Forms.TextBox();
             this.LengthTextBox2_8 = new System.Windows.Forms.TextBox();
             this.TextGroupbox3 = new System.Windows.Forms.GroupBox();
-            this.label126 = new System.Windows.Forms.Label();
-            this.label125 = new System.Windows.Forms.Label();
+            this.TextResultGroupbox3 = new System.Windows.Forms.GroupBox();
             this.label124 = new System.Windows.Forms.Label();
+            this.label126 = new System.Windows.Forms.Label();
+            this.Tlable3_3 = new System.Windows.Forms.Label();
+            this.label125 = new System.Windows.Forms.Label();
+            this.Tlable3_5 = new System.Windows.Forms.Label();
+            this.Tlable3_8 = new System.Windows.Forms.Label();
             this.label123 = new System.Windows.Forms.Label();
+            this.Tlable3_7 = new System.Windows.Forms.Label();
             this.label122 = new System.Windows.Forms.Label();
+            this.Tlable3_6 = new System.Windows.Forms.Label();
             this.label121 = new System.Windows.Forms.Label();
+            this.Tlable3_1 = new System.Windows.Forms.Label();
             this.label120 = new System.Windows.Forms.Label();
+            this.Tlable3_2 = new System.Windows.Forms.Label();
             this.label119 = new System.Windows.Forms.Label();
+            this.k3_s = new System.Windows.Forms.Label();
             this.label117 = new System.Windows.Forms.Label();
+            this.TCRtest3 = new System.Windows.Forms.Label();
             this.label116 = new System.Windows.Forms.Label();
             this.label115 = new System.Windows.Forms.Label();
             this.label114 = new System.Windows.Forms.Label();
-            this.TCRtest3 = new System.Windows.Forms.Label();
-            this.k3_s = new System.Windows.Forms.Label();
-            this.Tlable3_2 = new System.Windows.Forms.Label();
-            this.Tlable3_1 = new System.Windows.Forms.Label();
-            this.Tlable3_6 = new System.Windows.Forms.Label();
-            this.Tlable3_7 = new System.Windows.Forms.Label();
-            this.Tlable3_8 = new System.Windows.Forms.Label();
-            this.Tlable3_5 = new System.Windows.Forms.Label();
-            this.Tlable3_3 = new System.Windows.Forms.Label();
             this.S2TextBox3_2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -299,43 +302,44 @@
             this.LengthTextBox3_6 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_5 = new System.Windows.Forms.TextBox();
             this.TextGroupbox4 = new System.Windows.Forms.GroupBox();
-            this.label147 = new System.Windows.Forms.Label();
-            this.label146 = new System.Windows.Forms.Label();
-            this.label145 = new System.Windows.Forms.Label();
-            this.label144 = new System.Windows.Forms.Label();
+            this.TextResultGroupbox4 = new System.Windows.Forms.GroupBox();
             this.label143 = new System.Windows.Forms.Label();
+            this.label147 = new System.Windows.Forms.Label();
+            this.Tlable4_3 = new System.Windows.Forms.Label();
+            this.label146 = new System.Windows.Forms.Label();
+            this.Tlable4_5 = new System.Windows.Forms.Label();
+            this.label145 = new System.Windows.Forms.Label();
+            this.Tlable4_6 = new System.Windows.Forms.Label();
+            this.label144 = new System.Windows.Forms.Label();
+            this.Tlable4_7 = new System.Windows.Forms.Label();
+            this.Tlable4_8 = new System.Windows.Forms.Label();
             this.label142 = new System.Windows.Forms.Label();
+            this.Tlable4_11 = new System.Windows.Forms.Label();
             this.label141 = new System.Windows.Forms.Label();
+            this.Tlable4_10 = new System.Windows.Forms.Label();
             this.label140 = new System.Windows.Forms.Label();
+            this.Tlable4_9 = new System.Windows.Forms.Label();
             this.label139 = new System.Windows.Forms.Label();
+            this.k4_s2 = new System.Windows.Forms.Label();
             this.label138 = new System.Windows.Forms.Label();
+            this.Tlable4_1 = new System.Windows.Forms.Label();
             this.label137 = new System.Windows.Forms.Label();
+            this.Tlable4_2 = new System.Windows.Forms.Label();
             this.label136 = new System.Windows.Forms.Label();
+            this.Tlable4_12 = new System.Windows.Forms.Label();
             this.label135 = new System.Windows.Forms.Label();
+            this.Tlable4_13 = new System.Windows.Forms.Label();
             this.label134 = new System.Windows.Forms.Label();
+            this.k4_s1 = new System.Windows.Forms.Label();
             this.label133 = new System.Windows.Forms.Label();
+            this.Tlable4_14 = new System.Windows.Forms.Label();
             this.label132 = new System.Windows.Forms.Label();
+            this.k4_f = new System.Windows.Forms.Label();
             this.label130 = new System.Windows.Forms.Label();
+            this.TCRtest4 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.label128 = new System.Windows.Forms.Label();
             this.label127 = new System.Windows.Forms.Label();
-            this.TCRtest4 = new System.Windows.Forms.Label();
-            this.k4_f = new System.Windows.Forms.Label();
-            this.Tlable4_14 = new System.Windows.Forms.Label();
-            this.k4_s1 = new System.Windows.Forms.Label();
-            this.Tlable4_13 = new System.Windows.Forms.Label();
-            this.Tlable4_12 = new System.Windows.Forms.Label();
-            this.Tlable4_2 = new System.Windows.Forms.Label();
-            this.Tlable4_1 = new System.Windows.Forms.Label();
-            this.k4_s2 = new System.Windows.Forms.Label();
-            this.Tlable4_9 = new System.Windows.Forms.Label();
-            this.Tlable4_10 = new System.Windows.Forms.Label();
-            this.Tlable4_11 = new System.Windows.Forms.Label();
-            this.Tlable4_8 = new System.Windows.Forms.Label();
-            this.Tlable4_7 = new System.Windows.Forms.Label();
-            this.Tlable4_6 = new System.Windows.Forms.Label();
-            this.Tlable4_5 = new System.Windows.Forms.Label();
-            this.Tlable4_3 = new System.Windows.Forms.Label();
             this.SlTextBox4_2 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -500,17 +504,17 @@
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.ParSetting = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.TextResultGroupbox3 = new System.Windows.Forms.GroupBox();
-            this.TextResultGroupbox4 = new System.Windows.Forms.GroupBox();
-            this.TextResultGroupbox2 = new System.Windows.Forms.GroupBox();
-            this.TextResultGroupbox1 = new System.Windows.Forms.GroupBox();
             this.TextGroupbox1.SuspendLayout();
+            this.TextResultGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
             this.TextGroupbox2.SuspendLayout();
+            this.TextResultGroupbox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).BeginInit();
             this.TextGroupbox3.SuspendLayout();
+            this.TextResultGroupbox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest3)).BeginInit();
             this.TextGroupbox4.SuspendLayout();
+            this.TextResultGroupbox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest4)).BeginInit();
             this.skinGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).BeginInit();
@@ -524,10 +528,6 @@
             this.MenuGroupBox.SuspendLayout();
             this.ResultGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.TextResultGroupbox3.SuspendLayout();
-            this.TextResultGroupbox4.SuspendLayout();
-            this.TextResultGroupbox2.SuspendLayout();
-            this.TextResultGroupbox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ChannelLabel1_1
@@ -797,15 +797,37 @@
             this.TextGroupbox1.TabIndex = 24;
             this.TextGroupbox1.TabStop = false;
             // 
-            // label91
+            // TextResultGroupbox1
             // 
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label91.Location = new System.Drawing.Point(46, 67);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(142, 23);
-            this.label91.TabIndex = 116;
-            this.label91.Text = "试件导热系数";
+            this.TextResultGroupbox1.Controls.Add(this.label90);
+            this.TextResultGroupbox1.Controls.Add(this.label91);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_3);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_5);
+            this.TextResultGroupbox1.Controls.Add(this.label89);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_6);
+            this.TextResultGroupbox1.Controls.Add(this.label88);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_7);
+            this.TextResultGroupbox1.Controls.Add(this.label87);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_8);
+            this.TextResultGroupbox1.Controls.Add(this.label86);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_11);
+            this.TextResultGroupbox1.Controls.Add(this.label84);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_10);
+            this.TextResultGroupbox1.Controls.Add(this.label81);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_9);
+            this.TextResultGroupbox1.Controls.Add(this.label78);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_1);
+            this.TextResultGroupbox1.Controls.Add(this.label72);
+            this.TextResultGroupbox1.Controls.Add(this.Tlable1_2);
+            this.TextResultGroupbox1.Controls.Add(this.label71);
+            this.TextResultGroupbox1.Controls.Add(this.k1_s);
+            this.TextResultGroupbox1.Controls.Add(this.label68);
+            this.TextResultGroupbox1.Controls.Add(this.label67);
+            this.TextResultGroupbox1.Location = new System.Drawing.Point(766, 0);
+            this.TextResultGroupbox1.Name = "TextResultGroupbox1";
+            this.TextResultGroupbox1.Size = new System.Drawing.Size(484, 855);
+            this.TextResultGroupbox1.TabIndex = 117;
+            this.TextResultGroupbox1.TabStop = false;
             // 
             // label90
             // 
@@ -817,6 +839,37 @@
             this.label90.TabIndex = 115;
             this.label90.Text = "测试结果：";
             // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label91.Location = new System.Drawing.Point(46, 67);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(142, 23);
+            this.label91.TabIndex = 116;
+            this.label91.Text = "试件导热系数";
+            // 
+            // Tlable1_3
+            // 
+            this.Tlable1_3.AutoSize = true;
+            this.Tlable1_3.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_3.Location = new System.Drawing.Point(111, 262);
+            this.Tlable1_3.Name = "Tlable1_3";
+            this.Tlable1_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_3.TabIndex = 91;
+            this.Tlable1_3.Text = "***";
+            // 
+            // Tlable1_5
+            // 
+            this.Tlable1_5.AutoSize = true;
+            this.Tlable1_5.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_5.ForeColor = System.Drawing.Color.Red;
+            this.Tlable1_5.Location = new System.Drawing.Point(112, 344);
+            this.Tlable1_5.Name = "Tlable1_5";
+            this.Tlable1_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_5.TabIndex = 93;
+            this.Tlable1_5.Text = "***";
+            // 
             // label89
             // 
             this.label89.AutoSize = true;
@@ -826,6 +879,17 @@
             this.label89.Size = new System.Drawing.Size(110, 30);
             this.label89.TabIndex = 114;
             this.label89.Text = "-------->";
+            // 
+            // Tlable1_6
+            // 
+            this.Tlable1_6.AutoSize = true;
+            this.Tlable1_6.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_6.ForeColor = System.Drawing.Color.Red;
+            this.Tlable1_6.Location = new System.Drawing.Point(111, 390);
+            this.Tlable1_6.Name = "Tlable1_6";
+            this.Tlable1_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_6.TabIndex = 94;
+            this.Tlable1_6.Text = "***";
             // 
             // label88
             // 
@@ -837,6 +901,17 @@
             this.label88.TabIndex = 113;
             this.label88.Text = "-------->";
             // 
+            // Tlable1_7
+            // 
+            this.Tlable1_7.AutoSize = true;
+            this.Tlable1_7.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_7.ForeColor = System.Drawing.Color.Red;
+            this.Tlable1_7.Location = new System.Drawing.Point(111, 430);
+            this.Tlable1_7.Name = "Tlable1_7";
+            this.Tlable1_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_7.TabIndex = 95;
+            this.Tlable1_7.Text = "***";
+            // 
             // label87
             // 
             this.label87.AutoSize = true;
@@ -847,6 +922,16 @@
             this.label87.TabIndex = 112;
             this.label87.Text = "-------->";
             // 
+            // Tlable1_8
+            // 
+            this.Tlable1_8.AutoSize = true;
+            this.Tlable1_8.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_8.Location = new System.Drawing.Point(111, 473);
+            this.Tlable1_8.Name = "Tlable1_8";
+            this.Tlable1_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_8.TabIndex = 96;
+            this.Tlable1_8.Text = "***";
+            // 
             // label86
             // 
             this.label86.AutoSize = true;
@@ -856,6 +941,16 @@
             this.label86.Size = new System.Drawing.Size(110, 30);
             this.label86.TabIndex = 111;
             this.label86.Text = "-------->";
+            // 
+            // Tlable1_11
+            // 
+            this.Tlable1_11.AutoSize = true;
+            this.Tlable1_11.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_11.Location = new System.Drawing.Point(111, 603);
+            this.Tlable1_11.Name = "Tlable1_11";
+            this.Tlable1_11.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_11.TabIndex = 97;
+            this.Tlable1_11.Text = "***";
             // 
             // label84
             // 
@@ -868,6 +963,16 @@
             this.label84.TabIndex = 110;
             this.label84.Text = "-------->";
             // 
+            // Tlable1_10
+            // 
+            this.Tlable1_10.AutoSize = true;
+            this.Tlable1_10.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_10.Location = new System.Drawing.Point(111, 563);
+            this.Tlable1_10.Name = "Tlable1_10";
+            this.Tlable1_10.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_10.TabIndex = 98;
+            this.Tlable1_10.Text = "***";
+            // 
             // label81
             // 
             this.label81.AutoSize = true;
@@ -878,6 +983,16 @@
             this.label81.Size = new System.Drawing.Size(110, 30);
             this.label81.TabIndex = 109;
             this.label81.Text = "-------->";
+            // 
+            // Tlable1_9
+            // 
+            this.Tlable1_9.AutoSize = true;
+            this.Tlable1_9.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_9.Location = new System.Drawing.Point(111, 525);
+            this.Tlable1_9.Name = "Tlable1_9";
+            this.Tlable1_9.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_9.TabIndex = 99;
+            this.Tlable1_9.Text = "***";
             // 
             // label78
             // 
@@ -890,6 +1005,16 @@
             this.label78.TabIndex = 108;
             this.label78.Text = "-------->";
             // 
+            // Tlable1_1
+            // 
+            this.Tlable1_1.AutoSize = true;
+            this.Tlable1_1.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_1.Location = new System.Drawing.Point(112, 182);
+            this.Tlable1_1.Name = "Tlable1_1";
+            this.Tlable1_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_1.TabIndex = 89;
+            this.Tlable1_1.Text = "***";
+            // 
             // label72
             // 
             this.label72.AutoSize = true;
@@ -900,6 +1025,16 @@
             this.label72.TabIndex = 106;
             this.label72.Text = "-------->";
             // 
+            // Tlable1_2
+            // 
+            this.Tlable1_2.AutoSize = true;
+            this.Tlable1_2.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_2.Location = new System.Drawing.Point(112, 217);
+            this.Tlable1_2.Name = "Tlable1_2";
+            this.Tlable1_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_2.TabIndex = 90;
+            this.Tlable1_2.Text = "***";
+            // 
             // label71
             // 
             this.label71.AutoSize = true;
@@ -909,6 +1044,16 @@
             this.label71.Size = new System.Drawing.Size(110, 30);
             this.label71.TabIndex = 105;
             this.label71.Text = "-------->";
+            // 
+            // k1_s
+            // 
+            this.k1_s.AutoSize = true;
+            this.k1_s.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.k1_s.Location = new System.Drawing.Point(185, 67);
+            this.k1_s.Name = "k1_s";
+            this.k1_s.Size = new System.Drawing.Size(48, 26);
+            this.k1_s.TabIndex = 101;
+            this.k1_s.Text = "***";
             // 
             // label68
             // 
@@ -940,119 +1085,6 @@
             this.label62.Size = new System.Drawing.Size(158, 31);
             this.label62.TabIndex = 102;
             this.label62.Text = "导热系数测量";
-            // 
-            // k1_s
-            // 
-            this.k1_s.AutoSize = true;
-            this.k1_s.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k1_s.Location = new System.Drawing.Point(185, 67);
-            this.k1_s.Name = "k1_s";
-            this.k1_s.Size = new System.Drawing.Size(48, 26);
-            this.k1_s.TabIndex = 101;
-            this.k1_s.Text = "***";
-            // 
-            // Tlable1_2
-            // 
-            this.Tlable1_2.AutoSize = true;
-            this.Tlable1_2.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_2.Location = new System.Drawing.Point(112, 217);
-            this.Tlable1_2.Name = "Tlable1_2";
-            this.Tlable1_2.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_2.TabIndex = 90;
-            this.Tlable1_2.Text = "***";
-            // 
-            // Tlable1_1
-            // 
-            this.Tlable1_1.AutoSize = true;
-            this.Tlable1_1.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_1.Location = new System.Drawing.Point(112, 182);
-            this.Tlable1_1.Name = "Tlable1_1";
-            this.Tlable1_1.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_1.TabIndex = 89;
-            this.Tlable1_1.Text = "***";
-            // 
-            // Tlable1_9
-            // 
-            this.Tlable1_9.AutoSize = true;
-            this.Tlable1_9.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_9.Location = new System.Drawing.Point(111, 525);
-            this.Tlable1_9.Name = "Tlable1_9";
-            this.Tlable1_9.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_9.TabIndex = 99;
-            this.Tlable1_9.Text = "***";
-            // 
-            // Tlable1_10
-            // 
-            this.Tlable1_10.AutoSize = true;
-            this.Tlable1_10.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_10.Location = new System.Drawing.Point(111, 563);
-            this.Tlable1_10.Name = "Tlable1_10";
-            this.Tlable1_10.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_10.TabIndex = 98;
-            this.Tlable1_10.Text = "***";
-            // 
-            // Tlable1_11
-            // 
-            this.Tlable1_11.AutoSize = true;
-            this.Tlable1_11.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_11.Location = new System.Drawing.Point(111, 603);
-            this.Tlable1_11.Name = "Tlable1_11";
-            this.Tlable1_11.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_11.TabIndex = 97;
-            this.Tlable1_11.Text = "***";
-            // 
-            // Tlable1_8
-            // 
-            this.Tlable1_8.AutoSize = true;
-            this.Tlable1_8.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_8.Location = new System.Drawing.Point(111, 473);
-            this.Tlable1_8.Name = "Tlable1_8";
-            this.Tlable1_8.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_8.TabIndex = 96;
-            this.Tlable1_8.Text = "***";
-            // 
-            // Tlable1_7
-            // 
-            this.Tlable1_7.AutoSize = true;
-            this.Tlable1_7.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_7.ForeColor = System.Drawing.Color.Red;
-            this.Tlable1_7.Location = new System.Drawing.Point(111, 430);
-            this.Tlable1_7.Name = "Tlable1_7";
-            this.Tlable1_7.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_7.TabIndex = 95;
-            this.Tlable1_7.Text = "***";
-            // 
-            // Tlable1_6
-            // 
-            this.Tlable1_6.AutoSize = true;
-            this.Tlable1_6.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_6.ForeColor = System.Drawing.Color.Red;
-            this.Tlable1_6.Location = new System.Drawing.Point(111, 390);
-            this.Tlable1_6.Name = "Tlable1_6";
-            this.Tlable1_6.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_6.TabIndex = 94;
-            this.Tlable1_6.Text = "***";
-            // 
-            // Tlable1_5
-            // 
-            this.Tlable1_5.AutoSize = true;
-            this.Tlable1_5.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_5.ForeColor = System.Drawing.Color.Red;
-            this.Tlable1_5.Location = new System.Drawing.Point(112, 344);
-            this.Tlable1_5.Name = "Tlable1_5";
-            this.Tlable1_5.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_5.TabIndex = 93;
-            this.Tlable1_5.Text = "***";
-            // 
-            // Tlable1_3
-            // 
-            this.Tlable1_3.AutoSize = true;
-            this.Tlable1_3.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_3.Location = new System.Drawing.Point(111, 262);
-            this.Tlable1_3.Name = "Tlable1_3";
-            this.Tlable1_3.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_3.TabIndex = 91;
-            this.Tlable1_3.Text = "***";
             // 
             // STextBox1_1
             // 
@@ -1521,35 +1553,47 @@
             this.TextGroupbox2.TabIndex = 69;
             this.TextGroupbox2.TabStop = false;
             // 
-            // label113
+            // TextResultGroupbox2
             // 
-            this.label113.AutoSize = true;
-            this.label113.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label113.Location = new System.Drawing.Point(107, 108);
-            this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(98, 23);
-            this.label113.TabIndex = 135;
-            this.label113.Text = "接触热阻";
-            // 
-            // label112
-            // 
-            this.label112.AutoSize = true;
-            this.label112.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label112.Location = new System.Drawing.Point(52, 82);
-            this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(153, 23);
-            this.label112.TabIndex = 134;
-            this.label112.Text = "试件2导热系数";
-            // 
-            // label111
-            // 
-            this.label111.AutoSize = true;
-            this.label111.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label111.Location = new System.Drawing.Point(52, 53);
-            this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(153, 23);
-            this.label111.TabIndex = 133;
-            this.label111.Text = "试件1导热系数";
+            this.TextResultGroupbox2.Controls.Add(this.label110);
+            this.TextResultGroupbox2.Controls.Add(this.label113);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_3);
+            this.TextResultGroupbox2.Controls.Add(this.label112);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_5);
+            this.TextResultGroupbox2.Controls.Add(this.label111);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_6);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_7);
+            this.TextResultGroupbox2.Controls.Add(this.label109);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_8);
+            this.TextResultGroupbox2.Controls.Add(this.label108);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_11);
+            this.TextResultGroupbox2.Controls.Add(this.label107);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_10);
+            this.TextResultGroupbox2.Controls.Add(this.label106);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_9);
+            this.TextResultGroupbox2.Controls.Add(this.label105);
+            this.TextResultGroupbox2.Controls.Add(this.K2_s1);
+            this.TextResultGroupbox2.Controls.Add(this.label104);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_1);
+            this.TextResultGroupbox2.Controls.Add(this.label103);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_2);
+            this.TextResultGroupbox2.Controls.Add(this.label102);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_12);
+            this.TextResultGroupbox2.Controls.Add(this.label101);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_13);
+            this.TextResultGroupbox2.Controls.Add(this.label100);
+            this.TextResultGroupbox2.Controls.Add(this.K2_s2);
+            this.TextResultGroupbox2.Controls.Add(this.label98);
+            this.TextResultGroupbox2.Controls.Add(this.Tlable2_14);
+            this.TextResultGroupbox2.Controls.Add(this.label97);
+            this.TextResultGroupbox2.Controls.Add(this.TCRtest2);
+            this.TextResultGroupbox2.Controls.Add(this.label95);
+            this.TextResultGroupbox2.Controls.Add(this.label94);
+            this.TextResultGroupbox2.Location = new System.Drawing.Point(762, 0);
+            this.TextResultGroupbox2.Name = "TextResultGroupbox2";
+            this.TextResultGroupbox2.Size = new System.Drawing.Size(488, 855);
+            this.TextResultGroupbox2.TabIndex = 136;
+            this.TextResultGroupbox2.TabStop = false;
             // 
             // label110
             // 
@@ -1561,6 +1605,79 @@
             this.label110.TabIndex = 121;
             this.label110.Text = "测试结果：";
             // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label113.Location = new System.Drawing.Point(107, 108);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(98, 23);
+            this.label113.TabIndex = 135;
+            this.label113.Text = "接触热阻";
+            // 
+            // Tlable2_3
+            // 
+            this.Tlable2_3.AutoSize = true;
+            this.Tlable2_3.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_3.Location = new System.Drawing.Point(106, 213);
+            this.Tlable2_3.Name = "Tlable2_3";
+            this.Tlable2_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_3.TabIndex = 101;
+            this.Tlable2_3.Text = "***";
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label112.Location = new System.Drawing.Point(52, 82);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(153, 23);
+            this.label112.TabIndex = 134;
+            this.label112.Text = "试件2导热系数";
+            // 
+            // Tlable2_5
+            // 
+            this.Tlable2_5.AutoSize = true;
+            this.Tlable2_5.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_5.ForeColor = System.Drawing.Color.Red;
+            this.Tlable2_5.Location = new System.Drawing.Point(106, 284);
+            this.Tlable2_5.Name = "Tlable2_5";
+            this.Tlable2_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_5.TabIndex = 103;
+            this.Tlable2_5.Text = "***";
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label111.Location = new System.Drawing.Point(52, 53);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(153, 23);
+            this.label111.TabIndex = 133;
+            this.label111.Text = "试件1导热系数";
+            // 
+            // Tlable2_6
+            // 
+            this.Tlable2_6.AutoSize = true;
+            this.Tlable2_6.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_6.ForeColor = System.Drawing.Color.Red;
+            this.Tlable2_6.Location = new System.Drawing.Point(106, 336);
+            this.Tlable2_6.Name = "Tlable2_6";
+            this.Tlable2_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_6.TabIndex = 104;
+            this.Tlable2_6.Text = "***";
+            // 
+            // Tlable2_7
+            // 
+            this.Tlable2_7.AutoSize = true;
+            this.Tlable2_7.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_7.ForeColor = System.Drawing.Color.Red;
+            this.Tlable2_7.Location = new System.Drawing.Point(106, 383);
+            this.Tlable2_7.Name = "Tlable2_7";
+            this.Tlable2_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_7.TabIndex = 105;
+            this.Tlable2_7.Text = "***";
+            // 
             // label109
             // 
             this.label109.AutoSize = true;
@@ -1570,6 +1687,17 @@
             this.label109.Size = new System.Drawing.Size(110, 30);
             this.label109.TabIndex = 132;
             this.label109.Text = "-------->";
+            // 
+            // Tlable2_8
+            // 
+            this.Tlable2_8.AutoSize = true;
+            this.Tlable2_8.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_8.ForeColor = System.Drawing.Color.Red;
+            this.Tlable2_8.Location = new System.Drawing.Point(106, 434);
+            this.Tlable2_8.Name = "Tlable2_8";
+            this.Tlable2_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_8.TabIndex = 106;
+            this.Tlable2_8.Text = "***";
             // 
             // label108
             // 
@@ -1581,6 +1709,16 @@
             this.label108.TabIndex = 131;
             this.label108.Text = "-------->";
             // 
+            // Tlable2_11
+            // 
+            this.Tlable2_11.AutoSize = true;
+            this.Tlable2_11.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_11.Location = new System.Drawing.Point(106, 566);
+            this.Tlable2_11.Name = "Tlable2_11";
+            this.Tlable2_11.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_11.TabIndex = 107;
+            this.Tlable2_11.Text = "***";
+            // 
             // label107
             // 
             this.label107.AutoSize = true;
@@ -1591,6 +1729,17 @@
             this.label107.TabIndex = 130;
             this.label107.Text = "-------->";
             // 
+            // Tlable2_10
+            // 
+            this.Tlable2_10.AutoSize = true;
+            this.Tlable2_10.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_10.ForeColor = System.Drawing.Color.Red;
+            this.Tlable2_10.Location = new System.Drawing.Point(106, 530);
+            this.Tlable2_10.Name = "Tlable2_10";
+            this.Tlable2_10.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_10.TabIndex = 108;
+            this.Tlable2_10.Text = "***";
+            // 
             // label106
             // 
             this.label106.AutoSize = true;
@@ -1600,6 +1749,17 @@
             this.label106.Size = new System.Drawing.Size(110, 30);
             this.label106.TabIndex = 129;
             this.label106.Text = "-------->";
+            // 
+            // Tlable2_9
+            // 
+            this.Tlable2_9.AutoSize = true;
+            this.Tlable2_9.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_9.ForeColor = System.Drawing.Color.Red;
+            this.Tlable2_9.Location = new System.Drawing.Point(106, 473);
+            this.Tlable2_9.Name = "Tlable2_9";
+            this.Tlable2_9.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_9.TabIndex = 109;
+            this.Tlable2_9.Text = "***";
             // 
             // label105
             // 
@@ -1612,6 +1772,16 @@
             this.label105.TabIndex = 128;
             this.label105.Text = "-------->";
             // 
+            // K2_s1
+            // 
+            this.K2_s1.AutoSize = true;
+            this.K2_s1.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.K2_s1.Location = new System.Drawing.Point(207, 51);
+            this.K2_s1.Name = "K2_s1";
+            this.K2_s1.Size = new System.Drawing.Size(48, 26);
+            this.K2_s1.TabIndex = 114;
+            this.K2_s1.Text = "***";
+            // 
             // label104
             // 
             this.label104.AutoSize = true;
@@ -1622,6 +1792,16 @@
             this.label104.Size = new System.Drawing.Size(110, 30);
             this.label104.TabIndex = 127;
             this.label104.Text = "-------->";
+            // 
+            // Tlable2_1
+            // 
+            this.Tlable2_1.AutoSize = true;
+            this.Tlable2_1.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_1.Location = new System.Drawing.Point(106, 147);
+            this.Tlable2_1.Name = "Tlable2_1";
+            this.Tlable2_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_1.TabIndex = 99;
+            this.Tlable2_1.Text = "***";
             // 
             // label103
             // 
@@ -1634,6 +1814,16 @@
             this.label103.TabIndex = 126;
             this.label103.Text = "-------->";
             // 
+            // Tlable2_2
+            // 
+            this.Tlable2_2.AutoSize = true;
+            this.Tlable2_2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_2.Location = new System.Drawing.Point(106, 174);
+            this.Tlable2_2.Name = "Tlable2_2";
+            this.Tlable2_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_2.TabIndex = 100;
+            this.Tlable2_2.Text = "***";
+            // 
             // label102
             // 
             this.label102.AutoSize = true;
@@ -1644,6 +1834,16 @@
             this.label102.Size = new System.Drawing.Size(110, 30);
             this.label102.TabIndex = 125;
             this.label102.Text = "-------->";
+            // 
+            // Tlable2_12
+            // 
+            this.Tlable2_12.AutoSize = true;
+            this.Tlable2_12.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_12.Location = new System.Drawing.Point(106, 606);
+            this.Tlable2_12.Name = "Tlable2_12";
+            this.Tlable2_12.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_12.TabIndex = 110;
+            this.Tlable2_12.Text = "***";
             // 
             // label101
             // 
@@ -1656,6 +1856,16 @@
             this.label101.TabIndex = 124;
             this.label101.Text = "-------->";
             // 
+            // Tlable2_13
+            // 
+            this.Tlable2_13.AutoSize = true;
+            this.Tlable2_13.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_13.Location = new System.Drawing.Point(106, 640);
+            this.Tlable2_13.Name = "Tlable2_13";
+            this.Tlable2_13.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_13.TabIndex = 111;
+            this.Tlable2_13.Text = "***";
+            // 
             // label100
             // 
             this.label100.AutoSize = true;
@@ -1667,6 +1877,16 @@
             this.label100.TabIndex = 123;
             this.label100.Text = "-------->";
             // 
+            // K2_s2
+            // 
+            this.K2_s2.AutoSize = true;
+            this.K2_s2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.K2_s2.Location = new System.Drawing.Point(207, 80);
+            this.K2_s2.Name = "K2_s2";
+            this.K2_s2.Size = new System.Drawing.Size(48, 26);
+            this.K2_s2.TabIndex = 116;
+            this.K2_s2.Text = "***";
+            // 
             // label98
             // 
             this.label98.AutoSize = true;
@@ -1677,6 +1897,16 @@
             this.label98.TabIndex = 121;
             this.label98.Text = "-------->";
             // 
+            // Tlable2_14
+            // 
+            this.Tlable2_14.AutoSize = true;
+            this.Tlable2_14.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_14.Location = new System.Drawing.Point(106, 669);
+            this.Tlable2_14.Name = "Tlable2_14";
+            this.Tlable2_14.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_14.TabIndex = 112;
+            this.Tlable2_14.Text = "***";
+            // 
             // label97
             // 
             this.label97.AutoSize = true;
@@ -1686,6 +1916,16 @@
             this.label97.Size = new System.Drawing.Size(110, 30);
             this.label97.TabIndex = 120;
             this.label97.Text = "-------->";
+            // 
+            // TCRtest2
+            // 
+            this.TCRtest2.AutoSize = true;
+            this.TCRtest2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.TCRtest2.Location = new System.Drawing.Point(207, 108);
+            this.TCRtest2.Name = "TCRtest2";
+            this.TCRtest2.Size = new System.Drawing.Size(48, 26);
+            this.TCRtest2.TabIndex = 118;
+            this.TCRtest2.Text = "***";
             // 
             // label95
             // 
@@ -1717,172 +1957,6 @@
             this.label93.Size = new System.Drawing.Size(217, 31);
             this.label93.TabIndex = 118;
             this.label93.Text = "固_固接触热阻测量";
-            // 
-            // TCRtest2
-            // 
-            this.TCRtest2.AutoSize = true;
-            this.TCRtest2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.TCRtest2.Location = new System.Drawing.Point(207, 108);
-            this.TCRtest2.Name = "TCRtest2";
-            this.TCRtest2.Size = new System.Drawing.Size(48, 26);
-            this.TCRtest2.TabIndex = 118;
-            this.TCRtest2.Text = "***";
-            // 
-            // Tlable2_14
-            // 
-            this.Tlable2_14.AutoSize = true;
-            this.Tlable2_14.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_14.Location = new System.Drawing.Point(106, 669);
-            this.Tlable2_14.Name = "Tlable2_14";
-            this.Tlable2_14.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_14.TabIndex = 112;
-            this.Tlable2_14.Text = "***";
-            // 
-            // K2_s2
-            // 
-            this.K2_s2.AutoSize = true;
-            this.K2_s2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.K2_s2.Location = new System.Drawing.Point(207, 80);
-            this.K2_s2.Name = "K2_s2";
-            this.K2_s2.Size = new System.Drawing.Size(48, 26);
-            this.K2_s2.TabIndex = 116;
-            this.K2_s2.Text = "***";
-            // 
-            // Tlable2_13
-            // 
-            this.Tlable2_13.AutoSize = true;
-            this.Tlable2_13.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_13.Location = new System.Drawing.Point(106, 640);
-            this.Tlable2_13.Name = "Tlable2_13";
-            this.Tlable2_13.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_13.TabIndex = 111;
-            this.Tlable2_13.Text = "***";
-            // 
-            // Tlable2_12
-            // 
-            this.Tlable2_12.AutoSize = true;
-            this.Tlable2_12.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_12.Location = new System.Drawing.Point(106, 606);
-            this.Tlable2_12.Name = "Tlable2_12";
-            this.Tlable2_12.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_12.TabIndex = 110;
-            this.Tlable2_12.Text = "***";
-            // 
-            // Tlable2_2
-            // 
-            this.Tlable2_2.AutoSize = true;
-            this.Tlable2_2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_2.Location = new System.Drawing.Point(106, 174);
-            this.Tlable2_2.Name = "Tlable2_2";
-            this.Tlable2_2.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_2.TabIndex = 100;
-            this.Tlable2_2.Text = "***";
-            // 
-            // Tlable2_1
-            // 
-            this.Tlable2_1.AutoSize = true;
-            this.Tlable2_1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_1.Location = new System.Drawing.Point(106, 147);
-            this.Tlable2_1.Name = "Tlable2_1";
-            this.Tlable2_1.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_1.TabIndex = 99;
-            this.Tlable2_1.Text = "***";
-            // 
-            // K2_s1
-            // 
-            this.K2_s1.AutoSize = true;
-            this.K2_s1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.K2_s1.Location = new System.Drawing.Point(207, 51);
-            this.K2_s1.Name = "K2_s1";
-            this.K2_s1.Size = new System.Drawing.Size(48, 26);
-            this.K2_s1.TabIndex = 114;
-            this.K2_s1.Text = "***";
-            // 
-            // Tlable2_9
-            // 
-            this.Tlable2_9.AutoSize = true;
-            this.Tlable2_9.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_9.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_9.Location = new System.Drawing.Point(106, 473);
-            this.Tlable2_9.Name = "Tlable2_9";
-            this.Tlable2_9.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_9.TabIndex = 109;
-            this.Tlable2_9.Text = "***";
-            // 
-            // Tlable2_10
-            // 
-            this.Tlable2_10.AutoSize = true;
-            this.Tlable2_10.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_10.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_10.Location = new System.Drawing.Point(106, 530);
-            this.Tlable2_10.Name = "Tlable2_10";
-            this.Tlable2_10.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_10.TabIndex = 108;
-            this.Tlable2_10.Text = "***";
-            // 
-            // Tlable2_11
-            // 
-            this.Tlable2_11.AutoSize = true;
-            this.Tlable2_11.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_11.Location = new System.Drawing.Point(106, 566);
-            this.Tlable2_11.Name = "Tlable2_11";
-            this.Tlable2_11.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_11.TabIndex = 107;
-            this.Tlable2_11.Text = "***";
-            // 
-            // Tlable2_8
-            // 
-            this.Tlable2_8.AutoSize = true;
-            this.Tlable2_8.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_8.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_8.Location = new System.Drawing.Point(106, 434);
-            this.Tlable2_8.Name = "Tlable2_8";
-            this.Tlable2_8.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_8.TabIndex = 106;
-            this.Tlable2_8.Text = "***";
-            // 
-            // Tlable2_7
-            // 
-            this.Tlable2_7.AutoSize = true;
-            this.Tlable2_7.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_7.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_7.Location = new System.Drawing.Point(106, 383);
-            this.Tlable2_7.Name = "Tlable2_7";
-            this.Tlable2_7.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_7.TabIndex = 105;
-            this.Tlable2_7.Text = "***";
-            // 
-            // Tlable2_6
-            // 
-            this.Tlable2_6.AutoSize = true;
-            this.Tlable2_6.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_6.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_6.Location = new System.Drawing.Point(106, 336);
-            this.Tlable2_6.Name = "Tlable2_6";
-            this.Tlable2_6.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_6.TabIndex = 104;
-            this.Tlable2_6.Text = "***";
-            // 
-            // Tlable2_5
-            // 
-            this.Tlable2_5.AutoSize = true;
-            this.Tlable2_5.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_5.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_5.Location = new System.Drawing.Point(106, 284);
-            this.Tlable2_5.Name = "Tlable2_5";
-            this.Tlable2_5.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_5.TabIndex = 103;
-            this.Tlable2_5.Text = "***";
-            // 
-            // Tlable2_3
-            // 
-            this.Tlable2_3.AutoSize = true;
-            this.Tlable2_3.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_3.Location = new System.Drawing.Point(106, 213);
-            this.Tlable2_3.Name = "Tlable2_3";
-            this.Tlable2_3.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_3.TabIndex = 101;
-            this.Tlable2_3.Text = "***";
             // 
             // SlTextBox2_2
             // 
@@ -2676,25 +2750,33 @@
             this.TextGroupbox3.TabIndex = 69;
             this.TextGroupbox3.TabStop = false;
             // 
-            // label126
+            // TextResultGroupbox3
             // 
-            this.label126.AutoSize = true;
-            this.label126.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label126.Location = new System.Drawing.Point(46, 92);
-            this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(208, 23);
-            this.label126.TabIndex = 130;
-            this.label126.Text = "热界面材料接触热阻";
-            // 
-            // label125
-            // 
-            this.label125.AutoSize = true;
-            this.label125.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label125.Location = new System.Drawing.Point(46, 63);
-            this.label125.Name = "label125";
-            this.label125.Size = new System.Drawing.Size(208, 23);
-            this.label125.TabIndex = 129;
-            this.label125.Text = "热界面材料导热系数";
+            this.TextResultGroupbox3.Controls.Add(this.label124);
+            this.TextResultGroupbox3.Controls.Add(this.label126);
+            this.TextResultGroupbox3.Controls.Add(this.Tlable3_3);
+            this.TextResultGroupbox3.Controls.Add(this.label125);
+            this.TextResultGroupbox3.Controls.Add(this.Tlable3_5);
+            this.TextResultGroupbox3.Controls.Add(this.Tlable3_8);
+            this.TextResultGroupbox3.Controls.Add(this.label123);
+            this.TextResultGroupbox3.Controls.Add(this.Tlable3_7);
+            this.TextResultGroupbox3.Controls.Add(this.label122);
+            this.TextResultGroupbox3.Controls.Add(this.Tlable3_6);
+            this.TextResultGroupbox3.Controls.Add(this.label121);
+            this.TextResultGroupbox3.Controls.Add(this.Tlable3_1);
+            this.TextResultGroupbox3.Controls.Add(this.label120);
+            this.TextResultGroupbox3.Controls.Add(this.Tlable3_2);
+            this.TextResultGroupbox3.Controls.Add(this.label119);
+            this.TextResultGroupbox3.Controls.Add(this.k3_s);
+            this.TextResultGroupbox3.Controls.Add(this.label117);
+            this.TextResultGroupbox3.Controls.Add(this.TCRtest3);
+            this.TextResultGroupbox3.Controls.Add(this.label116);
+            this.TextResultGroupbox3.Controls.Add(this.label115);
+            this.TextResultGroupbox3.Location = new System.Drawing.Point(792, 0);
+            this.TextResultGroupbox3.Name = "TextResultGroupbox3";
+            this.TextResultGroupbox3.Size = new System.Drawing.Size(458, 855);
+            this.TextResultGroupbox3.TabIndex = 131;
+            this.TextResultGroupbox3.TabStop = false;
             // 
             // label124
             // 
@@ -2707,6 +2789,56 @@
             this.label124.Text = "测试结果：";
             this.label124.Click += new System.EventHandler(this.label124_Click);
             // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label126.Location = new System.Drawing.Point(46, 92);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(208, 23);
+            this.label126.TabIndex = 130;
+            this.label126.Text = "热界面材料接触热阻";
+            // 
+            // Tlable3_3
+            // 
+            this.Tlable3_3.AutoSize = true;
+            this.Tlable3_3.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_3.Location = new System.Drawing.Point(108, 278);
+            this.Tlable3_3.Name = "Tlable3_3";
+            this.Tlable3_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_3.TabIndex = 93;
+            this.Tlable3_3.Text = "***";
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label125.Location = new System.Drawing.Point(46, 63);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(208, 23);
+            this.label125.TabIndex = 129;
+            this.label125.Text = "热界面材料导热系数";
+            // 
+            // Tlable3_5
+            // 
+            this.Tlable3_5.AutoSize = true;
+            this.Tlable3_5.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_5.Location = new System.Drawing.Point(108, 444);
+            this.Tlable3_5.Name = "Tlable3_5";
+            this.Tlable3_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_5.TabIndex = 95;
+            this.Tlable3_5.Text = "***";
+            // 
+            // Tlable3_8
+            // 
+            this.Tlable3_8.AutoSize = true;
+            this.Tlable3_8.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_8.Location = new System.Drawing.Point(107, 588);
+            this.Tlable3_8.Name = "Tlable3_8";
+            this.Tlable3_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_8.TabIndex = 96;
+            this.Tlable3_8.Text = "***";
+            // 
             // label123
             // 
             this.label123.AutoSize = true;
@@ -2716,6 +2848,16 @@
             this.label123.Size = new System.Drawing.Size(90, 21);
             this.label123.TabIndex = 121;
             this.label123.Text = "对应温度";
+            // 
+            // Tlable3_7
+            // 
+            this.Tlable3_7.AutoSize = true;
+            this.Tlable3_7.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_7.Location = new System.Drawing.Point(109, 545);
+            this.Tlable3_7.Name = "Tlable3_7";
+            this.Tlable3_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_7.TabIndex = 97;
+            this.Tlable3_7.Text = "***";
             // 
             // label122
             // 
@@ -2727,6 +2869,16 @@
             this.label122.TabIndex = 128;
             this.label122.Text = "-------->";
             // 
+            // Tlable3_6
+            // 
+            this.Tlable3_6.AutoSize = true;
+            this.Tlable3_6.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_6.Location = new System.Drawing.Point(108, 503);
+            this.Tlable3_6.Name = "Tlable3_6";
+            this.Tlable3_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_6.TabIndex = 98;
+            this.Tlable3_6.Text = "***";
+            // 
             // label121
             // 
             this.label121.AutoSize = true;
@@ -2736,6 +2888,16 @@
             this.label121.Size = new System.Drawing.Size(110, 30);
             this.label121.TabIndex = 127;
             this.label121.Text = "-------->";
+            // 
+            // Tlable3_1
+            // 
+            this.Tlable3_1.AutoSize = true;
+            this.Tlable3_1.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_1.Location = new System.Drawing.Point(108, 193);
+            this.Tlable3_1.Name = "Tlable3_1";
+            this.Tlable3_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_1.TabIndex = 91;
+            this.Tlable3_1.Text = "***";
             // 
             // label120
             // 
@@ -2747,6 +2909,16 @@
             this.label120.TabIndex = 126;
             this.label120.Text = "-------->";
             // 
+            // Tlable3_2
+            // 
+            this.Tlable3_2.AutoSize = true;
+            this.Tlable3_2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_2.Location = new System.Drawing.Point(107, 230);
+            this.Tlable3_2.Name = "Tlable3_2";
+            this.Tlable3_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_2.TabIndex = 92;
+            this.Tlable3_2.Text = "***";
+            // 
             // label119
             // 
             this.label119.AutoSize = true;
@@ -2757,6 +2929,16 @@
             this.label119.TabIndex = 125;
             this.label119.Text = "-------->";
             // 
+            // k3_s
+            // 
+            this.k3_s.AutoSize = true;
+            this.k3_s.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.k3_s.Location = new System.Drawing.Point(260, 65);
+            this.k3_s.Name = "k3_s";
+            this.k3_s.Size = new System.Drawing.Size(48, 26);
+            this.k3_s.TabIndex = 100;
+            this.k3_s.Text = "***";
+            // 
             // label117
             // 
             this.label117.AutoSize = true;
@@ -2766,6 +2948,16 @@
             this.label117.Size = new System.Drawing.Size(110, 30);
             this.label117.TabIndex = 123;
             this.label117.Text = "-------->";
+            // 
+            // TCRtest3
+            // 
+            this.TCRtest3.AutoSize = true;
+            this.TCRtest3.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.TCRtest3.Location = new System.Drawing.Point(260, 92);
+            this.TCRtest3.Name = "TCRtest3";
+            this.TCRtest3.Size = new System.Drawing.Size(48, 26);
+            this.TCRtest3.TabIndex = 102;
+            this.TCRtest3.Text = "***";
             // 
             // label116
             // 
@@ -2797,96 +2989,6 @@
             this.label114.Size = new System.Drawing.Size(289, 31);
             this.label114.TabIndex = 121;
             this.label114.Text = "热界面材料测量_热流计间";
-            // 
-            // TCRtest3
-            // 
-            this.TCRtest3.AutoSize = true;
-            this.TCRtest3.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.TCRtest3.Location = new System.Drawing.Point(260, 92);
-            this.TCRtest3.Name = "TCRtest3";
-            this.TCRtest3.Size = new System.Drawing.Size(48, 26);
-            this.TCRtest3.TabIndex = 102;
-            this.TCRtest3.Text = "***";
-            // 
-            // k3_s
-            // 
-            this.k3_s.AutoSize = true;
-            this.k3_s.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k3_s.Location = new System.Drawing.Point(260, 65);
-            this.k3_s.Name = "k3_s";
-            this.k3_s.Size = new System.Drawing.Size(48, 26);
-            this.k3_s.TabIndex = 100;
-            this.k3_s.Text = "***";
-            // 
-            // Tlable3_2
-            // 
-            this.Tlable3_2.AutoSize = true;
-            this.Tlable3_2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_2.Location = new System.Drawing.Point(107, 230);
-            this.Tlable3_2.Name = "Tlable3_2";
-            this.Tlable3_2.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_2.TabIndex = 92;
-            this.Tlable3_2.Text = "***";
-            // 
-            // Tlable3_1
-            // 
-            this.Tlable3_1.AutoSize = true;
-            this.Tlable3_1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_1.Location = new System.Drawing.Point(108, 193);
-            this.Tlable3_1.Name = "Tlable3_1";
-            this.Tlable3_1.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_1.TabIndex = 91;
-            this.Tlable3_1.Text = "***";
-            // 
-            // Tlable3_6
-            // 
-            this.Tlable3_6.AutoSize = true;
-            this.Tlable3_6.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_6.Location = new System.Drawing.Point(108, 503);
-            this.Tlable3_6.Name = "Tlable3_6";
-            this.Tlable3_6.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_6.TabIndex = 98;
-            this.Tlable3_6.Text = "***";
-            // 
-            // Tlable3_7
-            // 
-            this.Tlable3_7.AutoSize = true;
-            this.Tlable3_7.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_7.Location = new System.Drawing.Point(109, 545);
-            this.Tlable3_7.Name = "Tlable3_7";
-            this.Tlable3_7.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_7.TabIndex = 97;
-            this.Tlable3_7.Text = "***";
-            // 
-            // Tlable3_8
-            // 
-            this.Tlable3_8.AutoSize = true;
-            this.Tlable3_8.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_8.Location = new System.Drawing.Point(107, 588);
-            this.Tlable3_8.Name = "Tlable3_8";
-            this.Tlable3_8.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_8.TabIndex = 96;
-            this.Tlable3_8.Text = "***";
-            // 
-            // Tlable3_5
-            // 
-            this.Tlable3_5.AutoSize = true;
-            this.Tlable3_5.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_5.Location = new System.Drawing.Point(108, 444);
-            this.Tlable3_5.Name = "Tlable3_5";
-            this.Tlable3_5.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_5.TabIndex = 95;
-            this.Tlable3_5.Text = "***";
-            // 
-            // Tlable3_3
-            // 
-            this.Tlable3_3.AutoSize = true;
-            this.Tlable3_3.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_3.Location = new System.Drawing.Point(108, 278);
-            this.Tlable3_3.Name = "Tlable3_3";
-            this.Tlable3_3.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_3.TabIndex = 93;
-            this.Tlable3_3.Text = "***";
             // 
             // S2TextBox3_2
             // 
@@ -3426,49 +3528,53 @@
             this.TextGroupbox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox4.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox4.Name = "TextGroupbox4";
-            this.TextGroupbox4.Size = new System.Drawing.Size(1250, 855);
+            this.TextGroupbox4.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox4.TabIndex = 69;
             this.TextGroupbox4.TabStop = false;
             // 
-            // label147
+            // TextResultGroupbox4
             // 
-            this.label147.AutoSize = true;
-            this.label147.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label147.Location = new System.Drawing.Point(55, 65);
-            this.label147.Name = "label147";
-            this.label147.Size = new System.Drawing.Size(208, 23);
-            this.label147.TabIndex = 138;
-            this.label147.Text = "热界面材料接触热阻";
-            // 
-            // label146
-            // 
-            this.label146.AutoSize = true;
-            this.label146.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label146.Location = new System.Drawing.Point(55, 41);
-            this.label146.Name = "label146";
-            this.label146.Size = new System.Drawing.Size(208, 23);
-            this.label146.TabIndex = 137;
-            this.label146.Text = "热界面材料导热系数";
-            // 
-            // label145
-            // 
-            this.label145.AutoSize = true;
-            this.label145.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label145.Location = new System.Drawing.Point(110, 111);
-            this.label145.Name = "label145";
-            this.label145.Size = new System.Drawing.Size(153, 23);
-            this.label145.TabIndex = 136;
-            this.label145.Text = "试件2导热系数";
-            // 
-            // label144
-            // 
-            this.label144.AutoSize = true;
-            this.label144.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label144.Location = new System.Drawing.Point(110, 88);
-            this.label144.Name = "label144";
-            this.label144.Size = new System.Drawing.Size(153, 23);
-            this.label144.TabIndex = 135;
-            this.label144.Text = "试件1导热系数";
+            this.TextResultGroupbox4.Controls.Add(this.label143);
+            this.TextResultGroupbox4.Controls.Add(this.label147);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_3);
+            this.TextResultGroupbox4.Controls.Add(this.label146);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_5);
+            this.TextResultGroupbox4.Controls.Add(this.label145);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_6);
+            this.TextResultGroupbox4.Controls.Add(this.label144);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_7);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_8);
+            this.TextResultGroupbox4.Controls.Add(this.label142);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_11);
+            this.TextResultGroupbox4.Controls.Add(this.label141);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_10);
+            this.TextResultGroupbox4.Controls.Add(this.label140);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_9);
+            this.TextResultGroupbox4.Controls.Add(this.label139);
+            this.TextResultGroupbox4.Controls.Add(this.k4_s2);
+            this.TextResultGroupbox4.Controls.Add(this.label138);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_1);
+            this.TextResultGroupbox4.Controls.Add(this.label137);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_2);
+            this.TextResultGroupbox4.Controls.Add(this.label136);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_12);
+            this.TextResultGroupbox4.Controls.Add(this.label135);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_13);
+            this.TextResultGroupbox4.Controls.Add(this.label134);
+            this.TextResultGroupbox4.Controls.Add(this.k4_s1);
+            this.TextResultGroupbox4.Controls.Add(this.label133);
+            this.TextResultGroupbox4.Controls.Add(this.Tlable4_14);
+            this.TextResultGroupbox4.Controls.Add(this.label132);
+            this.TextResultGroupbox4.Controls.Add(this.k4_f);
+            this.TextResultGroupbox4.Controls.Add(this.label130);
+            this.TextResultGroupbox4.Controls.Add(this.TCRtest4);
+            this.TextResultGroupbox4.Controls.Add(this.label129);
+            this.TextResultGroupbox4.Controls.Add(this.label128);
+            this.TextResultGroupbox4.Location = new System.Drawing.Point(733, 0);
+            this.TextResultGroupbox4.Name = "TextResultGroupbox4";
+            this.TextResultGroupbox4.Size = new System.Drawing.Size(517, 855);
+            this.TextResultGroupbox4.TabIndex = 139;
+            this.TextResultGroupbox4.TabStop = false;
             // 
             // label143
             // 
@@ -3480,6 +3586,100 @@
             this.label143.TabIndex = 121;
             this.label143.Text = "测试结果：";
             // 
+            // label147
+            // 
+            this.label147.AutoSize = true;
+            this.label147.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label147.Location = new System.Drawing.Point(55, 65);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(208, 23);
+            this.label147.TabIndex = 138;
+            this.label147.Text = "热界面材料接触热阻";
+            // 
+            // Tlable4_3
+            // 
+            this.Tlable4_3.AutoSize = true;
+            this.Tlable4_3.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_3.Location = new System.Drawing.Point(112, 208);
+            this.Tlable4_3.Name = "Tlable4_3";
+            this.Tlable4_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_3.TabIndex = 102;
+            this.Tlable4_3.Text = "***";
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label146.Location = new System.Drawing.Point(55, 41);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(208, 23);
+            this.label146.TabIndex = 137;
+            this.label146.Text = "热界面材料导热系数";
+            // 
+            // Tlable4_5
+            // 
+            this.Tlable4_5.AutoSize = true;
+            this.Tlable4_5.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_5.ForeColor = System.Drawing.Color.Red;
+            this.Tlable4_5.Location = new System.Drawing.Point(112, 276);
+            this.Tlable4_5.Name = "Tlable4_5";
+            this.Tlable4_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_5.TabIndex = 104;
+            this.Tlable4_5.Text = "***";
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label145.Location = new System.Drawing.Point(110, 111);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(153, 23);
+            this.label145.TabIndex = 136;
+            this.label145.Text = "试件2导热系数";
+            // 
+            // Tlable4_6
+            // 
+            this.Tlable4_6.AutoSize = true;
+            this.Tlable4_6.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_6.ForeColor = System.Drawing.Color.Red;
+            this.Tlable4_6.Location = new System.Drawing.Point(112, 322);
+            this.Tlable4_6.Name = "Tlable4_6";
+            this.Tlable4_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_6.TabIndex = 105;
+            this.Tlable4_6.Text = "***";
+            // 
+            // label144
+            // 
+            this.label144.AutoSize = true;
+            this.label144.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label144.Location = new System.Drawing.Point(110, 88);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(153, 23);
+            this.label144.TabIndex = 135;
+            this.label144.Text = "试件1导热系数";
+            // 
+            // Tlable4_7
+            // 
+            this.Tlable4_7.AutoSize = true;
+            this.Tlable4_7.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_7.ForeColor = System.Drawing.Color.Red;
+            this.Tlable4_7.Location = new System.Drawing.Point(112, 359);
+            this.Tlable4_7.Name = "Tlable4_7";
+            this.Tlable4_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_7.TabIndex = 106;
+            this.Tlable4_7.Text = "***";
+            // 
+            // Tlable4_8
+            // 
+            this.Tlable4_8.AutoSize = true;
+            this.Tlable4_8.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_8.ForeColor = System.Drawing.Color.Red;
+            this.Tlable4_8.Location = new System.Drawing.Point(112, 454);
+            this.Tlable4_8.Name = "Tlable4_8";
+            this.Tlable4_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_8.TabIndex = 107;
+            this.Tlable4_8.Text = "***";
+            // 
             // label142
             // 
             this.label142.AutoSize = true;
@@ -3489,6 +3689,16 @@
             this.label142.Size = new System.Drawing.Size(90, 21);
             this.label142.TabIndex = 121;
             this.label142.Text = "对应温度";
+            // 
+            // Tlable4_11
+            // 
+            this.Tlable4_11.AutoSize = true;
+            this.Tlable4_11.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_11.Location = new System.Drawing.Point(112, 565);
+            this.Tlable4_11.Name = "Tlable4_11";
+            this.Tlable4_11.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_11.TabIndex = 108;
+            this.Tlable4_11.Text = "***";
             // 
             // label141
             // 
@@ -3500,6 +3710,17 @@
             this.label141.TabIndex = 134;
             this.label141.Text = "-------->";
             // 
+            // Tlable4_10
+            // 
+            this.Tlable4_10.AutoSize = true;
+            this.Tlable4_10.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_10.ForeColor = System.Drawing.Color.Red;
+            this.Tlable4_10.Location = new System.Drawing.Point(112, 534);
+            this.Tlable4_10.Name = "Tlable4_10";
+            this.Tlable4_10.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_10.TabIndex = 109;
+            this.Tlable4_10.Text = "***";
+            // 
             // label140
             // 
             this.label140.AutoSize = true;
@@ -3509,6 +3730,17 @@
             this.label140.Size = new System.Drawing.Size(110, 30);
             this.label140.TabIndex = 133;
             this.label140.Text = "-------->";
+            // 
+            // Tlable4_9
+            // 
+            this.Tlable4_9.AutoSize = true;
+            this.Tlable4_9.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_9.ForeColor = System.Drawing.Color.Red;
+            this.Tlable4_9.Location = new System.Drawing.Point(112, 488);
+            this.Tlable4_9.Name = "Tlable4_9";
+            this.Tlable4_9.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_9.TabIndex = 110;
+            this.Tlable4_9.Text = "***";
             // 
             // label139
             // 
@@ -3520,6 +3752,16 @@
             this.label139.TabIndex = 132;
             this.label139.Text = "-------->";
             // 
+            // k4_s2
+            // 
+            this.k4_s2.AutoSize = true;
+            this.k4_s2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.k4_s2.Location = new System.Drawing.Point(261, 111);
+            this.k4_s2.Name = "k4_s2";
+            this.k4_s2.Size = new System.Drawing.Size(48, 26);
+            this.k4_s2.TabIndex = 115;
+            this.k4_s2.Text = "***";
+            // 
             // label138
             // 
             this.label138.AutoSize = true;
@@ -3529,6 +3771,16 @@
             this.label138.Size = new System.Drawing.Size(110, 30);
             this.label138.TabIndex = 131;
             this.label138.Text = "-------->";
+            // 
+            // Tlable4_1
+            // 
+            this.Tlable4_1.AutoSize = true;
+            this.Tlable4_1.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_1.Location = new System.Drawing.Point(112, 146);
+            this.Tlable4_1.Name = "Tlable4_1";
+            this.Tlable4_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_1.TabIndex = 100;
+            this.Tlable4_1.Text = "***";
             // 
             // label137
             // 
@@ -3541,6 +3793,16 @@
             this.label137.TabIndex = 130;
             this.label137.Text = "-------->";
             // 
+            // Tlable4_2
+            // 
+            this.Tlable4_2.AutoSize = true;
+            this.Tlable4_2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_2.Location = new System.Drawing.Point(112, 175);
+            this.Tlable4_2.Name = "Tlable4_2";
+            this.Tlable4_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_2.TabIndex = 101;
+            this.Tlable4_2.Text = "***";
+            // 
             // label136
             // 
             this.label136.AutoSize = true;
@@ -3551,6 +3813,16 @@
             this.label136.Size = new System.Drawing.Size(110, 30);
             this.label136.TabIndex = 129;
             this.label136.Text = "-------->";
+            // 
+            // Tlable4_12
+            // 
+            this.Tlable4_12.AutoSize = true;
+            this.Tlable4_12.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_12.Location = new System.Drawing.Point(112, 602);
+            this.Tlable4_12.Name = "Tlable4_12";
+            this.Tlable4_12.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_12.TabIndex = 111;
+            this.Tlable4_12.Text = "***";
             // 
             // label135
             // 
@@ -3563,6 +3835,16 @@
             this.label135.TabIndex = 128;
             this.label135.Text = "-------->";
             // 
+            // Tlable4_13
+            // 
+            this.Tlable4_13.AutoSize = true;
+            this.Tlable4_13.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_13.Location = new System.Drawing.Point(112, 635);
+            this.Tlable4_13.Name = "Tlable4_13";
+            this.Tlable4_13.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_13.TabIndex = 112;
+            this.Tlable4_13.Text = "***";
+            // 
             // label134
             // 
             this.label134.AutoSize = true;
@@ -3573,6 +3855,16 @@
             this.label134.Size = new System.Drawing.Size(110, 30);
             this.label134.TabIndex = 127;
             this.label134.Text = "-------->";
+            // 
+            // k4_s1
+            // 
+            this.k4_s1.AutoSize = true;
+            this.k4_s1.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.k4_s1.Location = new System.Drawing.Point(261, 88);
+            this.k4_s1.Name = "k4_s1";
+            this.k4_s1.Size = new System.Drawing.Size(48, 26);
+            this.k4_s1.TabIndex = 117;
+            this.k4_s1.Text = "***";
             // 
             // label133
             // 
@@ -3585,6 +3877,16 @@
             this.label133.TabIndex = 126;
             this.label133.Text = "-------->";
             // 
+            // Tlable4_14
+            // 
+            this.Tlable4_14.AutoSize = true;
+            this.Tlable4_14.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_14.Location = new System.Drawing.Point(112, 668);
+            this.Tlable4_14.Name = "Tlable4_14";
+            this.Tlable4_14.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_14.TabIndex = 113;
+            this.Tlable4_14.Text = "***";
+            // 
             // label132
             // 
             this.label132.AutoSize = true;
@@ -3596,6 +3898,16 @@
             this.label132.TabIndex = 125;
             this.label132.Text = "-------->";
             // 
+            // k4_f
+            // 
+            this.k4_f.AutoSize = true;
+            this.k4_f.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.k4_f.Location = new System.Drawing.Point(261, 39);
+            this.k4_f.Name = "k4_f";
+            this.k4_f.Size = new System.Drawing.Size(48, 26);
+            this.k4_f.TabIndex = 119;
+            this.k4_f.Text = "***";
+            // 
             // label130
             // 
             this.label130.AutoSize = true;
@@ -3605,6 +3917,16 @@
             this.label130.Size = new System.Drawing.Size(110, 30);
             this.label130.TabIndex = 123;
             this.label130.Text = "-------->";
+            // 
+            // TCRtest4
+            // 
+            this.TCRtest4.AutoSize = true;
+            this.TCRtest4.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.TCRtest4.Location = new System.Drawing.Point(261, 62);
+            this.TCRtest4.Name = "TCRtest4";
+            this.TCRtest4.Size = new System.Drawing.Size(48, 26);
+            this.TCRtest4.TabIndex = 121;
+            this.TCRtest4.Text = "***";
             // 
             // label129
             // 
@@ -3636,182 +3958,6 @@
             this.label127.Size = new System.Drawing.Size(265, 31);
             this.label127.TabIndex = 121;
             this.label127.Text = "热界面材料测量_试件间";
-            // 
-            // TCRtest4
-            // 
-            this.TCRtest4.AutoSize = true;
-            this.TCRtest4.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.TCRtest4.Location = new System.Drawing.Point(261, 62);
-            this.TCRtest4.Name = "TCRtest4";
-            this.TCRtest4.Size = new System.Drawing.Size(48, 26);
-            this.TCRtest4.TabIndex = 121;
-            this.TCRtest4.Text = "***";
-            // 
-            // k4_f
-            // 
-            this.k4_f.AutoSize = true;
-            this.k4_f.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k4_f.Location = new System.Drawing.Point(261, 39);
-            this.k4_f.Name = "k4_f";
-            this.k4_f.Size = new System.Drawing.Size(48, 26);
-            this.k4_f.TabIndex = 119;
-            this.k4_f.Text = "***";
-            // 
-            // Tlable4_14
-            // 
-            this.Tlable4_14.AutoSize = true;
-            this.Tlable4_14.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_14.Location = new System.Drawing.Point(112, 668);
-            this.Tlable4_14.Name = "Tlable4_14";
-            this.Tlable4_14.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_14.TabIndex = 113;
-            this.Tlable4_14.Text = "***";
-            // 
-            // k4_s1
-            // 
-            this.k4_s1.AutoSize = true;
-            this.k4_s1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k4_s1.Location = new System.Drawing.Point(261, 88);
-            this.k4_s1.Name = "k4_s1";
-            this.k4_s1.Size = new System.Drawing.Size(48, 26);
-            this.k4_s1.TabIndex = 117;
-            this.k4_s1.Text = "***";
-            // 
-            // Tlable4_13
-            // 
-            this.Tlable4_13.AutoSize = true;
-            this.Tlable4_13.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_13.Location = new System.Drawing.Point(112, 635);
-            this.Tlable4_13.Name = "Tlable4_13";
-            this.Tlable4_13.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_13.TabIndex = 112;
-            this.Tlable4_13.Text = "***";
-            // 
-            // Tlable4_12
-            // 
-            this.Tlable4_12.AutoSize = true;
-            this.Tlable4_12.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_12.Location = new System.Drawing.Point(112, 602);
-            this.Tlable4_12.Name = "Tlable4_12";
-            this.Tlable4_12.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_12.TabIndex = 111;
-            this.Tlable4_12.Text = "***";
-            // 
-            // Tlable4_2
-            // 
-            this.Tlable4_2.AutoSize = true;
-            this.Tlable4_2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_2.Location = new System.Drawing.Point(112, 175);
-            this.Tlable4_2.Name = "Tlable4_2";
-            this.Tlable4_2.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_2.TabIndex = 101;
-            this.Tlable4_2.Text = "***";
-            // 
-            // Tlable4_1
-            // 
-            this.Tlable4_1.AutoSize = true;
-            this.Tlable4_1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_1.Location = new System.Drawing.Point(112, 146);
-            this.Tlable4_1.Name = "Tlable4_1";
-            this.Tlable4_1.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_1.TabIndex = 100;
-            this.Tlable4_1.Text = "***";
-            // 
-            // k4_s2
-            // 
-            this.k4_s2.AutoSize = true;
-            this.k4_s2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k4_s2.Location = new System.Drawing.Point(261, 111);
-            this.k4_s2.Name = "k4_s2";
-            this.k4_s2.Size = new System.Drawing.Size(48, 26);
-            this.k4_s2.TabIndex = 115;
-            this.k4_s2.Text = "***";
-            // 
-            // Tlable4_9
-            // 
-            this.Tlable4_9.AutoSize = true;
-            this.Tlable4_9.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_9.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_9.Location = new System.Drawing.Point(112, 488);
-            this.Tlable4_9.Name = "Tlable4_9";
-            this.Tlable4_9.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_9.TabIndex = 110;
-            this.Tlable4_9.Text = "***";
-            // 
-            // Tlable4_10
-            // 
-            this.Tlable4_10.AutoSize = true;
-            this.Tlable4_10.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_10.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_10.Location = new System.Drawing.Point(112, 534);
-            this.Tlable4_10.Name = "Tlable4_10";
-            this.Tlable4_10.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_10.TabIndex = 109;
-            this.Tlable4_10.Text = "***";
-            // 
-            // Tlable4_11
-            // 
-            this.Tlable4_11.AutoSize = true;
-            this.Tlable4_11.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_11.Location = new System.Drawing.Point(112, 565);
-            this.Tlable4_11.Name = "Tlable4_11";
-            this.Tlable4_11.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_11.TabIndex = 108;
-            this.Tlable4_11.Text = "***";
-            // 
-            // Tlable4_8
-            // 
-            this.Tlable4_8.AutoSize = true;
-            this.Tlable4_8.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_8.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_8.Location = new System.Drawing.Point(112, 454);
-            this.Tlable4_8.Name = "Tlable4_8";
-            this.Tlable4_8.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_8.TabIndex = 107;
-            this.Tlable4_8.Text = "***";
-            // 
-            // Tlable4_7
-            // 
-            this.Tlable4_7.AutoSize = true;
-            this.Tlable4_7.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_7.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_7.Location = new System.Drawing.Point(112, 359);
-            this.Tlable4_7.Name = "Tlable4_7";
-            this.Tlable4_7.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_7.TabIndex = 106;
-            this.Tlable4_7.Text = "***";
-            // 
-            // Tlable4_6
-            // 
-            this.Tlable4_6.AutoSize = true;
-            this.Tlable4_6.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_6.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_6.Location = new System.Drawing.Point(112, 322);
-            this.Tlable4_6.Name = "Tlable4_6";
-            this.Tlable4_6.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_6.TabIndex = 105;
-            this.Tlable4_6.Text = "***";
-            // 
-            // Tlable4_5
-            // 
-            this.Tlable4_5.AutoSize = true;
-            this.Tlable4_5.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_5.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_5.Location = new System.Drawing.Point(112, 276);
-            this.Tlable4_5.Name = "Tlable4_5";
-            this.Tlable4_5.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_5.TabIndex = 104;
-            this.Tlable4_5.Text = "***";
-            // 
-            // Tlable4_3
-            // 
-            this.Tlable4_3.AutoSize = true;
-            this.Tlable4_3.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_3.Location = new System.Drawing.Point(112, 208);
-            this.Tlable4_3.Name = "Tlable4_3";
-            this.Tlable4_3.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_3.TabIndex = 102;
-            this.Tlable4_3.Text = "***";
             // 
             // SlTextBox4_2
             // 
@@ -5642,152 +5788,6 @@
             this.ParSetting.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ParSetting.UseVisualStyleBackColor = true;
             // 
-            // TextResultGroupbox3
-            // 
-            this.TextResultGroupbox3.Controls.Add(this.label124);
-            this.TextResultGroupbox3.Controls.Add(this.label126);
-            this.TextResultGroupbox3.Controls.Add(this.Tlable3_3);
-            this.TextResultGroupbox3.Controls.Add(this.label125);
-            this.TextResultGroupbox3.Controls.Add(this.Tlable3_5);
-            this.TextResultGroupbox3.Controls.Add(this.Tlable3_8);
-            this.TextResultGroupbox3.Controls.Add(this.label123);
-            this.TextResultGroupbox3.Controls.Add(this.Tlable3_7);
-            this.TextResultGroupbox3.Controls.Add(this.label122);
-            this.TextResultGroupbox3.Controls.Add(this.Tlable3_6);
-            this.TextResultGroupbox3.Controls.Add(this.label121);
-            this.TextResultGroupbox3.Controls.Add(this.Tlable3_1);
-            this.TextResultGroupbox3.Controls.Add(this.label120);
-            this.TextResultGroupbox3.Controls.Add(this.Tlable3_2);
-            this.TextResultGroupbox3.Controls.Add(this.label119);
-            this.TextResultGroupbox3.Controls.Add(this.k3_s);
-            this.TextResultGroupbox3.Controls.Add(this.label117);
-            this.TextResultGroupbox3.Controls.Add(this.TCRtest3);
-            this.TextResultGroupbox3.Controls.Add(this.label116);
-            this.TextResultGroupbox3.Controls.Add(this.label115);
-            this.TextResultGroupbox3.Location = new System.Drawing.Point(792, 0);
-            this.TextResultGroupbox3.Name = "TextResultGroupbox3";
-            this.TextResultGroupbox3.Size = new System.Drawing.Size(458, 855);
-            this.TextResultGroupbox3.TabIndex = 131;
-            this.TextResultGroupbox3.TabStop = false;
-            // 
-            // TextResultGroupbox4
-            // 
-            this.TextResultGroupbox4.Controls.Add(this.label143);
-            this.TextResultGroupbox4.Controls.Add(this.label147);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_3);
-            this.TextResultGroupbox4.Controls.Add(this.label146);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_5);
-            this.TextResultGroupbox4.Controls.Add(this.label145);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_6);
-            this.TextResultGroupbox4.Controls.Add(this.label144);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_7);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_8);
-            this.TextResultGroupbox4.Controls.Add(this.label142);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_11);
-            this.TextResultGroupbox4.Controls.Add(this.label141);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_10);
-            this.TextResultGroupbox4.Controls.Add(this.label140);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_9);
-            this.TextResultGroupbox4.Controls.Add(this.label139);
-            this.TextResultGroupbox4.Controls.Add(this.k4_s2);
-            this.TextResultGroupbox4.Controls.Add(this.label138);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_1);
-            this.TextResultGroupbox4.Controls.Add(this.label137);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_2);
-            this.TextResultGroupbox4.Controls.Add(this.label136);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_12);
-            this.TextResultGroupbox4.Controls.Add(this.label135);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_13);
-            this.TextResultGroupbox4.Controls.Add(this.label134);
-            this.TextResultGroupbox4.Controls.Add(this.k4_s1);
-            this.TextResultGroupbox4.Controls.Add(this.label133);
-            this.TextResultGroupbox4.Controls.Add(this.Tlable4_14);
-            this.TextResultGroupbox4.Controls.Add(this.label132);
-            this.TextResultGroupbox4.Controls.Add(this.k4_f);
-            this.TextResultGroupbox4.Controls.Add(this.label130);
-            this.TextResultGroupbox4.Controls.Add(this.TCRtest4);
-            this.TextResultGroupbox4.Controls.Add(this.label129);
-            this.TextResultGroupbox4.Controls.Add(this.label128);
-            this.TextResultGroupbox4.Location = new System.Drawing.Point(733, 0);
-            this.TextResultGroupbox4.Name = "TextResultGroupbox4";
-            this.TextResultGroupbox4.Size = new System.Drawing.Size(517, 855);
-            this.TextResultGroupbox4.TabIndex = 139;
-            this.TextResultGroupbox4.TabStop = false;
-            // 
-            // TextResultGroupbox2
-            // 
-            this.TextResultGroupbox2.Controls.Add(this.label110);
-            this.TextResultGroupbox2.Controls.Add(this.label113);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_3);
-            this.TextResultGroupbox2.Controls.Add(this.label112);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_5);
-            this.TextResultGroupbox2.Controls.Add(this.label111);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_6);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_7);
-            this.TextResultGroupbox2.Controls.Add(this.label109);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_8);
-            this.TextResultGroupbox2.Controls.Add(this.label108);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_11);
-            this.TextResultGroupbox2.Controls.Add(this.label107);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_10);
-            this.TextResultGroupbox2.Controls.Add(this.label106);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_9);
-            this.TextResultGroupbox2.Controls.Add(this.label105);
-            this.TextResultGroupbox2.Controls.Add(this.K2_s1);
-            this.TextResultGroupbox2.Controls.Add(this.label104);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_1);
-            this.TextResultGroupbox2.Controls.Add(this.label103);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_2);
-            this.TextResultGroupbox2.Controls.Add(this.label102);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_12);
-            this.TextResultGroupbox2.Controls.Add(this.label101);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_13);
-            this.TextResultGroupbox2.Controls.Add(this.label100);
-            this.TextResultGroupbox2.Controls.Add(this.K2_s2);
-            this.TextResultGroupbox2.Controls.Add(this.label98);
-            this.TextResultGroupbox2.Controls.Add(this.Tlable2_14);
-            this.TextResultGroupbox2.Controls.Add(this.label97);
-            this.TextResultGroupbox2.Controls.Add(this.TCRtest2);
-            this.TextResultGroupbox2.Controls.Add(this.label95);
-            this.TextResultGroupbox2.Controls.Add(this.label94);
-            this.TextResultGroupbox2.Location = new System.Drawing.Point(762, 0);
-            this.TextResultGroupbox2.Name = "TextResultGroupbox2";
-            this.TextResultGroupbox2.Size = new System.Drawing.Size(488, 855);
-            this.TextResultGroupbox2.TabIndex = 136;
-            this.TextResultGroupbox2.TabStop = false;
-            // 
-            // TextResultGroupbox1
-            // 
-            this.TextResultGroupbox1.Controls.Add(this.label90);
-            this.TextResultGroupbox1.Controls.Add(this.label91);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_3);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_5);
-            this.TextResultGroupbox1.Controls.Add(this.label89);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_6);
-            this.TextResultGroupbox1.Controls.Add(this.label88);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_7);
-            this.TextResultGroupbox1.Controls.Add(this.label87);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_8);
-            this.TextResultGroupbox1.Controls.Add(this.label86);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_11);
-            this.TextResultGroupbox1.Controls.Add(this.label84);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_10);
-            this.TextResultGroupbox1.Controls.Add(this.label81);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_9);
-            this.TextResultGroupbox1.Controls.Add(this.label78);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_1);
-            this.TextResultGroupbox1.Controls.Add(this.label72);
-            this.TextResultGroupbox1.Controls.Add(this.Tlable1_2);
-            this.TextResultGroupbox1.Controls.Add(this.label71);
-            this.TextResultGroupbox1.Controls.Add(this.k1_s);
-            this.TextResultGroupbox1.Controls.Add(this.label68);
-            this.TextResultGroupbox1.Controls.Add(this.label67);
-            this.TextResultGroupbox1.Location = new System.Drawing.Point(766, 0);
-            this.TextResultGroupbox1.Name = "TextResultGroupbox1";
-            this.TextResultGroupbox1.Size = new System.Drawing.Size(484, 855);
-            this.TextResultGroupbox1.TabIndex = 117;
-            this.TextResultGroupbox1.TabStop = false;
-            // 
             // SetupTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5812,15 +5812,23 @@
             this.Load += new System.EventHandler(this.SetupTest_Load);
             this.TextGroupbox1.ResumeLayout(false);
             this.TextGroupbox1.PerformLayout();
+            this.TextResultGroupbox1.ResumeLayout(false);
+            this.TextResultGroupbox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).EndInit();
             this.TextGroupbox2.ResumeLayout(false);
             this.TextGroupbox2.PerformLayout();
+            this.TextResultGroupbox2.ResumeLayout(false);
+            this.TextResultGroupbox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).EndInit();
             this.TextGroupbox3.ResumeLayout(false);
             this.TextGroupbox3.PerformLayout();
+            this.TextResultGroupbox3.ResumeLayout(false);
+            this.TextResultGroupbox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest3)).EndInit();
             this.TextGroupbox4.ResumeLayout(false);
             this.TextGroupbox4.PerformLayout();
+            this.TextResultGroupbox4.ResumeLayout(false);
+            this.TextResultGroupbox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest4)).EndInit();
             this.skinGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).EndInit();
@@ -5843,14 +5851,6 @@
             this.ResultGroupBox.ResumeLayout(false);
             this.ResultGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.TextResultGroupbox3.ResumeLayout(false);
-            this.TextResultGroupbox3.PerformLayout();
-            this.TextResultGroupbox4.ResumeLayout(false);
-            this.TextResultGroupbox4.PerformLayout();
-            this.TextResultGroupbox2.ResumeLayout(false);
-            this.TextResultGroupbox2.PerformLayout();
-            this.TextResultGroupbox1.ResumeLayout(false);
-            this.TextResultGroupbox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -23,7 +23,7 @@ namespace multimeter {
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private readonly TestResultChart _testResultChart = new TestResultChart();
         private bool _testResultChartUpdate;
-        private bool _saveparameter=false;
+        private bool _saveParameter;
         public User _user;
 
         #region //串口采集
@@ -58,17 +58,17 @@ namespace multimeter {
         }
 
         private void ModifyParameter_Click(object sender, EventArgs e) {
-            if (_saveparameter) {
+            if (_saveParameter) {
                 apply_btm(sender, e);
                 NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
-                _saveparameter = false;
+                _saveParameter = false;
                 ModifyParameterLabel.Text = "修改参数";
             }
             else {
                 NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
-                _saveparameter = true;
+                _saveParameter = true;
                 ModifyParameterLabel.Text = "确定参数";
             }
         }
@@ -597,7 +597,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
             //ModifyParameter_Enable(true, true);
-            _saveparameter = false;
+            _saveParameter = false;
             #endregion
 
             CheckForIllegalCrossThreadCalls = false; //去掉线程安全
