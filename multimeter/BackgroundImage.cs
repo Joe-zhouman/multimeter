@@ -84,6 +84,30 @@ namespace multimeter {
             }
         }
 
-            
+        public void ModifyParameter_Enable(bool enable, bool modify) {
+            if (enable) {
+                ModifyParameter.Enabled = true;
+                if (modify) ModifyParameter.BackgroundImage = Resources.ModifyParameter_Enable;
+                else ModifyParameter.BackgroundImage = Resources.SaveParameter_Enable;
+            }
+            else {
+                ModifyParameter.Enabled = false;
+                ModifyParameter.BackgroundImage = Resources.ModifyParameter_Disable;
+            }
+           
+        }
+
+        public void ExportResult_Ensable(bool enable) {
+            if (enable) {
+                ExportResult.Enabled = true;
+                ExportResult.BackgroundImage = Resources.ExportResult_Enable;
+            }
+            else {
+                ExportResult.Enabled = false;
+                ExportResult.BackgroundImage = Resources.ExportResult_Disable;
+            }
+        }
+
+
     }
 }

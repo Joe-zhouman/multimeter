@@ -103,6 +103,26 @@ namespace multimeter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap ExportResult_Disable {
+            get {
+                object obj = ResourceManager.GetObject("ExportResult_Disable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportResult_Enable {
+            get {
+                object obj = ResourceManager.GetObject("ExportResult_Enable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap HistoryDataProcess_Disable {
             get {
                 object obj = ResourceManager.GetObject("HistoryDataProcess_Disable", resourceCulture);
@@ -123,6 +143,26 @@ namespace multimeter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap ModifyParameter_Disable {
+            get {
+                object obj = ResourceManager.GetObject("ModifyParameter_Disable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ModifyParameter_Enable {
+            get {
+                object obj = ResourceManager.GetObject("ModifyParameter_Enable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Monitor_Disable {
             get {
                 object obj = ResourceManager.GetObject("Monitor_Disable", resourceCulture);
@@ -136,6 +176,26 @@ namespace multimeter.Properties {
         internal static System.Drawing.Bitmap Monitor_Enable {
             get {
                 object obj = ResourceManager.GetObject("Monitor_Enable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveParameter_Disable {
+            get {
+                object obj = ResourceManager.GetObject("SaveParameter_Disable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveParameter_Enable {
+            get {
+                object obj = ResourceManager.GetObject("SaveParameter_Enable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -23,7 +23,8 @@ namespace multimeter {
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private readonly TestResultChart _testResultChart = new TestResultChart();
         private bool _testResultChartUpdate;
-        private User _user;
+        private bool _saveparameter=false;
+        public User _user;
 
         #region //串口采集
 
@@ -44,7 +45,7 @@ namespace multimeter {
             InitializeComponent();
         }
 
-        private void TestChooseFormShow_Click(object sender, EventArgs e) {
+        public void TestChooseFormShow_Click(object sender, EventArgs e) {
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
@@ -53,8 +54,24 @@ namespace multimeter {
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.BringToFront();
             TestChoiseGroupBox.Visible = true;
+            SoftwareNameLabel.Visible = true;
         }
 
+        private void ModifyParameter_Click(object sender, EventArgs e) {
+            if (_saveparameter) {
+                apply_btm(sender, e);
+                NormalTextBoxEnable(false);
+                ModifyParameter_Enable(true, true);
+                _saveparameter = false;
+                ModifyParameterLabel.Text = "修改参数";
+            }
+            else {
+                NormalTextBoxEnable(true);
+                ModifyParameter_Enable(true, false);
+                _saveparameter = true;
+                ModifyParameterLabel.Text = "确定参数";
+            }
+        }
         private void TestRun_Click(object sender, EventArgs e) {
             if (serialPort1.IsOpen) {
                 TestChooseFormShow_Enable(true);
@@ -71,21 +88,20 @@ namespace multimeter {
 
             }
             else {
-                TestChooseFormShow_Enable(false);
-                TestRun_Enable(false);
-                Monitor_Enable(true);
-                CurrentTestResult_Enable(true);
-                HistoryTestResult_Enable(true);
-                SerialPort_Enable(false);
-                AdvancedSetting_Enable(false);
-                TestRunLabel.Text = "停止";
                 btn_start();
-                Monitor_Click(sender, e);
                 if (serialPort1.IsOpen) {
+                    TestChooseFormShow_Enable(false);
+                    TestRun_Enable(false);
+                    Monitor_Enable(true);
+                    CurrentTestResult_Enable(true);
+                    HistoryTestResult_Enable(true);
+                    SerialPort_Enable(false);
+                    AdvancedSetting_Enable(false);
+                    TestRunLabel.Text = "停止";
+                    Monitor_Click(sender, e);
                     SerialPort_Timer.Enabled = true;
                     ChartShow_Timer.Enabled = true;
                 }
-                
             }
         }
 
@@ -576,13 +592,12 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
             skinGroupBox1.Size = new Size(0, 0);
-            LoginGroupBox.Size = new Size(309, 286);
             TestChoiseGroupBox.Size = new Size(854,360);
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.Visible = false;
-            LoginGroupBox.BringToFront();
-            LoginGroupBox.Visible = true;
-            comboBox.SelectedItem = "普通用户";
+            SoftwareNameLabel.Visible = false;
+            ModifyParameter_Enable(true, true);
+            _saveparameter = false;
             #endregion
 
             CheckForIllegalCrossThreadCalls = false; //去掉线程安全
@@ -727,6 +742,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
             #endregion
 
+            #region //显示登录窗口
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show(this);
+
+            #endregion
         }
 
 
@@ -856,5 +876,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
             
         }
+
+       
     }
 }
