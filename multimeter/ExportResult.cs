@@ -19,19 +19,26 @@ namespace multimeter {
                 {
                     pictureTest1.BringToFront();
                     TextGroupbox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                }
+                    pictureTest1.SendToBack();
+                    }
                     break;
                 case TestMethod.ITC: {
+                    pictureTest2.BringToFront();
                     TextGroupbox2.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                }
+                    pictureTest2.SendToBack();
+                    }
                     break;
                 case TestMethod.ITM: {
+                    pictureTest3.BringToFront();
                     TextGroupbox3.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                }
+                    pictureTest3.SendToBack();
+                    }
                     break;
                 case TestMethod.ITMS: {
+                    pictureTest4.BringToFront();
                     TextGroupbox4.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                }
+                    pictureTest4.SendToBack();
+                    }
                     break;
                 default: {
                     return;

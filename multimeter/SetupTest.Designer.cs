@@ -293,7 +293,7 @@
             this.Unit3_2 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.Unit3_1 = new System.Windows.Forms.Label();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.pictureTest3 = new System.Windows.Forms.PictureBox();
             this.LengthTextBox3_8 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_7 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_6 = new System.Windows.Forms.TextBox();
@@ -405,7 +405,7 @@
             this.Unit4_2 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.Unit4_1 = new System.Windows.Forms.Label();
-            this.pictureBox43 = new System.Windows.Forms.PictureBox();
+            this.pictureTest4 = new System.Windows.Forms.PictureBox();
             this.LengthTextBox4_5 = new System.Windows.Forms.TextBox();
             this.LengthTextBox4_11 = new System.Windows.Forms.TextBox();
             this.LengthTextBox4_6 = new System.Windows.Forms.TextBox();
@@ -505,9 +505,9 @@
             this.TextGroupbox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).BeginInit();
             this.TextGroupbox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest3)).BeginInit();
             this.TextGroupbox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest4)).BeginInit();
             this.skinGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).BeginInit();
             this.listview_card_hide.SuspendLayout();
@@ -2730,7 +2730,7 @@
             this.TextGroupbox3.Controls.Add(this.Unit3_2);
             this.TextGroupbox3.Controls.Add(this.label57);
             this.TextGroupbox3.Controls.Add(this.Unit3_1);
-            this.TextGroupbox3.Controls.Add(this.pictureBox29);
+            this.TextGroupbox3.Controls.Add(this.pictureTest3);
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_8);
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_7);
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_6);
@@ -2739,7 +2739,7 @@
             this.TextGroupbox3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextGroupbox3.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox3.Name = "TextGroupbox3";
-            this.TextGroupbox3.Size = new System.Drawing.Size(0, 0);
+            this.TextGroupbox3.Size = new System.Drawing.Size(1047, 900);
             this.TextGroupbox3.TabIndex = 69;
             this.TextGroupbox3.TabStop = false;
             // 
@@ -3041,7 +3041,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 19);
             this.label4.TabIndex = 69;
-            this.label4.Text = "BMT";
+            this.label4.Text = "ITM";
             // 
             // K2TextBox3_2
             // 
@@ -3055,7 +3055,7 @@
             // K1TextBox3_1
             // 
             this.K1TextBox3_1.Enabled = false;
-            this.K1TextBox3_1.Location = new System.Drawing.Point(620, 164);
+            this.K1TextBox3_1.Location = new System.Drawing.Point(617, 161);
             this.K1TextBox3_1.Name = "K1TextBox3_1";
             this.K1TextBox3_1.Size = new System.Drawing.Size(64, 26);
             this.K1TextBox3_1.TabIndex = 67;
@@ -3361,15 +3361,15 @@
             this.Unit3_1.TabIndex = 47;
             this.Unit3_1.Text = "mm";
             // 
-            // pictureBox29
+            // pictureTest3
             // 
-            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
-            this.pictureBox29.Location = new System.Drawing.Point(350, 65);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(311, 751);
-            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox29.TabIndex = 0;
-            this.pictureBox29.TabStop = false;
+            this.pictureTest3.Image = ((System.Drawing.Image)(resources.GetObject("pictureTest3.Image")));
+            this.pictureTest3.Location = new System.Drawing.Point(350, 65);
+            this.pictureTest3.Name = "pictureTest3";
+            this.pictureTest3.Size = new System.Drawing.Size(311, 751);
+            this.pictureTest3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureTest3.TabIndex = 0;
+            this.pictureTest3.TabStop = false;
             // 
             // LengthTextBox3_8
             // 
@@ -3516,7 +3516,7 @@
             this.TextGroupbox4.Controls.Add(this.Unit4_2);
             this.TextGroupbox4.Controls.Add(this.label85);
             this.TextGroupbox4.Controls.Add(this.Unit4_1);
-            this.TextGroupbox4.Controls.Add(this.pictureBox43);
+            this.TextGroupbox4.Controls.Add(this.pictureTest4);
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_5);
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_11);
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_6);
@@ -3527,7 +3527,7 @@
             this.TextGroupbox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox4.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox4.Name = "TextGroupbox4";
-            this.TextGroupbox4.Size = new System.Drawing.Size(1047, 900);
+            this.TextGroupbox4.Size = new System.Drawing.Size(0, 0);
             this.TextGroupbox4.TabIndex = 69;
             this.TextGroupbox4.TabStop = false;
             // 
@@ -3917,7 +3917,7 @@
             // SlTextBox4_2
             // 
             this.SlTextBox4_2.Enabled = false;
-            this.SlTextBox4_2.Location = new System.Drawing.Point(543, 511);
+            this.SlTextBox4_2.Location = new System.Drawing.Point(548, 507);
             this.SlTextBox4_2.Name = "SlTextBox4_2";
             this.SlTextBox4_2.Size = new System.Drawing.Size(64, 26);
             this.SlTextBox4_2.TabIndex = 99;
@@ -3946,7 +3946,7 @@
             // SuTextBox4_1
             // 
             this.SuTextBox4_1.Enabled = false;
-            this.SuTextBox4_1.Location = new System.Drawing.Point(543, 293);
+            this.SuTextBox4_1.Location = new System.Drawing.Point(548, 299);
             this.SuTextBox4_1.Name = "SuTextBox4_1";
             this.SuTextBox4_1.Size = new System.Drawing.Size(64, 26);
             this.SuTextBox4_1.TabIndex = 96;
@@ -3956,7 +3956,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(517, 298);
+            this.label41.Location = new System.Drawing.Point(512, 300);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(30, 21);
             this.label41.TabIndex = 95;
@@ -3966,7 +3966,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(613, 298);
+            this.label42.Location = new System.Drawing.Point(618, 302);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(55, 21);
             this.label42.TabIndex = 94;
@@ -4090,7 +4090,7 @@
             // FilmThickness2
             // 
             this.FilmThickness2.Enabled = false;
-            this.FilmThickness2.Location = new System.Drawing.Point(551, 408);
+            this.FilmThickness2.Location = new System.Drawing.Point(558, 408);
             this.FilmThickness2.Name = "FilmThickness2";
             this.FilmThickness2.Size = new System.Drawing.Size(64, 26);
             this.FilmThickness2.TabIndex = 77;
@@ -4101,7 +4101,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label10.Location = new System.Drawing.Point(621, 409);
+            this.label10.Location = new System.Drawing.Point(633, 408);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(36, 22);
             this.label10.TabIndex = 76;
@@ -4116,7 +4116,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 19);
             this.label11.TabIndex = 75;
-            this.label11.Text = "BMT";
+            this.label11.Text = "TIM";
             // 
             // ChannelTextBox4_14
             // 
@@ -4178,7 +4178,7 @@
             // K4TextBox4_2
             // 
             this.K4TextBox4_2.Enabled = false;
-            this.K4TextBox4_2.Location = new System.Drawing.Point(601, 699);
+            this.K4TextBox4_2.Location = new System.Drawing.Point(595, 694);
             this.K4TextBox4_2.Name = "K4TextBox4_2";
             this.K4TextBox4_2.Size = new System.Drawing.Size(64, 26);
             this.K4TextBox4_2.TabIndex = 68;
@@ -4187,7 +4187,7 @@
             // K1TextBox4_1
             // 
             this.K1TextBox4_1.Enabled = false;
-            this.K1TextBox4_1.Location = new System.Drawing.Point(572, 122);
+            this.K1TextBox4_1.Location = new System.Drawing.Point(573, 119);
             this.K1TextBox4_1.Name = "K1TextBox4_1";
             this.K1TextBox4_1.Size = new System.Drawing.Size(64, 26);
             this.K1TextBox4_1.TabIndex = 67;
@@ -4207,7 +4207,7 @@
             // 
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(534, 127);
+            this.label60.Location = new System.Drawing.Point(534, 122);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(32, 21);
             this.label60.TabIndex = 65;
@@ -4598,15 +4598,15 @@
             this.Unit4_1.TabIndex = 47;
             this.Unit4_1.Text = "mm";
             // 
-            // pictureBox43
+            // pictureTest4
             // 
-            this.pictureBox43.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox43.Image")));
-            this.pictureBox43.Location = new System.Drawing.Point(342, 53);
-            this.pictureBox43.Name = "pictureBox43";
-            this.pictureBox43.Size = new System.Drawing.Size(265, 790);
-            this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox43.TabIndex = 0;
-            this.pictureBox43.TabStop = false;
+            this.pictureTest4.Image = ((System.Drawing.Image)(resources.GetObject("pictureTest4.Image")));
+            this.pictureTest4.Location = new System.Drawing.Point(342, 53);
+            this.pictureTest4.Name = "pictureTest4";
+            this.pictureTest4.Size = new System.Drawing.Size(265, 790);
+            this.pictureTest4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureTest4.TabIndex = 0;
+            this.pictureTest4.TabStop = false;
             // 
             // LengthTextBox4_5
             // 
@@ -5773,10 +5773,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest2)).EndInit();
             this.TextGroupbox3.ResumeLayout(false);
             this.TextGroupbox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest3)).EndInit();
             this.TextGroupbox4.ResumeLayout(false);
             this.TextGroupbox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTest4)).EndInit();
             this.skinGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.factordataGridView)).EndInit();
             this.listview_card_hide.ResumeLayout(false);
@@ -5951,7 +5951,7 @@
         private System.Windows.Forms.Label Unit4_2;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label Unit4_1;
-        private System.Windows.Forms.PictureBox pictureBox43;
+        private System.Windows.Forms.PictureBox pictureTest4;
         private System.Windows.Forms.TextBox LengthTextBox4_5;
         private System.Windows.Forms.TextBox LengthTextBox4_11;
         private System.Windows.Forms.TextBox LengthTextBox4_6;
@@ -5992,7 +5992,7 @@
         private System.Windows.Forms.Label Unit3_2;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label Unit3_1;
-        private System.Windows.Forms.PictureBox pictureBox29;
+        private System.Windows.Forms.PictureBox pictureTest3;
         private System.Windows.Forms.TextBox LengthTextBox3_8;
         private System.Windows.Forms.TextBox LengthTextBox3_7;
         private System.Windows.Forms.TextBox LengthTextBox3_6;
