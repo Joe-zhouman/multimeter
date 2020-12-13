@@ -165,7 +165,7 @@ namespace multimeter {
             Tlable1_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
             Tlable1_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
             Tlable1_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
-            Tlable1_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
+            //Tlable1_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
             Tlable1_5.Text = $@"Ts1 = {_sample1.Temp[0]} ℃";
             Tlable1_6.Text = $@"Ts2 = {_sample1.Temp[1]} ℃";
             Tlable1_7.Text = $@"Ts3 = {_sample1.Temp[2]} ℃";
@@ -180,7 +180,7 @@ namespace multimeter {
             Tlable2_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
             Tlable2_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
             Tlable2_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
-            Tlable2_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
+            //Tlable2_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
             Tlable2_5.Text = $@"Tsu1 = {_sample1.Temp[0]} ℃";
             Tlable2_6.Text = $@"Tsu2 = {_sample1.Temp[1]} ℃";
             Tlable2_7.Text = $@"Tsu3 = {_sample1.Temp[2]} ℃";
@@ -200,7 +200,7 @@ namespace multimeter {
             Tlable3_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
             Tlable3_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
             Tlable3_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
-            Tlable3_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
+            //Tlable3_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
             Tlable3_5.Text = $@"Tl1 = {_heatMeter2.Temp[0]} ℃";
             Tlable3_6.Text = $@"Tl2 = {_heatMeter2.Temp[1]} ℃";
             Tlable3_7.Text = $@"Tl3 = {_heatMeter2.Temp[2]} ℃";
@@ -212,7 +212,7 @@ namespace multimeter {
             Tlable4_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
             Tlable4_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
             Tlable4_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
-            Tlable4_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
+            //Tlable4_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
             Tlable4_5.Text = $@"Tsu1 = {_sample1.Temp[0]} ℃";
             Tlable4_6.Text = $@"Tsu2 = {_sample1.Temp[1]} ℃";
             Tlable4_7.Text = $@"Tsu3 = {_sample1.Temp[2]} ℃";

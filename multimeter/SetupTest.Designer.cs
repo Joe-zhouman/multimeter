@@ -30,13 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
             this.ChannelLabel1_3 = new System.Windows.Forms.Label();
-            this.ChannelLabel1_4 = new System.Windows.Forms.Label();
             this.ChannelLabel1_5 = new System.Windows.Forms.Label();
             this.ChannelLabel1_6 = new System.Windows.Forms.Label();
             this.ChannelLabel1_7 = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.ChannelTextBox1_1 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_2 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_3 = new System.Windows.Forms.TextBox();
-            this.ChannelTextBox1_4 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_5 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_6 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox1_7 = new System.Windows.Forms.TextBox();
@@ -65,7 +63,6 @@
             this.label84 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
@@ -81,7 +78,6 @@
             this.Tlable1_7 = new System.Windows.Forms.Label();
             this.Tlable1_6 = new System.Windows.Forms.Label();
             this.Tlable1_5 = new System.Windows.Forms.Label();
-            this.Tlable1_4 = new System.Windows.Forms.Label();
             this.Tlable1_3 = new System.Windows.Forms.Label();
             this.STextBox1_1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -138,7 +134,6 @@
             this.label102 = new System.Windows.Forms.Label();
             this.label101 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
-            this.label99 = new System.Windows.Forms.Label();
             this.label98 = new System.Windows.Forms.Label();
             this.label97 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
@@ -159,7 +154,6 @@
             this.Tlable2_7 = new System.Windows.Forms.Label();
             this.Tlable2_6 = new System.Windows.Forms.Label();
             this.Tlable2_5 = new System.Windows.Forms.Label();
-            this.Tlable2_4 = new System.Windows.Forms.Label();
             this.Tlable2_3 = new System.Windows.Forms.Label();
             this.SlTextBox2_2 = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
@@ -208,7 +202,6 @@
             this.ChannelTextBox2_6 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox2_5 = new System.Windows.Forms.TextBox();
             this.Unit2_8 = new System.Windows.Forms.Label();
-            this.ChannelTextBox2_4 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox2_3 = new System.Windows.Forms.TextBox();
             this.Unit2_7 = new System.Windows.Forms.Label();
             this.ChannelTextBox2_2 = new System.Windows.Forms.TextBox();
@@ -225,7 +218,6 @@
             this.Unit2_3 = new System.Windows.Forms.Label();
             this.ChannelLabel2_5 = new System.Windows.Forms.Label();
             this.LengthTextBox2_3 = new System.Windows.Forms.TextBox();
-            this.ChannelLabel2_4 = new System.Windows.Forms.Label();
             this.Unit2_2 = new System.Windows.Forms.Label();
             this.ChannelLabel2_3 = new System.Windows.Forms.Label();
             this.Unit2_1 = new System.Windows.Forms.Label();
@@ -246,7 +238,6 @@
             this.label121 = new System.Windows.Forms.Label();
             this.label120 = new System.Windows.Forms.Label();
             this.label119 = new System.Windows.Forms.Label();
-            this.label118 = new System.Windows.Forms.Label();
             this.label117 = new System.Windows.Forms.Label();
             this.label116 = new System.Windows.Forms.Label();
             this.label115 = new System.Windows.Forms.Label();
@@ -259,7 +250,6 @@
             this.Tlable3_7 = new System.Windows.Forms.Label();
             this.Tlable3_8 = new System.Windows.Forms.Label();
             this.Tlable3_5 = new System.Windows.Forms.Label();
-            this.Tlable3_4 = new System.Windows.Forms.Label();
             this.Tlable3_3 = new System.Windows.Forms.Label();
             this.S2TextBox3_2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -290,7 +280,6 @@
             this.ChannelTextBox3_5 = new System.Windows.Forms.TextBox();
             this.Unit3_6 = new System.Windows.Forms.Label();
             this.Unit3_5 = new System.Windows.Forms.Label();
-            this.ChannelTextBox3_4 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox3_3 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox3_2 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox3_1 = new System.Windows.Forms.TextBox();
@@ -301,7 +290,6 @@
             this.LengthTextBox3_2 = new System.Windows.Forms.TextBox();
             this.Unit3_3 = new System.Windows.Forms.Label();
             this.LengthTextBox3_3 = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
             this.Unit3_2 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.Unit3_1 = new System.Windows.Forms.Label();
@@ -327,7 +315,6 @@
             this.label134 = new System.Windows.Forms.Label();
             this.label133 = new System.Windows.Forms.Label();
             this.label132 = new System.Windows.Forms.Label();
-            this.label131 = new System.Windows.Forms.Label();
             this.label130 = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.label128 = new System.Windows.Forms.Label();
@@ -348,7 +335,6 @@
             this.Tlable4_7 = new System.Windows.Forms.Label();
             this.Tlable4_6 = new System.Windows.Forms.Label();
             this.Tlable4_5 = new System.Windows.Forms.Label();
-            this.Tlable4_4 = new System.Windows.Forms.Label();
             this.Tlable4_3 = new System.Windows.Forms.Label();
             this.SlTextBox4_2 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
@@ -400,7 +386,6 @@
             this.ChannelTextBox4_6 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox4_5 = new System.Windows.Forms.TextBox();
             this.Unit4_8 = new System.Windows.Forms.Label();
-            this.ChannelTextBox4_4 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox4_3 = new System.Windows.Forms.TextBox();
             this.Unit4_7 = new System.Windows.Forms.Label();
             this.ChannelTextBox4_2 = new System.Windows.Forms.TextBox();
@@ -417,7 +402,6 @@
             this.Unit4_3 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
             this.LengthTextBox4_3 = new System.Windows.Forms.TextBox();
-            this.label83 = new System.Windows.Forms.Label();
             this.Unit4_2 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
             this.Unit4_1 = new System.Windows.Forms.Label();
@@ -568,16 +552,6 @@
             this.ChannelLabel1_3.TabIndex = 3;
             this.ChannelLabel1_3.Text = "Chn";
             // 
-            // ChannelLabel1_4
-            // 
-            this.ChannelLabel1_4.AutoSize = true;
-            this.ChannelLabel1_4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel1_4.Location = new System.Drawing.Point(647, 311);
-            this.ChannelLabel1_4.Name = "ChannelLabel1_4";
-            this.ChannelLabel1_4.Size = new System.Drawing.Size(44, 23);
-            this.ChannelLabel1_4.TabIndex = 4;
-            this.ChannelLabel1_4.Text = "Chn";
-            // 
             // ChannelLabel1_5
             // 
             this.ChannelLabel1_5.AutoSize = true;
@@ -678,17 +652,9 @@
             this.ChannelTextBox1_3.TabIndex = 15;
             this.ChannelTextBox1_3.Text = "3";
             // 
-            // ChannelTextBox1_4
-            // 
-            this.ChannelTextBox1_4.Enabled = false;
-            this.ChannelTextBox1_4.Location = new System.Drawing.Point(700, 307);
-            this.ChannelTextBox1_4.Name = "ChannelTextBox1_4";
-            this.ChannelTextBox1_4.Size = new System.Drawing.Size(64, 26);
-            this.ChannelTextBox1_4.TabIndex = 16;
-            this.ChannelTextBox1_4.Text = "4";
-            // 
             // ChannelTextBox1_5
             // 
+            this.ChannelTextBox1_5.Enabled = false;
             this.ChannelTextBox1_5.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox1_5.Location = new System.Drawing.Point(700, 346);
             this.ChannelTextBox1_5.Name = "ChannelTextBox1_5";
@@ -698,6 +664,7 @@
             // 
             // ChannelTextBox1_6
             // 
+            this.ChannelTextBox1_6.Enabled = false;
             this.ChannelTextBox1_6.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox1_6.Location = new System.Drawing.Point(697, 390);
             this.ChannelTextBox1_6.Name = "ChannelTextBox1_6";
@@ -707,6 +674,7 @@
             // 
             // ChannelTextBox1_7
             // 
+            this.ChannelTextBox1_7.Enabled = false;
             this.ChannelTextBox1_7.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox1_7.Location = new System.Drawing.Point(697, 433);
             this.ChannelTextBox1_7.Name = "ChannelTextBox1_7";
@@ -762,7 +730,6 @@
             this.TextGroupbox1.Controls.Add(this.label84);
             this.TextGroupbox1.Controls.Add(this.label81);
             this.TextGroupbox1.Controls.Add(this.label78);
-            this.TextGroupbox1.Controls.Add(this.label75);
             this.TextGroupbox1.Controls.Add(this.label72);
             this.TextGroupbox1.Controls.Add(this.label71);
             this.TextGroupbox1.Controls.Add(this.label68);
@@ -778,7 +745,6 @@
             this.TextGroupbox1.Controls.Add(this.Tlable1_7);
             this.TextGroupbox1.Controls.Add(this.Tlable1_6);
             this.TextGroupbox1.Controls.Add(this.Tlable1_5);
-            this.TextGroupbox1.Controls.Add(this.Tlable1_4);
             this.TextGroupbox1.Controls.Add(this.Tlable1_3);
             this.TextGroupbox1.Controls.Add(this.STextBox1_1);
             this.TextGroupbox1.Controls.Add(this.label17);
@@ -812,7 +778,6 @@
             this.TextGroupbox1.Controls.Add(this.ChannelTextBox1_6);
             this.TextGroupbox1.Controls.Add(this.ChannelTextBox1_5);
             this.TextGroupbox1.Controls.Add(this.Unit1_8);
-            this.TextGroupbox1.Controls.Add(this.ChannelTextBox1_4);
             this.TextGroupbox1.Controls.Add(this.ChannelTextBox1_3);
             this.TextGroupbox1.Controls.Add(this.Unit1_7);
             this.TextGroupbox1.Controls.Add(this.ChannelTextBox1_2);
@@ -829,7 +794,6 @@
             this.TextGroupbox1.Controls.Add(this.Unit1_3);
             this.TextGroupbox1.Controls.Add(this.ChannelLabel1_5);
             this.TextGroupbox1.Controls.Add(this.LengthTextBox1_3);
-            this.TextGroupbox1.Controls.Add(this.ChannelLabel1_4);
             this.TextGroupbox1.Controls.Add(this.Unit1_2);
             this.TextGroupbox1.Controls.Add(this.ChannelLabel1_3);
             this.TextGroupbox1.Controls.Add(this.Unit1_1);
@@ -940,16 +904,6 @@
             this.label78.Size = new System.Drawing.Size(110, 30);
             this.label78.TabIndex = 108;
             this.label78.Text = "-------->";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(771, 303);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(110, 30);
-            this.label75.TabIndex = 107;
-            this.label75.Text = "-------->";
             // 
             // label72
             // 
@@ -1105,16 +1059,6 @@
             this.Tlable1_5.TabIndex = 93;
             this.Tlable1_5.Text = "***";
             // 
-            // Tlable1_4
-            // 
-            this.Tlable1_4.AutoSize = true;
-            this.Tlable1_4.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_4.Location = new System.Drawing.Point(876, 308);
-            this.Tlable1_4.Name = "Tlable1_4";
-            this.Tlable1_4.Size = new System.Drawing.Size(48, 26);
-            this.Tlable1_4.TabIndex = 92;
-            this.Tlable1_4.Text = "***";
-            // 
             // Tlable1_3
             // 
             this.Tlable1_3.AutoSize = true;
@@ -1127,6 +1071,7 @@
             // 
             // STextBox1_1
             // 
+            this.STextBox1_1.Enabled = false;
             this.STextBox1_1.Location = new System.Drawing.Point(558, 367);
             this.STextBox1_1.Name = "STextBox1_1";
             this.STextBox1_1.Size = new System.Drawing.Size(64, 26);
@@ -1271,6 +1216,7 @@
             // 
             // ForceTextBox1
             // 
+            this.ForceTextBox1.Enabled = false;
             this.ForceTextBox1.Location = new System.Drawing.Point(590, 752);
             this.ForceTextBox1.Name = "ForceTextBox1";
             this.ForceTextBox1.Size = new System.Drawing.Size(64, 26);
@@ -1440,6 +1386,7 @@
             // 
             // LengthTextBox1_5
             // 
+            this.LengthTextBox1_5.Enabled = false;
             this.LengthTextBox1_5.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox1_5.Location = new System.Drawing.Point(241, 366);
             this.LengthTextBox1_5.Name = "LengthTextBox1_5";
@@ -1458,6 +1405,7 @@
             // 
             // LengthTextBox1_6
             // 
+            this.LengthTextBox1_6.Enabled = false;
             this.LengthTextBox1_6.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox1_6.Location = new System.Drawing.Point(241, 416);
             this.LengthTextBox1_6.Name = "LengthTextBox1_6";
@@ -1476,6 +1424,7 @@
             // 
             // LengthTextBox1_7
             // 
+            this.LengthTextBox1_7.Enabled = false;
             this.LengthTextBox1_7.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox1_7.Location = new System.Drawing.Point(241, 448);
             this.LengthTextBox1_7.Name = "LengthTextBox1_7";
@@ -1518,7 +1467,6 @@
             this.TextGroupbox2.Controls.Add(this.label102);
             this.TextGroupbox2.Controls.Add(this.label101);
             this.TextGroupbox2.Controls.Add(this.label100);
-            this.TextGroupbox2.Controls.Add(this.label99);
             this.TextGroupbox2.Controls.Add(this.label98);
             this.TextGroupbox2.Controls.Add(this.label97);
             this.TextGroupbox2.Controls.Add(this.label95);
@@ -1539,7 +1487,6 @@
             this.TextGroupbox2.Controls.Add(this.Tlable2_7);
             this.TextGroupbox2.Controls.Add(this.Tlable2_6);
             this.TextGroupbox2.Controls.Add(this.Tlable2_5);
-            this.TextGroupbox2.Controls.Add(this.Tlable2_4);
             this.TextGroupbox2.Controls.Add(this.Tlable2_3);
             this.TextGroupbox2.Controls.Add(this.SlTextBox2_2);
             this.TextGroupbox2.Controls.Add(this.label39);
@@ -1588,7 +1535,6 @@
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_6);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_5);
             this.TextGroupbox2.Controls.Add(this.Unit2_8);
-            this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_4);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_3);
             this.TextGroupbox2.Controls.Add(this.Unit2_7);
             this.TextGroupbox2.Controls.Add(this.ChannelTextBox2_2);
@@ -1605,7 +1551,6 @@
             this.TextGroupbox2.Controls.Add(this.Unit2_3);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_5);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_3);
-            this.TextGroupbox2.Controls.Add(this.ChannelLabel2_4);
             this.TextGroupbox2.Controls.Add(this.Unit2_2);
             this.TextGroupbox2.Controls.Add(this.ChannelLabel2_3);
             this.TextGroupbox2.Controls.Add(this.Unit2_1);
@@ -1769,16 +1714,6 @@
             this.label100.Size = new System.Drawing.Size(110, 30);
             this.label100.TabIndex = 123;
             this.label100.Text = "-------->";
-            // 
-            // label99
-            // 
-            this.label99.AutoSize = true;
-            this.label99.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label99.Location = new System.Drawing.Point(761, 244);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(110, 30);
-            this.label99.TabIndex = 122;
-            this.label99.Text = "-------->";
             // 
             // label98
             // 
@@ -1987,16 +1922,6 @@
             this.Tlable2_5.TabIndex = 103;
             this.Tlable2_5.Text = "***";
             // 
-            // Tlable2_4
-            // 
-            this.Tlable2_4.AutoSize = true;
-            this.Tlable2_4.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable2_4.Location = new System.Drawing.Point(865, 245);
-            this.Tlable2_4.Name = "Tlable2_4";
-            this.Tlable2_4.Size = new System.Drawing.Size(48, 26);
-            this.Tlable2_4.TabIndex = 102;
-            this.Tlable2_4.Text = "***";
-            // 
             // Tlable2_3
             // 
             this.Tlable2_3.AutoSize = true;
@@ -2009,6 +1934,7 @@
             // 
             // SlTextBox2_2
             // 
+            this.SlTextBox2_2.Enabled = false;
             this.SlTextBox2_2.Location = new System.Drawing.Point(580, 502);
             this.SlTextBox2_2.Name = "SlTextBox2_2";
             this.SlTextBox2_2.Size = new System.Drawing.Size(64, 26);
@@ -2037,6 +1963,7 @@
             // 
             // SuTextBox2_1
             // 
+            this.SuTextBox2_1.Enabled = false;
             this.SuTextBox2_1.Location = new System.Drawing.Point(580, 309);
             this.SuTextBox2_1.Name = "SuTextBox2_1";
             this.SuTextBox2_1.Size = new System.Drawing.Size(64, 26);
@@ -2295,6 +2222,7 @@
             // 
             // ForceTextBox2
             // 
+            this.ForceTextBox2.Enabled = false;
             this.ForceTextBox2.Location = new System.Drawing.Point(604, 792);
             this.ForceTextBox2.Name = "ForceTextBox2";
             this.ForceTextBox2.Size = new System.Drawing.Size(64, 26);
@@ -2372,6 +2300,7 @@
             // 
             // ChannelTextBox2_10
             // 
+            this.ChannelTextBox2_10.Enabled = false;
             this.ChannelTextBox2_10.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox2_10.Location = new System.Drawing.Point(697, 532);
             this.ChannelTextBox2_10.Name = "ChannelTextBox2_10";
@@ -2381,6 +2310,7 @@
             // 
             // ChannelTextBox2_9
             // 
+            this.ChannelTextBox2_9.Enabled = false;
             this.ChannelTextBox2_9.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox2_9.Location = new System.Drawing.Point(697, 477);
             this.ChannelTextBox2_9.Name = "ChannelTextBox2_9";
@@ -2401,6 +2331,7 @@
             // 
             // ChannelTextBox2_8
             // 
+            this.ChannelTextBox2_8.Enabled = false;
             this.ChannelTextBox2_8.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox2_8.Location = new System.Drawing.Point(697, 438);
             this.ChannelTextBox2_8.Name = "ChannelTextBox2_8";
@@ -2410,6 +2341,7 @@
             // 
             // ChannelTextBox2_7
             // 
+            this.ChannelTextBox2_7.Enabled = false;
             this.ChannelTextBox2_7.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox2_7.Location = new System.Drawing.Point(696, 384);
             this.ChannelTextBox2_7.Name = "ChannelTextBox2_7";
@@ -2430,6 +2362,7 @@
             // 
             // ChannelTextBox2_6
             // 
+            this.ChannelTextBox2_6.Enabled = false;
             this.ChannelTextBox2_6.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox2_6.Location = new System.Drawing.Point(697, 340);
             this.ChannelTextBox2_6.Name = "ChannelTextBox2_6";
@@ -2439,6 +2372,7 @@
             // 
             // ChannelTextBox2_5
             // 
+            this.ChannelTextBox2_5.Enabled = false;
             this.ChannelTextBox2_5.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox2_5.Location = new System.Drawing.Point(697, 284);
             this.ChannelTextBox2_5.Name = "ChannelTextBox2_5";
@@ -2456,15 +2390,6 @@
             this.Unit2_8.Size = new System.Drawing.Size(42, 23);
             this.Unit2_8.TabIndex = 54;
             this.Unit2_8.Text = "mm";
-            // 
-            // ChannelTextBox2_4
-            // 
-            this.ChannelTextBox2_4.Enabled = false;
-            this.ChannelTextBox2_4.Location = new System.Drawing.Point(697, 247);
-            this.ChannelTextBox2_4.Name = "ChannelTextBox2_4";
-            this.ChannelTextBox2_4.Size = new System.Drawing.Size(64, 26);
-            this.ChannelTextBox2_4.TabIndex = 16;
-            this.ChannelTextBox2_4.Text = "4";
             // 
             // ChannelTextBox2_3
             // 
@@ -2630,16 +2555,6 @@
             this.LengthTextBox2_3.TabIndex = 38;
             this.LengthTextBox2_3.Text = "12";
             // 
-            // ChannelLabel2_4
-            // 
-            this.ChannelLabel2_4.AutoSize = true;
-            this.ChannelLabel2_4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChannelLabel2_4.Location = new System.Drawing.Point(644, 246);
-            this.ChannelLabel2_4.Name = "ChannelLabel2_4";
-            this.ChannelLabel2_4.Size = new System.Drawing.Size(44, 23);
-            this.ChannelLabel2_4.TabIndex = 4;
-            this.ChannelLabel2_4.Text = "Chn";
-            // 
             // Unit2_2
             // 
             this.Unit2_2.AutoSize = true;
@@ -2682,6 +2597,7 @@
             // 
             // LengthTextBox2_5
             // 
+            this.LengthTextBox2_5.Enabled = false;
             this.LengthTextBox2_5.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox2_5.Location = new System.Drawing.Point(255, 307);
             this.LengthTextBox2_5.Name = "LengthTextBox2_5";
@@ -2700,6 +2616,7 @@
             // 
             // LengthTextBox2_6
             // 
+            this.LengthTextBox2_6.Enabled = false;
             this.LengthTextBox2_6.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox2_6.Location = new System.Drawing.Point(255, 361);
             this.LengthTextBox2_6.Name = "LengthTextBox2_6";
@@ -2709,6 +2626,7 @@
             // 
             // LengthTextBox2_10
             // 
+            this.LengthTextBox2_10.Enabled = false;
             this.LengthTextBox2_10.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox2_10.Location = new System.Drawing.Point(255, 505);
             this.LengthTextBox2_10.Name = "LengthTextBox2_10";
@@ -2718,6 +2636,7 @@
             // 
             // LengthTextBox2_7
             // 
+            this.LengthTextBox2_7.Enabled = false;
             this.LengthTextBox2_7.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox2_7.Location = new System.Drawing.Point(255, 398);
             this.LengthTextBox2_7.Name = "LengthTextBox2_7";
@@ -2727,6 +2646,7 @@
             // 
             // LengthTextBox2_9
             // 
+            this.LengthTextBox2_9.Enabled = false;
             this.LengthTextBox2_9.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox2_9.Location = new System.Drawing.Point(255, 467);
             this.LengthTextBox2_9.Name = "LengthTextBox2_9";
@@ -2736,6 +2656,7 @@
             // 
             // LengthTextBox2_8
             // 
+            this.LengthTextBox2_8.Enabled = false;
             this.LengthTextBox2_8.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox2_8.Location = new System.Drawing.Point(255, 435);
             this.LengthTextBox2_8.Name = "LengthTextBox2_8";
@@ -2754,7 +2675,6 @@
             this.TextGroupbox3.Controls.Add(this.label121);
             this.TextGroupbox3.Controls.Add(this.label120);
             this.TextGroupbox3.Controls.Add(this.label119);
-            this.TextGroupbox3.Controls.Add(this.label118);
             this.TextGroupbox3.Controls.Add(this.label117);
             this.TextGroupbox3.Controls.Add(this.label116);
             this.TextGroupbox3.Controls.Add(this.label115);
@@ -2767,7 +2687,6 @@
             this.TextGroupbox3.Controls.Add(this.Tlable3_7);
             this.TextGroupbox3.Controls.Add(this.Tlable3_8);
             this.TextGroupbox3.Controls.Add(this.Tlable3_5);
-            this.TextGroupbox3.Controls.Add(this.Tlable3_4);
             this.TextGroupbox3.Controls.Add(this.Tlable3_3);
             this.TextGroupbox3.Controls.Add(this.S2TextBox3_2);
             this.TextGroupbox3.Controls.Add(this.label21);
@@ -2798,7 +2717,6 @@
             this.TextGroupbox3.Controls.Add(this.ChannelTextBox3_5);
             this.TextGroupbox3.Controls.Add(this.Unit3_6);
             this.TextGroupbox3.Controls.Add(this.Unit3_5);
-            this.TextGroupbox3.Controls.Add(this.ChannelTextBox3_4);
             this.TextGroupbox3.Controls.Add(this.ChannelTextBox3_3);
             this.TextGroupbox3.Controls.Add(this.ChannelTextBox3_2);
             this.TextGroupbox3.Controls.Add(this.ChannelTextBox3_1);
@@ -2809,7 +2727,6 @@
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_2);
             this.TextGroupbox3.Controls.Add(this.Unit3_3);
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_3);
-            this.TextGroupbox3.Controls.Add(this.label55);
             this.TextGroupbox3.Controls.Add(this.Unit3_2);
             this.TextGroupbox3.Controls.Add(this.label57);
             this.TextGroupbox3.Controls.Add(this.Unit3_1);
@@ -2905,16 +2822,6 @@
             this.label119.Size = new System.Drawing.Size(110, 30);
             this.label119.TabIndex = 125;
             this.label119.Text = "-------->";
-            // 
-            // label118
-            // 
-            this.label118.AutoSize = true;
-            this.label118.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label118.Location = new System.Drawing.Point(794, 326);
-            this.label118.Name = "label118";
-            this.label118.Size = new System.Drawing.Size(110, 30);
-            this.label118.TabIndex = 124;
-            this.label118.Text = "-------->";
             // 
             // label117
             // 
@@ -3037,16 +2944,6 @@
             this.Tlable3_5.TabIndex = 95;
             this.Tlable3_5.Text = "***";
             // 
-            // Tlable3_4
-            // 
-            this.Tlable3_4.AutoSize = true;
-            this.Tlable3_4.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_4.Location = new System.Drawing.Point(897, 329);
-            this.Tlable3_4.Name = "Tlable3_4";
-            this.Tlable3_4.Size = new System.Drawing.Size(48, 26);
-            this.Tlable3_4.TabIndex = 94;
-            this.Tlable3_4.Text = "***";
-            // 
             // Tlable3_3
             // 
             this.Tlable3_3.AutoSize = true;
@@ -3117,6 +3014,7 @@
             // 
             // FilmThickness1
             // 
+            this.FilmThickness1.Enabled = false;
             this.FilmThickness1.Location = new System.Drawing.Point(603, 389);
             this.FilmThickness1.Name = "FilmThickness1";
             this.FilmThickness1.Size = new System.Drawing.Size(64, 26);
@@ -3205,6 +3103,7 @@
             // 
             // ForceTextBox3
             // 
+            this.ForceTextBox3.Enabled = false;
             this.ForceTextBox3.Location = new System.Drawing.Point(604, 752);
             this.ForceTextBox3.Name = "ForceTextBox3";
             this.ForceTextBox3.Size = new System.Drawing.Size(64, 26);
@@ -3337,15 +3236,6 @@
             this.Unit3_5.TabIndex = 54;
             this.Unit3_5.Text = "mm";
             // 
-            // ChannelTextBox3_4
-            // 
-            this.ChannelTextBox3_4.Enabled = false;
-            this.ChannelTextBox3_4.Location = new System.Drawing.Point(722, 330);
-            this.ChannelTextBox3_4.Name = "ChannelTextBox3_4";
-            this.ChannelTextBox3_4.Size = new System.Drawing.Size(64, 26);
-            this.ChannelTextBox3_4.TabIndex = 16;
-            this.ChannelTextBox3_4.Text = "4";
-            // 
             // ChannelTextBox3_3
             // 
             this.ChannelTextBox3_3.Enabled = false;
@@ -3440,16 +3330,6 @@
             this.LengthTextBox3_3.Size = new System.Drawing.Size(64, 26);
             this.LengthTextBox3_3.TabIndex = 38;
             this.LengthTextBox3_3.Text = "10";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(669, 329);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(44, 23);
-            this.label55.TabIndex = 4;
-            this.label55.Text = "Chn";
             // 
             // Unit3_2
             // 
@@ -3546,7 +3426,6 @@
             this.TextGroupbox4.Controls.Add(this.label134);
             this.TextGroupbox4.Controls.Add(this.label133);
             this.TextGroupbox4.Controls.Add(this.label132);
-            this.TextGroupbox4.Controls.Add(this.label131);
             this.TextGroupbox4.Controls.Add(this.label130);
             this.TextGroupbox4.Controls.Add(this.label129);
             this.TextGroupbox4.Controls.Add(this.label128);
@@ -3567,7 +3446,6 @@
             this.TextGroupbox4.Controls.Add(this.Tlable4_7);
             this.TextGroupbox4.Controls.Add(this.Tlable4_6);
             this.TextGroupbox4.Controls.Add(this.Tlable4_5);
-            this.TextGroupbox4.Controls.Add(this.Tlable4_4);
             this.TextGroupbox4.Controls.Add(this.Tlable4_3);
             this.TextGroupbox4.Controls.Add(this.SlTextBox4_2);
             this.TextGroupbox4.Controls.Add(this.label43);
@@ -3619,7 +3497,6 @@
             this.TextGroupbox4.Controls.Add(this.ChannelTextBox4_6);
             this.TextGroupbox4.Controls.Add(this.ChannelTextBox4_5);
             this.TextGroupbox4.Controls.Add(this.Unit4_8);
-            this.TextGroupbox4.Controls.Add(this.ChannelTextBox4_4);
             this.TextGroupbox4.Controls.Add(this.ChannelTextBox4_3);
             this.TextGroupbox4.Controls.Add(this.Unit4_7);
             this.TextGroupbox4.Controls.Add(this.ChannelTextBox4_2);
@@ -3636,7 +3513,6 @@
             this.TextGroupbox4.Controls.Add(this.Unit4_3);
             this.TextGroupbox4.Controls.Add(this.label82);
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_3);
-            this.TextGroupbox4.Controls.Add(this.label83);
             this.TextGroupbox4.Controls.Add(this.Unit4_2);
             this.TextGroupbox4.Controls.Add(this.label85);
             this.TextGroupbox4.Controls.Add(this.Unit4_1);
@@ -3651,7 +3527,7 @@
             this.TextGroupbox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox4.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox4.Name = "TextGroupbox4";
-            this.TextGroupbox4.Size = new System.Drawing.Size(0, 0);
+            this.TextGroupbox4.Size = new System.Drawing.Size(1047, 900);
             this.TextGroupbox4.TabIndex = 69;
             this.TextGroupbox4.TabStop = false;
             // 
@@ -3820,16 +3696,6 @@
             this.label132.Size = new System.Drawing.Size(110, 30);
             this.label132.TabIndex = 125;
             this.label132.Text = "-------->";
-            // 
-            // label131
-            // 
-            this.label131.AutoSize = true;
-            this.label131.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label131.Location = new System.Drawing.Point(733, 238);
-            this.label131.Name = "label131";
-            this.label131.Size = new System.Drawing.Size(110, 30);
-            this.label131.TabIndex = 124;
-            this.label131.Text = "-------->";
             // 
             // label130
             // 
@@ -4038,16 +3904,6 @@
             this.Tlable4_5.TabIndex = 104;
             this.Tlable4_5.Text = "***";
             // 
-            // Tlable4_4
-            // 
-            this.Tlable4_4.AutoSize = true;
-            this.Tlable4_4.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_4.Location = new System.Drawing.Point(843, 242);
-            this.Tlable4_4.Name = "Tlable4_4";
-            this.Tlable4_4.Size = new System.Drawing.Size(48, 26);
-            this.Tlable4_4.TabIndex = 103;
-            this.Tlable4_4.Text = "***";
-            // 
             // Tlable4_3
             // 
             this.Tlable4_3.AutoSize = true;
@@ -4233,6 +4089,7 @@
             // 
             // FilmThickness2
             // 
+            this.FilmThickness2.Enabled = false;
             this.FilmThickness2.Location = new System.Drawing.Point(551, 408);
             this.FilmThickness2.Name = "FilmThickness2";
             this.FilmThickness2.Size = new System.Drawing.Size(64, 26);
@@ -4378,6 +4235,7 @@
             // 
             // ForceTextBox4
             // 
+            this.ForceTextBox4.Enabled = false;
             this.ForceTextBox4.Location = new System.Drawing.Point(572, 789);
             this.ForceTextBox4.Name = "ForceTextBox4";
             this.ForceTextBox4.Size = new System.Drawing.Size(64, 26);
@@ -4455,6 +4313,7 @@
             // 
             // ChannelTextBox4_10
             // 
+            this.ChannelTextBox4_10.Enabled = false;
             this.ChannelTextBox4_10.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox4_10.Location = new System.Drawing.Point(668, 535);
             this.ChannelTextBox4_10.Name = "ChannelTextBox4_10";
@@ -4464,6 +4323,7 @@
             // 
             // ChannelTextBox4_9
             // 
+            this.ChannelTextBox4_9.Enabled = false;
             this.ChannelTextBox4_9.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox4_9.Location = new System.Drawing.Point(668, 490);
             this.ChannelTextBox4_9.Name = "ChannelTextBox4_9";
@@ -4484,6 +4344,7 @@
             // 
             // ChannelTextBox4_8
             // 
+            this.ChannelTextBox4_8.Enabled = false;
             this.ChannelTextBox4_8.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox4_8.Location = new System.Drawing.Point(668, 458);
             this.ChannelTextBox4_8.Name = "ChannelTextBox4_8";
@@ -4493,6 +4354,7 @@
             // 
             // ChannelTextBox4_7
             // 
+            this.ChannelTextBox4_7.Enabled = false;
             this.ChannelTextBox4_7.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox4_7.Location = new System.Drawing.Point(668, 358);
             this.ChannelTextBox4_7.Name = "ChannelTextBox4_7";
@@ -4513,6 +4375,7 @@
             // 
             // ChannelTextBox4_6
             // 
+            this.ChannelTextBox4_6.Enabled = false;
             this.ChannelTextBox4_6.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox4_6.Location = new System.Drawing.Point(668, 324);
             this.ChannelTextBox4_6.Name = "ChannelTextBox4_6";
@@ -4522,6 +4385,7 @@
             // 
             // ChannelTextBox4_5
             // 
+            this.ChannelTextBox4_5.Enabled = false;
             this.ChannelTextBox4_5.ForeColor = System.Drawing.Color.Red;
             this.ChannelTextBox4_5.Location = new System.Drawing.Point(668, 273);
             this.ChannelTextBox4_5.Name = "ChannelTextBox4_5";
@@ -4539,15 +4403,6 @@
             this.Unit4_8.Size = new System.Drawing.Size(42, 23);
             this.Unit4_8.TabIndex = 54;
             this.Unit4_8.Text = "mm";
-            // 
-            // ChannelTextBox4_4
-            // 
-            this.ChannelTextBox4_4.Enabled = false;
-            this.ChannelTextBox4_4.Location = new System.Drawing.Point(668, 245);
-            this.ChannelTextBox4_4.Name = "ChannelTextBox4_4";
-            this.ChannelTextBox4_4.Size = new System.Drawing.Size(64, 26);
-            this.ChannelTextBox4_4.TabIndex = 16;
-            this.ChannelTextBox4_4.Text = "4";
             // 
             // ChannelTextBox4_3
             // 
@@ -4713,16 +4568,6 @@
             this.LengthTextBox4_3.TabIndex = 38;
             this.LengthTextBox4_3.Text = "15";
             // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(615, 244);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(44, 23);
-            this.label83.TabIndex = 4;
-            this.label83.Text = "Chn";
-            // 
             // Unit4_2
             // 
             this.Unit4_2.AutoSize = true;
@@ -4765,6 +4610,7 @@
             // 
             // LengthTextBox4_5
             // 
+            this.LengthTextBox4_5.Enabled = false;
             this.LengthTextBox4_5.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox4_5.Location = new System.Drawing.Point(241, 298);
             this.LengthTextBox4_5.Name = "LengthTextBox4_5";
@@ -4783,6 +4629,7 @@
             // 
             // LengthTextBox4_6
             // 
+            this.LengthTextBox4_6.Enabled = false;
             this.LengthTextBox4_6.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox4_6.Location = new System.Drawing.Point(241, 337);
             this.LengthTextBox4_6.Name = "LengthTextBox4_6";
@@ -4792,6 +4639,7 @@
             // 
             // LengthTextBox4_10
             // 
+            this.LengthTextBox4_10.Enabled = false;
             this.LengthTextBox4_10.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox4_10.Location = new System.Drawing.Point(241, 512);
             this.LengthTextBox4_10.Name = "LengthTextBox4_10";
@@ -4801,6 +4649,7 @@
             // 
             // LengthTextBox4_7
             // 
+            this.LengthTextBox4_7.Enabled = false;
             this.LengthTextBox4_7.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox4_7.Location = new System.Drawing.Point(241, 367);
             this.LengthTextBox4_7.Name = "LengthTextBox4_7";
@@ -4810,6 +4659,7 @@
             // 
             // LengthTextBox4_9
             // 
+            this.LengthTextBox4_9.Enabled = false;
             this.LengthTextBox4_9.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox4_9.Location = new System.Drawing.Point(241, 479);
             this.LengthTextBox4_9.Name = "LengthTextBox4_9";
@@ -4819,6 +4669,7 @@
             // 
             // LengthTextBox4_8
             // 
+            this.LengthTextBox4_8.Enabled = false;
             this.LengthTextBox4_8.ForeColor = System.Drawing.Color.Red;
             this.LengthTextBox4_8.Location = new System.Drawing.Point(241, 448);
             this.LengthTextBox4_8.Name = "LengthTextBox4_8";
@@ -4878,24 +4729,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5957,7 +5808,6 @@
         private System.Windows.Forms.Label ChannelLabel1_1;
         private System.Windows.Forms.Label ChannelLabel1_2;
         private System.Windows.Forms.Label ChannelLabel1_3;
-        private System.Windows.Forms.Label ChannelLabel1_4;
         private System.Windows.Forms.Label ChannelLabel1_5;
         private System.Windows.Forms.Label ChannelLabel1_6;
         private System.Windows.Forms.Label ChannelLabel1_7;
@@ -5968,7 +5818,6 @@
         private System.Windows.Forms.TextBox ChannelTextBox1_1;
         private System.Windows.Forms.TextBox ChannelTextBox1_2;
         private System.Windows.Forms.TextBox ChannelTextBox1_3;
-        private System.Windows.Forms.TextBox ChannelTextBox1_4;
         private System.Windows.Forms.TextBox ChannelTextBox1_5;
         private System.Windows.Forms.TextBox ChannelTextBox1_6;
         private System.Windows.Forms.TextBox ChannelTextBox1_7;
@@ -6031,7 +5880,6 @@
         private System.Windows.Forms.TextBox ChannelTextBox2_6;
         private System.Windows.Forms.TextBox ChannelTextBox2_5;
         private System.Windows.Forms.Label Unit2_8;
-        private System.Windows.Forms.TextBox ChannelTextBox2_4;
         private System.Windows.Forms.TextBox ChannelTextBox2_3;
         private System.Windows.Forms.Label Unit2_7;
         private System.Windows.Forms.TextBox ChannelTextBox2_2;
@@ -6048,7 +5896,6 @@
         private System.Windows.Forms.Label Unit2_3;
         private System.Windows.Forms.Label ChannelLabel2_5;
         private System.Windows.Forms.TextBox LengthTextBox2_3;
-        private System.Windows.Forms.Label ChannelLabel2_4;
         private System.Windows.Forms.Label Unit2_2;
         private System.Windows.Forms.Label ChannelLabel2_3;
         private System.Windows.Forms.Label Unit2_1;
@@ -6085,7 +5932,6 @@
         private System.Windows.Forms.TextBox ChannelTextBox4_6;
         private System.Windows.Forms.TextBox ChannelTextBox4_5;
         private System.Windows.Forms.Label Unit4_8;
-        private System.Windows.Forms.TextBox ChannelTextBox4_4;
         private System.Windows.Forms.TextBox ChannelTextBox4_3;
         private System.Windows.Forms.Label Unit4_7;
         private System.Windows.Forms.TextBox ChannelTextBox4_2;
@@ -6102,7 +5948,6 @@
         private System.Windows.Forms.Label Unit4_3;
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.TextBox LengthTextBox4_3;
-        private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label Unit4_2;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.Label Unit4_1;
@@ -6134,7 +5979,6 @@
         private System.Windows.Forms.TextBox ChannelTextBox3_5;
         private System.Windows.Forms.Label Unit3_6;
         private System.Windows.Forms.Label Unit3_5;
-        private System.Windows.Forms.TextBox ChannelTextBox3_4;
         private System.Windows.Forms.TextBox ChannelTextBox3_3;
         private System.Windows.Forms.TextBox ChannelTextBox3_2;
         private System.Windows.Forms.TextBox ChannelTextBox3_1;
@@ -6145,7 +5989,6 @@
         private System.Windows.Forms.TextBox LengthTextBox3_2;
         private System.Windows.Forms.Label Unit3_3;
         private System.Windows.Forms.TextBox LengthTextBox3_3;
-        private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label Unit3_2;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label Unit3_1;
@@ -6277,7 +6120,6 @@
         private System.Windows.Forms.Label Tlable1_7;
         private System.Windows.Forms.Label Tlable1_6;
         private System.Windows.Forms.Label Tlable1_5;
-        private System.Windows.Forms.Label Tlable1_4;
         private System.Windows.Forms.Label Tlable1_3;
         private System.Windows.Forms.Label TCRtest2;
         private System.Windows.Forms.Label Tlable2_14;
@@ -6294,7 +6136,6 @@
         private System.Windows.Forms.Label Tlable2_7;
         private System.Windows.Forms.Label Tlable2_6;
         private System.Windows.Forms.Label Tlable2_5;
-        private System.Windows.Forms.Label Tlable2_4;
         private System.Windows.Forms.Label Tlable2_3;
         private System.Windows.Forms.Label TCRtest3;
         private System.Windows.Forms.Label k3_s;
@@ -6304,7 +6145,6 @@
         private System.Windows.Forms.Label Tlable3_7;
         private System.Windows.Forms.Label Tlable3_8;
         private System.Windows.Forms.Label Tlable3_5;
-        private System.Windows.Forms.Label Tlable3_4;
         private System.Windows.Forms.Label Tlable3_3;
         private System.Windows.Forms.Label TCRtest4;
         private System.Windows.Forms.Label k4_f;
@@ -6322,7 +6162,6 @@
         private System.Windows.Forms.Label Tlable4_7;
         private System.Windows.Forms.Label Tlable4_6;
         private System.Windows.Forms.Label Tlable4_5;
-        private System.Windows.Forms.Label Tlable4_4;
         private System.Windows.Forms.Label Tlable4_3;
         private System.Windows.Forms.Button Monitor;
         private System.Windows.Forms.GroupBox MenuGroupBox;
@@ -6341,7 +6180,6 @@
         private System.Windows.Forms.Label label84;
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label91;
@@ -6357,7 +6195,6 @@
         private System.Windows.Forms.Label label102;
         private System.Windows.Forms.Label label101;
         private System.Windows.Forms.Label label100;
-        private System.Windows.Forms.Label label99;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Label label95;
@@ -6373,7 +6210,6 @@
         private System.Windows.Forms.Label label121;
         private System.Windows.Forms.Label label120;
         private System.Windows.Forms.Label label119;
-        private System.Windows.Forms.Label label118;
         private System.Windows.Forms.Label label117;
         private System.Windows.Forms.Label label116;
         private System.Windows.Forms.Label label115;
@@ -6397,7 +6233,6 @@
         private System.Windows.Forms.Label label134;
         private System.Windows.Forms.Label label133;
         private System.Windows.Forms.Label label132;
-        private System.Windows.Forms.Label label131;
         private System.Windows.Forms.Label label130;
         private System.Windows.Forms.Label label129;
         private System.Windows.Forms.Button TestChooseFormShow;

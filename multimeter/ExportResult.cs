@@ -15,7 +15,9 @@ namespace multimeter {
         private void ExportResult_Click(object sender, EventArgs e) {
             Bitmap bitmap = new Bitmap(1250, 855);
             switch (_method) {
-                case TestMethod.KAPPA: {
+                case TestMethod.KAPPA:
+                {
+                    pictureTest1.BringToFront();
                     TextGroupbox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
                 }
                     break;

@@ -596,7 +596,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
-            ModifyParameter_Enable(true, true);
+            //ModifyParameter_Enable(true, true);
             _saveparameter = false;
             #endregion
 

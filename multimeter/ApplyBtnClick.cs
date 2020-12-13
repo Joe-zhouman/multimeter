@@ -51,7 +51,7 @@ namespace multimeter
             {
                 ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7
             };
-            BoxToSample(ref _sample1, samplePositionBoxes, sampleChannelBoxes, SuTextBox2_1);
+            BoxToSample(ref _sample1, samplePositionBoxes, sampleChannelBoxes, STextBox1_1);
 
             if (!CheckOtherText(ForceTextBox1.Text, _sample1))
             {
@@ -335,7 +335,8 @@ namespace multimeter
                 case TestMethod.KAPPA: {
                     List<TextBox> textBoxes1 = new List<TextBox>()
                         {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7,
-                        ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7};
+                        ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7,
+                        STextBox1_1,ForceTextBox1};
                     textBoxes.AddRange(textBoxes1);
                 } break;
                 case TestMethod.ITC: {
@@ -343,17 +344,22 @@ namespace multimeter
                         LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7,
                         ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7,
                         LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10,
-                        ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10};
+                        ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10,
+                        SuTextBox2_1,SlTextBox2_2,ForceTextBox2};
                     textBoxes.AddRange(textBoxes2);
                     } break;
                 case TestMethod.ITM: {
-                } break;
+                    List<TextBox> textBoxes3 = new List<TextBox>() {
+                        ForceTextBox3, FilmThickness1};
+                    textBoxes.AddRange(textBoxes3);
+                    } break;
                 case TestMethod.ITMS: {
                     List<TextBox> textBoxes4 = new List<TextBox>() {
                         LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7,
                         ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7,
                         LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10,
-                        ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10};
+                        ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10,
+                        SuTextBox4_1,SlTextBox4_2, ForceTextBox4, FilmThickness2};
                     textBoxes.AddRange(textBoxes4);
                     } break;
                 default: {
