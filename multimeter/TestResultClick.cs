@@ -81,6 +81,7 @@ namespace multimeter {
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         ShowKappa();
+                        TextResultGroupbox1.Visible = false;
                     }
                     break;
                 case TestMethod.ITC:
@@ -95,6 +96,7 @@ namespace multimeter {
                         }
 
                         ShowItc(itc);
+                        TextResultGroupbox2.Visible = false;
                     }
                     break;
                 case TestMethod.ITM:
@@ -106,6 +108,7 @@ namespace multimeter {
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         ShowItm(itmKappa);
+                        TextResultGroupbox3.Visible = false;
                     }
                     break;
                 case TestMethod.ITMS:
@@ -119,6 +122,7 @@ namespace multimeter {
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         ShowItms(itmKappa);
+                        TextResultGroupbox4.Visible = false;
                     }
                     break;
                 default:

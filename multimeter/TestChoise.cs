@@ -207,6 +207,10 @@ namespace multimeter {
             MenuGroupBox.Visible = true;
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
+            TextResultGroupbox1.Visible = false;
+            TextResultGroupbox2.Visible = false;
+            TextResultGroupbox3.Visible = false;
+            TextResultGroupbox4.Visible = false;
         }
 
     }

@@ -877,6 +877,9 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             
         }
 
-       
+        private void label124_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
