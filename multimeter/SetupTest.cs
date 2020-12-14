@@ -761,7 +761,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #region
             if (serialPort1.BytesToRead != 0) {
                 string str = serialPort1.ReadExisting();
-                serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
+                //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
                 //richTextBox1.Text = richTextBox1.Text + str+"\n";
 
                 //byte[] array = System.Text.Encoding.ASCII.GetBytes(str);  //数组array为对应的ASCII数组     
@@ -877,9 +877,5 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             
         }
 
-        private void label124_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
