@@ -66,10 +66,10 @@ namespace multimeter {
             //设置图表显示样式
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";         //毫秒格式： hh:mm:ss.fff ，后面几个f则保留几位毫秒小数，此时要注意轴的最大值和最小值不要差太大
             chart1.ChartAreas[0].AxisX.LabelStyle.IntervalType = DateTimeIntervalType.Seconds;
-            chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;                //坐标值间隔1S
+            chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 5;                //坐标值间隔1S
             chart1.ChartAreas[0].AxisX.LabelStyle.IsEndLabelVisible = false;   //防止X轴坐标跳跃
             chart1.ChartAreas[0].AxisX.MajorGrid.IntervalType = DateTimeIntervalType.Seconds;
-            chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 1;                 //网格间隔
+            chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 5;                 //网格间隔
             chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();      //当前时间
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
         }
@@ -100,7 +100,7 @@ namespace multimeter {
 
             for (int i = 0; i < T.Count; i++) chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(1).ToOADate();   //X坐标后移1秒
-            chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-10).ToOADate();//此刻后10分钟作为最初X轴，
+            chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();//此刻后10分钟作为最初X轴，
             /*for (int i = 0; i < T.Count; i++) chart1.Series[i].Points.AddXY(_chartX, T[i]);   //edit_scan_interval
             if (_chartX > 250) {
                 chart1.ChartAreas[0].AxisX.Minimum = _chartX - 250;
@@ -136,7 +136,9 @@ namespace multimeter {
                 if (!(result.Object is DataPoint a)) return;
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
-                chartValue.Text = $@"Ch{a.LegendText},Time:{a.XValue},Temp:{a.YValues[0]}";
+                DateTime datetime = DateTime.FromOADate(a.XValue);
+                //datetime=DateTime.ParseExact(,,);
+                chartValue.Text = $@"Ch{a.LegendText},Time:{datetime},Temp:{a.YValues[0]}";
 
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {

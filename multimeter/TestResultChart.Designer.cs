@@ -53,6 +53,8 @@
             // 
             this.chart1.BorderlineWidth = 0;
             chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Angle = 45;
             chartArea1.AxisX.LabelStyle.Format = "ss";
             chartArea1.AxisX.LabelStyle.Interval = 2D;
             chartArea1.AxisX.LabelStyle.IntervalOffset = 0D;
@@ -68,9 +70,10 @@
             chartArea1.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
             chartArea1.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
             chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.None;
+            chartArea1.AxisX.MaximumAutoSize = 100F;
             chartArea1.AxisX.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
             chartArea1.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
-            chartArea1.AxisX.Title = "Time(S)";
+            chartArea1.AxisX.Title = "Time";
             chartArea1.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisY.MajorGrid.Interval = 0D;
             chartArea1.AxisY.MajorGrid.IntervalOffset = 0D;
@@ -178,7 +181,7 @@
             this.chart1.Series.Add(series12);
             this.chart1.Series.Add(series13);
             this.chart1.Series.Add(series14);
-            this.chart1.Size = new System.Drawing.Size(1304, 666);
+            this.chart1.Size = new System.Drawing.Size(1304, 750);
             this.chart1.TabIndex = 104;
             this.chart1.Text = "chart1";
             this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseMove);
