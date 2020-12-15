@@ -97,7 +97,7 @@ namespace multimeter {
            
         }
 
-        public void ExportResult_Ensable(bool enable) {
+        public void ExportResult_Enable(bool enable) {
             if (enable) {
                 ExportResult.Enabled = true;
                 ExportResult.BackgroundImage = Resources.ExportResult_Enable;

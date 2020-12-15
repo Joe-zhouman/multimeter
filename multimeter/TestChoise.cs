@@ -202,6 +202,7 @@ namespace multimeter {
             Monitor_Enable(false);
             CurrentTestResult_Enable(false);
             HistoryTestResult_Enable(true);
+            ExportResult_Enable(false);
             SerialPort_Enable(true);
             AdvancedSetting_Enable(true);
             MenuGroupBox.Visible = true;

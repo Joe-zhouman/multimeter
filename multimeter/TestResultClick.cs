@@ -81,7 +81,7 @@ namespace multimeter {
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         ShowKappa();
-                        TextResultGroupbox1.Visible = false;
+                        TextResultGroupbox1.Visible = true;
                     }
                     break;
                 case TestMethod.ITC:
@@ -96,7 +96,7 @@ namespace multimeter {
                         }
 
                         ShowItc(itc);
-                        TextResultGroupbox2.Visible = false;
+                        TextResultGroupbox2.Visible = true;
                     }
                     break;
                 case TestMethod.ITM:
@@ -108,7 +108,7 @@ namespace multimeter {
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         ShowItm(itmKappa);
-                        TextResultGroupbox3.Visible = false;
+                        TextResultGroupbox3.Visible = true;
                     }
                     break;
                 case TestMethod.ITMS:
@@ -122,7 +122,7 @@ namespace multimeter {
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         ShowItms(itmKappa);
-                        TextResultGroupbox4.Visible = false;
+                        TextResultGroupbox4.Visible = true;
                     }
                     break;
                 default:
@@ -131,7 +131,8 @@ namespace multimeter {
                         return;
                     }
             }
-            List<GroupBox> groupBox = new List<GroupBox>()
+            ExportResult_Enable(true);
+            /*List<GroupBox> groupBox = new List<GroupBox>()
                     {TextGroupbox1, TextGroupbox2, TextGroupbox3, TextGroupbox4};
                 groupBox.ForEach(c => {
                     foreach (var control in c.Controls)
@@ -141,7 +142,7 @@ namespace multimeter {
                             ((Label)control).Enabled = true;
                         }
                     }
-                });
+                });*/
         }
         private string SetCsvFileName() {
             OpenFileDialog file = new OpenFileDialog {

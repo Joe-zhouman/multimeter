@@ -62,33 +62,36 @@ namespace multimeter {
                 apply_btm(sender, e);
                 NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
+                TestChooseFormShow_Enable(true);
                 _saveParameter = false;
                 ModifyParameterLabel.Text = "修改参数";
             }
             else {
                 NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
+                TestChooseFormShow_Enable(false);
                 _saveParameter = true;
                 ModifyParameterLabel.Text = "确定参数";
             }
         }
         private void TestRun_Click(object sender, EventArgs e) {
             if (serialPort1.IsOpen) {
+                btn_stop();
                 TestChooseFormShow_Enable(true);
                 TestRun_Enable(true);
                 //Monitor_Enable(false);
-                CurrentTestResult_Enable(true);
+                CurrentTestResult_Enable(false);
                 HistoryTestResult_Enable(true);
                 SerialPort_Enable(true);
                 AdvancedSetting_Enable(true);
                 TestRunLabel.Text = "运行";
-                btn_stop();
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
 
             }
             else {
                 btn_start();
+                if (_saveParameter) ModifyParameter_Click(sender,e);
                 if (serialPort1.IsOpen) {
                     TestChooseFormShow_Enable(false);
                     TestRun_Enable(false);
