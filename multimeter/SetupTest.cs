@@ -92,6 +92,7 @@ namespace multimeter {
             else {
                 btn_start();
                 if (_saveParameter) ModifyParameter_Click(sender,e);
+                _testResultChart.Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
                 if (serialPort1.IsOpen) {
                     TestChooseFormShow_Enable(false);
                     TestRun_Enable(false);

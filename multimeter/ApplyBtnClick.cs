@@ -71,7 +71,6 @@ namespace multimeter
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            _testResultChart.Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
         }
 
         private void apply_btm_2_Click(object sender, EventArgs e)
@@ -129,7 +128,6 @@ namespace multimeter
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            _testResultChart.Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
         }
 
         private void apply_btm_3_Click(object sender, EventArgs e)
@@ -172,7 +170,6 @@ namespace multimeter
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            _testResultChart.Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
         }
 
         private void apply_btm_4_Click(object sender, EventArgs e)
@@ -232,7 +229,6 @@ namespace multimeter
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            _testResultChart.Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
         }
 
         private bool CheckChannelText(ref List<string> channelList, Sample sample1 = null, Sample sample2 = null)
