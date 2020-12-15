@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using DataProcessor;
+using multimeter.Properties;
 
 namespace multimeter {
     public partial class SetupTest : Form {
@@ -166,7 +167,9 @@ namespace multimeter {
             AlphaT0Setting alphaT0Setting = new AlphaT0Setting();
             alphaT0Setting.Show();
         }
-
+        private void HelpButton_Click(object sender, EventArgs e) {
+            System.Diagnostics.Process.Start(@"..\..\HelpDocument\help.pdf");
+        }
 
         private void TestResultChart_FormClosing(object sender, EventArgs e) {
             if (_testResultChart.DialogResult == DialogResult.Cancel) return;
@@ -879,6 +882,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             }
             
         }
+
+
+
+
+
 
     }
 }

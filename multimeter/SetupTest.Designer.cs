@@ -470,6 +470,8 @@
             this.SerialPort_Timer = new System.Windows.Forms.Timer(this.components);
             this.ChartShow_Timer = new System.Windows.Forms.Timer(this.components);
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.HelpButton = new System.Windows.Forms.Button();
             this.SoftwareNameLabel = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -5357,6 +5359,8 @@
             // MenuGroupBox
             // 
             this.MenuGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuGroupBox.BackgroundImage")));
+            this.MenuGroupBox.Controls.Add(this.label47);
+            this.MenuGroupBox.Controls.Add(this.HelpButton);
             this.MenuGroupBox.Controls.Add(this.SoftwareNameLabel);
             this.MenuGroupBox.Controls.Add(this.label50);
             this.MenuGroupBox.Controls.Add(this.label56);
@@ -5390,11 +5394,39 @@
             this.MenuGroupBox.TabIndex = 103;
             this.MenuGroupBox.TabStop = false;
             // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label47.Location = new System.Drawing.Point(1209, 44);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(37, 20);
+            this.label47.TabIndex = 121;
+            this.label47.Text = "帮助";
+            // 
+            // HelpButton
+            // 
+            this.HelpButton.BackColor = System.Drawing.SystemColors.Control;
+            this.HelpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HelpButton.BackgroundImage")));
+            this.HelpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.HelpButton.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.HelpButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.HelpButton.FlatAppearance.BorderSize = 0;
+            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HelpButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.HelpButton.Location = new System.Drawing.Point(1206, 8);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(40, 40);
+            this.HelpButton.TabIndex = 120;
+            this.HelpButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.HelpButton.UseVisualStyleBackColor = false;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
             // SoftwareNameLabel
             // 
             this.SoftwareNameLabel.AutoSize = true;
             this.SoftwareNameLabel.Font = new System.Drawing.Font("微软雅黑", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SoftwareNameLabel.Location = new System.Drawing.Point(836, 51);
+            this.SoftwareNameLabel.Location = new System.Drawing.Point(836, 62);
             this.SoftwareNameLabel.Name = "SoftwareNameLabel";
             this.SoftwareNameLabel.Size = new System.Drawing.Size(844, 83);
             this.SoftwareNameLabel.TabIndex = 106;
@@ -6327,5 +6359,7 @@
         private System.Windows.Forms.GroupBox TextResultGroupbox4;
         private System.Windows.Forms.GroupBox TextResultGroupbox2;
         private System.Windows.Forms.GroupBox TextResultGroupbox1;
+        public System.Windows.Forms.Label label47;
+        public System.Windows.Forms.Button HelpButton;
     }
 }
