@@ -60,14 +60,14 @@ namespace multimeter {
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
                 apply_btm(sender, e);
-                NormalTextBoxEnable(false);
+                if (_user == User.NORMAL) NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
                 _saveParameter = false;
                 ModifyParameterLabel.Text = "修改参数";
             }
             else {
-                NormalTextBoxEnable(true);
+                if (_user == User.NORMAL) NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
                 _saveParameter = true;
