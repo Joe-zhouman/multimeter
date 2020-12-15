@@ -16,7 +16,8 @@ namespace multimeter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SetupTest());
+            //Application.Run(new SetupTest());
+            Application.Run(new LogoLoad());
         }
     }
 }

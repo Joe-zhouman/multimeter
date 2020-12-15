@@ -748,7 +748,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #region //显示登录窗口
             LoginForm loginForm = new LoginForm();
             loginForm.Show(this);
-
             #endregion
         }
 
