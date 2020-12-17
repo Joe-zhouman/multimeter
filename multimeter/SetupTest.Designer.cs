@@ -5114,7 +5114,7 @@
             this.TestChoiseGroupBox.Controls.Add(this.test2);
             this.TestChoiseGroupBox.Location = new System.Drawing.Point(137, 165);
             this.TestChoiseGroupBox.Name = "TestChoiseGroupBox";
-            this.TestChoiseGroupBox.Size = new System.Drawing.Size(0, 0);
+            this.TestChoiseGroupBox.Size = new System.Drawing.Size(969, 581);
             this.TestChoiseGroupBox.TabIndex = 105;
             this.TestChoiseGroupBox.TabStop = false;
             // 
@@ -5276,7 +5276,7 @@
             // 
             this.label152.AutoSize = true;
             this.label152.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label152.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label152.ForeColor = System.Drawing.Color.Green;
             this.label152.Location = new System.Drawing.Point(57, 72);
             this.label152.Name = "label152";
             this.label152.Size = new System.Drawing.Size(115, 20);
@@ -5287,7 +5287,7 @@
             // 
             this.label153.AutoSize = true;
             this.label153.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label153.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label153.ForeColor = System.Drawing.Color.Green;
             this.label153.Location = new System.Drawing.Point(87, 17);
             this.label153.Name = "label153";
             this.label153.Size = new System.Drawing.Size(42, 20);
@@ -5298,7 +5298,7 @@
             // 
             this.label154.AutoSize = true;
             this.label154.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label154.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label154.ForeColor = System.Drawing.Color.Green;
             this.label154.Location = new System.Drawing.Point(39, 52);
             this.label154.Name = "label154";
             this.label154.Size = new System.Drawing.Size(156, 20);

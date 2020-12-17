@@ -170,7 +170,7 @@ namespace multimeter {
 
 
         private void testchoose1_MouseMove(object sender, MouseEventArgs e) {
-            test1.BackColor = Color.Lime;
+            test1.BackColor = Color.DodgerBlue;
         }
 
         private void testchoose1_MouseLeave(object sender, EventArgs e) {
@@ -178,7 +178,7 @@ namespace multimeter {
         }
 
         private void testchoose2_MouseMove(object sender, MouseEventArgs e) {
-            test2.BackColor = Color.Lime;
+            test2.BackColor = Color.DodgerBlue;
         }
 
         private void testchoose2_MouseLeave(object sender, EventArgs e) {
@@ -186,7 +186,7 @@ namespace multimeter {
         }
 
         private void testchoose3_MouseMove(object sender, MouseEventArgs e) {
-            test3.BackColor = Color.Lime;
+            test3.BackColor = Color.DodgerBlue;
         }
 
         private void testchoose3_MouseLeave(object sender, EventArgs e) {
@@ -194,7 +194,7 @@ namespace multimeter {
         }
 
         private void testchoose4_MouseMove(object sender, MouseEventArgs e) {
-            test4.BackColor = Color.Lime;
+            test4.BackColor = Color.DodgerBlue;
         }
 
         private void testchoose4_MouseLeave(object sender, EventArgs e) {
