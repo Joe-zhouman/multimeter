@@ -26,7 +26,7 @@ namespace multimeter
             }
         }
         private void apply_btm_1_Click(object sender, EventArgs e) {
-            if (_user == User.ADVANCE) {
+            if (User == User.ADVANCE) {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
                     {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3};
                 List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
@@ -62,7 +62,7 @@ namespace multimeter
             if (CheckChannelText(ref channelList, _sample1))
             {
                 SlnIni.SaveKappaInfo(_sample1, ForceTextBox1.Text, filePath);
-                if (_user == User.ADVANCE) {
+                if (User == User.ADVANCE) {
                     SlnIni.SaveHeatMeterInfo(_heatMeter1,_heatMeter2,SlnIni.CreateDefaultSlnIni());
                 }
                 SlnIni.WriteChannelInfo(channelList);
@@ -75,7 +75,7 @@ namespace multimeter
 
         private void apply_btm_2_Click(object sender, EventArgs e)
         {
-            if (_user == User.ADVANCE)
+            if (User == User.ADVANCE)
             {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
                     {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3};
@@ -118,7 +118,7 @@ namespace multimeter
             if (CheckChannelText(ref channelList, _sample1, _sample2))
             {
                 SlnIni.SaveItcInfo(_sample1, _sample2, ForceTextBox2.Text, filePath);
-                if (_user == User.ADVANCE)
+                if (User == User.ADVANCE)
                 {
                     SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSlnIni());
                 }
@@ -132,7 +132,7 @@ namespace multimeter
 
         private void apply_btm_3_Click(object sender, EventArgs e)
         {
-            if (_user == User.ADVANCE)
+            if (User == User.ADVANCE)
             {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
                     {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3};
@@ -160,7 +160,7 @@ namespace multimeter
             List<string> channelList = new List<string>();
             if (CheckChannelText(ref channelList))
             {
-                if (_user == User.ADVANCE)
+                if (User == User.ADVANCE)
                 {
                     SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSlnIni());
                 }
@@ -174,7 +174,7 @@ namespace multimeter
 
         private void apply_btm_4_Click(object sender, EventArgs e)
         {
-            if (_user == User.ADVANCE)
+            if (User == User.ADVANCE)
             {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
                     {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3};
@@ -219,7 +219,7 @@ namespace multimeter
             if (CheckChannelText(ref channelList, _sample1, _sample2))
             {
                 SlnIni.SaveItmsInfo(_sample1, _sample2, ForceTextBox4.Text, FilmThickness2.Text, filePath);
-                if (_user == User.ADVANCE)
+                if (User == User.ADVANCE)
                 {
                     SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSlnIni());
                 }

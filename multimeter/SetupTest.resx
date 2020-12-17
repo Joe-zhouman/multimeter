@@ -8399,7 +8399,7 @@
         X/d5Az06k1Xj8SB1AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="HelpButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="helpButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAACyZJREFUeF7t
         nXuMXFUdxzeNxQctO/feWWoBKUSlagRFTQooic9QwBjUoBAbgw9MEUSqKLGEsFCpj4ZWd+fe2+kWqkWl

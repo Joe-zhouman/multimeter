@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
@@ -24,7 +25,8 @@ namespace multimeter {
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private bool _testResultChartUpdate;
         private bool _saveParameter;
-        public User _user;
+        public User User;
+        private DataTable _volTable;
 
         #region //串口采集
         private string TotalCHN = "";
@@ -34,7 +36,8 @@ namespace multimeter {
         private bool enablescan;
         #endregion
 
-        internal class AppCfg {
+        private static class AppCfg //全局变量
+        {
             internal static ParaInfo devicepara = new ParaInfo();
         }//全局变量
 
@@ -61,14 +64,14 @@ namespace multimeter {
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
                 apply_btm(sender, e);
-                if (_user == User.NORMAL) NormalTextBoxEnable(false);
+                if (User == User.NORMAL) NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
                 _saveParameter = false;
                 ModifyParameterLabel.Text = "修改参数";
             }
             else {
-                if (_user == User.NORMAL) NormalTextBoxEnable(true);
+                if (User == User.NORMAL) NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
                 _saveParameter = true;
@@ -435,6 +438,14 @@ namespace multimeter {
             channels = TotalCHN.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
             #endregion
+
+            _volTable = new DataTable();
+            DataColumn countColumn = new DataColumn("count") { DataType = Type.GetType("System.Int") };
+            foreach (string t in channels)
+            {
+                DataColumn tempCol = new DataColumn("ch" + t) { DataType = Type.GetType("System.Double") };
+                _volTable.Columns.Add(tempCol);
+            }
         }
 
         public string resolvcmd(string s1, string s2, string s3, int i1, int i2, int i3) {
@@ -512,9 +523,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             Thread thread;
             //MessageBox.Show(TotalCHN);
             string[] chn = TotalCHN.Split(',');
-            listView_main.Clear();
-            listView_main.Columns.Add(((int) _method).ToString(), 120);
-            for (int i = 0; i < TotalNum; i++) listView_main.Columns.Add(chn[i], 120);
             enablescan = true;
             thread = new Thread(() => //新开线程，执行接收数据操作
             {
@@ -542,24 +550,26 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         private void btn_stop() {
             serialPort1.Close();
-            listView_main.Clear();
+            //btn_start.Enabled = true;
+            //btn_stop.Enabled = false;
+            _volTable.Rows.Clear();
+
             enablescan = false;
         }
+
 
         public void SaveToData(string name, ListView listView) {
             #region
 
-            if (listView.Items.Count == 0)
-                // MessageBox.Show("未找到可导入的数据");
+            if (_volTable.Rows.Count!=0)
                 return;
-
-            string FileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", FileName);
+            string fileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
             _latestDataFile = filePath;
             //MessageBox.Show(filePath);
             try {
                 int size = 1024;
-                int sizeCnt = (int) Math.Ceiling(listView.Items.Count / (double) 2000);
+                int sizeCnt = (int) Math.Ceiling(_volTable.Rows.Count / (double) 2000);
                 StreamWriter write = new StreamWriter(filePath, false, Encoding.Default, size * sizeCnt);
                 write.Write(_recvstr);
                 //获取listView标题行
@@ -787,27 +797,28 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         _recvstr = _recvstr.Replace((char) 13, (char) 0);
                         _recvstr = _recvstr.Replace((char) 0x11, (char) 0);
                         _recvstr = _recvstr.Replace("\0", "");
-                        string[] dataStrList =
-                            _recvstr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
-                        if (dataStrList.Length != channels.Length) {
-                            return;
-                        }
+                        
+                        
                         double[] dataList;
                         try {
-                             dataList = dataStrList.Select(double.Parse).ToArray();
+                             dataList = _recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
                         }
                         catch {
                             return;
                         }
+                        if (dataList.Length != channels.Length)
+                        {
+                            return;
+                        }
                         count++;
-                        List<string> temp = new List<string>() {count.ToString()};
-                        temp.AddRange(dataStrList);
-                        ListViewItem item = new ListViewItem(temp.ToArray());
-                        listView_main.Items.Add(item);
-                        LastScan.Text = _recvstr;
+                        DataRow tempRow = _volTable.NewRow();
+                        tempRow[0] = count;
+                        for (int i = 0; i < dataList.Length; i++) tempRow[i+1] = dataList[i];
+                        _volTable.Rows.Add(tempRow);
+                        
                         if (count % AppCfg.devicepara.Save_interval == 0) {
-                            SaveToData("AutoSave", listView_main);
-                            listView_main.Items.Clear();
+                            SaveToData("AutoSave");
+                            _volTable.Clear();
                         }
 
                         //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);

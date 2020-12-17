@@ -488,7 +488,8 @@
             this.ChartShow_Timer = new System.Windows.Forms.Timer(this.components);
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.label47 = new System.Windows.Forms.Label();
-            this.HelpButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
+            this.SoftwareNameLabel = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -508,7 +509,6 @@
             this.AdvancedSetting = new System.Windows.Forms.Button();
             this.ResultGroupBox = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.listView_main = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastScan = new System.Windows.Forms.TextBox();
             this.TestRun = new System.Windows.Forms.Button();
@@ -5395,7 +5395,8 @@
             // 
             this.MenuGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuGroupBox.BackgroundImage")));
             this.MenuGroupBox.Controls.Add(this.label47);
-            this.MenuGroupBox.Controls.Add(this.HelpButton);
+            this.MenuGroupBox.Controls.Add(this.helpButton);
+            this.MenuGroupBox.Controls.Add(this.SoftwareNameLabel);
             this.MenuGroupBox.Controls.Add(this.label50);
             this.MenuGroupBox.Controls.Add(this.label56);
             this.MenuGroupBox.Controls.Add(this.label54);
@@ -5438,23 +5439,23 @@
             this.label47.TabIndex = 121;
             this.label47.Text = "帮助";
             // 
-            // HelpButton
+            // helpButton
             // 
-            this.HelpButton.BackColor = System.Drawing.SystemColors.Control;
-            this.HelpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HelpButton.BackgroundImage")));
-            this.HelpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.HelpButton.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.HelpButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.HelpButton.FlatAppearance.BorderSize = 0;
-            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HelpButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.HelpButton.Location = new System.Drawing.Point(1206, 8);
-            this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(40, 40);
-            this.HelpButton.TabIndex = 120;
-            this.HelpButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.HelpButton.UseVisualStyleBackColor = false;
-            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            this.helpButton.BackColor = System.Drawing.SystemColors.Control;
+            this.helpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("helpButton.BackgroundImage")));
+            this.helpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.helpButton.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.helpButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.helpButton.Location = new System.Drawing.Point(1206, 8);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(40, 40);
+            this.helpButton.TabIndex = 120;
+            this.helpButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.helpButton.UseVisualStyleBackColor = false;
+            this.helpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
             // label50
             // 
@@ -5662,7 +5663,6 @@
             // ResultGroupBox
             // 
             this.ResultGroupBox.Controls.Add(this.label13);
-            this.ResultGroupBox.Controls.Add(this.listView_main);
             this.ResultGroupBox.Controls.Add(this.LastScan);
             this.ResultGroupBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ResultGroupBox.Location = new System.Drawing.Point(270, 8);
@@ -5682,22 +5682,6 @@
             this.label13.Size = new System.Drawing.Size(152, 16);
             this.label13.TabIndex = 99;
             this.label13.Text = "最近一次扫描结果：";
-            // 
-            // listView_main
-            // 
-            this.listView_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView_main.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader9});
-            this.listView_main.GridLines = true;
-            this.listView_main.HideSelection = false;
-            this.listView_main.Location = new System.Drawing.Point(9, 26);
-            this.listView_main.Name = "listView_main";
-            this.listView_main.Size = new System.Drawing.Size(1, 2);
-            this.listView_main.TabIndex = 100;
-            this.listView_main.UseCompatibleStateImageBehavior = false;
-            this.listView_main.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader9
             // 
@@ -6361,7 +6345,6 @@
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox LastScan;
-        private System.Windows.Forms.ListView listView_main;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.GroupBox ResultGroupBox;
         private System.Windows.Forms.GroupBox listview_card_hide;
@@ -6581,7 +6564,7 @@
         private System.Windows.Forms.GroupBox TextResultGroupbox2;
         private System.Windows.Forms.GroupBox TextResultGroupbox1;
         public System.Windows.Forms.Label label47;
-        public System.Windows.Forms.Button HelpButton;
+        public System.Windows.Forms.Button helpButton;
         private System.Windows.Forms.GroupBox TestChartGroupBox;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label chartValue;

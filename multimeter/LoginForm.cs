@@ -19,7 +19,7 @@ namespace multimeter {
             SetupTest setupTest = (SetupTest)this.Owner;
             switch (comboBox.SelectedIndex) {
                 case 0:
-                    setupTest._user = User.NORMAL;
+                    setupTest.User = User.NORMAL;
                     setupTest.TestChooseFormShow_Click(sender, e);
                     setupTest.SerialPort.Visible = false;
                     setupTest.SerialPortLabel.Visible = false;
@@ -29,7 +29,7 @@ namespace multimeter {
                     Close();
                     break;
                 case 1 when userName.Equals("admin") && userPassword.Equals("admin"):
-                    setupTest._user = User.ADVANCE;
+                    setupTest.User = User.ADVANCE;
                     setupTest.TestChooseFormShow_Click(sender, e);
                     setupTest.AllTextBoxEnable();
                     setupTest.SerialPort.Visible = true;
