@@ -1137,9 +1137,9 @@
             this.label18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(628, 370);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(55, 21);
+            this.label18.Size = new System.Drawing.Size(44, 21);
             this.label18.TabIndex = 76;
-            this.label18.Text = "mm^2";
+            this.label18.Text = "mm²";
             // 
             // S2TextBox1_2
             // 
@@ -1166,9 +1166,9 @@
             this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(348, 625);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 21);
+            this.label16.Size = new System.Drawing.Size(44, 21);
             this.label16.TabIndex = 73;
-            this.label16.Text = "mm^2";
+            this.label16.Text = "mm²";
             // 
             // S1TextBox1_1
             // 
@@ -1195,9 +1195,9 @@
             this.label14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(352, 164);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 21);
+            this.label14.Size = new System.Drawing.Size(44, 21);
             this.label14.TabIndex = 70;
-            this.label14.Text = "mm^2";
+            this.label14.Text = "mm²";
             // 
             // K2TextBox1_2
             // 
@@ -2009,9 +2009,9 @@
             this.label40.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(646, 507);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(55, 21);
+            this.label40.Size = new System.Drawing.Size(44, 21);
             this.label40.TabIndex = 96;
-            this.label40.Text = "mm^2";
+            this.label40.Text = "mm²";
             // 
             // SuTextBox2_1
             // 
@@ -2038,9 +2038,9 @@
             this.label34.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(646, 314);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(55, 21);
+            this.label34.Size = new System.Drawing.Size(44, 21);
             this.label34.TabIndex = 93;
-            this.label34.Text = "mm^2";
+            this.label34.Text = "mm²";
             // 
             // S2TextBox2_2
             // 
@@ -2067,9 +2067,9 @@
             this.label30.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(370, 690);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(55, 21);
+            this.label30.Size = new System.Drawing.Size(44, 21);
             this.label30.TabIndex = 90;
-            this.label30.Text = "mm^2";
+            this.label30.Text = "mm²";
             // 
             // S1TextBox2_1
             // 
@@ -2096,9 +2096,9 @@
             this.label28.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(370, 128);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(55, 21);
+            this.label28.Size = new System.Drawing.Size(44, 21);
             this.label28.TabIndex = 87;
-            this.label28.Text = "mm^2";
+            this.label28.Text = "mm²";
             // 
             // ChannelTextBox2_13
             // 
@@ -3040,9 +3040,9 @@
             this.label22.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(353, 609);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 21);
+            this.label22.Size = new System.Drawing.Size(44, 21);
             this.label22.TabIndex = 80;
-            this.label22.Text = "mm^2";
+            this.label22.Text = "mm²";
             // 
             // S1TextBox3_1
             // 
@@ -3069,9 +3069,9 @@
             this.label20.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(363, 166);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 21);
+            this.label20.Size = new System.Drawing.Size(44, 21);
             this.label20.TabIndex = 77;
-            this.label20.Text = "mm^2";
+            this.label20.Text = "mm²";
             // 
             // FilmThickness1
             // 
@@ -4009,9 +4009,9 @@
             this.label44.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.Location = new System.Drawing.Point(613, 512);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(55, 21);
+            this.label44.Size = new System.Drawing.Size(44, 21);
             this.label44.TabIndex = 97;
-            this.label44.Text = "mm^2";
+            this.label44.Text = "mm²";
             // 
             // SuTextBox4_1
             // 
@@ -4038,9 +4038,9 @@
             this.label42.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.Location = new System.Drawing.Point(618, 302);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(55, 21);
+            this.label42.Size = new System.Drawing.Size(44, 21);
             this.label42.TabIndex = 94;
-            this.label42.Text = "mm^2";
+            this.label42.Text = "mm²";
             // 
             // S2TextBox4_2
             // 
@@ -4067,9 +4067,9 @@
             this.label26.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(343, 687);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(55, 21);
+            this.label26.Size = new System.Drawing.Size(44, 21);
             this.label26.TabIndex = 91;
-            this.label26.Text = "mm^2";
+            this.label26.Text = "mm²";
             // 
             // S1TextBox4_1
             // 
@@ -4096,9 +4096,9 @@
             this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(354, 127);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(55, 21);
+            this.label24.Size = new System.Drawing.Size(44, 21);
             this.label24.TabIndex = 88;
-            this.label24.Text = "mm^2";
+            this.label24.Text = "mm²";
             // 
             // Unit4_14
             // 

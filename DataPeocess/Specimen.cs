@@ -12,7 +12,7 @@ namespace DataProcessor {
             TestPoint = testPoint;
 
             Kappa = "10.0";
-            Diameter = "10.0";
+            Area = "10.0";
             
             Channel = Enumerable.Repeat("201",TestPoint).ToArray();
             Position = Enumerable.Repeat("1", TestPoint).ToArray();
@@ -24,7 +24,7 @@ namespace DataProcessor {
 
         public string Name { get; set; }
         public string Kappa { get; set; }
-        public string Diameter { get; set; }
+        public string Area { get; set; }
         public string[] Channel { get; set; }
         public string[] Position { get; set; }
         public string[] Alpha { get; set; }
@@ -41,11 +41,11 @@ namespace DataProcessor {
             }
 
             Kappa = INIHelper.Read(Name, "kappa", "10.0", filePath);
-            Diameter = INIHelper.Read(Name, "diameter", "10.0", filePath);
+            Area = INIHelper.Read(Name, "area", "10.0", filePath);
         }
 
         public virtual void SaveToIni(string filePath) {
-            INIHelper.Write(Name, "diameter", Diameter, filePath);
+            INIHelper.Write(Name, "area", Area, filePath);
             for (var i = 0; i < TestPoint; i++)
             {
                 INIHelper.Write($"{Name}.{i}", "channel", Channel[i], filePath);

@@ -113,7 +113,7 @@ namespace DataProcessor {
             double[] sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToArray();
             if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) return false;
             sample1.Kappa =
-                (heatFlow / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[0]).ToString(CultureInfo
+                (heatFlow / double.Parse(sample1.Area) / k[0]).ToString(CultureInfo
                     .InvariantCulture);
             return true;
         }
@@ -137,14 +137,14 @@ namespace DataProcessor {
             double[] sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToArray();
             if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) return false;
             sample1.Kappa =
-                (heatFlow / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[0]).ToString(CultureInfo
+                (heatFlow / double.Parse(sample1.Area) / k[0]).ToString(CultureInfo
                     .InvariantCulture);
 
             double[] samplePosition2 = sample2.Position.Select(double.Parse).ToArray();
             double[] sampleLength2 = samplePosition2.Select((_, i) => samplePosition2.Take(i + 1).Sum()).ToArray();
             if (true != LinearFit(sampleLength2, sample1.Temp, ref k[1], ref b[1])) return false;
             sample2.Kappa =
-                (heatFlow / Math.PI / Math.Pow(double.Parse(sample1.Diameter), 2) / k[1]).ToString(CultureInfo
+                (heatFlow / double.Parse(sample1.Area) / k[1]).ToString(CultureInfo
                     .InvariantCulture);
             itc = (b[0] - b[1]) / heatFlow * 1000;
             return true;
@@ -205,12 +205,12 @@ namespace DataProcessor {
 
             if (!LinearFit(p, heatMeter1.Temp, ref k[0], ref b[0])) return false;
             double heatFlow1 = double.Parse(heatMeter1.Kappa) * Math.PI *
-                               Math.Pow(double.Parse(heatMeter1.Diameter), 2) * k[0];
+                               double.Parse(heatMeter1.Area) * k[0];
             numPosition = heatMeter2.Position.Select(double.Parse).ToArray();
             p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToArray();
             if (!LinearFit(p, heatMeter2.Temp.ToArray(), ref k[1], ref b[1])) return false;
             double heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI *
-                               Math.Pow(double.Parse(heatMeter1.Diameter), 2) * k[1];
+                               double.Parse(heatMeter1.Area) * k[1];
             if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.2) return false;
             heatFlow = (heatFlow1 + heatFlow2) / 2;
             return true;
