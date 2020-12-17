@@ -36,8 +36,7 @@ namespace multimeter {
         private bool enablescan;
         #endregion
 
-        private static class AppCfg //全局变量
-        {
+        private static class AppCfg {
             internal static ParaInfo devicepara = new ParaInfo();
         }//全局变量
 
@@ -557,6 +556,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             enablescan = false;
         }
 
+        private void SetupTest_FormClosing(object sender, FormClosingEventArgs e) {
+            serialPort1.Close();
+            while (serialPort1.IsOpen) ;
+            Application.Exit();
+        }
 
         public void SaveToData(string name) {
             #region

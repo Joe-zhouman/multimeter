@@ -473,6 +473,7 @@
             this.label149 = new System.Windows.Forms.Label();
             this.label150 = new System.Windows.Forms.Label();
             this.testchoose4 = new System.Windows.Forms.Button();
+            this.SoftwareNameLabel = new System.Windows.Forms.Label();
             this.label151 = new System.Windows.Forms.Label();
             this.test3 = new System.Windows.Forms.GroupBox();
             this.label152 = new System.Windows.Forms.Label();
@@ -488,7 +489,6 @@
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.label47 = new System.Windows.Forms.Label();
             this.helpButton = new System.Windows.Forms.Button();
-            this.SoftwareNameLabel = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -5238,6 +5238,16 @@
             this.testchoose4.MouseLeave += new System.EventHandler(this.testchoose4_MouseLeave);
             this.testchoose4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose4_MouseMove);
             // 
+            // SoftwareNameLabel
+            // 
+            this.SoftwareNameLabel.AutoSize = true;
+            this.SoftwareNameLabel.Font = new System.Drawing.Font("微软雅黑", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SoftwareNameLabel.Location = new System.Drawing.Point(51, 43);
+            this.SoftwareNameLabel.Name = "SoftwareNameLabel";
+            this.SoftwareNameLabel.Size = new System.Drawing.Size(844, 83);
+            this.SoftwareNameLabel.TabIndex = 106;
+            this.SoftwareNameLabel.Text = "YQ-500接触热阻综合测试仪";
+            // 
             // label151
             // 
             this.label151.AutoSize = true;
@@ -5444,16 +5454,6 @@
             this.helpButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.HelpButton_Click);
-            // 
-            // SoftwareNameLabel
-            // 
-            this.SoftwareNameLabel.AutoSize = true;
-            this.SoftwareNameLabel.Font = new System.Drawing.Font("微软雅黑", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SoftwareNameLabel.Location = new System.Drawing.Point(51, 43);
-            this.SoftwareNameLabel.Name = "SoftwareNameLabel";
-            this.SoftwareNameLabel.Size = new System.Drawing.Size(844, 83);
-            this.SoftwareNameLabel.TabIndex = 106;
-            this.SoftwareNameLabel.Text = "YQ-500接触热阻综合测试仪";
             // 
             // label50
             // 
@@ -6040,6 +6040,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SetupTest";
             this.Text = "YQ-500接触热阻综合测试仪";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupTest_FormClosing);
             this.Load += new System.EventHandler(this.SetupTest_Load);
             this.TextGroupbox1.ResumeLayout(false);
             this.TextGroupbox1.PerformLayout();

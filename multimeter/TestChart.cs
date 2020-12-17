@@ -128,9 +128,8 @@ namespace multimeter {
         }
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
-            TestTime_Timer.Interval = 2000;
-            int time = (int)0.001 * _timerCyclesNum * TestTime_Timer.Interval;
-            TestTime.Text = $@"已用时间{time}S";
+            int time = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
+            TestTime.Text = $@"（已用时间{time}S）";
             _timerCyclesNum++;
         }
 
