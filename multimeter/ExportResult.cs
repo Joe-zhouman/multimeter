@@ -50,8 +50,10 @@ namespace multimeter {
                 saveFileDialog1.ShowDialog();
                 string filepath = saveFileDialog1.FileName;
                 bitmap.Save(filepath);
+                MessageBox.Show(@"导出结果成功", @"提示", MessageBoxButtons.OK);
             }
             catch {
+                MessageBox.Show(@"请正确选择路径", @"提示", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
