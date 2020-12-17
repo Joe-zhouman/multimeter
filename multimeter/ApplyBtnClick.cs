@@ -247,20 +247,20 @@ namespace multimeter
         {
             List<string> positionList = new List<string>();
             positionList.AddRange(_heatMeter1.Position);
-            positionList.Add(_heatMeter1.Diameter);
+            positionList.Add(_heatMeter1.Area);
             positionList.AddRange(_heatMeter2.Position);
-            positionList.Add(_heatMeter2.Diameter);
+            positionList.Add(_heatMeter2.Area);
             positionList.Add(force);
             if (sample1 != null)
             {
                 positionList.AddRange(sample1.Position);
-                positionList.Add(sample1.Diameter);
+                positionList.Add(sample1.Area);
             }
 
             if (sample2 != null)
             {
                 positionList.AddRange(sample2.Position);
-                positionList.Add(sample2.Diameter);
+                positionList.Add(sample2.Area);
             }
 
             if (thickness != null)
@@ -270,7 +270,7 @@ namespace multimeter
 
             return CheckData.CheckDoubleList(positionList);
         }
-        private void HeatMeterToBox(HeatMeter heatMeter, List<TextBox> positionBoxes, List<TextBox> channelBoxes, TextBox diameterBox,
+        private void HeatMeterToBox(HeatMeter heatMeter, List<TextBox> positionBoxes, List<TextBox> channelBoxes, TextBox areaBox,
             TextBox kappaBox)
         {
             for (int i = 0; i < heatMeter.TestPoint; i++)
@@ -278,10 +278,10 @@ namespace multimeter
                 positionBoxes[i].Text = heatMeter.Position[i];
                 channelBoxes[i].Text = heatMeter.Channel[i];
             }
-            diameterBox.Text = heatMeter.Diameter;
+            areaBox.Text = heatMeter.Area;
             kappaBox.Text = heatMeter.Kappa;
         }
-        private void SampleToBox(Sample sample, List<TextBox> positionBoxes, List<TextBox> channelBoxes, TextBox diameterBox
+        private void SampleToBox(Sample sample, List<TextBox> positionBoxes, List<TextBox> channelBoxes, TextBox areaBox
         )
         {
             for (int i = 0; i < sample.TestPoint; i++)
@@ -289,20 +289,20 @@ namespace multimeter
                 positionBoxes[i].Text = sample.Position[i];
                 channelBoxes[i].Text = sample.Channel[i];
             }
-            diameterBox.Text = sample.Diameter;
+            areaBox.Text = sample.Area;
         }
         private void BoxToHeatMeter(ref HeatMeter heatMeter, List<TextBox> positionBoxes, List<TextBox> channelBoxes,
-            TextBox kappaBox,TextBox diameterBox)
+            TextBox kappaBox,TextBox areaBox)
         {
             for (int i = 0; i < heatMeter.TestPoint; i++)
             {
                 heatMeter.Position[i] = positionBoxes[i].Text;
                 heatMeter.Channel[i] = channelBoxes[i].Text;
             }
-            heatMeter.Diameter = diameterBox.Text;
+            heatMeter.Area = areaBox.Text;
             heatMeter.Kappa = kappaBox.Text;
         }
-        private void BoxToSample(ref Sample sample, List<TextBox> positionBoxes, List<TextBox> channelBoxes, TextBox diameterBox
+        private void BoxToSample(ref Sample sample, List<TextBox> positionBoxes, List<TextBox> channelBoxes, TextBox areaBox
         )
         {
             for (int i = 0; i < sample.TestPoint; i++)
@@ -310,7 +310,7 @@ namespace multimeter
                 sample.Position[i] = positionBoxes[i].Text;
                 sample.Channel[i] = channelBoxes[i].Text;
             }
-            sample.Diameter = diameterBox.Text;
+            sample.Area = areaBox.Text;
         }
         public void AllTextBoxEnable()
         {
