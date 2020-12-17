@@ -440,7 +440,7 @@ namespace multimeter {
             #endregion
 
             _volTable = new DataTable();
-            DataColumn countColumn = new DataColumn("count") { DataType = Type.GetType("System.Int") };
+            DataColumn countColumn = new DataColumn("count") { DataType = Type.GetType("System.Int32") };
             foreach (string t in channels)
             {
                 DataColumn tempCol = new DataColumn("ch" + t) { DataType = Type.GetType("System.Double") };
@@ -558,7 +558,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         }
 
 
-        public void SaveToData(string name, ListView listView) {
+        public void SaveToData(string name) {
             #region
 
             if (_volTable.Rows.Count!=0)

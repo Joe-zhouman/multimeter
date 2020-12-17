@@ -473,7 +473,6 @@
             this.label149 = new System.Windows.Forms.Label();
             this.label150 = new System.Windows.Forms.Label();
             this.testchoose4 = new System.Windows.Forms.Button();
-            this.SoftwareNameLabel = new System.Windows.Forms.Label();
             this.label151 = new System.Windows.Forms.Label();
             this.test3 = new System.Windows.Forms.GroupBox();
             this.label152 = new System.Windows.Forms.Label();
@@ -509,7 +508,6 @@
             this.AdvancedSetting = new System.Windows.Forms.Button();
             this.ResultGroupBox = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastScan = new System.Windows.Forms.TextBox();
             this.TestRun = new System.Windows.Forms.Button();
             this.SerialPort = new System.Windows.Forms.Button();
@@ -519,6 +517,7 @@
             this.apply_btm_2 = new System.Windows.Forms.Button();
             this.apply_btm_3 = new System.Windows.Forms.Button();
             this.apply_btm_4 = new System.Windows.Forms.Button();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.ParSetting = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -5239,16 +5238,6 @@
             this.testchoose4.MouseLeave += new System.EventHandler(this.testchoose4_MouseLeave);
             this.testchoose4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose4_MouseMove);
             // 
-            // SoftwareNameLabel
-            // 
-            this.SoftwareNameLabel.AutoSize = true;
-            this.SoftwareNameLabel.Font = new System.Drawing.Font("微软雅黑", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SoftwareNameLabel.Location = new System.Drawing.Point(64, 60);
-            this.SoftwareNameLabel.Name = "SoftwareNameLabel";
-            this.SoftwareNameLabel.Size = new System.Drawing.Size(844, 83);
-            this.SoftwareNameLabel.TabIndex = 106;
-            this.SoftwareNameLabel.Text = "YQ-500接触热阻综合测试仪";
-            // 
             // label151
             // 
             this.label151.AutoSize = true;
@@ -5396,7 +5385,6 @@
             this.MenuGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuGroupBox.BackgroundImage")));
             this.MenuGroupBox.Controls.Add(this.label47);
             this.MenuGroupBox.Controls.Add(this.helpButton);
-            this.MenuGroupBox.Controls.Add(this.SoftwareNameLabel);
             this.MenuGroupBox.Controls.Add(this.label50);
             this.MenuGroupBox.Controls.Add(this.label56);
             this.MenuGroupBox.Controls.Add(this.label54);
@@ -5456,6 +5444,16 @@
             this.helpButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.helpButton.UseVisualStyleBackColor = false;
             this.helpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
+            // SoftwareNameLabel
+            // 
+            this.SoftwareNameLabel.AutoSize = true;
+            this.SoftwareNameLabel.Font = new System.Drawing.Font("微软雅黑", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SoftwareNameLabel.Location = new System.Drawing.Point(51, 43);
+            this.SoftwareNameLabel.Name = "SoftwareNameLabel";
+            this.SoftwareNameLabel.Size = new System.Drawing.Size(844, 83);
+            this.SoftwareNameLabel.TabIndex = 106;
+            this.SoftwareNameLabel.Text = "YQ-500接触热阻综合测试仪";
             // 
             // label50
             // 
@@ -5683,10 +5681,6 @@
             this.label13.TabIndex = 99;
             this.label13.Text = "最近一次扫描结果：";
             // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "序号";
-            // 
             // LastScan
             // 
             this.LastScan.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -5799,6 +5793,10 @@
             this.apply_btm_4.Text = "保存参数";
             this.apply_btm_4.UseVisualStyleBackColor = true;
             this.apply_btm_4.Click += new System.EventHandler(this.apply_btm_4_Click);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "序号";
             // 
             // EmptyGroupBox
             // 
@@ -6553,7 +6551,6 @@
         private System.Windows.Forms.Timer ChartShow_Timer;
         private System.Windows.Forms.Label ModifyParameterLabel;
         private System.Windows.Forms.Button ModifyParameter;
-        private System.Windows.Forms.Label SoftwareNameLabel;
         public System.Windows.Forms.Label SerialPortLabel;
         public System.Windows.Forms.Button SerialPort;
         public System.Windows.Forms.Label AdvancedLabel;
@@ -6571,5 +6568,6 @@
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label TestTime;
         private System.Windows.Forms.Timer TestTime_Timer;
+        private System.Windows.Forms.Label SoftwareNameLabel;
     }
 }
