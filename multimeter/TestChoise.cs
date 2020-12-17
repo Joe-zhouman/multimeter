@@ -17,7 +17,7 @@ namespace multimeter {
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
-            //skinGroupBox2.Size = new Size(0, 0);
+            TestChartGroupBox.Size = new Size(0, 0);
 
             _sample1 = new Sample("Sample1");
             _sample2 = null;
@@ -56,6 +56,7 @@ namespace multimeter {
             TextGroupbox2.Size = new Size(1250, 855);
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
+            TestChartGroupBox.Size = new Size(0, 0);
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");
@@ -99,6 +100,8 @@ namespace multimeter {
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(1250, 855);
             TextGroupbox4.Size = new Size(0, 0);
+            TestChartGroupBox.Size = new Size(0, 0);
+
             var filePath = SlnIni.CreateDefaultItmIni();
             _sample1 = null;
             _sample2 = null;
@@ -130,6 +133,7 @@ namespace multimeter {
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(1250, 855);
+            TestChartGroupBox.Size = new Size(0, 0);
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");

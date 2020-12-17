@@ -22,26 +22,23 @@ namespace multimeter {
         private Sample _sample1;
         private Sample _sample2;
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
-        private readonly TestResultChart _testResultChart = new TestResultChart();
         private bool _testResultChartUpdate;
         private bool _saveParameter;
         public User _user;
 
         #region //串口采集
-
         private string TotalCHN = "";
         string[] channels;
         private int TotalNum;
         private int count;
         private bool enablescan;
-
         #endregion
-        internal class AppCfg //全局变量
-        {
-            internal static ParaInfo devicepara = new ParaInfo();
-        }
 
-        
+        internal class AppCfg {
+            internal static ParaInfo devicepara = new ParaInfo();
+        }//全局变量
+
+
         public SetupTest() {
             InitializeComponent();
         }
@@ -52,10 +49,13 @@ namespace multimeter {
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
             skinGroupBox1.Size = new Size(0, 0);
+            TestChartGroupBox.Size = new Size(0, 0);
+
+            SoftwareNameLabel.Visible = true;
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.BringToFront();
             TestChoiseGroupBox.Visible = true;
-            SoftwareNameLabel.Visible = true;
+            
         }
 
         private void ModifyParameter_Click(object sender, EventArgs e) {
@@ -88,12 +88,13 @@ namespace multimeter {
                 TestRunLabel.Text = "运行";
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
+                TestTime_Timer.Enabled = false;
 
             }
             else {
-                btn_start();
                 if (_saveParameter) ModifyParameter_Click(sender,e);
-                _testResultChart.Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
+                btn_start();
+                Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
                 if (serialPort1.IsOpen) {
                     TestChooseFormShow_Enable(false);
                     TestRun_Enable(false);
@@ -106,14 +107,21 @@ namespace multimeter {
                     Monitor_Click(sender, e);
                     SerialPort_Timer.Enabled = true;
                     ChartShow_Timer.Enabled = true;
+                    TestTime_Timer.Enabled = true;
                 }
             }
         }
 
         private void Monitor_Click(object sender, EventArgs e) {
-            if (_testResultChart.IsAccessible)
-                _testResultChart.Hide();
-            else _testResultChart.Show();
+            //if (_testResultChart.IsAccessible)
+            //    _testResultChart.Hide();
+            //else _testResultChart.Show();
+            TextGroupbox1.Size = new Size(0, 0);
+            TextGroupbox2.Size = new Size(0, 0);
+            TextGroupbox3.Size = new Size(0, 0);
+            TextGroupbox4.Size = new Size(0,0);
+            TestChartGroupBox.Size = new Size(1250, 855);
+
         }
 
         private void SerialPort_Click(object sender, EventArgs e) {
@@ -171,19 +179,14 @@ namespace multimeter {
             System.Diagnostics.Process.Start(@"..\..\HelpDocument\help.pdf");
         }
 
-        private void TestResultChart_FormClosing(object sender, EventArgs e) {
-            if (_testResultChart.DialogResult == DialogResult.Cancel) return;
-            btn_stop();
-            MessageBox.Show(@"计算已收敛,是否结束计算并显示结果?", @"提示", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-            if (_testResultChart.DialogResult != DialogResult.Yes) return;
-            CurrentTestResult_Click(this, e);
-        }
-        //---------------------------------------------------------------------------------------串口设置-------------------------------------------------------------------------------------------------
-
-
-        //--------------------------------------------------------------------------------------------串口采集--------------------------------------------------------------------------------------------------
-
+        //private void TestResultChart_FormClosing(object sender, EventArgs e) {
+        //    if (_testResultChart.DialogResult == DialogResult.Cancel) return;
+        //    btn_stop();
+        //    MessageBox.Show(@"计算已收敛,是否结束计算并显示结果?", @"提示", MessageBoxButtons.YesNo,
+        //        MessageBoxIcon.Question);
+        //    if (_testResultChart.DialogResult != DialogResult.Yes) return;
+        //    CurrentTestResult_Click(this, e);
+        //}
 
         private void ReadPara() {
             #region //读取ini
@@ -539,13 +542,9 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         private void btn_stop() {
             serialPort1.Close();
-            //btn_start.Enabled = true;
-            //btn_stop.Enabled = false;
             listView_main.Clear();
-
             enablescan = false;
         }
-
 
         public void SaveToData(string name, ListView listView) {
             #region
@@ -588,8 +587,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
         }
 
-
-
         private void SetupTest_Load(object sender, EventArgs e) {
             #region //不同设置窗口默认显示
 
@@ -599,7 +596,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
             skinGroupBox1.Size = new Size(0, 0);
-            TestChoiseGroupBox.Size = new Size(854,360);
+            TestChoiseGroupBox.Size = new Size(969, 581);
+            TestChartGroupBox.Size = new Size(0,0);
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
@@ -621,7 +619,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
 
             #region //串口设置 
-            _testResultChart.FormClosing += TestResultChart_FormClosing;
+            //_testResultChart.FormClosing += TestResultChart_FormClosing;
             ReadPara();
             edit_scan_interval.Text = AppCfg.devicepara.Scan_interval.ToString();
             edit_save_interval.Text = AppCfg.devicepara.Save_interval.ToString();
@@ -755,14 +753,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
         }
 
-
-
-
-        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
         private void SerialPort_Timer_Tick(object sender, EventArgs e) {
             #region
             if (serialPort1.BytesToRead != 0) {
@@ -877,15 +867,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         private void ChartShow_Timer_Tick(object sender, EventArgs e) {
             if (_testResultChartUpdate) {
-                _testResultChart.ShowChart(_testResult);
+                ShowChart(_testResult);
                 _testResultChartUpdate = false;
             }
             
         }
-
-
-
-
 
 
     }
