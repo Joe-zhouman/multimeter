@@ -5114,7 +5114,7 @@
             this.TestChoiseGroupBox.Controls.Add(this.test2);
             this.TestChoiseGroupBox.Location = new System.Drawing.Point(137, 165);
             this.TestChoiseGroupBox.Name = "TestChoiseGroupBox";
-            this.TestChoiseGroupBox.Size = new System.Drawing.Size(969, 581);
+            this.TestChoiseGroupBox.Size = new System.Drawing.Size(0, 0);
             this.TestChoiseGroupBox.TabIndex = 105;
             this.TestChoiseGroupBox.TabStop = false;
             // 

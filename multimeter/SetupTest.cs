@@ -83,7 +83,7 @@ namespace multimeter {
                 TestChooseFormShow_Enable(true);
                 TestRun_Enable(true);
                 //Monitor_Enable(false);
-                CurrentTestResult_Enable(false);
+                CurrentTestResult_Enable(true);
                 HistoryTestResult_Enable(true);
                 SerialPort_Enable(true);
                 AdvancedSetting_Enable(true);
