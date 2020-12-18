@@ -530,7 +530,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(AppCfg.devicepara.Scan_interval);
                     }
-                    catch (Exception ex) {
+                    catch (Exception ) {
                         ;
                     }
                 }
@@ -788,7 +788,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
                 if (str.IndexOf((char) 19) != -1)
                     str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-                string nextstr = "";
                 if (str.IndexOf((char) 13) != -1) {
                     str = str.Substring(0, str.IndexOf((char) 13));
                     _recvstr += str;
