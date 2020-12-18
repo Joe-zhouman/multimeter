@@ -99,14 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TestChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TestChoise.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestResultChart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestResultChart.Designer.cs">
-      <DependentUpon>TestResultChart.cs</DependentUpon>
     </Compile>
     <Compile Include="TestResultClick.cs">
       <SubType>Form</SubType>
@@ -136,9 +133,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SetupTest.resx">
       <DependentUpon>SetupTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestResultChart.resx">
-      <DependentUpon>TestResultChart.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="HelpDocument\help.pdf" />

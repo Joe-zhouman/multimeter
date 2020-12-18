@@ -1,28 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using DataProcessor;
 
 namespace multimeter {
-    public partial class TestResultChart : Form {
+    public partial class SetupTest {
         private List<double> _latestTempList;
-        private int _chartX;
-        private HeatMeter _heatMeter1;
-        private HeatMeter _heatMeter2;
-        private Sample _sample1;
-        private Sample _sample2;
-
-        public
-            TestResultChart() //HeatMeter _heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, TestMethod testMethod
-        {
-            InitializeComponent();
-        }
-
-        private void TestResultChart_Load(object sender, EventArgs e) {
-        }
-
+        private int _timerCyclesNum;
         public void Chart_Init(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2) {
             _heatMeter1 = heatMeter1;
             _heatMeter2 = heatMeter2;
@@ -62,7 +49,6 @@ namespace multimeter {
             }
 
             for (int i = numChannel; i < 13; i++) chart1.Series[i].IsVisibleInLegend = false;
-
             //设置图表显示样式
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";         //毫秒格式： hh:mm:ss.fff ，后面几个f则保留几位毫秒小数，此时要注意轴的最大值和最小值不要差太大
             chart1.ChartAreas[0].AxisX.LabelStyle.IntervalType = DateTimeIntervalType.Seconds;
@@ -72,6 +58,7 @@ namespace multimeter {
             chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 5;                 //网格间隔
             chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();      //当前时间
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
+            _timerCyclesNum = 0;
         }
 
 
@@ -99,16 +86,10 @@ namespace multimeter {
             }
 
             for (int i = 0; i < T.Count; i++) chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
-            chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(1).ToOADate();   //X坐标后移1秒
+            chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();   //X坐标后移1秒
             chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();//此刻后10分钟作为最初X轴，
-            /*for (int i = 0; i < T.Count; i++) chart1.Series[i].Points.AddXY(_chartX, T[i]);   //edit_scan_interval
-            if (_chartX > 250) {
-                chart1.ChartAreas[0].AxisX.Minimum = _chartX - 250;
-                chart1.ChartAreas[0].AxisX.Maximum = _chartX;
-            }
 
-            _chartX++;
-            double residual = 1;
+            /*double residual = 1;
             if (_latestTempList != null) {
                 for (int i = 0; i < T.Count; i++) {
                     residual = Math.Abs(1 - T[i] / _latestTempList[i]);
@@ -124,11 +105,11 @@ namespace multimeter {
             _latestTempList = T;*/
         }
 
-        private void TestResultChart_FormClosing(object sender, FormClosingEventArgs e) {
-            DialogResult = DialogResult.Cancel;
-            Hide();
-            e.Cancel = true;
-        }
+        //private void TestResultChart_FormClosing(object sender, FormClosingEventArgs e) {
+        //    DialogResult = DialogResult.Cancel;
+        //    Hide();
+        //    e.Cancel = true;
+        //}
 
         private void chart1_MouseMove(object sender, MouseEventArgs e) {
             HitTestResult result = chart1.HitTest(e.X, e.Y);
@@ -137,7 +118,6 @@ namespace multimeter {
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
                 DateTime datetime = DateTime.FromOADate(a.XValue);
-                //datetime=DateTime.ParseExact(,,);
                 chartValue.Text = $@"Ch{a.LegendText},Time:{datetime},Temp:{a.YValues[0]}";
 
             }
@@ -146,6 +126,38 @@ namespace multimeter {
                 chartValue.Text = "";
             }
         }
+
+        private void TestTime_Timer_Tick(object sender, EventArgs e) {
+            int time = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
+            TestTime.Text = $@"（已用时间{time}S）";
+            _timerCyclesNum++;
+        }
+
+        private void chart1_MouseClick(object sender, MouseEventArgs e) {
+            TestChartGroupBox.Size = new Size(0, 0);
+            switch (_method) {
+                case TestMethod.KAPPA: {
+                    TextGroupbox1.Size = new Size(1250, 855);
+                }
+                    break;
+                case TestMethod.ITC: {
+                    TextGroupbox2.Size = new Size(1250, 855);
+                }
+                    break;
+                case TestMethod.ITM: {
+                    TextGroupbox3.Size = new Size(1250, 855);
+                }
+                    break;
+                case TestMethod.ITMS: {
+                    TextGroupbox4.Size = new Size(1250, 855);
+                }
+                    break;
+                default: {
+                    return;
+                }
+            }
+        }
+
 
 
     }
