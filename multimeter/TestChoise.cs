@@ -10,7 +10,7 @@ namespace multimeter {
             ButtonEnable();
             _method = TestMethod.KAPPA;
             string force;
-            var slnFilePath = SlnIni.CreateDefaultSlnIni();
+            var slnFilePath = SlnIni.CreateDefaultIni();
             //显示对应设置窗口TEST1
             EmptyGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(1250, 855);
@@ -21,7 +21,7 @@ namespace multimeter {
 
             _sample1 = new Sample("Sample1");
             _sample2 = null;
-            var filePath = SlnIni.CreateDefaultKappaIni();
+            var filePath = SlnIni.CreateDefaultSettingIni();
             SlnIni.LoadKappaInfo(ref _sample1, out force, filePath, slnFilePath);
             ForceTextBox1.Text = force;
             var heatMeterPositionBoxes1 = new List<TextBox>
@@ -49,7 +49,7 @@ namespace multimeter {
             ButtonEnable();
             _method = TestMethod.ITC;
             string force;
-            var slnFilePath = SlnIni.CreateDefaultSlnIni();
+            var slnFilePath = SlnIni.CreateDefaultIni();
             //显示对应设置窗口TEST2
             EmptyGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
@@ -60,7 +60,7 @@ namespace multimeter {
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");
-            var filePath = SlnIni.CreateDefaultItcIni();
+            var filePath = SlnIni.CreateDefaultSettingIni();
             SlnIni.LoadItcInfo(ref _sample1, ref _sample2, out force, filePath, slnFilePath);
             ForceTextBox2.Text = force;
             var heatMeterPositionBoxes1 = new List<TextBox>
@@ -93,7 +93,6 @@ namespace multimeter {
             ButtonEnable();
             _method = TestMethod.ITM;
             string force;
-            var slnFilePath = SlnIni.CreateDefaultSlnIni();
             //显示对应设置窗口TEST3
             EmptyGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
@@ -102,7 +101,7 @@ namespace multimeter {
             TextGroupbox4.Size = new Size(0, 0);
             TestChartGroupBox.Size = new Size(0, 0);
 
-            var filePath = SlnIni.CreateDefaultItmIni();
+            var filePath = SlnIni.CreateDefaultSettingIni();
             _sample1 = null;
             _sample2 = null;
             SlnIni.LoadItmInfo(out force, out var thickness, filePath);
@@ -126,7 +125,7 @@ namespace multimeter {
             ButtonEnable();
             _method = TestMethod.ITMS;
             string force;
-            var slnFilePath = SlnIni.CreateDefaultSlnIni();
+            var sysFilePath = SlnIni.CreateDefaultIni();
             //显示对应设置窗口TEST4
             EmptyGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
@@ -137,9 +136,9 @@ namespace multimeter {
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");
-            var filePath = SlnIni.CreateDefaultItmsIni();
+            var settingFilePath = SlnIni.CreateDefaultSettingIni();
             SlnIni.LoadItmsInfo(ref _sample1, ref _sample2, out force, out var thickness,
-                filePath, slnFilePath);
+                settingFilePath, sysFilePath);
             ForceTextBox4.Text = force;
             FilmThickness2.Text = thickness;
             var heatMeterPositionBoxes1 = new List<TextBox>
