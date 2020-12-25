@@ -50,16 +50,16 @@ namespace DataProcessor {
             //热电偶温度 T = -273.15 + 1 / (alpha + beta * ln(x)+theta * ln(x)^3)
             //卡1 22个通道
             for (int i = 0; i < 22; i++) {
-                INIHelper.Write((i + 101).ToString(), "alpha", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
-                INIHelper.Write((i + 101).ToString(), "beta", "0.0", filePath); //热电偶标定系数 beta Unit ℃
-                INIHelper.Write((i + 101).ToString(), "theta", "0.0", filePath); //热电偶标定系数 theta Unit ℃
+                INIHelper.Write((i + 101).ToString(), "A0", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
+                INIHelper.Write((i + 101).ToString(), "A1", "0.0", filePath); //热电偶标定系数 beta Unit ℃
+                INIHelper.Write((i + 101).ToString(), "A3", "0.0", filePath); //热电偶标定系数 theta Unit ℃
             }
 
             //卡2 22个通道
             for (int i = 0; i < 22; i++) {
-                INIHelper.Write((i + 201).ToString(), "alpha", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
-                INIHelper.Write((i + 201).ToString(), "beta", "0.0", filePath); //热电偶标定系数 beta Unit ℃
-                INIHelper.Write((i + 201).ToString(), "theta", "0.0", filePath); //热电偶标定系数 theta Unit ℃
+                INIHelper.Write((i + 201).ToString(), "A0", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
+                INIHelper.Write((i + 201).ToString(), "A1", "0.0", filePath); //热电偶标定系数 beta Unit ℃
+                INIHelper.Write((i + 201).ToString(), "A3", "0.0", filePath); //热电偶标定系数 theta Unit ℃
             }
 
             return filePath;

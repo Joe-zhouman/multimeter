@@ -16,9 +16,9 @@ namespace DataProcessor {
             
             Channel = Enumerable.Repeat("201",TestPoint).ToArray();
             Position = Enumerable.Repeat("1", TestPoint).ToArray();
-            Alpha = Enumerable.Repeat("1", TestPoint).ToArray();
-            Beta = Enumerable.Repeat("1", TestPoint).ToArray();
-            Theta = Enumerable.Repeat("1", TestPoint).ToArray();
+            A0 = Enumerable.Repeat("1", TestPoint).ToArray();
+            A1 = Enumerable.Repeat("1", TestPoint).ToArray();
+            A3 = Enumerable.Repeat("1", TestPoint).ToArray();
             Temp = Enumerable.Repeat(0.0, TestPoint).ToArray();
         }
 
@@ -27,9 +27,9 @@ namespace DataProcessor {
         public string Area { get; set; }
         public string[] Channel { get; set; }
         public string[] Position { get; set; }
-        public string[] Alpha { get; set; }
-        public string[] Beta { get; set; }
-        public string[] Theta { get; set; }
+        public string[] A0 { get; set; }
+        public string[] A1 { get; set; }
+        public string[] A3 { get; set; }
         public double[] Temp { get; set; }
         public int TestPoint { get; set; }
 
@@ -54,9 +54,9 @@ namespace DataProcessor {
         }
         public void LoadTempPara(string filePath) {
             for (int i = 0; i < TestPoint; i++) {
-                Alpha[i] = INIHelper.Read(Channel[i], "alpha", "10.0", filePath);
-                Beta[i] = INIHelper.Read(Channel[i], "beta", "10.0", filePath);
-                Theta[i] = INIHelper.Read(Channel[i], "theta", "10.0", filePath);
+                A0[i] = INIHelper.Read(Channel[i], "A0", "10.0", filePath);
+                A1[i] = INIHelper.Read(Channel[i], "A1", "10.0", filePath);
+                A3[i] = INIHelper.Read(Channel[i], "A3", "10.0", filePath);
             }
         }
 
@@ -69,8 +69,8 @@ namespace DataProcessor {
             for (int i = 0; i < TestPoint; i++) {
                 double tempVar = Math.Log(testResult[Channel[i]]);
                 Temp[i] = Math.Round(
-                    -273.15 + 1 / (double.Parse(Alpha[i]) + double.Parse(Beta[i]) * tempVar +
-                                   double.Parse(Theta[i]) * Math.Pow(tempVar, 3)), 2);
+                    -273.15 + 1 / (double.Parse(A0[i]) + double.Parse(A1[i]) * tempVar +
+                                   double.Parse(A3[i]) * Math.Pow(tempVar, 3)), 2);
             }
         }
         //public void SetTemp(Dictionary<string, double> testResult) {
