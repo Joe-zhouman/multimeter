@@ -628,7 +628,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             _heatMeter1 = new HeatMeter("HeatMeter1",3);
             _heatMeter2 = new HeatMeter("HeatMeter2");
             SlnIni.CreateDefaultIni();
-            string slnFilePath = SlnIni.CreateDefaultSlnIni();
+            string slnFilePath = SlnIni.CreateDefaultSettingIni();
             SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2, slnFilePath);
             #endregion
 

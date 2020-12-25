@@ -63,7 +63,7 @@ namespace multimeter
             {
                 SlnIni.SaveKappaInfo(_sample1, ForceTextBox1.Text, filePath);
                 if (User == User.ADVANCE) {
-                    SlnIni.SaveHeatMeterInfo(_heatMeter1,_heatMeter2,SlnIni.CreateDefaultSlnIni());
+                    SlnIni.SaveHeatMeterInfo(_heatMeter1,_heatMeter2,SlnIni.CreateDefaultSettingIni());
                 }
                 SlnIni.WriteChannelInfo(channelList);
             }
@@ -120,7 +120,7 @@ namespace multimeter
                 SlnIni.SaveItcInfo(_sample1, _sample2, ForceTextBox2.Text, filePath);
                 if (User == User.ADVANCE)
                 {
-                    SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSlnIni());
+                    SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSettingIni());
                 }
                 SlnIni.WriteChannelInfo(channelList);
             }
@@ -162,7 +162,7 @@ namespace multimeter
             {
                 if (User == User.ADVANCE)
                 {
-                    SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSlnIni());
+                    SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSettingIni());
                 }
                 SlnIni.WriteChannelInfo(channelList);
             }
@@ -221,7 +221,7 @@ namespace multimeter
                 SlnIni.SaveItmsInfo(_sample1, _sample2, ForceTextBox4.Text, FilmThickness2.Text, filePath);
                 if (User == User.ADVANCE)
                 {
-                    SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSlnIni());
+                    SlnIni.SaveHeatMeterInfo(_heatMeter1, _heatMeter2, SlnIni.CreateDefaultSettingIni());
                 }
                 SlnIni.WriteChannelInfo(channelList);
             }
