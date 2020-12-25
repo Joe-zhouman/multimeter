@@ -629,7 +629,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             _heatMeter2 = new HeatMeter("HeatMeter2");
             SlnIni.CreateDefaultIni();
             string slnFilePath = SlnIni.CreateDefaultSettingIni();
-            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2, slnFilePath);
+            string sysFilePath = "";
+            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2, slnFilePath, sysFilePath);
             #endregion
 
             #region //串口设置 
