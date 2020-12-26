@@ -143,6 +143,8 @@ namespace multimeter
             // login
             // 
             this.login.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.login.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.login.ForeColor = System.Drawing.Color.Black;
             this.login.Location = new System.Drawing.Point(19, 265);
             this.login.Margin = new System.Windows.Forms.Padding(5);
             this.login.Name = "login";
@@ -169,6 +171,7 @@ namespace multimeter
             // cancel
             // 
             this.cancel.BackColor = System.Drawing.Color.Gold;
+            this.cancel.Font = new System.Drawing.Font("微软雅黑", 13F);
             this.cancel.Location = new System.Drawing.Point(19, 331);
             this.cancel.Margin = new System.Windows.Forms.Padding(5);
             this.cancel.Name = "cancel";
