@@ -7,6 +7,23 @@ using multimeter;
 
 namespace DataProcessor {
     public static class SlnIni {
+        public static string CreateDefaultKappaIni() {
+            string filePath = "";
+            return filePath;
+        }
+        public static string CreateDefaultItcIni() {
+            string filePath = "";
+            return filePath;
+        }
+        public static string CreateDefaultItmIni() {
+            string filePath = "";
+            return filePath;
+        }
+        public static string CreateDefaultItmsIni() {
+            string filePath = "";
+            return filePath;
+        }
+
         public static string CreateDefaultIni() {
             #region
 
@@ -30,18 +47,18 @@ namespace DataProcessor {
                 string t = i.ToString();
                 INIHelper.Write(t, "name", "", filePath);
                 INIHelper.Write(t, "func", "0", filePath);
-                INIHelper.Write(t, "alpha", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
-                INIHelper.Write(t, "beta", "0.0", filePath); //热电偶标定系数 beta Unit ℃
-                INIHelper.Write(t, "theta", "0.0", filePath); //热电偶标定系数 theta Unit ℃
+                INIHelper.Write(t, "A0", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
+                INIHelper.Write(t, "A1", "0.0", filePath); //热电偶标定系数 beta Unit ℃
+                INIHelper.Write(t, "A3", "0.0", filePath); //热电偶标定系数 theta Unit ℃
             }
 
             for (int i = 201; i < 223; i++) {
                 string t = i.ToString();
                 INIHelper.Write(t, "name", "", filePath);
                 INIHelper.Write(t, "func", "0", filePath);
-                INIHelper.Write(t, "alpha", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
-                INIHelper.Write(t, "beta", "0.0", filePath); //热电偶标定系数 beta Unit ℃
-                INIHelper.Write(t, "theta", "0.0", filePath); //热电偶标定系数 theta Unit ℃
+                INIHelper.Write(t, "A0", "0.0", filePath); // 热电偶标定系数 alpha Unit ℃/V
+                INIHelper.Write(t, "A1", "0.0", filePath); //热电偶标定系数 beta Unit ℃
+                INIHelper.Write(t, "A3", "0.0", filePath); //热电偶标定系数 theta Unit ℃
             }
 
             #endregion

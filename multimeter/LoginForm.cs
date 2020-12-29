@@ -61,8 +61,17 @@ namespace multimeter {
 
         private void LoginForm_Load(object sender, EventArgs e) {
             comboBox.SelectedItem = "普通用户";
+
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void LoginGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

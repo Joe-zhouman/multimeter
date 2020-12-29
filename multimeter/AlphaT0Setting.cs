@@ -23,9 +23,9 @@ namespace multimeter
         {
             dataGridView.Rows.Clear();
             dataGridView.Columns.Add("channel", "Channel");
-            dataGridView.Columns.Add("alpha", "α");
-            dataGridView.Columns.Add("beta", "β");
-            dataGridView.Columns.Add("theta", "θ");
+            dataGridView.Columns.Add("A0", $"A\x2080");
+            dataGridView.Columns.Add("A1", $"A\x2081");
+            dataGridView.Columns.Add("A3", $"A\x2083");
 
             for (int i = 0; i < 4; i++) {
                 dataGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -34,13 +34,13 @@ namespace multimeter
                 dataGridView.Rows.Add((201+i).ToString(), "", "");
                 dataGridView["channel", i].ReadOnly = true;
                 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sln.ini");
-                dataGridView[1,i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "alpha", dataGridView[1, i].Value.ToString(),
+                dataGridView[1,i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
                     filePath);
                 dataGridView[1, i].ValueType = typeof(double);
-                dataGridView[2, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "beta", dataGridView[1, i].Value.ToString(),
+                dataGridView[2, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A1", dataGridView[1, i].Value.ToString(),
                     filePath);
                 dataGridView[2, i].ValueType = typeof(double);
-                dataGridView[3, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "theta", dataGridView[1, i].Value.ToString(),
+                dataGridView[3, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A3", dataGridView[1, i].Value.ToString(),
                     filePath);
                 dataGridView[3, i].ValueType = typeof(double);
             }
@@ -53,11 +53,11 @@ namespace multimeter
             string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", $"sln.ini.{DateTime.Now:yyyy-MM-dd-ss-ffff}.bak");
             File.Copy(filePath, bakFilePath);
             for (int i = 0; i < dataGridView.Rows.Count - 1; i++) {
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "alpha", dataGridView[1, i].Value.ToString(),
+                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "beta", dataGridView[2, i].Value.ToString(),
+                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A1", dataGridView[2, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "theta", dataGridView[3, i].Value.ToString(),
+                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A3", dataGridView[3, i].Value.ToString(),
                     filePath);
                 
             }

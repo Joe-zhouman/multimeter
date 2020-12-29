@@ -32,26 +32,83 @@ namespace multimeter
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogoLoad));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LoadingLabel = new System.Windows.Forms.Label();
+            this.CompanyName = new System.Windows.Forms.Button();
+            this.CompanyLogo = new System.Windows.Forms.PictureBox();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CompanyLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
             // 
-            this.timer1.Interval = 1500;
+            this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.LoadingLabel);
+            this.groupBox1.Controls.Add(this.CompanyName);
+            this.groupBox1.Controls.Add(this.CompanyLogo);
+            this.groupBox1.Location = new System.Drawing.Point(-5, -5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(464, 451);
+            this.groupBox1.TabIndex = 107;
+            this.groupBox1.TabStop = false;
+            // 
+            // LoadingLabel
+            // 
+            this.LoadingLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LoadingLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoadingLabel.Image = ((System.Drawing.Image)(resources.GetObject("LoadingLabel.Image")));
+            this.LoadingLabel.Location = new System.Drawing.Point(33, 37);
+            this.LoadingLabel.Name = "LoadingLabel";
+            this.LoadingLabel.Size = new System.Drawing.Size(393, 339);
+            this.LoadingLabel.TabIndex = 108;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompanyName.BackgroundImage")));
+            this.CompanyName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CompanyName.Enabled = false;
+            this.CompanyName.FlatAppearance.BorderSize = 0;
+            this.CompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CompanyName.ForeColor = System.Drawing.Color.Black;
+            this.CompanyName.Location = new System.Drawing.Point(52, 344);
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.Size = new System.Drawing.Size(358, 58);
+            this.CompanyName.TabIndex = 113;
+            this.CompanyName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.CompanyName.UseVisualStyleBackColor = true;
+            // 
+            // CompanyLogo
+            // 
+            this.CompanyLogo.Image = ((System.Drawing.Image)(resources.GetObject("CompanyLogo.Image")));
+            this.CompanyLogo.InitialImage = null;
+            this.CompanyLogo.Location = new System.Drawing.Point(35, 20);
+            this.CompanyLogo.Name = "CompanyLogo";
+            this.CompanyLogo.Size = new System.Drawing.Size(393, 382);
+            this.CompanyLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CompanyLogo.TabIndex = 109;
+            this.CompanyLogo.TabStop = false;
             // 
             // LogoLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(971, 123);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(453, 440);
+            this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogoLoad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogoLoad";
             this.Load += new System.EventHandler(this.LogoLoad_Load);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CompanyLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -59,5 +116,9 @@ namespace multimeter
         #endregion
 
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button CompanyName;
+        private System.Windows.Forms.Label LoadingLabel;
+        private System.Windows.Forms.PictureBox CompanyLogo;
     }
 }
