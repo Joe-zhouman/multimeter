@@ -43,7 +43,7 @@ namespace multimeter
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox1_2, S2TextBox1_2);
             }
 
-            string filePath = SlnIni.CreateDefaultKappaIni();
+            string filePath = SlnIni.CreateDefaultSettingIni();
 
             List<TextBox> samplePositionBoxes = new List<TextBox>()
                 {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
@@ -93,7 +93,7 @@ namespace multimeter
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox2_2, S2TextBox2_2);
             }
 
-            string filePath = SlnIni.CreateDefaultItcIni();
+            string filePath = SlnIni.CreateDefaultSettingIni();
 
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
@@ -149,7 +149,7 @@ namespace multimeter
                 };
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_2, S2TextBox3_2);
             }
-            string filePath = SlnIni.CreateDefaultItmIni();
+            string filePath = SlnIni.CreateDefaultSettingIni();
 
             if (!CheckOtherText(ForceTextBox3.Text, thickness: FilmThickness1.Text))
             {
@@ -191,7 +191,7 @@ namespace multimeter
                 };
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_2, S2TextBox4_2);
             }
-            string filePath = SlnIni.CreateDefaultItmsIni();
+            string filePath = SlnIni.CreateDefaultSettingIni();
 
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};

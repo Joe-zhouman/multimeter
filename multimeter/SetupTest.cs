@@ -95,6 +95,8 @@ namespace multimeter {
             }
             else {
                 if (_saveParameter) ModifyParameter_Click(sender,e);
+                string fileName = "DataAutoSave" + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
                 btn_start();
                 Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
                 if (serialPort1.IsOpen) {
@@ -627,9 +629,9 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             _latestDataFile = "";
             _heatMeter1 = new HeatMeter("HeatMeter1",3);
             _heatMeter2 = new HeatMeter("HeatMeter2");
-            SlnIni.CreateDefaultIni();
-            string slnFilePath = SlnIni.CreateDefaultSettingIni();
-            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2, slnFilePath);
+            string sysFilePath = SlnIni.CreateDefaultIni();
+            string settingFilePath = SlnIni.CreateDefaultSettingIni();
+            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2,sysFilePath, settingFilePath);
             #endregion
 
             #region //串口设置 

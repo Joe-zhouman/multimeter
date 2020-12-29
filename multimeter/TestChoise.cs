@@ -93,6 +93,7 @@ namespace multimeter {
             ButtonEnable();
             _method = TestMethod.ITM;
             string force;
+            var slnFilePath = SlnIni.CreateDefaultIni();
             //显示对应设置窗口TEST3
             EmptyGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
@@ -125,7 +126,7 @@ namespace multimeter {
             ButtonEnable();
             _method = TestMethod.ITMS;
             string force;
-            var sysFilePath = SlnIni.CreateDefaultIni();
+            var slnFilePath = SlnIni.CreateDefaultIni();
             //显示对应设置窗口TEST4
             EmptyGroupBox.Size = new Size(0, 0);
             TextGroupbox1.Size = new Size(0, 0);
@@ -136,9 +137,9 @@ namespace multimeter {
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");
-            var settingFilePath = SlnIni.CreateDefaultSettingIni();
+            var filePath = SlnIni.CreateDefaultSettingIni();
             SlnIni.LoadItmsInfo(ref _sample1, ref _sample2, out force, out var thickness,
-                settingFilePath, sysFilePath);
+                filePath, slnFilePath);
             ForceTextBox4.Text = force;
             FilmThickness2.Text = thickness;
             var heatMeterPositionBoxes1 = new List<TextBox>
