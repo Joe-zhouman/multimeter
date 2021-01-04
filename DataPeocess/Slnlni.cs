@@ -68,7 +68,7 @@ namespace DataProcessor {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"); //在当前程序路径创建
             if (INIHelper.CheckPath(filePath))
                 return filePath;
-            HeatMeter heatMeter1 = new HeatMeter("HeatMeter1");
+            HeatMeter heatMeter1 = new HeatMeter("HeatMeter1",3);
             HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
             Sample sample1 = new Sample("Sample1");
             Sample sample2 = new Sample("Sample2");

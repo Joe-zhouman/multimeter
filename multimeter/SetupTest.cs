@@ -27,7 +27,7 @@ namespace multimeter {
         private bool _testResultChartUpdate;
         private bool _saveParameter;
         public User User;
-        private DataTable _volTable;
+        private List<string> _temp;
 
         #region //串口采集
         private string TotalCHN = "";
@@ -442,14 +442,7 @@ namespace multimeter {
             sendmsg(TwoRlist, FourRlist, Templist, TwoR_num, FourR_num, Temp_num);
             #endregion
 
-            _volTable = new DataTable();
-            DataColumn countColumn = new DataColumn("count") { DataType = Type.GetType("System.Int32") };
-            _volTable.Columns.Add(countColumn);
-            foreach (string t in channels)
-            {
-                DataColumn tempCol = new DataColumn("ch" + t) { DataType = Type.GetType("System.Double") };
-                _volTable.Columns.Add(tempCol);
-            }
+            _temp = new List<string>();
 
             try {
                 StreamWriter write = new StreamWriter(_latestDataFile);
@@ -565,7 +558,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             serialPort1.Close();
             //btn_start.Enabled = true;
             //btn_stop.Enabled = false;
-            _volTable.Rows.Clear();
+            _temp.Clear();
 
             enablescan = false;
         }
@@ -578,35 +571,17 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         public void SaveToData(string name) {
             #region
-
-            if (_volTable.Rows.Count!=0)
+            if (_temp.Count!=0)
                 return;
-            string fileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
-            _latestDataFile = filePath;
+            string fileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".rst";
+            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
+            _latestDataFile = autoSaveFilePath;
             //MessageBox.Show(filePath);
             try {
-                int size = 1024;
-                int sizeCnt = (int) Math.Ceiling(_volTable.Rows.Count / (double) 2000);
-                StreamWriter write = new StreamWriter(filePath, false, Encoding.Default, size * sizeCnt);
-                write.Write(_recvstr);
-                //获取listView标题行
-                //for (int t = 0; t < listView.Columns.Count; t++) write.Write(listView.Columns[t].Text + ",");
-                //write.WriteLine();
-                ////获取listView数据行
-                //for (int lin = 0; lin < listView.Items.Count; lin++) {
-                //    string Tem = null;
-                //    for (int k = 0; k < listView.Columns.Count; k++) {
-                //        string TemString = listView.Items[lin].SubItems[k].Text;
-                //        Tem += TemString;
-                //        Tem += ",";
-                //    }
-
-                //    write.WriteLine(Tem);
-                //}
-
-                write.Flush();
-                write.Close();
+                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), autoSaveFilePath);
+                for (int i = 0; i < _temp.Count; i++) {
+                    INIHelper.Write("Data", i.ToString(), _temp[i], autoSaveFilePath);
+                }
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.ToString());
@@ -643,7 +618,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             _heatMeter2 = new HeatMeter("HeatMeter2");
             string sysFilePath = SlnIni.CreateDefaultIni();
             string settingFilePath = SlnIni.CreateDefaultSettingIni();
-            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2,sysFilePath, settingFilePath);
+            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2,settingFilePath, sysFilePath);
             #endregion
 
             #region //串口设置 
@@ -853,15 +828,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         catch (Exception) {
                             // ignored
                         }
-
-                        DataRow tempRow = _volTable.NewRow();
-                        tempRow[0] = count;
-                        for (int i = 0; i < dataList.Length; i++) tempRow[i+1] = dataList[i];
-                        _volTable.Rows.Add(tempRow);
+                        _temp.Add(temp);
                         
                         if (count % AppCfg.devicepara.Save_interval == 0) {
                             SaveToData("AutoSave");
-                            _volTable.Clear();
+                            _temp.Clear();
                         }
 
                         //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
