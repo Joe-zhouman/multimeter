@@ -10,41 +10,18 @@ namespace multimeter {
     public partial class SetupTest {
         private List<double> _latestTempList;
         private int _timerCyclesNum;
-        public void Chart_Init(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2) {
-            _heatMeter1 = heatMeter1;
-            _heatMeter2 = heatMeter2;
-            _sample1 = sample1;
-            _sample2 = sample2;
+
+        private void Chart_Init() {
+            
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
             chart1.ChartAreas[0].AxisY.IsStartedFromZero = false;       //y轴自适应
             chart1.ChartAreas[0].AxisX.Maximum = 250;
             chart1.ChartAreas[0].AxisX.Minimum = 0;
 
-            int numChannel = 0;
-            List<string> channelList = new List<string>();
-            if (heatMeter1 != null) {
-                numChannel += heatMeter1.TestPoint;
-                channelList.AddRange(heatMeter1.Channel);
-            }
-
-            if (sample1 != null) {
-                numChannel += sample1.TestPoint;
-                channelList.AddRange(sample1.Channel);
-            }
-
-            if (sample2 != null) {
-                numChannel += sample2.TestPoint;
-                channelList.AddRange(sample2.Channel);
-            }
-
-            if (heatMeter2 != null) {
-                numChannel += heatMeter2.TestPoint;
-                channelList.AddRange(heatMeter2.Channel);
-            }
-
+            int numChannel = channels.Length;
             for (int i = 0; i < numChannel; i++) {
                 chart1.Series[i].IsVisibleInLegend = true;
-                chart1.Series[i].LegendText = channelList[i];
+                chart1.Series[i].LegendText = channels[i];
                 chart1.Series[i].Points.Clear();
             }
 
@@ -62,26 +39,21 @@ namespace multimeter {
         }
 
 
-        public void ShowChart(Dictionary<string, double> testResult) {
+        private void ShowChart() {
             List<double> T = new List<double>();
             if (_heatMeter1 != null) {
-                _heatMeter1.SetTemp(testResult);
-
                 T.AddRange(_heatMeter1.Temp);
             }
 
             if (_sample1 != null) {
-                _sample1.SetTemp(testResult);
                 T.AddRange(_sample1.Temp);
             }
 
             if (_sample2 != null) {
-                _sample2.SetTemp(testResult);
                 T.AddRange(_sample2.Temp);
             }
 
             if (_heatMeter2 != null) {
-                _heatMeter2.SetTemp(testResult);
                 T.AddRange(_heatMeter2.Temp.Take(3));
             }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
@@ -96,9 +97,10 @@ namespace multimeter {
             else {
                 if (_saveParameter) ModifyParameter_Click(sender,e);
                 string fileName = "DataAutoSave" + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
+                _latestDataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
+                
                 btn_start();
-                Chart_Init(_heatMeter1, _heatMeter2, _sample1, _sample2);
+                Chart_Init();
                 if (serialPort1.IsOpen) {
                     TestChooseFormShow_Enable(false);
                     TestRun_Enable(false);
@@ -446,6 +448,15 @@ namespace multimeter {
             {
                 DataColumn tempCol = new DataColumn("ch" + t) { DataType = Type.GetType("System.Double") };
                 _volTable.Columns.Add(tempCol);
+            }
+
+            try {
+                StreamWriter write = new StreamWriter(_latestDataFile);
+                write.Write("step," + TotalCHN);
+                write.Close();
+            }
+            catch (Exception e) {
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -795,7 +806,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         int firstIdx = _recvstr.IndexOf((char) 13);
                         int lastIdx = _recvstr.LastIndexOf((char) 13);
                         if (-1 != firstIdx && firstIdx != lastIdx) {
-                            _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
+                            _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
                         }
                         
                         _recvstr = _recvstr.Replace((char) 19, (char) 0);
@@ -815,7 +826,33 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         {
                             return;
                         }
+                        
                         count++;
+                        string temp = count.ToString()+',';
+                        _testResult.Clear();
+                        for (int i = 0; i < channels.Length; i++) _testResult.Add(channels[i], dataList[i]);
+                        _heatMeter1.SetTemp(_testResult);
+                        temp = _heatMeter1.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
+                        if (_sample1 != null) {
+                            _sample1.SetTemp(_testResult);
+                            temp = _sample1.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
+                        }
+                        if (_sample2 != null)
+                        {
+                            _sample2.SetTemp(_testResult);
+                            temp = _sample2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
+                        }
+                        _heatMeter2.SetTemp(_testResult);
+                        temp = _heatMeter2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
+                        try {
+                            StreamWriter write = new StreamWriter(_latestDataFile);
+                            write.Write(temp);
+                            write.Close();
+                        }
+                        catch (Exception) {
+                            // ignored
+                        }
+
                         DataRow tempRow = _volTable.NewRow();
                         tempRow[0] = count;
                         for (int i = 0; i < dataList.Length; i++) tempRow[i+1] = dataList[i];
@@ -829,8 +866,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
                         //Dictionary<string, double> testResult = new Dictionary<string, double>();
-                        _testResult.Clear();
-                        for (int i = 0; i < channels.Length; i++) _testResult.Add(channels[i], dataList[i]);
+                        
                         _testResultChartUpdate = true;
                         //timer1.Enabled = true;
                         //timer1.Start();
@@ -882,11 +918,10 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
         }
 
         private void ChartShow_Timer_Tick(object sender, EventArgs e) {
-            if (_testResultChartUpdate) {
-                ShowChart(_testResult);
-                _testResultChartUpdate = false;
-            }
-            
+            if (!_testResultChartUpdate) return;
+            ShowChart();
+            _testResultChartUpdate = false;
+
         }
 
 
