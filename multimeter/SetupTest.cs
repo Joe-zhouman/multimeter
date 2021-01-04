@@ -80,6 +80,7 @@ namespace multimeter {
             }
         }
         private void TestRun_Click(object sender, EventArgs e) {
+            
             if (serialPort1.IsOpen) {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
@@ -96,10 +97,7 @@ namespace multimeter {
 
             }
             else {
-                if (_saveParameter) ModifyParameter_Click(sender,e);
-                string fileName = "DataAutoSave" + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
-                _latestDataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
-                
+                if (_saveParameter) ModifyParameter_Click(sender,e);              
                 btn_start();
                 Chart_Init();
                 if (serialPort1.IsOpen) {
@@ -234,12 +232,10 @@ namespace multimeter {
             TotalCHN = "";
             count = 0;
             _latestDataFile = "";
+            string fileName = "DataAutoSave" + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
+            _latestDataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
             _latestIniFile = "";
-            if ((_latestIniFile = SlnIni.AutoSaveIni(_method)) == null) {
-                MessageBox.Show(@"请选择测试方法后在进行测试", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
+            
             try {
                 serialPort1.BaudRate = int.Parse(AppCfg.devicepara.SerialBaudRate);
                 serialPort1.PortName = AppCfg.devicepara.SerialPort;
@@ -577,7 +573,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             _lastTemp = _temp;
             string fileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".rst";
             string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
-            _latestDataFile = autoSaveFilePath;
             //MessageBox.Show(filePath);
             try {
                 File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), autoSaveFilePath);
