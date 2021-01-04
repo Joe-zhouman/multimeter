@@ -28,6 +28,7 @@ namespace multimeter {
         private bool _saveParameter;
         public User User;
         private List<string> _temp;
+        private List<string> _lastTemp;
 
         #region //串口采集
         private string TotalCHN = "";
@@ -571,16 +572,17 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         public void SaveToData(string name) {
             #region
-            if (_temp.Count!=0)
+            if (_temp.Count == 0)
                 return;
+            _lastTemp = _temp;
             string fileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".rst";
             string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
             _latestDataFile = autoSaveFilePath;
             //MessageBox.Show(filePath);
             try {
                 File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), autoSaveFilePath);
-                for (int i = 0; i < _temp.Count; i++) {
-                    INIHelper.Write("Data", i.ToString(), _temp[i], autoSaveFilePath);
+                for (int i = 0; i < _lastTemp.Count; i++) {
+                    INIHelper.Write("Data", i.ToString(), _lastTemp[i], autoSaveFilePath);
                 }
             }
             catch (Exception ex) {
