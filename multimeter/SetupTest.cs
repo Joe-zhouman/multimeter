@@ -444,6 +444,7 @@ namespace multimeter {
 
             _volTable = new DataTable();
             DataColumn countColumn = new DataColumn("count") { DataType = Type.GetType("System.Int32") };
+            _volTable.Columns.Add(countColumn);
             foreach (string t in channels)
             {
                 DataColumn tempCol = new DataColumn("ch" + t) { DataType = Type.GetType("System.Double") };
