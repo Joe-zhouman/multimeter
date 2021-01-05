@@ -776,11 +776,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     str = str.Substring(0, str.IndexOf((char) 13));
                     _recvstr += str;
                     if (_recvstr.Length > 0) {
-                        int firstIdx = _recvstr.IndexOf((char) 13);
-                        int lastIdx = _recvstr.LastIndexOf((char) 13);
-                        if (-1 != firstIdx && firstIdx != lastIdx) {
-                            _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
-                        }
+                        //int firstIdx = _recvstr.IndexOf((char) 13);
+                        //int lastIdx = _recvstr.LastIndexOf((char) 13);
+                        //if (-1 != firstIdx && firstIdx != lastIdx) {
+                        //    _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
+                        //}
                         
                         _recvstr = _recvstr.Replace((char) 19, (char) 0);
                         _recvstr = _recvstr.Replace((char) 13, (char) 0);
@@ -888,7 +888,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             if (!_testResultChartUpdate) return;
             ShowChart();
             _testResultChartUpdate = false;
-
+            
         }
 
 
