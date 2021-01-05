@@ -443,7 +443,7 @@ namespace multimeter {
 
             try {
                 StreamWriter write = new StreamWriter(_latestDataFile);
-                write.Write("step," + TotalCHN);
+                write.WriteLine("step," + TotalCHN);
                 write.Close();
             }
             catch (Exception e) {
@@ -818,8 +818,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         _heatMeter2.SetTemp(_testResult);
                         temp = _heatMeter2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
                         try {
-                            StreamWriter write = new StreamWriter(_latestDataFile);
-                            write.Write(temp);
+                            StreamWriter write = new StreamWriter(_latestDataFile,true);
+                            write.WriteLine(temp);
                             write.Close();
                         }
                         catch (Exception) {
@@ -837,9 +837,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         //Dictionary<string, double> testResult = new Dictionary<string, double>();
                         
                         _testResultChartUpdate = true;
-                        //timer1.Enabled = true;
-                        //timer1.Start();
-                        //_testResultChart.ShowChart(_testResult);
+                        
                     }
 
                     //if(str.IndexOf((char)13)!=)
