@@ -1256,7 +1256,7 @@
         66245qrrrrz26uuvsAYEADs=
 </value>
   </data>
-  <data name="CompanyName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="LoadCompanyName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA7YAAACaCAYAAACdfNRIAAAABGdBTUEAALGPC/xhBQAAZ+tJREFUeF7t
         vfuXXVWZ92s6fUa0O31QQ3tpiaAIEeRqkJsIATFgCBXkkggJCZcECJcCgnIJOb6N16a6R/v69uk21Z6W

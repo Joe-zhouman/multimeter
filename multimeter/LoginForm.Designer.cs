@@ -44,7 +44,7 @@ namespace multimeter
             this.userpasswordTBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CompanyLogo = new System.Windows.Forms.Button();
-            this.CompanyName = new System.Windows.Forms.Button();
+            this.LoginCompanyName = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.LoginGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -212,7 +212,7 @@ namespace multimeter
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.groupBox1.Controls.Add(this.CompanyName);
+            this.groupBox1.Controls.Add(this.LoginCompanyName);
             this.groupBox1.Controls.Add(this.CompanyLogo);
             this.groupBox1.Location = new System.Drawing.Point(-2, -11);
             this.groupBox1.Name = "groupBox1";
@@ -238,21 +238,21 @@ namespace multimeter
             this.CompanyLogo.UseVisualStyleBackColor = true;
             this.CompanyLogo.Click += new System.EventHandler(this.button4_Click);
             // 
-            // CompanyName
+            // LoginCompanyName
             // 
-            this.CompanyName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompanyName.BackgroundImage")));
-            this.CompanyName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CompanyName.Enabled = false;
-            this.CompanyName.FlatAppearance.BorderSize = 0;
-            this.CompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CompanyName.ForeColor = System.Drawing.Color.Black;
-            this.CompanyName.Location = new System.Drawing.Point(48, 306);
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.Size = new System.Drawing.Size(358, 58);
-            this.CompanyName.TabIndex = 113;
-            this.CompanyName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.CompanyName.UseVisualStyleBackColor = true;
+            this.LoginCompanyName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginCompanyName.BackgroundImage")));
+            this.LoginCompanyName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LoginCompanyName.Enabled = false;
+            this.LoginCompanyName.FlatAppearance.BorderSize = 0;
+            this.LoginCompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginCompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginCompanyName.ForeColor = System.Drawing.Color.Black;
+            this.LoginCompanyName.Location = new System.Drawing.Point(48, 306);
+            this.LoginCompanyName.Name = "LoginCompanyName";
+            this.LoginCompanyName.Size = new System.Drawing.Size(358, 58);
+            this.LoginCompanyName.TabIndex = 113;
+            this.LoginCompanyName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LoginCompanyName.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -301,7 +301,7 @@ namespace multimeter
         private System.Windows.Forms.TextBox userpasswordTBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button CompanyLogo;
-        private System.Windows.Forms.Button CompanyName;
+        private System.Windows.Forms.Button LoginCompanyName;
         private System.Windows.Forms.Label label1;
     }
 }
