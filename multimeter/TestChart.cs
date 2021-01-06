@@ -54,7 +54,7 @@ namespace multimeter {
             }
 
             if (_heatMeter2 != null) {
-                T.AddRange(_heatMeter2.Temp.Take(3));
+                T.AddRange(_heatMeter2.Temp);
             }
 
             for (int i = 0; i < T.Count; i++) chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);

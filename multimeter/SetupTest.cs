@@ -18,12 +18,11 @@ namespace multimeter {
         private HeatMeter _heatMeter1;
         private HeatMeter _heatMeter2;
         private string _latestDataFile;
-        private string _latestIniFile;
         private TestMethod _method;
         private string _recvstr;
         private Sample _sample1;
         private Sample _sample2;
-        private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
+        private Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private bool _testResultChartUpdate;
         private bool _saveParameter;
         public User User;
@@ -234,8 +233,7 @@ namespace multimeter {
             _latestDataFile = "";
             string fileName = "DataAutoSave" + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
             _latestDataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
-            _latestIniFile = "";
-            
+
             try {
                 serialPort1.BaudRate = int.Parse(AppCfg.devicepara.SerialBaudRate);
                 serialPort1.PortName = AppCfg.devicepara.SerialPort;
@@ -609,7 +607,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #region //初始化变量
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
-            _latestIniFile = "";
             _latestDataFile = "";
             _heatMeter1 = new HeatMeter("HeatMeter1",3);
             _heatMeter2 = new HeatMeter("HeatMeter2");

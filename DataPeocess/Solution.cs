@@ -12,6 +12,28 @@ using System.Text;
 
 namespace DataProcessor {
     public static class Solution {
+        public static Exception ReadData(ref Dictionary<string, double>testResult,string[] channelList, string filePath) {
+            int dataPoints = int.Parse(INIHelper.Read("Data", "scan_interval", "0", filePath));
+            try {
+                double[] aveTemp = new double[channelList.Length];
+                for (int i = 0; i < dataPoints; i++) {
+                    string tempVal = INIHelper.Read("Data", i.ToString(), "", filePath);
+                    var tempList = tempVal.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
+                    for (int j = 0; j < aveTemp.Length; j++) {
+                        aveTemp[j] += tempList[j+1];
+                    }
+                }
+                for (int i = 0; i < dataPoints; i++) {
+                    testResult.Add(channelList[i],aveTemp[i]/dataPoints);
+                }
+                return null;
+            }
+            catch (Exception e) {
+                return e;
+            }
+            
+
+        }
         /// <summary>
         ///     读取程序自动保存的CSV文件,并保存至DataTable中
         /// </summary>

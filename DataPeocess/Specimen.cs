@@ -73,6 +73,14 @@ namespace DataProcessor {
                                    double.Parse(A3[i]) * Math.Pow(tempVar, 3)), 2);
             }
         }
+        public void ReadTemp(Dictionary<string, double> testResult)
+        {
+            for (int i = 0; i < TestPoint; i++)
+            {
+               
+                Temp[i] = testResult[Channel[i]];
+            }
+        }
         //public void SetTemp(Dictionary<string, double> testResult) {
         //    for (int i = 0; i < TestPoint; i++)
         //        Temp[i] = Math.Round(double.Parse(Alpha[i]) * testResult[Channel[i]] + double.Parse(T0[i]), 2);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using DataProcessor;
+using multimeter;
 
 namespace Tester {
     internal class Program {
@@ -14,6 +15,7 @@ namespace Tester {
 
             }
 
+            Console.WriteLine(TestMethod.ITC.ToString());
         }
     }
 
