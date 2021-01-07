@@ -537,6 +537,7 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartValue = new System.Windows.Forms.Label();
             this.TestTime_Timer = new System.Windows.Forms.Timer(this.components);
+            this.YAxis_checkBox = new System.Windows.Forms.CheckBox();
             this.TextGroupbox1.SuspendLayout();
             this.TextResultGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
@@ -5793,6 +5794,7 @@
             // 
             // TestChartGroupBox
             // 
+            this.TestChartGroupBox.Controls.Add(this.YAxis_checkBox);
             this.TestChartGroupBox.Controls.Add(this.XAxis_checkBox);
             this.TestChartGroupBox.Controls.Add(this.checkBox13);
             this.TestChartGroupBox.Controls.Add(this.checkBox12);
@@ -6194,6 +6196,19 @@
             // 
             this.TestTime_Timer.Interval = 1000;
             this.TestTime_Timer.Tick += new System.EventHandler(this.TestTime_Timer_Tick);
+            // 
+            // YAxis_checkBox
+            // 
+            this.YAxis_checkBox.AutoSize = true;
+            this.YAxis_checkBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.YAxis_checkBox.ForeColor = System.Drawing.Color.Red;
+            this.YAxis_checkBox.Location = new System.Drawing.Point(247, 814);
+            this.YAxis_checkBox.Name = "YAxis_checkBox";
+            this.YAxis_checkBox.Size = new System.Drawing.Size(93, 25);
+            this.YAxis_checkBox.TabIndex = 153;
+            this.YAxis_checkBox.Text = "纵轴放大";
+            this.YAxis_checkBox.UseVisualStyleBackColor = true;
+            this.YAxis_checkBox.CheckedChanged += new System.EventHandler(this.YAxis_checkBox_CheckedChanged);
             // 
             // SetupTest
             // 
@@ -6757,5 +6772,6 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox XAxis_checkBox;
+        private System.Windows.Forms.CheckBox YAxis_checkBox;
     }
 }

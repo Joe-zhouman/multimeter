@@ -884,6 +884,5 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
 
 
-
     }
 }

@@ -211,6 +211,17 @@ namespace multimeter {
 
         }
 
+        private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
+            if (YAxis_checkBox.Checked == true){
+                chart1.ChartAreas[0].CursorY.IsUserEnabled = true;
+                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
+            }//允许纵轴放大
+            else {
+                chart1.ChartAreas[0].CursorY.IsUserEnabled = false;
+                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = false;
+            }
+        }
+
         private void YAdapt() {
             int ymaximum, yminimum;
         }
