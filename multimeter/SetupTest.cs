@@ -117,9 +117,6 @@ namespace multimeter {
         }
 
         private void Monitor_Click(object sender, EventArgs e) {
-            //if (_testResultChart.IsAccessible)
-            //    _testResultChart.Hide();
-            //else _testResultChart.Show();
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
@@ -551,10 +548,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         private void btn_stop() {
             serialPort1.Close();
-            //btn_start.Enabled = true;
-            //btn_stop.Enabled = false;
             _temp.Clear();
-
             enablescan = false;
         }
 
