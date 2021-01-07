@@ -55,27 +55,31 @@ namespace multimeter {
             channelList.AddRange(_heatMeter2.Channel);
             switch (_method) {
                 case TestMethod.KAPPA: {
-                    _sample1 = new Sample("Sample1");
-                    _sample2 = null;
+                    testchoose1_Click(this,new EventArgs());
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_heatMeter1.Channel);
                 }
                     break;
-                case TestMethod.ITC:
-                case TestMethod.ITMS: {
-                    //显示对应监视窗口TEST2
-                    _sample1 = new Sample("Sample1");
+                case TestMethod.ITC: {
+                    testchoose2_Click(this, new EventArgs());
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_sample1.Channel);
-                    _sample2 = new Sample("Sample2");
                     _sample2.ReadFromIni(dataFile);
+                    channelList.AddRange(_sample2.Channel);
+                }
+                    break;
+                case TestMethod.ITMS: {
+                        //显示对应监视窗口TEST2
+                    testchoose3_Click(this, new EventArgs()); 
+                    _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_sample1.Channel);
+                    _sample2.ReadFromIni(dataFile);
+                    channelList.AddRange(_sample2.Channel);
                     }
                     break;
                 case TestMethod.ITM: {
-                    _sample1 = null;
-                    _sample2 = null;
-                }
+                    testchoose4_Click(this, new EventArgs());
+                    }
                     break;
 
                 default:
@@ -130,8 +134,6 @@ namespace multimeter {
                         }
                             break;
                         case TestMethod.ITMS: {
-                            _sample1.ReadFromIni(dataFile);
-                            _sample2.ReadFromIni(dataFile);
                             double itmKappa = 0.0;
                             double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
                             if (!Solution.GetResults(_heatMeter1, _heatMeter2, ref _sample1, ref _sample2, thickness,

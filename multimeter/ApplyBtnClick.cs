@@ -26,7 +26,7 @@ namespace multimeter
                 }
             }
             INIHelper.Write("TestMethod", "method", _method.ToString(), filePath);
-            INIHelper.Write("Data", "scan_interval", AppCfg.devicepara.Scan_interval.ToString(), filePath);
+            INIHelper.Write("Data", "save_interval", AppCfg.devicepara.Save_interval.ToString(), filePath);
         }
         private void apply_btm_1_Click(string filePath) {
             if (User == User.ADVANCE) {
