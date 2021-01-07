@@ -34,7 +34,7 @@ namespace multimeter
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LoadingLabel = new System.Windows.Forms.Label();
-            this.CompanyName = new System.Windows.Forms.Button();
+            this.LoadCompanyName = new System.Windows.Forms.Button();
             this.CompanyLogo = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyLogo)).BeginInit();
@@ -49,7 +49,7 @@ namespace multimeter
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.LoadingLabel);
-            this.groupBox1.Controls.Add(this.CompanyName);
+            this.groupBox1.Controls.Add(this.LoadCompanyName);
             this.groupBox1.Controls.Add(this.CompanyLogo);
             this.groupBox1.Location = new System.Drawing.Point(-5, -5);
             this.groupBox1.Name = "groupBox1";
@@ -67,21 +67,21 @@ namespace multimeter
             this.LoadingLabel.Size = new System.Drawing.Size(393, 339);
             this.LoadingLabel.TabIndex = 108;
             // 
-            // CompanyName
+            // LoadCompanyName
             // 
-            this.CompanyName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompanyName.BackgroundImage")));
-            this.CompanyName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CompanyName.Enabled = false;
-            this.CompanyName.FlatAppearance.BorderSize = 0;
-            this.CompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CompanyName.ForeColor = System.Drawing.Color.Black;
-            this.CompanyName.Location = new System.Drawing.Point(52, 344);
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.Size = new System.Drawing.Size(358, 58);
-            this.CompanyName.TabIndex = 113;
-            this.CompanyName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.CompanyName.UseVisualStyleBackColor = true;
+            this.LoadCompanyName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoadCompanyName.BackgroundImage")));
+            this.LoadCompanyName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LoadCompanyName.Enabled = false;
+            this.LoadCompanyName.FlatAppearance.BorderSize = 0;
+            this.LoadCompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoadCompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoadCompanyName.ForeColor = System.Drawing.Color.Black;
+            this.LoadCompanyName.Location = new System.Drawing.Point(52, 344);
+            this.LoadCompanyName.Name = "LoadCompanyName";
+            this.LoadCompanyName.Size = new System.Drawing.Size(358, 58);
+            this.LoadCompanyName.TabIndex = 113;
+            this.LoadCompanyName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LoadCompanyName.UseVisualStyleBackColor = true;
             // 
             // CompanyLogo
             // 
@@ -117,7 +117,7 @@ namespace multimeter
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button CompanyName;
+        private System.Windows.Forms.Button LoadCompanyName;
         private System.Windows.Forms.Label LoadingLabel;
         private System.Windows.Forms.PictureBox CompanyLogo;
     }

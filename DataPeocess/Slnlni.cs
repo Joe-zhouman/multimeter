@@ -7,22 +7,6 @@ using multimeter;
 
 namespace DataProcessor {
     public static class SlnIni {
-        public static string CreateDefaultKappaIni() {
-            string filePath = "";
-            return filePath;
-        }
-        public static string CreateDefaultItcIni() {
-            string filePath = "";
-            return filePath;
-        }
-        public static string CreateDefaultItmIni() {
-            string filePath = "";
-            return filePath;
-        }
-        public static string CreateDefaultItmsIni() {
-            string filePath = "";
-            return filePath;
-        }
 
         public static string CreateDefaultIni() {
             #region

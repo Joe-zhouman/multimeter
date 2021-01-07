@@ -18,12 +18,11 @@ namespace multimeter {
         private HeatMeter _heatMeter1;
         private HeatMeter _heatMeter2;
         private string _latestDataFile;
-        private string _latestIniFile;
         private TestMethod _method;
         private string _recvstr;
         private Sample _sample1;
         private Sample _sample2;
-        private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
+        private Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private bool _testResultChartUpdate;
         private bool _saveParameter;
         public User User;
@@ -234,8 +233,7 @@ namespace multimeter {
             _latestDataFile = "";
             string fileName = "DataAutoSave" + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
             _latestDataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
-            _latestIniFile = "";
-            
+
             try {
                 serialPort1.BaudRate = int.Parse(AppCfg.devicepara.SerialBaudRate);
                 serialPort1.PortName = AppCfg.devicepara.SerialPort;
@@ -443,7 +441,7 @@ namespace multimeter {
 
             try {
                 StreamWriter write = new StreamWriter(_latestDataFile);
-                write.Write("step," + TotalCHN);
+                write.WriteLine("step," + TotalCHN);
                 write.Close();
             }
             catch (Exception e) {
@@ -609,7 +607,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #region //初始化变量
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
-            _latestIniFile = "";
             _latestDataFile = "";
             _heatMeter1 = new HeatMeter("HeatMeter1",3);
             _heatMeter2 = new HeatMeter("HeatMeter2");
@@ -776,11 +773,11 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     str = str.Substring(0, str.IndexOf((char) 13));
                     _recvstr += str;
                     if (_recvstr.Length > 0) {
-                        int firstIdx = _recvstr.IndexOf((char) 13);
-                        int lastIdx = _recvstr.LastIndexOf((char) 13);
-                        if (-1 != firstIdx && firstIdx != lastIdx) {
-                            _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
-                        }
+                        //int firstIdx = _recvstr.IndexOf((char) 13);
+                        //int lastIdx = _recvstr.LastIndexOf((char) 13);
+                        //if (-1 != firstIdx && firstIdx != lastIdx) {
+                        //    _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
+                        //}
                         
                         _recvstr = _recvstr.Replace((char) 19, (char) 0);
                         _recvstr = _recvstr.Replace((char) 13, (char) 0);
@@ -818,8 +815,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         _heatMeter2.SetTemp(_testResult);
                         temp = _heatMeter2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
                         try {
-                            StreamWriter write = new StreamWriter(_latestDataFile);
-                            write.Write(temp);
+                            StreamWriter write = new StreamWriter(_latestDataFile,true);
+                            write.WriteLine(temp);
                             write.Close();
                         }
                         catch (Exception) {
@@ -837,9 +834,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         //Dictionary<string, double> testResult = new Dictionary<string, double>();
                         
                         _testResultChartUpdate = true;
-                        //timer1.Enabled = true;
-                        //timer1.Start();
-                        //_testResultChart.ShowChart(_testResult);
+                        
                     }
 
                     //if(str.IndexOf((char)13)!=)
@@ -890,7 +885,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             if (!_testResultChartUpdate) return;
             ShowChart();
             _testResultChartUpdate = false;
-
+            
         }
 
 

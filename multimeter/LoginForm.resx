@@ -1458,7 +1458,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAFP7wh/8fjQJbLAN/F8AAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="CompanyName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="LoginCompanyName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA7YAAACaCAYAAACdfNRIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAGfrSURBVHhe7b37l11VmfdrOn1GtDt9UEN7aYmgCBHkapCbCAExYAgV5JIICQmXBAiXAoJyCTm+

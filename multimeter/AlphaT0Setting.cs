@@ -33,7 +33,7 @@ namespace multimeter
             for (int i = 0; i < 13; i++) {
                 dataGridView.Rows.Add((201+i).ToString(), "", "");
                 dataGridView["channel", i].ReadOnly = true;
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sln.ini");
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
                 dataGridView[1,i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
                     filePath);
                 dataGridView[1, i].ValueType = typeof(double);

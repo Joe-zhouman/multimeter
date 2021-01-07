@@ -7,25 +7,28 @@ namespace multimeter
 {
     public partial class SetupTest {
         private void apply_btm(object sender, EventArgs e) {
+            string filePath = SlnIni.CreateDefaultSettingIni();
             switch (_method) {
-                case TestMethod.KAPPA: apply_btm_1_Click(sender, e);
+                case TestMethod.KAPPA: apply_btm_1_Click(filePath);
                     break;
                 case TestMethod.ITC:
-                    apply_btm_2_Click(sender, e);
+                    apply_btm_2_Click(filePath);
                     break;
                 case TestMethod.ITM:
-                    apply_btm_3_Click(sender, e);
+                    apply_btm_3_Click(filePath);
                     break;
                 case TestMethod.ITMS:
-                    apply_btm_4_Click(sender, e);
+                    apply_btm_4_Click(filePath);
                     break;
                 default: {
                     MessageBox.Show(@"请选择测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
+            INIHelper.Write("TestMethod", "method", _method.ToString(), filePath);
+            INIHelper.Write("Data", "save_interval", AppCfg.devicepara.Save_interval.ToString(), filePath);
         }
-        private void apply_btm_1_Click(object sender, EventArgs e) {
+        private void apply_btm_1_Click(string filePath) {
             if (User == User.ADVANCE) {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
                     {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3};
@@ -43,8 +46,8 @@ namespace multimeter
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox1_2, S2TextBox1_2);
             }
 
-            string filePath = SlnIni.CreateDefaultSettingIni();
-
+            
+            
             List<TextBox> samplePositionBoxes = new List<TextBox>()
                 {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7};
             List<TextBox> sampleChannelBoxes = new List<TextBox>()
@@ -73,7 +76,7 @@ namespace multimeter
             }
         }
 
-        private void apply_btm_2_Click(object sender, EventArgs e)
+        private void apply_btm_2_Click(string filePath)
         {
             if (User == User.ADVANCE)
             {
@@ -93,7 +96,6 @@ namespace multimeter
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox2_2, S2TextBox2_2);
             }
 
-            string filePath = SlnIni.CreateDefaultSettingIni();
 
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7};
@@ -130,7 +132,7 @@ namespace multimeter
             }
         }
 
-        private void apply_btm_3_Click(object sender, EventArgs e)
+        private void apply_btm_3_Click(string filePath)
         {
             if (User == User.ADVANCE)
             {
@@ -149,7 +151,7 @@ namespace multimeter
                 };
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_2, S2TextBox3_2);
             }
-            string filePath = SlnIni.CreateDefaultSettingIni();
+           
 
             if (!CheckOtherText(ForceTextBox3.Text, thickness: FilmThickness1.Text))
             {
@@ -172,7 +174,7 @@ namespace multimeter
             }
         }
 
-        private void apply_btm_4_Click(object sender, EventArgs e)
+        private void apply_btm_4_Click(string filePath)
         {
             if (User == User.ADVANCE)
             {
@@ -191,7 +193,7 @@ namespace multimeter
                 };
                 BoxToHeatMeter(ref _heatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_2, S2TextBox4_2);
             }
-            string filePath = SlnIni.CreateDefaultSettingIni();
+           
 
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7};

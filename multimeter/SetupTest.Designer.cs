@@ -513,10 +513,6 @@
             this.SerialPort = new System.Windows.Forms.Button();
             this.Monitor = new System.Windows.Forms.Button();
             this.CurrentTestResult = new System.Windows.Forms.Button();
-            this.apply_btm_1 = new System.Windows.Forms.Button();
-            this.apply_btm_2 = new System.Windows.Forms.Button();
-            this.apply_btm_3 = new System.Windows.Forms.Button();
-            this.apply_btm_4 = new System.Windows.Forms.Button();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.ParSetting = new System.Windows.Forms.Button();
@@ -5417,10 +5413,6 @@
             this.MenuGroupBox.Controls.Add(this.SerialPort);
             this.MenuGroupBox.Controls.Add(this.Monitor);
             this.MenuGroupBox.Controls.Add(this.CurrentTestResult);
-            this.MenuGroupBox.Controls.Add(this.apply_btm_1);
-            this.MenuGroupBox.Controls.Add(this.apply_btm_2);
-            this.MenuGroupBox.Controls.Add(this.apply_btm_3);
-            this.MenuGroupBox.Controls.Add(this.apply_btm_4);
             this.MenuGroupBox.Location = new System.Drawing.Point(-2, -5);
             this.MenuGroupBox.Name = "MenuGroupBox";
             this.MenuGroupBox.Size = new System.Drawing.Size(1279, 89);
@@ -5753,46 +5745,6 @@
             this.CurrentTestResult.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.CurrentTestResult.UseVisualStyleBackColor = false;
             this.CurrentTestResult.Click += new System.EventHandler(this.CurrentTestResult_Click);
-            // 
-            // apply_btm_1
-            // 
-            this.apply_btm_1.Location = new System.Drawing.Point(734, 15);
-            this.apply_btm_1.Name = "apply_btm_1";
-            this.apply_btm_1.Size = new System.Drawing.Size(0, 0);
-            this.apply_btm_1.TabIndex = 69;
-            this.apply_btm_1.Text = "保存参数";
-            this.apply_btm_1.UseVisualStyleBackColor = true;
-            this.apply_btm_1.Click += new System.EventHandler(this.apply_btm_1_Click);
-            // 
-            // apply_btm_2
-            // 
-            this.apply_btm_2.Location = new System.Drawing.Point(856, 15);
-            this.apply_btm_2.Name = "apply_btm_2";
-            this.apply_btm_2.Size = new System.Drawing.Size(0, 0);
-            this.apply_btm_2.TabIndex = 85;
-            this.apply_btm_2.Text = "保存参数";
-            this.apply_btm_2.UseVisualStyleBackColor = true;
-            this.apply_btm_2.Click += new System.EventHandler(this.apply_btm_2_Click);
-            // 
-            // apply_btm_3
-            // 
-            this.apply_btm_3.Location = new System.Drawing.Point(975, 18);
-            this.apply_btm_3.Name = "apply_btm_3";
-            this.apply_btm_3.Size = new System.Drawing.Size(0, 0);
-            this.apply_btm_3.TabIndex = 76;
-            this.apply_btm_3.Text = "保存参数";
-            this.apply_btm_3.UseVisualStyleBackColor = true;
-            this.apply_btm_3.Click += new System.EventHandler(this.apply_btm_3_Click);
-            // 
-            // apply_btm_4
-            // 
-            this.apply_btm_4.Location = new System.Drawing.Point(1083, 17);
-            this.apply_btm_4.Name = "apply_btm_4";
-            this.apply_btm_4.Size = new System.Drawing.Size(0, 0);
-            this.apply_btm_4.TabIndex = 87;
-            this.apply_btm_4.Text = "保存参数";
-            this.apply_btm_4.UseVisualStyleBackColor = true;
-            this.apply_btm_4.Click += new System.EventHandler(this.apply_btm_4_Click);
             // 
             // columnHeader9
             // 
@@ -6351,10 +6303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Button apply_btm_1;
-        private System.Windows.Forms.Button apply_btm_2;
-        private System.Windows.Forms.Button apply_btm_3;
-        private System.Windows.Forms.Button apply_btm_4;
         private System.Windows.Forms.TextBox ChannelTextBox2_13;
         private System.Windows.Forms.Button SerialPortEnsure;
         private System.Windows.Forms.TextBox S1TextBox1_1;

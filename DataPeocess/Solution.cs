@@ -12,57 +12,79 @@ using System.Text;
 
 namespace DataProcessor {
     public static class Solution {
-        /// <summary>
-        ///     读取程序自动保存的CSV文件,并保存至DataTable中
-        /// </summary>
-        /// <param name="channelTable">要保存dataTable,引用类型</param>
-        /// <param name="fileName">CSV文件名</param>
-        /// <returns>若出现异常,返回异常,否则,返回null</returns>
-        public static Exception ReadCsvFile(ref DataTable channelTable, string fileName) {
+        public static Exception ReadData(ref Dictionary<string, double>testResult,string[] channelList, string filePath) {
+            int dataPoints = int.Parse(INIHelper.Read("Data", "save_interval", "0", filePath));
             try {
-                string strLine;
-                StreamReader sw = new StreamReader(fileName, Encoding.Default);
-                if (null != (strLine = sw.ReadLine())) {
-                    string[] aryLine = strLine.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (string t in aryLine) {
-                        DataColumn tempCol = new DataColumn("ch" + t) {DataType = Type.GetType("System.Double")};
-                        channelTable.Columns.Add(tempCol);
+                double[] aveTemp = new double[channelList.Length];
+                for (int i = 0; i < dataPoints; i++) {
+                    string tempVal = INIHelper.Read("Data", i.ToString(), "", filePath);
+                    var tempList = tempVal.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
+                    for (int j = 0; j < aveTemp.Length; j++) {
+                        aveTemp[j] += tempList[j+1];
                     }
                 }
-
-                while (null != (strLine = sw.ReadLine())) {
-                    string[] aryLine = strLine.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
-                    DataRow tempRow = channelTable.NewRow();
-                    for (int i = 0; i < aryLine.Length; i++) tempRow[i] = double.Parse(aryLine[i]);
-                    channelTable.Rows.Add(tempRow);
-                }
-
+                for (int i = 0; i < channelList.Length; i++) {
+                    testResult.Add(channelList[i],aveTemp[i]/dataPoints);
+                }   
                 return null;
             }
             catch (Exception e) {
                 return e;
             }
+            
+
         }
+        ///// <summary>
+        /////     读取程序自动保存的CSV文件,并保存至DataTable中
+        ///// </summary>
+        ///// <param name="channelTable">要保存dataTable,引用类型</param>
+        ///// <param name="fileName">CSV文件名</param>
+        ///// <returns>若出现异常,返回异常,否则,返回null</returns>
+        //public static Exception ReadCsvFile(ref DataTable channelTable, string fileName) {
+        //    try {
+        //        string strLine;
+        //        StreamReader sw = new StreamReader(fileName, Encoding.Default);
+        //        if (null != (strLine = sw.ReadLine())) {
+        //            string[] aryLine = strLine.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+        //            foreach (string t in aryLine) {
+        //                DataColumn tempCol = new DataColumn("ch" + t) {DataType = Type.GetType("System.Double")};
+        //                channelTable.Columns.Add(tempCol);
+        //            }
+        //        }
 
-        /// <summary>
-        ///     计算各通道结果的平均值
-        /// </summary>
-        /// <param name="channelTable">数据所在的DataTable</param>
-        /// <returns>字典{频道名,平均值},并包含文件对于的测试方法</returns>
-        public static Dictionary<string, double> CalAve(DataTable channelTable) {
-            Dictionary<string, double> testResult = new Dictionary<string, double>();
-            string count = channelTable.Columns[0].ColumnName;
-            testResult.Add("TestMethod", double.Parse(count.Last().ToString()));
-            string filter = "true";
-            if (channelTable.Rows.Count > 50) filter = count + " > " + (channelTable.Rows.Count - 50);
-            for (int i = 1; i < channelTable.Columns.Count; i++) {
-                string expression = "Avg(" + channelTable.Columns[i].ColumnName + ")";
-                double temp = (double) channelTable.Compute(expression, filter);
-                testResult.Add(channelTable.Columns[i].ColumnName.TrimStart('c', 'h'), temp);
-            }
+        //        while (null != (strLine = sw.ReadLine())) {
+        //            string[] aryLine = strLine.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+        //            DataRow tempRow = channelTable.NewRow();
+        //            for (int i = 0; i < aryLine.Length; i++) tempRow[i] = double.Parse(aryLine[i]);
+        //            channelTable.Rows.Add(tempRow);
+        //        }
 
-            return testResult;
-        } //求平均值
+        //        return null;
+        //    }
+        //    catch (Exception e) {
+        //        return e;
+        //    }
+        //}
+
+        ///// <summary>
+        /////     计算各通道结果的平均值
+        ///// </summary>
+        ///// <param name="channelTable">数据所在的DataTable</param>
+        ///// <returns>字典{频道名,平均值},并包含文件对于的测试方法</returns>
+        //public static Dictionary<string, double> CalAve(DataTable channelTable) {
+        //    Dictionary<string, double> testResult = new Dictionary<string, double>();
+        //    string count = channelTable.Columns[0].ColumnName;
+        //    testResult.Add("TestMethod", double.Parse(count.Last().ToString()));
+        //    string filter = "true";
+        //    if (channelTable.Rows.Count > 50) filter = count + " > " + (channelTable.Rows.Count - 50);
+        //    for (int i = 1; i < channelTable.Columns.Count; i++) {
+        //        string expression = "Avg(" + channelTable.Columns[i].ColumnName + ")";
+        //        double temp = (double) channelTable.Compute(expression, filter);
+        //        testResult.Add(channelTable.Columns[i].ColumnName.TrimStart('c', 'h'), temp);
+        //    }
+
+        //    return testResult;
+        //} //求平均值
 
         /// <summary>
         ///     线性拟合
@@ -72,7 +94,7 @@ namespace DataProcessor {
         /// <param name="k">拟合直线斜率,引用类型</param>
         /// <param name="b">拟合参数截距,引用类型</param>
         /// <returns>拟合成功,返回true;拟合失败或拟合误差过大,返回false</returns>
-        public static bool LinearFit(double[] x, double[] y, ref double k, ref double b) {
+        public static bool LinearFit(double[] x, double[] y, ref double k, ref double b) {                                                                                                                            
             if (x.Length != y.Length) return false;
 
             if (x.Length < 2) return false;
