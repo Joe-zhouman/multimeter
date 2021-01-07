@@ -10,13 +10,11 @@ namespace multimeter {
     public partial class SetupTest {
         private List<double> _latestTempList;
         private int _timerCyclesNum;
-
+        private DateTime X_minValue;    //横坐标最初值
         private void Chart_Init() {
             
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
             chart1.ChartAreas[0].AxisY.IsStartedFromZero = false;       //y轴自适应
-            chart1.ChartAreas[0].AxisX.Maximum = 250;
-            chart1.ChartAreas[0].AxisX.Minimum = 0;
 
             this.chart1.Series[0].Color = Color.Red;
             this.chart1.Series[1].Color = Color.Lime;
@@ -55,6 +53,7 @@ namespace multimeter {
             chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();      //当前时间
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
             _timerCyclesNum = 0;
+            X_minValue = DateTime.Now;          //记录开始测试时间
         }
 
 
@@ -77,13 +76,16 @@ namespace multimeter {
             }
 
             for (int i = 0; i < T.Count; i++) {
-                chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
+                if (T[i] >= 0 && T[i] <= 500) {
+                    chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
+                }//设定温度合理显示范围，防止温度数据异常Chart出现“大红叉”
                 if (chart1.Series[i].Points.Count() >= 50000) {
                     chart1.Series[i].Points.Clear();
                 }
             }
-            chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();   
-            chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();
+            chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();
+            if (XAxis_checkBox.Checked == true)
+                chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();
 
             /*double residual = 1;
             if (_latestTempList != null) {
@@ -191,6 +193,10 @@ namespace multimeter {
         }
         private void checkBox13_CheckedChanged(object sender, EventArgs e) {
             CheckedChanged(checkBox13) ;
+        }
+        private void XAxis_chenkBox_CheckedChanged(object sender, EventArgs e) {
+            if (XAxis_checkBox.Checked == false)           //X轴设置成显示最初时间坐标
+                chart1.ChartAreas[0].AxisX.Minimum = X_minValue.ToOADate();       //最初打开时候为X轴
         }
 
         private void CheckedChanged(CheckBox checkBox) {
