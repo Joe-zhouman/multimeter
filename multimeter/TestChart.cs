@@ -131,26 +131,31 @@ namespace multimeter {
             _timerCyclesNum++;
         }
 
-        private void chart1_MouseDoubleClick(object sender, MouseEventArgs e) {
+        private void HideChart_Click(object sender, EventArgs e) {
             TestChartGroupBox.Size = new Size(0, 0);
             switch (_method) {
-                case TestMethod.KAPPA: {
+                case TestMethod.KAPPA: 
+                {
                     TextGroupbox1.Size = new Size(1250, 855);
                 }
                     break;
-                case TestMethod.ITC: {
+                case TestMethod.ITC: 
+                {
                     TextGroupbox2.Size = new Size(1250, 855);
                 }
                     break;
-                case TestMethod.ITM: {
+                case TestMethod.ITM:
+                {
                     TextGroupbox3.Size = new Size(1250, 855);
                 }
                     break;
-                case TestMethod.ITMS: {
+                case TestMethod.ITMS:
+                {
                     TextGroupbox4.Size = new Size(1250, 855);
                 }
                     break;
-                default: {
+                default:
+                {
                     return;
                 }
             }
