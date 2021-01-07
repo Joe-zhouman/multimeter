@@ -204,6 +204,17 @@ namespace multimeter {
                 chart1.ChartAreas[0].AxisX.Minimum = X_minValue.ToOADate();       //最初打开时候为X轴
         }
 
+        private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
+            if (YAxis_checkBox.Checked == true) {
+                chart1.ChartAreas[0].CursorY.IsUserEnabled = true;
+                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
+            }//允许纵轴放大
+            else {
+                chart1.ChartAreas[0].CursorY.IsUserEnabled = false;
+                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = false;
+            }
+        }
+
         private void CheckedChanged(CheckBox checkBox) {
             string str = checkBox.Name.Replace("checkBox", "");
             int i = int.Parse(str)-1;
@@ -214,17 +225,6 @@ namespace multimeter {
                 chart1.Series[i].Enabled = false;
             }
 
-        }
-
-        private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
-            if (YAxis_checkBox.Checked == true){
-                chart1.ChartAreas[0].CursorY.IsUserEnabled = true;
-                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
-            }//允许纵轴放大
-            else {
-                chart1.ChartAreas[0].CursorY.IsUserEnabled = false;
-                chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = false;
-            }
         }
 
         private void YAdapt() {
