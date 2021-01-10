@@ -16,7 +16,7 @@ using CCWin.SkinControl;
 using System.Runtime.InteropServices;
 using System.Threading;
 using CCWin.SkinClass;
-
+using log4net;
 namespace multimeter {
     public partial class SetupTest  {
         private void CurrentTestResult_Click(object sender, EventArgs e) {
@@ -45,7 +45,10 @@ namespace multimeter {
 
         private void GetResult(string dataFile) {
             if (!Enum.TryParse(INIHelper.Read("TestMethod", "method", "", dataFile), out _method)) {
+                ILog log = LogManager.GetLogger("MultimeterLog");
+                log.Info("未能正确读取数据文件的方法");
                 MessageBox.Show(@"无效的数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             var channelList = new List<string>();
@@ -92,6 +95,8 @@ namespace multimeter {
             Exception e = Solution.ReadData(ref _testResult, channelList.ToArray(), dataFile);
             if (null != e)
             {
+                ILog log = LogManager.GetLogger("MultimeterLog");
+                log.Error(e);
                 MessageBox.Show($@"数据文件读取失败!
 {e.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -104,7 +109,9 @@ namespace multimeter {
             switch (_method) {
                         case TestMethod.KAPPA: {
                             if (!Solution.GetResults(_heatMeter1, _heatMeter2, ref _sample1)) {
-                                MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                ILog log = LogManager.GetLogger("MultimeterLog");
+                                log.Info("计算误差过大");
+                            MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
                             ShowKappa();
@@ -115,7 +122,9 @@ namespace multimeter {
 
                             double itc = 0.0;
                             if (!Solution.GetResults(_heatMeter1, _heatMeter2, ref _sample1, ref _sample2, ref itc)) {
-                                MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                ILog log = LogManager.GetLogger("MultimeterLog");
+                                log.Info("计算误差过大");
+                            MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
                             ShowItc(itc);
@@ -126,7 +135,9 @@ namespace multimeter {
                             double itmKappa = 0.0;
                             double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
                             if (!Solution.GetResults(_heatMeter1, _heatMeter2, thickness, ref itmKappa)) {
-                                MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                ILog log = LogManager.GetLogger("MultimeterLog");
+                                log.Info("计算误差过大");
+                            MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
                             ShowItm(itmKappa);
@@ -138,7 +149,9 @@ namespace multimeter {
                             double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
                             if (!Solution.GetResults(_heatMeter1, _heatMeter2, ref _sample1, ref _sample2, thickness,
                                 ref itmKappa)) {
-                                MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                ILog log = LogManager.GetLogger("MultimeterLog");
+                                log.Info("计算误差过大");
+                            MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
                             ShowItms(itmKappa);
