@@ -10,9 +10,16 @@ using log4net.Core;
 namespace Tester {
     internal class Program {
         private static void Main(string[] args) {
-            ILog logger = LogManager.GetLogger("MultimeterLog");
+            ILog logger = LogManager.GetLogger("TesterLogger");
+            double[] a = {1, 2};
             for (int i = 0; i < 10; i++) {
-                logger.Error("test");
+                try {
+                    Console.WriteLine(a[i]);
+                }
+                catch (Exception exception) {
+                    logger.Error("test",exception);
+                }
+                
             }
         }
     }

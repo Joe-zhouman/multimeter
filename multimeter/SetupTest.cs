@@ -29,6 +29,13 @@ namespace multimeter {
         private List<string> _temp;
         private List<string> _lastTemp;
 
+        #region logger
+
+        private static readonly ILog log
+            = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        #endregion
+
         #region //串口采集
         private string TotalCHN = "";
         string[] channels;
@@ -40,7 +47,7 @@ namespace multimeter {
         private static class AppCfg {
             internal static ParaInfo devicepara = new ParaInfo();
         }//全局变量
-
+        
 
         public SetupTest() {
             InitializeComponent();
@@ -60,7 +67,7 @@ namespace multimeter {
             TestChoiseGroupBox.Visible = true;
             
         }
-
+        
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
                 apply_btm(sender, e);
@@ -70,7 +77,7 @@ namespace multimeter {
                 _saveParameter = false;
                 ModifyParameterLabel.Text = "修改参数";
             }
-            else {
+            else { 
                 if (User == User.NORMAL) NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
@@ -276,7 +283,6 @@ namespace multimeter {
                 serialPort1.Open();
             }
             catch(Exception ex) {
-                ILog log = LogManager.GetLogger("MultimeterLog");
                 log.Error(ex);
                 MessageBox.Show("无法打开串口！");
                 //btn_start.Enabled = true;
@@ -444,7 +450,6 @@ namespace multimeter {
                 write.Close();
             }
             catch (Exception ex) {
-                ILog log = LogManager.GetLogger("MultimeterLog");
                 log.Error(ex);
                 MessageBox.Show(ex.Message);
             }
@@ -536,7 +541,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         Thread.Sleep(AppCfg.devicepara.Scan_interval);
                     }
                     catch (Exception ex) {
-                        ILog log = LogManager.GetLogger("MultimeterLog");
                         log.Error(ex);
                     }
                 }
@@ -578,7 +582,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 }
             }
             catch (Exception ex) {
-                ILog log = LogManager.GetLogger("MultimeterLog");
                 log.Error(ex);
                 MessageBox.Show(ex.ToString());
             }
@@ -791,7 +794,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                              dataList = _recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
                         }
                         catch(Exception ex) {
-                            ILog log = LogManager.GetLogger("MultimeterLog");
                             log.Error(ex);
                             return;
                         }
@@ -823,7 +825,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                             write.Close();
                         }
                         catch (Exception ex) {
-                            ILog log = LogManager.GetLogger("MultimeterLog");
                             log.Error(ex);
                         }
                         _temp.Add(temp);

@@ -365,10 +365,7 @@ namespace multimeter
                 }
             }
             foreach (TextBox textBox in textBoxes) {
-                if (enable) {
-                    textBox.Enabled = true;
-                }
-                else textBox.Enabled = false;
+                textBox.Enabled = enable;
             }
         }
 
