@@ -21,12 +21,12 @@ namespace multimeter {
     public partial class SetupTest  {
         private void CurrentTestResult_Click(object sender, EventArgs e) {
             #region //数据结果
-            if (_latestDataFile == "") {
+            if (_latestResultFile == "") {
                 MessageBox.Show(@"数据未采集完成,无法计算测试结果!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            GetResult(_latestDataFile);
+            GetResult(_latestResultFile);
             //TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
             //testResultChart.Show();
             //TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method, force, thickness);

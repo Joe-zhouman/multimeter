@@ -18,8 +18,10 @@ namespace multimeter {
         private HeatMeter _heatMeter1;
         private HeatMeter _heatMeter2;
         private string _latestDataFile;
+        private string _latestResultFile;
         private TestMethod _method;
         private string _recvstr;
+        private string _autoSaveFilePath;
         private Sample _sample1;
         private Sample _sample2;
         private Dictionary<string, double> _testResult = new Dictionary<string, double>();
@@ -106,20 +108,19 @@ namespace multimeter {
                 if (_saveParameter) ModifyParameter_Click(sender,e);              
                 btn_start();
                 Chart_Init();
-                if (serialPort1.IsOpen) {
-                    TestChooseFormShow_Enable(false);
-                    TestRun_Enable(false);
-                    Monitor_Enable(true);
-                    CurrentTestResult_Enable(true);
-                    HistoryTestResult_Enable(true);
-                    SerialPort_Enable(false);
-                    AdvancedSetting_Enable(false);
-                    TestRunLabel.Text = "停止";
-                    Monitor_Click(sender, e);
-                    SerialPort_Timer.Enabled = true;
-                    ChartShow_Timer.Enabled = true;
-                    TestTime_Timer.Enabled = true;
-                }
+                if (!serialPort1.IsOpen) return;
+                TestChooseFormShow_Enable(false);
+                TestRun_Enable(false);
+                Monitor_Enable(true);
+                CurrentTestResult_Enable(true);
+                HistoryTestResult_Enable(true);
+                SerialPort_Enable(false);
+                AdvancedSetting_Enable(false);
+                TestRunLabel.Text = "停止";
+                Monitor_Click(sender, e);
+                SerialPort_Timer.Enabled = true;
+                ChartShow_Timer.Enabled = true;
+                TestTime_Timer.Enabled = true;
             }
         }
 
@@ -235,8 +236,21 @@ namespace multimeter {
             TotalCHN = "";
             count = 0;
             _latestDataFile = "";
-            string fileName = "DataAutoSave" + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".csv";
-            _latestDataFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
+            _latestResultFile = "";
+            string fileName = _method + "DataAutoSave.csv";
+            _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff"));
+            try {
+                var di =  Directory.CreateDirectory(_autoSaveFilePath);
+            }
+            catch (Exception ex) {
+                MessageBox.Show($@"自动保存文件创建失败,请重试
+{ex.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                log.Error(ex);
+                btn_stop();
+                return;
+            }
+            
+            _latestDataFile = Path.Combine(_autoSaveFilePath, fileName);
 
             try {
                 serialPort1.BaudRate = int.Parse(AppCfg.devicepara.SerialBaudRate);
@@ -563,22 +577,23 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         private void SetupTest_FormClosing(object sender, FormClosingEventArgs e) {
             serialPort1.Close();
-            while (serialPort1.IsOpen) ;
+            while (serialPort1.IsOpen) {
+            }
             Application.Exit();
         }
 
-        public void SaveToData(string name) {
+        private void SaveToData(string name) {
             #region
             if (_temp.Count == 0)
                 return;
             _lastTemp = _temp;
-            string fileName = name + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff") + ".rst";
-            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", fileName);
+            string fileName = name + "-" + count + ".rst";
+            _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
             //MessageBox.Show(filePath);
             try {
-                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), autoSaveFilePath);
+                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _latestResultFile);
                 for (int i = 0; i < _lastTemp.Count; i++) {
-                    INIHelper.Write("Data", i.ToString(), _lastTemp[i], autoSaveFilePath);
+                    INIHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);
                 }
             }
             catch (Exception ex) {
@@ -612,6 +627,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
             _latestDataFile = "";
+            _latestResultFile = "";
             _heatMeter1 = new HeatMeter("HeatMeter1",3);
             _heatMeter2 = new HeatMeter("HeatMeter2");
             string sysFilePath = SlnIni.CreateDefaultIni();
@@ -830,7 +846,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         _temp.Add(temp);
                         
                         if (count % AppCfg.devicepara.Save_interval == 0) {
-                            SaveToData("AutoSave");
+                            SaveToData(_method.ToString());
                             _temp.Clear();
                         }
 
