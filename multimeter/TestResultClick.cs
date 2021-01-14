@@ -44,6 +44,7 @@ namespace multimeter {
         }
 
         private void GetResult(string dataFile) {
+            _testResult?.Clear();
             if (!Enum.TryParse(INIHelper.Read("TestMethod", "method", "", dataFile), out _method)) {
                 log.Info("未能正确读取数据文件的方法");
                 MessageBox.Show(@"无效的数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
