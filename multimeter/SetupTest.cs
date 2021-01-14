@@ -72,7 +72,7 @@ namespace multimeter {
         
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
-                apply_btm(sender, e);
+                if (!apply_btm()) { return;}
                 if (User == User.NORMAL) NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
@@ -88,7 +88,7 @@ namespace multimeter {
             }
         }
         private void TestRun_Click(object sender, EventArgs e) {
-            
+            TestTime.Text = "";
             if (serialPort1.IsOpen) {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
@@ -98,6 +98,7 @@ namespace multimeter {
                 HistoryTestResult_Enable(true);
                 SerialPort_Enable(true);
                 AdvancedSetting_Enable(true);
+                ModifyParameter_Enable(true, true);
                 TestRunLabel.Text = "  运行  ";
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
@@ -105,7 +106,8 @@ namespace multimeter {
 
             }
             else {
-                if (_saveParameter) ModifyParameter_Click(sender,e);              
+                if (_saveParameter) ModifyParameter_Click(sender,e);
+                if (!apply_btm()) { return; }//再次确认设置参数
                 btn_start();
                 if (!serialPort1.IsOpen) return;
                 Chart_Init();
@@ -116,6 +118,7 @@ namespace multimeter {
                 HistoryTestResult_Enable(true);
                 SerialPort_Enable(false);
                 AdvancedSetting_Enable(false);
+                ModifyParameter_Enable(false, false);
                 TestRunLabel.Text = "  停止  ";
                 Monitor_Click(sender, e);
                 SerialPort_Timer.Enabled = true;
