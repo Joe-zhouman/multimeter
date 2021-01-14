@@ -40,6 +40,7 @@ namespace multimeter {
                 checkBoxes[i].Visible =true;
                 checkBoxes[i].Text = channels[i];           
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
+                chart1.Series[i].LegendText = channels[i];
                 chart1.Series[i].Points.Clear();
             }
 
@@ -86,8 +87,7 @@ namespace multimeter {
                 }//设定温度合理显示范围，防止温度数据异常Chart出现“大红叉”
             }
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();
-            if (XAxis_checkBox.Checked == true)
-                chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();
+            XAdapt();
 
             /*double residual = 1;
             if (_latestTempList != null) {
@@ -215,8 +215,7 @@ namespace multimeter {
             CheckedChanged(checkBox13) ;
         }
         private void XAxis_chenkBox_CheckedChanged(object sender, EventArgs e) {
-            if (XAxis_checkBox.Checked == false)           //X轴设置成显示最初时间坐标
-                chart1.ChartAreas[0].AxisX.Minimum = X_minValue.ToOADate();       //最初打开时候为X轴
+            XAdapt();
         }
 
         private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
