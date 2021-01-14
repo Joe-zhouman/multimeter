@@ -88,7 +88,7 @@ namespace multimeter {
             }
         }
         private void TestRun_Click(object sender, EventArgs e) {
-            
+            TestTime.Text = "";
             if (serialPort1.IsOpen) {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
@@ -98,7 +98,7 @@ namespace multimeter {
                 HistoryTestResult_Enable(true);
                 SerialPort_Enable(true);
                 AdvancedSetting_Enable(true);
-                TestRunLabel.Text = "运行";
+                TestRunLabel.Text = "  运行  ";
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
                 TestTime_Timer.Enabled = false;
@@ -116,7 +116,7 @@ namespace multimeter {
                 HistoryTestResult_Enable(true);
                 SerialPort_Enable(false);
                 AdvancedSetting_Enable(false);
-                TestRunLabel.Text = "停止";
+                TestRunLabel.Text = "  停止  ";
                 Monitor_Click(sender, e);
                 SerialPort_Timer.Enabled = true;
                 ChartShow_Timer.Enabled = true;
@@ -618,7 +618,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
-            //ModifyParameter_Enable(true, true);
+            TestTime.Text = "";
             _saveParameter = false;
             #endregion
 
@@ -908,7 +908,6 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             _testResultChartUpdate = false;
             
         }
-
 
     }
 }

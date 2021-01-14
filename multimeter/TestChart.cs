@@ -11,6 +11,7 @@ namespace multimeter {
         private List<double> _latestTempList;
         private int _timerCyclesNum;
         private DateTime X_minValue;    //横坐标最初值
+        private DateTime X_maxValue;    //横坐标最新值
         private void Chart_Init() {
             
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
@@ -40,6 +41,7 @@ namespace multimeter {
                 checkBoxes[i].Text = channels[i];           
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
                 chart1.Series[i].Points.Clear();
+                chart1.Series[i].LegendText = channels[i];
             }
 
             for (int i = numChannel; i < 13; i++) checkBoxes[i].Visible = false; //chart1.Series[i].IsVisibleInLegend = false;
@@ -52,12 +54,14 @@ namespace multimeter {
             chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 5;                 //网格间隔
             chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();      //当前时间
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
+
             _timerCyclesNum = 0;
             X_minValue = DateTime.Now;          //记录开始测试时间
         }
 
 
         private void ShowChart() {
+            X_maxValue = DateTime.Now;
             List<double> T = new List<double>();
             if (_heatMeter1 != null) {
                 T.AddRange(_heatMeter1.Temp);
@@ -79,13 +83,12 @@ namespace multimeter {
                 if (T[i] >= 0 && T[i] <= 500) {
                     chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
                 }//设定温度合理显示范围，防止温度数据异常Chart出现“大红叉”
-                if (chart1.Series[i].Points.Count() >= 50000) {
-                    chart1.Series[i].Points.Clear();
-                }
+                //if (chart1.Series[i].Points.Count() >= 50000) {
+                //    chart1.Series[i].Points.Clear();
+                //}
             }
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();
-            if (XAxis_checkBox.Checked == true)
-                chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();
+            XAdapt();
 
             /*double residual = 1;
             if (_latestTempList != null) {
@@ -126,8 +129,22 @@ namespace multimeter {
         }
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
-            int time = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
-            TestTime.Text = $@"（已用时间{time}S）";
+            TestTime.BringToFront();
+            int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
+            TimeSpan ts = new TimeSpan(0, 0, sec);
+            if (ts.Hours > 0) {
+                TestTime.Text = "测试时长："+ string.Format("{0:00}", ts.Hours) 
+                                       + ":" + string.Format("{0:00}", ts.Minutes) 
+                                       + ":" + string.Format("{0:00}", ts.Seconds);
+            }
+            if (ts.Hours == 0 && ts.Minutes > 0) {
+                TestTime.Text = "测试时长："+"00:" + string.Format("{0:00}", ts.Minutes) 
+                                             + ":" + string.Format("{0:00}", ts.Seconds);
+            }
+
+            if (ts.Hours == 0 && ts.Minutes == 0) {
+                TestTime.Text = "测试时长："+"00:00:" + string.Format("{0:00}", ts.Seconds);
+            }
             _timerCyclesNum++;
         }
 
@@ -200,8 +217,7 @@ namespace multimeter {
             CheckedChanged(checkBox13) ;
         }
         private void XAxis_chenkBox_CheckedChanged(object sender, EventArgs e) {
-            if (XAxis_checkBox.Checked == false)           //X轴设置成显示最初时间坐标
-                chart1.ChartAreas[0].AxisX.Minimum = X_minValue.ToOADate();       //最初打开时候为X轴
+            XAdapt();
         }
 
         private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
@@ -226,9 +242,18 @@ namespace multimeter {
             }
 
         }
-
-        private void YAdapt() {
-            int ymaximum, yminimum;
+        private void XAdapt() {
+            if (XAxis_checkBox.Checked == false) {
+                int interval = (int)((X_maxValue - X_minValue).TotalSeconds / 10);
+                this.chart1.ChartAreas[0].AxisX.LabelStyle.Interval = interval;                //坐标值间隔*S
+                this.chart1.ChartAreas[0].AxisX.MajorGrid.Interval = interval;                 //网格间隔
+                chart1.ChartAreas[0].AxisX.Minimum = X_minValue.ToOADate();
+            }//X轴设置成全局显示
+            else {
+                this.chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 5;                //坐标值间隔*S
+                this.chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 5;                 //网格间隔
+                chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();
+            } //X轴设置成实时显示
         }
 
 
