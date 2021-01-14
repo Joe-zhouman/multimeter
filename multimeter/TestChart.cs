@@ -129,6 +129,7 @@ namespace multimeter {
         }
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
+            TestTime.BringToFront();
             int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
             TimeSpan ts = new TimeSpan(0, 0, sec);
             if (ts.Hours > 0) {
