@@ -4,18 +4,23 @@ using System.Data;
 using System.Linq;
 using DataProcessor;
 using multimeter;
+using log4net;
+using log4net.Core;
 
 namespace Tester {
     internal class Program {
         private static void Main(string[] args) {
-            List<int> x = new List<int>() {1, 1, 1, 1, 1};
-            var cumSum = x.Select((_, i) => x.Take(i+1).Sum()).ToList();
-            foreach (int i in cumSum) {
-                Console.WriteLine(i.ToString());
-
+            ILog logger = LogManager.GetLogger("TesterLogger");
+            double[] a = {1, 2};
+            for (int i = 0; i < 10; i++) {
+                try {
+                    Console.WriteLine(a[i]);
+                }
+                catch (Exception exception) {
+                    logger.Error("test",exception);
+                }
+                
             }
-
-            Console.WriteLine(TestMethod.ITC.ToString());
         }
     }
 

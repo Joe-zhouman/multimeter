@@ -141,7 +141,9 @@
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="HelpDocument\help.pdf" />
-    <None Include="packages.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

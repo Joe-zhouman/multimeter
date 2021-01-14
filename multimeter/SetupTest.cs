@@ -12,7 +12,7 @@ using System.Threading;
 using System.Windows.Forms;
 using DataProcessor;
 using multimeter.Properties;
-
+using log4net;
 namespace multimeter {
     public partial class SetupTest : Form {
         private HeatMeter _heatMeter1;
@@ -29,6 +29,13 @@ namespace multimeter {
         private List<string> _temp;
         private List<string> _lastTemp;
 
+        #region logger
+
+        private static readonly ILog log
+            = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        #endregion
+
         #region //串口采集
         private string TotalCHN = "";
         string[] channels;
@@ -40,7 +47,7 @@ namespace multimeter {
         private static class AppCfg {
             internal static ParaInfo devicepara = new ParaInfo();
         }//全局变量
-
+        
 
         public SetupTest() {
             InitializeComponent();
@@ -60,7 +67,7 @@ namespace multimeter {
             TestChoiseGroupBox.Visible = true;
             
         }
-
+        
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
                 apply_btm(sender, e);
@@ -70,7 +77,7 @@ namespace multimeter {
                 _saveParameter = false;
                 ModifyParameterLabel.Text = "修改参数";
             }
-            else {
+            else { 
                 if (User == User.NORMAL) NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
@@ -275,7 +282,8 @@ namespace multimeter {
 
                 serialPort1.Open();
             }
-            catch {
+            catch(Exception ex) {
+                log.Error(ex);
                 MessageBox.Show("无法打开串口！");
                 //btn_start.Enabled = true;
                 //btn_stop.Enabled = false;
@@ -441,8 +449,9 @@ namespace multimeter {
                 write.WriteLine("step," + TotalCHN);
                 write.Close();
             }
-            catch (Exception e) {
-                MessageBox.Show(e.Message);
+            catch (Exception ex) {
+                log.Error(ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -531,8 +540,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(AppCfg.devicepara.Scan_interval);
                     }
-                    catch (Exception ) {
-                        ;
+                    catch (Exception ex) {
+                        log.Error(ex);
                     }
                 }
             });
@@ -573,6 +582,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 }
             }
             catch (Exception ex) {
+                log.Error(ex);
                 MessageBox.Show(ex.ToString());
             }
 
@@ -783,7 +793,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                         try {
                              dataList = _recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
                         }
-                        catch {
+                        catch(Exception ex) {
+                            log.Error(ex);
                             return;
                         }
                         if (dataList.Length != channels.Length)
@@ -813,8 +824,8 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                             write.WriteLine(temp);
                             write.Close();
                         }
-                        catch (Exception) {
-                            // ignored
+                        catch (Exception ex) {
+                            log.Error(ex);
                         }
                         _temp.Add(temp);
                         
