@@ -21,12 +21,12 @@ namespace multimeter {
     public partial class SetupTest  {
         private void CurrentTestResult_Click(object sender, EventArgs e) {
             #region //数据结果
-            if (_latestDataFile == "") {
+            if (_latestResultFile == "") {
                 MessageBox.Show(@"数据未采集完成,无法计算测试结果!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            GetResult(_latestDataFile);
+            GetResult(_latestResultFile);
             //TestResultChart testResultChart = new TestResultChart(heatMeter1, heatMeter2, sample1, sample2, _method);
             //testResultChart.Show();
             //TestResultTemp testResultTemp = new TestResultTemp(heatMeter1, heatMeter2, sample1, sample2, _method, force, thickness);
@@ -58,13 +58,13 @@ namespace multimeter {
             channelList.AddRange(_heatMeter2.Channel);
             switch (_method) {
                 case TestMethod.KAPPA: {
-                    testchoose1_Click(this,new EventArgs());
+                    ShowKappaMenu();
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_heatMeter1.Channel);
                 }
                     break;
                 case TestMethod.ITC: {
-                    testchoose2_Click(this, new EventArgs());
+                    ShowItcMenu();
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_sample1.Channel);
                     _sample2.ReadFromIni(dataFile);
@@ -73,7 +73,7 @@ namespace multimeter {
                     break;
                 case TestMethod.ITMS: {
                         //显示对应监视窗口TEST2
-                    testchoose3_Click(this, new EventArgs()); 
+                    ShowItmsMenu();
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_sample1.Channel);
                     _sample2.ReadFromIni(dataFile);
@@ -81,7 +81,7 @@ namespace multimeter {
                     }
                     break;
                 case TestMethod.ITM: {
-                    testchoose4_Click(this, new EventArgs());
+                    ShowItmMenu(); ;
                     }
                     break;
 

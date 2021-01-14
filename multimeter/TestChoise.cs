@@ -11,13 +11,7 @@ namespace multimeter {
             _method = TestMethod.KAPPA;
             string force;
             var slnFilePath = SlnIni.CreateDefaultIni();
-            //显示对应设置窗口TEST1
-            EmptyGroupBox.Size = new Size(0, 0);
-            TextGroupbox1.Size = new Size(1250, 855);
-            TextGroupbox2.Size = new Size(0, 0);
-            TextGroupbox3.Size = new Size(0, 0);
-            TextGroupbox4.Size = new Size(0, 0);
-            TestChartGroupBox.Size = new Size(0, 0);
+            ShowKappaMenu();
 
             _sample1 = new Sample("Sample1");
             _sample2 = null;
@@ -45,18 +39,22 @@ namespace multimeter {
             SampleToBox(_sample1, samplePositionBoxes, sampleChannelBoxes, STextBox1_1);
         }
 
+        private void ShowKappaMenu() {
+            //显示对应设置窗口TEST1
+            EmptyGroupBox.Size = new Size(0, 0);
+            TextGroupbox1.Size = new Size(1250, 855);
+            TextGroupbox2.Size = new Size(0, 0);
+            TextGroupbox3.Size = new Size(0, 0);
+            TextGroupbox4.Size = new Size(0, 0);
+            TestChartGroupBox.Size = new Size(0, 0);
+        }
+
         private void testchoose2_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITC;
             string force;
             var slnFilePath = SlnIni.CreateDefaultIni();
-            //显示对应设置窗口TEST2
-            EmptyGroupBox.Size = new Size(0, 0);
-            TextGroupbox1.Size = new Size(0, 0);
-            TextGroupbox2.Size = new Size(1250, 855);
-            TextGroupbox3.Size = new Size(0, 0);
-            TextGroupbox4.Size = new Size(0, 0);
-            TestChartGroupBox.Size = new Size(0, 0);
+            ShowItcMenu();
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");
@@ -89,18 +87,22 @@ namespace multimeter {
             SampleToBox(_sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox2_2);
         }
 
+        private void ShowItcMenu() {
+            //显示对应设置窗口TEST2
+            EmptyGroupBox.Size = new Size(0, 0);
+            TextGroupbox1.Size = new Size(0, 0);
+            TextGroupbox2.Size = new Size(1250, 855);
+            TextGroupbox3.Size = new Size(0, 0);
+            TextGroupbox4.Size = new Size(0, 0);
+            TestChartGroupBox.Size = new Size(0, 0);
+        }
+
         private void testchoose3_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITM;
             string force;
             var slnFilePath = SlnIni.CreateDefaultIni();
-            //显示对应设置窗口TEST3
-            EmptyGroupBox.Size = new Size(0, 0);
-            TextGroupbox1.Size = new Size(0, 0);
-            TextGroupbox2.Size = new Size(0, 0);
-            TextGroupbox3.Size = new Size(1250, 855);
-            TextGroupbox4.Size = new Size(0, 0);
-            TestChartGroupBox.Size = new Size(0, 0);
+            ShowItmMenu();
 
             var filePath = SlnIni.CreateDefaultSettingIni();
             _sample1 = null;
@@ -122,18 +124,22 @@ namespace multimeter {
                 K2TextBox3_2);
         }
 
+        private void ShowItmMenu() {
+            //显示对应设置窗口TEST3
+            EmptyGroupBox.Size = new Size(0, 0);
+            TextGroupbox1.Size = new Size(0, 0);
+            TextGroupbox2.Size = new Size(0, 0);
+            TextGroupbox3.Size = new Size(1250, 855);
+            TextGroupbox4.Size = new Size(0, 0);
+            TestChartGroupBox.Size = new Size(0, 0);
+        }
+
         private void testchoose4_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITMS;
             string force;
             var slnFilePath = SlnIni.CreateDefaultIni();
-            //显示对应设置窗口TEST4
-            EmptyGroupBox.Size = new Size(0, 0);
-            TextGroupbox1.Size = new Size(0, 0);
-            TextGroupbox2.Size = new Size(0, 0);
-            TextGroupbox3.Size = new Size(0, 0);
-            TextGroupbox4.Size = new Size(1250, 855);
-            TestChartGroupBox.Size = new Size(0, 0);
+            ShowItmsMenu();
 
             _sample1 = new Sample("Sample1");
             _sample2 = new Sample("Sample2");
@@ -166,6 +172,16 @@ namespace multimeter {
                         ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10
                     };
             SampleToBox(_sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox4_2);
+        }
+
+        private void ShowItmsMenu() {
+            //显示对应设置窗口TEST4
+            EmptyGroupBox.Size = new Size(0, 0);
+            TextGroupbox1.Size = new Size(0, 0);
+            TextGroupbox2.Size = new Size(0, 0);
+            TextGroupbox3.Size = new Size(0, 0);
+            TextGroupbox4.Size = new Size(1250, 855);
+            TestChartGroupBox.Size = new Size(0, 0);
         }
 
 
@@ -216,6 +232,7 @@ namespace multimeter {
             TextResultGroupbox2.Visible = false;
             TextResultGroupbox3.Visible = false;
             TextResultGroupbox4.Visible = false;
+            TestTime.Text = "";
         }
 
     }
