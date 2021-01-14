@@ -44,43 +44,53 @@ namespace multimeter {
         }
 
         private void GetResult(string dataFile) {
-            if (!Enum.TryParse(INIHelper.Read("TestMethod", "method", "", dataFile), out _method)) {
+            if (!Enum.TryParse(INIHelper.Read("TestMethod", "method", "", dataFile), out TestMethod method)) {
                 log.Info("未能正确读取数据文件的方法");
                 MessageBox.Show(@"无效的数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var channelList = new List<string>();
-            _heatMeter1.ReadFromIni(dataFile);
-            channelList.AddRange(_heatMeter1.Channel);
-            _heatMeter2.ReadFromIni(dataFile);
-            channelList.AddRange(_heatMeter2.Channel);
-            switch (_method) {
+            List<string> channelList = new List<string>();
+            HeatMeter heatMeter1 = new HeatMeter("HeatMeter1", 3);
+            heatMeter1.ReadFromIni(dataFile);
+            channelList.AddRange(heatMeter1.Channel);
+            HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
+            heatMeter2.ReadFromIni(dataFile);
+            channelList.AddRange(heatMeter2.Channel);
+            Sample sample1 = null;
+            Sample sample2 = null;
+            switch (method) {
                 case TestMethod.KAPPA: {
+                    sample1 = new Sample("Sample1");
+                    sample1.ReadFromIni(dataFile);
+                    channelList.AddRange(sample1.Channel);
                     ShowKappaMenu();
-                    _sample1.ReadFromIni(dataFile);
-                    channelList.AddRange(_heatMeter1.Channel);
+                    
                 }
                     break;
                 case TestMethod.ITC: {
+                    sample1 = new Sample("Sample1");
+                        sample1.ReadFromIni(dataFile);
+                    channelList.AddRange(sample1.Channel);
+                    sample2 = new Sample("Sample2");
+                        sample2.ReadFromIni(dataFile);
+                    channelList.AddRange(sample2.Channel);
                     ShowItcMenu();
-                    _sample1.ReadFromIni(dataFile);
-                    channelList.AddRange(_sample1.Channel);
-                    _sample2.ReadFromIni(dataFile);
-                    channelList.AddRange(_sample2.Channel);
-                }
+                    }
                     break;
                 case TestMethod.ITMS: {
                         //显示对应监视窗口TEST2
+                        sample1 = new Sample("Sample1");
+                        sample1.ReadFromIni(dataFile);
+                    channelList.AddRange(sample1.Channel);
+                    sample2 = new Sample("Sample2");
+                        sample2.ReadFromIni(dataFile);
+                    channelList.AddRange(sample2.Channel);
                     ShowItmsMenu();
-                    _sample1.ReadFromIni(dataFile);
-                    channelList.AddRange(_sample1.Channel);
-                    _sample2.ReadFromIni(dataFile);
-                    channelList.AddRange(_sample2.Channel);
                     }
                     break;
                 case TestMethod.ITM: {
-                    ShowItmMenu(); ;
+                    ShowItmMenu();
                     }
                     break;
 
@@ -91,7 +101,8 @@ namespace multimeter {
                 }
             }
             channelList.Sort();
-            Exception e = Solution.ReadData(ref _testResult, channelList.ToArray(), dataFile);
+            Dictionary<string, double> testResult = new Dictionary<string, double>();
+            Exception e = Solution.ReadData(ref testResult, channelList.ToArray(), dataFile);
             if (null != e)
             {
                 log.Error(e);
@@ -100,63 +111,61 @@ namespace multimeter {
                 return;
             }
 
-            _heatMeter1.ReadTemp(_testResult);
-            _heatMeter2.ReadTemp(_testResult);
-            _sample1?.ReadTemp(_testResult);
-            _sample2?.ReadTemp(_testResult);
-            switch (_method) {
+            heatMeter1.ReadTemp(testResult);
+            heatMeter2.ReadTemp(testResult);
+            sample1?.ReadTemp(testResult);
+            sample2?.ReadTemp(testResult);
+            switch (method) {
                         case TestMethod.KAPPA: {
-                            if (!Solution.GetResults(_heatMeter1, _heatMeter2, ref _sample1)) {
+                            if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
-                            ShowKappa();
+                            ShowKappa(heatMeter1,heatMeter2,sample1);
                             TextResultGroupbox1.Visible = true;
                         }
                             break;
                         case TestMethod.ITC: {
 
                             double itc = 0.0;
-                            if (!Solution.GetResults(_heatMeter1, _heatMeter2, ref _sample1, ref _sample2, ref itc)) {
+                            if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
-                            ShowItc(itc);
+                            ShowItc(heatMeter1,heatMeter2,sample1,sample2,itc);
                             TextResultGroupbox2.Visible = true;
                         }
                             break;
                         case TestMethod.ITM: {
                             double itmKappa = 0.0;
                             double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
-                            if (!Solution.GetResults(_heatMeter1, _heatMeter2, thickness, ref itmKappa)) {
+                            if (!Solution.GetResults(heatMeter1, heatMeter2, thickness, ref itmKappa)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
-                            ShowItm(itmKappa);
+                            ShowItm(heatMeter1, heatMeter2,itmKappa);
                             TextResultGroupbox3.Visible = true;
                         }
                             break;
                         case TestMethod.ITMS: {
                             double itmKappa = 0.0;
                             double thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
-                            if (!Solution.GetResults(_heatMeter1, _heatMeter2, ref _sample1, ref _sample2, thickness,
+                            if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, thickness,
                                 ref itmKappa)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
-                            ShowItms(itmKappa);
+                            ShowItms(heatMeter1, heatMeter2, sample1, sample2, itmKappa);
                             TextResultGroupbox4.Visible = true;
                         }
                             break;
-                        default: {
-                            MessageBox.Show(@"请选择测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
-                    }
+                        default:
+                            throw new ArgumentOutOfRangeException();
+            }
 
                     ExportResult_Enable(true);
                 /*List<GroupBox> groupBox = new List<GroupBox>()
@@ -183,71 +192,71 @@ namespace multimeter {
 
 
         //-----------------
-        private void ShowKappa()
+        private void ShowKappa(HeatMeter heatMeter1,HeatMeter heatMeter2,Sample sample1)
         {
-            Tlable1_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
-            Tlable1_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
-            Tlable1_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
+            Tlable1_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
+            Tlable1_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
+            Tlable1_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
             //Tlable1_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable1_5.Text = $@"Ts1 = {_sample1.Temp[0]} ℃";
-            Tlable1_6.Text = $@"Ts2 = {_sample1.Temp[1]} ℃";
-            Tlable1_7.Text = $@"Ts3 = {_sample1.Temp[2]} ℃";
-            Tlable1_8.Text = $@"Tl1 = {_heatMeter2.Temp[0]} ℃";
-            Tlable1_9.Text = $@"Tl2 = {_heatMeter2.Temp[1]} ℃";
-            Tlable1_10.Text = $@"Tl3 = {_heatMeter2.Temp[2]} ℃";
-            Tlable1_11.Text = $@"Tl4 = {_heatMeter2.Temp[3]} ℃";
-            k1_s.Text = $@"Ks = {_sample1.Kappa}W/mK";
+            Tlable1_5.Text = $@"Ts1 = {sample1.Temp[0]} ℃";
+            Tlable1_6.Text = $@"Ts2 = {sample1.Temp[1]} ℃";
+            Tlable1_7.Text = $@"Ts3 = {sample1.Temp[2]} ℃";
+            Tlable1_8.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
+            Tlable1_9.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
+            Tlable1_10.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
+            Tlable1_11.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            k1_s.Text = $@"Ks = {sample1.Kappa}W/mK";
         }
-        private void ShowItc(double itc)
+        private void ShowItc(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1,Sample sample2,double itc)
         {
-            Tlable2_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
-            Tlable2_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
-            Tlable2_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
+            Tlable2_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
+            Tlable2_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
+            Tlable2_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
             //Tlable2_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable2_5.Text = $@"Tsu1 = {_sample1.Temp[0]} ℃";
-            Tlable2_6.Text = $@"Tsu2 = {_sample1.Temp[1]} ℃";
-            Tlable2_7.Text = $@"Tsu3 = {_sample1.Temp[2]} ℃";
-            Tlable2_8.Text = $@"Tsl1 = {_sample2.Temp[0]} ℃";
-            Tlable2_9.Text = $@"Tsl2= {_sample2.Temp[1]} ℃";
-            Tlable2_10.Text = $@"Tsl3 = {_sample2.Temp[2]} ℃";
-            Tlable2_11.Text = $@"Tl1 = {_heatMeter2.Temp[0]} ℃";
-            Tlable2_12.Text = $@"Tl2 = {_heatMeter2.Temp[1]} ℃";
-            Tlable2_13.Text = $@"Tl3 = {_heatMeter2.Temp[2]} ℃";
-            Tlable2_14.Text = $@"Tl4 = {_heatMeter2.Temp[3]} ℃";
-            K2_s1.Text = $@"Ks1 = {_sample1.Kappa}W/mK";
-            K2_s2.Text = $@"Ks2 = {_sample2.Kappa}W/mK";
+            Tlable2_5.Text = $@"Tsu1 = {sample1.Temp[0]} ℃";
+            Tlable2_6.Text = $@"Tsu2 = {sample1.Temp[1]} ℃";
+            Tlable2_7.Text = $@"Tsu3 = {sample1.Temp[2]} ℃";
+            Tlable2_8.Text = $@"Tsl1 = {sample2.Temp[0]} ℃";
+            Tlable2_9.Text = $@"Tsl2= {sample2.Temp[1]} ℃";
+            Tlable2_10.Text = $@"Tsl3 = {sample2.Temp[2]} ℃";
+            Tlable2_11.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
+            Tlable2_12.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
+            Tlable2_13.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
+            Tlable2_14.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            K2_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
+            K2_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
             TCRtest2.Text = $@"Rt = {itc}K/(W mm²)";
         }
-        private void ShowItm(double itmKappa)
+        private void ShowItm(HeatMeter heatMeter1, HeatMeter heatMeter2,double itmKappa)
         {
-            Tlable3_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
-            Tlable3_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
-            Tlable3_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
+            Tlable3_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
+            Tlable3_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
+            Tlable3_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
             //Tlable3_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable3_5.Text = $@"Tl1 = {_heatMeter2.Temp[0]} ℃";
-            Tlable3_6.Text = $@"Tl2 = {_heatMeter2.Temp[1]} ℃";
-            Tlable3_7.Text = $@"Tl3 = {_heatMeter2.Temp[2]} ℃";
-            Tlable3_8.Text = $@"Tl4 = {_heatMeter2.Temp[3]} ℃";
+            Tlable3_5.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
+            Tlable3_6.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
+            Tlable3_7.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
+            Tlable3_8.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
             k3_s.Text = $@"Ks={itmKappa}K/(W mm²)";
         }
 
-        private void ShowItms(double itmKappa) {
-            Tlable4_1.Text = $@"Tu1 = {_heatMeter1.Temp[0]} ℃";
-            Tlable4_2.Text = $@"Tu2 = {_heatMeter1.Temp[1]} ℃";
-            Tlable4_3.Text = $@"Tu3 = {_heatMeter1.Temp[2]} ℃";
+        private void ShowItms(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2,double itmKappa) {
+            Tlable4_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
+            Tlable4_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
+            Tlable4_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
             //Tlable4_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable4_5.Text = $@"Tsu1 = {_sample1.Temp[0]} ℃";
-            Tlable4_6.Text = $@"Tsu2 = {_sample1.Temp[1]} ℃";
-            Tlable4_7.Text = $@"Tsu3 = {_sample1.Temp[2]} ℃";
-            Tlable4_8.Text = $@"Tsl1 = {_sample2.Temp[0]} ℃";
-            Tlable4_9.Text = $@"Tsl2= {_sample2.Temp[1]} ℃";
-            Tlable4_10.Text = $@"Tsl3 = {_sample2.Temp[2]} ℃";
-            Tlable4_11.Text = $@"Tl1 = {_heatMeter2.Temp[0]} ℃";
-            Tlable4_12.Text = $@"Tl2 = {_heatMeter2.Temp[1]} ℃";
-            Tlable4_13.Text = $@"Tl3 = {_heatMeter2.Temp[2]} ℃";
-            Tlable4_14.Text = $@"Tl4 = {_heatMeter2.Temp[3]} ℃";
-            k4_s1.Text = $@"Ks1 = {_sample1.Kappa}W/mK";
-            k4_s2.Text = $@"Ks2 = {_sample2.Kappa}W/mK";
+            Tlable4_5.Text = $@"Tsu1 = {sample1.Temp[0]} ℃";
+            Tlable4_6.Text = $@"Tsu2 = {sample1.Temp[1]} ℃";
+            Tlable4_7.Text = $@"Tsu3 = {sample1.Temp[2]} ℃";
+            Tlable4_8.Text = $@"Tsl1 = {sample2.Temp[0]} ℃";
+            Tlable4_9.Text = $@"Tsl2= {sample2.Temp[1]} ℃";
+            Tlable4_10.Text = $@"Tsl3 = {sample2.Temp[2]} ℃";
+            Tlable4_11.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
+            Tlable4_12.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
+            Tlable4_13.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
+            Tlable4_14.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            k4_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
+            k4_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
             k4_f.Text = $@"Ks = {itmKappa}K/(W mm²)";
         }
         //-----------------
