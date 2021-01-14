@@ -57,13 +57,13 @@ namespace multimeter {
             channelList.AddRange(_heatMeter2.Channel);
             switch (_method) {
                 case TestMethod.KAPPA: {
-                    testchoose1_Click(this,new EventArgs());
+                    ShowKappaMenu();
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_heatMeter1.Channel);
                 }
                     break;
                 case TestMethod.ITC: {
-                    testchoose2_Click(this, new EventArgs());
+                    ShowItcMenu();
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_sample1.Channel);
                     _sample2.ReadFromIni(dataFile);
@@ -72,7 +72,7 @@ namespace multimeter {
                     break;
                 case TestMethod.ITMS: {
                         //显示对应监视窗口TEST2
-                    testchoose3_Click(this, new EventArgs()); 
+                    ShowItmsMenu();
                     _sample1.ReadFromIni(dataFile);
                     channelList.AddRange(_sample1.Channel);
                     _sample2.ReadFromIni(dataFile);
@@ -80,7 +80,7 @@ namespace multimeter {
                     }
                     break;
                 case TestMethod.ITM: {
-                    testchoose4_Click(this, new EventArgs());
+                    ShowItmMenu(); ;
                     }
                     break;
 
