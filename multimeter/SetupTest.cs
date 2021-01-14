@@ -88,7 +88,7 @@ namespace multimeter {
             }
         }
         private void TestRun_Click(object sender, EventArgs e) {
-            
+            TestTime.Text = "";
             if (serialPort1.IsOpen) {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
