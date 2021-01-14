@@ -216,6 +216,7 @@ namespace multimeter {
             TextResultGroupbox2.Visible = false;
             TextResultGroupbox3.Visible = false;
             TextResultGroupbox4.Visible = false;
+            TestTime.Text = "";
         }
 
     }
