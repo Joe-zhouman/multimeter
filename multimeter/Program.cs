@@ -16,10 +16,10 @@ namespace multimeter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new SetupTest());
-            Application.Run(new LogoLoad());
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += MyHandler;
+            //Application.Run(new SetupTest());
+            Application.Run(new LogoLoad());
         }
 
         private static void MyHandler(object sender, UnhandledExceptionEventArgs args) {

@@ -24,7 +24,7 @@ namespace DataProcessor {
                     }
                 }
                 for (int i = 0; i < channelList.Length; i++) {
-                    testResult.Add(channelList[i],aveTemp[i]/dataPoints);
+                    testResult.Add(channelList[i],Math.Round( aveTemp[i]/dataPoints,2));
                 }   
                 return null;
             }

@@ -72,7 +72,7 @@ namespace multimeter {
         
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
-                apply_btm(sender, e);
+                if (!apply_btm()) { return;}
                 if (User == User.NORMAL) NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
@@ -88,7 +88,7 @@ namespace multimeter {
             }
         }
         private void TestRun_Click(object sender, EventArgs e) {
-            
+            TestTime.Text = "";
             if (serialPort1.IsOpen) {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
@@ -98,14 +98,16 @@ namespace multimeter {
                 HistoryTestResult_Enable(true);
                 SerialPort_Enable(true);
                 AdvancedSetting_Enable(true);
-                TestRunLabel.Text = "运行";
+                ModifyParameter_Enable(true, true);
+                TestRunLabel.Text = "  运行  ";
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
                 TestTime_Timer.Enabled = false;
 
             }
             else {
-                if (_saveParameter) ModifyParameter_Click(sender,e);              
+                if (_saveParameter) ModifyParameter_Click(sender,e);
+                if (!apply_btm()) { return; }//再次确认设置参数
                 btn_start();
                 if (!serialPort1.IsOpen) return;
                 Chart_Init();
@@ -113,10 +115,11 @@ namespace multimeter {
                 TestRun_Enable(false);
                 Monitor_Enable(true);
                 CurrentTestResult_Enable(true);
-                HistoryTestResult_Enable(true);
+                HistoryTestResult_Enable(false);
                 SerialPort_Enable(false);
                 AdvancedSetting_Enable(false);
-                TestRunLabel.Text = "停止";
+                ModifyParameter_Enable(false, false);
+                TestRunLabel.Text = "  停止  ";
                 Monitor_Click(sender, e);
                 SerialPort_Timer.Enabled = true;
                 ChartShow_Timer.Enabled = true;
@@ -237,8 +240,8 @@ namespace multimeter {
             count = 0;
             _latestDataFile = "";
             _latestResultFile = "";
-            string fileName = _method + "DataAutoSave.csv";
-            _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff"));
+            string fileName = _method + "-DataAutoSave.csv";
+            _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method.ToString() +"-"+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff"));
             try {
                 var di =  Directory.CreateDirectory(_autoSaveFilePath);
             }
@@ -303,7 +306,7 @@ namespace multimeter {
                 //btn_stop.Enabled = false;
                 return;
             }
-
+            serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
             string TwoRlist = "";
             int TwoR_num = 0;
             if (AppCfg.devicepara.Card1_enable != 0)
@@ -618,7 +621,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
-            //ModifyParameter_Enable(true, true);
+            TestTime.Text = "";
             _saveParameter = false;
             #endregion
 
@@ -793,12 +796,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                     str = str.Substring(0, str.IndexOf((char) 13));
                     _recvstr += str;
                     if (_recvstr.Length > 0) {
-                        //int firstIdx = _recvstr.IndexOf((char) 13);
-                        //int lastIdx = _recvstr.LastIndexOf((char) 13);
-                        //if (-1 != firstIdx && firstIdx != lastIdx) {
-                        //    _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
-                        //}
-                        
+                        int firstIdx = _recvstr.IndexOf((char)13);
+                        int lastIdx = _recvstr.LastIndexOf((char)13);
+                        if (-1 != firstIdx && firstIdx != lastIdx)
+                        {
+                            _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
+                        }
+
                         _recvstr = _recvstr.Replace((char) 19, (char) 0);
                         _recvstr = _recvstr.Replace((char) 13, (char) 0);
                         _recvstr = _recvstr.Replace((char) 0x11, (char) 0);
@@ -810,7 +814,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                              dataList = _recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
                         }
                         catch(Exception ex) {
-                            log.Error(ex);
+                            log.Error(_recvstr + "\n",ex);
                             return;
                         }
                         if (dataList.Length != channels.Length)

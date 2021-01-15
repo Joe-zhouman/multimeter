@@ -40,10 +40,15 @@ namespace multimeter {
                 checkBoxes[i].Visible =true;
                 checkBoxes[i].Text = channels[i];           
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
+                chart1.Series[i].LegendText = channels[i];
                 chart1.Series[i].Points.Clear();
             }
 
-            for (int i = numChannel; i < 13; i++) checkBoxes[i].Visible = false; //chart1.Series[i].IsVisibleInLegend = false;
+            for (int i = numChannel; i < 13; i++){
+                checkBoxes[i].Visible = false;
+                chart1.Series[i].Points.Clear();
+            }
+            
 
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";         //毫秒格式： hh:mm:ss.fff ，后面几个f则保留几位毫秒小数，此时要注意轴的最大值和最小值不要差太大
             chart1.ChartAreas[0].AxisX.LabelStyle.IntervalType = DateTimeIntervalType.Seconds;
@@ -86,8 +91,7 @@ namespace multimeter {
                 }//设定温度合理显示范围，防止温度数据异常Chart出现“大红叉”
             }
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();
-            if (XAxis_checkBox.Checked == true)
-                chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.AddSeconds(-50).ToOADate();
+            XAdapt();
 
             /*double residual = 1;
             if (_latestTempList != null) {
@@ -122,26 +126,27 @@ namespace multimeter {
         }
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
-            TestTime.BringToFront();
             int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
             TimeSpan ts = new TimeSpan(0, 0, sec);
             if (ts.Hours > 0) {
-                TestTime.Text = "测试时长："+ string.Format("{0:00}", ts.Hours) 
+                TestTime.Text = "测试时长 "+ string.Format("{0:00}", ts.Hours) 
                                        + ":" + string.Format("{0:00}", ts.Minutes) 
                                        + ":" + string.Format("{0:00}", ts.Seconds);
             }
             if (ts.Hours == 0 && ts.Minutes > 0) {
-                TestTime.Text = "测试时长："+"00:" + string.Format("{0:00}", ts.Minutes) 
+                TestTime.Text = "测试时长 "+"00:" + string.Format("{0:00}", ts.Minutes) 
                                              + ":" + string.Format("{0:00}", ts.Seconds);
             }
 
             if (ts.Hours == 0 && ts.Minutes == 0) {
-                TestTime.Text = "测试时长："+"00:00:" + string.Format("{0:00}", ts.Seconds);
+                TestTime.Text = "测试时长 "+"00:00:" + string.Format("{0:00}", ts.Seconds);
             }
 
             int interval = (int)Math.Abs(((DateTime.Now - X_maxValue).TotalSeconds));
-            if (interval >= 5) {
-                TestTime.Text = "警告：采集数据异常，请检查串口！！！";
+            if (interval >= 7) {
+                TestTime.Text = "";
+                TestTime_Timer.Enabled = false;
+                MessageBox.Show(@"采集数据异常，请尝试重启软件和数采仪", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }//每隔*S检测采集是否正常
             _timerCyclesNum++;
         }
@@ -215,8 +220,7 @@ namespace multimeter {
             CheckedChanged(checkBox13) ;
         }
         private void XAxis_chenkBox_CheckedChanged(object sender, EventArgs e) {
-            if (XAxis_checkBox.Checked == false)           //X轴设置成显示最初时间坐标
-                chart1.ChartAreas[0].AxisX.Minimum = X_minValue.ToOADate();       //最初打开时候为X轴
+            XAdapt();
         }
 
         private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
