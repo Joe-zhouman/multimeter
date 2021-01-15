@@ -129,17 +129,17 @@ namespace multimeter {
             int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
             TimeSpan ts = new TimeSpan(0, 0, sec);
             if (ts.Hours > 0) {
-                TestTime.Text = "测试时长："+ string.Format("{0:00}", ts.Hours) 
+                TestTime.Text = "测试时长 "+ string.Format("{0:00}", ts.Hours) 
                                        + ":" + string.Format("{0:00}", ts.Minutes) 
                                        + ":" + string.Format("{0:00}", ts.Seconds);
             }
             if (ts.Hours == 0 && ts.Minutes > 0) {
-                TestTime.Text = "测试时长："+"00:" + string.Format("{0:00}", ts.Minutes) 
+                TestTime.Text = "测试时长 "+"00:" + string.Format("{0:00}", ts.Minutes) 
                                              + ":" + string.Format("{0:00}", ts.Seconds);
             }
 
             if (ts.Hours == 0 && ts.Minutes == 0) {
-                TestTime.Text = "测试时长："+"00:00:" + string.Format("{0:00}", ts.Seconds);
+                TestTime.Text = "测试时长 "+"00:00:" + string.Format("{0:00}", ts.Seconds);
             }
 
             int interval = (int)Math.Abs(((DateTime.Now - X_maxValue).TotalSeconds));
