@@ -10,8 +10,8 @@ namespace multimeter {
     public partial class SetupTest {
         private List<double> _latestTempList;
         private int _timerCyclesNum;
-        private DateTime X_minValue;    //横坐标最初值
-        private DateTime X_maxValue;    //横坐标最新值
+        private DateTime X_minValue;    //采样初始时间
+        private DateTime X_maxValue;    //采样最近时间
         private void Chart_Init() {
             
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
@@ -40,8 +40,8 @@ namespace multimeter {
                 checkBoxes[i].Visible =true;
                 checkBoxes[i].Text = channels[i];           
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
-                chart1.Series[i].Points.Clear();
                 chart1.Series[i].LegendText = channels[i];
+                chart1.Series[i].Points.Clear();
             }
 
             for (int i = numChannel; i < 13; i++) checkBoxes[i].Visible = false; //chart1.Series[i].IsVisibleInLegend = false;
@@ -54,14 +54,13 @@ namespace multimeter {
             chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 5;                 //网格间隔
             chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();      //当前时间
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
-
             _timerCyclesNum = 0;
-            X_minValue = DateTime.Now;          //记录开始测试时间
+            X_minValue = DateTime.Now;          
+            X_maxValue = DateTime.Now;          
         }
 
 
         private void ShowChart() {
-            X_maxValue = DateTime.Now;
             List<double> T = new List<double>();
             if (_heatMeter1 != null) {
                 T.AddRange(_heatMeter1.Temp);
@@ -78,14 +77,14 @@ namespace multimeter {
             if (_heatMeter2 != null) {
                 T.AddRange(_heatMeter2.Temp);
             }
+            if (T.Count != 0) {
+                X_maxValue = DateTime.Now;
+            } //更新采样最近时间
 
             for (int i = 0; i < T.Count; i++) {
                 if (T[i] >= 0 && T[i] <= 500) {
                     chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
                 }//设定温度合理显示范围，防止温度数据异常Chart出现“大红叉”
-                //if (chart1.Series[i].Points.Count() >= 50000) {
-                //    chart1.Series[i].Points.Clear();
-                //}
             }
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();
             XAdapt();
@@ -106,12 +105,6 @@ namespace multimeter {
             _latestTempList = T;*/
         }
 
-        //private void TestResultChart_FormClosing(object sender, FormClosingEventArgs e) {
-        //    DialogResult = DialogResult.Cancel;
-        //    Hide();
-        //    e.Cancel = true;
-        //}
-
         private void chart1_MouseMove(object sender, MouseEventArgs e) {
             HitTestResult result = chart1.HitTest(e.X, e.Y);
             if (result.ChartElementType == ChartElementType.DataPoint) {
@@ -129,6 +122,7 @@ namespace multimeter {
         }
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
+            TestTime.BringToFront();
             int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
             TimeSpan ts = new TimeSpan(0, 0, sec);
             if (ts.Hours > 0) {
@@ -144,6 +138,11 @@ namespace multimeter {
             if (ts.Hours == 0 && ts.Minutes == 0) {
                 TestTime.Text = "测试时长："+"00:00:" + string.Format("{0:00}", ts.Seconds);
             }
+
+            int interval = (int)Math.Abs(((DateTime.Now - X_maxValue).TotalSeconds));
+            if (interval >= 5) {
+                TestTime.Text = "警告：采集数据异常，请检查串口！！！";
+            }//每隔*S检测采集是否正常
             _timerCyclesNum++;
         }
 
@@ -242,7 +241,7 @@ namespace multimeter {
 
         }
         private void XAdapt() {
-            if (XAxis_checkBox.Checked == false) {
+            if (XAxis_checkBox.Checked == false && X_maxValue > X_minValue) {
                 int interval = (int)((X_maxValue - X_minValue).TotalSeconds / 10);
                 this.chart1.ChartAreas[0].AxisX.LabelStyle.Interval = interval;                //坐标值间隔*S
                 this.chart1.ChartAreas[0].AxisX.MajorGrid.Interval = interval;                 //网格间隔

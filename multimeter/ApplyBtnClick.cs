@@ -6,29 +6,43 @@ using System.Windows.Forms;
 namespace multimeter
 {
     public partial class SetupTest {
-        private void apply_btm(object sender, EventArgs e) {
+        public bool apply_btm() {
             string filePath = SlnIni.CreateDefaultSettingIni();
             switch (_method) {
-                case TestMethod.KAPPA: apply_btm_1_Click(filePath);
+                case TestMethod.KAPPA: 
+                    if (!apply_btm_1_Click(filePath)) {
+                        return false;
+                    }
                     break;
                 case TestMethod.ITC:
-                    apply_btm_2_Click(filePath);
+                    if (!apply_btm_2_Click(filePath)) {
+                        return false;
+                    }
+                   
                     break;
                 case TestMethod.ITM:
-                    apply_btm_3_Click(filePath);
+                    if (!apply_btm_3_Click(filePath)) {
+                        return false;
+                    }
+                    
                     break;
                 case TestMethod.ITMS:
-                    apply_btm_4_Click(filePath);
+                    if (!apply_btm_4_Click(filePath)) {
+                        return false;
+                    }
+                    
                     break;
                 default: {
                     MessageBox.Show(@"请选择测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    return false;
                 }
+                    
             }
             INIHelper.Write("TestMethod", "method", _method.ToString(), filePath);
             INIHelper.Write("Data", "save_interval", AppCfg.devicepara.Save_interval.ToString(), filePath);
+            return true;
         }
-        private void apply_btm_1_Click(string filePath) {
+        private bool apply_btm_1_Click(string filePath) {
             if (User == User.ADVANCE) {
                 List<TextBox> heatMeterPositionBoxes1 = new List<TextBox>()
                     {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3};
@@ -59,6 +73,7 @@ namespace multimeter
             if (!CheckOtherText(ForceTextBox1.Text, _sample1))
             {
                 MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             List<string> channelList = new List<string>();
@@ -73,10 +88,12 @@ namespace multimeter
             else
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+            return true;
         }
 
-        private void apply_btm_2_Click(string filePath)
+        private bool apply_btm_2_Click(string filePath)
         {
             if (User == User.ADVANCE)
             {
@@ -114,6 +131,7 @@ namespace multimeter
             if (!CheckOtherText(ForceTextBox2.Text, _sample1, _sample2))
             {
                 MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             List<string> channelList = new List<string>();
@@ -129,10 +147,12 @@ namespace multimeter
             else
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+            return true;
         }
 
-        private void apply_btm_3_Click(string filePath)
+        private bool apply_btm_3_Click(string filePath)
         {
             if (User == User.ADVANCE)
             {
@@ -156,6 +176,7 @@ namespace multimeter
             if (!CheckOtherText(ForceTextBox3.Text, thickness: FilmThickness1.Text))
             {
                 MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             SlnIni.SaveItmInfo(ForceTextBox3.Text, FilmThickness1.Text, filePath);
@@ -171,10 +192,12 @@ namespace multimeter
             else
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+            return true;
         }
 
-        private void apply_btm_4_Click(string filePath)
+        private bool apply_btm_4_Click(string filePath)
         {
             if (User == User.ADVANCE)
             {
@@ -213,6 +236,7 @@ namespace multimeter
             if (!CheckOtherText(ForceTextBox4.Text, _sample1, _sample2, FilmThickness2.Text))
             {
                 MessageBox.Show(@"错误的数值,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             List<string> channelList = new List<string>();
@@ -230,7 +254,9 @@ namespace multimeter
             else
             {
                 MessageBox.Show(@"错误的频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+            return true;
         }
 
         private bool CheckChannelText(ref List<string> channelList, Sample sample1 = null, Sample sample2 = null)
