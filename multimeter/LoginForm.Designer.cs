@@ -31,6 +31,7 @@ namespace multimeter
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.LoginGroupBox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
@@ -43,9 +44,8 @@ namespace multimeter
             this.usernameTBox = new System.Windows.Forms.TextBox();
             this.userpasswordTBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CompanyLogo = new System.Windows.Forms.Button();
             this.LoginCompanyName = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.CompanyLogo = new System.Windows.Forms.Button();
             this.LoginGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,12 +66,22 @@ namespace multimeter
             this.LoginGroupBox.Controls.Add(this.usernameTBox);
             this.LoginGroupBox.Controls.Add(this.userpasswordTBox);
             this.LoginGroupBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginGroupBox.Location = new System.Drawing.Point(459, -11);
+            this.LoginGroupBox.Location = new System.Drawing.Point(0, -15);
             this.LoginGroupBox.Name = "LoginGroupBox";
-            this.LoginGroupBox.Size = new System.Drawing.Size(327, 425);
+            this.LoginGroupBox.Size = new System.Drawing.Size(360, 432);
             this.LoginGroupBox.TabIndex = 105;
             this.LoginGroupBox.TabStop = false;
             this.LoginGroupBox.Enter += new System.EventHandler(this.LoginGroupBox_Enter);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.label1.Location = new System.Drawing.Point(13, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 30);
+            this.label1.TabIndex = 99;
+            this.label1.Text = "YQ-500接触热阻综合测试仪";
             // 
             // button1
             // 
@@ -216,9 +226,25 @@ namespace multimeter
             this.groupBox1.Controls.Add(this.CompanyLogo);
             this.groupBox1.Location = new System.Drawing.Point(-2, -11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(464, 425);
+            this.groupBox1.Size = new System.Drawing.Size(0, 0);
             this.groupBox1.TabIndex = 106;
             this.groupBox1.TabStop = false;
+            // 
+            // LoginCompanyName
+            // 
+            this.LoginCompanyName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginCompanyName.BackgroundImage")));
+            this.LoginCompanyName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LoginCompanyName.Enabled = false;
+            this.LoginCompanyName.FlatAppearance.BorderSize = 0;
+            this.LoginCompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginCompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginCompanyName.ForeColor = System.Drawing.Color.Black;
+            this.LoginCompanyName.Location = new System.Drawing.Point(48, 306);
+            this.LoginCompanyName.Name = "LoginCompanyName";
+            this.LoginCompanyName.Size = new System.Drawing.Size(358, 58);
+            this.LoginCompanyName.TabIndex = 113;
+            this.LoginCompanyName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.LoginCompanyName.UseVisualStyleBackColor = true;
             // 
             // CompanyLogo
             // 
@@ -238,37 +264,11 @@ namespace multimeter
             this.CompanyLogo.UseVisualStyleBackColor = true;
             this.CompanyLogo.Click += new System.EventHandler(this.button4_Click);
             // 
-            // LoginCompanyName
-            // 
-            this.LoginCompanyName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginCompanyName.BackgroundImage")));
-            this.LoginCompanyName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.LoginCompanyName.Enabled = false;
-            this.LoginCompanyName.FlatAppearance.BorderSize = 0;
-            this.LoginCompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginCompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LoginCompanyName.ForeColor = System.Drawing.Color.Black;
-            this.LoginCompanyName.Location = new System.Drawing.Point(48, 306);
-            this.LoginCompanyName.Name = "LoginCompanyName";
-            this.LoginCompanyName.Size = new System.Drawing.Size(358, 58);
-            this.LoginCompanyName.TabIndex = 113;
-            this.LoginCompanyName.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.LoginCompanyName.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 17F);
-            this.label1.Location = new System.Drawing.Point(13, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 30);
-            this.label1.TabIndex = 99;
-            this.label1.Text = "YQ-500接触热阻综合测试仪";
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 411);
+            this.ClientSize = new System.Drawing.Size(339, 399);
             this.ControlBox = false;
             this.Controls.Add(this.LoginGroupBox);
             this.Controls.Add(this.groupBox1);
