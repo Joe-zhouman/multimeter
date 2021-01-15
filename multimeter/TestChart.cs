@@ -44,7 +44,11 @@ namespace multimeter {
                 chart1.Series[i].Points.Clear();
             }
 
-            for (int i = numChannel; i < 13; i++) checkBoxes[i].Visible = false; //chart1.Series[i].IsVisibleInLegend = false;
+            for (int i = numChannel; i < 13; i++){
+                checkBoxes[i].Visible = false;
+                chart1.Series[i].Points.Clear();
+            }
+            
 
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";         //毫秒格式： hh:mm:ss.fff ，后面几个f则保留几位毫秒小数，此时要注意轴的最大值和最小值不要差太大
             chart1.ChartAreas[0].AxisX.LabelStyle.IntervalType = DateTimeIntervalType.Seconds;

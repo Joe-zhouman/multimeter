@@ -108,17 +108,14 @@ namespace multimeter {
             else {
                 if (_saveParameter) ModifyParameter_Click(sender,e);
                 if (!apply_btm()) { return; }//再次确认设置参数
-                //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
-                                             
                 btn_start();
                 if (!serialPort1.IsOpen) return;
-                //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
                 Chart_Init();
                 TestChooseFormShow_Enable(false);
                 TestRun_Enable(false);
                 Monitor_Enable(true);
                 CurrentTestResult_Enable(true);
-                HistoryTestResult_Enable(true);
+                HistoryTestResult_Enable(false);
                 SerialPort_Enable(false);
                 AdvancedSetting_Enable(false);
                 ModifyParameter_Enable(false, false);
@@ -310,7 +307,6 @@ namespace multimeter {
                 return;
             }
             serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
-            //richTextBo
             string TwoRlist = "";
             int TwoR_num = 0;
             if (AppCfg.devicepara.Card1_enable != 0)
