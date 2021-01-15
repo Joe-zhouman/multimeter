@@ -107,8 +107,8 @@ namespace multimeter {
             else {
                 if (_saveParameter) ModifyParameter_Click(sender,e);              
                 btn_start();
-                Chart_Init();
                 if (!serialPort1.IsOpen) return;
+                Chart_Init();
                 TestChooseFormShow_Enable(false);
                 TestRun_Enable(false);
                 Monitor_Enable(true);
