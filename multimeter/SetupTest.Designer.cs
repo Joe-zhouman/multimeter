@@ -5418,6 +5418,7 @@
             this.MenuGroupBox.Controls.Add(this.AdvancedLabel);
             this.MenuGroupBox.Controls.Add(this.label58);
             this.MenuGroupBox.Controls.Add(this.ModifyParameter);
+            this.MenuGroupBox.Controls.Add(this.TestTime);
             this.MenuGroupBox.Controls.Add(this.lable80);
             this.MenuGroupBox.Controls.Add(this.AdvancedSettingLabel);
             this.MenuGroupBox.Controls.Add(this.SerialPortLabel);
@@ -5768,7 +5769,7 @@
             this.TestTime.AutoSize = true;
             this.TestTime.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.TestTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.TestTime.Location = new System.Drawing.Point(8, 92);
+            this.TestTime.Location = new System.Drawing.Point(648, 42);
             this.TestTime.Name = "TestTime";
             this.TestTime.Size = new System.Drawing.Size(146, 20);
             this.TestTime.TabIndex = 138;
@@ -6262,7 +6263,6 @@
             this.Controls.Add(this.TextGroupbox1);
             this.Controls.Add(this.TextGroupbox3);
             this.Controls.Add(this.TextGroupbox2);
-            this.Controls.Add(this.TestTime);
             this.Font = new System.Drawing.Font("Ebrima", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SetupTest";
@@ -6314,7 +6314,6 @@
             this.TestChartGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -126,7 +126,6 @@ namespace multimeter {
         }
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
-            TestTime.BringToFront();
             int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
             TimeSpan ts = new TimeSpan(0, 0, sec);
             if (ts.Hours > 0) {
@@ -144,8 +143,10 @@ namespace multimeter {
             }
 
             int interval = (int)Math.Abs(((DateTime.Now - X_maxValue).TotalSeconds));
-            if (interval >= 5) {
-                TestTime.Text = "警告：采集数据异常，请检查串口！！！";
+            if (interval >= 7) {
+                TestTime.Text = "";
+                TestTime_Timer.Enabled = false;
+                MessageBox.Show(@"采集数据异常，请尝试重启软件和数采仪", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }//每隔*S检测采集是否正常
             _timerCyclesNum++;
         }
