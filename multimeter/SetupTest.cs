@@ -30,7 +30,7 @@ namespace multimeter {
         public User User;
         private List<string> _temp;
         private List<string> _lastTemp;
-
+        private bool _convergent;
         #region logger
 
         private static readonly ILog log
@@ -585,27 +585,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             Application.Exit();
         }
 
-        private void SaveToData(string name) {
-            #region
-            if (_temp.Count == 0)
-                return;
-            _lastTemp = _temp;
-            string fileName = name + "-" + count + ".rst";
-            _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
-            //MessageBox.Show(filePath);
-            try {
-                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _latestResultFile);
-                for (int i = 0; i < _lastTemp.Count; i++) {
-                    INIHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);
-                }
-            }
-            catch (Exception ex) {
-                log.Error(ex);
-                MessageBox.Show(ex.ToString());
-            }
-
-            #endregion
-        }
+        
 
         private void SetupTest_Load(object sender, EventArgs e) {
             #region //不同设置窗口默认显示
@@ -773,138 +753,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
         }
 
-        private void SerialPort_Timer_Tick(object sender, EventArgs e) {
-            #region
-            if (serialPort1.BytesToRead != 0) {
-                string str = serialPort1.ReadExisting();
-                //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
-                //richTextBox1.Text = richTextBox1.Text + str+"\n";
-
-                //byte[] array = System.Text.Encoding.ASCII.GetBytes(str);  //数组array为对应的ASCII数组     
-                //string ASCIIstr2 = null;
-                //for (int i = 0; i < array.Length; i++)
-                //{
-                //    int asciicode = (int)(array[i]);
-                //    ASCIIstr2 += Convert.ToString(asciicode);//字符串ASCIIstr2 为对应的ASCII字符串
-                //}
-                //richTextBox2.Text = richTextBox2.Text + ASCIIstr2;
-
-
-                if (str.IndexOf((char) 19) != -1)
-                    str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-                if (str.IndexOf((char) 13) != -1) {
-                    str = str.Substring(0, str.IndexOf((char) 13));
-                    _recvstr += str;
-                    if (_recvstr.Length > 0) {
-                        int firstIdx = _recvstr.IndexOf((char)13);
-                        int lastIdx = _recvstr.LastIndexOf((char)13);
-                        if (-1 != firstIdx && firstIdx != lastIdx)
-                        {
-                            _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
-                        }
-
-                        _recvstr = _recvstr.Replace((char) 19, (char) 0);
-                        _recvstr = _recvstr.Replace((char) 13, (char) 0);
-                        _recvstr = _recvstr.Replace((char) 0x11, (char) 0);
-                        _recvstr = _recvstr.Replace("\0", "");
-                        
-                        
-                        double[] dataList;
-                        try {
-                             dataList = _recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
-                        }
-                        catch(Exception ex) {
-                            log.Error(_recvstr + "\n",ex);
-                            return;
-                        }
-                        if (dataList.Length != channels.Length)
-                        {
-                            return;
-                        }
-                        
-                        count++;
-                        string temp = count.ToString()+',';
-                        _testResult.Clear();
-                        for (int i = 0; i < channels.Length; i++) _testResult.Add(channels[i], dataList[i]);
-                        _heatMeter1.SetTemp(_testResult);
-                        temp = _heatMeter1.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        if (_sample1 != null) {
-                            _sample1.SetTemp(_testResult);
-                            temp = _sample1.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        }
-                        if (_sample2 != null)
-                        {
-                            _sample2.SetTemp(_testResult);
-                            temp = _sample2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        }
-                        _heatMeter2.SetTemp(_testResult);
-                        temp = _heatMeter2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        try {
-                            StreamWriter write = new StreamWriter(_latestDataFile,true);
-                            write.WriteLine(temp);
-                            write.Close();
-                        }
-                        catch (Exception ex) {
-                            log.Error(ex);
-                        }
-                        _temp.Add(temp);
-                        
-                        if (count % AppCfg.devicepara.Save_interval == 0) {
-                            SaveToData(_method.ToString());
-                            _temp.Clear();
-                        }
-
-                        //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
-                        //Dictionary<string, double> testResult = new Dictionary<string, double>();
-                        
-                        _testResultChartUpdate = true;
-                        
-                    }
-
-                    //if(str.IndexOf((char)13)!=)
-                    //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
-                    _recvstr = "";
-                }
-                else {
-                    _recvstr += str;
-                }
-
-
-                //int flag = 0;
-                //foreach (char i in str)
-                //{
-
-                //    if (i == 0x2b || i == 0x2d)
-                //    {
-                //        break;
-                //    }
-                //    flag++;
-                //}
-
-                //string recvcontent = str.Substring(flag, str.Length - flag);
-                //if (recvcontent.Length > 0)
-                //{
-                //    count++;
-                //    recvcontent=recvcontent.Replace((char)13, (char)0);          
-                //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
-                //    recvcontent = recvcontent.Replace("\0", "");
-
-                //    string tmp = count.ToString() + "," + recvcontent;
-                //    ListViewItem item = new ListViewItem(tmp.Split(','));
-                //    listView_main.Items.Add(item);
-                //    textBox1.Text = recvcontent;
-
-                //    if(count%AppCfg.devicepara.Save_interval==0)
-                //    {         
-                //        SaveToData("sss", listView_main);
-                //        listView_main.Items.Clear();
-                //    }         
-                //}
-            }
-
-            #endregion
-        }
+        
 
         private void ChartShow_Timer_Tick(object sender, EventArgs e) {
             if (!_testResultChartUpdate) return;
