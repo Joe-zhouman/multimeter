@@ -15,24 +15,34 @@ namespace DataProcessor {
         public static Exception ReadData(ref Dictionary<string, double>testResult,string[] channelList, string filePath) {
             int dataPoints = int.Parse(INIHelper.Read("Data", "save_interval", "0", filePath));
             try {
-                double[] aveTemp = new double[channelList.Length];
+                string[] temp = new string[dataPoints];
                 for (int i = 0; i < dataPoints; i++) {
-                    string tempVal = INIHelper.Read("Data", i.ToString(), "", filePath);
-                    var tempList = tempVal.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
-                    for (int j = 0; j < aveTemp.Length; j++) {
-                        aveTemp[j] += tempList[j+1];
-                    }
+                    temp[i] = INIHelper.Read("Data", i.ToString(), "", filePath);
                 }
+
+                double[] aveTemp = AveTemp(temp, channelList.Length);
                 for (int i = 0; i < channelList.Length; i++) {
-                    testResult.Add(channelList[i],aveTemp[i]/dataPoints);
+                    testResult.Add(channelList[i],Math.Round( aveTemp[i],2));
                 }   
                 return null;
             }
             catch (Exception e) {
                 return e;
             }
-            
+        }
 
+        public static double[] AveTemp(string[] temp,int numChannel) {
+            double[] aveTemp = new double[numChannel];
+            foreach (double[] tempList in temp.Select(t => t.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray())) {
+                for (int j = 0; j < numChannel; j++)
+                {
+                    aveTemp[j] += tempList[j + 1];
+                }
+            }
+            for (int i = 0; i < numChannel; i++) {
+                aveTemp[i] /= temp.Length;
+            }
+            return aveTemp;
         }
         ///// <summary>
         /////     读取程序自动保存的CSV文件,并保存至DataTable中

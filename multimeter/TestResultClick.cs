@@ -120,6 +120,7 @@ namespace multimeter {
                             if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            Test1_remark.Text = "警告：计算失败,数据误差过大！！！";
                             }
 
                             ShowKappa(heatMeter1,heatMeter2,sample1);
@@ -132,7 +133,8 @@ namespace multimeter {
                             if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                            Test2_remark.Text = "警告：计算失败,数据误差过大！！！";
+                        }
 
                             ShowItc(heatMeter1,heatMeter2,sample1,sample2,itc);
                             TextResultGroupbox2.Visible = true;
@@ -144,7 +146,8 @@ namespace multimeter {
                             if (!Solution.GetResults(heatMeter1, heatMeter2, thickness, ref itmKappa)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                            Test3_remark.Text = "警告：计算失败,数据误差过大！！！";
+                        }
 
                             ShowItm(heatMeter1, heatMeter2,itmKappa);
                             TextResultGroupbox3.Visible = true;
@@ -157,7 +160,8 @@ namespace multimeter {
                                 ref itmKappa)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                            Test4_remark.Text = "警告：计算失败,数据误差过大！！！";
+                        }
 
                             ShowItms(heatMeter1, heatMeter2, sample1, sample2, itmKappa);
                             TextResultGroupbox4.Visible = true;
