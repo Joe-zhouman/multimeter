@@ -108,11 +108,8 @@ namespace multimeter {
             else {
                 if (_saveParameter) ModifyParameter_Click(sender,e);
                 if (!apply_btm()) { return; }//再次确认设置参数
-                //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
-                                             
                 btn_start();
                 if (!serialPort1.IsOpen) return;
-                //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
                 Chart_Init();
                 TestChooseFormShow_Enable(false);
                 TestRun_Enable(false);
