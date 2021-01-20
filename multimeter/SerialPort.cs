@@ -102,6 +102,7 @@ namespace multimeter {
                         }
                         catch (Exception ex)
                         {
+                            _recvstr = "";
                             log.Error(ex);
                         }
                         _temp.Add(temp);
