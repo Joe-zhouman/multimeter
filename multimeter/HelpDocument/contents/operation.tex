@@ -1,16 +1,39 @@
 \chapter{系统操作}
 \section{系统起动}
-应给出系统起动的详细过程。
-\section{各种操作、命令和语言}
-软件系统的使用过程都是使用软件系统提供的各种操作、命
-令和语言的过程。
-操作和命令：在用户手册中详细给出各种操作的过程和功能、命令的格式和功能；应
-当描述在使用上的各种限制，如，操作状态、操作条件、操作序列等。另外，必要时
-可以通过适当的举例讲述各种操作和命令的使用方法，以帮助用户理解。
-输出信息：应该详细列出与操作、命令相关的各种输出信息。如果输出信息的意思本
-身不是很明显，应当给予解释。另外还应当说明对于这些信息所采取的操作
-程序设计语言〖条件〗:如果我们的软件系统提供了某种语言，对其语言规则应当给
-予说明。关于程序设计语言的用户手册的内容，其详细说明我们以后补充。
+\begin{itemize}
+    \item 在桌面找到\lstinline{multimeter.exe}的快捷方式
+    \item 在安装路径根目录找到\lstinline{multimeter.exe}应用程序
+\end{itemize}
+以上两种方式均可打开本软件。
+\section{基本操作}
+\subsection{用户登录}
+打开本软件后，首先要选择用户模式并登录。本软件有以下两种用户模式：
+\begin{itemize}
+    \item 普通用户
+    \item 高级用户
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{operation/login.png}
+    \caption{ 用户登录 \label{fig:login}}
+\end{figure}    
+相对\lstinline{普通用户}，\lstinline{高级用户}可以进行更多系统级的设置，详见\ref{subsec:advancedUser}一节。
+在当前版本中普通用户无需账号密码即可登录，
+高级用户的账号密码均为\lstinline{admin}。
+在对应栏输入账号密码后，按\lstinline{确认登录}按钮即可进入测试方法选择\ref{subsec:testMethods}，
+按\lstinline{取消登录}按钮会直接退出本软件。
+\subsection{测试方法\label{subsec:testMethods}}
+\subsection{切换测试方法}
+\subsection{修改参数}
+\subsection{运行}
+\subsection{温度监控}
+\subsection{当前测试}
+\subsection{历史测试}
+\subsection{导出结果}
+\subsection{高级用户模式\label{subsec:advancedUser}}
+\subsubsection*{测试修改参数}
+\subsubsection*{串口设置修改}
+\subsubsection*{标定参数修改}
 \section{各种数据}在软件的使用过程中，用户必须与各种数据和信息打交道。为了让用户能
 够操作我们的软件，我们必须为用户提供各种结构以及每个数据元素的含义。
 有些数据适合在系统操作说明中给出，有些适合在后面的附录中给出，甚至有些除了在
