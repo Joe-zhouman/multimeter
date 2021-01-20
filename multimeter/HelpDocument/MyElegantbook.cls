@@ -765,12 +765,10 @@
 	\renewcommand{\lstlistingname}{code}
 }{\relax}
 \lstdefinestyle{mystyle}{
-  basicstyle=%
-    \fontspec{Fira Code}
-    \lst@ifdisplaystyle\small\fi
+  	basicstyle=%
+    	\fontspec{Fira Code light}
+    	\lst@ifdisplaystyle\small\fi
 }
-
-\lstset{basicstyle=\fontspec{Fira Code},style=mystyle,breaklines=true}
 
 \definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
 \definecolor{frenchplum}{RGB}{190,20,83}
@@ -783,12 +781,12 @@
 	emph={elegantpaper,fontenc,fontspec,xeCJK,FiraMono,xunicode,newtxmath,figure,fig,image,img,table,itemize,enumerate,newtxtext,newtxtt,ctex,microtype,description,times,newtx,booktabs,tabular,PDFLaTeX,XeLaTeX,type1cm,BibTeX,device,color,mode,lang,amsthm,tcolorbox,titlestyle,cite,marginnote,ctex,listings},
 	emphstyle={\color{frenchplum}},
 	morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institute,version,includegraphics,setmainfont,setsansfont,setmonofont ,setCJKmainfont,setCJKsansfont,setCJKmonofont,RequirePackage,figref,tabref,email,maketitle,keywords,definecolor,extrainfo,logo,cover,subtitle,appendix,chapter,hypersetup,mainmatter,tableofcontents,elegantpar,numbers,authoryear,heiti,kaishu,lstset,pagecolor,zhnumber,marginpar,part,equote},
-	frame=single,
+	frame=trbl,
 	tabsize=2,
 	rulecolor=\color{structurecolor},
 	framerule=0.2pt,
 	columns=flexible,
-	% backgroundcolor=\color{lightgrey}
+	backgroundcolor=\color{yellow}
 }
 
 \RequirePackage{bm}
