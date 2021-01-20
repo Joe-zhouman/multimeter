@@ -94,16 +94,17 @@ namespace multimeter {
                         }
                         _heatMeter2.SetTemp(_testResult);
                         temp = _heatMeter2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        try
-                        {
+                        try {
                             StreamWriter write = new StreamWriter(_latestDataFile, true);
                             write.WriteLine(temp);
                             write.Close();
                         }
-                        catch (Exception ex)
-                        {
-                            _recvstr = "";
+                        catch (Exception ex) {
+
                             log.Error(ex);
+                        }
+                        finally {
+                            _recvstr = "";
                         }
                         _temp.Add(temp);
 
@@ -123,7 +124,6 @@ namespace multimeter {
 
                     //if(str.IndexOf((char)13)!=)
                     //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
-                    _recvstr = "";
                 }
                 else
                 {
