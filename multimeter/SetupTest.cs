@@ -138,7 +138,7 @@ namespace multimeter {
 
         private void SerialPort_Click(object sender, EventArgs e) {
             skinGroupBox1.BringToFront();
-            skinGroupBox1.Size = new Size(248, 247);
+            skinGroupBox1.Size = new Size(253, 201);
         }
 
         private void SerialPortEnsure_Click(object sender, EventArgs e) {
