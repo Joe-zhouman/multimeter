@@ -30,7 +30,7 @@ namespace multimeter {
         public User User;
         private List<string> _temp;
         private List<string> _lastTemp;
-        private bool _convergent;
+        private bool _convergent = false;
         #region logger
 
         private static readonly ILog log

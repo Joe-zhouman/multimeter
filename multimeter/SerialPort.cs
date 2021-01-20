@@ -192,6 +192,11 @@ namespace multimeter {
         }
 
         private void IsConvergent() {
+            if(_lastTemp == null)
+            {
+                _convergent = false;
+                return;
+            }
             if (_temp.Count == 0) {
                 _convergent = false;
                 return;
