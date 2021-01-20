@@ -764,15 +764,20 @@
 \ifdefstring{\ELEGANT@lang}{en}{
 	\renewcommand{\lstlistingname}{code}
 }{\relax}
-\lstdefinestyle{mystyle}{
-  	basicstyle=%
-    	\fontspec{Fira Code light}
-    	\lst@ifdisplaystyle\small\fi
-}
+% \lstdefinestyle{mystyle}{
+%   	basicstyle=%
+%     	\fontspec{Fira Code light}
+%     	\lst@ifdisplaystyle\small\fi
+% 		\color{yellow}
+% }
 
 \definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
 \definecolor{frenchplum}{RGB}{190,20,83}
 \lstset{language=[LaTeX]TeX,
+	basicstyle=%
+    	\fontspec{Fira Code Light}
+    	\lst@ifdisplaystyle\small\fi
+		\color{blue},
 	texcsstyle=*\color{winered},
 	numbers=none,
 	breaklines=true,
@@ -786,7 +791,7 @@
 	rulecolor=\color{structurecolor},
 	framerule=0.2pt,
 	columns=flexible,
-	backgroundcolor=\color{yellow}
+	backgroundcolor=\color{lightgrey}
 }
 
 \RequirePackage{bm}

@@ -12,17 +12,34 @@
     \item 普通用户
     \item 高级用户
 \end{itemize}
+使用者可通过下拉选项选择。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{operation/login.png}
     \caption{ 用户登录 \label{fig:login}}
 \end{figure}    
 相对\lstinline{普通用户}，\lstinline{高级用户}可以进行更多系统级的设置，详见\ref{subsec:advancedUser}一节。
-在当前版本中普通用户无需账号密码即可登录，
-高级用户的账号密码均为\lstinline{admin}。
-在对应栏输入账号密码后，按\lstinline{确认登录}按钮即可进入测试方法选择\ref{subsec:testMethods}，
+
+在对应栏输入账号密码后，按\lstinline{确认登录}按钮即可进入测试方法选择(见\ref{subsec:testMethods})，
 按\lstinline{取消登录}按钮会直接退出本软件。
-\subsection{测试方法\label{subsec:testMethods}}
+\begin{note}
+    当前版本不支持用户的注册。在当前版本中\lstinline{普通用户}无需账号密码即可登录，\lstinline{高级用户}的账号密码均为\lstinline{admin}。
+\end{note}
+\subsection{测试方法\label{subsec:testMethods}} 
+本综合测试平台共支持四种测试方法：
+\begin{itemize}
+    \item 试件热导率测试
+    \item 固-固试件间界面热阻测试
+    \item 热流计间热界面材料测试
+    \item 固-固试件间热界面材料测试
+\end{itemize}
+其原理由下图所示：
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{operation/chooseMethod.png}
+    \caption{ 测试方法选择 \label{fig:chooseMethod}}
+\end{figure}
 \subsection{切换测试方法}
 \subsection{修改参数}
 \subsection{运行}
