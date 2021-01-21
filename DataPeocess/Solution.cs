@@ -147,8 +147,7 @@ namespace DataProcessor {
             double[] sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToArray();
             if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) accurate = false;
             sample1.Kappa =
-                (heatFlow / double.Parse(sample1.Area) / k[0]).ToString(CultureInfo
-                    .InvariantCulture);
+                Math.Round((heatFlow / double.Parse(sample1.Area) / k[0]),2).ToString(CultureInfo.InvariantCulture);
             return accurate;
         }
 
@@ -179,9 +178,8 @@ namespace DataProcessor {
             double[] sampleLength2 = samplePosition2.Select((_, i) => samplePosition2.Take(i + 1).Sum()).ToArray();
             if (true != LinearFit(sampleLength2, sample1.Temp, ref k[1], ref b[1])) accurate = false;
             sample2.Kappa =
-                (heatFlow / double.Parse(sample1.Area) / k[1]).ToString(CultureInfo
-                    .InvariantCulture);
-            itc = (b[0] - b[1]) / heatFlow * 1000;
+                Math.Round((heatFlow / double.Parse(sample1.Area) / k[1]),2).ToString(CultureInfo.InvariantCulture);
+            itc = Math.Round((b[0] - b[1]) / heatFlow * 1000,2);
             return accurate;
         } //接触热阻计算
 
@@ -199,7 +197,7 @@ namespace DataProcessor {
             double[] k = new double[2];
             double[] b = new double[2];
             if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
-            itc =  (b[0] - b[1]) / heatFlow * 1000;
+            itc =  Math.Round((b[0] - b[1]) / heatFlow * 1000,2);
             return accurate;
         }
 
