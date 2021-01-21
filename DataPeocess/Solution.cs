@@ -104,10 +104,10 @@ namespace DataProcessor {
         /// <param name="k">拟合直线斜率,引用类型</param>
         /// <param name="b">拟合参数截距,引用类型</param>
         /// <returns>拟合成功,返回true;拟合失败或拟合误差过大,返回false</returns>
-        public static bool LinearFit(double[] x, double[] y, ref double k, ref double b) {                                                                                                                            
-            if (x.Length != y.Length) return false;
+        public static bool LinearFit(double[] x, double[] y, ref double k, ref double b) {
+            bool accurate = x.Length == y.Length;
 
-            if (x.Length < 2) return false;
+            if (x.Length < 2) accurate = false;
             double aveX = x.Average();
             double aveY = y.Average();
 
@@ -122,11 +122,12 @@ namespace DataProcessor {
                 double stdY = GetStd(y, aveY);
                 double err = x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToArray().Sum() / x.Length / stdX / stdY;
 
-                return err < 0.7;
+                accurate = err < 0.7;
             }
             catch (Exception) {
-                return false;
+                // ignored
             }
+            return accurate;
         } //线性拟合
 
         /// <summary>
@@ -137,17 +138,18 @@ namespace DataProcessor {
         /// <param name="sample1"></param>
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1) {
+            bool accurate = true;
             double heatFlow = 0.0;
             double[] k = new double[2];
             double[] b = new double[2];
-            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) return false;
+            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
             double[] samplePosition1 = sample1.Position.Select(double.Parse).ToArray();
             double[] sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToArray();
-            if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) return false;
+            if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) accurate = false;
             sample1.Kappa =
                 (heatFlow / double.Parse(sample1.Area) / k[0]).ToString(CultureInfo
                     .InvariantCulture);
-            return true;
+            return accurate;
         }
 
         /// <summary>
@@ -161,25 +163,26 @@ namespace DataProcessor {
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1,
             ref Sample sample2, ref double itc) {
+            bool accurate = true;
             double heatFlow = 0.0;
             double[] k = new double[2];
             double[] b = new double[2];
-            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) return false;
+            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
             double[] samplePosition1 = sample1.Position.Select(double.Parse).Reverse().ToArray();
             double[] sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToArray();
-            if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) return false;
+            if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) accurate = false;
             sample1.Kappa =
                 (heatFlow / double.Parse(sample1.Area) / k[0]).ToString(CultureInfo
                     .InvariantCulture);
 
             double[] samplePosition2 = sample2.Position.Select(double.Parse).ToArray();
             double[] sampleLength2 = samplePosition2.Select((_, i) => samplePosition2.Take(i + 1).Sum()).ToArray();
-            if (true != LinearFit(sampleLength2, sample1.Temp, ref k[1], ref b[1])) return false;
+            if (true != LinearFit(sampleLength2, sample1.Temp, ref k[1], ref b[1])) accurate = false;
             sample2.Kappa =
                 (heatFlow / double.Parse(sample1.Area) / k[1]).ToString(CultureInfo
                     .InvariantCulture);
             itc = (b[0] - b[1]) / heatFlow * 1000;
-            return true;
+            return accurate;
         } //接触热阻计算
 
         /// <summary>
@@ -194,10 +197,11 @@ namespace DataProcessor {
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1,
             ref Sample sample2, double thickness, ref double itmKappa) {
+            bool accurate = true;
             double itc = 0.0;
-            if (!GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc)) return false;
+            if (!GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc)) accurate = false;
             itmKappa = thickness / itc;
-            return true;
+            return accurate;
         }
 
         /// <summary>
@@ -210,12 +214,13 @@ namespace DataProcessor {
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, double thickness,
             ref double itmKappa) {
+            bool accurate = true;
             double heatFlow = 0.0;
             double[] k = new double[2];
             double[] b = new double[2];
-            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) return false;
+            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
             itmKappa = thickness / (b[0] - b[1]) * heatFlow / 1000;
-            return true;
+            return accurate;
         }
 
         /// <summary>
@@ -232,20 +237,21 @@ namespace DataProcessor {
         /// <returns></returns>
         private static bool GetHeatFlow(HeatMeter heatMeter1, HeatMeter heatMeter2, ref double heatFlow, ref double[] k,
             ref double[] b) {
+            bool accurate = true;
             double[] numPosition = heatMeter1.Position.Select(double.Parse).ToArray();
             double[] p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToArray();
 
-            if (!LinearFit(p, heatMeter1.Temp, ref k[0], ref b[0])) return false;
+            if (!LinearFit(p, heatMeter1.Temp, ref k[0], ref b[0])) accurate = false;
             double heatFlow1 = double.Parse(heatMeter1.Kappa) * Math.PI *
                                double.Parse(heatMeter1.Area) * k[0];
             numPosition = heatMeter2.Position.Select(double.Parse).ToArray();
             p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToArray();
-            if (!LinearFit(p, heatMeter2.Temp.ToArray(), ref k[1], ref b[1])) return false;
+            if (!LinearFit(p, heatMeter2.Temp.ToArray(), ref k[1], ref b[1])) accurate = false;
             double heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI *
                                double.Parse(heatMeter1.Area) * k[1];
-            if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.2) return false;
+            if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.4) accurate = false;
             heatFlow = (heatFlow1 + heatFlow2) / 2;
-            return true;
+            return accurate;
         }
 
         private static double GetStd(double[] x, double aveX) {
