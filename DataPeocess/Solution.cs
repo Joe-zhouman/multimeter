@@ -199,7 +199,7 @@ namespace DataProcessor {
             double[] k = new double[2];
             double[] b = new double[2];
             if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
-            itc =  (b[0] - b[1]) / heatFlow * 1000;
+            itc =  Math.Round((b[0] - b[1]) / heatFlow * 1000,2);
             return accurate;
         }
 
