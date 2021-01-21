@@ -78,7 +78,7 @@ namespace DataProcessor {
                 double tempVar = Math.Log(testResult[Channel[i]]);
                 Temp[i] = Math.Round(
                     -273.15 + 1 / (double.Parse(A0[i]) + double.Parse(A1[i]) * tempVar +
-                                   double.Parse(A3[i]) * Math.Pow(tempVar, 3)), 2);
+                                   double.Parse(A3[i]) * Math.Pow(tempVar, 3)), 4);
             }
         }
         public void ReadTemp(Dictionary<string, double> testResult)

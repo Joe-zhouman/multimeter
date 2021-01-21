@@ -179,7 +179,7 @@ namespace DataProcessor {
             var k = new double[2];
             var b = new double[2];
             var accurate = GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b);
-            itc = Math.Round((b[0] - b[1]) / heatFlow * 1000, 2);
+            itc = (b[0] - b[1]) / heatFlow * 1000;
             return accurate;
         }
 
