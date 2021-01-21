@@ -188,8 +188,8 @@ namespace DataProcessor {
         /// <param name="heatFlow"></param>
         /// <param name="k"></param>
         /// <param name="b"></param>
-        /// 上热流计,四个测温点
-        /// 下热流计,三个测温点
+        /// 上热流计,3个测温点
+        /// 下热流计,4个测温点
         /// 热流密度
         /// <returns></returns>
         private static bool GetHeatFlow(HeatMeter heatMeter1, HeatMeter heatMeter2, out double heatFlow, ref double[] k,
