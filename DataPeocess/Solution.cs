@@ -153,7 +153,7 @@ namespace DataProcessor {
         }
 
         /// <summary>
-        ///     计算试件间接触热阻
+        ///     计算试件间及热界面材料接触热阻
         /// </summary>
         /// <param name="heatMeter1"></param>
         /// <param name="heatMeter2"></param>
@@ -185,41 +185,21 @@ namespace DataProcessor {
             return accurate;
         } //接触热阻计算
 
-        /// <summary>
-        ///     计算试件间热界面材料热导率
-        /// </summary>
-        /// <param name="heatMeter1"></param>
-        /// <param name="heatMeter2"></param>
-        /// <param name="sample1"></param>
-        /// <param name="sample2"></param>
-        /// <param name="thickness"></param>
-        /// <param name="itmKappa"></param>
-        /// <returns></returns>
-        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1,
-            ref Sample sample2, double thickness, ref double itmKappa) {
-            bool accurate = true;
-            double itc = 0.0;
-            if (!GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc)) accurate = false;
-            itmKappa = thickness / itc;
-            return accurate;
-        }
 
         /// <summary>
-        ///     计算热流计间热界面材料热导率
+        ///     计算热流计间热界面材料接触热阻
         /// </summary>
         /// <param name="heatMeter1"></param>
         /// <param name="heatMeter2"></param>
-        /// <param name="thickness"></param>
-        /// <param name="itmKappa"></param>
+        /// <param name="itc"></param>
         /// <returns></returns>
-        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, double thickness,
-            ref double itmKappa) {
+        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref double itc) {
             bool accurate = true;
             double heatFlow = 0.0;
             double[] k = new double[2];
             double[] b = new double[2];
             if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
-            itmKappa = thickness / (b[0] - b[1]) * heatFlow / 1000;
+            itc =  (b[0] - b[1]) / heatFlow * 1000;
             return accurate;
         }
 
