@@ -59,7 +59,15 @@ namespace DataProcessor {
                 A3[i] = INIHelper.Read(Channel[i], "A3", "10.0", filePath);
             }
         }
-
+        public void WriteTempPara(string filePath)
+        {
+            for (int i = 0; i < TestPoint; i++)
+            {
+                INIHelper.Write(Channel[i], "A0", A0[i], filePath);
+                INIHelper.Write(Channel[i], "A1", A1[i], filePath);
+                INIHelper.Write(Channel[i], "A3", A3[i], filePath);
+            }
+        }
         /// <summary>
         /// 电压转换为温度
         /// T = -273.15 + 1 / (alpha + beta * ln(x)+theta * ln(x)^3)

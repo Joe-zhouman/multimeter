@@ -9,13 +9,12 @@ namespace multimeter {
         private void testchoose1_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.KAPPA;
-            string force;
             var slnFilePath = SlnIni.CreateDefaultIni();
             ShowKappaMenu();
-
+            var filePath = SlnIni.CreateDefaultSettingIni();
             _sample1 = new Sample("Sample1");
             _sample2 = null;
-            var filePath = SlnIni.CreateDefaultSettingIni();
+            string force;
             SlnIni.LoadKappaInfo(ref _sample1, out force, filePath, slnFilePath);
             ForceTextBox1.Text = force;
             var heatMeterPositionBoxes1 = new List<TextBox>

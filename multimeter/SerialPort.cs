@@ -177,7 +177,7 @@ namespace multimeter {
             //MessageBox.Show(filePath);
             try
             {
-                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _latestResultFile);
+                File.Copy(_tempFilePath, _latestResultFile);
                 for (int i = 0; i < _lastTemp.Count; i++)
                 {
                     INIHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);

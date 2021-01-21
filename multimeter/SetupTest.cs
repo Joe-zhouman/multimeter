@@ -31,6 +31,7 @@ namespace multimeter {
         private List<string> _temp;
         private List<string> _lastTemp;
         private bool _convergent = false;
+        private readonly string _tempFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "temp");
         #region logger
 
         private static readonly ILog log
@@ -242,8 +243,10 @@ namespace multimeter {
             _latestResultFile = "";
             string fileName = _method + "-DataAutoSave.csv";
             _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method.ToString() +"-"+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff"));
+            
             try {
                 var di =  Directory.CreateDirectory(_autoSaveFilePath);
+                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), ,true);
             }
             catch (Exception ex) {
                 MessageBox.Show($@"自动保存文件创建失败,请重试
@@ -252,7 +255,10 @@ namespace multimeter {
                 btn_stop();
                 return;
             }
-            
+            _heatMeter1.WriteTempPara(_tempFilePath);
+            _heatMeter2.WriteTempPara(_tempFilePath);
+            _sample1?.WriteTempPara(_tempFilePath);
+            _sample2?.WriteTempPara(_tempFilePath);
             _latestDataFile = Path.Combine(_autoSaveFilePath, fileName);
 
             try {
@@ -470,6 +476,7 @@ namespace multimeter {
                 log.Error(ex);
                 MessageBox.Show(ex.Message);
             }
+            
         }
 
         public string resolvcmd(string s1, string s2, string s3, int i1, int i2, int i3) {
@@ -576,6 +583,12 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             serialPort1.Close();
             _temp.Clear();
             enablescan = false;
+            try {
+                File.Delete(_tempFilePath);
+            }
+            catch (Exception ex) {
+                log.Error(ex);
+            }
         }
 
         private void SetupTest_FormClosing(object sender, FormClosingEventArgs e) {
@@ -609,6 +622,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #region //初始化变量
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
+            if (File.Exists(_tempFilePath)) { File.Delete(_tempFilePath);}
             _latestDataFile = "";
             _latestResultFile = "";
             _heatMeter1 = new HeatMeter("HeatMeter1",3);
