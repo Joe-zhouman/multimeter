@@ -229,7 +229,7 @@ namespace DataProcessor {
             if (!LinearFit(p, heatMeter2.Temp.ToArray(), ref k[1], ref b[1])) accurate = false;
             double heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI *
                                double.Parse(heatMeter1.Area) * k[1];
-            if (Math.Abs(1 - heatFlow1 / heatFlow1) > 0.4) accurate = false;
+            if (Math.Abs(1 - heatFlow1 / heatFlow2) > 0.4) accurate = false;
             heatFlow = (heatFlow1 + heatFlow2) / 2;
             return accurate;
         }
