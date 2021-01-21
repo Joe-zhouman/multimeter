@@ -246,7 +246,7 @@ namespace multimeter {
             
             try {
                 var di =  Directory.CreateDirectory(_autoSaveFilePath);
-                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), ,true);
+                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _tempFilePath,true);
             }
             catch (Exception ex) {
                 MessageBox.Show($@"自动保存文件创建失败,请重试
