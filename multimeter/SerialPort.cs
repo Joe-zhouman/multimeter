@@ -216,6 +216,16 @@ namespace multimeter {
                 }
             }
             _convergent = true;
+
+            if (!ConvergentHolding_Timer.Enabled) {
+                _countDownNum = 1800;//维持*s
+                ConvergentHolding_Timer.Enabled = true;
+                string CountDown = SecToTimeSpan(_countDownNum);
+                MessageBox.Show($@"所有通道数据已经稳定
+自动停止测试倒计时长{CountDown}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+           
         }
+
     }
 }
