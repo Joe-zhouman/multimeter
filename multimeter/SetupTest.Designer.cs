@@ -30,25 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series35 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series36 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series37 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series38 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series39 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series40 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series41 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series42 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
             this.ChannelLabel1_3 = new System.Windows.Forms.Label();
@@ -886,43 +886,43 @@
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label90.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label90.Location = new System.Drawing.Point(2, 36);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(120, 23);
+            this.label90.Size = new System.Drawing.Size(94, 21);
             this.label90.TabIndex = 115;
-            this.label90.Text = "测试结果：";
+            this.label90.Text = "测试结果";
             // 
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label91.Location = new System.Drawing.Point(46, 67);
+            this.label91.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label91.Location = new System.Drawing.Point(2, 69);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(142, 23);
+            this.label91.Size = new System.Drawing.Size(147, 21);
             this.label91.TabIndex = 116;
-            this.label91.Text = "试件导热系数";
+            this.label91.Text = "试件导热系数:";
             // 
             // Tlable1_3
             // 
             this.Tlable1_3.AutoSize = true;
-            this.Tlable1_3.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_3.Location = new System.Drawing.Point(111, 305);
+            this.Tlable1_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_3.Location = new System.Drawing.Point(113, 309);
             this.Tlable1_3.Name = "Tlable1_3";
-            this.Tlable1_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_3.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_3.TabIndex = 91;
-            this.Tlable1_3.Text = "***";
+            this.Tlable1_3.Text = "000";
             // 
             // Tlable1_5
             // 
             this.Tlable1_5.AutoSize = true;
-            this.Tlable1_5.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable1_5.ForeColor = System.Drawing.Color.Red;
-            this.Tlable1_5.Location = new System.Drawing.Point(112, 341);
+            this.Tlable1_5.Location = new System.Drawing.Point(113, 345);
             this.Tlable1_5.Name = "Tlable1_5";
-            this.Tlable1_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_5.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_5.TabIndex = 93;
-            this.Tlable1_5.Text = "***";
+            this.Tlable1_5.Text = "000";
             // 
             // label89
             // 
@@ -937,13 +937,13 @@
             // Tlable1_6
             // 
             this.Tlable1_6.AutoSize = true;
-            this.Tlable1_6.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable1_6.ForeColor = System.Drawing.Color.Red;
-            this.Tlable1_6.Location = new System.Drawing.Point(111, 390);
+            this.Tlable1_6.Location = new System.Drawing.Point(113, 390);
             this.Tlable1_6.Name = "Tlable1_6";
-            this.Tlable1_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_6.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_6.TabIndex = 94;
-            this.Tlable1_6.Text = "***";
+            this.Tlable1_6.Text = "000";
             // 
             // label88
             // 
@@ -958,13 +958,13 @@
             // Tlable1_7
             // 
             this.Tlable1_7.AutoSize = true;
-            this.Tlable1_7.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable1_7.ForeColor = System.Drawing.Color.Red;
-            this.Tlable1_7.Location = new System.Drawing.Point(111, 430);
+            this.Tlable1_7.Location = new System.Drawing.Point(113, 436);
             this.Tlable1_7.Name = "Tlable1_7";
-            this.Tlable1_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_7.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_7.TabIndex = 95;
-            this.Tlable1_7.Text = "***";
+            this.Tlable1_7.Text = "000";
             // 
             // label87
             // 
@@ -979,12 +979,12 @@
             // Tlable1_8
             // 
             this.Tlable1_8.AutoSize = true;
-            this.Tlable1_8.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_8.Location = new System.Drawing.Point(111, 477);
+            this.Tlable1_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_8.Location = new System.Drawing.Point(113, 475);
             this.Tlable1_8.Name = "Tlable1_8";
-            this.Tlable1_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_8.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_8.TabIndex = 96;
-            this.Tlable1_8.Text = "***";
+            this.Tlable1_8.Text = "000";
             // 
             // label86
             // 
@@ -999,12 +999,12 @@
             // Tlable1_11
             // 
             this.Tlable1_11.AutoSize = true;
-            this.Tlable1_11.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_11.Location = new System.Drawing.Point(111, 583);
+            this.Tlable1_11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_11.Location = new System.Drawing.Point(113, 583);
             this.Tlable1_11.Name = "Tlable1_11";
-            this.Tlable1_11.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_11.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_11.TabIndex = 97;
-            this.Tlable1_11.Text = "***";
+            this.Tlable1_11.Text = "000";
             // 
             // label84
             // 
@@ -1020,12 +1020,12 @@
             // Tlable1_10
             // 
             this.Tlable1_10.AutoSize = true;
-            this.Tlable1_10.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_10.Location = new System.Drawing.Point(111, 548);
+            this.Tlable1_10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_10.Location = new System.Drawing.Point(113, 545);
             this.Tlable1_10.Name = "Tlable1_10";
-            this.Tlable1_10.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_10.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_10.TabIndex = 98;
-            this.Tlable1_10.Text = "***";
+            this.Tlable1_10.Text = "000";
             // 
             // label81
             // 
@@ -1041,12 +1041,12 @@
             // Tlable1_9
             // 
             this.Tlable1_9.AutoSize = true;
-            this.Tlable1_9.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_9.Location = new System.Drawing.Point(111, 513);
+            this.Tlable1_9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_9.Location = new System.Drawing.Point(113, 514);
             this.Tlable1_9.Name = "Tlable1_9";
-            this.Tlable1_9.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_9.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_9.TabIndex = 99;
-            this.Tlable1_9.Text = "***";
+            this.Tlable1_9.Text = "000";
             // 
             // label78
             // 
@@ -1062,12 +1062,12 @@
             // Tlable1_1
             // 
             this.Tlable1_1.AutoSize = true;
-            this.Tlable1_1.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_1.Location = new System.Drawing.Point(112, 201);
+            this.Tlable1_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_1.Location = new System.Drawing.Point(113, 203);
             this.Tlable1_1.Name = "Tlable1_1";
-            this.Tlable1_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_1.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_1.TabIndex = 89;
-            this.Tlable1_1.Text = "***";
+            this.Tlable1_1.Text = "000";
             // 
             // label72
             // 
@@ -1082,12 +1082,12 @@
             // Tlable1_2
             // 
             this.Tlable1_2.AutoSize = true;
-            this.Tlable1_2.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tlable1_2.Location = new System.Drawing.Point(112, 235);
+            this.Tlable1_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable1_2.Location = new System.Drawing.Point(113, 238);
             this.Tlable1_2.Name = "Tlable1_2";
-            this.Tlable1_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable1_2.Size = new System.Drawing.Size(43, 23);
             this.Tlable1_2.TabIndex = 90;
-            this.Tlable1_2.Text = "***";
+            this.Tlable1_2.Text = "000";
             // 
             // label71
             // 
@@ -1102,20 +1102,20 @@
             // k1_s
             // 
             this.k1_s.AutoSize = true;
-            this.k1_s.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k1_s.Location = new System.Drawing.Point(185, 67);
+            this.k1_s.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.k1_s.Location = new System.Drawing.Point(145, 69);
             this.k1_s.Name = "k1_s";
-            this.k1_s.Size = new System.Drawing.Size(48, 26);
+            this.k1_s.Size = new System.Drawing.Size(43, 23);
             this.k1_s.TabIndex = 101;
-            this.k1_s.Text = "***";
+            this.k1_s.Text = "000";
             // 
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label68.Location = new System.Drawing.Point(5, 176);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(90, 21);
+            this.label68.Size = new System.Drawing.Size(85, 19);
             this.label68.TabIndex = 104;
             this.label68.Text = "对应温度";
             // 
@@ -1681,90 +1681,90 @@
             // 
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label110.Location = new System.Drawing.Point(3, 29);
+            this.label110.Location = new System.Drawing.Point(3, 18);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(120, 23);
+            this.label110.Size = new System.Drawing.Size(98, 23);
             this.label110.TabIndex = 121;
-            this.label110.Text = "测试结果：";
+            this.label110.Text = "测试结果";
             // 
             // label113
             // 
             this.label113.AutoSize = true;
             this.label113.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label113.Location = new System.Drawing.Point(107, 108);
+            this.label113.Location = new System.Drawing.Point(58, 101);
             this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(98, 23);
+            this.label113.Size = new System.Drawing.Size(104, 23);
             this.label113.TabIndex = 135;
-            this.label113.Text = "接触热阻";
+            this.label113.Text = "接触热阻:";
             // 
             // Tlable2_3
             // 
             this.Tlable2_3.AutoSize = true;
-            this.Tlable2_3.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_3.Location = new System.Drawing.Point(106, 250);
             this.Tlable2_3.Name = "Tlable2_3";
-            this.Tlable2_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_3.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_3.TabIndex = 101;
-            this.Tlable2_3.Text = "***";
+            this.Tlable2_3.Text = "000";
             // 
             // label112
             // 
             this.label112.AutoSize = true;
             this.label112.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label112.Location = new System.Drawing.Point(52, 82);
+            this.label112.Location = new System.Drawing.Point(3, 75);
             this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(153, 23);
+            this.label112.Size = new System.Drawing.Size(159, 23);
             this.label112.TabIndex = 134;
-            this.label112.Text = "试件2导热系数";
+            this.label112.Text = "试件2导热系数:";
             // 
             // Tlable2_5
             // 
             this.Tlable2_5.AutoSize = true;
-            this.Tlable2_5.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_5.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_5.Location = new System.Drawing.Point(106, 284);
+            this.Tlable2_5.Location = new System.Drawing.Point(106, 285);
             this.Tlable2_5.Name = "Tlable2_5";
-            this.Tlable2_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_5.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_5.TabIndex = 103;
-            this.Tlable2_5.Text = "***";
+            this.Tlable2_5.Text = "000";
             // 
             // label111
             // 
             this.label111.AutoSize = true;
             this.label111.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label111.Location = new System.Drawing.Point(52, 53);
+            this.label111.Location = new System.Drawing.Point(3, 46);
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(153, 23);
+            this.label111.Size = new System.Drawing.Size(159, 23);
             this.label111.TabIndex = 133;
-            this.label111.Text = "试件1导热系数";
+            this.label111.Text = "试件1导热系数:";
             // 
             // Tlable2_6
             // 
             this.Tlable2_6.AutoSize = true;
-            this.Tlable2_6.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_6.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_6.Location = new System.Drawing.Point(106, 336);
+            this.Tlable2_6.Location = new System.Drawing.Point(106, 342);
             this.Tlable2_6.Name = "Tlable2_6";
-            this.Tlable2_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_6.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_6.TabIndex = 104;
-            this.Tlable2_6.Text = "***";
+            this.Tlable2_6.Text = "000";
             // 
             // Tlable2_7
             // 
             this.Tlable2_7.AutoSize = true;
-            this.Tlable2_7.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_7.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_7.Location = new System.Drawing.Point(106, 383);
+            this.Tlable2_7.Location = new System.Drawing.Point(106, 384);
             this.Tlable2_7.Name = "Tlable2_7";
-            this.Tlable2_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_7.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_7.TabIndex = 105;
-            this.Tlable2_7.Text = "***";
+            this.Tlable2_7.Text = "000";
             // 
             // label109
             // 
             this.label109.AutoSize = true;
             this.label109.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(2, 657);
+            this.label109.Location = new System.Drawing.Point(-1, 657);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(110, 30);
             this.label109.TabIndex = 132;
@@ -1773,19 +1773,19 @@
             // Tlable2_8
             // 
             this.Tlable2_8.AutoSize = true;
-            this.Tlable2_8.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_8.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_8.Location = new System.Drawing.Point(106, 434);
+            this.Tlable2_8.Location = new System.Drawing.Point(106, 436);
             this.Tlable2_8.Name = "Tlable2_8";
-            this.Tlable2_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_8.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_8.TabIndex = 106;
-            this.Tlable2_8.Text = "***";
+            this.Tlable2_8.Text = "000";
             // 
             // label108
             // 
             this.label108.AutoSize = true;
             this.label108.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.Location = new System.Drawing.Point(2, 626);
+            this.label108.Location = new System.Drawing.Point(-1, 626);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(110, 30);
             this.label108.TabIndex = 131;
@@ -1794,18 +1794,18 @@
             // Tlable2_11
             // 
             this.Tlable2_11.AutoSize = true;
-            this.Tlable2_11.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_11.Location = new System.Drawing.Point(106, 566);
             this.Tlable2_11.Name = "Tlable2_11";
-            this.Tlable2_11.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_11.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_11.TabIndex = 107;
-            this.Tlable2_11.Text = "***";
+            this.Tlable2_11.Text = "000";
             // 
             // label107
             // 
             this.label107.AutoSize = true;
             this.label107.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label107.Location = new System.Drawing.Point(2, 593);
+            this.label107.Location = new System.Drawing.Point(-1, 593);
             this.label107.Name = "label107";
             this.label107.Size = new System.Drawing.Size(110, 30);
             this.label107.TabIndex = 130;
@@ -1814,19 +1814,19 @@
             // Tlable2_10
             // 
             this.Tlable2_10.AutoSize = true;
-            this.Tlable2_10.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_10.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_10.Location = new System.Drawing.Point(106, 530);
+            this.Tlable2_10.Location = new System.Drawing.Point(106, 534);
             this.Tlable2_10.Name = "Tlable2_10";
-            this.Tlable2_10.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_10.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_10.TabIndex = 108;
-            this.Tlable2_10.Text = "***";
+            this.Tlable2_10.Text = "000";
             // 
             // label106
             // 
             this.label106.AutoSize = true;
             this.label106.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label106.Location = new System.Drawing.Point(2, 564);
+            this.label106.Location = new System.Drawing.Point(-1, 564);
             this.label106.Name = "label106";
             this.label106.Size = new System.Drawing.Size(110, 30);
             this.label106.TabIndex = 129;
@@ -1835,13 +1835,13 @@
             // Tlable2_9
             // 
             this.Tlable2_9.AutoSize = true;
-            this.Tlable2_9.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_9.ForeColor = System.Drawing.Color.Red;
-            this.Tlable2_9.Location = new System.Drawing.Point(106, 473);
+            this.Tlable2_9.Location = new System.Drawing.Point(106, 474);
             this.Tlable2_9.Name = "Tlable2_9";
-            this.Tlable2_9.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_9.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_9.TabIndex = 109;
-            this.Tlable2_9.Text = "***";
+            this.Tlable2_9.Text = "000";
             // 
             // label105
             // 
@@ -1857,12 +1857,12 @@
             // K2_s1
             // 
             this.K2_s1.AutoSize = true;
-            this.K2_s1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.K2_s1.Location = new System.Drawing.Point(207, 51);
+            this.K2_s1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.K2_s1.Location = new System.Drawing.Point(158, 46);
             this.K2_s1.Name = "K2_s1";
-            this.K2_s1.Size = new System.Drawing.Size(48, 26);
+            this.K2_s1.Size = new System.Drawing.Size(43, 23);
             this.K2_s1.TabIndex = 114;
-            this.K2_s1.Text = "***";
+            this.K2_s1.Text = "000";
             // 
             // label104
             // 
@@ -1878,12 +1878,12 @@
             // Tlable2_1
             // 
             this.Tlable2_1.AutoSize = true;
-            this.Tlable2_1.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_1.Location = new System.Drawing.Point(106, 158);
             this.Tlable2_1.Name = "Tlable2_1";
-            this.Tlable2_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_1.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_1.TabIndex = 99;
-            this.Tlable2_1.Text = "***";
+            this.Tlable2_1.Text = "000";
             // 
             // label103
             // 
@@ -1899,12 +1899,12 @@
             // Tlable2_2
             // 
             this.Tlable2_2.AutoSize = true;
-            this.Tlable2_2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_2.Location = new System.Drawing.Point(106, 196);
             this.Tlable2_2.Name = "Tlable2_2";
-            this.Tlable2_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_2.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_2.TabIndex = 100;
-            this.Tlable2_2.Text = "***";
+            this.Tlable2_2.Text = "000";
             // 
             // label102
             // 
@@ -1920,12 +1920,12 @@
             // Tlable2_12
             // 
             this.Tlable2_12.AutoSize = true;
-            this.Tlable2_12.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_12.Location = new System.Drawing.Point(106, 595);
             this.Tlable2_12.Name = "Tlable2_12";
-            this.Tlable2_12.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_12.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_12.TabIndex = 110;
-            this.Tlable2_12.Text = "***";
+            this.Tlable2_12.Text = "000";
             // 
             // label101
             // 
@@ -1941,12 +1941,12 @@
             // Tlable2_13
             // 
             this.Tlable2_13.AutoSize = true;
-            this.Tlable2_13.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_13.Location = new System.Drawing.Point(106, 633);
             this.Tlable2_13.Name = "Tlable2_13";
-            this.Tlable2_13.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_13.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_13.TabIndex = 111;
-            this.Tlable2_13.Text = "***";
+            this.Tlable2_13.Text = "000";
             // 
             // label100
             // 
@@ -1962,12 +1962,12 @@
             // K2_s2
             // 
             this.K2_s2.AutoSize = true;
-            this.K2_s2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.K2_s2.Location = new System.Drawing.Point(207, 80);
+            this.K2_s2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.K2_s2.Location = new System.Drawing.Point(158, 75);
             this.K2_s2.Name = "K2_s2";
-            this.K2_s2.Size = new System.Drawing.Size(48, 26);
+            this.K2_s2.Size = new System.Drawing.Size(43, 23);
             this.K2_s2.TabIndex = 116;
-            this.K2_s2.Text = "***";
+            this.K2_s2.Text = "000";
             // 
             // label98
             // 
@@ -1982,12 +1982,12 @@
             // Tlable2_14
             // 
             this.Tlable2_14.AutoSize = true;
-            this.Tlable2_14.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable2_14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable2_14.Location = new System.Drawing.Point(106, 661);
             this.Tlable2_14.Name = "Tlable2_14";
-            this.Tlable2_14.Size = new System.Drawing.Size(48, 26);
+            this.Tlable2_14.Size = new System.Drawing.Size(43, 23);
             this.Tlable2_14.TabIndex = 112;
-            this.Tlable2_14.Text = "***";
+            this.Tlable2_14.Text = "000";
             // 
             // label97
             // 
@@ -2002,20 +2002,20 @@
             // TCRtest2
             // 
             this.TCRtest2.AutoSize = true;
-            this.TCRtest2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.TCRtest2.Location = new System.Drawing.Point(207, 108);
+            this.TCRtest2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCRtest2.Location = new System.Drawing.Point(158, 101);
             this.TCRtest2.Name = "TCRtest2";
-            this.TCRtest2.Size = new System.Drawing.Size(48, 26);
+            this.TCRtest2.Size = new System.Drawing.Size(43, 23);
             this.TCRtest2.TabIndex = 118;
-            this.TCRtest2.Text = "***";
+            this.TCRtest2.Text = "000";
             // 
             // label95
             // 
             this.label95.AutoSize = true;
-            this.label95.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label95.Location = new System.Drawing.Point(3, 127);
+            this.label95.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label95.Location = new System.Drawing.Point(9, 137);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(90, 21);
+            this.label95.Size = new System.Drawing.Size(85, 19);
             this.label95.TabIndex = 119;
             this.label95.Text = "对应温度";
             // 
@@ -2894,82 +2894,82 @@
             // label124
             // 
             this.label124.AutoSize = true;
-            this.label124.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label124.Location = new System.Drawing.Point(1, 31);
+            this.label124.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label124.Location = new System.Drawing.Point(3, 31);
             this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(120, 23);
+            this.label124.Size = new System.Drawing.Size(94, 21);
             this.label124.TabIndex = 121;
-            this.label124.Text = "测试结果：";
+            this.label124.Text = "测试结果";
             // 
             // label126
             // 
             this.label126.AutoSize = true;
-            this.label126.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label126.Location = new System.Drawing.Point(46, 92);
+            this.label126.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label126.Location = new System.Drawing.Point(3, 91);
             this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(208, 23);
+            this.label126.Size = new System.Drawing.Size(210, 21);
             this.label126.TabIndex = 130;
-            this.label126.Text = "热界面材料接触热阻";
+            this.label126.Text = "热界面材料接触热阻:";
             // 
             // Tlable3_3
             // 
             this.Tlable3_3.AutoSize = true;
-            this.Tlable3_3.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_3.Location = new System.Drawing.Point(107, 325);
+            this.Tlable3_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable3_3.Location = new System.Drawing.Point(107, 328);
             this.Tlable3_3.Name = "Tlable3_3";
-            this.Tlable3_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_3.Size = new System.Drawing.Size(43, 23);
             this.Tlable3_3.TabIndex = 93;
-            this.Tlable3_3.Text = "***";
+            this.Tlable3_3.Text = "000";
             // 
             // label125
             // 
             this.label125.AutoSize = true;
-            this.label125.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label125.Location = new System.Drawing.Point(46, 63);
+            this.label125.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label125.Location = new System.Drawing.Point(3, 62);
             this.label125.Name = "label125";
-            this.label125.Size = new System.Drawing.Size(208, 23);
+            this.label125.Size = new System.Drawing.Size(210, 21);
             this.label125.TabIndex = 129;
-            this.label125.Text = "热界面材料导热系数";
+            this.label125.Text = "热界面材料导热系数:";
             // 
             // Tlable3_5
             // 
             this.Tlable3_5.AutoSize = true;
-            this.Tlable3_5.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable3_5.Location = new System.Drawing.Point(107, 448);
+            this.Tlable3_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable3_5.Location = new System.Drawing.Point(107, 455);
             this.Tlable3_5.Name = "Tlable3_5";
-            this.Tlable3_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_5.Size = new System.Drawing.Size(43, 23);
             this.Tlable3_5.TabIndex = 95;
-            this.Tlable3_5.Text = "***";
+            this.Tlable3_5.Text = "000";
             // 
             // Tlable3_8
             // 
             this.Tlable3_8.AutoSize = true;
-            this.Tlable3_8.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable3_8.Location = new System.Drawing.Point(107, 574);
             this.Tlable3_8.Name = "Tlable3_8";
-            this.Tlable3_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_8.Size = new System.Drawing.Size(43, 23);
             this.Tlable3_8.TabIndex = 96;
-            this.Tlable3_8.Text = "***";
+            this.Tlable3_8.Text = "000";
             // 
             // label123
             // 
             this.label123.AutoSize = true;
-            this.label123.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label123.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label123.Location = new System.Drawing.Point(6, 184);
             this.label123.Name = "label123";
-            this.label123.Size = new System.Drawing.Size(90, 21);
+            this.label123.Size = new System.Drawing.Size(85, 19);
             this.label123.TabIndex = 121;
             this.label123.Text = "对应温度";
             // 
             // Tlable3_7
             // 
             this.Tlable3_7.AutoSize = true;
-            this.Tlable3_7.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable3_7.Location = new System.Drawing.Point(108, 532);
             this.Tlable3_7.Name = "Tlable3_7";
-            this.Tlable3_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_7.Size = new System.Drawing.Size(43, 23);
             this.Tlable3_7.TabIndex = 97;
-            this.Tlable3_7.Text = "***";
+            this.Tlable3_7.Text = "000";
             // 
             // label122
             // 
@@ -2984,12 +2984,12 @@
             // Tlable3_6
             // 
             this.Tlable3_6.AutoSize = true;
-            this.Tlable3_6.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable3_6.Location = new System.Drawing.Point(107, 494);
             this.Tlable3_6.Name = "Tlable3_6";
-            this.Tlable3_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_6.Size = new System.Drawing.Size(43, 23);
             this.Tlable3_6.TabIndex = 98;
-            this.Tlable3_6.Text = "***";
+            this.Tlable3_6.Text = "000";
             // 
             // label121
             // 
@@ -3004,12 +3004,12 @@
             // Tlable3_1
             // 
             this.Tlable3_1.AutoSize = true;
-            this.Tlable3_1.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable3_1.Location = new System.Drawing.Point(108, 209);
             this.Tlable3_1.Name = "Tlable3_1";
-            this.Tlable3_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_1.Size = new System.Drawing.Size(43, 23);
             this.Tlable3_1.TabIndex = 91;
-            this.Tlable3_1.Text = "***";
+            this.Tlable3_1.Text = "000";
             // 
             // label120
             // 
@@ -3024,12 +3024,12 @@
             // Tlable3_2
             // 
             this.Tlable3_2.AutoSize = true;
-            this.Tlable3_2.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable3_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable3_2.Location = new System.Drawing.Point(107, 251);
             this.Tlable3_2.Name = "Tlable3_2";
-            this.Tlable3_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable3_2.Size = new System.Drawing.Size(43, 23);
             this.Tlable3_2.TabIndex = 92;
-            this.Tlable3_2.Text = "***";
+            this.Tlable3_2.Text = "000";
             // 
             // label119
             // 
@@ -3044,12 +3044,12 @@
             // k3_s
             // 
             this.k3_s.AutoSize = true;
-            this.k3_s.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k3_s.Location = new System.Drawing.Point(260, 65);
+            this.k3_s.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.k3_s.Location = new System.Drawing.Point(210, 64);
             this.k3_s.Name = "k3_s";
-            this.k3_s.Size = new System.Drawing.Size(48, 26);
+            this.k3_s.Size = new System.Drawing.Size(43, 23);
             this.k3_s.TabIndex = 100;
-            this.k3_s.Text = "***";
+            this.k3_s.Text = "000";
             // 
             // label117
             // 
@@ -3064,12 +3064,12 @@
             // TCRtest3
             // 
             this.TCRtest3.AutoSize = true;
-            this.TCRtest3.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.TCRtest3.Location = new System.Drawing.Point(260, 92);
+            this.TCRtest3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCRtest3.Location = new System.Drawing.Point(210, 91);
             this.TCRtest3.Name = "TCRtest3";
-            this.TCRtest3.Size = new System.Drawing.Size(48, 26);
+            this.TCRtest3.Size = new System.Drawing.Size(43, 23);
             this.TCRtest3.TabIndex = 102;
-            this.TCRtest3.Text = "***";
+            this.TCRtest3.Text = "000";
             // 
             // label116
             // 
@@ -3717,126 +3717,126 @@
             // label143
             // 
             this.label143.AutoSize = true;
-            this.label143.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label143.Location = new System.Drawing.Point(6, 18);
+            this.label143.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label143.Location = new System.Drawing.Point(3, 15);
             this.label143.Name = "label143";
-            this.label143.Size = new System.Drawing.Size(120, 23);
+            this.label143.Size = new System.Drawing.Size(94, 21);
             this.label143.TabIndex = 121;
-            this.label143.Text = "测试结果：";
+            this.label143.Text = "测试结果";
             // 
             // label147
             // 
             this.label147.AutoSize = true;
-            this.label147.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label147.Location = new System.Drawing.Point(55, 65);
+            this.label147.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label147.Location = new System.Drawing.Point(3, 65);
             this.label147.Name = "label147";
-            this.label147.Size = new System.Drawing.Size(208, 23);
+            this.label147.Size = new System.Drawing.Size(210, 21);
             this.label147.TabIndex = 138;
-            this.label147.Text = "热界面材料接触热阻";
+            this.label147.Text = "热界面材料接触热阻:";
             // 
             // Tlable4_3
             // 
             this.Tlable4_3.AutoSize = true;
-            this.Tlable4_3.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_3.Location = new System.Drawing.Point(112, 244);
+            this.Tlable4_3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable4_3.Location = new System.Drawing.Point(112, 250);
             this.Tlable4_3.Name = "Tlable4_3";
-            this.Tlable4_3.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_3.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_3.TabIndex = 102;
-            this.Tlable4_3.Text = "***";
+            this.Tlable4_3.Text = "000";
             // 
             // label146
             // 
             this.label146.AutoSize = true;
-            this.label146.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label146.Location = new System.Drawing.Point(55, 41);
+            this.label146.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label146.Location = new System.Drawing.Point(3, 41);
             this.label146.Name = "label146";
-            this.label146.Size = new System.Drawing.Size(208, 23);
+            this.label146.Size = new System.Drawing.Size(210, 21);
             this.label146.TabIndex = 137;
-            this.label146.Text = "热界面材料导热系数";
+            this.label146.Text = "热界面材料导热系数:";
             // 
             // Tlable4_5
             // 
             this.Tlable4_5.AutoSize = true;
-            this.Tlable4_5.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable4_5.ForeColor = System.Drawing.Color.Red;
             this.Tlable4_5.Location = new System.Drawing.Point(112, 276);
             this.Tlable4_5.Name = "Tlable4_5";
-            this.Tlable4_5.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_5.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_5.TabIndex = 104;
-            this.Tlable4_5.Text = "***";
+            this.Tlable4_5.Text = "000";
             // 
             // label145
             // 
             this.label145.AutoSize = true;
-            this.label145.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label145.Location = new System.Drawing.Point(110, 111);
+            this.label145.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label145.Location = new System.Drawing.Point(55, 111);
             this.label145.Name = "label145";
-            this.label145.Size = new System.Drawing.Size(153, 23);
+            this.label145.Size = new System.Drawing.Size(158, 21);
             this.label145.TabIndex = 136;
-            this.label145.Text = "试件2导热系数";
+            this.label145.Text = "试件2导热系数:";
             // 
             // Tlable4_6
             // 
             this.Tlable4_6.AutoSize = true;
-            this.Tlable4_6.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable4_6.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_6.Location = new System.Drawing.Point(112, 322);
+            this.Tlable4_6.Location = new System.Drawing.Point(112, 326);
             this.Tlable4_6.Name = "Tlable4_6";
-            this.Tlable4_6.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_6.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_6.TabIndex = 105;
-            this.Tlable4_6.Text = "***";
+            this.Tlable4_6.Text = "000";
             // 
             // label144
             // 
             this.label144.AutoSize = true;
-            this.label144.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label144.Location = new System.Drawing.Point(110, 88);
+            this.label144.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label144.Location = new System.Drawing.Point(55, 88);
             this.label144.Name = "label144";
-            this.label144.Size = new System.Drawing.Size(153, 23);
+            this.label144.Size = new System.Drawing.Size(158, 21);
             this.label144.TabIndex = 135;
-            this.label144.Text = "试件1导热系数";
+            this.label144.Text = "试件1导热系数:";
             // 
             // Tlable4_7
             // 
             this.Tlable4_7.AutoSize = true;
-            this.Tlable4_7.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable4_7.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_7.Location = new System.Drawing.Point(112, 359);
+            this.Tlable4_7.Location = new System.Drawing.Point(112, 361);
             this.Tlable4_7.Name = "Tlable4_7";
-            this.Tlable4_7.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_7.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_7.TabIndex = 106;
-            this.Tlable4_7.Text = "***";
+            this.Tlable4_7.Text = "000";
             // 
             // Tlable4_8
             // 
             this.Tlable4_8.AutoSize = true;
-            this.Tlable4_8.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable4_8.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_8.Location = new System.Drawing.Point(112, 454);
+            this.Tlable4_8.Location = new System.Drawing.Point(112, 462);
             this.Tlable4_8.Name = "Tlable4_8";
-            this.Tlable4_8.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_8.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_8.TabIndex = 107;
-            this.Tlable4_8.Text = "***";
+            this.Tlable4_8.Text = "000";
             // 
             // label142
             // 
             this.label142.AutoSize = true;
-            this.label142.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label142.Location = new System.Drawing.Point(2, 130);
+            this.label142.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Location = new System.Drawing.Point(6, 140);
             this.label142.Name = "label142";
-            this.label142.Size = new System.Drawing.Size(90, 21);
+            this.label142.Size = new System.Drawing.Size(85, 19);
             this.label142.TabIndex = 121;
             this.label142.Text = "对应温度";
             // 
             // Tlable4_11
             // 
             this.Tlable4_11.AutoSize = true;
-            this.Tlable4_11.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_11.Location = new System.Drawing.Point(112, 565);
+            this.Tlable4_11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable4_11.Location = new System.Drawing.Point(112, 568);
             this.Tlable4_11.Name = "Tlable4_11";
-            this.Tlable4_11.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_11.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_11.TabIndex = 108;
-            this.Tlable4_11.Text = "***";
+            this.Tlable4_11.Text = "000";
             // 
             // label141
             // 
@@ -3851,13 +3851,13 @@
             // Tlable4_10
             // 
             this.Tlable4_10.AutoSize = true;
-            this.Tlable4_10.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_10.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable4_10.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_10.Location = new System.Drawing.Point(112, 534);
+            this.Tlable4_10.Location = new System.Drawing.Point(112, 535);
             this.Tlable4_10.Name = "Tlable4_10";
-            this.Tlable4_10.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_10.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_10.TabIndex = 109;
-            this.Tlable4_10.Text = "***";
+            this.Tlable4_10.Text = "000";
             // 
             // label140
             // 
@@ -3872,13 +3872,13 @@
             // Tlable4_9
             // 
             this.Tlable4_9.AutoSize = true;
-            this.Tlable4_9.Font = new System.Drawing.Font("Times New Roman", 17F);
+            this.Tlable4_9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tlable4_9.ForeColor = System.Drawing.Color.Red;
-            this.Tlable4_9.Location = new System.Drawing.Point(112, 488);
+            this.Tlable4_9.Location = new System.Drawing.Point(112, 496);
             this.Tlable4_9.Name = "Tlable4_9";
-            this.Tlable4_9.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_9.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_9.TabIndex = 110;
-            this.Tlable4_9.Text = "***";
+            this.Tlable4_9.Text = "000";
             // 
             // label139
             // 
@@ -3893,12 +3893,12 @@
             // k4_s2
             // 
             this.k4_s2.AutoSize = true;
-            this.k4_s2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k4_s2.Location = new System.Drawing.Point(261, 111);
+            this.k4_s2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.k4_s2.Location = new System.Drawing.Point(208, 111);
             this.k4_s2.Name = "k4_s2";
-            this.k4_s2.Size = new System.Drawing.Size(48, 26);
+            this.k4_s2.Size = new System.Drawing.Size(43, 23);
             this.k4_s2.TabIndex = 115;
-            this.k4_s2.Text = "***";
+            this.k4_s2.Text = "000";
             // 
             // label138
             // 
@@ -3913,12 +3913,12 @@
             // Tlable4_1
             // 
             this.Tlable4_1.AutoSize = true;
-            this.Tlable4_1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_1.Location = new System.Drawing.Point(112, 154);
+            this.Tlable4_1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable4_1.Location = new System.Drawing.Point(112, 157);
             this.Tlable4_1.Name = "Tlable4_1";
-            this.Tlable4_1.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_1.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_1.TabIndex = 100;
-            this.Tlable4_1.Text = "***";
+            this.Tlable4_1.Text = "000";
             // 
             // label137
             // 
@@ -3934,12 +3934,12 @@
             // Tlable4_2
             // 
             this.Tlable4_2.AutoSize = true;
-            this.Tlable4_2.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_2.Location = new System.Drawing.Point(112, 191);
+            this.Tlable4_2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable4_2.Location = new System.Drawing.Point(112, 195);
             this.Tlable4_2.Name = "Tlable4_2";
-            this.Tlable4_2.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_2.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_2.TabIndex = 101;
-            this.Tlable4_2.Text = "***";
+            this.Tlable4_2.Text = "000";
             // 
             // label136
             // 
@@ -3955,12 +3955,12 @@
             // Tlable4_12
             // 
             this.Tlable4_12.AutoSize = true;
-            this.Tlable4_12.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_12.Location = new System.Drawing.Point(112, 594);
+            this.Tlable4_12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable4_12.Location = new System.Drawing.Point(112, 602);
             this.Tlable4_12.Name = "Tlable4_12";
-            this.Tlable4_12.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_12.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_12.TabIndex = 111;
-            this.Tlable4_12.Text = "***";
+            this.Tlable4_12.Text = "000";
             // 
             // label135
             // 
@@ -3976,12 +3976,12 @@
             // Tlable4_13
             // 
             this.Tlable4_13.AutoSize = true;
-            this.Tlable4_13.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_13.Location = new System.Drawing.Point(112, 627);
+            this.Tlable4_13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable4_13.Location = new System.Drawing.Point(112, 634);
             this.Tlable4_13.Name = "Tlable4_13";
-            this.Tlable4_13.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_13.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_13.TabIndex = 112;
-            this.Tlable4_13.Text = "***";
+            this.Tlable4_13.Text = "000";
             // 
             // label134
             // 
@@ -3997,12 +3997,12 @@
             // k4_s1
             // 
             this.k4_s1.AutoSize = true;
-            this.k4_s1.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k4_s1.Location = new System.Drawing.Point(261, 88);
+            this.k4_s1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.k4_s1.Location = new System.Drawing.Point(208, 88);
             this.k4_s1.Name = "k4_s1";
-            this.k4_s1.Size = new System.Drawing.Size(48, 26);
+            this.k4_s1.Size = new System.Drawing.Size(43, 23);
             this.k4_s1.TabIndex = 117;
-            this.k4_s1.Text = "***";
+            this.k4_s1.Text = "000";
             // 
             // label133
             // 
@@ -4018,12 +4018,12 @@
             // Tlable4_14
             // 
             this.Tlable4_14.AutoSize = true;
-            this.Tlable4_14.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.Tlable4_14.Location = new System.Drawing.Point(112, 655);
+            this.Tlable4_14.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tlable4_14.Location = new System.Drawing.Point(112, 663);
             this.Tlable4_14.Name = "Tlable4_14";
-            this.Tlable4_14.Size = new System.Drawing.Size(48, 26);
+            this.Tlable4_14.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_14.TabIndex = 113;
-            this.Tlable4_14.Text = "***";
+            this.Tlable4_14.Text = "000";
             // 
             // label132
             // 
@@ -4039,12 +4039,12 @@
             // k4_f
             // 
             this.k4_f.AutoSize = true;
-            this.k4_f.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.k4_f.Location = new System.Drawing.Point(261, 39);
+            this.k4_f.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.k4_f.Location = new System.Drawing.Point(208, 39);
             this.k4_f.Name = "k4_f";
-            this.k4_f.Size = new System.Drawing.Size(48, 26);
+            this.k4_f.Size = new System.Drawing.Size(43, 23);
             this.k4_f.TabIndex = 119;
-            this.k4_f.Text = "***";
+            this.k4_f.Text = "000";
             // 
             // label130
             // 
@@ -4059,12 +4059,12 @@
             // TCRtest4
             // 
             this.TCRtest4.AutoSize = true;
-            this.TCRtest4.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.TCRtest4.Location = new System.Drawing.Point(261, 62);
+            this.TCRtest4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TCRtest4.Location = new System.Drawing.Point(208, 62);
             this.TCRtest4.Name = "TCRtest4";
-            this.TCRtest4.Size = new System.Drawing.Size(48, 26);
+            this.TCRtest4.Size = new System.Drawing.Size(43, 23);
             this.TCRtest4.TabIndex = 121;
-            this.TCRtest4.Text = "***";
+            this.TCRtest4.Text = "000";
             // 
             // label129
             // 
@@ -4932,24 +4932,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5810,143 +5810,143 @@
             this.chart1.BackColor = System.Drawing.SystemColors.Control;
             this.chart1.BorderlineColor = System.Drawing.SystemColors.Control;
             this.chart1.BorderlineWidth = 0;
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.AxisX.InterlacedColor = System.Drawing.Color.White;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisX.LabelStyle.Interval = 2D;
-            chartArea1.AxisX.LabelStyle.IntervalOffset = 0D;
-            chartArea1.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.Interval = 0D;
-            chartArea1.AxisX.MajorGrid.IntervalOffset = 0D;
-            chartArea1.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisX.MajorTickMark.Interval = 0D;
-            chartArea1.AxisX.MajorTickMark.IntervalOffset = 0D;
-            chartArea1.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea1.AxisX.MaximumAutoSize = 100F;
-            chartArea1.AxisX.ScaleBreakStyle.Enabled = true;
-            chartArea1.AxisX.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea1.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
-            chartArea1.AxisX.Title = "Real time";
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.MajorGrid.Interval = 0D;
-            chartArea1.AxisY.MajorGrid.IntervalOffset = 0D;
-            chartArea1.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisY.MajorTickMark.Interval = 0D;
-            chartArea1.AxisY.MajorTickMark.IntervalOffset = 0D;
-            chartArea1.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea1.AxisY.Title = "Temperature(°C)";
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.BackColor = System.Drawing.SystemColors.Control;
-            legend1.BorderColor = System.Drawing.SystemColors.Control;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend1.Enabled = false;
-            legend1.InterlacedRowsColor = System.Drawing.Color.White;
-            legend1.Name = "Legend1";
-            legend1.TitleBackColor = System.Drawing.SystemColors.Control;
-            this.chart1.Legends.Add(legend1);
+            chartArea3.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea3.AxisX.InterlacedColor = System.Drawing.Color.White;
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisX.LabelStyle.Interval = 2D;
+            chartArea3.AxisX.LabelStyle.IntervalOffset = 0D;
+            chartArea3.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisX.MajorGrid.Interval = 0D;
+            chartArea3.AxisX.MajorGrid.IntervalOffset = 0D;
+            chartArea3.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisX.MajorTickMark.Interval = 0D;
+            chartArea3.AxisX.MajorTickMark.IntervalOffset = 0D;
+            chartArea3.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea3.AxisX.MaximumAutoSize = 100F;
+            chartArea3.AxisX.ScaleBreakStyle.Enabled = true;
+            chartArea3.AxisX.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea3.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea3.AxisX.Title = "Real time";
+            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisY.IsLabelAutoFit = false;
+            chartArea3.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisY.MajorGrid.Interval = 0D;
+            chartArea3.AxisY.MajorGrid.IntervalOffset = 0D;
+            chartArea3.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisY.MajorTickMark.Interval = 0D;
+            chartArea3.AxisY.MajorTickMark.IntervalOffset = 0D;
+            chartArea3.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea3.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea3.AxisY.Title = "Temperature(°C)";
+            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Alignment = System.Drawing.StringAlignment.Center;
+            legend3.BackColor = System.Drawing.SystemColors.Control;
+            legend3.BorderColor = System.Drawing.SystemColors.Control;
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend3.Enabled = false;
+            legend3.InterlacedRowsColor = System.Drawing.Color.White;
+            legend3.Name = "Legend1";
+            legend3.TitleBackColor = System.Drawing.SystemColors.Control;
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(-39, 79);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.Red;
-            series1.IsVisibleInLegend = false;
-            series1.Legend = "Legend1";
-            series1.Name = "Series0";
-            series1.YValuesPerPoint = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.SystemColors.Highlight;
-            series2.IsVisibleInLegend = false;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.IsVisibleInLegend = false;
-            series3.Legend = "Legend1";
-            series3.Name = "Series2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.IsVisibleInLegend = false;
-            series4.Legend = "Legend1";
-            series4.Name = "Series3";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.IsVisibleInLegend = false;
-            series5.Legend = "Legend1";
-            series5.Name = "Series4";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.IsVisibleInLegend = false;
-            series6.Legend = "Legend1";
-            series6.Name = "Series5";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.IsVisibleInLegend = false;
-            series7.Legend = "Legend1";
-            series7.Name = "Series6";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.IsVisibleInLegend = false;
-            series8.Legend = "Legend1";
-            series8.Name = "Series7";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.IsVisibleInLegend = false;
-            series9.Legend = "Legend1";
-            series9.Name = "Series8";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.IsVisibleInLegend = false;
-            series10.Legend = "Legend1";
-            series10.Name = "Series9";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.IsVisibleInLegend = false;
-            series11.Legend = "Legend1";
-            series11.Name = "Series10";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.IsVisibleInLegend = false;
-            series12.Legend = "Legend1";
-            series12.Name = "Series11";
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.IsVisibleInLegend = false;
-            series13.Legend = "Legend1";
-            series13.Name = "Series12";
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series14.IsVisibleInLegend = false;
-            series14.Legend = "Legend1";
-            series14.Name = "Series13";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
-            this.chart1.Series.Add(series13);
-            this.chart1.Series.Add(series14);
+            series29.ChartArea = "ChartArea1";
+            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series29.Color = System.Drawing.Color.Red;
+            series29.IsVisibleInLegend = false;
+            series29.Legend = "Legend1";
+            series29.Name = "Series0";
+            series29.YValuesPerPoint = 2;
+            series30.ChartArea = "ChartArea1";
+            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series30.Color = System.Drawing.SystemColors.Highlight;
+            series30.IsVisibleInLegend = false;
+            series30.Legend = "Legend1";
+            series30.Name = "Series1";
+            series31.ChartArea = "ChartArea1";
+            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series31.IsVisibleInLegend = false;
+            series31.Legend = "Legend1";
+            series31.Name = "Series2";
+            series32.ChartArea = "ChartArea1";
+            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series32.IsVisibleInLegend = false;
+            series32.Legend = "Legend1";
+            series32.Name = "Series3";
+            series33.ChartArea = "ChartArea1";
+            series33.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series33.IsVisibleInLegend = false;
+            series33.Legend = "Legend1";
+            series33.Name = "Series4";
+            series34.ChartArea = "ChartArea1";
+            series34.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series34.IsVisibleInLegend = false;
+            series34.Legend = "Legend1";
+            series34.Name = "Series5";
+            series35.ChartArea = "ChartArea1";
+            series35.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series35.IsVisibleInLegend = false;
+            series35.Legend = "Legend1";
+            series35.Name = "Series6";
+            series36.ChartArea = "ChartArea1";
+            series36.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series36.IsVisibleInLegend = false;
+            series36.Legend = "Legend1";
+            series36.Name = "Series7";
+            series37.ChartArea = "ChartArea1";
+            series37.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series37.IsVisibleInLegend = false;
+            series37.Legend = "Legend1";
+            series37.Name = "Series8";
+            series38.ChartArea = "ChartArea1";
+            series38.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series38.IsVisibleInLegend = false;
+            series38.Legend = "Legend1";
+            series38.Name = "Series9";
+            series39.ChartArea = "ChartArea1";
+            series39.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series39.IsVisibleInLegend = false;
+            series39.Legend = "Legend1";
+            series39.Name = "Series10";
+            series40.ChartArea = "ChartArea1";
+            series40.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series40.IsVisibleInLegend = false;
+            series40.Legend = "Legend1";
+            series40.Name = "Series11";
+            series41.ChartArea = "ChartArea1";
+            series41.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series41.IsVisibleInLegend = false;
+            series41.Legend = "Legend1";
+            series41.Name = "Series12";
+            series42.ChartArea = "ChartArea1";
+            series42.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series42.IsVisibleInLegend = false;
+            series42.Legend = "Legend1";
+            series42.Name = "Series13";
+            this.chart1.Series.Add(series29);
+            this.chart1.Series.Add(series30);
+            this.chart1.Series.Add(series31);
+            this.chart1.Series.Add(series32);
+            this.chart1.Series.Add(series33);
+            this.chart1.Series.Add(series34);
+            this.chart1.Series.Add(series35);
+            this.chart1.Series.Add(series36);
+            this.chart1.Series.Add(series37);
+            this.chart1.Series.Add(series38);
+            this.chart1.Series.Add(series39);
+            this.chart1.Series.Add(series40);
+            this.chart1.Series.Add(series41);
+            this.chart1.Series.Add(series42);
             this.chart1.Size = new System.Drawing.Size(1336, 792);
             this.chart1.TabIndex = 104;
             this.chart1.Text = "chart1";

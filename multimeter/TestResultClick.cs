@@ -142,7 +142,7 @@ namespace multimeter {
                     var itmKappa = thickness / itc;
                     ShowItms(heatMeter1, heatMeter2, sample1, sample2, itc, itmKappa);
                     TextResultGroupbox4.Visible = true;
-                }
+                }         
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -197,7 +197,7 @@ namespace multimeter {
             Tlable1_9.Text = $@"Tl2 = {heatMeter2.Temp[1]:G4} ℃";
             Tlable1_10.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
             Tlable1_11.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
-            k1_s.Text = $@"Ks = {sample1.Kappa}W/mK";
+            k1_s.Text = $@"{sample1.Kappa}W/mK";
         }
 
         private void ShowItc(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, double itc) {
@@ -215,9 +215,9 @@ namespace multimeter {
             Tlable2_12.Text = $@"Tl2 = {heatMeter2.Temp[1]:G4} ℃";
             Tlable2_13.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
             Tlable2_14.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
-            K2_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
-            K2_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
-            TCRtest2.Text = $@"Rt = {itc:0.000e+0}K/(W mm²)";
+            K2_s1.Text = $@"{sample1.Kappa}W/mK";
+            K2_s2.Text = $@"{sample2.Kappa}W/mK";
+            TCRtest2.Text = $@"{itc:0.000e+0}K/(W mm²)";
         }
 
         private void ShowItm(HeatMeter heatMeter1, HeatMeter heatMeter2, double itc, double itmKappa) {
@@ -229,8 +229,8 @@ namespace multimeter {
             Tlable3_6.Text = $@"Tl2 = {heatMeter2.Temp[1]:G4} ℃";
             Tlable3_7.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
             Tlable3_8.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
-            k3_s.Text = $@"Ks={itmKappa:0.000e+0}W/mK";
-            TCRtest3.Text = $@"Rt = {itc:0.000e+0}K/(Wmm²)";
+            k3_s.Text = $@"{itmKappa:0.000e+0}W/mK";
+            TCRtest3.Text = $@"{itc:0.000e+0}K/(Wmm²)";
         }
 
         private void ShowItms(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, double itc,
