@@ -180,73 +180,73 @@ namespace multimeter {
 
         //-----------------
         private void ShowKappa(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1) {
-            Tlable1_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
-            Tlable1_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
-            Tlable1_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
+            Tlable1_1.Text = $@"Tu1 = {heatMeter1.Temp[0]:G4} ℃";
+            Tlable1_2.Text = $@"Tu2 = {heatMeter1.Temp[1]:G4} ℃";
+            Tlable1_3.Text = $@"Tu3 = {heatMeter1.Temp[2]:G4} ℃";
             //Tlable1_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable1_5.Text = $@"Ts1 = {sample1.Temp[0]} ℃";
-            Tlable1_6.Text = $@"Ts2 = {sample1.Temp[1]} ℃";
-            Tlable1_7.Text = $@"Ts3 = {sample1.Temp[2]} ℃";
-            Tlable1_8.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
-            Tlable1_9.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
-            Tlable1_10.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
-            Tlable1_11.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            Tlable1_5.Text = $@"Ts1 = {sample1.Temp[0]:G4} ℃";
+            Tlable1_6.Text = $@"Ts2 = {sample1.Temp[1]:G4} ℃";
+            Tlable1_7.Text = $@"Ts3 = {sample1.Temp[2]:G4} ℃";
+            Tlable1_8.Text = $@"Tl1 = {heatMeter2.Temp[0]:G4} ℃";
+            Tlable1_9.Text = $@"Tl2 = {heatMeter2.Temp[1]:G4} ℃";
+            Tlable1_10.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
+            Tlable1_11.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
             k1_s.Text = $@"Ks = {sample1.Kappa}W/mK";
         }
 
         private void ShowItc(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, double itc) {
-            Tlable2_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
-            Tlable2_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
-            Tlable2_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
+            Tlable2_1.Text = $@"Tu1 = {heatMeter1.Temp[0]:G4} ℃";
+            Tlable2_2.Text = $@"Tu2 = {heatMeter1.Temp[1]:G4} ℃";
+            Tlable2_3.Text = $@"Tu3 = {heatMeter1.Temp[2]:G4} ℃";
             //Tlable2_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable2_5.Text = $@"Tsu1 = {sample1.Temp[0]} ℃";
-            Tlable2_6.Text = $@"Tsu2 = {sample1.Temp[1]} ℃";
-            Tlable2_7.Text = $@"Tsu3 = {sample1.Temp[2]} ℃";
-            Tlable2_8.Text = $@"Tsl1 = {sample2.Temp[0]} ℃";
-            Tlable2_9.Text = $@"Tsl2= {sample2.Temp[1]} ℃";
-            Tlable2_10.Text = $@"Tsl3 = {sample2.Temp[2]} ℃";
-            Tlable2_11.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
-            Tlable2_12.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
-            Tlable2_13.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
-            Tlable2_14.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            Tlable2_5.Text = $@"Tsu1 = {sample1.Temp[0]:G4} ℃";
+            Tlable2_6.Text = $@"Tsu2 = {sample1.Temp[1]:G4} ℃";
+            Tlable2_7.Text = $@"Tsu3 = {sample1.Temp[2]:G4} ℃";
+            Tlable2_8.Text = $@"Tsl1 = {sample2.Temp[0]:G4} ℃";
+            Tlable2_9.Text = $@"Tsl2= {sample2.Temp[1]:G4} ℃";
+            Tlable2_10.Text = $@"Tsl3 = {sample2.Temp[2]:G4} ℃";
+            Tlable2_11.Text = $@"Tl1 = {heatMeter2.Temp[0]:G4} ℃";
+            Tlable2_12.Text = $@"Tl2 = {heatMeter2.Temp[1]:G4} ℃";
+            Tlable2_13.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
+            Tlable2_14.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
             K2_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
             K2_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
-            TCRtest2.Text = $@"Rt = {itc}K/(W mm²)";
+            TCRtest2.Text = $@"Rt = {itc:0.000e+0}K/(W mm²)";
         }
 
         private void ShowItm(HeatMeter heatMeter1, HeatMeter heatMeter2, double itc, double itmKappa) {
-            Tlable3_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
-            Tlable3_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
-            Tlable3_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
+            Tlable3_1.Text = $@"Tu1 = {heatMeter1.Temp[0]:G4} ℃";
+            Tlable3_2.Text = $@"Tu2 = {heatMeter1.Temp[1]:G4} ℃";
+            Tlable3_3.Text = $@"Tu3 = {heatMeter1.Temp[2]:G4} ℃";
             //Tlable3_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable3_5.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
-            Tlable3_6.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
-            Tlable3_7.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
-            Tlable3_8.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
-            k3_s.Text = $@"Ks={itmKappa}K/(W mm²)";
-            TCRtest3.Text = $@"Rt = {itc}K/(W mm²)";
+            Tlable3_5.Text = $@"Tl1 = {heatMeter2.Temp[0]:G4} ℃";
+            Tlable3_6.Text = $@"Tl2 = {heatMeter2.Temp[1]:G4} ℃";
+            Tlable3_7.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
+            Tlable3_8.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
+            k3_s.Text = $@"Ks={itmKappa:0.000e+0}W/mK";
+            TCRtest3.Text = $@"Rt = {itc:0.000e+0}K/(Wmm²)";
         }
 
         private void ShowItms(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, double itc,
             double itmKappa) {
-            Tlable4_1.Text = $@"Tu1 = {heatMeter1.Temp[0]} ℃";
-            Tlable4_2.Text = $@"Tu2 = {heatMeter1.Temp[1]} ℃";
-            Tlable4_3.Text = $@"Tu3 = {heatMeter1.Temp[2]} ℃";
+            Tlable4_1.Text = $@"Tu1 = {heatMeter1.Temp[0]:G4} ℃";
+            Tlable4_2.Text = $@"Tu2 = {heatMeter1.Temp[1]:G4} ℃";
+            Tlable4_3.Text = $@"Tu3 = {heatMeter1.Temp[2]:G4} ℃";
             //Tlable4_4.Text = $@"Tu4 = {_heatMeter1.Temp[3]} ℃";
-            Tlable4_5.Text = $@"Tsu1 = {sample1.Temp[0]} ℃";
-            Tlable4_6.Text = $@"Tsu2 = {sample1.Temp[1]} ℃";
-            Tlable4_7.Text = $@"Tsu3 = {sample1.Temp[2]} ℃";
-            Tlable4_8.Text = $@"Tsl1 = {sample2.Temp[0]} ℃";
-            Tlable4_9.Text = $@"Tsl2= {sample2.Temp[1]} ℃";
-            Tlable4_10.Text = $@"Tsl3 = {sample2.Temp[2]} ℃";
-            Tlable4_11.Text = $@"Tl1 = {heatMeter2.Temp[0]} ℃";
-            Tlable4_12.Text = $@"Tl2 = {heatMeter2.Temp[1]} ℃";
-            Tlable4_13.Text = $@"Tl3 = {heatMeter2.Temp[2]} ℃";
-            Tlable4_14.Text = $@"Tl4 = {heatMeter2.Temp[3]} ℃";
+            Tlable4_5.Text = $@"Tsu1 = {sample1.Temp[0]:G4} ℃";
+            Tlable4_6.Text = $@"Tsu2 = {sample1.Temp[1]:G4} ℃";
+            Tlable4_7.Text = $@"Tsu3 = {sample1.Temp[2]:G4} ℃";
+            Tlable4_8.Text = $@"Tsl1 = {sample2.Temp[0]:G4} ℃";
+            Tlable4_9.Text = $@"Tsl2= {sample2.Temp[1]:G4} ℃";
+            Tlable4_10.Text = $@"Tsl3 = {sample2.Temp[2]:G4} ℃";
+            Tlable4_11.Text = $@"Tl1 = {heatMeter2.Temp[0]:G4} ℃";
+            Tlable4_12.Text = $@"Tl2 = {heatMeter2.Temp[1]:G4} ℃";
+            Tlable4_13.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
+            Tlable4_14.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
             k4_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
             k4_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
-            k4_f.Text = $@"Ks = {itmKappa}K/(W mm²)";
-            TCRtest4.Text = $@"Rt = {itc}K/(W mm²)";
+            k4_f.Text = $@"Ks = { itmKappa:0.000e+0}W/mK";
+            TCRtest4.Text = $@"Rt = {itc:0.000e+0}K/(Wmm²)";
         }
 
         //-----------------
