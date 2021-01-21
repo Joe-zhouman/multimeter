@@ -227,7 +227,8 @@ namespace multimeter {
             AppCfg.devicepara.Card2_enable = int.Parse(INIHelper.Read("Card2", "enable", "", filePath));
             AppCfg.devicepara.Scan_interval = int.Parse(INIHelper.Read("SYS", "scan_interval", "2000", filePath));
             AppCfg.devicepara.Save_interval = int.Parse(INIHelper.Read("SYS", "save_interval", "50", filePath));
-
+            AppCfg.devicepara.AutoCloseInterval = int.Parse(INIHelper.Read("SYS", "autoSaveInterval", "1500", filePath));
+            AppCfg.devicepara.ConvergentLim = double.Parse(INIHelper.Read("SYS", "convergentLim", "1e-3", filePath));
             #endregion
         }
 

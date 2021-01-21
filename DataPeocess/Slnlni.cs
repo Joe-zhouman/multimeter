@@ -25,7 +25,8 @@ namespace DataProcessor {
             INIHelper.Write("Card2", "enable", "0", filePath);
             INIHelper.Write("SYS", "save_interval", "50", filePath);
             INIHelper.Write("SYS", "scan_interval", "2000", filePath);
-
+            INIHelper.Write("SYS", "autoSaveInterval", "1500", filePath);
+            INIHelper.Write("SYS", "convergentLim", "1e-3", filePath);
             for (int i = 101; i < 123; i++) //每个7700卡22个通道
             {
                 string t = i.ToString();

@@ -145,10 +145,14 @@ namespace multimeter
 
         public int Scan_interval { get; set; }
 
+        /// <summary>
+        /// 收敛后自动关闭间隔(Unit : s)
+        /// </summary>
+
+        public int AutoCloseInterval { get; set; }
 
 
-
-
+        public double ConvergentLim { get; set; }
 
         public ParaInfo()
         {
@@ -163,6 +167,8 @@ namespace multimeter
             Card2_enable = 0;
             Save_interval = 50;
             Scan_interval = 2000;
+            AutoCloseInterval = 1800;
+            ConvergentLim = 1e-3;
 
             Cardlist1 = new List<Card>();
 

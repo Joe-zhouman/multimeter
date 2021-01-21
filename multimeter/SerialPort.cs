@@ -172,6 +172,7 @@ namespace multimeter {
                 return;
             IsConvergent();
             _lastTemp = _temp;
+            if(!_convergent) return;
             string fileName = name + "-" + count + ".rst";
             _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
             //MessageBox.Show(filePath);
@@ -210,21 +211,19 @@ namespace multimeter {
             var lastTempArray = Solution.AveTemp(_lastTemp.ToArray(), TotalNum);
             var currentTempArray = Solution.AveTemp(_temp.ToArray(), TotalNum);
             for (int i = 0; i < TotalNum; i++) {
-                if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > 1e-3) {
+                if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > AppCfg.devicepara.ConvergentLim) {
                     _convergent = false;
                     return;
                 }
             }
             _convergent = true;
 
-            if (!ConvergentHolding_Timer.Enabled) {
-                _countDownNum = 1800;//维持*s
-                ConvergentHolding_Timer.Enabled = true;
-                string CountDown = SecToTimeSpan(_countDownNum);
-                MessageBox.Show($@"所有通道数据已经稳定
-自动停止测试倒计时长{CountDown}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-           
+            if (ConvergentHolding_Timer.Enabled) return;
+            ConvergentHolding_Timer.Enabled = true;
+            string countDown = SecToTimeSpan(AppCfg.devicepara.AutoCloseInterval);
+            MessageBox.Show($@"所有通道数据已经稳定
+自动停止测试倒计时长{countDown}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
     }
