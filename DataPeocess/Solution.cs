@@ -4,26 +4,20 @@
 
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace DataProcessor {
     public static class Solution {
-        public static Exception ReadData(ref Dictionary<string, double>testResult,string[] channelList, string filePath) {
-            int dataPoints = int.Parse(INIHelper.Read("Data", "save_interval", "0", filePath));
+        public static Exception ReadData(ref Dictionary<string, double> testResult, string[] channelList,
+            string filePath) {
+            var dataPoints = int.Parse(INIHelper.Read("Data", "save_interval", "0", filePath));
             try {
-                string[] temp = new string[dataPoints];
-                for (int i = 0; i < dataPoints; i++) {
-                    temp[i] = INIHelper.Read("Data", i.ToString(), "", filePath);
-                }
+                var temp = new string[dataPoints];
+                for (var i = 0; i < dataPoints; i++) temp[i] = INIHelper.Read("Data", i.ToString(), "", filePath);
 
-                double[] aveTemp = AveTemp(temp, channelList.Length);
-                for (int i = 0; i < channelList.Length; i++) {
-                    testResult.Add(channelList[i],Math.Round( aveTemp[i],2));
-                }   
+                var aveTemp = AveTemp(temp, channelList.Length);
+                for (var i = 0; i < channelList.Length; i++) testResult.Add(channelList[i], Math.Round(aveTemp[i], 2));
                 return null;
             }
             catch (Exception e) {
@@ -31,17 +25,13 @@ namespace DataProcessor {
             }
         }
 
-        public static double[] AveTemp(string[] temp,int numChannel) {
-            double[] aveTemp = new double[numChannel];
-            foreach (double[] tempList in temp.Select(t => t.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray())) {
-                for (int j = 0; j < numChannel; j++)
-                {
+        public static double[] AveTemp(string[] temp, int numChannel) {
+            var aveTemp = new double[numChannel];
+            foreach (var tempList in temp.Select(t =>
+                t.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray()))
+                for (var j = 0; j < numChannel; j++)
                     aveTemp[j] += tempList[j + 1];
-                }
-            }
-            for (int i = 0; i < numChannel; i++) {
-                aveTemp[i] /= temp.Length;
-            }
+            for (var i = 0; i < numChannel; i++) aveTemp[i] /= temp.Length;
             return aveTemp;
         }
         ///// <summary>
@@ -105,29 +95,28 @@ namespace DataProcessor {
         /// <param name="b">拟合参数截距,引用类型</param>
         /// <returns>拟合成功,返回true;拟合失败或拟合误差过大,返回false</returns>
         public static bool LinearFit(double[] x, double[] y, ref double k, ref double b) {
-            bool accurate = x.Length == y.Length;
+            if (x.Length != y.Length) return false;
+            if (x.Length < 3) return false;
 
-            if (x.Length < 2) accurate = false;
-            double aveX = x.Average();
-            double aveY = y.Average();
+            var aveX = x.Average();
+            var aveY = y.Average();
 
-            double[] xDotY = x.Select(t => t * t).ToArray();
-            double[] xSquare = x.Select((t, i) => t * y[i]).ToArray();
+            var xSquare = x.Select(t => t * t).ToArray();
+            var xDotY = x.Select((t, i) => t * y[i]).ToArray();
 
-
+            var err = 0.0;
             try {
                 k = (xDotY.Average() - aveX * aveY) / (xSquare.Average() - aveX * aveX);
                 b = aveY - k * aveX;
-                double stdX = GetStd(x, aveX);
-                double stdY = GetStd(y, aveY);
-                double err = x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToArray().Sum() / x.Length / stdX / stdY;
-
-                accurate = err < 0.7;
+                var stdX = GetStd(x, aveX);
+                var stdY = GetStd(y, aveY);
+                err = x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToArray().Sum() / x.Length / stdX / stdY;
             }
             catch (Exception) {
                 // ignored
             }
-            return accurate;
+
+            return err > 0.7;
         } //线性拟合
 
         /// <summary>
@@ -138,14 +127,11 @@ namespace DataProcessor {
         /// <param name="sample1"></param>
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1) {
-            bool accurate = true;
-            double heatFlow = 0.0;
-            double[] k = new double[2];
-            double[] b = new double[2];
-            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
-            double[] samplePosition1 = sample1.Position.Select(double.Parse).ToArray();
-            double[] sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToArray();
-            if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) accurate = false;
+            var heatFlow = 0.0;
+            var k = new double[2];
+            var b = new double[2];
+            var accurate = GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b);
+            if (!LinearFitUpper(sample1, ref k[0], ref b[0])) accurate = false;
             sample1.Kappa =
                 (heatFlow / double.Parse(sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
                     .InvariantCulture);
@@ -163,23 +149,18 @@ namespace DataProcessor {
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1,
             ref Sample sample2, ref double itc) {
-            bool accurate = true;
-            double heatFlow = 0.0;
-            double[] k = new double[2];
-            double[] b = new double[2];
-            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
-            double[] samplePosition1 = sample1.Position.Select(double.Parse).Reverse().ToArray();
-            double[] sampleLength1 = samplePosition1.Select((_, i) => samplePosition1.Take(i + 1).Sum()).ToArray();
-            if (true != LinearFit(sampleLength1, sample1.Temp, ref k[0], ref b[0])) accurate = false;
+            var heatFlow = 0.0;
+            var k = new double[2];
+            var b = new double[2];
+            var accurate = GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b);
+            if (!LinearFitUpper(sample1, ref k[0], ref b[0])) accurate = false;
             sample1.Kappa =
                 (heatFlow / double.Parse(sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
                     .InvariantCulture);
 
-            double[] samplePosition2 = sample2.Position.Select(double.Parse).ToArray();
-            double[] sampleLength2 = samplePosition2.Select((_, i) => samplePosition2.Take(i + 1).Sum()).ToArray();
-            if (true != LinearFit(sampleLength2, sample1.Temp, ref k[1], ref b[1])) accurate = false;
+            if (!LinearFitLower(sample2, ref k[1], ref b[1])) accurate = false;
             sample2.Kappa =
-                (heatFlow / double.Parse(sample1.Area) / k[1]).ToString("0.000e+0",CultureInfo
+                (heatFlow / double.Parse(sample1.Area) / k[1]).ToString("0.000e+0", CultureInfo
                     .InvariantCulture);
             itc = (b[0] - b[1]) / heatFlow * 1000;
             return accurate;
@@ -194,12 +175,11 @@ namespace DataProcessor {
         /// <param name="itc"></param>
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref double itc) {
-            bool accurate = true;
-            double heatFlow = 0.0;
-            double[] k = new double[2];
-            double[] b = new double[2];
-            if (!GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b)) accurate = false;
-            itc =  Math.Round((b[0] - b[1]) / heatFlow * 1000,2);
+            var heatFlow = 0.0;
+            var k = new double[2];
+            var b = new double[2];
+            var accurate = GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b);
+            itc = Math.Round((b[0] - b[1]) / heatFlow * 1000, 2);
             return accurate;
         }
 
@@ -217,25 +197,33 @@ namespace DataProcessor {
         /// <returns></returns>
         private static bool GetHeatFlow(HeatMeter heatMeter1, HeatMeter heatMeter2, ref double heatFlow, ref double[] k,
             ref double[] b) {
-            bool accurate = true;
-            double[] numPosition = heatMeter1.Position.Select(double.Parse).ToArray();
-            double[] p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToArray();
+            var accurate = LinearFitUpper(heatMeter1, ref k[0], ref b[0]);
 
-            if (!LinearFit(p, heatMeter1.Temp, ref k[0], ref b[0])) accurate = false;
-            double heatFlow1 = double.Parse(heatMeter1.Kappa) * Math.PI *
-                               double.Parse(heatMeter1.Area) * k[0];
-            numPosition = heatMeter2.Position.Select(double.Parse).ToArray();
-            p = numPosition.Select((_, i) => numPosition.Take(i + 1).Sum()).ToArray();
-            if (!LinearFit(p, heatMeter2.Temp.ToArray(), ref k[1], ref b[1])) accurate = false;
-            double heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI *
-                               double.Parse(heatMeter1.Area) * k[1];
+            var heatFlow1 = double.Parse(heatMeter1.Kappa) * Math.PI *
+                            double.Parse(heatMeter1.Area) * k[0];
+            if (!LinearFitLower(heatMeter2, ref k[1], ref b[1])) accurate = false;
+            var heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI *
+                            double.Parse(heatMeter1.Area) * k[1];
             if (Math.Abs(1 - heatFlow1 / heatFlow2) > 0.4) accurate = false;
             heatFlow = (heatFlow1 + heatFlow2) / 2;
             return accurate;
         }
 
+        private static bool LinearFitLower(Specimen specimen, ref double k, ref double b) {
+            var numPosition = specimen.Position.Select(i => double.Parse(i) * -1).ToArray();
+            for (var i = 1; i < specimen.TestPoint; i++) numPosition[i] += numPosition[i - 1];
+
+            return LinearFit(numPosition, specimen.Temp.ToArray(), ref k, ref b);
+        }
+
+        private static bool LinearFitUpper(Specimen specimen, ref double k, ref double b) {
+            var numPosition = specimen.Position.Select(double.Parse).ToArray();
+            for (var i = specimen.TestPoint - 2; i >= 0; i--) numPosition[i] += numPosition[i + 1];
+            return LinearFit(numPosition, specimen.Temp, ref k, ref b);
+        }
+
         private static double GetStd(double[] x, double aveX) {
-            double sum = x.Sum(d => d - aveX);
+            var sum = x.Sum(d => Math.Pow(d - aveX, 2));
             return Math.Sqrt(sum / x.Length);
         }
     }

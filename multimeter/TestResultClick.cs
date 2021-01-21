@@ -100,9 +100,10 @@ namespace multimeter {
             sample2?.ReadTemp(testResult);
             switch (method) {
                 case TestMethod.KAPPA: {
-                    if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1)) {
-                        ShowResultErrorInfo(Test1_remark);
-                    }
+                    var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, ref sample1);
+
+                    ShowResultErrorInfo(Test1_remark, resultCorrect);
+
 
                     ShowKappa(heatMeter1, heatMeter2, sample1);
                     TextResultGroupbox1.Visible = true;
@@ -110,9 +111,9 @@ namespace multimeter {
                     break;
                 case TestMethod.ITC: {
                     var itc = 0.0;
-                    if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc)) {
-                        ShowResultErrorInfo(Test2_remark);
-                    }
+                    var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc);
+                    ShowResultErrorInfo(Test2_remark, resultCorrect);
+
 
                     ShowItc(heatMeter1, heatMeter2, sample1, sample2, itc);
                     TextResultGroupbox2.Visible = true;
@@ -121,9 +122,9 @@ namespace multimeter {
                 case TestMethod.ITM: {
                     var itc = 0.0;
                     var thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
-                    if (!Solution.GetResults(heatMeter1, heatMeter2, ref itc)) {
-                        ShowResultErrorInfo(Test3_remark);
-                    }
+                    var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, ref itc);
+                    ShowResultErrorInfo(Test3_remark, resultCorrect);
+
 
                     var itmKappa = thickness / itc;
                     ShowItm(heatMeter1, heatMeter2, itc, itmKappa);
@@ -133,10 +134,10 @@ namespace multimeter {
                 case TestMethod.ITMS: {
                     var itc = 0.0;
                     var thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
-                    if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2,
-                        ref itc)) {
-                        ShowResultErrorInfo(Test4_remark);
-                    }
+                    var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2,
+                        ref itc);
+                    ShowResultErrorInfo(Test4_remark, resultCorrect);
+
 
                     var itmKappa = thickness / itc;
                     ShowItms(heatMeter1, heatMeter2, sample1, sample2, itc, itmKappa);
@@ -161,7 +162,12 @@ namespace multimeter {
                 });*/
         }
 
-        private void ShowResultErrorInfo(Label label) {
+        private static void ShowResultErrorInfo(Label label, bool resultCorrect) {
+            if (resultCorrect) {
+                label.Text = "";
+                return;
+            }
+
             log.Info("计算误差过大");
             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             label.Text = @"警告：计算失败,数据误差过大！！！";
@@ -245,7 +251,7 @@ namespace multimeter {
             Tlable4_14.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
             k4_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
             k4_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
-            k4_f.Text = $@"Ks = { itmKappa:0.000e+0}W/mK";
+            k4_f.Text = $@"Ks = {itmKappa:0.000e+0}W/mK";
             TCRtest4.Text = $@"Rt = {itc:0.000e+0}K/(Wmm²)";
         }
 
