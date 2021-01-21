@@ -110,8 +110,8 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITC: {
-                    var itc = 0.0;
-                    var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, ref itc);
+                    var resultCorrect =
+                        Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2, out var itc);
                     ShowResultErrorInfo(Test2_remark, resultCorrect);
 
 
@@ -120,9 +120,8 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITM: {
-                    var itc = 0.0;
                     var thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
-                    var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, ref itc);
+                    var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, out var itc);
                     ShowResultErrorInfo(Test3_remark, resultCorrect);
 
 
@@ -132,17 +131,16 @@ namespace multimeter {
                 }
                     break;
                 case TestMethod.ITMS: {
-                    var itc = 0.0;
                     var thickness = double.Parse(INIHelper.Read("ITM", "thickness", "1", dataFile));
                     var resultCorrect = Solution.GetResults(heatMeter1, heatMeter2, ref sample1, ref sample2,
-                        ref itc);
+                        out var itc);
                     ShowResultErrorInfo(Test4_remark, resultCorrect);
 
 
                     var itmKappa = thickness / itc;
                     ShowItms(heatMeter1, heatMeter2, sample1, sample2, itc, itmKappa);
                     TextResultGroupbox4.Visible = true;
-                }         
+                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -217,7 +215,7 @@ namespace multimeter {
             Tlable2_14.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
             K2_s1.Text = $@"{sample1.Kappa}W/mK";
             K2_s2.Text = $@"{sample2.Kappa}W/mK";
-            TCRtest2.Text = $@"{itc:0.000e+0}K/(W mm²)";
+            TCRtest2.Text = $@"{itc:0.000e+0}mm²K/W";
         }
 
         private void ShowItm(HeatMeter heatMeter1, HeatMeter heatMeter2, double itc, double itmKappa) {
@@ -230,7 +228,7 @@ namespace multimeter {
             Tlable3_7.Text = $@"Tl3 = {heatMeter2.Temp[2]:G4} ℃";
             Tlable3_8.Text = $@"Tl4 = {heatMeter2.Temp[3]:G4} ℃";
             k3_s.Text = $@"{itmKappa:0.000e+0}W/mK";
-            TCRtest3.Text = $@"{itc:0.000e+0}K/(Wmm²)";
+            TCRtest3.Text = $@"{itc:0.000e+0}mm²K/W";
         }
 
         private void ShowItms(HeatMeter heatMeter1, HeatMeter heatMeter2, Sample sample1, Sample sample2, double itc,
@@ -252,7 +250,7 @@ namespace multimeter {
             k4_s1.Text = $@"Ks1 = {sample1.Kappa}W/mK";
             k4_s2.Text = $@"Ks2 = {sample2.Kappa}W/mK";
             k4_f.Text = $@"Ks = {itmKappa:0.000e+0}W/mK";
-            TCRtest4.Text = $@"Rt = {itc:0.000e+0}K/(Wmm²)";
+            TCRtest4.Text = $@"Rt = {itc:0.000e+0}mm²K/W";
         }
 
         //-----------------

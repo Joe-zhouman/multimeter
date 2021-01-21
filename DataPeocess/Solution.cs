@@ -127,10 +127,9 @@ namespace DataProcessor {
         /// <param name="sample1"></param>
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1) {
-            var heatFlow = 0.0;
             var k = new double[2];
             var b = new double[2];
-            var accurate = GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b);
+            var accurate = GetHeatFlow(heatMeter1, heatMeter2, out var heatFlow, ref k, ref b);
             if (!LinearFitUpper(sample1, ref k[0], ref b[0])) accurate = false;
             sample1.Kappa =
                 (heatFlow / double.Parse(sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
@@ -148,11 +147,10 @@ namespace DataProcessor {
         /// <param name="itc"></param>
         /// <returns></returns>
         public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1,
-            ref Sample sample2, ref double itc) {
-            var heatFlow = 0.0;
+            ref Sample sample2, out double itc) {
             var k = new double[2];
             var b = new double[2];
-            var accurate = GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b);
+            var accurate = GetHeatFlow(heatMeter1, heatMeter2, out var heatFlow, ref k, ref b);
             if (!LinearFitUpper(sample1, ref k[0], ref b[0])) accurate = false;
             sample1.Kappa =
                 (heatFlow / double.Parse(sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
@@ -160,9 +158,9 @@ namespace DataProcessor {
 
             if (!LinearFitLower(sample2, ref k[1], ref b[1])) accurate = false;
             sample2.Kappa =
-                (heatFlow / double.Parse(sample1.Area) / k[1]).ToString("0.000e+0", CultureInfo
+                (heatFlow / double.Parse(sample2.Area) / k[1]).ToString("0.000e+0", CultureInfo
                     .InvariantCulture);
-            itc = (b[0] - b[1]) / heatFlow * 1000;
+            itc = (b[0] - b[1]) / heatFlow * (double.Parse(sample1.Area) + double.Parse(sample2.Area)) * 500;
             return accurate;
         } //接触热阻计算
 
@@ -174,12 +172,11 @@ namespace DataProcessor {
         /// <param name="heatMeter2"></param>
         /// <param name="itc"></param>
         /// <returns></returns>
-        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref double itc) {
-            var heatFlow = 0.0;
+        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, out double itc) {
             var k = new double[2];
             var b = new double[2];
-            var accurate = GetHeatFlow(heatMeter1, heatMeter2, ref heatFlow, ref k, ref b);
-            itc = (b[0] - b[1]) / heatFlow * 1000;
+            var accurate = GetHeatFlow(heatMeter1, heatMeter2, out var heatFlow, ref k, ref b);
+            itc = (b[0] - b[1]) / heatFlow * (double.Parse(heatMeter1.Area) + double.Parse(heatMeter2.Area)) * 500;
             return accurate;
         }
 
@@ -187,23 +184,23 @@ namespace DataProcessor {
         ///     计算热流计热流密度
         /// </summary>
         /// <param name="heatMeter1"></param>
-        /// 上热流计,四个测温点
         /// <param name="heatMeter2"></param>
-        /// 下热流计,三个测温点
         /// <param name="heatFlow"></param>
-        /// 热流密度
         /// <param name="k"></param>
         /// <param name="b"></param>
+        /// 上热流计,四个测温点
+        /// 下热流计,三个测温点
+        /// 热流密度
         /// <returns></returns>
-        private static bool GetHeatFlow(HeatMeter heatMeter1, HeatMeter heatMeter2, ref double heatFlow, ref double[] k,
+        private static bool GetHeatFlow(HeatMeter heatMeter1, HeatMeter heatMeter2, out double heatFlow, ref double[] k,
             ref double[] b) {
             var accurate = LinearFitUpper(heatMeter1, ref k[0], ref b[0]);
 
-            var heatFlow1 = double.Parse(heatMeter1.Kappa) * Math.PI *
+            var heatFlow1 = double.Parse(heatMeter1.Kappa) *
                             double.Parse(heatMeter1.Area) * k[0];
             if (!LinearFitLower(heatMeter2, ref k[1], ref b[1])) accurate = false;
-            var heatFlow2 = double.Parse(heatMeter1.Kappa) * Math.PI *
-                            double.Parse(heatMeter1.Area) * k[1];
+            var heatFlow2 = double.Parse(heatMeter1.Kappa) *
+                            double.Parse(heatMeter2.Area) * k[1];
             if (Math.Abs(1 - heatFlow1 / heatFlow2) > 0.4) accurate = false;
             heatFlow = (heatFlow1 + heatFlow2) / 2;
             return accurate;
