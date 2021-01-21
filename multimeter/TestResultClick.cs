@@ -49,7 +49,7 @@ namespace multimeter {
                 MessageBox.Show(@"无效的数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            _method = method;
             List<string> channelList = new List<string>();
             HeatMeter heatMeter1 = new HeatMeter("HeatMeter1", 3);
             heatMeter1.ReadFromIni(dataFile);
@@ -57,39 +57,33 @@ namespace multimeter {
             HeatMeter heatMeter2 = new HeatMeter("HeatMeter2");
             heatMeter2.ReadFromIni(dataFile);
             channelList.AddRange(heatMeter2.Channel);
-            Sample sample1 = null;
-            Sample sample2 = null;
+            Sample sample1;
+            Sample sample2;
             switch (method) {
                 case TestMethod.KAPPA: {
-                    sample1 = new Sample("Sample1");
-                    sample1.ReadFromIni(dataFile);
+                    FileToBoxKappa(out sample1, out sample2, heatMeter1, heatMeter2, dataFile,dataFile);
                     channelList.AddRange(sample1.Channel);
                     ShowKappaMenu();
                     
                 }
                     break;
                 case TestMethod.ITC: {
-                    sample1 = new Sample("Sample1");
-                        sample1.ReadFromIni(dataFile);
+                    FileToBoxITC(out sample1, out sample2, heatMeter1, heatMeter2, dataFile, dataFile);
                     channelList.AddRange(sample1.Channel);
-                    sample2 = new Sample("Sample2");
-                        sample2.ReadFromIni(dataFile);
                     channelList.AddRange(sample2.Channel);
                     ShowItcMenu();
                     }
                     break;
                 case TestMethod.ITMS: {
                         //显示对应监视窗口TEST2
-                        sample1 = new Sample("Sample1");
-                        sample1.ReadFromIni(dataFile);
+                    FileToBoxITMS(out sample1, out sample2, heatMeter1, heatMeter2, dataFile, dataFile);
                     channelList.AddRange(sample1.Channel);
-                    sample2 = new Sample("Sample2");
-                        sample2.ReadFromIni(dataFile);
                     channelList.AddRange(sample2.Channel);
                     ShowItmsMenu();
                     }
                     break;
                 case TestMethod.ITM: {
+                    FileToBoxITM(out sample1, out sample2, heatMeter1, heatMeter2, dataFile);
                     ShowItmMenu();
                     }
                     break;
@@ -120,9 +114,8 @@ namespace multimeter {
                             if (!Solution.GetResults(heatMeter1, heatMeter2, ref sample1)) {
                                 log.Info("计算误差过大");
                             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            Test1_remark.Text = "警告：计算失败,数据误差过大！！！";
+                            Test1_remark.Text = @"警告：计算失败,数据误差过大！！！";
                             }
-
                             ShowKappa(heatMeter1,heatMeter2,sample1);
                             TextResultGroupbox1.Visible = true;
                         }
