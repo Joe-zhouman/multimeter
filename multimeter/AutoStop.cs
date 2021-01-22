@@ -10,7 +10,7 @@ namespace multimeter {
 
         private int _countDownNum;
         private void ConvergentHolding_Timer_Tick(object sender, EventArgs e) {
-            _countDownNum--;
+           /* _countDownNum--;
 
             if (!IsAutoStop.Checked) 
                 IsAutoStop.Text = "数据稳定自动停止";
@@ -25,13 +25,13 @@ namespace multimeter {
                     CurrentTestResult_Click(sender, e);   //自动计算当前测试结果
                     HideChart_Click(sender, e);      //自动隐藏实时图表 
                 }
-            }//触发自动停止事件
+            }//触发自动停止事件   */
 
         }
         private void IsAutoStop_CheckedChanged(object sender, EventArgs e) {
-            if (!IsAutoStop.Checked) {
+           /* if (!IsAutoStop.Checked) {
                 IsAutoStop.Text = "数据稳定自动停止";
-            }
+            }   */
 
         }
     }

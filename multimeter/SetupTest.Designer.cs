@@ -6011,12 +6011,13 @@
             this.IsAutoStop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.IsAutoStop.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.IsAutoStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.IsAutoStop.Location = new System.Drawing.Point(892, 16);
+            this.IsAutoStop.Location = new System.Drawing.Point(768, 32);
             this.IsAutoStop.Name = "IsAutoStop";
             this.IsAutoStop.Size = new System.Drawing.Size(199, 32);
             this.IsAutoStop.TabIndex = 108;
             this.IsAutoStop.Text = "数据稳定自动停止";
             this.IsAutoStop.UseVisualStyleBackColor = true;
+            this.IsAutoStop.Visible = false;
             this.IsAutoStop.CheckedChanged += new System.EventHandler(this.IsAutoStop_CheckedChanged);
             // 
             // label47
@@ -6151,7 +6152,7 @@
             this.TestTime.AutoSize = true;
             this.TestTime.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.TestTime.Location = new System.Drawing.Point(907, 50);
+            this.TestTime.Location = new System.Drawing.Point(973, 34);
             this.TestTime.Name = "TestTime";
             this.TestTime.Size = new System.Drawing.Size(184, 28);
             this.TestTime.TabIndex = 138;
