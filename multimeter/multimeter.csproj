@@ -50,6 +50,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>HEMT.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSkin">
       <HintPath>.\CSkin.dll</HintPath>
@@ -236,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ButtonImage\SaveParameter_Enable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HEMT.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
