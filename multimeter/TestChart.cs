@@ -8,7 +8,6 @@ using DataProcessor;
 
 namespace multimeter {
     public partial class SetupTest {
-        private List<double> _latestTempList;
         private int _timerCyclesNum;
         private DateTime X_minValue;    //采样初始时间
         private DateTime X_maxValue;    //采样最近时间

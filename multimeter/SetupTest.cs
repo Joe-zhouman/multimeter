@@ -13,8 +13,10 @@ using System.Windows.Forms;
 using DataProcessor;
 using multimeter.Properties;
 using log4net;
-namespace multimeter {
-    public partial class SetupTest : Form {
+namespace multimeter
+{
+    public partial class SetupTest : Form
+    {
         private HeatMeter _heatMeter1;
         private HeatMeter _heatMeter2;
         private string _latestDataFile;
@@ -31,7 +33,6 @@ namespace multimeter {
         private List<string> _temp;
         private List<string> _lastTemp;
         private bool _convergent = false;
-        private readonly string _tempFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "temp");
         #region logger
 
         private static readonly ILog log
@@ -47,16 +48,19 @@ namespace multimeter {
         private bool enablescan;
         #endregion
 
-        private static class AppCfg {
+        private static class AppCfg
+        {
             internal static ParaInfo devicepara = new ParaInfo();
         }//全局变量
-        
 
-        public SetupTest() {
+
+        public SetupTest()
+        {
             InitializeComponent();
         }
 
-        public void TestChooseFormShow_Click(object sender, EventArgs e) {
+        public void TestChooseFormShow_Click(object sender, EventArgs e)
+        {
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
@@ -68,19 +72,22 @@ namespace multimeter {
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.BringToFront();
             TestChoiseGroupBox.Visible = true;
-            
+
         }
-        
-        private void ModifyParameter_Click(object sender, EventArgs e) {
-            if (_saveParameter) {
-                if (!apply_btm()) { return;}
+
+        private void ModifyParameter_Click(object sender, EventArgs e)
+        {
+            if (_saveParameter)
+            {
+                if (!apply_btm()) { return; }
                 if (User == User.NORMAL) NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
                 _saveParameter = false;
                 ModifyParameterLabel.Text = "修改参数";
             }
-            else { 
+            else
+            {
                 if (User == User.NORMAL) NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
@@ -88,9 +95,11 @@ namespace multimeter {
                 ModifyParameterLabel.Text = "确定参数";
             }
         }
-        private void TestRun_Click(object sender, EventArgs e) {
+        private void TestRun_Click(object sender, EventArgs e)
+        {
             TestTime.Text = "";
-            if (serialPort1.IsOpen) {
+            if (serialPort1.IsOpen)
+            {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
                 TestRun_Enable(true);
@@ -106,8 +115,9 @@ namespace multimeter {
                 TestTime_Timer.Enabled = false;
 
             }
-            else {
-                if (_saveParameter) ModifyParameter_Click(sender,e);
+            else
+            {
+                if (_saveParameter) ModifyParameter_Click(sender, e);
                 if (!apply_btm()) { return; }//再次确认设置参数
                 btn_start();
                 if (!serialPort1.IsOpen) return;
@@ -128,21 +138,24 @@ namespace multimeter {
             }
         }
 
-        private void Monitor_Click(object sender, EventArgs e) {
+        private void Monitor_Click(object sender, EventArgs e)
+        {
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
-            TextGroupbox4.Size = new Size(0,0);
+            TextGroupbox4.Size = new Size(0, 0);
             TestChartGroupBox.Size = new Size(1250, 855);
 
         }
 
-        private void SerialPort_Click(object sender, EventArgs e) {
+        private void SerialPort_Click(object sender, EventArgs e)
+        {
             skinGroupBox1.BringToFront();
             skinGroupBox1.Size = new Size(253, 201);
         }
 
-        private void SerialPortEnsure_Click(object sender, EventArgs e) {
+        private void SerialPortEnsure_Click(object sender, EventArgs e)
+        {
 
             AppCfg.devicepara.SerialPort = combox_comport.Text;
 
@@ -153,22 +166,26 @@ namespace multimeter {
             AppCfg.devicepara.SerialStopBits = combox_stopbits.Text;
 
             AppCfg.devicepara.SerialParity = combox_parity.Text;
-            if (edit_scan_interval.Text == "") {
+            if (edit_scan_interval.Text == "")
+            {
                 return;
             }
 
             int scanInterval = CheckData.CheckTextChange(edit_scan_interval.Text);
-            if (scanInterval == -1) {
+            if (scanInterval == -1)
+            {
                 MessageBox.Show(@"错误的采集频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             AppCfg.devicepara.Scan_interval = scanInterval;
-            if (edit_save_interval.Text == "") {
+            if (edit_save_interval.Text == "")
+            {
                 return;
             }
 
             int saveInterval = CheckData.CheckTextChange(edit_save_interval.Text);
-            if (saveInterval == -1) {
+            if (saveInterval == -1)
+            {
                 MessageBox.Show(@"错误的自动保存频率", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -184,11 +201,13 @@ namespace multimeter {
             skinGroupBox1.Size = new Size(0, 0);
         }
 
-        public void AdvancedSetting_Click(object sender, EventArgs e) {
+        public void AdvancedSetting_Click(object sender, EventArgs e)
+        {
             AlphaT0Setting alphaT0Setting = new AlphaT0Setting();
             alphaT0Setting.Show();
         }
-        private void HelpButton_Click(object sender, EventArgs e) {
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
             System.Diagnostics.Process.Start(@"..\..\HelpDocument\help.pdf");
         }
 
@@ -201,7 +220,8 @@ namespace multimeter {
         //    CurrentTestResult_Click(this, e);
         //}
 
-        private void ReadPara() {
+        private void ReadPara()
+        {
             #region //读取ini
 
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
@@ -211,13 +231,15 @@ namespace multimeter {
 
             AppCfg.devicepara.SerialStopBits = INIHelper.Read("Serial", "stopbites", "1", filePath);
             AppCfg.devicepara.SerialParity = INIHelper.Read("Serial", "parity", "none", filePath);
-            foreach (Card i in AppCfg.devicepara.Cardlist1) {
+            foreach (Card i in AppCfg.devicepara.Cardlist1)
+            {
                 i.name = INIHelper.Read(i.CHN, "name", "", filePath);
                 string func = INIHelper.Read(i.CHN, "func", "0", filePath);
                 i.func = int.Parse(func);
             }
 
-            foreach (Card i in AppCfg.devicepara.Cardlist2) {
+            foreach (Card i in AppCfg.devicepara.Cardlist2)
+            {
                 i.name = INIHelper.Read(i.CHN, "name", "", filePath);
                 string func = INIHelper.Read(i.CHN, "func", "0", filePath);
                 i.func = int.Parse(func);
@@ -232,7 +254,8 @@ namespace multimeter {
             #endregion
         }
 
-        private void btn_start() {
+        private void btn_start()
+        {
             #region //开始串口采集
 
             //btn_stop.Enabled = true;
@@ -243,29 +266,28 @@ namespace multimeter {
             _latestDataFile = "";
             _latestResultFile = "";
             string fileName = _method + "-DataAutoSave.csv";
-            _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method.ToString() +"-"+ DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff"));
-            
-            try {
-                var di =  Directory.CreateDirectory(_autoSaveFilePath);
-                File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _tempFilePath,true);
+            _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method.ToString() + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff"));
+
+            try
+            {
+                var di = Directory.CreateDirectory(_autoSaveFilePath);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show($@"自动保存文件创建失败,请重试
 {ex.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 log.Error(ex);
                 btn_stop();
                 return;
             }
-            _heatMeter1.WriteTempPara(_tempFilePath);
-            _heatMeter2.WriteTempPara(_tempFilePath);
-            _sample1?.WriteTempPara(_tempFilePath);
-            _sample2?.WriteTempPara(_tempFilePath);
             _latestDataFile = Path.Combine(_autoSaveFilePath, fileName);
 
-            try {
+            try
+            {
                 serialPort1.BaudRate = int.Parse(AppCfg.devicepara.SerialBaudRate);
                 serialPort1.PortName = AppCfg.devicepara.SerialPort;
-                switch (AppCfg.devicepara.SerialParity) {
+                switch (AppCfg.devicepara.SerialParity)
+                {
                     case "None":
                         serialPort1.Parity = Parity.None;
                         break;
@@ -286,7 +308,8 @@ namespace multimeter {
                         break;
                 }
 
-                switch (AppCfg.devicepara.SerialStopBits) {
+                switch (AppCfg.devicepara.SerialStopBits)
+                {
                     case "1":
                         serialPort1.StopBits = StopBits.One;
                         break;
@@ -306,7 +329,8 @@ namespace multimeter {
 
                 serialPort1.Open();
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 log.Error(ex);
                 MessageBox.Show("无法打开串口！");
                 //btn_start.Enabled = true;
@@ -318,16 +342,19 @@ namespace multimeter {
             int TwoR_num = 0;
             if (AppCfg.devicepara.Card1_enable != 0)
                 foreach (Card i in AppCfg.devicepara.Cardlist1)
-                    if (i.func == 1) {
+                    if (i.func == 1)
+                    {
                         TwoR_num++;
-                        if (TwoRlist.Length == 0) {
+                        if (TwoRlist.Length == 0)
+                        {
                             TwoRlist = i.CHN;
                             if (TotalCHN.Length == 0)
                                 TotalCHN = i.CHN;
                             else
                                 TotalCHN = TotalCHN + "," + i.CHN;
                         }
-                        else {
+                        else
+                        {
                             TwoRlist = TwoRlist + "," + i.CHN;
                             TotalCHN = TotalCHN + "," + i.CHN;
                         }
@@ -335,16 +362,19 @@ namespace multimeter {
 
             if (AppCfg.devicepara.Card2_enable != 0)
                 foreach (Card i in AppCfg.devicepara.Cardlist2)
-                    if (i.func == 1) {
+                    if (i.func == 1)
+                    {
                         TwoR_num++;
-                        if (TwoRlist.Length == 0) {
+                        if (TwoRlist.Length == 0)
+                        {
                             TwoRlist = i.CHN;
                             if (TotalCHN.Length == 0)
                                 TotalCHN = i.CHN;
                             else
                                 TotalCHN = TotalCHN + "," + i.CHN;
                         }
-                        else {
+                        else
+                        {
                             TwoRlist = TwoRlist + "," + i.CHN;
                             TotalCHN = TotalCHN + "," + i.CHN;
                         }
@@ -468,19 +498,22 @@ namespace multimeter {
 
             _temp = new List<string>();
 
-            try {
+            try
+            {
                 StreamWriter write = new StreamWriter(_latestDataFile);
                 write.WriteLine("step," + TotalCHN);
                 write.Close();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 log.Error(ex);
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
-        public string resolvcmd(string s1, string s2, string s3, int i1, int i2, int i3) {
+        public string resolvcmd(string s1, string s2, string s3, int i1, int i2, int i3)
+        {
             #region
 
             string st = @"*CLS 
@@ -506,7 +539,8 @@ ROUT:SCAN:TSO IMM
 ROUT:SCAN:LSEL INT";
 
 
-            if (i1 > 0) {
+            if (i1 > 0)
+            {
                 string str = @"SENS:FUNC 'RES',(@*channel*)   
 SENS:RES:NPLC 1,(@*channel*)   
 SENS:RES:RANG:AUTO ON,(@*channel*)";
@@ -514,7 +548,8 @@ SENS:RES:RANG:AUTO ON,(@*channel*)";
                 st = st.Replace("*s1*", str);
             }
 
-            if (i2 > 0) {
+            if (i2 > 0)
+            {
                 string str = @"SENS:FUNC 'TEMP',(@*channel*)   
 SENS:TEMP:NPLC 1,(@*channel*)   
 :TEMP:TRAN TC,(@*channel*)   
@@ -523,7 +558,8 @@ SENS:TEMP:NPLC 1,(@*channel*)
                 st = st.Replace("*s2*", str);
             }
 
-            if (i3 > 0) {
+            if (i3 > 0)
+            {
                 string str = @"SENS:FUNC 'FRES',(@*channel*)
 SENS:FRES:NPLC 1,(@*channel*)
 SENS:FRES:RANG:AUTO ON,(@*channel*)";
@@ -539,13 +575,15 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
         }
 
-        public void sendmsg(string s1, string s2, string s3, int i1, int i2, int i3) {
+        public void sendmsg(string s1, string s2, string s3, int i1, int i2, int i3)
+        {
             #region
 
             string st3 = resolvcmd(s1, s2, s3, i1, i2, i3);
 
             string[] str = st3.Split('\n');
-            foreach (string i in str) {
+            foreach (string i in str)
+            {
                 serialPort1.WriteLine(i);
                 Thread.Sleep(100);
             }
@@ -561,11 +599,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
                 while (enablescan) //如果标识为true
                 {
                     Thread.Sleep(1);
-                    try {
+                    try
+                    {
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(AppCfg.devicepara.Scan_interval);
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         log.Error(ex);
                     }
                 }
@@ -576,32 +616,31 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
         }
 
-        public byte[] str2ASCII(string xmlStr) {
+        public byte[] str2ASCII(string xmlStr)
+        {
             return Encoding.Default.GetBytes(xmlStr);
         }
 
-        private void btn_stop() {
+        private void btn_stop()
+        {
             serialPort1.Close();
             _temp.Clear();
             enablescan = false;
-            try {
-                File.Delete(_tempFilePath);
-            }
-            catch (Exception ex) {
-                log.Error(ex);
-            }
         }
 
-        private void SetupTest_FormClosing(object sender, FormClosingEventArgs e) {
+        private void SetupTest_FormClosing(object sender, FormClosingEventArgs e)
+        {
             serialPort1.Close();
-            while (serialPort1.IsOpen) {
+            while (serialPort1.IsOpen)
+            {
             }
             Application.Exit();
         }
 
-        
 
-        private void SetupTest_Load(object sender, EventArgs e) {
+
+        private void SetupTest_Load(object sender, EventArgs e)
+        {
             #region //不同设置窗口默认显示
 
             //EmptyGroupBox.Size = new Size(1250, 855);
@@ -611,7 +650,7 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             TextGroupbox4.Size = new Size(0, 0);
             skinGroupBox1.Size = new Size(0, 0);
             TestChoiseGroupBox.Size = new Size(969, 581);
-            TestChartGroupBox.Size = new Size(0,0);
+            TestChartGroupBox.Size = new Size(0, 0);
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
@@ -623,14 +662,13 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #region //初始化变量
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
-            if (File.Exists(_tempFilePath)) { File.Delete(_tempFilePath);}
             _latestDataFile = "";
             _latestResultFile = "";
-            _heatMeter1 = new HeatMeter("HeatMeter1",3);
+            _heatMeter1 = new HeatMeter("HeatMeter1", 3);
             _heatMeter2 = new HeatMeter("HeatMeter2");
             string sysFilePath = SlnIni.CreateDefaultIni();
             string settingFilePath = SlnIni.CreateDefaultSettingIni();
-            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2,settingFilePath, sysFilePath);
+            SlnIni.LoadHeatMeterInfo(ref _heatMeter1, ref _heatMeter2, settingFilePath, sysFilePath);
             #endregion
 
             #region //串口设置 
@@ -768,13 +806,14 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
             #endregion
         }
 
-        
 
-        private void ChartShow_Timer_Tick(object sender, EventArgs e) {
+
+        private void ChartShow_Timer_Tick(object sender, EventArgs e)
+        {
             if (!_testResultChartUpdate) return;
             ShowChart();
             _testResultChartUpdate = false;
-            
+
         }
 
 

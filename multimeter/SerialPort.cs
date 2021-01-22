@@ -19,8 +19,10 @@ using System.Linq;
 using System.Windows.Forms;
 using DataProcessor;
 
-namespace multimeter {
-    public partial class SetupTest {
+namespace multimeter
+{
+    public partial class SetupTest
+    {
         private void SerialPort_Timer_Tick(object sender, EventArgs e)
         {
             #region
@@ -94,16 +96,19 @@ namespace multimeter {
                         }
                         _heatMeter2.SetTemp(_testResult);
                         temp = _heatMeter2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        try {
+                        try
+                        {
                             StreamWriter write = new StreamWriter(_latestDataFile, true);
                             write.WriteLine(temp);
                             write.Close();
                         }
-                        catch (Exception ex) {
+                        catch (Exception ex)
+                        {
 
                             log.Error(ex);
                         }
-                        finally {
+                        finally
+                        {
                             _recvstr = "";
                         }
                         _temp.Add(temp);
@@ -170,15 +175,14 @@ namespace multimeter {
             #region
             if (_temp.Count == 0)
                 return;
-            IsConvergent();
+            if (!_convergent) IsConvergent();
             _lastTemp = _temp;
-            if(!_convergent) return;
             string fileName = name + "-" + count + ".rst";
             _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
+            File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _latestResultFile);
             //MessageBox.Show(filePath);
             try
             {
-                File.Copy(_tempFilePath, _latestResultFile);
                 for (int i = 0; i < _lastTemp.Count; i++)
                 {
                     INIHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);
@@ -193,36 +197,41 @@ namespace multimeter {
             #endregion
         }
 
-        private void IsConvergent() {
-            if(_lastTemp == null)
+        private void IsConvergent()
+        {
+            if (_lastTemp == null)
             {
                 _convergent = false;
                 return;
             }
-            if (_temp.Count == 0) {
+            if (_temp.Count == 0)
+            {
                 _convergent = false;
                 return;
             }
 
-            if (_lastTemp.Count == 0) {
+            if (_lastTemp.Count == 0)
+            {
                 _convergent = false;
                 return;
             }
             var lastTempArray = Solution.AveTemp(_lastTemp.ToArray(), TotalNum);
             var currentTempArray = Solution.AveTemp(_temp.ToArray(), TotalNum);
-            for (int i = 0; i < TotalNum; i++) {
-                if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > AppCfg.devicepara.ConvergentLim) {
+            for (int i = 0; i < TotalNum; i++)
+            {
+                if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > AppCfg.devicepara.ConvergentLim)
+                {
                     _convergent = false;
                     return;
                 }
             }
             _convergent = true;
 
-            if (ConvergentHolding_Timer.Enabled) return;
-            ConvergentHolding_Timer.Enabled = true;
-            string countDown = SecToTimeSpan(AppCfg.devicepara.AutoCloseInterval);
-            MessageBox.Show($@"所有通道数据已经稳定
-自动停止测试倒计时长{countDown}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            /*    if (ConvergentHolding_Timer.Enabled) return;
+                ConvergentHolding_Timer.Enabled = true;
+                string countDown = SecToTimeSpan(AppCfg.devicepara.AutoCloseInterval);
+                MessageBox.Show($@"所有通道数据已经稳定
+    自动停止测试倒计时长{countDown}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);   */
 
         }
 
