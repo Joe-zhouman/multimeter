@@ -127,20 +127,7 @@ namespace multimeter {
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
             int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
-            TimeSpan ts = new TimeSpan(0, 0, sec);
-            if (ts.Hours > 0) {
-                TestTime.Text = "测试时长 "+ string.Format("{0:00}", ts.Hours) 
-                                       + ":" + string.Format("{0:00}", ts.Minutes) 
-                                       + ":" + string.Format("{0:00}", ts.Seconds);
-            }
-            if (ts.Hours == 0 && ts.Minutes > 0) {
-                TestTime.Text = "测试时长 "+"00:" + string.Format("{0:00}", ts.Minutes) 
-                                             + ":" + string.Format("{0:00}", ts.Seconds);
-            }
-
-            if (ts.Hours == 0 && ts.Minutes == 0) {
-                TestTime.Text = "测试时长 "+"00:00:" + string.Format("{0:00}", ts.Seconds);
-            }
+            TestTime.Text = "测试时长 " +SecToTimeSpan(sec);
 
             int interval = (int)Math.Abs(((DateTime.Now - X_maxValue).TotalSeconds));
             if (interval >= 7) {
@@ -150,6 +137,24 @@ namespace multimeter {
             }//每隔*S检测采集是否正常
             _timerCyclesNum++;
         }
+
+        public string SecToTimeSpan(int sec) {
+            string timespan = "";
+            TimeSpan ts = new TimeSpan(0, 0, sec);
+            if (ts.Hours > 0) {
+                timespan = string.Format("{0:00}", ts.Hours)
+                                        + ":" + string.Format("{0:00}", ts.Minutes)
+                                        + ":" + string.Format("{0:00}", ts.Seconds);
+            }
+            if (ts.Hours == 0 && ts.Minutes > 0) {
+                timespan ="00:" + string.Format("{0:00}", ts.Minutes)
+                                + ":" + string.Format("{0:00}", ts.Seconds);
+            }
+            if (ts.Hours == 0 && ts.Minutes == 0) {
+                timespan ="00:00:" + string.Format("{0:00}", ts.Seconds);
+            }
+            return timespan;
+        } //将秒转换成hh:mm:ss
 
         private void HideChart_Click(object sender, EventArgs e) {
             TestChartGroupBox.Size = new Size(0, 0);
@@ -224,7 +229,7 @@ namespace multimeter {
         }
 
         private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
-            if (YAxis_checkBox.Checked == true) {
+            if (YAxis_checkBox.Checked) {
                 chart1.ChartAreas[0].CursorY.IsUserEnabled = true;
                 chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
             }//允许纵轴放大
@@ -237,7 +242,7 @@ namespace multimeter {
         private void CheckedChanged(CheckBox checkBox) {
             string str = checkBox.Name.Replace("checkBox", "");
             int i = int.Parse(str)-1;
-            if (checkBox.Checked == true) {
+            if (checkBox.Checked) {
                 chart1.Series[i].Enabled = true;
             }
             else {
@@ -246,7 +251,7 @@ namespace multimeter {
 
         }
         private void XAdapt() {
-            if (XAxis_checkBox.Checked == false && X_maxValue > X_minValue) {
+            if (!XAxis_checkBox.Checked && X_maxValue > X_minValue) {
                 int interval = (int)((X_maxValue - X_minValue).TotalSeconds / 10);
                 this.chart1.ChartAreas[0].AxisX.LabelStyle.Interval = interval;                //坐标值间隔*S
                 this.chart1.ChartAreas[0].AxisX.MajorGrid.Interval = interval;                 //网格间隔

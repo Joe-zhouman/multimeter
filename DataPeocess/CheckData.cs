@@ -39,14 +39,10 @@ namespace DataProcessor {
                 }
             }
             chnIntList.Sort();
-            if (chnIntList.First() >= 101 && chnIntList.Last() <= 122) {
+            if (chnIntList.First() >= 201 && chnIntList.Last() <= 213) {
                 return !CheckData.HasSameElem(chnIntList);
             }
-
-            if (chnIntList.First() >= 201 && chnIntList.Last() <= 222) {
-                return !CheckData.HasSameElem(chnIntList);
-            }
-            return true;
+            return false;
         }
         public static int CheckTextChange(string text) {
             int num;
