@@ -82,6 +82,7 @@ namespace multimeter {
                     return;
                 }
             }
+            channelList.AddRange(heatMeter2.Channel);
             var testResult = new Dictionary<string, double>();
             var e = Solution.ReadData(ref testResult, channelList.ToArray(), dataFile);
             if (null != e) {
@@ -90,8 +91,6 @@ namespace multimeter {
 {e.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            channelList.AddRange(heatMeter2.Channel);
             heatMeter1.ReadTemp(testResult);
             heatMeter2.ReadTemp(testResult);
             sample1?.ReadTemp(testResult);
