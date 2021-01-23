@@ -47,7 +47,6 @@ namespace multimeter {
             channelList.AddRange(heatMeter1.Channel);
             var heatMeter2 = new HeatMeter("HeatMeter2");
             heatMeter2.ReadFromIni(dataFile);
-            channelList.AddRange(heatMeter2.Channel);
             Sample sample1;
             Sample sample2;
             switch (method) {
@@ -92,6 +91,7 @@ namespace multimeter {
                 return;
             }
 
+            channelList.AddRange(heatMeter2.Channel);
             heatMeter1.ReadTemp(testResult);
             heatMeter2.ReadTemp(testResult);
             sample1?.ReadTemp(testResult);
