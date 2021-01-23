@@ -33,13 +33,17 @@ namespace multimeter {
             List<CheckBox> checkBoxes = new List<CheckBox>()
                     { checkBox1,checkBox2,checkBox3,checkBox4,checkBox5, checkBox6, 
                         checkBox7,checkBox8,checkBox9,checkBox10,checkBox11,checkBox12,checkBox13};
-
+            List<string> channelList = new List<string>();
+            channelList.AddRange(_heatMeter1.Channel);
+            if(_sample1!=null) channelList.AddRange(_sample1.Channel);
+            if(_sample2!=null) channelList.AddRange(_sample2.Channel);
+            channelList.AddRange(_heatMeter2.Channel);
             int numChannel = channels.Length;
             for (int i = 0; i < numChannel; i++) {
                 checkBoxes[i].Visible =true;
-                checkBoxes[i].Text = channels[i];           
+                checkBoxes[i].Text = channelList[i];           
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
-                chart1.Series[i].LegendText = channels[i];
+                chart1.Series[i].LegendText = channelList[i];
                 chart1.Series[i].Points.Clear();
             }
 

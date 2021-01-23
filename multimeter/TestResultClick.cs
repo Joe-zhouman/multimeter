@@ -83,8 +83,6 @@ namespace multimeter {
                     return;
                 }
             }
-
-            channelList.Sort();
             var testResult = new Dictionary<string, double>();
             var e = Solution.ReadData(ref testResult, channelList.ToArray(), dataFile);
             if (null != e) {
