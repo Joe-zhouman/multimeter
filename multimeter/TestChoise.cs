@@ -25,7 +25,7 @@ namespace multimeter {
             var heatMeterPositionBoxes2 = new List<TextBox>
                 {LengthTextBox1_8, LengthTextBox1_9, LengthTextBox1_10, LengthTextBox1_11};
             var heatMeterChannelBoxes1 = new List<TextBox>
-                {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3};
+                {ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_4};
             var heatMeterChannelBoxes2 = new List<TextBox>
                 {ChannelTextBox1_8, ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11};
             HeatMeterToBox(heatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, S1TextBox1_1,

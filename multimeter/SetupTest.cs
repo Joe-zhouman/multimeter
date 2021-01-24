@@ -816,6 +816,14 @@ SENS:FRES:RANG:AUTO ON,(@*channel*)";
 
         }
 
+        private void label139_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void Tlable4_12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

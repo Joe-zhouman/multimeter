@@ -48,7 +48,7 @@ namespace multimeter
                     {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3};
                 List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
                 {
-                    ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3
+                    ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_4
                 };
                 BoxToHeatMeter(ref _heatMeter1,heatMeterPositionBoxes1,heatMeterChannelBoxes1,K1TextBox1_1,S1TextBox1_1);
                 List<TextBox> heatMeterPositionBoxes2 = new List<TextBox>()
