@@ -76,11 +76,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlphaT0Setting.cs">
+    <Compile Include="ParaSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlphaT0Setting.Designer.cs">
-      <DependentUpon>AlphaT0Setting.cs</DependentUpon>
+    <Compile Include="ParaSetting.Designer.cs">
+      <DependentUpon>ParaSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplyBtnClick.cs">
       <SubType>Form</SubType>
@@ -132,8 +132,8 @@
     <Compile Include="SetupTest.Designer.cs">
       <DependentUpon>SetupTest.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AlphaT0Setting.resx">
-      <DependentUpon>AlphaT0Setting.cs</DependentUpon>
+    <EmbeddedResource Include="ParaSetting.resx">
+      <DependentUpon>ParaSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

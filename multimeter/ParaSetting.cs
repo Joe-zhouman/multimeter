@@ -11,41 +11,41 @@ using System.Windows.Forms;
 using DataProcessor;
 
 namespace multimeter {
-    public partial class AlphaT0Setting : Form {
-        public AlphaT0Setting() {
+    public partial class ParaSetting : Form {
+        public ParaSetting() {
             InitializeComponent();
         }
 
         private void AlphaT0Setting_Load(object sender, EventArgs e) {
-             dataGridView.Rows.Clear();
-             dataGridView.Columns.Add("channel", "Channel");
-             dataGridView.Columns.Add("A0", $"A\x2080");
-             dataGridView.Columns.Add("A1", $"A\x2081");
-             dataGridView.Columns.Add("A3", $"A\x2083");
+             RisistGridView.Rows.Clear();
+             RisistGridView.Columns.Add("channel", "Channel");
+             RisistGridView.Columns.Add("A0", $"A\x2080");
+             RisistGridView.Columns.Add("A1", $"A\x2081");
+             RisistGridView.Columns.Add("A3", $"A\x2083");
 
              for (int i = 0; i < 4; i++) {
-                 dataGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                 RisistGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
              }
              for (int i = 0; i < 13; i++) {
-                 dataGridView.Rows.Add((201+i).ToString(), "", "");
-                 dataGridView["channel", i].ReadOnly = true;
+                 RisistGridView.Rows.Add((201+i).ToString(), "", "");
+                 RisistGridView["channel", i].ReadOnly = true;
                  string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-                 dataGridView[1,i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
+                 RisistGridView[1,i].Value = INIHelper.Read(RisistGridView[0, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
                      filePath);
-                 dataGridView[1, i].ValueType = typeof(double);
-                 dataGridView[2, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A1", dataGridView[1, i].Value.ToString(),
+                 RisistGridView[1, i].ValueType = typeof(double);
+                 RisistGridView[2, i].Value = INIHelper.Read(RisistGridView[0, i].Value.ToString(), "A1", RisistGridView[1, i].Value.ToString(),
                      filePath);
-                 dataGridView[2, i].ValueType = typeof(double);
-                 dataGridView[3, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A3", dataGridView[1, i].Value.ToString(),
+                 RisistGridView[2, i].ValueType = typeof(double);
+                 RisistGridView[3, i].Value = INIHelper.Read(RisistGridView[0, i].Value.ToString(), "A3", RisistGridView[1, i].Value.ToString(),
                      filePath);
-                 dataGridView[3, i].ValueType = typeof(double);
+                 RisistGridView[3, i].ValueType = typeof(double);
              }
 
              Delay_Timer.Interval = 500;      //延时*ms
              Delay_Timer.Enabled = true;
         }
         private void Delay_Timer_Tick(object sender, EventArgs e) {
-             dataGridView.Refresh();
+             RisistGridView.Refresh();
              Delay_Timer.Enabled = false;
         }
    
@@ -54,12 +54,12 @@ namespace multimeter {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
             string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", $"sys.ini.{DateTime.Now:yyyy-MM-dd-ss-ffff}.bak");
             File.Copy(filePath, bakFilePath);
-            for (int i = 0; i < dataGridView.Rows.Count - 1; i++) {
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
+            for (int i = 0; i < RisistGridView.Rows.Count - 1; i++) {
+                INIHelper.Write(RisistGridView[0, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A1", dataGridView[2, i].Value.ToString(),
+                INIHelper.Write(RisistGridView[0, i].Value.ToString(), "A1", RisistGridView[2, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A3", dataGridView[3, i].Value.ToString(),
+                INIHelper.Write(RisistGridView[0, i].Value.ToString(), "A3", RisistGridView[3, i].Value.ToString(),
                     filePath);
                 
             }
@@ -75,7 +75,7 @@ namespace multimeter {
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             if (e.ColumnIndex == 0&&e.RowIndex>0) {
-                dataGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
+                RisistGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
             }
         }
 

@@ -14,4 +14,9 @@ namespace multimeter {
         NORMAL,
         ADVANCE
     }
+
+    public enum TempProbe {
+        RISISTANCE,
+        THERMOCOUPLE
+    }
 }
