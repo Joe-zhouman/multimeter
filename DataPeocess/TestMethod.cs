@@ -16,7 +16,7 @@ namespace multimeter {
     }
 
     public enum TempProbe {
-        RISISTANCE,
+        NTC,
         THERMOCOUPLE
     }
 }
