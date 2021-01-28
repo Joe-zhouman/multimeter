@@ -17,7 +17,7 @@ namespace Model {
         public int Value {
             get=>_value;
             set {
-                if (Value < LowerBound || Value > UpperBound)
+                if (value < LowerBound || value > UpperBound)
                     throw new NumOutOfRangeException($@"数值不在范围内,应在{LowerBound}~{UpperBound}之间");
                 _value = value;
             }

@@ -17,8 +17,8 @@ namespace DataAccess {
             sys.ScanInterval.UpperBound = int.Parse(IniHelper.Read("SYS", "scanIntervalUb", "5000", filePath));
             sys.ScanInterval.Value = int.Parse(IniHelper.Read("SYS", "scanInterval", "2000", filePath));
 
-            sys.SaveInterval.LowerBound = int.Parse(IniHelper.Read("SYS", "saveInterval", "30", filePath));
-            sys.SaveInterval.UpperBound = int.Parse(IniHelper.Read("SYS", "saveInterval", "100", filePath));
+            sys.SaveInterval.LowerBound = int.Parse(IniHelper.Read("SYS", "saveIntervalLb", "30", filePath));
+            sys.SaveInterval.UpperBound = int.Parse(IniHelper.Read("SYS", "saveIntervalUb", "100", filePath));
             sys.SaveInterval.Value = int.Parse(IniHelper.Read("SYS", "saveInterval", "50", filePath));
 
             sys.AutoCloseInterval = int.Parse(IniHelper.Read("SYS", "autoSaveInterval", "1500", filePath));
@@ -48,8 +48,8 @@ namespace DataAccess {
             serialPort.SerialBaudRate = IniHelper.Read("Serial", "baudrate", "9600", filePath);
             serialPort.SerialDataBits = IniHelper.Read("Serial", "databits", "8", filePath);
 
-            serialPort.SerialStopBits = IniHelper.Read("Serial", "stopbites", "1", filePath);
-            serialPort.SerialParity = IniHelper.Read("Serial", "parity", "none", filePath);
+            serialPort.SerialStopBits = IniHelper.Read("Serial", "stopbites", "One", filePath);
+            serialPort.SerialParity = IniHelper.Read("Serial", "parity", "None", filePath);
             foreach (var i in serialPort.CardList1) {
                 i.Func = int.Parse(IniHelper.Read(i.Chn, "func", "0", filePath));
                 i.Type = (ProbeType) int.Parse(IniHelper.Read(i.Chn, "type", "0", filePath));

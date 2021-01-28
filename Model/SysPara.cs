@@ -9,12 +9,13 @@ namespace Model {
         public List<string> AllowedChannels { get; set; }
         public SysPara() {
             SaveInterval = new RangeValue {
-                Value = 50, LowerBound = 30, UpperBound = 100
+                LowerBound = 30, UpperBound = 100,Value = 50
             };
             ScanInterval = new RangeValue {
-                Value = 2000,
+                
                 LowerBound = 2000,
-                UpperBound = 5000
+                UpperBound = 5000,
+                Value = 2000
             };
             ;
             AutoCloseInterval = 1800;

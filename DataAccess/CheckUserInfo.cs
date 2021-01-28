@@ -11,7 +11,8 @@ namespace DataAccess {
         }
 
         public static bool CheckAdvanceUser(User user) {
-            return user.Name.Equals("admin") && user.Password.Equals("admin");
+            return true;
+            //return user.Name.Equals("admin") && user.Password.Equals("admin");
         }
     }
 }

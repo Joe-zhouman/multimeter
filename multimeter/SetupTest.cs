@@ -150,28 +150,25 @@ namespace multimeter
             _appCfg.SerialPortPara.SerialPort = combox_comport.Text;
 
             _appCfg.SerialPortPara.SerialBaudRate = combox_baudrate.Text;
-
-            _appCfg.SerialPortPara.SerialDataBits = combox_databits.Text;
-
-            _appCfg.SerialPortPara.SerialStopBits = combox_stopbits.Text;
-
-            _appCfg.SerialPortPara.SerialParity = combox_parity.Text;
+            
 
             try {
                 _appCfg.SysPara.SaveInterval.Value = int.Parse(edit_save_interval.Text);}
             catch (Exception exception) {
                 MessageBox.Show(@"错误的保存频率"+@"
 "+exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            try
-            {
-                _appCfg.SysPara.ScanInterval.Value = int.Parse(edit_scan_interval.Text);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(@"错误的采集频率" + @"
-" + exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+//            try
+//            {
+//                _appCfg.SysPara.ScanInterval.Value = int.Parse(edit_scan_interval.Text);
+//            }
+//            catch (Exception exception)
+//            {
+//                MessageBox.Show(@"错误的采集频率" + @"
+//" + exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//                return;
+//            }
             IniReadAndWrite.WriteBasicPara(_appCfg.SerialPortPara,IniReadAndWrite.IniFilePath);
             skinGroupBox1.Size = new Size(0, 0);
         }
@@ -226,8 +223,8 @@ namespace multimeter
             #region //串口设置 
             //_testResultChart.FormClosing += TestResultChart_FormClosing;
             IniReadAndWrite.ReadPara(ref _appCfg, IniReadAndWrite.IniFilePath);
-            edit_scan_interval.Text = _appCfg.SysPara.ScanInterval.ToString();
-            edit_save_interval.Text = _appCfg.SysPara.SaveInterval.ToString();
+            edit_scan_interval.Text = _appCfg.SysPara.ScanInterval.Value.ToString();
+            edit_save_interval.Text = _appCfg.SysPara.SaveInterval.Value.ToString();
 
             switch (_appCfg.SerialPortPara.SerialPort)
             {
@@ -288,67 +285,8 @@ namespace multimeter
                     combox_baudrate.SelectedIndex = 2;
                     break;
             }
-
-
-            switch (_appCfg.SerialPortPara.SerialDataBits)
-            {
-                case "8":
-                    combox_databits.SelectedIndex = 0;
-                    break;
-                case "7":
-                    combox_databits.SelectedIndex = 1;
-                    break;
-                case "6":
-                    combox_databits.SelectedIndex = 2;
-                    break;
-                case "5":
-                    combox_databits.SelectedIndex = 3;
-                    break;
-
-                default:
-                    combox_databits.SelectedIndex = 2;
-                    break;
-            }
-
-            switch (_appCfg.SerialPortPara.SerialStopBits)
-            {
-                case "1":
-                    combox_stopbits.SelectedIndex = 0;
-                    break;
-                case "1.5":
-                    combox_stopbits.SelectedIndex = 1;
-                    break;
-                case "2":
-                    combox_stopbits.SelectedIndex = 2;
-                    break;
-
-                default:
-                    combox_stopbits.SelectedIndex = 0;
-                    break;
-            }
-
-
-            switch (_appCfg.SerialPortPara.SerialParity)
-            {
-                case "None":
-                    combox_parity.SelectedIndex = 0;
-                    break;
-                case "奇校验":
-                    combox_parity.SelectedIndex = 1;
-                    break;
-                case "偶校验":
-                    combox_parity.SelectedIndex = 2;
-                    break;
-                case "Mark":
-                    combox_parity.SelectedIndex = 3;
-                    break;
-                case "Space":
-                    combox_parity.SelectedIndex = 4;
-                    break;
-                default:
-                    combox_parity.SelectedIndex = 0;
-                    break;
-            }
+            
+            
             #endregion
 
             #region //显示登录窗口
