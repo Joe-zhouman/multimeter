@@ -49,7 +49,7 @@ namespace multimeter {
                 switch (typeId) {
                     case 0:
                     case 2: {
-                        for (int j = 2; j < 4; j++) {
+                        for (int j = 2; j < 5; j++) {
                             RisistGridView[j, i].Value = '-';
                             RisistGridView[j, i].ReadOnly = true;
                         }
