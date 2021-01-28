@@ -251,17 +251,17 @@ namespace multimeter
             switch (_method) {
                 case TestMethod.KAPPA: {
                     List<TextBox> textBoxes1 = new List<TextBox>()
-                        {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7,
-                        ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7,
+                        {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7, LengthTextBox1_8,
+                        ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7, ChannelTextBox1_8,
                         STextBox1_1,ForceTextBox1};
                     textBoxes.AddRange(textBoxes1);
                 } break;
                 case TestMethod.ITC: {
                     List<TextBox> textBoxes2 = new List<TextBox>() {
-                        LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7,
-                        ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7,
-                        LengthTextBox2_8, LengthTextBox2_9, LengthTextBox2_10,
-                        ChannelTextBox2_8, ChannelTextBox2_9, ChannelTextBox2_10,
+                        LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7,  LengthTextBox2_8,
+                        ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7,  ChannelTextBox2_8,
+                        LengthTextBox2_9, LengthTextBox2_10, LengthTextBox2_11, LengthTextBox2_12,
+                        ChannelTextBox2_9, ChannelTextBox2_10, ChannelTextBox2_11,ChannelTextBox2_12,
                         SuTextBox2_1,SlTextBox2_2,ForceTextBox2};
                     textBoxes.AddRange(textBoxes2);
                     } break;
@@ -272,10 +272,10 @@ namespace multimeter
                     } break;
                 case TestMethod.ITMS: {
                     List<TextBox> textBoxes4 = new List<TextBox>() {
-                        LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7,
-                        ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7,
-                        LengthTextBox4_8, LengthTextBox4_9, LengthTextBox4_10,
-                        ChannelTextBox4_8, ChannelTextBox4_9, ChannelTextBox4_10,
+                        LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7, LengthTextBox4_8,
+                        ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7, ChannelTextBox4_8,
+                        LengthTextBox4_9, LengthTextBox4_10, LengthTextBox4_11, LengthTextBox4_12,
+                        ChannelTextBox4_9, ChannelTextBox4_10, ChannelTextBox4_11, ChannelTextBox4_12,
                         SuTextBox4_1,SlTextBox4_2, ForceTextBox4, FilmThickness2};
                     textBoxes.AddRange(textBoxes4);
                     } break;
