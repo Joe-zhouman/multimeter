@@ -89,7 +89,7 @@ namespace DataAccess {
             }
         }
         public static string ReadTestMethod(string filePath) {
-           return IniHelper.Read("TestMethod", "method", "", filePath);
+           return IniHelper.Read("SYS", "method", "", filePath);
         }
         public static void WriteTempPara(Specimen specimen, string filePath) {
             for (var i = 0; i < specimen.TestPoint; i++) {
@@ -104,11 +104,12 @@ namespace DataAccess {
                     WriteTempPara(specimenThermistor, specimen.Channel[i], filePath);
                 }
             }
+            
         }
 
         public static void ReadDevicePara(ref TestDevice testDevice, string filePath) {
             ReadBasicPara(ref testDevice.HeatMeter1, filePath);
-            ReadBasicPara(ref testDevice.HeatMeter1, filePath);
+            ReadBasicPara(ref testDevice.HeatMeter2, filePath);
             if (testDevice.Sample1 != null) {
                 ReadBasicPara(ref testDevice.Sample1,filePath);
             }
@@ -125,7 +126,7 @@ namespace DataAccess {
 
         public static void WriteDevicePara(TestDevice testDevice, string filePath) {
             WriteBasicPara(testDevice.HeatMeter1, filePath);
-            WriteBasicPara(testDevice.HeatMeter1, filePath);
+            WriteBasicPara(testDevice.HeatMeter2, filePath);
             if (testDevice.Sample1 != null)
             {
                 WriteBasicPara(testDevice.Sample1, filePath);
@@ -140,11 +141,12 @@ namespace DataAccess {
                 WriteBasicPara(testDevice.Itm, filePath);
             }
             IniHelper.Write("Pressure", "force", testDevice.Force, filePath);
+            IniHelper.Write("SYS", "method", testDevice.Method.ToString(), filePath);
         }
 
         public static void ReadTempPara(ref TestDevice testDevice,string filePath) {
             ReadTempPara(ref testDevice.HeatMeter1, filePath);
-            ReadTempPara(ref testDevice.HeatMeter1, filePath);
+            ReadTempPara(ref testDevice.HeatMeter2, filePath);
             if (testDevice.Sample1 != null)
             {
                 ReadTempPara(ref testDevice.Sample1, filePath);
@@ -156,7 +158,7 @@ namespace DataAccess {
         }
         public static void WriteTempPara(TestDevice testDevice, string filePath) {
             WriteTempPara(testDevice.HeatMeter1, filePath);
-            WriteTempPara(testDevice.HeatMeter1, filePath);
+            WriteTempPara(testDevice.HeatMeter2, filePath);
             if (testDevice.Sample1 != null)
             {
                 WriteTempPara(testDevice.Sample1, filePath);

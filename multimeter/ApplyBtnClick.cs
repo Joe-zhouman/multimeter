@@ -46,6 +46,7 @@ namespace multimeter
             }
             IniReadAndWrite.DeviceToApp(_device,ref _appCfg.SerialPortPara);
             IniReadAndWrite.WriteChannelPara(_appCfg.SerialPortPara,IniReadAndWrite.IniFilePath);
+            IniReadAndWrite.WriteDevicePara(_device, IniReadAndWrite.IniFilePath);
             return true;
         }
         private bool apply_btm_1_Click() {
@@ -67,6 +68,8 @@ namespace multimeter
                 if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,
                     K2TextBox1_2, S2TextBox1_2)) return false;
             }
+
+            if(!ForceToDevice(ref _device, ForceTextBox1))return false;
             List<TextBox> samplePositionBoxes = new List<TextBox>()
                 {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7,LengthTextBox1_8};
             List<TextBox> sampleChannelBoxes = new List<TextBox>()
@@ -76,6 +79,16 @@ namespace multimeter
             return BoxToSpecimen(ref _device.Sample1, samplePositionBoxes, sampleChannelBoxes, STextBox1_1);
         }
 
+        private bool ForceToDevice(ref TestDevice device, TextBox forceBox) {
+            var force = forceBox.Text.Replace(" ", "");
+            if (!CheckData.CheckDouble(force))
+            {
+                MessageBox.Show(@"存在不合理的压力,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            device.Force = force;
+            return true;
+        }
         private bool apply_btm_2_Click()
         {
             if (User == UserType.ADVANCE)
@@ -96,6 +109,7 @@ namespace multimeter
                 if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox2_2,
                     S2TextBox2_2)) return false;
             }
+            if (!ForceToDevice(ref _device, ForceTextBox2)) return false;
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7,LengthTextBox2_8};
             List<TextBox> sampleChannelBoxes1 = new List<TextBox>()
@@ -131,6 +145,7 @@ namespace multimeter
                 if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K2TextBox3_2,
                     S2TextBox3_2)) return false;
             }
+            if (!ForceToDevice(ref _device, ForceTextBox3)) return false;
             return BoxToItm(ref _device.Itm, FilmThickness1);
         }
 
@@ -140,7 +155,7 @@ namespace multimeter
                 MessageBox.Show(@"存在不合理的热界面材料厚度,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            deviceItm.Area = textBox.Text;
+            deviceItm.Thickness = textBox.Text;
             return true;
         }
 
@@ -165,8 +180,8 @@ namespace multimeter
                 if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, K4TextBox4_2,
                     S2TextBox4_2)) return false;
             }
-           
 
+            if (!ForceToDevice(ref _device, ForceTextBox4)) return false;
             List<TextBox> samplePositionBoxes1 = new List<TextBox>()
                 {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7,LengthTextBox4_8};
             List<TextBox> sampleChannelBoxes1 = new List<TextBox>()
@@ -191,16 +206,13 @@ namespace multimeter
         private bool BoxToSpecimen(ref Specimen specimen, List<TextBox> positionBoxes, List<TextBox> channelBoxes,
             TextBox areaBox) {
             for (int i = 0; i < specimen.TestPoint; i++) {
-                if (!_appCfg.SysPara.AllowedChannels.Contains(channelBoxes[i].Text)) {
+                var channel = channelBoxes[i].Text.Replace(" ", "");
+                if (!_appCfg.SysPara.AllowedChannels.Contains(channel)) {
                     MessageBox.Show($@"{specimen.Name}存在不可用频道,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                specimen.Channel[i] = channelBoxes[i].Text;
-                if (specimen.Channel[i] == "0" && specimen.Position[i] != "0") {
-                    MessageBox.Show($@"{specimen.Name}未启用探测点的位置坐标不为0，请重新设置", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                };
-                specimen.Position[i] = positionBoxes[i].Text;
+                specimen.Channel[i] = channel;
+                
             }
             if (specimen.Channel.Length < 3) {
                 MessageBox.Show($@"{specimen.Name}的测温点太少,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -208,24 +220,32 @@ namespace multimeter
             }
 
             for (int i = 0; i < specimen.TestPoint; i++) {
-                if (!CheckData.CheckDouble(positionBoxes[i].Text)) {
+                var position = positionBoxes[i].Text.Replace(" ", "");
+                if (specimen.Channel[i] == "0" && position != "0")
+                {
+                    MessageBox.Show($@"{specimen.Name}未启用探测点的位置坐标不为0，请重新设置", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                };
+                if (!CheckData.CheckDouble(position)) {
                     MessageBox.Show($@"{specimen.Name}存在不合理的位置坐标,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                specimen.Position[i] = positionBoxes[i].Text;
+                specimen.Position[i] = position;
             }
+            var area = areaBox.Text.Replace(" ", "");
             if (!CheckData.CheckDouble(areaBox.Text)) {
                 MessageBox.Show($@"{specimen.Name}存在不合理的面积,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            specimen.Area = areaBox.Text;
+            specimen.Area = area;
             return true;
             
         }
         private bool BoxToSpecimen(ref Specimen specimen, List<TextBox> positionBoxes, List<TextBox> channelBoxes,
             TextBox kappaBox,TextBox areaBox)
-        {
-            if (!CheckData.CheckDouble(kappaBox.Text))
+        {   
+            var kappa = kappaBox.Text.Replace(" ", "");
+            if (!CheckData.CheckDouble(kappa))
             {
                 MessageBox.Show($@"{specimen.Name}存在不合理的热导率,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

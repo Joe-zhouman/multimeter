@@ -12,8 +12,9 @@ namespace Model {
         public Specimen HeatMeter2;
         public Specimen Sample1;
         public Specimen Sample2;
-
+        public TestMethod Method { get; }
         public TestDevice(TestMethod testMethod) {
+            Method = testMethod;
             HeatMeter1 = new Specimen("HeatMeter1", SpecimenType.HEAT_METER);
             HeatMeter2 = new Specimen("HeatMeter2", SpecimenType.HEAT_METER);
             switch (testMethod) {
