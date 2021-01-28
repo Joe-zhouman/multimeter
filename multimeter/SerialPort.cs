@@ -13,16 +13,138 @@
 // *LeetCode*  : https://leetcode-cn.com/u/joe_zm/
 
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
-using DataProcessor;
+using BusinessLogic;
+using DataAccess;
+using Model;
 
 namespace multimeter
 {
     public partial class SetupTest
     {
+        private void btn_start()
+        {
+            #region //开始串口采集
+
+            //btn_stop.Enabled = true;
+            //btn_start.Enabled = false;
+            _count = 0;
+            _latestDataFile = "";
+            _latestResultFile = "";
+            string fileName = _method + "-DataAutoSave.csv";
+            _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method.ToString() + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff")); 
+            try
+            {
+                var di = Directory.CreateDirectory(_autoSaveFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($@"自动保存文件创建失败,请重试
+{ex.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Error(ex);
+                btn_stop();
+                return;
+            }_latestDataFile = Path.Combine(_autoSaveFilePath, fileName);
+            try
+            {
+                serialPort1.BaudRate = int.Parse(_appCfg.SerialPortPara.SerialBaudRate);
+                serialPort1.PortName = _appCfg.SerialPortPara.SerialPort;
+                serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), _appCfg.SerialPortPara.SerialParity);
+                serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), _appCfg.SerialPortPara.SerialStopBits);
+                serialPort1.DataBits = int.Parse(_appCfg.SerialPortPara.SerialDataBits);
+
+                serialPort1.Open();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                MessageBox.Show("无法打开串口！");
+                //btn_start.Enabled = true;
+                //btn_stop.Enabled = false;
+                return;
+            }
+            serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
+
+
+            #endregion
+            _multiMeter = new MultiMeterInfo(_appCfg.SerialPortPara);
+            SendMsg();
+            _temp = new List<string>();
+            try
+            {
+                StreamWriter write = new StreamWriter(_latestDataFile);
+                write.WriteLine("step," + _multiMeter.TotalChn);
+                write.Close();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        public void SendMsg()
+        {
+            #region
+
+            string st3 = SerialPortOpt.ResolveCmd(_multiMeter);
+
+            string[] str = st3.Split('\n');
+            foreach (string i in str)
+            {
+                serialPort1.WriteLine(i);
+                Thread.Sleep(100);
+            }
+
+            Thread.Sleep(100);
+
+            Thread thread;
+            //MessageBox.Show(TotalCHN);
+            _enableScan = true;
+            thread = new Thread(() => //新开线程，执行接收数据操作
+            {
+                while (_enableScan) //如果标识为true
+                {
+                    Thread.Sleep(1);
+                    try
+                    {
+                        serialPort1.WriteLine(":READ?");
+                        Thread.Sleep(_appCfg.SysPara.ScanInterval.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex);
+                    }
+                }
+            });
+            thread.Start(); //启动线程
+            thread.IsBackground = true;
+
+            #endregion
+        }
+
+        private void btn_stop()
+        {
+            serialPort1.Close();
+            _temp.Clear();
+            _enableScan = false;
+        }
+
+        private void SetupTest_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            serialPort1.Close();
+            while (serialPort1.IsOpen)
+            {
+            }
+            Application.Exit();
+        }
         private void SerialPort_Timer_Tick(object sender, EventArgs e)
         {
             #region
@@ -47,55 +169,42 @@ namespace multimeter
                 if (str.IndexOf((char)13) != -1)
                 {
                     str = str.Substring(0, str.IndexOf((char)13));
-                    _recvstr += str;
-                    if (_recvstr.Length > 0)
+                    _recvStr += str;
+                    if (_recvStr.Length > 0)
                     {
-                        int firstIdx = _recvstr.IndexOf((char)13);
-                        int lastIdx = _recvstr.LastIndexOf((char)13);
+                        int firstIdx = _recvStr.IndexOf((char)13);
+                        int lastIdx = _recvStr.LastIndexOf((char)13);
                         if (-1 != firstIdx && firstIdx != lastIdx)
                         {
-                            _recvstr = _recvstr.Remove(firstIdx, lastIdx - firstIdx + 1);
+                            _recvStr = _recvStr.Remove(firstIdx, lastIdx - firstIdx + 1);
                         }
 
-                        _recvstr = _recvstr.Replace((char)19, (char)0);
-                        _recvstr = _recvstr.Replace((char)13, (char)0);
-                        _recvstr = _recvstr.Replace((char)0x11, (char)0);
-                        _recvstr = _recvstr.Replace("\0", "");
+                        _recvStr = _recvStr.Replace((char)19, (char)0);
+                        _recvStr = _recvStr.Replace((char)13, (char)0);
+                        _recvStr = _recvStr.Replace((char)0x11, (char)0);
+                        _recvStr = _recvStr.Replace("\0", "");
 
 
                         double[] dataList;
                         try
                         {
-                            dataList = _recvstr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
+                            dataList = _recvStr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray();
                         }
                         catch (Exception ex)
                         {
-                            log.Error(_recvstr + "\n", ex);
+                            Log.Error(_recvStr + "\n", ex);
                             return;
                         }
-                        if (dataList.Length != channels.Length)
+                        if (dataList.Length != _multiMeter.Channels.Length)
                         {
                             return;
                         }
-
-                        count++;
-                        string temp = count.ToString() + ',';
+                        _count++;
+                        string temp = _count.ToString() + ',';
                         _testResult.Clear();
-                        for (int i = 0; i < channels.Length; i++) _testResult.Add(channels[i], dataList[i]);
-                        _heatMeter1.SetTemp(_testResult);
-                        temp = _heatMeter1.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        if (_sample1 != null)
-                        {
-                            _sample1.SetTemp(_testResult);
-                            temp = _sample1.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        }
-                        if (_sample2 != null)
-                        {
-                            _sample2.SetTemp(_testResult);
-                            temp = _sample2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
-                        }
-                        _heatMeter2.SetTemp(_testResult);
-                        temp = _heatMeter2.Temp.Aggregate(temp, (current, d) => current + (d.ToString(CultureInfo.InvariantCulture) + ','));
+                        for (int i = 0; i < _multiMeter.Channels.Length; i++) _testResult.Add(_multiMeter.Channels[i], dataList[i]);
+                        DeviceOpt.SetTemp(ref _device,_testResult);
+                        DeviceOpt.GetTempList(ref temp,_device);
                         try
                         {
                             StreamWriter write = new StreamWriter(_latestDataFile, true);
@@ -105,17 +214,18 @@ namespace multimeter
                         catch (Exception ex)
                         {
 
-                            log.Error(ex);
+                            Log.Error(ex);
                         }
                         finally
                         {
-                            _recvstr = "";
+                            _recvStr = "";
                         }
                         _temp.Add(temp);
 
-                        if (count % AppCfg.devicepara.Save_interval == 0)
+                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
                         {
-                            SaveToData(_method.ToString());
+                            if(!_convergent)IsConvergent();
+                            SaveToData(_method.ToString() + "-" + _count + ".rst");
                             _temp.Clear();
                         }
 
@@ -132,7 +242,7 @@ namespace multimeter
                 }
                 else
                 {
-                    _recvstr += str;
+                    _recvStr += str;
                 }
 
 
@@ -173,11 +283,7 @@ namespace multimeter
         private void SaveToData(string name)
         {
             #region
-            if (_temp.Count == 0)
-                return;
-            if (!_convergent) IsConvergent();
-            _lastTemp = _temp;
-            string fileName = name + "-" + count + ".rst";
+            string fileName = name ;
             _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
             File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _latestResultFile);
             //MessageBox.Show(filePath);
@@ -185,12 +291,12 @@ namespace multimeter
             {
                 for (int i = 0; i < _lastTemp.Count; i++)
                 {
-                    INIHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);
+                    IniHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);
                 }
             }
             catch (Exception ex)
             {
-                log.Error(ex);
+                Log.Error(ex);
                 MessageBox.Show(ex.ToString());
             }
 
@@ -215,16 +321,17 @@ namespace multimeter
                 _convergent = false;
                 return;
             }
-            var lastTempArray = Solution.AveTemp(_lastTemp.ToArray(), TotalNum);
-            var currentTempArray = Solution.AveTemp(_temp.ToArray(), TotalNum);
-            for (int i = 0; i < TotalNum; i++)
+            var lastTempArray = Solution.AveTemp(_lastTemp.ToArray(), _multiMeter.TotalNum);
+            var currentTempArray = Solution.AveTemp(_temp.ToArray(), _multiMeter.TotalNum);
+            for (int i = 0; i < _multiMeter.TotalNum; i++)
             {
-                if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > AppCfg.devicepara.ConvergentLim)
+                if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) >_appCfg.SysPara.ConvergentLim)
                 {
                     _convergent = false;
                     return;
                 }
             }
+            _lastTemp = _temp;
             _convergent = true;
 
             /*    if (ConvergentHolding_Timer.Enabled) return;

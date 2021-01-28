@@ -177,6 +177,7 @@ namespace multimeter
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(189, 29);
             this.comboBox.TabIndex = 7;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.UserType_SelectedIndexChanged);
             // 
             // cancel
             // 
@@ -217,7 +218,7 @@ namespace multimeter
             this.userpasswordTBox.Name = "userpasswordTBox";
             this.userpasswordTBox.Size = new System.Drawing.Size(189, 29);
             this.userpasswordTBox.TabIndex = 5;
-            this.userpasswordTBox.TextChanged += new System.EventHandler(this.userpasswordTBox_TextChanged);
+            this.userpasswordTBox.TextChanged += new System.EventHandler(this.userPasswordTBox_TextChanged);
             // 
             // groupBox1
             // 

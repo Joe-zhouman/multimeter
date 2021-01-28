@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Runtime.InteropServices;
-using System.IO;
+using System.Text;
 
-
-namespace DataProcessor {   
-    public static class INIHelper {
+namespace DataAccess {   
+    public static class IniHelper {
         /// <summary>
         /// 为INI文件中指定的节点取得字符串
         /// </summary>
@@ -87,10 +82,7 @@ namespace DataProcessor {
         /// <param name="filePath"></param>
         /// <returns></returns>
         public static bool CheckPath(string filePath) {
-            if (!File.Exists(filePath)) {
-                return false;
-            }
-            return true;
+            return File.Exists(filePath);
         }
 
     }

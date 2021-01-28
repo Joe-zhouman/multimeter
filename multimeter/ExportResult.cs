@@ -8,7 +8,7 @@ using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using DataProcessor;
+using Model;
 
 namespace multimeter {
     public partial class SetupTest {
@@ -46,7 +46,7 @@ namespace multimeter {
             }
 
             try {
-                saveFileDialog1.Filter = "bmp 文件(.BMP) |*.BMP|All File(*.*)|*.*|bmp 文件 （.jpg) |*.jpg";
+                saveFileDialog1.Filter = @"bmp 文件(.BMP) |*.BMP|All File(*.*)|*.*|bmp 文件 （.jpg) |*.jpg";
                 saveFileDialog1.ShowDialog();
                 string filepath = saveFileDialog1.FileName;
                 bitmap.Save(filepath);
@@ -54,7 +54,6 @@ namespace multimeter {
             }
             catch {
                 MessageBox.Show(@"请正确选择路径", @"提示", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
             }
 
         }

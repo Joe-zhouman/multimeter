@@ -1,31 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Dynamic;
 using System.Linq;
-using DataProcessor;
-using multimeter;
 using log4net;
 using log4net.Core;
+
 namespace Tester {
     internal class Program {
         private static void Main(string[] args) {
-            AppDomain currentDomain = AppDomain.CurrentDomain;
-            currentDomain.UnhandledException += MyHandler;
-            ILog logger = LogManager.GetLogger("TesterLogger");
-            double[] a = {1, 2};
-            for (int i = 0; i < 3; i++) {
-                Console.WriteLine(a[i]);
-            }
+            Father person = new Son();
+            var t = person as Son;
+            SetI(ref t);
+            Console.WriteLine(person.GetType());
         }
-        private static void MyHandler(object sender, UnhandledExceptionEventArgs args)
+        public static void SetI(ref Son son)
         {
-            Exception e = (Exception)args.ExceptionObject;
-            ILog logger = LogManager.GetLogger("Unexcepted Exception");
-            logger.Fatal(e);
+            son.sex = "male";
         }
+
+    }
+    
+    class Father {
+        
     }
 
-    enum MyEnum {
-        Red,Black
+    class Son:Father {
+        public string sex;
     }
+    class Daughter : Father
+    {
+        public string sex;
+    }
+    
 }

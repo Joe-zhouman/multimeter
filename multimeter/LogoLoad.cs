@@ -12,7 +12,7 @@ using CCWin;
 namespace multimeter {
     public partial class LogoLoad : Form {
         public bool LogoClose = false;
-        private ProgressBar progress = new ProgressBar();
+        private ProgressBar _progress = new ProgressBar();
         public LogoLoad() {
             InitializeComponent();
         }

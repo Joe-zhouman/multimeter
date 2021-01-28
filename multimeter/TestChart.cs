@@ -4,13 +4,13 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using DataProcessor;
+using Model;
 
 namespace multimeter {
     public partial class SetupTest {
         private int _timerCyclesNum;
-        private DateTime X_minValue;    //采样初始时间
-        private DateTime X_maxValue;    //采样最近时间
+        private DateTime _xMinValue;    //采样初始时间
+        private DateTime _xMaxValue;    //采样最近时间
         private void Chart_Init() {
             
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
@@ -33,12 +33,8 @@ namespace multimeter {
             List<CheckBox> checkBoxes = new List<CheckBox>()
                     { checkBox1,checkBox2,checkBox3,checkBox4,checkBox5, checkBox6, 
                         checkBox7,checkBox8,checkBox9,checkBox10,checkBox11,checkBox12,checkBox13};
-            List<string> channelList = new List<string>();
-            channelList.AddRange(_heatMeter1.Channel);
-            if(_sample1!=null) channelList.AddRange(_sample1.Channel);
-            if(_sample2!=null) channelList.AddRange(_sample2.Channel);
-            channelList.AddRange(_heatMeter2.Channel);
-            int numChannel = channels.Length;
+            List<string> channelList = _device.Channels;
+            int numChannel = channelList.Count;
             for (int i = 0; i < numChannel; i++) {
                 checkBoxes[i].Visible =true;
                 checkBoxes[i].Text = channelList[i];           
@@ -62,30 +58,15 @@ namespace multimeter {
             chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();      //当前时间
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
             _timerCyclesNum = 0;
-            X_minValue = DateTime.Now;          
-            X_maxValue = DateTime.Now;          
+            _xMinValue = DateTime.Now;          
+            _xMaxValue = DateTime.Now;          
         }
 
 
         private void ShowChart() {
-            List<double> T = new List<double>();
-            if (_heatMeter1 != null) {
-                T.AddRange(_heatMeter1.Temp);
-            }
-
-            if (_sample1 != null) {
-                T.AddRange(_sample1.Temp);
-            }
-
-            if (_sample2 != null) {
-                T.AddRange(_sample2.Temp);
-            }
-
-            if (_heatMeter2 != null) {
-                T.AddRange(_heatMeter2.Temp);
-            }
+            List<double> T = _device.Temp;
             if (T.Count != 0) {
-                X_maxValue = DateTime.Now;
+                _xMaxValue = DateTime.Now;
             } //更新采样最近时间
 
             for (int i = 0; i < T.Count; i++) {
@@ -119,7 +100,7 @@ namespace multimeter {
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
                 DateTime datetime = DateTime.FromOADate(a.XValue);
-                chartValue.Text = $@"Ch{a.LegendText},Time:{datetime},Temp:{a.YValues[0]}";
+                chartValue.Text = $@"Ch{a.LegendText},Time:{datetime},ThermocoupleChn:{a.YValues[0]}";
 
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
@@ -130,9 +111,9 @@ namespace multimeter {
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
             int sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
-            TestTime.Text = "测试时长 " +SecToTimeSpan(sec);
+            TestTime.Text = $@"测试时长 {SecToTimeSpan(sec)}";
 
-            int interval = (int)Math.Abs(((DateTime.Now - X_maxValue).TotalSeconds));
+            int interval = (int)Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
             if (interval >= 7) {
                 TestTime.Text = "";
                 TestTime_Timer.Enabled = false;
@@ -145,16 +126,16 @@ namespace multimeter {
             string timespan = "";
             TimeSpan ts = new TimeSpan(0, 0, sec);
             if (ts.Hours > 0) {
-                timespan = string.Format("{0:00}", ts.Hours)
-                                        + ":" + string.Format("{0:00}", ts.Minutes)
-                                        + ":" + string.Format("{0:00}", ts.Seconds);
+                timespan = $"{ts.Hours:00}"
+                           + ":" + $"{ts.Minutes:00}"
+                           + ":" + $"{ts.Seconds:00}";
             }
             if (ts.Hours == 0 && ts.Minutes > 0) {
-                timespan ="00:" + string.Format("{0:00}", ts.Minutes)
-                                + ":" + string.Format("{0:00}", ts.Seconds);
+                timespan ="00:" + $"{ts.Minutes:00}"
+                                + ":" + $"{ts.Seconds:00}";
             }
             if (ts.Hours == 0 && ts.Minutes == 0) {
-                timespan ="00:00:" + string.Format("{0:00}", ts.Seconds);
+                timespan ="00:00:" + $"{ts.Seconds:00}";
             }
             return timespan;
         } //将秒转换成hh:mm:ss
@@ -254,11 +235,11 @@ namespace multimeter {
 
         }
         private void XAdapt() {
-            if (!XAxis_checkBox.Checked && X_maxValue > X_minValue) {
-                int interval = (int)((X_maxValue - X_minValue).TotalSeconds / 10);
+            if (!XAxis_checkBox.Checked && _xMaxValue > _xMinValue) {
+                int interval = (int)((_xMaxValue - _xMinValue).TotalSeconds / 10);
                 this.chart1.ChartAreas[0].AxisX.LabelStyle.Interval = interval;                //坐标值间隔*S
                 this.chart1.ChartAreas[0].AxisX.MajorGrid.Interval = interval;                 //网格间隔
-                chart1.ChartAreas[0].AxisX.Minimum = X_minValue.ToOADate();
+                chart1.ChartAreas[0].AxisX.Minimum = _xMinValue.ToOADate();
             }//X轴设置成全局显示
             else {
                 this.chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 5;                //坐标值间隔*S

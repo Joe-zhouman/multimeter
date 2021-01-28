@@ -123,7 +123,6 @@
     <Compile Include="TestResultClick.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParaInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetupTest.cs">
@@ -149,7 +148,6 @@
     <EmbeddedResource Include="SetupTest.resx">
       <DependentUpon>SetupTest.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="HelpDocument\help.pdf" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -176,9 +174,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataPeocess\DataProcessor.csproj">
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{7f84b46f-37cc-4dc1-b379-9752af675716}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPeocess\BusinessLogic.csproj">
       <Project>{9e44a3f1-ded8-413e-ad5d-593d1a0380f7}</Project>
-      <Name>DataProcessor</Name>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{d6037d48-6617-411f-907f-74b4d955220f}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

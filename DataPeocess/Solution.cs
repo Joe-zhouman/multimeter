@@ -6,23 +6,16 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using DataAccess;
+using Model;
 
-namespace DataProcessor {
+namespace BusinessLogic {
     public static class Solution {
-        public static Exception ReadData(ref Dictionary<string, double> testResult, string[] channelList,
-            string filePath) {
-            var dataPoints = int.Parse(INIHelper.Read("Data", "save_interval", "0", filePath));
-            try {
-                var temp = new string[dataPoints];
-                for (var i = 0; i < dataPoints; i++) temp[i] = INIHelper.Read("Data", i.ToString(), "", filePath);
-
-                var aveTemp = AveTemp(temp, channelList.Length);
-                for (var i = 0; i < channelList.Length; i++) testResult.Add(channelList[i], Math.Round(aveTemp[i], 2));
-                return null;
-            }
-            catch (Exception e) {
-                return e;
-            }
+        public static void GetTestResult(ref Dictionary<string, double> testResult, string filePath,
+            string[] channelList) {
+            var aveTemp = AveTemp(ReadFile.ReadData(filePath), channelList.Length);
+            for (var i = 0; i < channelList.Length; i++) testResult.Add(channelList[i], Math.Round(aveTemp[i], 2));
         }
 
         public static double[] AveTemp(string[] temp, int numChannel) {
@@ -94,9 +87,9 @@ namespace DataProcessor {
         /// <param name="k">拟合直线斜率,引用类型</param>
         /// <param name="b">拟合参数截距,引用类型</param>
         /// <returns>拟合成功,返回true;拟合失败或拟合误差过大,返回false</returns>
-        public static bool LinearFit(double[] x, double[] y, ref double k, ref double b) {
-            if (x.Length != y.Length) return false;
-            if (x.Length < 3) return false;
+        public static string LinearFit(double[] x, double[] y, ref double k, ref double b) {
+            if (x.Length != y.Length) return @"位置信息和温度不对应";
+            if (x.Length < 3) return @"拟合数据过少,拟合结果不可靠";
 
             var aveX = x.Average();
             var aveY = y.Average();
@@ -104,19 +97,13 @@ namespace DataProcessor {
             var xSquare = x.Select(t => t * t).ToArray();
             var xDotY = x.Select((t, i) => t * y[i]).ToArray();
 
-            var err = 0.0;
-            try {
-                k = (xDotY.Average() - aveX * aveY) / (xSquare.Average() - aveX * aveX);
-                b = aveY - k * aveX;
-                var stdX = GetStd(x, aveX);
-                var stdY = GetStd(y, aveY);
-                err = x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToArray().Sum() / x.Length / stdX / stdY;
-            }
-            catch (Exception) {
-                // ignored
-            }
 
-            return err > 0.7;
+            k = (xDotY.Average() - aveX * aveY) / (xSquare.Average() - aveX * aveX);
+            b = aveY - k * aveX;
+            var stdX = GetStd(x, aveX);
+            var stdY = GetStd(y, aveY);
+            var err = x.Select((t, i) => (t - aveX) * (y[i] - aveY)).ToArray().Sum() / x.Length / stdX / stdY;
+            return err > 0.7 ? "" : @"拟合误差过大,请检查位置及温度数据";
         } //线性拟合
 
         /// <summary>
@@ -126,58 +113,39 @@ namespace DataProcessor {
         /// <param name="heatMeter2"></param>
         /// <param name="sample1"></param>
         /// <returns></returns>
-        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1) {
+        public static string GetResults(ref TestDevice device) {
             var k = new double[2];
             var b = new double[2];
-            var accurate = GetHeatFlow(heatMeter1, heatMeter2, out var heatFlow, ref k, ref b);
-            if (!LinearFitUpper(sample1, ref k[0], ref b[0])) accurate = false;
-            sample1.Kappa =
-                (heatFlow / double.Parse(sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
-                    .InvariantCulture);
-            return accurate;
-        }
+            var area = (double.Parse(device.HeatMeter1.Area)+ double.Parse(device.HeatMeter1.Area))/2;
+            var errInfo = GetHeatFlow(device, out double heatFlow,ref k,ref b);
+            if (device.Sample1 != null) {
+                var errInfoSample1 = LinearFitUpper(device.Sample1, ref k[0], ref b[0]);
+                device.Sample1.Kappa =
+                    (heatFlow / double.Parse(device.Sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
+                        .InvariantCulture);
+                if (errInfoSample1 != "") {
+                    errInfo += errInfoSample1 + "（试件1）\n";
+                }
+            }
+            if (device.Sample2 != null)
+            {
+                var errInfoSample2 = LinearFitLower(device.Sample2, ref k[1], ref b[2]);
+                device.Sample2.Kappa =
+                    (heatFlow / double.Parse(device.Sample2.Area) / k[0]).ToString("0.000e+0", CultureInfo
+                        .InvariantCulture);
+                if (errInfoSample2 != "")
+                {
+                    errInfo += errInfoSample2 + "（试件1）\n";
+                }
+                area = (double.Parse(device.Sample1.Area) + double.Parse(device.Sample2.Area)) / 2;
+            }
 
-        /// <summary>
-        ///     计算试件间及热界面材料接触热阻
-        /// </summary>
-        /// <param name="heatMeter1"></param>
-        /// <param name="heatMeter2"></param>
-        /// <param name="sample1"></param>
-        /// <param name="sample2"></param>
-        /// <param name="itc"></param>
-        /// <returns></returns>
-        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, ref Sample sample1,
-            ref Sample sample2, out double itc) {
-            var k = new double[2];
-            var b = new double[2];
-            var accurate = GetHeatFlow(heatMeter1, heatMeter2, out var heatFlow, ref k, ref b);
-            if (!LinearFitUpper(sample1, ref k[0], ref b[0])) accurate = false;
-            sample1.Kappa =
-                (heatFlow / double.Parse(sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
-                    .InvariantCulture);
+            device.Itc = (b[0] - b[1]) / heatFlow * area * 1000;
+            if (device.Itm!=null) {
+                device.Itm.Kappa = double.Parse(device.Itm.Thickness) / device.Itc;
+            }
 
-            if (!LinearFitLower(sample2, ref k[1], ref b[1])) accurate = false;
-            sample2.Kappa =
-                (heatFlow / double.Parse(sample2.Area) / k[1]).ToString("0.000e+0", CultureInfo
-                    .InvariantCulture);
-            itc = (b[0] - b[1]) / heatFlow * (double.Parse(sample1.Area) + double.Parse(sample2.Area)) * 500;
-            return accurate;
-        } //接触热阻计算
-
-
-        /// <summary>
-        ///     计算热流计间热界面材料接触热阻
-        /// </summary>
-        /// <param name="heatMeter1"></param>
-        /// <param name="heatMeter2"></param>
-        /// <param name="itc"></param>
-        /// <returns></returns>
-        public static bool GetResults(HeatMeter heatMeter1, HeatMeter heatMeter2, out double itc) {
-            var k = new double[2];
-            var b = new double[2];
-            var accurate = GetHeatFlow(heatMeter1, heatMeter2, out var heatFlow, ref k, ref b);
-            itc = (b[0] - b[1]) / heatFlow * (double.Parse(heatMeter1.Area) + double.Parse(heatMeter2.Area)) * 500;
-            return accurate;
+            return errInfo;
         }
 
         /// <summary>
@@ -192,31 +160,38 @@ namespace DataProcessor {
         /// 下热流计,4个测温点
         /// 热流密度
         /// <returns></returns>
-        private static bool GetHeatFlow(HeatMeter heatMeter1, HeatMeter heatMeter2, out double heatFlow, ref double[] k,
+        private static string GetHeatFlow(TestDevice device, out double heatFlow, ref double[] k,
             ref double[] b) {
-            var accurate = LinearFitUpper(heatMeter1, ref k[0], ref b[0]);
-
-            var heatFlow1 = double.Parse(heatMeter1.Kappa) *
-                            double.Parse(heatMeter1.Area) * k[0];
-            if (!LinearFitLower(heatMeter2, ref k[1], ref b[1])) accurate = false;
-            var heatFlow2 = double.Parse(heatMeter1.Kappa) *
-                            double.Parse(heatMeter2.Area) * k[1];
-            if (Math.Abs(1 - heatFlow1 / heatFlow2) > 0.4) accurate = false;
+            var errInfo = LinearFitUpper(device.HeatMeter1, ref k[0], ref b[0]);
+            if (errInfo!="") {
+                errInfo += "（上热流计）\n";
+            }
+            var heatFlow1 = double.Parse(device.HeatMeter1.Kappa) *
+                            double.Parse(device.HeatMeter1.Area) * k[0];
+            var errInfo2 = LinearFitLower(device.HeatMeter2, ref k[1], ref b[1]);
+            if (errInfo != "") {
+                errInfo += errInfo2 + "（上热流计）\n";
+            }
+            var heatFlow2 = double.Parse(device.HeatMeter2.Kappa) *
+                            double.Parse(device.HeatMeter2.Area) * k[1];
+            if (Math.Abs(1 - heatFlow1 / heatFlow2) > 0.4) {
+                errInfo += @"上下热流计热流相差过大";
+            }
             heatFlow = (heatFlow1 + heatFlow2) / 2;
-            return accurate;
+            return errInfo;
         }
 
-        private static bool LinearFitLower(Specimen specimen, ref double k, ref double b) {
-            var numPosition = specimen.Position.Select(i => double.Parse(i) * -1).ToArray();
+        private static string LinearFitLower(Specimen specimen, ref double k, ref double b) {
+            var numPosition = specimen.Position.Where(i=>i!="0").Select(i => double.Parse(i) * -1).ToArray();
             for (var i = 1; i < specimen.TestPoint; i++) numPosition[i] += numPosition[i - 1];
 
             return LinearFit(numPosition, specimen.Temp.ToArray(), ref k, ref b);
         }
 
-        private static bool LinearFitUpper(Specimen specimen, ref double k, ref double b) {
-            var numPosition = specimen.Position.Select(double.Parse).ToArray();
+        private static string LinearFitUpper(Specimen specimen, ref double k, ref double b) {
+            var numPosition = specimen.Position.Where(i => i != "0").Select(double.Parse).ToArray();
             for (var i = specimen.TestPoint - 2; i >= 0; i--) numPosition[i] += numPosition[i + 1];
-            return LinearFit(numPosition, specimen.Temp, ref k, ref b);
+            return LinearFit(numPosition, specimen.Temp.ToArray(), ref k, ref b);
         }
 
         private static double GetStd(double[] x, double aveX) {

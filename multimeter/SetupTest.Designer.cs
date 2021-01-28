@@ -4021,7 +4021,6 @@
             this.label139.Size = new System.Drawing.Size(110, 30);
             this.label139.TabIndex = 132;
             this.label139.Text = "-------->";
-            this.label139.Click += new System.EventHandler(this.label139_Click);
             // 
             // k4_s2
             // 
@@ -4096,7 +4095,6 @@
             this.Tlable4_12.Size = new System.Drawing.Size(43, 23);
             this.Tlable4_12.TabIndex = 111;
             this.Tlable4_12.Text = "000";
-            this.Tlable4_12.Click += new System.EventHandler(this.Tlable4_12_Click);
             // 
             // label135
             // 

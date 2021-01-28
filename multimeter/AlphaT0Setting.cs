@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataProcessor;
+using DataAccess;
 
 namespace multimeter {
     public partial class AlphaT0Setting : Form {
@@ -26,17 +26,17 @@ namespace multimeter {
              for (int i = 0; i < 4; i++) {
                  dataGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
              }
-             for (int i = 0; i < 13; i++) {
+             for (int i = 0; i < 14; i++) {
                  dataGridView.Rows.Add((201+i).ToString(), "", "");
                  dataGridView["channel", i].ReadOnly = true;
                  string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-                 dataGridView[1,i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
+                 dataGridView[1,i].Value = IniHelper.Read(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
                      filePath);
                  dataGridView[1, i].ValueType = typeof(double);
-                 dataGridView[2, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A1", dataGridView[1, i].Value.ToString(),
+                 dataGridView[2, i].Value = IniHelper.Read(dataGridView[0, i].Value.ToString(), "A1", dataGridView[1, i].Value.ToString(),
                      filePath);
                  dataGridView[2, i].ValueType = typeof(double);
-                 dataGridView[3, i].Value = INIHelper.Read(dataGridView[0, i].Value.ToString(), "A3", dataGridView[1, i].Value.ToString(),
+                 dataGridView[3, i].Value = IniHelper.Read(dataGridView[0, i].Value.ToString(), "A3", dataGridView[1, i].Value.ToString(),
                      filePath);
                  dataGridView[3, i].ValueType = typeof(double);
              }
@@ -55,11 +55,11 @@ namespace multimeter {
             string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", $"sys.ini.{DateTime.Now:yyyy-MM-dd-ss-ffff}.bak");
             File.Copy(filePath, bakFilePath);
             for (int i = 0; i < dataGridView.Rows.Count - 1; i++) {
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
+                IniHelper.Write(dataGridView[0, i].Value.ToString(), "A0", dataGridView[1, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A1", dataGridView[2, i].Value.ToString(),
+                IniHelper.Write(dataGridView[0, i].Value.ToString(), "A1", dataGridView[2, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(dataGridView[0, i].Value.ToString(), "A3", dataGridView[3, i].Value.ToString(),
+                IniHelper.Write(dataGridView[0, i].Value.ToString(), "A3", dataGridView[3, i].Value.ToString(),
                     filePath);
                 
             }

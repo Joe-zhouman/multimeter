@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "multimeter", "multimeter\multimeter.csproj", "{D8520D10-BEA2-4B37-B603-F6773CD2B1DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "multimeter\UI.csproj", "{D8520D10-BEA2-4B37-B603-F6773CD2B1DE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessor", "DataPeocess\DataProcessor.csproj", "{9E44A3F1-DED8-413E-AD5D-593D1A0380F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "DataPeocess\BusinessLogic.csproj", "{9E44A3F1-DED8-413E-AD5D-593D1A0380F7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tester", "Tester\Tester.csproj", "{A1977967-A1D0-40BD-923B-922353DA9E1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{D6037D48-6617-411F-907F-74B4D955220F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{7F84B46F-37CC-4DC1-B379-9752AF675716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{A1977967-A1D0-40BD-923B-922353DA9E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1977967-A1D0-40BD-923B-922353DA9E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1977967-A1D0-40BD-923B-922353DA9E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6037D48-6617-411F-907F-74B4D955220F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6037D48-6617-411F-907F-74B4D955220F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6037D48-6617-411F-907F-74B4D955220F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6037D48-6617-411F-907F-74B4D955220F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F84B46F-37CC-4DC1-B379-9752AF675716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F84B46F-37CC-4DC1-B379-9752AF675716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F84B46F-37CC-4DC1-B379-9752AF675716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F84B46F-37CC-4DC1-B379-9752AF675716}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

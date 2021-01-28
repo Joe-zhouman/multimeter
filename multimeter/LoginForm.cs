@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccess;
+using Model;
 
 namespace multimeter {
     public partial class LoginForm : Form {
+        private User _user; 
         public LoginForm() {
             InitializeComponent();
         }
         private void login_Click(object sender, EventArgs e) {
-            string userName = this.usernameTBox.Text;
-            string userPassword = this.userpasswordTBox.Text;
             SetupTest setupTest = (SetupTest)this.Owner;
+            _user.Name = usernameTBox.Text;
+            _user.Password = userpasswordTBox.Text;
             switch (comboBox.SelectedIndex) {
-                case 0:
-                    setupTest.User = User.NORMAL;
+                case 0 when CheckUserInfo.CheckNormalUser(_user):
+                    setupTest.User = _user.Type;
                     setupTest.TestChooseFormShow_Click(sender, e);
                     setupTest.SerialPort.Visible = false;
                     setupTest.SerialPortLabel.Visible = false;
@@ -28,8 +31,8 @@ namespace multimeter {
                     setupTest.AdvancedLabel.Visible = false;
                     Close();
                     break;
-                case 1 when userName.Equals("admin") && userPassword.Equals("admin"):
-                    setupTest.User = User.ADVANCE;
+                case 1 when CheckUserInfo.CheckAdvanceUser(_user):
+                    setupTest.User = _user.Type;
                     setupTest.TestChooseFormShow_Click(sender, e);
                     setupTest.AllTextBoxEnable();
                     setupTest.SerialPort.Visible = true;
@@ -55,15 +58,26 @@ namespace multimeter {
             Close();
             Application.Exit();
         }
-        private void userpasswordTBox_TextChanged(object sender, EventArgs e) {
+        private void userPasswordTBox_TextChanged(object sender, EventArgs e) {
             userpasswordTBox.PasswordChar = '*';
         }
 
         private void LoginForm_Load(object sender, EventArgs e) {
-            comboBox.SelectedItem = "普通用户";
+            _user = new User {Type = UserType.NORMAL};
+            comboBox.SelectedIndex = 0;
 
         }
-
+        private void UserType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox.SelectedIndex) {
+                case 0:
+                    _user.Type = UserType.NORMAL;
+                    break;
+                case 1:
+                    _user.Type = UserType.ADVANCE;
+                    break;
+            }
+        }
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -73,5 +87,7 @@ namespace multimeter {
         {
 
         }
+
+        
     }
 }
