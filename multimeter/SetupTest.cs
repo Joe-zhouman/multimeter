@@ -178,8 +178,8 @@ namespace multimeter
 
         public void AdvancedSetting_Click(object sender, EventArgs e)
         {
-            ParaSetting paraSetting = new ParaSetting();
-            paraSetting.Show();
+            //AlphaT0Setting alphaT0Setting = new AlphaT0Setting();
+            //alphaT0Setting.Show();
         }
         private void HelpButton_Click(object sender, EventArgs e)
         {

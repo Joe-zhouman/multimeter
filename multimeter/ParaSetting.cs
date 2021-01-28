@@ -40,7 +40,7 @@ namespace multimeter {
                 RisistGridView["channel", i].ReadOnly = true;
                 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
                 RisistGridView[2,i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
-                     filePath);           
+                     filePath); 
                 RisistGridView[2, i].ValueType = typeof(double);
                 RisistGridView[3, i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A1", RisistGridView[1, i].Value.ToString(),
                      filePath);
