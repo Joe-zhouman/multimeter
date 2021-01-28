@@ -6,8 +6,7 @@ using System.Collections.Generic;
 
 namespace Model {
     public class SysPara {
-        public string AllowedChannels;
-
+        public List<string> AllowedChannels { get; set; }
         public SysPara() {
             SaveInterval = new RangeValue {
                 Value = 50, LowerBound = 30, UpperBound = 100
@@ -20,9 +19,9 @@ namespace Model {
             ;
             AutoCloseInterval = 1800;
             ConvergentLim = 1e-3;
-            AllowedChannels = "0";
-            for (int i = 201; i < 215; i++) {
-                AllowedChannels += "," + i;
+            AllowedChannels = new List<string>() {"0"};
+            for (int i = 201; i < 217; i++) {
+                AllowedChannels.Add(i.ToString());
             }
         }
 

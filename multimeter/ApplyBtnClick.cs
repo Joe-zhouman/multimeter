@@ -152,7 +152,7 @@ namespace multimeter
                     {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3, LengthTextBox4_4};
                 List<TextBox> heatMeterChannelBoxes1 = new List<TextBox>()
                 {
-                    ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_5
+                    ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4
                 };
                 if (!BoxToSpecimen(ref _device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, K1TextBox4_1,
                     S1TextBox4_1)) return false;

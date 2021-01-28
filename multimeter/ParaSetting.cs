@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataProcessor;
+using DataAccess;
 
 namespace multimeter {
     public partial class ParaSetting : Form {
@@ -39,13 +39,13 @@ namespace multimeter {
                 RisistGridView.Rows.Add("双线热敏电阻", (201 + i).ToString(), "", "");
                 RisistGridView["channel", i].ReadOnly = true;
                 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-                RisistGridView[2,i].Value = INIHelper.Read(RisistGridView[1, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
+                RisistGridView[2,i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
                      filePath); 
                 RisistGridView[2, i].ValueType = typeof(double);
-                RisistGridView[3, i].Value = INIHelper.Read(RisistGridView[1, i].Value.ToString(), "A1", RisistGridView[1, i].Value.ToString(),
+                RisistGridView[3, i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A1", RisistGridView[1, i].Value.ToString(),
                      filePath);
                 RisistGridView[3, i].ValueType = typeof(double);
-                RisistGridView[4, i].Value = INIHelper.Read(RisistGridView[1, i].Value.ToString(), "A3", RisistGridView[1, i].Value.ToString(),
+                RisistGridView[4, i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A3", RisistGridView[1, i].Value.ToString(),
                      filePath);
                 RisistGridView[4, i].ValueType = typeof(double);
             }//默认读取双线热敏电阻
@@ -86,11 +86,11 @@ namespace multimeter {
             string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", $"sys.ini.{DateTime.Now:yyyy-MM-dd-ss-ffff}.bak");
             File.Copy(filePath, bakFilePath);
             for (int i = 0; i < RisistGridView.Rows.Count - 1; i++) {
-                INIHelper.Write(RisistGridView[1, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
+                IniHelper.Write(RisistGridView[1, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(RisistGridView[1, i].Value.ToString(), "A1", RisistGridView[2, i].Value.ToString(),
+                IniHelper.Write(RisistGridView[1, i].Value.ToString(), "A1", RisistGridView[2, i].Value.ToString(),
                     filePath);
-                INIHelper.Write(RisistGridView[1, i].Value.ToString(), "A3", RisistGridView[3, i].Value.ToString(),
+                IniHelper.Write(RisistGridView[1, i].Value.ToString(), "A3", RisistGridView[3, i].Value.ToString(),
                     filePath);
                 
             }

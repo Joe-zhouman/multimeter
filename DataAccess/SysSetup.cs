@@ -5,6 +5,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using Model;
 
 namespace DataAccess {
@@ -23,7 +24,8 @@ namespace DataAccess {
             sys.AutoCloseInterval = int.Parse(IniHelper.Read("SYS", "autoSaveInterval", "1500", filePath));
             sys.ConvergentLim = double.Parse(IniHelper.Read("SYS", "convergentLim", "1e-3", filePath));
 
-            sys.AllowedChannels = IniHelper.Read("SYS", "allowedChannels", "", filePath);
+            sys.AllowedChannels = IniHelper.Read("SYS", "allowedChannel", "", filePath)
+                .Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
 
         public static void WritePara(SysPara sys, string filePath) {
@@ -37,7 +39,8 @@ namespace DataAccess {
 
             IniHelper.Write("SYS", "autoSaveInterval", sys.AutoCloseInterval.ToString(), filePath);
             IniHelper.Write("SYS", "convergentLim", sys.ConvergentLim.ToString(CultureInfo.InvariantCulture), filePath);
-            IniHelper.Write("SYS", "allowedChannel", sys.AllowedChannels, filePath);
+            IniHelper.Write("SYS", "allowedChannel",
+                sys.AllowedChannels.Aggregate("", (current, s) => current + s + ","), filePath);
         }
 
         public static void ReadPara(ref SerialPortPara serialPort, string filePath) {
