@@ -173,10 +173,9 @@ namespace multimeter
             skinGroupBox1.Size = new Size(0, 0);
         }
 
-        public void AdvancedSetting_Click(object sender, EventArgs e)
-        {
-            //AlphaT0Setting alphaT0Setting = new AlphaT0Setting();
-            //alphaT0Setting.Show();
+        public void AdvancedSetting_Click(object sender, EventArgs e) {
+            ParaSetting parSetting = new ParaSetting(_appCfg);
+            parSetting.Show();
         }
         private void HelpButton_Click(object sender, EventArgs e)
         {

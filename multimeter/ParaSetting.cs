@@ -5,28 +5,31 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccess;
+using Model;
 
 namespace multimeter {
     public partial class ParaSetting : Form {
-        public ParaSetting() {
+        private AppCfg _app;
+        private static readonly string[] ProbeStrings = {"未启用","电压探头", "K型热电偶", "双线热敏电阻"};
+        public ParaSetting(AppCfg app) {
             InitializeComponent();
+            _app = app;
         }
 
         private void ParaSetting_Load(object sender, EventArgs e) {
 
-            DataGridViewComboBoxColumn tempProbeType = new DataGridViewComboBoxColumn();
-            tempProbeType.Name = "tempProbe";
-            tempProbeType.DataPropertyName = "tempProbe";
-            tempProbeType.HeaderText = "TempProbe";
-            List<string> tempProbeName = new List<string> { "双线热敏电阻", "K型热电偶" };
-            tempProbeType.DataSource = tempProbeName;
+            DataGridViewComboBoxColumn probeType = new DataGridViewComboBoxColumn {
+                Name = "tempProbe", HeaderText = @"探头类型", DataSource = ProbeStrings
+            };
 
             RisistGridView.Rows.Clear();
-            RisistGridView.Columns.Add(tempProbeType);
+            RisistGridView.Columns.Add(probeType);
             RisistGridView.Columns.Add("channel", "Channel");
             RisistGridView.Columns.Add("A0", $"A\x2080");
             RisistGridView.Columns.Add("A1", $"A\x2081");
@@ -35,50 +38,70 @@ namespace multimeter {
             for (int i = 0; i < 4; i++) { 
                 RisistGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-            for (int i = 0; i < 13; i++) {
-                RisistGridView.Rows.Add("双线热敏电阻", (201 + i).ToString(), "", "");
+
+            var channels = _app.SysPara.AllowedChannels.GetRange(1, _app.SysPara.AllowedChannels.Count - 1);
+            for (int i = 0; i < channels.Count; i++) {
+                var card = FindChnIdx(channels[i],_app.SerialPortPara);
+
+                var typeId = (int) card.Type;
+                RisistGridView.Rows.Add(ProbeStrings[typeId], channels[i], "", "","");
                 RisistGridView["channel", i].ReadOnly = true;
-                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-                RisistGridView[2,i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
-                     filePath); 
-                RisistGridView[2, i].ValueType = typeof(double);
-                RisistGridView[3, i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A1", RisistGridView[1, i].Value.ToString(),
-                     filePath);
-                RisistGridView[3, i].ValueType = typeof(double);
-                RisistGridView[4, i].Value = IniHelper.Read(RisistGridView[1, i].Value.ToString(), "A3", RisistGridView[1, i].Value.ToString(),
-                     filePath);
-                RisistGridView[4, i].ValueType = typeof(double);
+                switch (typeId) {
+                    case 0:
+                    case 2: {
+                        for (int j = 2; j < 4; j++) {
+                            RisistGridView[j, i].Value = '-';
+                            RisistGridView[j, i].ReadOnly = true;
+                        }
+                    }
+                        break;
+                    case 1: {
+                        Probe voltage = new Voltage();
+                        ShowProbePara(voltage, channels[i], i);
+                    } break;
+                    case 3: {
+                        Probe voltage = new Thermistor();
+                        ShowProbePara(voltage, channels[i], i);
+                    }
+                        break;
+                }
             }//默认读取双线热敏电阻
 
             Delay_Timer.Interval = 500;      //延时*ms
             Delay_Timer.Enabled = true;
         }
-       
+
+        private void ShowProbePara(Probe probe, string channel, int i) {
+            IniReadAndWrite.ReadTempPara(ref probe, channel, IniReadAndWrite.IniFilePath);
+            for (int j = 0; j < probe.Paras.Length; j++) {
+                RisistGridView[j + 2, i].Value = probe.Paras[j];
+                RisistGridView[j + 2, i].ValueType = typeof(double);
+            }
+        }
+
         private void Delay_Timer_Tick(object sender, EventArgs e) {
              RisistGridView.Refresh();
              Delay_Timer.Enabled = false;
         }
 
         private void RisistGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) {
-            ComboBox combo = e.Control as ComboBox;
-            if (combo != null) {
-                combo.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);
+            if (e.Control is ComboBox combo) {
+                combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
             }
           
         }
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             ComboBox combo = sender as ComboBox;
-            switch (combo.SelectedIndex) {
-                case 0:
+            if (combo != null)
+                switch (combo.SelectedIndex) {
+                    case 0:
+                        break;
+                    case 1:
 
-                    break;
-                case 1:
-
-                    break;
-                default:
-                    break;
-            } //更新读取对应行数据
-
+                        break;
+                    default:
+                        break;
+                } //更新读取对应行数据
         } //"双线热敏电阻" "K型热电偶"
 
         private void Confirm_Click(object sender, EventArgs e) {
@@ -116,6 +139,10 @@ namespace multimeter {
             
         }
 
+        private Card FindChnIdx(string chn,SerialPortPara serialPort) {
+            var chnNum = int.Parse(chn);
+            return chnNum < 200 ? serialPort.CardList1[chnNum - 101] : serialPort.CardList2[chnNum - 201];
+        }
        
     }
 }

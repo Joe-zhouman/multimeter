@@ -23,10 +23,6 @@ namespace BusinessLogic {
         public static bool CheckChannelList(TestDevice device) {
             return !HasSameElem(device.Channels);
         }
-
-        public static void CheckRangeValue(RangeValue value) {
-            
-        }
     }
 
     

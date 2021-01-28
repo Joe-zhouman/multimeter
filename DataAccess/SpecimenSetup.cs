@@ -3,6 +3,7 @@
 // 2021012416:55
 
 using System;
+using System.Globalization;
 using Model;
 
 namespace DataAccess {
@@ -36,28 +37,18 @@ namespace DataAccess {
             IniHelper.Write("ITM", "thickness", itm.Thickness, filePath);
             IniHelper.Write("ITM", "area", itm.Area, filePath);
         }
-        public static void ReadTempPara(ref VoltageProbe probe, string channel, string filePath) {
-            probe.Alpha = IniHelper.Read(channel, "A0", "10.0", filePath);
-            probe.Beta = IniHelper.Read(channel, "A1", "10.0", filePath);
+
+        public static void ReadTempPara(ref Probe probe, string channel, string filePath) {
+            for (int i = 0; i < probe.Paras.Length; i++) {
+                probe.Paras[i] = double.Parse(IniHelper.Read(channel, $"A{i}", "10.0", filePath));
+            }
         }
 
-        public static void WriteTempPara(VoltageProbe probe, string channel, string filePath) {
-            IniHelper.Write(channel, "type", ProbeType.VOLTAGE.ToString(), filePath);
-            IniHelper.Write(channel, "A0", probe.Alpha, filePath);
-            IniHelper.Write(channel, "A1", probe.Beta, filePath);
-        }
-
-        public static void ReadTempPara(ref ThermistorProbe probe, string channel, string filePath) {
-            probe.A0 = IniHelper.Read(channel, "A0", "10.0", filePath);
-            probe.A1 = IniHelper.Read(channel, "A1", "10.0", filePath);
-            probe.A3 = IniHelper.Read(channel, "A3", "10.0", filePath);
-        }
-
-        public static void WriteTempPara(ThermistorProbe probe, string channel, string filePath) {
-            IniHelper.Write(channel, "type", ProbeType.THERMISTOR.ToString(), filePath);
-            IniHelper.Write(channel, "A0", probe.A0, filePath);
-            IniHelper.Write(channel, "A1", probe.A1, filePath);
-            IniHelper.Write(channel, "A3", probe.A3, filePath);
+        public static void WriteTempPara(Probe probe, string channel, string filePath) {
+            IniHelper.Write(channel, "type", probe.GetType().ToString().ToUpper(), filePath);
+            for (int i = 0; i < probe.Paras.Length; i++) {
+                IniHelper.Write(channel, $"A{i}", probe.Paras[i].ToString(CultureInfo.InvariantCulture), filePath);
+            }
         }
 
         public static void ReadTempPara(ref Specimen specimen, string filePath) {
@@ -65,18 +56,17 @@ namespace DataAccess {
                 if (specimen.Channel[i] != "0") {
                     switch ((ProbeType)Enum.Parse(typeof(ProbeType), IniHelper.Read(specimen.Channel[i], "type", "NULL", filePath))) {
                         case ProbeType.VOLTAGE: {
-                            specimen.Probes[i] = new VoltageProbe();
-                            var specimenThermistor = specimen.Probes[i] as VoltageProbe;
-                            ReadTempPara(ref specimenThermistor, specimen.Channel[i], filePath);
+                            specimen.Probes[i] = new Voltage();
+                            ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);
                         }
                             break;
                         case ProbeType.THERMOCOUPLE: {
-                            specimen.Probes[i] = new ThermocoupleProbe();
+                            specimen.Probes[i] = new Thermocouple();
                         }
                             break;
                         case ProbeType.THERMISTOR: {
-                            var specimenThermistor = specimen.Probes[i] as ThermistorProbe;
-                            ReadTempPara(ref specimenThermistor, specimen.Channel[i], filePath);
+                            specimen.Probes[i] = new Thermistor();
+                            ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);
                         }
                             break;
                         default:
@@ -91,21 +81,24 @@ namespace DataAccess {
         public static string ReadTestMethod(string filePath) {
            return IniHelper.Read("SYS", "method", "", filePath);
         }
-        public static void WriteTempPara(Specimen specimen, string filePath) {
-            for (var i = 0; i < specimen.TestPoint; i++) {
-                if(specimen.Channel[i]=="0") continue;
-                var type = specimen.Probes[i].GetType();
-                if (type == typeof(VoltageProbe)) {
-                    var specimenThermistor = specimen.Probes[i] as VoltageProbe;
-                    WriteTempPara(specimenThermistor, specimen.Channel[i], filePath);
-                }
-                else if (type == typeof(ThermistorProbe)) {
-                    var specimenThermistor = specimen.Probes[i] as ThermistorProbe;
-                    WriteTempPara(specimenThermistor, specimen.Channel[i], filePath);
-                }
-            }
+        //public static void WriteTempPara(Specimen specimen, string filePath) {
+        //    for (var i = 0; i < specimen.TestPoint; i++) {
+        //        if(specimen.Channel[i]=="0") continue;
+        //        var type = specimen.Probes[i].GetType();
+        //        switch (type) { }
+
+        //        (type == ) {
+        //            IniHelper.Write(channel, "type", ProbeType.THERMISTOR.ToString(), filePath);
+        //            var specimenThermistor = specimen.Probes[i] as Voltage;
+        //            WriteTempPara(specimenThermistor, specimen.Channel[i], filePath);
+        //        }
+        //        else if (type == typeof(Thermistor)) {
+        //            var specimenThermistor = specimen.Probes[i] as Thermistor;
+        //            WriteTempPara(specimenThermistor, specimen.Channel[i], filePath);
+        //        }
+        //    }
             
-        }
+        //}
 
         public static void ReadDevicePara(ref TestDevice testDevice, string filePath) {
             ReadBasicPara(ref testDevice.HeatMeter1, filePath);
@@ -156,17 +149,17 @@ namespace DataAccess {
                 ReadTempPara(ref testDevice.Sample2, filePath);
             }
         }
-        public static void WriteTempPara(TestDevice testDevice, string filePath) {
-            WriteTempPara(testDevice.HeatMeter1, filePath);
-            WriteTempPara(testDevice.HeatMeter2, filePath);
-            if (testDevice.Sample1 != null)
-            {
-                WriteTempPara(testDevice.Sample1, filePath);
-            }
-            if (testDevice.Sample2 != null)
-            {
-                WriteTempPara(testDevice.Sample2, filePath);
-            }
-        }
+        //public static void WriteTempPara(TestDevice testDevice, string filePath) {
+        //    WriteTempPara(testDevice.HeatMeter1, filePath);
+        //    WriteTempPara(testDevice.HeatMeter2, filePath);
+        //    if (testDevice.Sample1 != null)
+        //    {
+        //        WriteTempPara(testDevice.Sample1, filePath);
+        //    }
+        //    if (testDevice.Sample2 != null)
+        //    {
+        //        WriteTempPara(testDevice.Sample2, filePath);
+        //    }
+        //}
     }
 }
