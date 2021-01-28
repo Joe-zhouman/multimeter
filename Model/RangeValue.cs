@@ -6,25 +6,26 @@ using System;
 using System.Runtime.Serialization;
 
 namespace Model {
-    public class RangeValue {
-        private int _value;
-        public RangeValue() {
-            LowerBound = 0;
-            UpperBound = 0;
-            Value = 0;
+    public class RangeValue<T>where T:IComparable
+    {
+        private T _value;
+        public RangeValue(T value,T lowerBound,T upperBound) { 
+            LowerBound = lowerBound;
+            UpperBound = upperBound;
+            Value = value;
         }
 
-        public int Value {
+        public T Value {
             get=>_value;
             set {
-                if (value < LowerBound || value > UpperBound)
+                if (value.CompareTo(LowerBound) < 0  || value.CompareTo(UpperBound)>0)
                     throw new NumOutOfRangeException($@"数值不在范围内,应在{LowerBound}~{UpperBound}之间");
                 _value = value;
             }
         }
 
-        public int LowerBound { get; set; }
-        public int UpperBound { get; set; }
+        public T LowerBound { get; set; }
+        public T UpperBound { get; set; }
     }
     [Serializable]
     public class NumOutOfRangeException : Exception

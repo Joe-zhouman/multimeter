@@ -8,16 +8,8 @@ namespace Model {
     public class SysPara {
         public List<string> AllowedChannels { get; set; }
         public SysPara() {
-            SaveInterval = new RangeValue {
-                LowerBound = 30, UpperBound = 100,Value = 50
-            };
-            ScanInterval = new RangeValue {
-                
-                LowerBound = 2000,
-                UpperBound = 5000,
-                Value = 2000
-            };
-            ;
+            SaveInterval = new RangeValue<int>(50,30,100);
+            ScanInterval = new RangeValue<int>(2000,2000,5000);
             AutoCloseInterval = 1800;
             ConvergentLim = 1e-3;
             AllowedChannels = new List<string>() {"0"};
@@ -25,7 +17,6 @@ namespace Model {
                 AllowedChannels.Add(i.ToString());
             }
         }
-
         /// <summary>
         ///     收敛后自动关闭间隔(Unit : s)
         /// </summary>
@@ -36,11 +27,11 @@ namespace Model {
         /// <summary>
         ///     保存间隔
         /// </summary>
-        public RangeValue SaveInterval { get; set; }
+        public RangeValue<int> SaveInterval { get; set; }
 
         /// <summary>
         ///     扫描间隔
         /// </summary>
-        public RangeValue ScanInterval { get; set; }
+        public RangeValue<int> ScanInterval { get; set; }
     }
 }
