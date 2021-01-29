@@ -79,106 +79,52 @@ namespace multimeter {
         }
 
         private void RisistGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) {
-            if (e.Control is ComboBox combo) combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            if (e.Control is ComboBox combo) {
+                combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            }
+          
         }
-        //if (e.Control is ComboBox combo) {
-
-        //    if (sender != null) 
-        //}
-
-        //}
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e) {
-            var combo = (ComboBox) sender;
-            if (combo != null) {
-                var idx = RisistGridView.CurrentCell.RowIndex;
+            ComboBox combo = sender as ComboBox;
+            if (combo != null)
                 switch (combo.SelectedIndex) {
-                    case 2:
-                    case 0: {
-                        ChangeGridCellStyle(idx, 2);
-                    }
+                    case 0:
                         break;
-                    case 1: {
-                        ChangeGridCellStyle(idx, 4);
-                    }
-                        break;
-                    case 3: {
-                        ChangeGridCellStyle(idx, 5);
-                    }
-                        break;
-                }
-            } //更新读取对应行数据
-        }
+                    case 1:
 
-        private void ChangeGridCellStyle(int idx, int midPoint) {
-            for (var i = 2; i < midPoint; i++) {
-                RisistGridView[i, idx].Value = "0.0";
-                RisistGridView[i, idx].ReadOnly = true;
-                RisistGridView[i, idx].ValueType = typeof(double);
-            }
-
-            for (var i = midPoint; i < 5; i++) {
-                RisistGridView[i, idx].Value = "-";
-                RisistGridView[i, idx].ReadOnly = false;
-            }
-        }
-        //"双线热敏电阻" "K型热电偶"
+                        break;
+                    default:
+                        break;
+                } //更新读取对应行数据
+        } //"双线热敏电阻" "K型热电偶"
 
         private void Confirm_Click(object sender, EventArgs e) {
-            var bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak",
-                $"sys.ini.{DateTime.Now:yyyy-MM-dd-hh-mm-ss-ffff}.bak");
-            try {
-                File.Copy(IniReadAndWrite.IniFilePath, bakFilePath);
-                var channels = new List<string> {"0"};
-                for (var i = 0; i < RisistGridView.Rows.Count - 1; i++) {
-                    var channel = RisistGridView[1, i].Value.ToString();
-                    var card = FindChnIdx(channel, _app.SerialPortPara);
-                    switch (RisistGridView[0, i].Value.ToString()) {
-                        case "未启用": {
-                            card.Type = ProbeType.NULL;
-                        }
-                            break;
-                        case "电压探头": {
-                            card.Type = ProbeType.VOLTAGE;
-                            Probe probe = new Voltage();
-                            for (var j = 0; j < 2; j++) probe.Paras[j] = double.Parse(RisistGridView.Rows[i].Cells[j + 2].Value.ToString());
-                                IniReadAndWrite.WriteTempPara(probe, channel, IniReadAndWrite.IniFilePath);
-                            channels.Add(channel);
-                        }
-                            break;
-                        case "K型热电偶": {
-                            card.Type = ProbeType.THERMOCOUPLE;
-                            channels.Add(channel);
-                        }
-                            break;
-                        case "双线热敏电阻": {
-                            card.Type = ProbeType.VOLTAGE;
-                            Probe probe = new Thermistor();
-                            for (var j = 0; j < 3; j++) probe.Paras[j] = double.Parse( RisistGridView.Rows[i].Cells[j + 2].Value.ToString());
-                            IniReadAndWrite.WriteTempPara(probe, channel, IniReadAndWrite.IniFilePath);
-                            channels.Add(channel);
-                        } break;
-                    }
-                }
-                _app.SysPara.AllowedChannels = channels;
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini"); //在当前程序路径创建
+            string bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak", $"sys.ini.{DateTime.Now:yyyy-MM-dd-ss-ffff}.bak");
+            File.Copy(filePath, bakFilePath);
+            for (int i = 0; i < RisistGridView.Rows.Count - 1; i++) {
+                IniHelper.Write(RisistGridView[1, i].Value.ToString(), "A0", RisistGridView[1, i].Value.ToString(),
+                    filePath);
+                IniHelper.Write(RisistGridView[1, i].Value.ToString(), "A1", RisistGridView[2, i].Value.ToString(),
+                    filePath);
+                IniHelper.Write(RisistGridView[1, i].Value.ToString(), "A3", RisistGridView[3, i].Value.ToString(),
+                    filePath);
+                
             }
-            catch (Exception ex) {
-                MessageBox.Show($@"保存失败，请重试{ex}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            IniReadAndWrite.WritePara(_app.SysPara, IniReadAndWrite.IniFilePath);
-            IniReadAndWrite.WriteChannelPara(_app.SerialPortPara, IniReadAndWrite.IniFilePath);
             MessageBox.Show($@"修改成功!
 配置文件备份在{bakFilePath}.
-如需找回配置,将其重命名为'sys.ini',并替换{IniReadAndWrite.IniFilePath}.", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+如需找回配置,将其重命名为'sys.ini',并替换{filePath}.", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
-        }
 
+        }
         private void Cancel_Click(object sender, EventArgs e) {
             Close();
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            if (e.ColumnIndex == 1 && e.RowIndex > 0) RisistGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
+            if (e.ColumnIndex == 1 && e.RowIndex>0) {
+                RisistGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
+            }
         }
         private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -189,5 +135,6 @@ namespace multimeter {
             var chnNum = int.Parse(chn);
             return chnNum < 200 ? serialPort.CardList1[chnNum - 101] : serialPort.CardList2[chnNum - 201];
         }
+       
     }
 }
