@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using DataAccess;
 using Model;
@@ -16,8 +15,7 @@ namespace multimeter {
         }
 
         private void FileToBoxKappa(out TestDevice device, string settingFilePath) {
-            device = new TestDevice(TestMethod.KAPPA);
-            IniReadAndWrite.ReadDevicePara(ref device, settingFilePath);
+            DeviceInit(out device, settingFilePath, _method);
             ForceTextBox1.Text = device.Force;
             var heatMeterPositionBoxes1 = new List<TextBox>
                 {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
@@ -32,11 +30,17 @@ namespace multimeter {
             SpecimenToBox(device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, S2TextBox1_2,
                 K2TextBox1_2);
             var samplePositionBoxes = new List<TextBox>
-                {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7,LengthTextBox1_8};
+                {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7, LengthTextBox1_8};
             var sampleChannelBoxes = new List<TextBox> {
                 ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7, ChannelTextBox1_8
             };
             SpecimenToBox(device.Sample1, samplePositionBoxes, sampleChannelBoxes, STextBox1_1);
+        }
+
+        private static void DeviceInit(out TestDevice device, string filePath, TestMethod method) {
+            device = new TestDevice(method);
+            IniReadAndWrite.ReadDevicePara(ref device, filePath);
+            IniReadAndWrite.ReadTempPara(ref device, filePath);
         }
 
         private void ShowKappaMenu() {
@@ -57,8 +61,7 @@ namespace multimeter {
         }
 
         private void FileToBoxItc(out TestDevice device, string settingFilePath) {
-            device = new TestDevice(TestMethod.ITC);
-            IniReadAndWrite.ReadDevicePara(ref device, settingFilePath);
+            DeviceInit(out device, settingFilePath, _method);
             ForceTextBox2.Text = device.Force;
             var heatMeterPositionBoxes1 = new List<TextBox>
                 {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
@@ -100,13 +103,12 @@ namespace multimeter {
             ButtonEnable();
             _method = TestMethod.ITM;
             ShowItmMenu();
-            
+
             FileToBoxItm(out _device, IniReadAndWrite.IniFilePath);
         }
 
         private void FileToBoxItm(out TestDevice device, string settingFilePath) {
-            device = new TestDevice(TestMethod.ITM);
-            IniReadAndWrite.ReadDevicePara(ref device, settingFilePath);
+            DeviceInit(out device, settingFilePath, _method);
             ForceTextBox3.Text = device.Force;
             ItmToBox(device.Itm, FilmThickness1);
             var heatMeterPositionBoxes1 = new List<TextBox>
@@ -136,14 +138,13 @@ namespace multimeter {
         private void testchoose4_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITMS;
-            
+
             ShowItmsMenu();
             FileToBoxItms(out _device, IniReadAndWrite.IniFilePath);
         }
 
         private void FileToBoxItms(out TestDevice device, string settingFilePath) {
-            device = new TestDevice(TestMethod.ITMS);
-            IniReadAndWrite.ReadDevicePara(ref device, settingFilePath);
+            DeviceInit(out device, settingFilePath, _method);
             ForceTextBox4.Text = device.Force;
             ItmToBox(device.Itm, FilmThickness2);
             var heatMeterPositionBoxes1 = new List<TextBox>
