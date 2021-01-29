@@ -117,14 +117,14 @@ namespace multimeter {
             for (var i = 2; i < midPoint; i++)
             {
                 RisistGridView[i, idx].Value = "0.0";
-                RisistGridView[i, idx].ReadOnly = true;
+                RisistGridView[i, idx].ReadOnly = false;
                 RisistGridView[i, idx].ValueType = typeof(double);
             }
 
             for (var i = midPoint; i < 5; i++)
             {
                 RisistGridView[i, idx].Value = "-";
-                RisistGridView[i, idx].ReadOnly = false;
+                RisistGridView[i, idx].ReadOnly = true;
             }
         }
         private void Confirm_Click(object sender, EventArgs e) {
