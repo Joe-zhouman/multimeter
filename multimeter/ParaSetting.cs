@@ -80,10 +80,11 @@ namespace multimeter {
 
         private void RisistGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) {
             if (e.Control is ComboBox combo) {
-                combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+                 combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
             }
-          
         }
+
+
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             var combo = (ComboBox)sender;
             if (combo != null)
@@ -108,8 +109,9 @@ namespace multimeter {
                     }
                         break;
                 }
-            } //更新读取对应行数据
-        } //"双线热敏电阻" "K型热电偶"
+                combo.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
+            } //更新读取对应行数据  
+        } 
         private void ChangeGridCellStyle(int idx, int midPoint)
         {
             for (var i = 2; i < midPoint; i++)
@@ -201,6 +203,6 @@ namespace multimeter {
             var chnNum = int.Parse(chn);
             return chnNum < 200 ? serialPort.CardList1[chnNum - 101] : serialPort.CardList2[chnNum - 201];
         }
-       
+
     }
 }

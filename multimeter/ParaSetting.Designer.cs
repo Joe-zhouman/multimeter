@@ -93,6 +93,7 @@ namespace multimeter
             this.RisistGridView.TabIndex = 1;
             this.RisistGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.RisistGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
+            this.RisistGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.RisistGridView_EditingControlShowing);
             // 
             // Cancel
             // 
