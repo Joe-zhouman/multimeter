@@ -64,7 +64,7 @@ namespace multimeter
             catch (Exception ex)
             {
                 Log.Error(ex);
-                MessageBox.Show("无法打开串口！");
+                MessageBox.Show(@"无法打开串口！");
                 //btn_start.Enabled = true;
                 //btn_stop.Enabled = false;
                 return;
@@ -285,7 +285,7 @@ namespace multimeter
             #region
             string fileName = name ;
             _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
-            File.Copy(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"), _latestResultFile);
+            File.Copy(IniReadAndWrite.IniFilePath, _latestResultFile);
             //MessageBox.Show(filePath);
             try
             {

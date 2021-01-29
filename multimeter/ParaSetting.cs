@@ -180,12 +180,6 @@ namespace multimeter {
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             if (e.ColumnIndex == 1 && e.RowIndex > 0) RisistGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
         }
-
-        private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e) {
-            MessageBox.Show(@"请输入一个正确的数字,如: 
-1.2345,1.2345e-3,1.2353E+04", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
         private Card FindChnIdx(string chn, SerialPortPara serialPort) {
             var chnNum = int.Parse(chn);
             return chnNum < 200 ? serialPort.CardList1[chnNum - 101] : serialPort.CardList2[chnNum - 201];
