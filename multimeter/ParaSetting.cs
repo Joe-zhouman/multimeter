@@ -80,7 +80,9 @@ namespace multimeter {
 
         private void RisistGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) {
             if (e.Control is ComboBox combo) {
-                 combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+                combo.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
+                combo.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+                e.CellStyle.BackColor = RisistGridView.DefaultCellStyle.BackColor;
             }
         }
 
@@ -109,7 +111,6 @@ namespace multimeter {
                     }
                         break;
                 }
-                combo.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
             } //更新读取对应行数据  
         } 
         private void ChangeGridCellStyle(int idx, int midPoint)
