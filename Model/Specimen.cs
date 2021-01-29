@@ -21,7 +21,7 @@ namespace Model {
                 Probes[i] = null;
             }
         }
-        public string Name { get; set; }
+        public string Name { get; private set; }
         public string Kappa { get; set; }
         public string Area { get; set; }
         public string[] Channel { get; set; }

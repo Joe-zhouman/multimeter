@@ -45,7 +45,6 @@ namespace DataAccess {
         }
 
         public static void WriteTempPara(Probe probe, string channel, string filePath) {
-            IniHelper.Write(channel, "type", probe.GetType().ToString().ToUpper(), filePath);
             for (int i = 0; i < probe.Paras.Length; i++) {
                 IniHelper.Write(channel, $"A{i}", probe.Paras[i].ToString(CultureInfo.InvariantCulture), filePath);
             }

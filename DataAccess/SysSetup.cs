@@ -10,7 +10,7 @@ using Model;
 
 namespace DataAccess {
     public static partial class IniReadAndWrite {
-        public static string IniFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
+        public static readonly string IniFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
 
         public static void ReadPara(ref SysPara sys, string filePath) {
             sys.ScanInterval.LowerBound = int.Parse(IniHelper.Read("SYS", "scanIntervalLb", "2000", filePath));
