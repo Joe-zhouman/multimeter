@@ -7,7 +7,7 @@ using Model;
 
 namespace multimeter {
     public partial class SetupTest {
-        private void testchoose1_Click(object sender, EventArgs e) {
+        private void TestChoosiest1_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.KAPPA;
             ShowKappaMenu();
@@ -15,7 +15,7 @@ namespace multimeter {
         }
 
         private void FileToBoxKappa(out TestDevice device, string settingFilePath) {
-            DeviceInit(out device, settingFilePath, _method);
+            DeviceInit(out device, settingFilePath, TestMethod.KAPPA);
             ForceTextBox1.Text = device.Force;
             var heatMeterPositionBoxes1 = new List<TextBox>
                 {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
@@ -53,7 +53,7 @@ namespace multimeter {
             TestChartGroupBox.Size = new Size(0, 0);
         }
 
-        private void testchoose2_Click(object sender, EventArgs e) {
+        private void TestChoosiest2_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITC;
             ShowItcMenu();
@@ -61,7 +61,7 @@ namespace multimeter {
         }
 
         private void FileToBoxItc(out TestDevice device, string settingFilePath) {
-            DeviceInit(out device, settingFilePath, _method);
+            DeviceInit(out device, settingFilePath, TestMethod.ITC);
             ForceTextBox2.Text = device.Force;
             var heatMeterPositionBoxes1 = new List<TextBox>
                 {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
@@ -71,22 +71,22 @@ namespace multimeter {
                 {ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4};
             var heatMeterChannelBoxes2 = new List<TextBox>
                 {ChannelTextBox2_13, ChannelTextBox2_14, ChannelTextBox2_15, ChannelTextBox2_16};
-            SpecimenToBox(_device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, S1TextBox2_1,
+            SpecimenToBox(device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, S1TextBox2_1,
                 K1TextBox2_1);
-            SpecimenToBox(_device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, S2TextBox2_2,
+            SpecimenToBox(device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, S2TextBox2_2,
                 K2TextBox2_2);
             var samplePositionBoxes1 = new List<TextBox>
                 {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7, LengthTextBox2_8};
             var sampleChannelBoxes1 = new List<TextBox> {
                 ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7, ChannelTextBox2_8
             };
-            SpecimenToBox(_device.Sample1, samplePositionBoxes1, sampleChannelBoxes1, SuTextBox2_1);
+            SpecimenToBox(device.Sample1, samplePositionBoxes1, sampleChannelBoxes1, SuTextBox2_1);
             var samplePositionBoxes2 = new List<TextBox>
                 {LengthTextBox2_9, LengthTextBox2_10, LengthTextBox2_11, LengthTextBox2_12};
             var sampleChannelBoxes2 = new List<TextBox> {
                 ChannelTextBox2_9, ChannelTextBox2_10, ChannelTextBox2_11, ChannelTextBox2_12
             };
-            SpecimenToBox(_device.Sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox2_2);
+            SpecimenToBox(device.Sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox2_2);
         }
 
         private void ShowItcMenu() {
@@ -99,7 +99,7 @@ namespace multimeter {
             TestChartGroupBox.Size = new Size(0, 0);
         }
 
-        private void testchoose3_Click(object sender, EventArgs e) {
+        private void TestChoosiest3_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITM;
             ShowItmMenu();
@@ -108,7 +108,7 @@ namespace multimeter {
         }
 
         private void FileToBoxItm(out TestDevice device, string settingFilePath) {
-            DeviceInit(out device, settingFilePath, _method);
+            DeviceInit(out device, settingFilePath, TestMethod.ITM);
             ForceTextBox3.Text = device.Force;
             ItmToBox(device.Itm, FilmThickness1);
             var heatMeterPositionBoxes1 = new List<TextBox>
@@ -119,9 +119,9 @@ namespace multimeter {
                 {ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4};
             var heatMeterChannelBoxes2 = new List<TextBox>
                 {ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8};
-            SpecimenToBox(_device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, S1TextBox3_1,
+            SpecimenToBox(device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, S1TextBox3_1,
                 K1TextBox3_1);
-            SpecimenToBox(_device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, S2TextBox3_2,
+            SpecimenToBox(device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, S2TextBox3_2,
                 K2TextBox3_2);
         }
 
@@ -135,7 +135,7 @@ namespace multimeter {
             TestChartGroupBox.Size = new Size(0, 0);
         }
 
-        private void testchoose4_Click(object sender, EventArgs e) {
+        private void TestChoose4_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITMS;
 
@@ -144,7 +144,7 @@ namespace multimeter {
         }
 
         private void FileToBoxItms(out TestDevice device, string settingFilePath) {
-            DeviceInit(out device, settingFilePath, _method);
+            DeviceInit(out device, settingFilePath, TestMethod.ITMS);
             ForceTextBox4.Text = device.Force;
             ItmToBox(device.Itm, FilmThickness2);
             var heatMeterPositionBoxes1 = new List<TextBox>
@@ -155,22 +155,22 @@ namespace multimeter {
                 {ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4};
             var heatMeterChannelBoxes2 = new List<TextBox>
                 {ChannelTextBox4_13, ChannelTextBox4_14, ChannelTextBox4_15, ChannelTextBox4_16};
-            SpecimenToBox(_device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, S1TextBox4_1,
+            SpecimenToBox(device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1, S1TextBox4_1,
                 K1TextBox4_1);
-            SpecimenToBox(_device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, S2TextBox4_2,
+            SpecimenToBox(device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2, S2TextBox4_2,
                 K4TextBox4_2);
             var samplePositionBoxes1 = new List<TextBox>
                 {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7, LengthTextBox4_8};
             var sampleChannelBoxes1 = new List<TextBox> {
                 ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7, ChannelTextBox4_8
             };
-            SpecimenToBox(_device.Sample1, samplePositionBoxes1, sampleChannelBoxes1, SuTextBox4_1);
+            SpecimenToBox(device.Sample1, samplePositionBoxes1, sampleChannelBoxes1, SuTextBox4_1);
             var samplePositionBoxes2 = new List<TextBox>
                 {LengthTextBox4_9, LengthTextBox4_10, LengthTextBox4_11, LengthTextBox4_12};
             var sampleChannelBoxes2 = new List<TextBox> {
                 ChannelTextBox4_9, ChannelTextBox4_10, ChannelTextBox4_11, ChannelTextBox4_12
             };
-            SpecimenToBox(_device.Sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox4_2);
+            SpecimenToBox(device.Sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox4_2);
         }
 
         private void ShowItmsMenu() {

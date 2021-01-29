@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using DataAccess;
 using Model;
 
@@ -109,41 +108,32 @@ namespace BusinessLogic {
         /// <summary>
         ///     计算试件热导率
         /// </summary>
-        /// <param name="heatMeter1"></param>
-        /// <param name="heatMeter2"></param>
-        /// <param name="sample1"></param>
+        /// <param name="device"></param>
         /// <returns></returns>
         public static string GetResults(ref TestDevice device) {
             var k = new double[2];
             var b = new double[2];
-            var area = (double.Parse(device.HeatMeter1.Area)+ double.Parse(device.HeatMeter1.Area))/2;
-            var errInfo = GetHeatFlow(device, out double heatFlow,ref k,ref b);
+            var area = (double.Parse(device.HeatMeter1.Area) + double.Parse(device.HeatMeter1.Area)) / 2;
+            var errInfo = GetHeatFlow(device, out var heatFlow, ref k, ref b);
             if (device.Sample1 != null) {
                 var errInfoSample1 = LinearFitUpper(device.Sample1, ref k[0], ref b[0]);
                 device.Sample1.Kappa =
                     (heatFlow / double.Parse(device.Sample1.Area) / k[0]).ToString("0.000e+0", CultureInfo
                         .InvariantCulture);
-                if (errInfoSample1 != "") {
-                    errInfo += errInfoSample1 + "（试件1）\n";
-                }
+                if (errInfoSample1 != "") errInfo += errInfoSample1 + "（试件1）\n";
             }
-            if (device.Sample2 != null)
-            {
+
+            if (device.Sample2 != null) {
                 var errInfoSample2 = LinearFitLower(device.Sample2, ref k[1], ref b[2]);
                 device.Sample2.Kappa =
                     (heatFlow / double.Parse(device.Sample2.Area) / k[0]).ToString("0.000e+0", CultureInfo
                         .InvariantCulture);
-                if (errInfoSample2 != "")
-                {
-                    errInfo += errInfoSample2 + "（试件1）\n";
-                }
+                if (errInfoSample2 != "") errInfo += errInfoSample2 + "（试件2）\n";
                 area = (double.Parse(device.Sample1.Area) + double.Parse(device.Sample2.Area)) / 2;
             }
 
             device.Itc = (b[0] - b[1]) / heatFlow * area * 1000;
-            if (device.Itm!=null) {
-                device.Itm.Kappa = double.Parse(device.Itm.Thickness) / device.Itc;
-            }
+            if (device.Itm != null) device.Itm.Kappa = double.Parse(device.Itm.Thickness) / device.Itc;
 
             return errInfo;
         }
@@ -151,8 +141,7 @@ namespace BusinessLogic {
         /// <summary>
         ///     计算热流计热流密度
         /// </summary>
-        /// <param name="heatMeter1"></param>
-        /// <param name="heatMeter2"></param>
+        /// <param name="device"></param>
         /// <param name="heatFlow"></param>
         /// <param name="k"></param>
         /// <param name="b"></param>
@@ -163,26 +152,20 @@ namespace BusinessLogic {
         private static string GetHeatFlow(TestDevice device, out double heatFlow, ref double[] k,
             ref double[] b) {
             var errInfo = LinearFitUpper(device.HeatMeter1, ref k[0], ref b[0]);
-            if (errInfo!="") {
-                errInfo += "（上热流计）\n";
-            }
+            if (errInfo != "") errInfo += "（上热流计）\n";
             var heatFlow1 = double.Parse(device.HeatMeter1.Kappa) *
                             double.Parse(device.HeatMeter1.Area) * k[0];
             var errInfo2 = LinearFitLower(device.HeatMeter2, ref k[1], ref b[1]);
-            if (errInfo != "") {
-                errInfo += errInfo2 + "（上热流计）\n";
-            }
+            if (errInfo != "") errInfo += errInfo2 + "（上热流计）\n";
             var heatFlow2 = double.Parse(device.HeatMeter2.Kappa) *
                             double.Parse(device.HeatMeter2.Area) * k[1];
-            if (Math.Abs(1 - heatFlow1 / heatFlow2) > 0.4) {
-                errInfo += @"上下热流计热流相差过大";
-            }
+            if (Math.Abs(1 - heatFlow1 / heatFlow2) > 0.4) errInfo += @"上下热流计热流相差过大";
             heatFlow = (heatFlow1 + heatFlow2) / 2;
             return errInfo;
         }
 
         private static string LinearFitLower(Specimen specimen, ref double k, ref double b) {
-            var numPosition = specimen.Position.Where(i=>i!="0").Select(i => double.Parse(i) * -1).ToArray();
+            var numPosition = specimen.Position.Where(i => i != "0").Select(i => double.Parse(i) * -1).ToArray();
             for (var i = 1; i < numPosition.Length; i++) numPosition[i] += numPosition[i - 1];
 
             return LinearFit(numPosition, specimen.Temp.ToArray(), ref k, ref b);
