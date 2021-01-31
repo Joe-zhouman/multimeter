@@ -104,7 +104,9 @@ namespace multimeter {
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
                 DateTime datetime = DateTime.FromOADate(a.XValue);
-                chartValue.Text = $@"Ch{a.LegendText},Time:{datetime},ThermocoupleChn:{a.YValues[0]}";
+                chartValue.Text = $@"Ch{a.LegendText}
+Time:{datetime}
+ThermocoupleChn:{a.YValues[0]}";
 
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
