@@ -306,20 +306,7 @@ namespace multimeter
         }
 
         private bool TempOk() {
-            if (_lastTemp == null)
-            {
-                _convergent = false;
-                return false;
-            }
-            if (_temp.Count == 0)
-            {
-                _convergent = false;
-                return false;
-            }
-
-            if (_lastTemp.Count == 0)
-            {
-                _convergent = false;
+            if (_temp.Count == 0) { 
                 return false;
             }
             _lastTemp = _temp;
