@@ -172,12 +172,12 @@ namespace multimeter
                     _recvStr += str;
                     if (_recvStr.Length > 0)
                     {
-                        int firstIdx = _recvStr.IndexOf((char)13);
-                        int lastIdx = _recvStr.LastIndexOf((char)13);
-                        if (-1 != firstIdx && firstIdx != lastIdx)
-                        {
-                            _recvStr = _recvStr.Remove(firstIdx, lastIdx - firstIdx + 1);
-                        }
+                        //int firstIdx = _recvStr.IndexOf((char)13);
+                        //int lastIdx = _recvStr.LastIndexOf((char)13);
+                        //if (-1 != firstIdx && firstIdx != lastIdx)
+                        //{
+                        //    _recvStr = _recvStr.Remove(firstIdx, lastIdx - firstIdx + 1);
+                        //}
 
                         _recvStr = _recvStr.Replace((char)19, (char)0);
                         _recvStr = _recvStr.Replace((char)13, (char)0);
