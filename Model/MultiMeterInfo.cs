@@ -64,8 +64,14 @@ namespace Model {
         public string TotalChn {
             get {
                 var temp = VoltageChn;
-                if (ThermocoupleChn.Length != 0) temp += "," + ThermocoupleChn;
-                if (ResistanceChn.Length != 0) temp += "," + ResistanceChn;
+                if (ThermocoupleChn.Length != 0) {
+                    temp += temp.Length == 0 ? "" : ",";
+                    temp += ThermocoupleChn;
+                }
+                if (ResistanceChn.Length != 0) {
+                    temp += temp.Length == 0 ? "" : ",";
+                    temp += ResistanceChn;
+                }
                 return temp;
             }
         }

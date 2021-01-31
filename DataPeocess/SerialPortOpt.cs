@@ -56,9 +56,9 @@ SENS:TEMP:NPLC 1,(@{multiMeter.ThermocoupleChn})
 
             if (multiMeter.ResistanceNum > 0)
             {
-                string str = $@"SENS:FUNC 'RES',(@{multiMeter.VoltageChn})   
-SENS:RES:NPLC 1,(@{multiMeter.VoltageChn})   
-SENS:RES:RANG:AUTO ON,(@{multiMeter.VoltageChn})";
+                string str = $@"SENS:FUNC 'RES',(@{multiMeter.ResistanceChn})   
+SENS:RES:NPLC 1,(@{multiMeter.ResistanceChn})   
+SENS:RES:RANG:AUTO ON,(@{multiMeter.ResistanceChn})";
                 st = st.Replace("*s3*", str);
             }
             if (multiMeter.TotalNum > 0) st = st.Replace("*nchannel*", multiMeter.TotalNum.ToString());
