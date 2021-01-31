@@ -224,9 +224,11 @@ namespace multimeter
 
                         if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
                         {
-                            if(!_convergent)IsConvergent();
-                            SaveToData(_method.ToString() + "-" + _count + ".rst");
-                            _temp.Clear();
+                            if (TempOk()) {
+                                if (!_convergent) IsConvergent();
+                                SaveToData(_method.ToString() + "-" + _count + ".rst");
+                                _temp.Clear();
+                            }
                         }
 
                         //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -303,24 +305,29 @@ namespace multimeter
             #endregion
         }
 
-        private void IsConvergent()
-        {
+        private bool TempOk() {
             if (_lastTemp == null)
             {
                 _convergent = false;
-                return;
+                return false;
             }
             if (_temp.Count == 0)
             {
                 _convergent = false;
-                return;
+                return false;
             }
 
             if (_lastTemp.Count == 0)
             {
                 _convergent = false;
-                return;
+                return false;
             }
+            _lastTemp = _temp;
+            return true;
+        }
+        private void IsConvergent()
+        {
+            
             var lastTempArray = Solution.AveTemp(_lastTemp.ToArray(), _multiMeter.TotalNum);
             var currentTempArray = Solution.AveTemp(_temp.ToArray(), _multiMeter.TotalNum);
             for (int i = 0; i < _multiMeter.TotalNum; i++)
@@ -331,7 +338,7 @@ namespace multimeter
                     return;
                 }
             }
-            _lastTemp = _temp;
+            
             _convergent = true;
 
             /*    if (ConvergentHolding_Timer.Enabled) return;
