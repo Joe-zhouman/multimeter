@@ -43,7 +43,7 @@ namespace multimeter {
                 checkBoxes[i].Text = channelList[i];           
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
                 chart1.Series[i].LegendText = channelList[i];
-                chart1.Series[i].BorderWidth = 5;
+                chart1.Series[i].BorderWidth = 2;
                 chart1.Series[i].Points.Clear();
             }
 
