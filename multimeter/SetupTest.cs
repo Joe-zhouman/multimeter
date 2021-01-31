@@ -302,6 +302,5 @@ namespace multimeter
 
         }
 
-
     }
 }

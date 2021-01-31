@@ -29,10 +29,13 @@ namespace multimeter {
             this.chart1.Series[10].Color = Color.Pink;
             this.chart1.Series[11].Color = Color.Olive;
             this.chart1.Series[12].Color = Color.SlateGray;
+            this.chart1.Series[13].Color = Color.SpringGreen;
+            this.chart1.Series[14].Color = Color.Teal;
+            this.chart1.Series[15].Color = Color.IndianRed;
 
-            List<CheckBox> checkBoxes = new List<CheckBox>()
-                    { checkBox1,checkBox2,checkBox3,checkBox4,checkBox5, checkBox6, 
-                        checkBox7,checkBox8,checkBox9,checkBox10,checkBox11,checkBox12,checkBox13};
+            List <CheckBox> checkBoxes = new List<CheckBox>()
+                    { checkBox1,checkBox2,checkBox3,checkBox4,checkBox5, checkBox6, checkBox7,checkBox8,
+                        checkBox9,checkBox10,checkBox11,checkBox12,checkBox13,checkBox14,checkBox15,checkBox16};
             List<string> channelList = _device.Channels;
             int numChannel = channelList.Count;
             for (int i = 0; i < numChannel; i++) {
@@ -40,10 +43,11 @@ namespace multimeter {
                 checkBoxes[i].Text = channelList[i];           
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
                 chart1.Series[i].LegendText = channelList[i];
+                chart1.Series[i].BorderWidth = 5;
                 chart1.Series[i].Points.Clear();
             }
 
-            for (int i = numChannel; i < 13; i++){
+            for (int i = numChannel; i < 16; i++){
                 checkBoxes[i].Visible = false;
                 chart1.Series[i].Points.Clear();
             }
@@ -208,6 +212,16 @@ namespace multimeter {
         private void checkBox13_CheckedChanged(object sender, EventArgs e) {
             CheckedChanged(checkBox13) ;
         }
+        private void checkBox14_CheckedChanged(object sender, EventArgs e) {
+            CheckedChanged(checkBox14);
+        }
+        private void checkBox15_CheckedChanged(object sender, EventArgs e) {
+            CheckedChanged(checkBox15);
+        }
+        private void checkBox16_CheckedChanged(object sender, EventArgs e) {
+            CheckedChanged(checkBox16);
+        }
+
         private void XAxis_chenkBox_CheckedChanged(object sender, EventArgs e) {
             XAdapt();
         }
