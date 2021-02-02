@@ -37,7 +37,8 @@ namespace multimeter
             _count = 0;
             _latestDataFile = "";
             _latestResultFile = "";
-            string fileName = _method + "-DataAutoSave.csv";
+            _latestOriginFile = "";
+            string fileName = _method + "-TempAutoSave.csv";
             _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave", _method.ToString() + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff")); 
             try
             {
@@ -50,7 +51,9 @@ namespace multimeter
                 Log.Error(ex);
                 btn_stop();
                 return;
-            }_latestDataFile = Path.Combine(_autoSaveFilePath, fileName);
+            }
+            _latestDataFile = Path.Combine(_autoSaveFilePath, fileName);
+            _latestOriginFile = Path.Combine(_autoSaveFilePath, _method + "-OriginalDataAutoSave.csv");
             try
             {
                 serialPort1.BaudRate = int.Parse(_appCfg.SerialPortPara.SerialBaudRate);
@@ -78,7 +81,10 @@ namespace multimeter
             _temp = new List<string>();
             try
             {
-                StreamWriter write = new StreamWriter(_latestDataFile);
+                StreamWriter tempWrite = new StreamWriter(_latestDataFile);
+                tempWrite.WriteLine("step," + _multiMeter.TotalChn);
+                tempWrite.Close();
+                StreamWriter write = new StreamWriter(_latestOriginFile);
                 write.WriteLine("step," + _multiMeter.TotalChn);
                 write.Close();
             }
@@ -207,7 +213,10 @@ namespace multimeter
                         DeviceOpt.GetTempList(ref temp,_device);
                         try
                         {
-                            StreamWriter write = new StreamWriter(_latestDataFile, true);
+                            StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
+                            tempWrite.WriteLine(temp);
+                            tempWrite.Close();
+                            StreamWriter write = new StreamWriter(_latestOriginFile, true);
                             write.WriteLine(temp);
                             write.Close();
                         }

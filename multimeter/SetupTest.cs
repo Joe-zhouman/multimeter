@@ -19,6 +19,7 @@ namespace multimeter
         private TestDevice _device;
         private string _latestDataFile;
         private string _latestResultFile;
+        private string _latestOriginFile;
         private TestMethod _method;
         private string _recvStr;
         private string _autoSaveFilePath;
