@@ -127,7 +127,7 @@ namespace multimeter {
                 });*/
         }
 
-        private static void ShowResultErrorInfo(Label label, string errInfo) {
+        private static void ShowResultErrorInfo(RichTextBox label, string errInfo) {
             label.Text = errInfo;
             if (errInfo == "") return;
             Log.Info("计算误差过大");
