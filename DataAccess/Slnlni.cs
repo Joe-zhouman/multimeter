@@ -22,6 +22,7 @@ namespace DataAccess {
                 IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A2", "0.0", IniFilePath);
+                IniHelper.Write(i.ToString(), "A3", "0.0", IniFilePath);
             }
 
             for (int i = 201; i < 229; i++) {
@@ -29,6 +30,7 @@ namespace DataAccess {
                 IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A2", "0.0", IniFilePath);
+                IniHelper.Write(i.ToString(), "A3", "0.0", IniFilePath);
             }
             #endregion
         }

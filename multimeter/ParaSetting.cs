@@ -26,21 +26,22 @@ namespace multimeter {
             RisistGridView.Columns.Add("channel", "Channel");
             RisistGridView.Columns.Add("A0", @"A₀");
             RisistGridView.Columns.Add("A1", @"A₁");
-            RisistGridView.Columns.Add("A2", "A\x2082");    
+            RisistGridView.Columns.Add("A2", "A\x2082");
+            RisistGridView.Columns.Add("A3", "A\x2083");
 
-            for (var i = 0; i < 4; i++) RisistGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            for (var i = 0; i < 5; i++) RisistGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
 
             var channels = _app.SysPara.AllowedChannels.GetRange(1, _app.SysPara.AllowedChannels.Count - 1);
             for (var i = 0; i < channels.Count; i++) {
                 var card = FindChnIdx(channels[i], _app.SerialPortPara);
 
                 var typeId = (int) card.Type;
-                RisistGridView.Rows.Add(ProbeStrings[typeId], channels[i], "", "", "");
+                RisistGridView.Rows.Add(ProbeStrings[typeId], channels[i], "", "", "", "");
                 RisistGridView["channel", i].ReadOnly = true;
                 switch (typeId) {
                     case 0:
                      {
-                        for (var j = 2; j < 5; j++) {
+                        for (var j = 2; j < 6; j++) {
                             RisistGridView[j, i].Value = '-';
                             RisistGridView[j, i].ReadOnly = true;
                         }
@@ -49,20 +50,22 @@ namespace multimeter {
                     case 1: {
                         Probe voltage = new Voltage();
                         ShowProbePara(voltage, channels[i], i);
-                        RisistGridView[4, i].Value = '-';
-                        RisistGridView[4, i].ReadOnly = true;
                     }
                         break;
                     case 2:
                     {
                         Probe voltage = new Thermocouple();
                         ShowProbePara(voltage, channels[i], i);
-                    }
+                        RisistGridView[5, i].Value = '-';
+                        RisistGridView[5, i].ReadOnly = true;
+                        }
                         break;
                     case 3: {
                         Probe voltage = new Thermistor();
                         ShowProbePara(voltage, channels[i], i);
-                    }
+                        RisistGridView[5, i].Value = '-';
+                        RisistGridView[5, i].ReadOnly = true;
+                        }
                         break;
                 }
             } //默认读取双线热敏电阻
@@ -108,7 +111,7 @@ namespace multimeter {
                         break;
                     case 1:
                     {
-                        ChangeGridCellStyle(idx, 4);
+                        ChangeGridCellStyle(idx, 6);
                     }
                         break;
                     case 2:
@@ -129,7 +132,7 @@ namespace multimeter {
                 RisistGridView[i, idx].ValueType = typeof(double);
             }
 
-            for (var i = midPoint; i < 5; i++)
+            for (var i = midPoint; i < 6; i++)
             {
                 RisistGridView[i, idx].Value = "-";
                 RisistGridView[i, idx].ReadOnly = true;
@@ -157,7 +160,7 @@ namespace multimeter {
                             {
                                 card.Type = ProbeType.VOLTAGE;
                                 Probe probe = new Voltage();
-                                for (var j = 0; j < 2; j++) probe.Paras[j] = double.Parse(RisistGridView.Rows[i].Cells[j + 2].Value.ToString());
+                                for (var j = 0; j < 4; j++) probe.Paras[j] = double.Parse(RisistGridView.Rows[i].Cells[j + 2].Value.ToString());
                                 IniReadAndWrite.WriteTempPara(probe, channel, IniReadAndWrite.IniFilePath);
                                 channels.Add(channel);
                             }
