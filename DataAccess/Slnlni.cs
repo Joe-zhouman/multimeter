@@ -17,14 +17,14 @@ namespace DataAccess {
             WriteChannelPara(app.SerialPortPara, IniFilePath);
             WritePara(app.SysPara,IniFilePath);
             WriteDevicePara(device,IniFilePath);
-            for (int i = 101; i < 123; i++) {
+            for (int i = 101; i < 129; i++) {
                 IniHelper.Write(i.ToString(), "type", $"{(int)ProbeType.NULL}", IniFilePath);
                 IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A2", "0.0", IniFilePath);
             }
 
-            for (int i = 201; i < 223; i++) {
+            for (int i = 201; i < 229; i++) {
                 IniHelper.Write(i.ToString(), "type", $"{(int)ProbeType.NULL}", IniFilePath);
                 IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
