@@ -173,7 +173,7 @@ namespace multimeter {
                             break;
                         case "四线热敏电阻":
                             {
-                                card.Type = ProbeType.VOLTAGE;
+                                card.Type = ProbeType.THERMISTOR;
                                 Probe probe = new Thermistor();
                                 for (var j = 0; j < 3; j++) probe.Paras[j] = double.Parse(RisistGridView.Rows[i].Cells[j + 2].Value.ToString());
                                 IniReadAndWrite.WriteTempPara(probe, channel, IniReadAndWrite.IniFilePath);
