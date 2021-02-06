@@ -26,7 +26,7 @@ namespace multimeter {
             RisistGridView.Columns.Add("channel", "Channel");
             RisistGridView.Columns.Add("A0", @"A₀");
             RisistGridView.Columns.Add("A1", @"A₁");
-            RisistGridView.Columns.Add("A3", @"A₃");
+            RisistGridView.Columns.Add("A2", "A\x2082");    
 
             for (var i = 0; i < 4; i++) RisistGridView.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
 
