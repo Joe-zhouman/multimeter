@@ -13,7 +13,7 @@ namespace Model {
             AutoCloseInterval = 1800;
             ConvergentLim = 1e-3;
             AllowedChannels = new List<string>() {"0"};
-            for (int i = 201; i < 217; i++) {
+            for (int i = 201; i < 226; i++) {
                 AllowedChannels.Add(i.ToString());
             }
         }

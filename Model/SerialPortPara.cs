@@ -39,7 +39,7 @@ namespace Model {
 
             CardList1 = new List<Card>();
 
-            for (var i = 0; i < 22; i++) {
+            for (var i = 0; i < 28; i++) {
                 var c = new Card {Chn = (i + 101).ToString(), Func = 0};
                 CardList1.Add(c);
             }
@@ -47,7 +47,7 @@ namespace Model {
 
             CardList2 = new List<Card>();
 
-            for (var i = 0; i < 22; i++) {
+            for (var i = 0; i < 28; i++) {
                 var c = new Card {Chn = (i + 201).ToString(), Func = 0};
                 CardList2.Add(c);
             }
