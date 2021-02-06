@@ -207,7 +207,6 @@ namespace multimeter
                         }
                         _count++;
                         string temp = _count.ToString() + ',';
-                        string origin = _count.ToString() + ',' + _recvStr;
                         _testResult.Clear();
                         for (int i = 0; i < _multiMeter.Channels.Length; i++) _testResult.Add(_multiMeter.Channels[i], dataList[i]);
                         DeviceOpt.SetTemp(ref _device,_testResult);
@@ -218,7 +217,7 @@ namespace multimeter
                             tempWrite.WriteLine(temp);
                             tempWrite.Close();
                             StreamWriter write = new StreamWriter(_latestOriginFile, true);
-                            write.WriteLine(origin);
+                            write.WriteLine(temp);
                             write.Close();
                         }
                         catch (Exception ex)

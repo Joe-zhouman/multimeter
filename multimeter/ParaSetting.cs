@@ -8,7 +8,7 @@ using Model;
 
 namespace multimeter {
     public partial class ParaSetting : Form {
-        private static readonly string[] ProbeStrings = {"未启用", "电压探头", "K型热电偶", "双线热敏电阻"};
+        private static readonly string[] ProbeStrings = {"未启用", "电压探头", "K型热电偶", "四线热敏电阻"};
         private readonly AppCfg _app;
 
         public ParaSetting(AppCfg app) {
@@ -39,7 +39,7 @@ namespace multimeter {
                 RisistGridView["channel", i].ReadOnly = true;
                 switch (typeId) {
                     case 0:
-                    case 2: {
+                     {
                         for (var j = 2; j < 5; j++) {
                             RisistGridView[j, i].Value = '-';
                             RisistGridView[j, i].ReadOnly = true;
@@ -51,6 +51,12 @@ namespace multimeter {
                         ShowProbePara(voltage, channels[i], i);
                         RisistGridView[4, i].Value = '-';
                         RisistGridView[4, i].ReadOnly = true;
+                    }
+                        break;
+                    case 2:
+                    {
+                        Probe voltage = new Thermocouple();
+                        ShowProbePara(voltage, channels[i], i);
                     }
                         break;
                     case 3: {
@@ -94,7 +100,7 @@ namespace multimeter {
                 var idx = RisistGridView.CurrentCell.RowIndex;
                 switch (combo.SelectedIndex)
                 {
-                    case 2:
+                    
                     case 0:
                     {
                         ChangeGridCellStyle(idx, 2);
@@ -105,6 +111,7 @@ namespace multimeter {
                         ChangeGridCellStyle(idx, 4);
                     }
                         break;
+                    case 2:
                     case 3:
                     {
                         ChangeGridCellStyle(idx, 5);
@@ -158,10 +165,13 @@ namespace multimeter {
                         case "K型热电偶":
                             {
                                 card.Type = ProbeType.THERMOCOUPLE;
+                                Probe probe = new Thermocouple();
+                                for (var j = 0; j < 3; j++) probe.Paras[j] = double.Parse(RisistGridView.Rows[i].Cells[j + 2].Value.ToString());
+                                IniReadAndWrite.WriteTempPara(probe, channel, IniReadAndWrite.IniFilePath);
                                 channels.Add(channel);
                             }
                             break;
-                        case "双线热敏电阻":
+                        case "四线热敏电阻":
                             {
                                 card.Type = ProbeType.VOLTAGE;
                                 Probe probe = new Thermistor();

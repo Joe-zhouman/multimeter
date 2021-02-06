@@ -56,7 +56,7 @@ SENS:TEMP:NPLC 1,(@{multiMeter.ThermocoupleChn})
 
             if (multiMeter.ResistanceNum > 0)
             {
-                string str = $@"SENS:FUNC 'RES',(@{multiMeter.ResistanceChn})   
+                string str = $@"SENS:FUNC 'FRES',(@{multiMeter.ResistanceChn})   
 SENS:RES:NPLC 1,(@{multiMeter.ResistanceChn})   
 SENS:RES:RANG:AUTO ON,(@{multiMeter.ResistanceChn})";
                 st = st.Replace("*s3*", str);

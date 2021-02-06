@@ -56,21 +56,20 @@ namespace DataAccess {
                     switch ((ProbeType)Enum.Parse(typeof(ProbeType), IniHelper.Read(specimen.Channel[i], "type", "NULL", filePath))) {
                         case ProbeType.VOLTAGE: {
                             specimen.Probes[i] = new Voltage();
-                            ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);
                         }
                             break;
                         case ProbeType.THERMOCOUPLE: {
                             specimen.Probes[i] = new Thermocouple();
-                        }
+                            }
                             break;
                         case ProbeType.THERMISTOR: {
                             specimen.Probes[i] = new Thermistor();
-                            ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);
                         }
                             break;
                         default:
                             throw new NumOutOfRangeException("未知的探头类型");
                     }
+                    ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);
                 }
                 else {
                     specimen.Probes[i] = null;
