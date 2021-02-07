@@ -68,10 +68,12 @@ namespace Model {
                     temp += temp.Length == 0 ? "" : ",";
                     temp += ThermocoupleChn;
                 }
+
                 if (ResistanceChn.Length != 0) {
                     temp += temp.Length == 0 ? "" : ",";
                     temp += ResistanceChn;
                 }
+
                 return temp;
             }
         }

@@ -1,57 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.IO.Ports;
-using System.Text;
-using System.Threading;
+using System.Reflection;
 using System.Windows.Forms;
-using BusinessLogic;
-using CCWin.SkinClass;
-using CCWin.Win32.Const;
 using DataAccess;
 using log4net;
 using Model;
-namespace multimeter
-{
+
+namespace multimeter {
     public partial class SetupTest : Form {
-        private MultiMeterInfo _multiMeter;
-        private TestDevice _device;
-        private string _latestDataFile;
-        private string _latestResultFile;
-        private string _latestOriginFile;
-        private TestMethod _method;
-        private string _recvStr;
-        private string _autoSaveFilePath;
-        private Dictionary<string, double> _testResult = new Dictionary<string, double>();
-        private bool _testResultChartUpdate;
-        private bool _saveParameter;
-        public UserType User;
-        private List<string> _temp;
-        private List<string> _lastTemp;
-        private bool _convergent = false;
-        private AppCfg _appCfg;
         #region logger
 
         private static readonly ILog Log
-            = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         #endregion
 
-        #region //串口采集
-        private int _count;
-        private bool _enableScan;
-        #endregion
+        private AppCfg _appCfg;
+        private string _autoSaveFilePath;
+        private bool _convergent;
+        private TestDevice _device;
+        private List<string> _lastTemp;
+        private string _latestDataFile;
+        private string _latestOriginFile;
+        private string _latestResultFile;
+        private TestMethod _method;
+        private MultiMeterInfo _multiMeter;
+        private string _recvStr;
+        private bool _saveParameter;
+        private List<string> _temp;
+        private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
+        private bool _testResultChartUpdate;
+        public UserType User;
 
-        
 
-        public SetupTest()
-        {
+        public SetupTest() {
             InitializeComponent();
         }
 
-        public void TestChooseFormShow_Click(object sender, EventArgs e)
-        {
+        public void TestChooseFormShow_Click(object sender, EventArgs e) {
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
@@ -63,22 +52,18 @@ namespace multimeter
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.BringToFront();
             TestChoiseGroupBox.Visible = true;
-
         }
 
-        private void ModifyParameter_Click(object sender, EventArgs e)
-        {
-            if (_saveParameter)
-            {
-                if (!apply_btm()) { return; }
+        private void ModifyParameter_Click(object sender, EventArgs e) {
+            if (_saveParameter) {
+                if (!apply_btm()) return;
                 if (User == UserType.NORMAL) NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
                 _saveParameter = false;
                 ModifyParameterLabel.Text = @"修改参数";
             }
-            else
-            {
+            else {
                 if (User == UserType.NORMAL) NormalTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
@@ -86,11 +71,10 @@ namespace multimeter
                 ModifyParameterLabel.Text = @"确定参数";
             }
         }
-        private void TestRun_Click(object sender, EventArgs e)
-        {
+
+        private void TestRun_Click(object sender, EventArgs e) {
             TestTime.Text = "";
-            if (serialPort1.IsOpen)
-            {
+            if (serialPort1.IsOpen) {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
                 TestRun_Enable(true);
@@ -104,12 +88,10 @@ namespace multimeter
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
                 TestTime_Timer.Enabled = false;
-
             }
-            else
-            {
+            else {
                 if (_saveParameter) ModifyParameter_Click(sender, e);
-                if (!apply_btm()) { return; }//再次确认设置参数
+                if (!apply_btm()) return;
                 btn_start();
                 if (!serialPort1.IsOpen) return;
                 Chart_Init();
@@ -129,37 +111,34 @@ namespace multimeter
             }
         }
 
-        private void Monitor_Click(object sender, EventArgs e)
-        {
+        private void Monitor_Click(object sender, EventArgs e) {
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
             TestChartGroupBox.Size = new Size(1250, 855);
-
         }
 
-        private void SerialPort_Click(object sender, EventArgs e)
-        {
+        private void SerialPort_Click(object sender, EventArgs e) {
             skinGroupBox1.BringToFront();
             skinGroupBox1.Size = new Size(253, 201);
         }
 
-        private void SerialPortEnsure_Click(object sender, EventArgs e)
-        {
-
+        private void SerialPortEnsure_Click(object sender, EventArgs e) {
             _appCfg.SerialPortPara.SerialPort = combox_comport.Text;
 
             _appCfg.SerialPortPara.SerialBaudRate = combox_baudrate.Text;
-            
+
 
             try {
-                _appCfg.SysPara.SaveInterval.Value = int.Parse(edit_save_interval.Text);}
+                _appCfg.SysPara.SaveInterval.Value = int.Parse(edit_save_interval.Text);
+            }
             catch (Exception exception) {
-                MessageBox.Show(@"错误的保存频率"+@"
-"+exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"错误的保存频率" + @"
+" + exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
 //            try
 //            {
 //                _appCfg.SysPara.ScanInterval.Value = int.Parse(edit_scan_interval.Text);
@@ -170,17 +149,17 @@ namespace multimeter
 //" + exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 //                return;
 //            }
-            IniReadAndWrite.WriteBasicPara(_appCfg.SerialPortPara,IniReadAndWrite.IniFilePath);
+            IniReadAndWrite.WriteBasicPara(_appCfg.SerialPortPara, IniReadAndWrite.IniFilePath);
             skinGroupBox1.Size = new Size(0, 0);
         }
 
         public void AdvancedSetting_Click(object sender, EventArgs e) {
-            ParaSetting parSetting = new ParaSetting(_appCfg);
+            var parSetting = new ParaSetting(_appCfg);
             parSetting.Show();
         }
-        private void HelpButton_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start(@"..\..\HelpDocument\help.pdf");
+
+        private void HelpButton_Click(object sender, EventArgs e) {
+            Process.Start(@"..\..\HelpDocument\help.pdf");
         }
 
         //private void TestResultChart_FormClosing(object sender, EventArgs e) {
@@ -191,11 +170,11 @@ namespace multimeter
         //    if (_testResultChart.DialogResult != DialogResult.Yes) return;
         //    CurrentTestResult_Click(this, e);
         //}
-        private void SetupTest_Load(object sender, EventArgs e)
-        {
-
+        private void SetupTest_Load(object sender, EventArgs e) {
             IniReadAndWrite.CreateDefaultIni();
+
             #region //不同设置窗口默认显示
+
             //EmptyGroupBox.Size = new Size(1250, 855);
             TextGroupbox1.Size = new Size(0, 0);
             TextGroupbox2.Size = new Size(0, 0);
@@ -209,25 +188,29 @@ namespace multimeter
             SoftwareNameLabel.Visible = false;
             TestTime.Text = "";
             _saveParameter = false;
+
             #endregion
 
             CheckForIllegalCrossThreadCalls = false; //去掉线程安全
+
             #region //初始化变量
+
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
             _latestDataFile = "";
             _latestResultFile = "";
             _appCfg = new AppCfg();
+
             #endregion
 
             #region //串口设置 
+
             //_testResultChart.FormClosing += TestResultChart_FormClosing;
             IniReadAndWrite.ReadPara(ref _appCfg, IniReadAndWrite.IniFilePath);
             edit_scan_interval.Text = _appCfg.SysPara.ScanInterval.Value.ToString();
             edit_save_interval.Text = _appCfg.SysPara.SaveInterval.Value.ToString();
 
-            switch (_appCfg.SerialPortPara.SerialPort)
-            {
+            switch (_appCfg.SerialPortPara.SerialPort) {
                 case "COM1":
                     combox_comport.SelectedIndex = 0;
                     break;
@@ -258,8 +241,7 @@ namespace multimeter
             }
 
 
-            switch (_appCfg.SerialPortPara.SerialBaudRate)
-            {
+            switch (_appCfg.SerialPortPara.SerialBaudRate) {
                 case "4800":
                     combox_baudrate.SelectedIndex = 0;
                     break;
@@ -285,23 +267,28 @@ namespace multimeter
                     combox_baudrate.SelectedIndex = 2;
                     break;
             }
-            
-            
+
             #endregion
 
             #region //显示登录窗口
-            LoginForm loginForm = new LoginForm();
+
+            var loginForm = new LoginForm();
             loginForm.Show(this);
+
             #endregion
         }
 
-        private void ChartShow_Timer_Tick(object sender, EventArgs e)
-        {
+        private void ChartShow_Timer_Tick(object sender, EventArgs e) {
             if (!_testResultChartUpdate) return;
             ShowChart();
             _testResultChartUpdate = false;
-
         }
 
+        #region //串口采集
+
+        private int _count;
+        private bool _enableScan;
+
+        #endregion
     }
 }

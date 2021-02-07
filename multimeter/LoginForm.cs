@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccess;
 using Model;
 
 namespace multimeter {
     public partial class LoginForm : Form {
-        private User _user; 
+        private User _user;
+
         public LoginForm() {
             InitializeComponent();
         }
+
         private void login_Click(object sender, EventArgs e) {
-            SetupTest setupTest = (SetupTest)this.Owner;
+            var setupTest = (SetupTest) Owner;
             _user.Name = usernameTBox.Text;
             _user.Password = userpasswordTBox.Text;
             switch (comboBox.SelectedIndex) {
@@ -46,18 +41,20 @@ namespace multimeter {
                     MessageBox.Show(@"用户密码或密码错误！", @"警告", MessageBoxButtons.OK);
                     break;
             }
-
         }
+
         private void LoginForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter) {
                 login.Focus();
                 login_Click(this, e);
             }
         }
+
         private void cancel_Click(object sender, EventArgs e) {
             Close();
             Application.Exit();
         }
+
         private void userPasswordTBox_TextChanged(object sender, EventArgs e) {
             userpasswordTBox.PasswordChar = '*';
         }
@@ -65,10 +62,9 @@ namespace multimeter {
         private void LoginForm_Load(object sender, EventArgs e) {
             _user = new User {Type = UserType.NORMAL};
             comboBox.SelectedIndex = 0;
-
         }
-        private void UserType_SelectedIndexChanged(object sender, EventArgs e)
-        {
+
+        private void UserType_SelectedIndexChanged(object sender, EventArgs e) {
             switch (comboBox.SelectedIndex) {
                 case 0:
                     _user.Type = UserType.NORMAL;
@@ -78,16 +74,9 @@ namespace multimeter {
                     break;
             }
         }
-        private void button4_Click(object sender, EventArgs e)
-        {
 
-        }
+        private void button4_Click(object sender, EventArgs e) { }
 
-        private void LoginGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        
+        private void LoginGroupBox_Enter(object sender, EventArgs e) { }
     }
 }

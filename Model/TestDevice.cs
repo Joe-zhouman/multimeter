@@ -10,9 +10,10 @@ namespace Model {
     public class TestDevice {
         public Specimen HeatMeter1;
         public Specimen HeatMeter2;
+        public Itm Itm;
         public Specimen Sample1;
         public Specimen Sample2;
-        public TestMethod Method { get; }
+
         public TestDevice(TestMethod testMethod) {
             Method = testMethod;
             HeatMeter1 = new Specimen("HeatMeter1", SpecimenType.HEAT_METER);
@@ -45,21 +46,24 @@ namespace Model {
                     throw new ArgumentOutOfRangeException(nameof(testMethod), testMethod, null);
             }
         }
+
+        public TestMethod Method { get; }
+
         public List<string> Channels {
             get {
-                List<string>  channels = new List<string>();
-                AddRange(ref channels,HeatMeter1);
+                var channels = new List<string>();
+                AddRange(ref channels, HeatMeter1);
                 AddRange(ref channels, Sample1);
                 AddRange(ref channels, Sample2);
                 AddRange(ref channels, HeatMeter2);
                 return channels;
-                
             }
         }
+
         public List<double> Temp {
             get {
-                List<double> t = new List<double>();
-                if(HeatMeter1!=null)
+                var t = new List<double>();
+                if (HeatMeter1 != null)
                     t.AddRange(HeatMeter1.Temp);
                 if (Sample1 != null)
                     t.AddRange(Sample1.Temp);
@@ -70,11 +74,12 @@ namespace Model {
                 return t;
             }
         }
+
         public string Force { get; set; }
-        public Itm Itm;
         public double Itc { get; set; }
+
         private void AddRange(ref List<string> channels, Specimen specimen) {
-            if(specimen==null)return;
+            if (specimen == null) return;
             channels.AddRange(specimen.Channel.Where(channel => channel != "0"));
         }
     }

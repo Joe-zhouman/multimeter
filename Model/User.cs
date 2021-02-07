@@ -4,13 +4,14 @@
 
 namespace Model {
     public class User {
-        public string Name { get; set; }
-        public string Password { get; set; }
-        public UserType Type { get; set; }
         public User() {
             Name = "";
             Password = "";
             Type = UserType.NORMAL;
         }
+
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public UserType Type { get; set; }
     }
 }

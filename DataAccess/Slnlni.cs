@@ -1,37 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Model;
 
 namespace DataAccess {
     public static partial class IniReadAndWrite {
-
         public static void CreateDefaultIni() {
             #region
+
             if (File.Exists(IniFilePath)) return;
             File.Create(IniFilePath).Close();
-            AppCfg app = new AppCfg();
-            TestDevice device = new TestDevice(TestMethod.ITMS);
-            WriteBasicPara(app.SerialPortPara,IniFilePath);
+            var app = new AppCfg();
+            var device = new TestDevice(TestMethod.ITMS);
+            WriteBasicPara(app.SerialPortPara, IniFilePath);
             WriteChannelPara(app.SerialPortPara, IniFilePath);
-            WritePara(app.SysPara,IniFilePath);
-            WriteDevicePara(device,IniFilePath);
-            for (int i = 101; i < 129; i++) {
-                IniHelper.Write(i.ToString(), "type", $"{(int)ProbeType.NULL}", IniFilePath);
+            WritePara(app.SysPara, IniFilePath);
+            WriteDevicePara(device, IniFilePath);
+            for (var i = 101; i < 129; i++) {
+                IniHelper.Write(i.ToString(), "type", $"{(int) ProbeType.NULL}", IniFilePath);
                 IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A2", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A3", "0.0", IniFilePath);
             }
 
-            for (int i = 201; i < 229; i++) {
-                IniHelper.Write(i.ToString(), "type", $"{(int)ProbeType.NULL}", IniFilePath);
+            for (var i = 201; i < 229; i++) {
+                IniHelper.Write(i.ToString(), "type", $"{(int) ProbeType.NULL}", IniFilePath);
                 IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A2", "0.0", IniFilePath);
                 IniHelper.Write(i.ToString(), "A3", "0.0", IniFilePath);
             }
+
             #endregion
         }
         //public static string CreateDefaultSettingIni() {
@@ -52,9 +51,7 @@ namespace DataAccess {
         //    INIHelper.Write("ITM", "thickness", "0", filePath); //热界面材料厚度 Unit um
         //    return filePath;
         //} // 创建 热流计及热电偶属性 初始配置文件
-        
 
-        
 
         //public static void WriteChannelInfo(List<string> channelList) {
         //    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
@@ -74,13 +71,13 @@ namespace DataAccess {
         //}//将频道信息写入系统配置文件
         public static string AutoSaveIni(TestMethod method) {
             var iniFileName = method.ToString().ToLower();
-            string iniFilePath =
+            var iniFilePath =
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, iniFileName + ".ini");
-            string autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
+            var autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
                 iniFileName + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss") + ".ini");
 
             File.Copy(iniFilePath, autoSaveFilePath);
             return autoSaveFilePath;
-        }//自动保存当前的测试配置文件
+        } //自动保存当前的测试配置文件
     }
 }

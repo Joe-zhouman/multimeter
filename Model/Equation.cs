@@ -1,22 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Numerics;
+﻿using System;
+using System.Runtime.Serialization;
 
-
-namespace SolveEquation
-{
-    public partial class Equation
-    {
-        public static double A;
-        public static double B;
-        public static double C;
-        public static double Delta;
-        public static double X1 , X2, X3;
-        public static double DeltaQuadratic;
-
+namespace Model {
+    public static class Equation {
         /// <summary>
-        /// 盛金公式求解一元三次方程
+        ///     盛金公式求解一元三次方程
         /// </summary>
         /// <param name="a">三次系数</param>
         /// <param name="b">二次系数</param>
@@ -24,62 +12,66 @@ namespace SolveEquation
         /// <param name="d">常系数</param>
         /// <param name="root">结果为null则没有实根</param>
         public static void GetRoot(double a, double b, double c, double d, out double root) {
-            X1 = 0; X2 = 0; X3 = 0;
-            A = b * b - 3 * a * c;
-            B = b * c - 9 * a * d;
-            C = c * c - 3 * b * d;
-            Delta = B * B - 4 * A * C;
-            if (d == 0) {
-                X3 = 0;
-                SolveQuadraticEquation(a, b, c);
-            }
-            else if (A == 0 && B == 0) {
-                X1 = -b / (3 * a);
-            } //方程有一个三重实根
-            else if (Delta > 0) {
-                double y1 = (A * b + 3 * a * (-B + Math.Sqrt(Delta)) / 2);
-                double y2 = (A * b + 3 * a * (-B - Math.Sqrt(Delta)) / 2);
-                X1 = (-b - (GetCubeRoot(y1) + GetCubeRoot(y2))) / (3 * a);
-            }  //方程有一个实根和一对共轭虚根
-            else if (Delta == 0) {
-                var k = B / A;
-                X1 = -b / a + k;
-                X2 = X3 = -k / 2;
-            } //方程有一个实根，其中有一个两重根
-            else {
-                var T = (2 * A * b - 3 * a * B) / (2 * Math.Sqrt(A * A * A));
-                var angle = Math.Acos(T) / 3;
-                X1 = (-b - 2 * Math.Sqrt(A) * Math.Cos(angle)) / (3 * a);
-                X2 = ((-b + Math.Sqrt(A) * (Math.Cos(angle) + Math.Sqrt(3) * Math.Sin(angle))) / (3 * a));
-                X3 = ((-b + Math.Sqrt(A) * (Math.Cos(angle) - Math.Sqrt(3) * Math.Sin(angle))) / (3 * a));
-            }  //方程有三个不相等的实根 
+            double Q, R;
+            var a0 = d / a;
+            var a1 = c / a;
+            var a2 = b / a;
+            QR(a2, a1, a0, out Q, out R);
 
-            var rootMax = Math.Max(Math.Max(X1, X2), X3);
-            root = (rootMax > 0) ? rootMax : double.NaN;
+            var Q3 = Q * Q * Q;
+            var D = Q3 + R * R;
+            var shift = -a2 / 3d;
+
+            double x1;
+            var x2 = double.NaN;
+            var x3 = double.NaN;
+
+            if (D >= 0) {
+                // when D >= 0, use eqn (54)-(56) where S and T are real
+                var sqrtD = Math.Pow(D, 0.5);
+                var S = GetCubeRoot(R + sqrtD);
+                var T = GetCubeRoot(R - sqrtD);
+                x1 = shift + (S + T);
+                if (D == 0) x2 = shift - S;
+            }
+            else {
+                // 3 real roots, use eqn (70)-(73) to calculate the real roots
+                var theta = Math.Acos(R / Math.Sqrt(-Q3));
+                x1 = 2d * Math.Sqrt(-Q) * Math.Cos(theta / 3.0) + shift;
+                x2 = 2d * Math.Sqrt(-Q) * Math.Cos((theta + 2.0 * Math.PI) / 3d) + shift;
+                x3 = 2d * Math.Sqrt(-Q) * Math.Cos((theta - 2.0 * Math.PI) / 3d) + shift;
+            }
+
+            var rootMax = Math.Max(Math.Max(x1, x2), x3);
+            if (rootMax > 0) root = rootMax; //> 0 ? rootMax : double.NaN;
+            throw new NoRootException("方程无符合要求的实根！");
         }
 
-        public static void SolveQuadraticEquation(double a, double b, double c) {
-            DeltaQuadratic = b * b - 4 * a * c;
-            if (DeltaQuadratic == 0) {
-                X1 = X2 = -b / (2 * a);
-            }
-            else if (DeltaQuadratic > 0) {
-                X1 = -b + Math.Sqrt(DeltaQuadratic) / (2 * a);
-                X2 = -b - Math.Sqrt(DeltaQuadratic) / (2 * a);
-            }
+        private static void QR(double a2, double a1, double a0, out double Q, out double R) {
+            Q = (3 * a1 - a2 * a2) / 9.0;
+            R = (9.0 * a2 * a1 - 27 * a0 - 2 * a2 * a2 * a2) / 54.0;
         }
 
         public static double GetCubeRoot(double value) {
-            if (value < 0)
-                return (double) (-Math.Pow(-value, 1f / 3));
-            else if (value == 0)
-                return 0;
-            else
-                return (double) (Math.Pow(value, 1f / 3));
+            return Math.Pow(Math.Abs(value), 1d / 3d) * Math.Sign(value);
         }
+    }
 
+    [Serializable]
+    public class NoRootException : Exception {
+        //
+        // For guidelines regarding the creation of new exception types, see
+        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/cpconerrorraisinghandlingguidelines.asp
+        // and
+        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncscol/html/csharp07192001.asp
+        //
 
+        public NoRootException() { }
+        public NoRootException(string message) : base(message) { }
+        public NoRootException(string message, Exception inner) : base(message, inner) { }
 
+        protected NoRootException(
+            SerializationInfo info,
+            StreamingContext context) : base(info, context) { }
     }
 }
-

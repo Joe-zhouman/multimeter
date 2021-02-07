@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
 namespace Model {
     public class Card {
         public Card() {
@@ -16,7 +16,6 @@ namespace Model {
         /// <summary>
         ///     通道别名，随意取，方便记录
         /// </summary>
-
         /// <summary>
         ///     通道功能
         /// </summary>
@@ -31,7 +30,7 @@ namespace Model {
             SerialBaudRate = "9600";
 
             SerialDataBits = "8";
-            
+
             SerialStopBits = "One";
             SerialParity = "None";
             Card1Enable = 0;

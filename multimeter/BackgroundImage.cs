@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-using multimeter.Properties;
+﻿using multimeter.Properties;
 
 namespace multimeter {
     public partial class SetupTest {
@@ -33,6 +23,7 @@ namespace multimeter {
                 TestRun.BackgroundImage = Resources.TestStop;
             }
         }
+
         public void Monitor_Enable(bool enable) {
             if (enable) {
                 Monitor.Enabled = true;
@@ -43,6 +34,7 @@ namespace multimeter {
                 Monitor.BackgroundImage = Resources.Monitor_Disable;
             }
         }
+
         public void CurrentTestResult_Enable(bool enable) {
             if (enable) {
                 CurrentTestResult.Enabled = true;
@@ -53,6 +45,7 @@ namespace multimeter {
                 CurrentTestResult.BackgroundImage = Resources.CurrentDataProcess_Disable;
             }
         }
+
         public void HistoryTestResult_Enable(bool enable) {
             if (enable) {
                 HistoryTestResult.Enabled = true;
@@ -63,6 +56,7 @@ namespace multimeter {
                 HistoryTestResult.BackgroundImage = Resources.HistoryDataProcess_Disable;
             }
         }
+
         public void SerialPort_Enable(bool enable) {
             if (enable) {
                 SerialPort.Enabled = true;
@@ -73,6 +67,7 @@ namespace multimeter {
                 SerialPort.BackgroundImage = Resources.SerialPort_Disable;
             }
         }
+
         public void AdvancedSetting_Enable(bool enable) {
             if (enable) {
                 AdvancedSetting.Enabled = true;
@@ -94,7 +89,6 @@ namespace multimeter {
                 ModifyParameter.Enabled = false;
                 ModifyParameter.BackgroundImage = Resources.ModifyParameter_Disable;
             }
-           
         }
 
         public void ExportResult_Enable(bool enable) {
@@ -107,7 +101,5 @@ namespace multimeter {
                 ExportResult.BackgroundImage = Resources.ExportResult_Disable;
             }
         }
-
-
     }
 }

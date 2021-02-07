@@ -2,10 +2,10 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace DataAccess {   
+namespace DataAccess {
     public static class IniHelper {
         /// <summary>
-        /// 为INI文件中指定的节点取得字符串
+        ///     为INI文件中指定的节点取得字符串
         /// </summary>
         /// <param name="lpAppName">欲在其中查找关键字的节点名称</param>
         /// <param name="lpKeyName">欲获取的项名</param>
@@ -15,10 +15,11 @@ namespace DataAccess {
         /// <param name="lpFileName">INI文件完整路径</param>
         /// <returns>复制到lpReturnedString缓冲区的字节数量，其中不包括那些NULL中止字符</returns>
         [DllImport("kernel32")]
-        private static extern int GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, int nSize, string lpFileName);
+        private static extern int GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault,
+            StringBuilder lpReturnedString, int nSize, string lpFileName);
 
         /// <summary>
-        /// 修改INI文件中内容
+        ///     修改INI文件中内容
         /// </summary>
         /// <param name="lpApplicationName">欲在其中写入的节点名称</param>
         /// <param name="lpKeyName">欲设置的项名</param>
@@ -26,10 +27,11 @@ namespace DataAccess {
         /// <param name="lpFileName">INI文件完整路径</param>
         /// <returns>非零表示成功，零表示失败</returns>
         [DllImport("kernel32")]
-        private static extern int WritePrivateProfileString(string lpApplicationName, string lpKeyName, string lpString, string lpFileName);
+        private static extern int WritePrivateProfileString(string lpApplicationName, string lpKeyName, string lpString,
+            string lpFileName);
 
         /// <summary>
-        /// 读取INI文件值
+        ///     读取INI文件值
         /// </summary>
         /// <param name="section">节点名</param>
         /// <param name="key">键</param>
@@ -37,13 +39,13 @@ namespace DataAccess {
         /// <param name="filePath">INI文件完整路径</param>
         /// <returns>读取的值</returns>
         public static string Read(string section, string key, string def, string filePath) {
-            StringBuilder sb = new StringBuilder(1024);
+            var sb = new StringBuilder(1024);
             GetPrivateProfileString(section, key, def, sb, 1024, filePath);
             return sb.ToString();
         }
 
         /// <summary>
-        /// 写INI文件值
+        ///     写INI文件值
         /// </summary>
         /// <param name="section">欲在其中写入的节点名称</param>
         /// <param name="key">欲设置的项名</param>
@@ -56,7 +58,7 @@ namespace DataAccess {
         }
 
         /// <summary>
-        /// 删除节
+        ///     删除节
         /// </summary>
         /// <param name="section">节点名</param>
         /// <param name="filePath">INI文件完整路径</param>
@@ -66,7 +68,7 @@ namespace DataAccess {
         }
 
         /// <summary>
-        /// 删除键的值
+        ///     删除键的值
         /// </summary>
         /// <param name="section">节点名</param>
         /// <param name="key">键名</param>
@@ -77,13 +79,12 @@ namespace DataAccess {
         }
 
         /// <summary>
-        /// 检查文件是否存在
+        ///     检查文件是否存在
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
         public static bool CheckPath(string filePath) {
             return File.Exists(filePath);
         }
-
     }
 }

@@ -8,7 +8,7 @@ namespace Model {
         public SysPara SysPara;
 
         public AppCfg() {
-            SerialPortPara = new SerialPortPara(); 
+            SerialPortPara = new SerialPortPara();
             SysPara = new SysPara();
         }
     }

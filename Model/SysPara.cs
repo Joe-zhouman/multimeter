@@ -6,17 +6,17 @@ using System.Collections.Generic;
 
 namespace Model {
     public class SysPara {
-        public List<string> AllowedChannels { get; set; }
         public SysPara() {
-            SaveInterval = new RangeValue<int>(50,30,100);
-            ScanInterval = new RangeValue<int>(2000,2000,5000);
+            SaveInterval = new RangeValue<int>(50, 30, 100);
+            ScanInterval = new RangeValue<int>(2000, 2000, 5000);
             AutoCloseInterval = 1800;
             ConvergentLim = 1e-3;
-            AllowedChannels = new List<string>() {"0"};
-            for (int i = 201; i < 226; i++) {
-                AllowedChannels.Add(i.ToString());
-            }
+            AllowedChannels = new List<string> {"0"};
+            for (var i = 201; i < 226; i++) AllowedChannels.Add(i.ToString());
         }
+
+        public List<string> AllowedChannels { get; set; }
+
         /// <summary>
         ///     收敛后自动关闭间隔(Unit : s)
         /// </summary>

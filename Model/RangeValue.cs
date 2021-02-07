@@ -6,19 +6,19 @@ using System;
 using System.Runtime.Serialization;
 
 namespace Model {
-    public class RangeValue<T>where T:IComparable
-    {
+    public class RangeValue<T> where T : IComparable {
         private T _value;
-        public RangeValue(T value,T lowerBound,T upperBound) { 
+
+        public RangeValue(T value, T lowerBound, T upperBound) {
             LowerBound = lowerBound;
             UpperBound = upperBound;
             Value = value;
         }
 
         public T Value {
-            get=>_value;
+            get => _value;
             set {
-                if (value.CompareTo(LowerBound) < 0  || value.CompareTo(UpperBound)>0)
+                if (value.CompareTo(LowerBound) < 0 || value.CompareTo(UpperBound) > 0)
                     throw new NumOutOfRangeException($@"数值不在范围内,应在{LowerBound}~{UpperBound}之间");
                 _value = value;
             }
@@ -27,9 +27,9 @@ namespace Model {
         public T LowerBound { get; set; }
         public T UpperBound { get; set; }
     }
+
     [Serializable]
-    public class NumOutOfRangeException : Exception
-    {
+    public class NumOutOfRangeException : Exception {
         //
         // For guidelines regarding the creation of new exception types, see
         //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/cpconerrorraisinghandlingguidelines.asp
