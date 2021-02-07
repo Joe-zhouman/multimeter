@@ -5,7 +5,7 @@ using System.Numerics;
 
 
 namespace Model {
-    public partial class SolveEquation {
+    public class SolveEquation {
         public static double A;
         public static double B;
         public static double C;
