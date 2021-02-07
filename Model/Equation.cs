@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.Numerics;
 
 
-namespace SolveEquation
-{
-    public partial class Equation
-    {
+namespace Model {
+    public partial class SolveEquation {
         public static double A;
         public static double B;
         public static double C;
