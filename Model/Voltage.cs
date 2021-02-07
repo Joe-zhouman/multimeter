@@ -3,6 +3,8 @@
 // 2021012419:33
 
 using System;
+using System.ComponentModel.Design;
+using SolveEquation;
 
 namespace Model {
     public class Voltage : Probe {
@@ -11,8 +13,13 @@ namespace Model {
             Temp = 0.0;
         }
         public override void SetTemp(double voltage) {
-            Temp = Math.Round(Paras[0] +Paras[1] * voltage, 4);
-
+            string[] root;
+            Equation.GetRoot(Paras, out root);
+            for (int i = 0; i < 3; i++) {
+                if (double.Parse(root[i])>0 && !root[i].Contains("i")) 
+                    Temp = Math.Round(double.Parse(root[i]), 4);
+            }
+            //Temp = Math.Round(Paras[0] +Paras[1] * voltage, 4);
         }
     }
 }
