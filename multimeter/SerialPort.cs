@@ -194,8 +194,8 @@ namespace multimeter {
                             DeviceOpt.SetTemp(ref _device, _testResult);
                         }
                         catch (NoRootException) {
-                            MessageBox.Show(@"无法获取正确的温度，请检查热电偶或热电偶标定参数", @"警告", MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                            MessageBox.Show(@"无法获取正确的温度，请检查热电偶或热电偶标定参数,确认无误后再开始测试", @"错误", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                             btn_stop();
                             return;
                         }
