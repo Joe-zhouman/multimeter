@@ -14,6 +14,7 @@ namespace Model {
         }
         public override void SetTemp(double voltage) {
             string[] root;
+            Paras[0] = Paras[0] - voltage;
             Equation.GetRoot(Paras, out root);
             for (int i = 0; i < 3; i++) {
                 if (double.Parse(root[i])>0 && !root[i].Contains("i")) 
