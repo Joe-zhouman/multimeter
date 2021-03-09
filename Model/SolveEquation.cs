@@ -22,28 +22,33 @@ namespace Model {
             var D = Q3 + R * R;
             var shift = -a2 / 3d;
 
-            double x1;
-            var x2 = double.NaN;
-            var x3 = double.NaN;
+            double[] x = new double[3];
+            x[1] = double.NaN;
+            x[2] = double.NaN;
 
             if (D >= 0) {
                 // when D >= 0, use eqn (54)-(56) where S and T are real
                 var sqrtD = Math.Pow(D, 0.5);
                 var S = GetCubeRoot(R + sqrtD);
                 var T = GetCubeRoot(R - sqrtD);
-                x1 = shift + (S + T);
-                if (D == 0) x2 = shift - S;
+                x[0] = shift + (S + T);
+                if (D == 0) x[1] = shift - S;
             }
             else {
                 // 3 real roots, use eqn (70)-(73) to calculate the real roots
                 var theta = Math.Acos(R / Math.Sqrt(-Q3));
-                x1 = 2d * Math.Sqrt(-Q) * Math.Cos(theta / 3.0) + shift;
-                x2 = 2d * Math.Sqrt(-Q) * Math.Cos((theta + 2.0 * Math.PI) / 3d) + shift;
-                x3 = 2d * Math.Sqrt(-Q) * Math.Cos((theta - 2.0 * Math.PI) / 3d) + shift;
+                x[0] = 2d * Math.Sqrt(-Q) * Math.Cos(theta / 3.0) + shift;
+                x[1] = 2d * Math.Sqrt(-Q) * Math.Cos((theta + 2.0 * Math.PI) / 3d) + shift;
+                x[2] = 2d * Math.Sqrt(-Q) * Math.Cos((theta - 2.0 * Math.PI) / 3d) + shift;
             }
-
-            var rootMax = Math.Max(Math.Max(x1, x2), x3);
-            if (rootMax > 0) root = rootMax; //> 0 ? rootMax : double.NaN;
+            foreach (var item in x)
+            {
+                if (item > 0 && item < 500)
+                {
+                    root = item;
+                    return;
+                }
+            }
             throw new NoRootException("方程无符合要求的实根！");
         }
 

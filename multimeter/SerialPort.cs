@@ -181,8 +181,10 @@ namespace multimeter {
                         }
                         catch (Exception ex) {
                             Log.Error(_recvStr + "\n", ex);
+                            _recvStr = "";
                             return;
                         }
+                        
 
                         if (dataList.Length != _multiMeter.Channels.Length) return;
                         _count++;
@@ -206,16 +208,14 @@ namespace multimeter {
                             tempWrite.WriteLine(temp);
                             tempWrite.Close();
                             var write = new StreamWriter(_latestOriginFile, true);
-                            write.WriteLine(temp);
+                            write.WriteLine(_recvStr);
                             write.Close();
                         }
                         catch (Exception ex) {
                             Log.Error(ex);
                         }
-                        finally {
-                            _recvStr = "";
-                        }
 
+                        _recvStr = "";
                         _temp.Add(temp);
 
                         if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
