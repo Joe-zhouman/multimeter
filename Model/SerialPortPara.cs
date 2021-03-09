@@ -35,10 +35,11 @@ namespace Model {
             SerialParity = "None";
             Card1Enable = 0;
             Card2Enable = 1;
+            MaxChannel = 40;
 
             CardList1 = new List<Card>();
 
-            for (var i = 0; i < 28; i++) {
+            for (var i = 0; i < MaxChannel; i++) {
                 var c = new Card {Chn = (i + 101).ToString(), Func = 0};
                 CardList1.Add(c);
             }
@@ -46,7 +47,7 @@ namespace Model {
 
             CardList2 = new List<Card>();
 
-            for (var i = 0; i < 28; i++) {
+            for (var i = 0; i < MaxChannel; i++) {
                 var c = new Card {Chn = (i + 201).ToString(), Func = 0};
                 CardList2.Add(c);
             }
@@ -99,5 +100,6 @@ namespace Model {
         ///     卡槽2是否启用
         /// </summary>
         public int Card2Enable { get; set; }
+        public int MaxChannel { get; set; }
     }
 }
