@@ -68,7 +68,7 @@ namespace DataAccess {
                         }
                             break;
                         default:
-                            throw new NumOutOfRangeException("未知的探头类型");
+                            throw new ValOutOfRangeException("未知的探头类型");
                     }
 
                     ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);

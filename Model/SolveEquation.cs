@@ -10,8 +10,8 @@ namespace Model {
         /// <param name="b">二次系数</param>
         /// <param name="c">一次系数</param>
         /// <param name="d">常系数</param>
-        /// <param name="root">结果为null则没有实根</param>
-        public static void GetRoot(double a, double b, double c, double d, out double root) {
+        /// <param name="x">结果为null则没有实根</param>
+        public static void GetRoot(double a, double b, double c, double d, out double[] x) {
             double Q, R;
             var a0 = d / a;
             var a1 = c / a;
@@ -22,7 +22,7 @@ namespace Model {
             var D = Q3 + R * R;
             var shift = -a2 / 3d;
 
-            double[] x = new double[3];
+            x = new double[3];
             x[1] = double.NaN;
             x[2] = double.NaN;
 
@@ -41,15 +41,7 @@ namespace Model {
                 x[1] = 2d * Math.Sqrt(-Q) * Math.Cos((theta + 2.0 * Math.PI) / 3d) + shift;
                 x[2] = 2d * Math.Sqrt(-Q) * Math.Cos((theta - 2.0 * Math.PI) / 3d) + shift;
             }
-            foreach (var item in x)
-            {
-                if (item > 0 && item < 500)
-                {
-                    root = item;
-                    return;
-                }
-            }
-            throw new NoRootException("方程无符合要求的实根！");
+            
         }
 
         private static void QR(double a2, double a1, double a0, out double Q, out double R) {
@@ -62,21 +54,6 @@ namespace Model {
         }
     }
 
-    [Serializable]
-    public class NoRootException : Exception {
-        //
-        // For guidelines regarding the creation of new exception types, see
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/cpconerrorraisinghandlingguidelines.asp
-        // and
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncscol/html/csharp07192001.asp
-        //
-
-        public NoRootException() { }
-        public NoRootException(string message) : base(message) { }
-        public NoRootException(string message, Exception inner) : base(message, inner) { }
-
-        protected NoRootException(
-            SerializationInfo info,
-            StreamingContext context) : base(info, context) { }
+    
     }
 }
