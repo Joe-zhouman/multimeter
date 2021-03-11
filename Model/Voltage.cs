@@ -37,12 +37,12 @@ namespace Model {
         }
     }
 
-    public struct CubeRootPara{
-        public double Q3 { get; private set; }
-        public double R0 { get; private set; }
-        public double SqrtQ { get; private set; }
-        public double SqrtQ3 { get; private set; }
-        public double Shift { get; private set; }
+    public readonly struct CubeRootPara{
+        public double Q3 { get; }
+        public double R0 { get; }
+        public double SqrtQ { get; }
+        public double SqrtQ3 { get; }
+        public double Shift { get; }
 
         public CubeRootPara(double p3, double p2, double p1) {
             double a1 = p1 / p3;
