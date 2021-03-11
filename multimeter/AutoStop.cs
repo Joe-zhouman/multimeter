@@ -2,7 +2,7 @@
 
 namespace multimeter {
     public partial class SetupTest {
-        private int _countDownNum;
+        //private int _countDownNum;
 
         private void ConvergentHolding_Timer_Tick(object sender, EventArgs e) {
             /* _countDownNum--;

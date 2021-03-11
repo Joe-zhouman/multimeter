@@ -81,6 +81,7 @@
             this.ChannelTextBox1_3 = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
             this.TextResultGroupbox1 = new System.Windows.Forms.GroupBox();
+            this.Test1_remark = new System.Windows.Forms.RichTextBox();
             this.label70 = new System.Windows.Forms.Label();
             this.Tlable1_12 = new System.Windows.Forms.Label();
             this.Tlable1_4 = new System.Windows.Forms.Label();
@@ -164,6 +165,7 @@
             this.ChannelTextBox2_4 = new System.Windows.Forms.TextBox();
             this.label118 = new System.Windows.Forms.Label();
             this.TextResultGroupbox2 = new System.Windows.Forms.GroupBox();
+            this.Test2_remark = new System.Windows.Forms.RichTextBox();
             this.label161 = new System.Windows.Forms.Label();
             this.Tlable2_16 = new System.Windows.Forms.Label();
             this.label159 = new System.Windows.Forms.Label();
@@ -285,6 +287,7 @@
             this.ChannelTextBox3_4 = new System.Windows.Forms.TextBox();
             this.label164 = new System.Windows.Forms.Label();
             this.TextResultGroupbox3 = new System.Windows.Forms.GroupBox();
+            this.Test3_remark = new System.Windows.Forms.RichTextBox();
             this.Tlable3_4 = new System.Windows.Forms.Label();
             this.label166 = new System.Windows.Forms.Label();
             this.label124 = new System.Windows.Forms.Label();
@@ -369,6 +372,7 @@
             this.ChannelTextBox4_4 = new System.Windows.Forms.TextBox();
             this.label167 = new System.Windows.Forms.Label();
             this.TextResultGroupbox4 = new System.Windows.Forms.GroupBox();
+            this.Test4_remark = new System.Windows.Forms.RichTextBox();
             this.label173 = new System.Windows.Forms.Label();
             this.Tlable4_16 = new System.Windows.Forms.Label();
             this.label171 = new System.Windows.Forms.Label();
@@ -570,17 +574,17 @@
             this.TestTime_Timer = new System.Windows.Forms.Timer(this.components);
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.IsAutoStop = new System.Windows.Forms.CheckBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.helpButton = new System.Windows.Forms.Button();
+            this.HelpLabel = new System.Windows.Forms.Label();
+            this.HelpButton = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.ExportResult = new System.Windows.Forms.Button();
+            this.TestTime = new System.Windows.Forms.Label();
             this.TestChooseFormShow = new System.Windows.Forms.Button();
             this.HistoryTestResult = new System.Windows.Forms.Button();
             this.ModifyParameterLabel = new System.Windows.Forms.Label();
             this.AdvancedLabel = new System.Windows.Forms.Label();
-            this.TestTime = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.ModifyParameter = new System.Windows.Forms.Button();
             this.lable80 = new System.Windows.Forms.Label();
@@ -597,14 +601,11 @@
             this.SerialPort = new System.Windows.Forms.Button();
             this.Monitor = new System.Windows.Forms.Button();
             this.CurrentTestResult = new System.Windows.Forms.Button();
+            this.StautsTextBox = new System.Windows.Forms.RichTextBox();
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.ParSetting = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ConvergentHolding_Timer = new System.Windows.Forms.Timer(this.components);
-            this.Test1_remark = new System.Windows.Forms.RichTextBox();
-            this.Test4_remark = new System.Windows.Forms.RichTextBox();
-            this.Test2_remark = new System.Windows.Forms.RichTextBox();
-            this.Test3_remark = new System.Windows.Forms.RichTextBox();
             this.TextGroupbox1.SuspendLayout();
             this.TextResultGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
@@ -1022,6 +1023,18 @@
             this.TextResultGroupbox1.Size = new System.Drawing.Size(484, 855);
             this.TextResultGroupbox1.TabIndex = 117;
             this.TextResultGroupbox1.TabStop = false;
+            // 
+            // Test1_remark
+            // 
+            this.Test1_remark.BackColor = System.Drawing.SystemColors.Control;
+            this.Test1_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Test1_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test1_remark.ForeColor = System.Drawing.Color.Red;
+            this.Test1_remark.Location = new System.Drawing.Point(2, 627);
+            this.Test1_remark.Name = "Test1_remark";
+            this.Test1_remark.Size = new System.Drawing.Size(476, 227);
+            this.Test1_remark.TabIndex = 144;
+            this.Test1_remark.Text = "";
             // 
             // label70
             // 
@@ -1981,6 +1994,18 @@
             this.TextResultGroupbox2.Size = new System.Drawing.Size(488, 855);
             this.TextResultGroupbox2.TabIndex = 136;
             this.TextResultGroupbox2.TabStop = false;
+            // 
+            // Test2_remark
+            // 
+            this.Test2_remark.BackColor = System.Drawing.SystemColors.Control;
+            this.Test2_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Test2_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test2_remark.ForeColor = System.Drawing.Color.Red;
+            this.Test2_remark.Location = new System.Drawing.Point(6, 701);
+            this.Test2_remark.Name = "Test2_remark";
+            this.Test2_remark.Size = new System.Drawing.Size(482, 153);
+            this.Test2_remark.TabIndex = 146;
+            this.Test2_remark.Text = "";
             // 
             // label161
             // 
@@ -3303,6 +3328,18 @@
             this.TextResultGroupbox3.TabIndex = 131;
             this.TextResultGroupbox3.TabStop = false;
             // 
+            // Test3_remark
+            // 
+            this.Test3_remark.BackColor = System.Drawing.SystemColors.Control;
+            this.Test3_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Test3_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test3_remark.ForeColor = System.Drawing.Color.Red;
+            this.Test3_remark.Location = new System.Drawing.Point(8, 610);
+            this.Test3_remark.Name = "Test3_remark";
+            this.Test3_remark.Size = new System.Drawing.Size(450, 244);
+            this.Test3_remark.TabIndex = 146;
+            this.Test3_remark.Text = "";
+            // 
             // Tlable3_4
             // 
             this.Tlable3_4.AutoSize = true;
@@ -4266,6 +4303,18 @@
             this.TextResultGroupbox4.Size = new System.Drawing.Size(517, 855);
             this.TextResultGroupbox4.TabIndex = 139;
             this.TextResultGroupbox4.TabStop = false;
+            // 
+            // Test4_remark
+            // 
+            this.Test4_remark.BackColor = System.Drawing.SystemColors.Control;
+            this.Test4_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Test4_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test4_remark.ForeColor = System.Drawing.Color.Red;
+            this.Test4_remark.Location = new System.Drawing.Point(12, 699);
+            this.Test4_remark.Name = "Test4_remark";
+            this.Test4_remark.Size = new System.Drawing.Size(505, 152);
+            this.Test4_remark.TabIndex = 145;
+            this.Test4_remark.Text = "";
             // 
             // label173
             // 
@@ -6651,17 +6700,17 @@
             // 
             this.MenuGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MenuGroupBox.BackgroundImage")));
             this.MenuGroupBox.Controls.Add(this.IsAutoStop);
-            this.MenuGroupBox.Controls.Add(this.label47);
-            this.MenuGroupBox.Controls.Add(this.helpButton);
+            this.MenuGroupBox.Controls.Add(this.HelpLabel);
+            this.MenuGroupBox.Controls.Add(this.HelpButton);
             this.MenuGroupBox.Controls.Add(this.label50);
             this.MenuGroupBox.Controls.Add(this.label56);
             this.MenuGroupBox.Controls.Add(this.label54);
             this.MenuGroupBox.Controls.Add(this.ExportResult);
+            this.MenuGroupBox.Controls.Add(this.TestTime);
             this.MenuGroupBox.Controls.Add(this.TestChooseFormShow);
             this.MenuGroupBox.Controls.Add(this.HistoryTestResult);
             this.MenuGroupBox.Controls.Add(this.ModifyParameterLabel);
             this.MenuGroupBox.Controls.Add(this.AdvancedLabel);
-            this.MenuGroupBox.Controls.Add(this.TestTime);
             this.MenuGroupBox.Controls.Add(this.label58);
             this.MenuGroupBox.Controls.Add(this.ModifyParameter);
             this.MenuGroupBox.Controls.Add(this.lable80);
@@ -6687,44 +6736,44 @@
             this.IsAutoStop.AutoSize = true;
             this.IsAutoStop.Checked = true;
             this.IsAutoStop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IsAutoStop.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.IsAutoStop.Font = new System.Drawing.Font("微软雅黑", 8F);
             this.IsAutoStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.IsAutoStop.Location = new System.Drawing.Point(768, 32);
+            this.IsAutoStop.Location = new System.Drawing.Point(780, 11);
             this.IsAutoStop.Name = "IsAutoStop";
-            this.IsAutoStop.Size = new System.Drawing.Size(199, 32);
+            this.IsAutoStop.Size = new System.Drawing.Size(115, 20);
             this.IsAutoStop.TabIndex = 108;
             this.IsAutoStop.Text = "数据稳定自动停止";
             this.IsAutoStop.UseVisualStyleBackColor = true;
             this.IsAutoStop.Visible = false;
             this.IsAutoStop.CheckedChanged += new System.EventHandler(this.IsAutoStop_CheckedChanged);
             // 
-            // label47
+            // HelpLabel
             // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("微软雅黑", 10F);
-            this.label47.Location = new System.Drawing.Point(1188, 44);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(57, 20);
-            this.label47.TabIndex = 121;
-            this.label47.Text = "  帮助   ";
+            this.HelpLabel.AutoSize = true;
+            this.HelpLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.HelpLabel.Location = new System.Drawing.Point(634, 44);
+            this.HelpLabel.Name = "HelpLabel";
+            this.HelpLabel.Size = new System.Drawing.Size(57, 20);
+            this.HelpLabel.TabIndex = 121;
+            this.HelpLabel.Text = "  帮助   ";
             // 
-            // helpButton
+            // HelpButton
             // 
-            this.helpButton.BackColor = System.Drawing.SystemColors.Control;
-            this.helpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("helpButton.BackgroundImage")));
-            this.helpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.helpButton.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.helpButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.helpButton.FlatAppearance.BorderSize = 0;
-            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.helpButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.helpButton.Location = new System.Drawing.Point(1194, 8);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(40, 40);
-            this.helpButton.TabIndex = 120;
-            this.helpButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.helpButton.UseVisualStyleBackColor = false;
-            this.helpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            this.HelpButton.BackColor = System.Drawing.SystemColors.Control;
+            this.HelpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HelpButton.BackgroundImage")));
+            this.HelpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.HelpButton.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.HelpButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.HelpButton.FlatAppearance.BorderSize = 0;
+            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HelpButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.HelpButton.Location = new System.Drawing.Point(640, 10);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(40, 40);
+            this.HelpButton.TabIndex = 120;
+            this.HelpButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.HelpButton.UseVisualStyleBackColor = false;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
             // label50
             // 
@@ -6771,6 +6820,17 @@
             this.ExportResult.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ExportResult.UseVisualStyleBackColor = false;
             this.ExportResult.Click += new System.EventHandler(this.ExportResult_Click);
+            // 
+            // TestTime
+            // 
+            this.TestTime.AutoSize = true;
+            this.TestTime.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TestTime.Location = new System.Drawing.Point(713, 34);
+            this.TestTime.Name = "TestTime";
+            this.TestTime.Size = new System.Drawing.Size(184, 28);
+            this.TestTime.TabIndex = 138;
+            this.TestTime.Text = "测试时长 00:00:00";
             // 
             // TestChooseFormShow
             // 
@@ -6819,22 +6879,11 @@
             this.AdvancedLabel.AutoSize = true;
             this.AdvancedLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.AdvancedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.AdvancedLabel.Location = new System.Drawing.Point(527, 70);
+            this.AdvancedLabel.Location = new System.Drawing.Point(563, 70);
             this.AdvancedLabel.Name = "AdvancedLabel";
             this.AdvancedLabel.Size = new System.Drawing.Size(65, 20);
             this.AdvancedLabel.TabIndex = 111;
             this.AdvancedLabel.Text = "高级设置";
-            // 
-            // TestTime
-            // 
-            this.TestTime.AutoSize = true;
-            this.TestTime.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TestTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.TestTime.Location = new System.Drawing.Point(973, 34);
-            this.TestTime.Name = "TestTime";
-            this.TestTime.Size = new System.Drawing.Size(184, 28);
-            this.TestTime.TabIndex = 138;
-            this.TestTime.Text = "测试时长 00:00:00";
             // 
             // label58
             // 
@@ -7036,6 +7085,18 @@
             this.CurrentTestResult.UseVisualStyleBackColor = false;
             this.CurrentTestResult.Click += new System.EventHandler(this.CurrentTestResult_Click);
             // 
+            // StautsTextBox
+            // 
+            this.StautsTextBox.BackColor = System.Drawing.Color.White;
+            this.StautsTextBox.Location = new System.Drawing.Point(897, 101);
+            this.StautsTextBox.Name = "StautsTextBox";
+            this.StautsTextBox.Size = new System.Drawing.Size(353, 81);
+            this.StautsTextBox.TabIndex = 139;
+            this.StautsTextBox.Text = "";
+            this.StautsTextBox.Visible = false;
+            this.StautsTextBox.MouseEnter += new System.EventHandler(this.StautsTextBox_MouseEnter);
+            this.StautsTextBox.MouseLeave += new System.EventHandler(this.StautsTextBox_MouseLeave);
+            // 
             // EmptyGroupBox
             // 
             this.EmptyGroupBox.BackColor = System.Drawing.Color.White;
@@ -7068,54 +7129,6 @@
             this.ConvergentHolding_Timer.Interval = 1000;
             this.ConvergentHolding_Timer.Tick += new System.EventHandler(this.ConvergentHolding_Timer_Tick);
             // 
-            // Test1_remark
-            // 
-            this.Test1_remark.BackColor = System.Drawing.SystemColors.Control;
-            this.Test1_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test1_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
-            this.Test1_remark.ForeColor = System.Drawing.Color.Red;
-            this.Test1_remark.Location = new System.Drawing.Point(2, 627);
-            this.Test1_remark.Name = "Test1_remark";
-            this.Test1_remark.Size = new System.Drawing.Size(476, 227);
-            this.Test1_remark.TabIndex = 144;
-            this.Test1_remark.Text = "";
-            // 
-            // Test4_remark
-            // 
-            this.Test4_remark.BackColor = System.Drawing.SystemColors.Control;
-            this.Test4_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test4_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
-            this.Test4_remark.ForeColor = System.Drawing.Color.Red;
-            this.Test4_remark.Location = new System.Drawing.Point(12, 699);
-            this.Test4_remark.Name = "Test4_remark";
-            this.Test4_remark.Size = new System.Drawing.Size(505, 152);
-            this.Test4_remark.TabIndex = 145;
-            this.Test4_remark.Text = "";
-            // 
-            // Test2_remark
-            // 
-            this.Test2_remark.BackColor = System.Drawing.SystemColors.Control;
-            this.Test2_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test2_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
-            this.Test2_remark.ForeColor = System.Drawing.Color.Red;
-            this.Test2_remark.Location = new System.Drawing.Point(6, 701);
-            this.Test2_remark.Name = "Test2_remark";
-            this.Test2_remark.Size = new System.Drawing.Size(482, 153);
-            this.Test2_remark.TabIndex = 146;
-            this.Test2_remark.Text = "";
-            // 
-            // Test3_remark
-            // 
-            this.Test3_remark.BackColor = System.Drawing.SystemColors.Control;
-            this.Test3_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test3_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
-            this.Test3_remark.ForeColor = System.Drawing.Color.Red;
-            this.Test3_remark.Location = new System.Drawing.Point(8, 610);
-            this.Test3_remark.Name = "Test3_remark";
-            this.Test3_remark.Size = new System.Drawing.Size(450, 244);
-            this.Test3_remark.TabIndex = 146;
-            this.Test3_remark.Text = "";
-            // 
             // SetupTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7124,6 +7137,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 945);
             this.Controls.Add(this.TestChartGroupBox);
             this.Controls.Add(this.TestChoiseGroupBox);
+            this.Controls.Add(this.StautsTextBox);
             this.Controls.Add(this.MenuGroupBox);
             this.Controls.Add(this.EmptyGroupBox);
             this.Controls.Add(this.skinGroupBox1);
@@ -7655,8 +7669,8 @@
         private System.Windows.Forms.GroupBox TextResultGroupbox4;
         private System.Windows.Forms.GroupBox TextResultGroupbox2;
         private System.Windows.Forms.GroupBox TextResultGroupbox1;
-        public System.Windows.Forms.Label label47;
-        public System.Windows.Forms.Button helpButton;
+        public System.Windows.Forms.Label HelpLabel;
+        public System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.GroupBox TestChartGroupBox;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label chartValue;
@@ -7744,5 +7758,6 @@
         private System.Windows.Forms.RichTextBox Test2_remark;
         private System.Windows.Forms.RichTextBox Test4_remark;
         private System.Windows.Forms.RichTextBox Test3_remark;
+        public System.Windows.Forms.RichTextBox StautsTextBox;
     }
 }

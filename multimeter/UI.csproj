@@ -76,6 +76,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ParaSetting.cs">
       <SubType>Form</SubType>
     </Compile>

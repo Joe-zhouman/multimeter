@@ -171,6 +171,7 @@ namespace multimeter {
         //    CurrentTestResult_Click(this, e);
         //}
         private void SetupTest_Load(object sender, EventArgs e) {
+            
             IniReadAndWrite.CreateDefaultIni();
 
             #region //不同设置窗口默认显示
@@ -289,6 +290,12 @@ namespace multimeter {
         private int _count;
         private bool _enableScan;
 
+
+
+
+
         #endregion
+
+
     }
 }

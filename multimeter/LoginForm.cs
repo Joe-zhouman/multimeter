@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using DataAccess;
 using Model;
@@ -24,7 +25,12 @@ namespace multimeter {
                     setupTest.AdvancedSetting.Visible = false;
                     setupTest.AdvancedSettingLabel.Visible = false;
                     setupTest.AdvancedLabel.Visible = false;
+                    setupTest.HelpButton.Location= new Point(500, 10);
+                    setupTest.HelpLabel.Location = new Point(494,44);
                     Close();
+
+
+
                     break;
                 case 1 when CheckUserInfo.CheckAdvanceUser(_user):
                     setupTest.User = _user.Type;
