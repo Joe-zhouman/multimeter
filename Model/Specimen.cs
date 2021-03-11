@@ -24,6 +24,13 @@ namespace Model {
             }
         }
 
+        public void SetTempRange(double lb, double ub) {
+            foreach (Probe probe in Probes) {
+                if (probe == null) continue;
+                probe.TempLb = lb;
+                probe.TempUb = ub;
+            }
+        }
         public string Name { get; }
         public string Kappa { get; set; }
         public string Area { get; set; }
@@ -34,5 +41,6 @@ namespace Model {
 
         public List<double> Temp =>
             (from thermistor in Probes where thermistor != null select thermistor.Temp).ToList();
+
     }
 }

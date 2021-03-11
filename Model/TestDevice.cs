@@ -51,7 +51,7 @@ namespace Model {
 
         public List<string> Channels {
             get {
-                var channels = new List<string>();
+                List<string> channels = new List<string>();
                 AddRange(ref channels, HeatMeter1);
                 AddRange(ref channels, Sample1);
                 AddRange(ref channels, Sample2);
@@ -62,7 +62,7 @@ namespace Model {
 
         public List<double> Temp {
             get {
-                var t = new List<double>();
+                List<double> t = new List<double>();
                 if (HeatMeter1 != null)
                     t.AddRange(HeatMeter1.Temp);
                 if (Sample1 != null)
@@ -81,6 +81,13 @@ namespace Model {
         private void AddRange(ref List<string> channels, Specimen specimen) {
             if (specimen == null) return;
             channels.AddRange(specimen.Channel.Where(channel => channel != "0"));
+        }
+
+        public void SetTempRange(double lb, double ub) {
+            HeatMeter1?.SetTempRange(lb, ub);
+            HeatMeter2?.SetTempRange(lb, ub);
+            Sample1?.SetTempRange(lb, ub);
+            Sample2?.SetTempRange(lb, ub);
         }
     }
 }
