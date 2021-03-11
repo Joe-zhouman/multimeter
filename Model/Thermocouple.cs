@@ -14,5 +14,9 @@ namespace Model {
         public override void SetTemp(double voltage) {
             Temp = Math.Round(Paras[0] + Paras[1] * voltage + Paras[2] * voltage * voltage, 4);
         }
+
+        public override void Init() {
+            return;
+        }
     }
 }

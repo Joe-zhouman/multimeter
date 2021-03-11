@@ -43,6 +43,7 @@ namespace DataAccess {
         public static void ReadTempPara(ref Probe probe, string channel, string filePath) {
             for (var i = 0; i < probe.Paras.Length; i++)
                 probe.Paras[i] = double.Parse(IniHelper.Read(channel, $"A{i}", "10.0", filePath));
+            probe.Init();
         }
 
         public static void WriteTempPara(Probe probe, string channel, string filePath) {
@@ -51,6 +52,7 @@ namespace DataAccess {
         }
 
         public static void ReadTempPara(ref Specimen specimen, string filePath) {
+
             for (var i = 0; i < specimen.TestPoint; i++)
                 if (specimen.Channel[i] != "0") {
                     switch ((ProbeType) Enum.Parse(typeof(ProbeType),

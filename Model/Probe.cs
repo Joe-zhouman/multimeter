@@ -11,14 +11,17 @@ namespace Model {
 
         public double Temp { get=>_temp;
             set {
-                if (value > TempUb || value < TempLb) {
-                    throw new ValOutOfRangeException();
+                if (value > TempUb) {
+                    throw new ValOutOfRangeException(ValOutOfRangeType.GREATER_THAN);
                 }
-
+                if (value < TempLb) {
+                    throw new ValOutOfRangeException(ValOutOfRangeType.LESS_THAN);
+                }
                 _temp = value;
             }
         }
         public double[] Paras { get; set; }
         public abstract void SetTemp(double value);
+        public abstract void Init();
     }
 }

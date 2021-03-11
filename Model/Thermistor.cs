@@ -17,5 +17,9 @@ namespace Model {
                 -273.15 + 1 / (Paras[0] + Paras[1] * tempVar +
                                Paras[2] * Math.Pow(tempVar, 3)), 4);
         }
+
+        public override void Init() {
+            return;
+        }
     }
 }

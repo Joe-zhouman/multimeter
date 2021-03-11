@@ -70,7 +70,7 @@ namespace multimeter {
             serialPort1.DiscardInBuffer(); //丢弃来自串口驱动程序的接收缓冲区的数据
 
             #endregion
-
+            _device.SetTempRange(_appCfg.SysPara.TempLb,_appCfg.SysPara.TempUb);
             _multiMeter = new MultiMeterInfo(_appCfg.SerialPortPara);
             SendMsg();
             _temp = new List<string>();
@@ -195,10 +195,8 @@ namespace multimeter {
                         try {
                             DeviceOpt.SetTemp(ref _device, _testResult);
                         }
-                        catch (NoRootException) {
-                            MessageBox.Show(@"无法获取正确的温度，请检查热电偶或热电偶标定参数,确认无误后再开始测试", @"错误", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                            btn_stop();
+                        catch (ValOutOfRangeException ex) {
+                            Log.Error(ex);
                             return;
                         }
 
@@ -208,7 +206,7 @@ namespace multimeter {
                             tempWrite.WriteLine(temp);
                             tempWrite.Close();
                             var write = new StreamWriter(_latestOriginFile, true);
-                            write.WriteLine(_recvStr);
+                            write.WriteLine(_count.ToString() + ','+_recvStr);
                             write.Close();
                         }
                         catch (Exception ex) {

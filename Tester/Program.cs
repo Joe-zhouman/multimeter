@@ -17,10 +17,8 @@ namespace Tester {
             
             Stopwatch sw2 = new Stopwatch();
             sw2.Start();
-            Model.Equation.GetRoot(1,1,1,1,out double root);
             sw2.Stop();
             TimeSpan ts2 = sw2.Elapsed;
-            Console.WriteLine(root);
             Console.WriteLine(ts2);
         }
 

@@ -26,6 +26,8 @@ namespace DataAccess {
 
             sys.AllowedChannels = IniHelper.Read("SYS", "allowedChannel", "", filePath)
                 .Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).ToList();
+            sys.TempLb = double.Parse(IniHelper.Read("SYS", "tempLb", "0.0", filePath));
+            sys.TempUb = double.Parse(IniHelper.Read("SYS", "tempUb", "120.0", filePath));
         }
 
         public static void WritePara(SysPara sys, string filePath) {
@@ -41,6 +43,8 @@ namespace DataAccess {
             IniHelper.Write("SYS", "convergentLim", sys.ConvergentLim.ToString(CultureInfo.InvariantCulture), filePath);
             IniHelper.Write("SYS", "allowedChannel",
                 sys.AllowedChannels.Aggregate("", (current, s) => current + s + ","), filePath);
+            IniHelper.Write("SYS", "tempLb", sys.TempLb.ToString(), filePath);
+            IniHelper.Write("SYS", "tempLb", sys.TempUb.ToString(), filePath);
         }
 
         public static void ReadPara(ref SerialPortPara serialPort, string filePath) {
