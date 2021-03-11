@@ -601,7 +601,7 @@
             this.SerialPort = new System.Windows.Forms.Button();
             this.Monitor = new System.Windows.Forms.Button();
             this.CurrentTestResult = new System.Windows.Forms.Button();
-            this.StautsTextBox = new System.Windows.Forms.RichTextBox();
+            this.StatusTextBox = new System.Windows.Forms.RichTextBox();
             this.EmptyGroupBox = new System.Windows.Forms.GroupBox();
             this.ParSetting = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -7085,17 +7085,17 @@
             this.CurrentTestResult.UseVisualStyleBackColor = false;
             this.CurrentTestResult.Click += new System.EventHandler(this.CurrentTestResult_Click);
             // 
-            // StautsTextBox
+            // StatusTextBox
             // 
-            this.StautsTextBox.BackColor = System.Drawing.Color.White;
-            this.StautsTextBox.Location = new System.Drawing.Point(897, 101);
-            this.StautsTextBox.Name = "StautsTextBox";
-            this.StautsTextBox.Size = new System.Drawing.Size(353, 81);
-            this.StautsTextBox.TabIndex = 139;
-            this.StautsTextBox.Text = "";
-            this.StautsTextBox.Visible = false;
-            this.StautsTextBox.MouseEnter += new System.EventHandler(this.StautsTextBox_MouseEnter);
-            this.StautsTextBox.MouseLeave += new System.EventHandler(this.StautsTextBox_MouseLeave);
+            this.StatusTextBox.BackColor = System.Drawing.Color.White;
+            this.StatusTextBox.Location = new System.Drawing.Point(897, 101);
+            this.StatusTextBox.Name = "StatusTextBox";
+            this.StatusTextBox.Size = new System.Drawing.Size(353, 81);
+            this.StatusTextBox.TabIndex = 139;
+            this.StatusTextBox.Text = "";
+            this.StatusTextBox.Visible = false;
+            this.StatusTextBox.MouseEnter += new System.EventHandler(this.StatusTextBox_MouseEnter);
+            this.StatusTextBox.MouseLeave += new System.EventHandler(this.StatusTextBox_MouseLeave);
             // 
             // EmptyGroupBox
             // 
@@ -7137,7 +7137,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 945);
             this.Controls.Add(this.TestChartGroupBox);
             this.Controls.Add(this.TestChoiseGroupBox);
-            this.Controls.Add(this.StautsTextBox);
+            this.Controls.Add(this.StatusTextBox);
             this.Controls.Add(this.MenuGroupBox);
             this.Controls.Add(this.EmptyGroupBox);
             this.Controls.Add(this.skinGroupBox1);
@@ -7758,6 +7758,6 @@
         private System.Windows.Forms.RichTextBox Test2_remark;
         private System.Windows.Forms.RichTextBox Test4_remark;
         private System.Windows.Forms.RichTextBox Test3_remark;
-        public System.Windows.Forms.RichTextBox StautsTextBox;
+        public System.Windows.Forms.RichTextBox StatusTextBox;
     }
 }

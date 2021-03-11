@@ -223,7 +223,7 @@ namespace multimeter {
             ExportResult_Enable(false);
             SerialPort_Enable(true);
             AdvancedSetting_Enable(true);
-            StautsTextBox_Init();
+            StatusTextBox_Init();
             MenuGroupBox.Visible = true;
             TestChoiseGroupBox.Visible = false;
             SoftwareNameLabel.Visible = false;
