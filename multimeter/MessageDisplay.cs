@@ -17,6 +17,7 @@ namespace multimeter {
             StautsTextBox.BringToFront();
             StautsTextBox.Location = new Point(903, 2);
             StautsTextBox.Size = new Size(353, 82);
+            StautsTextBox.ScrollToCaret();
         }
     }
 }
