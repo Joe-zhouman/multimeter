@@ -11,6 +11,10 @@ namespace Model {
 
         public double Temp { get=>_temp;
             set {
+                if(value == double.NaN)
+                {
+                    throw new ValOutOfRangeException();
+                }
                 if (value > TempUb) {
                     throw new ValOutOfRangeException(ValOutOfRangeType.GREATER_THAN);
                 }
