@@ -7,7 +7,7 @@ using Model;
 
 namespace multimeter {
     public partial class SetupTest {
-        private void TestChoosiest1_Click(object sender, EventArgs e) {
+        public void TestChoosiest1_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.KAPPA;
             ShowKappaMenu();
@@ -53,7 +53,7 @@ namespace multimeter {
             TestChartGroupBox.Size = new Size(0, 0);
         }
 
-        private void TestChoosiest2_Click(object sender, EventArgs e) {
+        public void TestChoosiest2_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITC;
             ShowItcMenu();
@@ -99,7 +99,7 @@ namespace multimeter {
             TestChartGroupBox.Size = new Size(0, 0);
         }
 
-        private void TestChoosiest3_Click(object sender, EventArgs e) {
+        public void TestChoosiest3_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITM;
             ShowItmMenu();
@@ -135,7 +135,7 @@ namespace multimeter {
             TestChartGroupBox.Size = new Size(0, 0);
         }
 
-        private void TestChoose4_Click(object sender, EventArgs e) {
+        public void TestChoose4_Click(object sender, EventArgs e) {
             ButtonEnable();
             _method = TestMethod.ITMS;
 

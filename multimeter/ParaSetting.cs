@@ -184,6 +184,24 @@ namespace multimeter {
             MessageBox.Show($@"修改成功!
 配置文件备份在{bakFilePath}.
 如需找回配置,将其重命名为'sys.ini',并替换{IniReadAndWrite.IniFilePath}.", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            var setupTest = (SetupTest)Owner;
+            switch (setupTest._method) {            
+                case TestMethod.KAPPA:
+                    setupTest.TestChoosiest1_Click(sender, e);
+                    break;
+                case TestMethod.ITC:
+                    setupTest.TestChoosiest2_Click(sender, e);
+                    break;
+                case TestMethod.ITM:
+                    setupTest.TestChoosiest3_Click(sender, e);
+                    break;
+                case TestMethod.ITMS:
+                    setupTest.TestChoose4_Click(sender, e);
+                    break;
+                default:
+                    break;
+            }
             Close();
         }
 

@@ -26,7 +26,6 @@ namespace multimeter {
         private string _latestDataFile;
         private string _latestOriginFile;
         private string _latestResultFile;
-        private TestMethod _method;
         private MultiMeterInfo _multiMeter;
         private string _recvStr;
         private bool _saveParameter;
@@ -34,6 +33,7 @@ namespace multimeter {
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private bool _testResultChartUpdate;
         public UserType User;
+        public TestMethod _method;
 
 
         public SetupTest() {
@@ -155,7 +155,7 @@ namespace multimeter {
 
         public void AdvancedSetting_Click(object sender, EventArgs e) {
             var parSetting = new ParaSetting(_appCfg);
-            parSetting.Show();
+            parSetting.Show(this);
         }
 
         private void HelpButton_Click(object sender, EventArgs e) {
