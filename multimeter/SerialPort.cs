@@ -141,135 +141,104 @@ namespace multimeter {
             #region
 
             if (serialPort1.BytesToRead != 0) {
-                var str = serialPort1.ReadExisting();
+                var recStr = serialPort1.ReadTo(((char)0x11).ToString());
                 //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
-                //richTextBox1.Text = richTextBox1.Text + str+"\n";
 
-                //byte[] array = System.Text.Encoding.ASCII.GetBytes(str);  //数组array为对应的ASCII数组     
-                //string ASCIIstr2 = null;
-                //for (int i = 0; i < array.Length; i++)
-                //{
-                //    int asciicode = (int)(array[i]);
-                //    ASCIIstr2 += Convert.ToString(asciicode);//字符串ASCIIstr2 为对应的ASCII字符串
-                //}
-                //richTextBox2.Text = richTextBox2.Text + ASCIIstr2;
+                recStr = recStr.Replace((char) 19, (char) 0);
+                recStr = recStr.Replace((char) 13, (char) 0);
+                recStr = recStr.Replace("\0", "");
 
+                double[] dataList;
+                try {
+                    dataList = recStr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(double.Parse).ToArray();
+                }
+                catch (Exception ex) {
+                    Log.Error(recStr + "\n", ex);
+                    recStr = "";
+                    return;
+                }
+                
+                if (dataList.Length != _multiMeter.Channels.Length) return;
+                _count++;
+                var temp = _count.ToString() + ',';
+                _testResult.Clear();
+                for (var i = 0; i < _multiMeter.Channels.Length; i++)
+                    _testResult.Add(_multiMeter.Channels[i], dataList[i]);
+                try {
+                    DeviceOpt.SetTemp(ref _device, _testResult);
+                }
+                catch (ValOutOfRangeException ex) {
+                    Log.Error(ex);
+                    return;
+                }
 
-                if (str.IndexOf((char) 19) != -1)
-                    str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-                if (str.IndexOf((char) 13) != -1) {
-                    str = str.Substring(0, str.IndexOf((char) 13));
-                    _recvStr += str;
-                    if (_recvStr.Length > 0) {
-                        //int firstIdx = _recvStr.IndexOf((char)13);
-                        //int lastIdx = _recvStr.LastIndexOf((char)13);
-                        //if (-1 != firstIdx && firstIdx != lastIdx)
-                        //{
-                        //    _recvStr = _recvStr.Remove(firstIdx, lastIdx - firstIdx + 1);
-                        //}
+                DeviceOpt.GetTempList(ref temp, _device);
+                try {
+                    var tempWrite = new StreamWriter(_latestDataFile, true);
+                    tempWrite.WriteLine(temp);
+                    tempWrite.Close();
+                    var write = new StreamWriter(_latestOriginFile, true);
+                    write.WriteLine(_count.ToString() + ','+recStr);
+                    write.Close();
+                }
+                catch (Exception ex) {
+                    Log.Error(ex);
+                }
 
-                        _recvStr = _recvStr.Replace((char) 19, (char) 0);
-                        _recvStr = _recvStr.Replace((char) 13, (char) 0);
-                        _recvStr = _recvStr.Replace((char) 0x11, (char) 0);
-                        _recvStr = _recvStr.Replace("\0", "");
+                recStr = "";
+                _temp.Add(temp);
 
-
-                        double[] dataList;
-                        try {
-                            dataList = _recvStr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
-                                .Select(double.Parse).ToArray();
-                        }
-                        catch (Exception ex) {
-                            Log.Error(_recvStr + "\n", ex);
-                            _recvStr = "";
-                            return;
-                        }
-                        
-
-                        if (dataList.Length != _multiMeter.Channels.Length) return;
-                        _count++;
-                        var temp = _count.ToString() + ',';
-                        _testResult.Clear();
-                        for (var i = 0; i < _multiMeter.Channels.Length; i++)
-                            _testResult.Add(_multiMeter.Channels[i], dataList[i]);
-                        try {
-                            DeviceOpt.SetTemp(ref _device, _testResult);
-                        }
-                        catch (ValOutOfRangeException ex) {
-                            Log.Error(ex);
-                            return;
-                        }
-
-                        DeviceOpt.GetTempList(ref temp, _device);
-                        try {
-                            var tempWrite = new StreamWriter(_latestDataFile, true);
-                            tempWrite.WriteLine(temp);
-                            tempWrite.Close();
-                            var write = new StreamWriter(_latestOriginFile, true);
-                            write.WriteLine(_count.ToString() + ','+_recvStr);
-                            write.Close();
-                        }
-                        catch (Exception ex) {
-                            Log.Error(ex);
-                        }
-
-                        _recvStr = "";
-                        _temp.Add(temp);
-
-                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
-                            if (TempOk()) {
-                                if (!_convergent) IsConvergent();
-                                SaveToData(_method + "-" + _count + ".rst");
-                                _temp.Clear();
-                            }
-
-                        //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        //Dictionary<string, double> testResult = new Dictionary<string, double>();
-
-                        _testResultChartUpdate = true;
+                if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
+                    if (TempOk()) {
+                        if (!_convergent) IsConvergent();
+                        SaveToData(_method + "-" + _count + ".rst");
+                        _temp.Clear();
                     }
 
-                    //if(str.IndexOf((char)13)!=)
-                    //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
-                }
-                else {
-                    _recvStr += str;
-                }
+                //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                //Dictionary<string, double> testResult = new Dictionary<string, double>();
 
-                //int flag = 0;
-                //foreach (char i in str)
-                //{
-
-                //    if (i == 0x2b || i == 0x2d)
-                //    {
-                //        break;
-                //    }
-                //    flag++;
-                //}
-
-                //string recvcontent = str.Substring(flag, str.Length - flag);
-                //if (recvcontent.Length > 0)
-                //{
-                //    count++;
-                //    recvcontent=recvcontent.Replace((char)13, (char)0);          
-                //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
-                //    recvcontent = recvcontent.Replace("\0", "");
-
-                //    string tmp = count.ToString() + "," + recvcontent;
-                //    ListViewItem item = new ListViewItem(tmp.Split(','));
-                //    listView_main.Items.Add(item);
-                //    textBox1.Text = recvcontent;
-
-                //    if(count%AppCfg.devicepara.Save_interval==0)
-                //    {         
-                //        SaveToData("sss", listView_main);
-                //        listView_main.Items.Clear();
-                //    }         
-                //}
+                _testResultChartUpdate = true;
             }
 
+            //if(str.IndexOf((char)13)!=)
+            //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
+
+
+
+            //int flag = 0;
+            //foreach (char i in str)
+            //{
+
+            //    if (i == 0x2b || i == 0x2d)
+            //    {
+            //        break;
+            //    }
+            //    flag++;
+            //}
+
+            //string recvcontent = str.Substring(flag, str.Length - flag);
+            //if (recvcontent.Length > 0)
+            //{
+            //    count++;
+            //    recvcontent=recvcontent.Replace((char)13, (char)0);          
+            //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
+            //    recvcontent = recvcontent.Replace("\0", "");
+
+            //    string tmp = count.ToString() + "," + recvcontent;
+            //    ListViewItem item = new ListViewItem(tmp.Split(','));
+            //    listView_main.Items.Add(item);
+            //    textBox1.Text = recvcontent;
+
+            //    if(count%AppCfg.devicepara.Save_interval==0)
+            //    {         
+            //        SaveToData("sss", listView_main);
+            //        listView_main.Items.Clear();
+            //    }         
+            //}
+            
             #endregion
         }
 
