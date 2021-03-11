@@ -83,8 +83,8 @@ namespace multimeter {
                 write.Close();
             }
             catch (Exception ex) {
+                StatusTextBox.Text += $"![WARNING][{DateTime.Now:mm-dd-hh:mm:ss}]数据保存失败!\n";
                 Log.Error(ex);
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -153,13 +153,19 @@ namespace multimeter {
                     dataList = recStr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToArray();
                 }
-                catch (Exception ex) {
-                    Log.Error(recStr + "\n", ex);
-                    recStr = "";
+                catch (FormatException) {
+                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:mm-dd-hh:mm:ss}]数据转换失败，请检查串口!\n";
                     return;
                 }
-                
-                if (dataList.Length != _multiMeter.Channels.Length) return;
+                catch (Exception ex) {
+                    Log.Error(ex);
+                    return;
+                }
+
+                if (dataList.Length != _multiMeter.Channels.Length) {
+                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:mm-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
+                    return;
+                }
                 _count++;
                 var temp = _count.ToString() + ',';
                 _testResult.Clear();
@@ -168,11 +174,20 @@ namespace multimeter {
                 try {
                     DeviceOpt.SetTemp(ref _device, _testResult);
                 }
-                catch (ValOutOfRangeException ex) {
+                catch (ValOutOfRangeException ex)when(ex.Type == ValOutOfRangeType.LESS_THAN) {
+                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:mm-dd-hh:mm:ss}]温度小于测试范围，请检查串口或标定参数!\n";
+                    return;
+                }
+                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN)
+                {
+                    StatusTextBox.Text += $"![WARNING][{DateTime.Now:mm-dd-hh:mm:ss}]温度大于测试范围，标定参数或加热功率!\n";
+                    return;
+                }
+                catch (Exception ex)
+                {
                     Log.Error(ex);
                     return;
                 }
-
                 DeviceOpt.GetTempList(ref temp, _device);
                 try {
                     var tempWrite = new StreamWriter(_latestDataFile, true);
@@ -183,10 +198,9 @@ namespace multimeter {
                     write.Close();
                 }
                 catch (Exception ex) {
+                    StatusTextBox.Text += $"![WARNING][{DateTime.Now:mm-dd-hh:mm:ss}]数据保存失败!\n";
                     Log.Error(ex);
                 }
-
-                recStr = "";
                 _temp.Add(temp);
 
                 if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
