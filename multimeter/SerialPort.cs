@@ -25,6 +25,7 @@ using Model;
 
 namespace multimeter {
     public partial class SetupTest {
+        string recStr;
         private void btn_start() {
             #region //开始串口采集
 
@@ -36,7 +37,7 @@ namespace multimeter {
             _latestOriginFile = "";
             string fileName = _method + "-TempAutoSave.csv";
             _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
-                _method + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.ffff"));
+                _method + "-" + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss.ffff"));
             try {
                 DirectoryInfo di = Directory.CreateDirectory(_autoSaveFilePath);
             }
@@ -84,7 +85,7 @@ namespace multimeter {
                 write.Close();
             }
             catch (Exception ex) {
-                StatusTextBox.Text += $"![WARNING][{DateTime.Now:mm-dd-hh:mm:ss}]数据保存失败!\n";
+                StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
                 Log.Error(ex);
             }
         }
@@ -139,125 +140,164 @@ namespace multimeter {
             Application.Exit();
         }
 
-        private void SerialPort_Timer_Tick(object sender, EventArgs e) {
+        private void SerialPort_Timer_Tick(object sender, EventArgs e)
+        {
             #region
 
-            if (serialPort1.BytesToRead != 0) {
-                string recStr = serialPort1.ReadTo(((char) 0x11).ToString());
-                //serialPort1.DiscardInBuffer();  //丢弃来自串口驱动程序的接收缓冲区的数据
+            if (serialPort1.BytesToRead != 0)
+            {
+                var str = serialPort1.ReadExisting();
 
-                recStr = recStr.Replace((char) 19, (char) 0);
-                recStr = recStr.Replace((char) 13, (char) 0);
-                recStr = recStr.Replace("\0", "");
+                if (str.IndexOf((char)19) != -1)
+                    str = str.Substring(str.IndexOf((char)19), str.Length - str.IndexOf((char)19));
+                if (str.IndexOf((char)13) != -1)
+                {
+                    str = str.Substring(0, str.IndexOf((char)13));
+                    recStr += str;
+                    if (recStr.Length > 0)
+                    {
+                        recStr = recStr.Replace((char)19, (char)0);
+                        recStr = recStr.Replace((char)13, (char)0);
+                        recStr = recStr.Replace((char)0x11, (char)0);
+                        recStr = recStr.Replace("\0", "");
 
-                double[] dataList;
-                try {
-                    dataList = recStr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
-                        .Select(double.Parse).ToArray();
-                }
-                catch (FormatException) {
-                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:mm-dd-hh:mm:ss}]数据转换失败，请检查串口!\n";
-                    return;
-                }
-                catch (Exception ex) {
-                    Log.Error(ex);
-                    return;
-                }
+                        double[] dataList;
+                        try
+                        {
+                            dataList = recStr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(double.Parse).ToArray();
+                        }
+                        catch (FormatException)
+                        {
+                            StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!\n";
+                            recStr = "";
+                            return;
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error(ex);
+                            recStr = "";
+                            return;
+                        }
 
-                if (dataList.Length != _multiMeter.Channels.Length) {
-                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:mm-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
-                    return;
-                }
+                        if (dataList.Length != _multiMeter.Channels.Length)
+                        {
+                            StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
+                            recStr = "";
+                            return;
+                        }
 
-                _count++;
-                string temp = _count.ToString() + ',';
-                _testResult.Clear();
-                for (int i = 0; i < _multiMeter.Channels.Length; i++)
-                    _testResult.Add(_multiMeter.Channels[i], dataList[i]);
-                try {
-                    DeviceOpt.SetTemp(ref _device, _testResult);
-                }
-                catch (ValOutOfRangeException ex)when (ex.Type == ValOutOfRangeType.LESS_THAN) {
-                    StatusTextBox.Text +=
-                        $"![ERROR][{DateTime.Now:mm-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n";
-                    return;
-                }
-                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
-                    StatusTextBox.Text +=
-                        $"![WARNING][{DateTime.Now:mm-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
-                    return;
-                }
-                catch (Exception ex) {
-                    Log.Error(ex);
-                    return;
-                }
+                        _count++;
+                        string temp = _count.ToString() + ',';
+                        _testResult.Clear();
+                        for (int i = 0; i < _multiMeter.Channels.Length; i++)
+                            _testResult.Add(_multiMeter.Channels[i], dataList[i]);
+                        try
+                        {
+                            DeviceOpt.SetTemp(ref _device, _testResult);
+                        }
+                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN)
+                        {
+                            StatusTextBox.Text +=
+                                $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n";
+                            recStr = "";
+                            return;
+                        }
+                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN)
+                        {
+                            StatusTextBox.Text +=
+                                $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
+                            recStr = "";
+                            return;
+                        }
+                        catch (ValOutOfRangeException ex)
+                        {
+                            StatusTextBox.Text +=
+                                $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
+                            recStr = "";
+                            return;
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error(ex);
+                            recStr = "";
+                            return;
+                        }
 
-                DeviceOpt.GetTempList(ref temp, _device);
-                try {
-                    StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
-                    tempWrite.WriteLine(temp);
-                    tempWrite.Close();
-                    StreamWriter write = new StreamWriter(_latestOriginFile, true);
-                    write.WriteLine(_count.ToString() + ',' + recStr);
-                    write.Close();
-                }
-                catch (Exception ex) {
-                    StatusTextBox.Text += $"![WARNING][{DateTime.Now:mm-dd-hh:mm:ss}]数据保存失败!\n";
-                    Log.Error(ex);
-                }
+                        DeviceOpt.GetTempList(ref temp, _device);
+                        try
+                        {
+                            StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
+                            tempWrite.WriteLine(temp);
+                            tempWrite.Close();
+                            StreamWriter write = new StreamWriter(_latestOriginFile, true);
+                            write.WriteLine(_count.ToString() + ',' + recStr);
+                            write.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
+                            Log.Error(ex);
+                        }
+                        recStr = "";
+                        _temp.Add(temp);
 
-                _temp.Add(temp);
+                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
+                            if (TempOk())
+                            {
+                                if (!_convergent) IsConvergent();
+                                SaveToData(_method + "-" + _count + ".rst");
+                                _temp.Clear();
+                            }
 
-                if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
-                    if (TempOk()) {
-                        if (!_convergent) IsConvergent();
-                        SaveToData(_method + "-" + _count + ".rst");
-                        _temp.Clear();
+                        //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //Dictionary<string, double> testResult = new Dictionary<string, double>();
+
+                        _testResultChartUpdate = true;
                     }
 
-                //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //if(str.IndexOf((char)13)!=)
+                    //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
+                }
+                else
+                {
+                    recStr += str;
+                }
 
-                //Dictionary<string, double> testResult = new Dictionary<string, double>();
+                //int flag = 0;
+                //foreach (char i in str)
+                //{
 
-                _testResultChartUpdate = true;
+                //    if (i == 0x2b || i == 0x2d)
+                //    {
+                //        break;
+                //    }
+                //    flag++;
+                //}
+
+                //string recvcontent = str.Substring(flag, str.Length - flag);
+                //if (recvcontent.Length > 0)
+                //{
+                //    count++;
+                //    recvcontent=recvcontent.Replace((char)13, (char)0);          
+                //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
+                //    recvcontent = recvcontent.Replace("\0", "");
+
+                //    string tmp = count.ToString() + "," + recvcontent;
+                //    ListViewItem item = new ListViewItem(tmp.Split(','));
+                //    listView_main.Items.Add(item);
+                //    textBox1.Text = recvcontent;
+
+                //    if(count%AppCfg.devicepara.Save_interval==0)
+                //    {         
+                //        SaveToData("sss", listView_main);
+                //        listView_main.Items.Clear();
+                //    }         
+                //}
+
+                #endregion
             }
-
-            //if(str.IndexOf((char)13)!=)
-            //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
-
-
-            //int flag = 0;
-            //foreach (char i in str)
-            //{
-
-            //    if (i == 0x2b || i == 0x2d)
-            //    {
-            //        break;
-            //    }
-            //    flag++;
-            //}
-
-            //string recvcontent = str.Substring(flag, str.Length - flag);
-            //if (recvcontent.Length > 0)
-            //{
-            //    count++;
-            //    recvcontent=recvcontent.Replace((char)13, (char)0);          
-            //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
-            //    recvcontent = recvcontent.Replace("\0", "");
-
-            //    string tmp = count.ToString() + "," + recvcontent;
-            //    ListViewItem item = new ListViewItem(tmp.Split(','));
-            //    listView_main.Items.Add(item);
-            //    textBox1.Text = recvcontent;
-
-            //    if(count%AppCfg.devicepara.Save_interval==0)
-            //    {         
-            //        SaveToData("sss", listView_main);
-            //        listView_main.Items.Clear();
-            //    }         
-            //}
-
-            #endregion
         }
 
         private void SaveToData(string name) {

@@ -10,16 +10,15 @@ using log4net.Core;
 using SolveEquation;
 using System.Numerics;
 using Complex = System.Numerics.Complex;
+using Model;
 namespace Tester {
     internal class Program {
         private static void Main(string[] args) {
-            double[] paras = {1.0, 1.0, 1.0, 1.0};
-            
-            Stopwatch sw2 = new Stopwatch();
-            sw2.Start();
-            sw2.Stop();
-            TimeSpan ts2 = sw2.Elapsed;
-            Console.WriteLine(ts2);
+            Probe x = new Voltage();
+            x.TempLb = 0;
+            x.TempUb = 100;
+            //x.Temp = double.NaN;
+            Console.WriteLine($"{double.NaN==double.NaN}");
         }
 
     }

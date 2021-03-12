@@ -11,7 +11,7 @@ namespace Model {
 
         public double Temp { get=>_temp;
             set {
-                if(value == double.NaN)
+                if(double.IsNaN(value))
                 {
                     throw new ValOutOfRangeException();
                 }

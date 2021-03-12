@@ -25,7 +25,7 @@ namespace Model {
                 return;
             }
 
-            if (root[0]>TempUb) { 
+            if (root[2]>TempUb) { 
                 throw new ValOutOfRangeException(ValOutOfRangeType.GREATER_THAN);
             }
             throw new ValOutOfRangeException(ValOutOfRangeType.LESS_THAN);
