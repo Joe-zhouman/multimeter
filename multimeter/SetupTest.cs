@@ -27,7 +27,6 @@ namespace multimeter {
         private string _latestOriginFile;
         private string _latestResultFile;
         private MultiMeterInfo _multiMeter;
-        private string _recvStr;
         private bool _saveParameter;
         private List<string> _temp;
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
