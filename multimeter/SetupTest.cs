@@ -70,6 +70,23 @@ namespace multimeter {
                 ModifyParameterLabel.Text = @"确定参数";
             }
             HideChart_Click(sender, e);
+            switch (_method)
+            {
+                case TestMethod.KAPPA:
+                    TestChoosiest1_Click(sender, e);
+                    break;
+                case TestMethod.ITC:
+                    TestChoosiest2_Click(sender, e);
+                    break;
+                case TestMethod.ITM:
+                    TestChoosiest3_Click(sender, e);
+                    break;
+                case TestMethod.ITMS:
+                    TestChoose4_Click(sender, e);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void TestRun_Click(object sender, EventArgs e) {
@@ -99,7 +116,7 @@ namespace multimeter {
                 TestChooseFormShow_Enable(false);
                 TestRun_Enable(false);
                 Monitor_Enable(true);
-                CurrentTestResult_Enable(true);
+                CurrentTestResult_Enable(false);
                 HistoryTestResult_Enable(false);
                 SerialPort_Enable(false);
                 AdvancedSetting_Enable(false);

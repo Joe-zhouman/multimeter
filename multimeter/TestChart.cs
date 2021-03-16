@@ -116,7 +116,7 @@ Temp:{Math.Round(a.YValues[0],2)}";
             var interval = (int) Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
             if (interval >= 7) _serialPortFine = false; //每隔*S检测采集是否正常
             if(!_serialPortFine)
-                StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!\n";
+                StatusTextBox.AppendText($"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!\n");
             else {
                 var sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
                 TestTime.Text = $@"测试时长 {SecToTimeSpan(sec)}";

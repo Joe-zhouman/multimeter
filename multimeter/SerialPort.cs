@@ -127,9 +127,6 @@ namespace multimeter {
                         Thread.Sleep(10);
                         if (serialPort1.BytesToRead != 0) _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
                         Thread.Sleep(100);
-#if DEBUG
-                        StatusTextBox.AppendText($"[{DateTime.Now:MM-dd-hh:mm:ss}] 1 \n");
-#endif
                         //Thread.Sleep(_appCfg.SysPara.ScanInterval.Value * _multiMeter.TotalNum);
                     }
                     catch (Exception ex) {
@@ -175,8 +172,8 @@ namespace multimeter {
                 }
 #if DEBUG
                 catch (FormatException) {
-                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!\n";
-                    StatusTextBox.Text += str + "\n";
+                    StatusTextBox.AppendText($"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!\n");
+                    StatusTextBox.AppendText(str + "\n");
                     return;
                 }
 #endif
@@ -189,8 +186,8 @@ namespace multimeter {
                 string[] channels = _multiMeter.Channels;
                 if (dataList.Length != channels.Length) {
 #if DEBUG
-                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
-                    StatusTextBox.Text += str + "\n";
+                    StatusTextBox.AppendText($"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n");
+                    StatusTextBox.AppendText(str + "\n");
 #endif
                     return;
                 }
@@ -204,29 +201,29 @@ namespace multimeter {
                     DeviceOpt.SetTemp(ref _device, _testResult);
                 }
                 catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
-                    StatusTextBox.Text +=
-                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n";
+                    StatusTextBox.AppendText(
+                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n");
 #if DEBUG
-                    StatusTextBox.Text += str + "\n";
-                    StatusTextBox.Text += temp + "\n";
+                    StatusTextBox.AppendText(str + "\n");
+                    StatusTextBox.AppendText(temp + "\n");
 #endif
                     return;
                 }
                 catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
-                    StatusTextBox.Text +=
-                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
+                    StatusTextBox.AppendText(
+                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n");
 #if DEBUG
-                    StatusTextBox.Text += str + "\n";
-                    StatusTextBox.Text += temp + "\n";
+                    StatusTextBox.AppendText(str + "\n");
+                    StatusTextBox.AppendText(temp + "\n");
 #endif
                     return;
                 }
 #if DEBUG
                 catch (ValOutOfRangeException ex) {
-                    StatusTextBox.Text +=
-                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
-                    StatusTextBox.Text += str + "\n";
-                    StatusTextBox.Text += temp + "\n";
+                    StatusTextBox.AppendText(
+                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n");
+                    StatusTextBox.AppendText(str + "\n");
+                    StatusTextBox.AppendText(temp + "\n");
                     return;
                 }
 #endif
@@ -245,7 +242,7 @@ namespace multimeter {
                     write.Close();
                 }
                 catch (Exception ex) {
-                    StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
+                    StatusTextBox.AppendText($"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n");
                     Log.Error(ex);
                 }
 
@@ -265,9 +262,6 @@ namespace multimeter {
                 }
 
                 _testResultChartUpdate = true;
-#if DEBUG
-                StatusTextBox.AppendText( $"[{DateTime.Now:MM-dd-hh:mm:ss}] 2 \n");
-#endif
 
                 //int flag = 0;
                 //foreach (char i in str)
