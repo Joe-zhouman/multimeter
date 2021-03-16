@@ -95,14 +95,18 @@ namespace multimeter {
             #endregion
             _multiMeter = new MultiMeterInfo(_appCfg.SerialPortPara);
             SendMsg();
-            _temp = new List<string>();
+            _temp = new List<double[]>();
             try {
                 StreamWriter tempWrite = new StreamWriter(_latestDataFile);
                 tempWrite.WriteLine("step," + string.Join(",", _device.Channels));
                 tempWrite.Close();
+
                 StreamWriter write = new StreamWriter(_latestOriginFile);
                 write.WriteLine("step," + _multiMeter.TotalChn);
                 write.Close();
+                StatusTextBox.Text += $@"![INFO][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存成果!
+测试仪原始数据保存在 {_latestOriginFile}
+温度历史数据保存在 {_latestDataFile}";
             }
             catch (Exception ex) {
                 StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
@@ -124,10 +128,9 @@ namespace multimeter {
 
             Thread.Sleep(100);
 
-            Thread thread;
             //MessageBox.Show(TotalCHN);
             _enableScan = true;
-            thread = new Thread(() => //新开线程，执行接收数据操作
+            Thread thread = new Thread(() => //新开线程，执行接收数据操作
             {
                 while (_enableScan) //如果标识为true
                 {
@@ -169,7 +172,10 @@ namespace multimeter {
 
                 if (str.IndexOf((char) 19) != -1)
                     str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-                if (str.IndexOf((char) 13) != -1) {
+                if (str.IndexOf((char) 13) == -1) {
+                    recStr += str;
+                }
+                else {
                     str = str.Substring(0, str.IndexOf((char) 13));
                     _recStr += str;
                     if (_recStr.Length > 0) {
@@ -250,6 +256,7 @@ namespace multimeter {
                             _recStr = "";
                             return;
                         }
+
                         temp += string.Join(",", _device.Temp);
                         try {
                             StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
@@ -264,25 +271,25 @@ namespace multimeter {
                             Log.Error(ex);
                         }
 
-                        _recStr = "";
-                        _temp.Add(temp);
+                        recStr = "";
+                        _temp.Add(_device.Temp.ToArray());
 
-                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
-                            if (TempOk()) {
-                                if (!_convergent) IsConvergent();
-                                SaveToData(_method + "-" + _count + ".rst");
-                                _temp.Clear();
-                            }
 
-                        //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        //Dictionary<string, double> testResult = new Dictionary<string, double>();
+                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
+                            if (!_convergent) IsConvergent();
+                            _latestResultFile = Path.Combine(_autoSaveFilePath, _method + "-" + _count + ".rst");
+                            Thread rstThread = new Thread(() => {
+                                    SaveToData(_latestResultFile,_lastTemp);
+                                }
+                            );
+                            _temp.Clear();
+                            StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
+";
+                            rstThread.Start();
+                        }
 
                         _testResultChartUpdate = true;
                     }
-
-                    //if(str.IndexOf((char)13)!=)
-                    //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
                 }
                 else {
                     _recStr += str;
@@ -323,22 +330,20 @@ namespace multimeter {
             }
         }
 
-        private void SaveToData(string name) {
+        private void SaveToData(string name,List<double[]> temp) {
             #region
-
-            string fileName = name;
-            _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
-            File.Copy(IniReadAndWrite.IniFilePath, _latestResultFile);
+            
+            File.Copy(IniReadAndWrite.IniFilePath, name);
             //MessageBox.Show(filePath);
             try {
-                for (int i = 0; i < _lastTemp.Count; i++)
-                    IniHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);
+                for (int i = 0; i < temp.Count; i++)
+                    IniHelper.Write("Data", i.ToString(), string.Join(",",temp[i]), name);
             }
-            catch (Exception ex) {
-                Log.Error(ex);
-                MessageBox.Show(ex.ToString());
+            catch {
+                StatusTextBox.Text += $@"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]保存失败！";
+                return;
             }
-
+            StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]保存成功！";
             #endregion
         }
 
@@ -349,8 +354,8 @@ namespace multimeter {
         }
 
         private void IsConvergent() {
-            double[] lastTempArray = Solution.AveTemp(_lastTemp.ToArray(), _multiMeter.TotalNum);
-            double[] currentTempArray = Solution.AveTemp(_temp.ToArray(), _multiMeter.TotalNum);
+            double[] lastTempArray = Solution.AveTemp(_lastTemp);
+            double[] currentTempArray = Solution.AveTemp(_temp);
             for (int i = 0; i < _multiMeter.TotalNum; i++)
                 if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > _appCfg.SysPara.ConvergentLim) {
                     _convergent = false;

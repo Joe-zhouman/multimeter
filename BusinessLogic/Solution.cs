@@ -17,12 +17,23 @@ namespace BusinessLogic {
             for (var i = 0; i < channelList.Length; i++) testResult.Add(channelList[i], Math.Round(aveTemp[i], 2));
         }
 
+        public static double[] AveTemp(List<double[]> tempList) {
+            int numChannel = tempList.First().Length;
+            var aveTemp = new double[numChannel];
+            foreach (double[] temp in tempList) {
+                for (int i = 0; i < numChannel; i++) {
+                    aveTemp[i] += temp[i];
+                }
+            }
+            for (var i = 0; i < numChannel; i++) aveTemp[i] /= tempList.Count;
+            return aveTemp;
+        }
         public static double[] AveTemp(string[] temp, int numChannel) {
             var aveTemp = new double[numChannel];
             foreach (var tempList in temp.Select(t =>
                 t.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).Select(double.Parse).ToArray()))
                 for (var j = 0; j < numChannel; j++)
-                    aveTemp[j] += tempList[j + 1];
+                    aveTemp[j] += tempList[j];
             for (var i = 0; i < numChannel; i++) aveTemp[i] /= temp.Length;
             return aveTemp;
         }
