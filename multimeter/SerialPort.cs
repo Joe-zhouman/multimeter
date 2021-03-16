@@ -103,10 +103,9 @@ namespace multimeter {
 
             Thread.Sleep(100);
 
-            Thread thread;
             //MessageBox.Show(TotalCHN);
             _enableScan = true;
-            thread = new Thread(() => //新开线程，执行接收数据操作
+            Thread thread = new Thread(() => //新开线程，执行接收数据操作
             {
                 while (_enableScan) //如果标识为true
                 {
@@ -148,7 +147,10 @@ namespace multimeter {
 
                 if (str.IndexOf((char) 19) != -1)
                     str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-                if (str.IndexOf((char) 13) != -1) {
+                if (str.IndexOf((char) 13) == -1) {
+                    recStr += str;
+                }
+                else {
                     str = str.Substring(0, str.IndexOf((char) 13));
                     recStr += str;
                     if (recStr.Length > 0) {
@@ -229,6 +231,7 @@ namespace multimeter {
                             recStr = "";
                             return;
                         }
+
                         temp += string.Join(",", _device.Temp);
                         try {
                             StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
@@ -246,25 +249,20 @@ namespace multimeter {
                         recStr = "";
                         _temp.Add(temp);
 
-                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
-                            if (TempOk()) {
-                                if (!_convergent) IsConvergent();
-                                SaveToData(_method + "-" + _count + ".rst");
-                                _temp.Clear();
-                            }
 
-                        //MessageBox.Show(@"数据已收敛", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        //Dictionary<string, double> testResult = new Dictionary<string, double>();
+                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
+                            if (!_convergent) IsConvergent();
+                            _latestResultFile = Path.Combine(_autoSaveFilePath, _method + "-" + _count + ".rst");
+                            Thread rstThread = new Thread(() => {
+                                    SaveToData(_latestResultFile,_lastTemp);
+                                }
+                            );
+                            _temp.Clear();
+                            rstThread.Start();
+                        }
 
                         _testResultChartUpdate = true;
                     }
-
-                    //if(str.IndexOf((char)13)!=)
-                    //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
-                }
-                else {
-                    recStr += str;
                 }
 
                 //int flag = 0;
@@ -302,20 +300,17 @@ namespace multimeter {
             }
         }
 
-        private void SaveToData(string name) {
+        private void SaveToData(string name,List<string> temp) {
             #region
-
-            string fileName = name;
-            _latestResultFile = Path.Combine(_autoSaveFilePath, fileName);
-            File.Copy(IniReadAndWrite.IniFilePath, _latestResultFile);
+            
+            File.Copy(IniReadAndWrite.IniFilePath, name);
             //MessageBox.Show(filePath);
             try {
-                for (int i = 0; i < _lastTemp.Count; i++)
-                    IniHelper.Write("Data", i.ToString(), _lastTemp[i], _latestResultFile);
+                for (int i = 0; i < temp.Count; i++)
+                    IniHelper.Write("Data", i.ToString(), temp[i], name);
             }
-            catch (Exception ex) {
-                Log.Error(ex);
-                MessageBox.Show(ex.ToString());
+            catch {
+                // ignored
             }
 
             #endregion

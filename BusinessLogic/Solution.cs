@@ -16,7 +16,6 @@ namespace BusinessLogic {
             var aveTemp = AveTemp(ReadFile.ReadData(filePath), channelList.Length);
             for (var i = 0; i < channelList.Length; i++) testResult.Add(channelList[i], Math.Round(aveTemp[i], 2));
         }
-
         public static double[] AveTemp(string[] temp, int numChannel) {
             var aveTemp = new double[numChannel];
             foreach (var tempList in temp.Select(t =>
