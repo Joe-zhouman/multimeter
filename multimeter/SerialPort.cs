@@ -84,6 +84,9 @@ namespace multimeter {
                 StreamWriter write = new StreamWriter(_latestOriginFile);
                 write.WriteLine("step," + _multiMeter.TotalChn);
                 write.Close();
+                StatusTextBox.Text += $@"![INFO][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存成果!
+测试仪原始数据保存在 {_latestOriginFile}
+温度历史数据保存在 {_latestDataFile}";
             }
             catch (Exception ex) {
                 StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
@@ -259,6 +262,8 @@ namespace multimeter {
                                 }
                             );
                             _temp.Clear();
+                            StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
+";
                             rstThread.Start();
                         }
 
@@ -311,9 +316,10 @@ namespace multimeter {
                     IniHelper.Write("Data", i.ToString(), string.Join(",",temp[i]), name);
             }
             catch {
-                // ignored
+                StatusTextBox.Text += $@"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]保存失败！";
+                return;
             }
-
+            StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]保存成功！";
             #endregion
         }
 
