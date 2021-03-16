@@ -44,7 +44,7 @@ namespace DataAccess {
             IniHelper.Write("SYS", "allowedChannel",
                 sys.AllowedChannels.Aggregate("", (current, s) => current + s + ","), filePath);
             IniHelper.Write("SYS", "tempLb", sys.TempLb.ToString(), filePath);
-            IniHelper.Write("SYS", "tempLb", sys.TempUb.ToString(), filePath);
+            IniHelper.Write("SYS", "tempUb", sys.TempUb.ToString(), filePath);
         }
 
         public static void ReadPara(ref SerialPortPara serialPort, string filePath) {

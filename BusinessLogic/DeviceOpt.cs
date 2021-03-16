@@ -43,11 +43,5 @@ namespace BusinessLogic {
                 (current, thermistor) => current + thermistor.Temp.ToString(CultureInfo.InvariantCulture) + ",");
         }
 
-        public static void GetTempList(ref string temp, TestDevice device) {
-            GetTempList(ref temp, device.HeatMeter1);
-            GetTempList(ref temp, device.HeatMeter2);
-            GetTempList(ref temp, device.Sample1);
-            GetTempList(ref temp, device.Sample2);
-        }
     }
 }

@@ -59,13 +59,7 @@ namespace Model {
         }
 
         public int TotalNum => VoltageNum + ThermocoupleNum + ResistanceNum;
-        public string[] Channels {
-            get {
-                var chn = TotalChn.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
-                Array.Sort(chn);
-                return chn;
-            }
-        }
+        public string[] Channels => TotalChn.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
 
         public string TotalChn {
             get {

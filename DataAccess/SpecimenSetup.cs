@@ -41,9 +41,11 @@ namespace DataAccess {
         }
 
         public static void ReadTempPara(ref Probe probe, string channel, string filePath) {
-            for (var i = 0; i < probe.Paras.Length; i++)
+            for (var i = 0; i < probe.Paras.Length; i++) 
                 probe.Paras[i] = double.Parse(IniHelper.Read(channel, $"A{i}", "10.0", filePath));
             probe.Init();
+            probe.TempLb = double.Parse(IniHelper.Read("SYS", "tempLb", "0.0", filePath));
+            probe.TempUb = double.Parse(IniHelper.Read("SYS", "tempUb", "120.0", filePath));
         }
 
         public static void WriteTempPara(Probe probe, string channel, string filePath) {

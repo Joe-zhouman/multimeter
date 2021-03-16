@@ -73,14 +73,12 @@ namespace multimeter {
             serialPort1.DiscardInBuffer(); //丢弃来自串口驱动程序的接收缓冲区的数据
 
             #endregion
-
-            _device.SetTempRange(_appCfg.SysPara.TempLb, _appCfg.SysPara.TempUb);
             _multiMeter = new MultiMeterInfo(_appCfg.SerialPortPara);
             SendMsg();
             _temp = new List<string>();
             try {
                 StreamWriter tempWrite = new StreamWriter(_latestDataFile);
-                tempWrite.WriteLine("step," + _multiMeter.TotalChn);
+                tempWrite.WriteLine("step," + string.Join(",", _device.Channels));
                 tempWrite.Close();
                 StreamWriter write = new StreamWriter(_latestOriginFile);
                 write.WriteLine("step," + _multiMeter.TotalChn);
@@ -231,8 +229,7 @@ namespace multimeter {
                             recStr = "";
                             return;
                         }
-
-                        DeviceOpt.GetTempList(ref temp, _device);
+                        temp += string.Join(",", _device.Temp);
                         try {
                             StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
                             tempWrite.WriteLine(temp);

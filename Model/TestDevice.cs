@@ -82,12 +82,5 @@ namespace Model {
             if (specimen == null) return;
             channels.AddRange(specimen.Channel.Where(channel => channel != "0"));
         }
-
-        public void SetTempRange(double lb, double ub) {
-            HeatMeter1?.SetTempRange(lb, ub);
-            HeatMeter2?.SetTempRange(lb, ub);
-            Sample1?.SetTempRange(lb, ub);
-            Sample2?.SetTempRange(lb, ub);
-        }
     }
 }

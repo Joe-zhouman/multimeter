@@ -181,5 +181,5 @@ namespace BusinessLogic {
             var sum = x.Sum(d => Math.Pow(d - aveX, 2));
             return Math.Sqrt(sum / x.Length);
         }
-    }
+    }ix
 }
