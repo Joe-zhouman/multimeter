@@ -177,13 +177,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{f0fed9ce-5411-4b40-90b4-85ebc97cc6df}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{7f84b46f-37cc-4dc1-b379-9752af675716}</Project>
       <Name>DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataPeocess\BusinessLogic.csproj">
-      <Project>{9e44a3f1-ded8-413e-ad5d-593d1a0380f7}</Project>
-      <Name>BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{d6037d48-6617-411f-907f-74b4d955220f}</Project>
