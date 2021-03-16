@@ -11,7 +11,7 @@ namespace Model {
             ScanInterval = new RangeValue<int>(2000, 2000, 5000);
             AutoCloseInterval = 1800;
             ConvergentLim = 1e-3;
-            AllowedChannels = new List<string> {"0"};
+            AllowedChannels = new List<string> {"*"};
             for (var i = 201; i < 226; i++) AllowedChannels.Add(i.ToString());
             TempLb = 0.0;
             TempUb = 120.0;

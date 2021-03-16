@@ -10,7 +10,6 @@ namespace Model {
 
         public Voltage() {
             Paras = new[] {0.0, 0.0, 0.0, 0.0};
-            Temp = 0;
         }
 
         public override void SetTemp(double voltage) {

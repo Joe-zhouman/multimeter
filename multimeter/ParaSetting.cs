@@ -133,7 +133,7 @@ namespace multimeter {
                 $"sys.ini.{DateTime.Now:yyyy-MM-dd-hh-mm-ss}.bak");
             try {
                 File.Copy(IniReadAndWrite.IniFilePath, bakFilePath);
-                var channels = new List<string> {"0"};
+                var channels = new List<string> {"*"};
                 for (var i = 0; i < RisistGridView.Rows.Count - 1; i++) {
                     var channel = RisistGridView[1, i].Value.ToString();
                     var card = FindChnIdx(channel, _app.SerialPortPara);

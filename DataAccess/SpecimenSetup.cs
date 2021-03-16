@@ -12,8 +12,8 @@ namespace DataAccess {
             if (specimen.SpecimenType == SpecimenType.HEAT_METER)
                 specimen.Kappa = IniHelper.Read(specimen.Name, "kappa", "10.0", filePath);
             for (var i = 0; i < specimen.TestPoint; i++) {
-                specimen.Channel[i] = IniHelper.Read($"{specimen.Name}.{i}", "channel", "0", filePath);
-                specimen.Position[i] = IniHelper.Read($"{specimen.Name}.{i}", "position", "0", filePath);
+                specimen.Channel[i] = IniHelper.Read($"{specimen.Name}.{i}", "channel", "*", filePath);
+                specimen.Position[i] = IniHelper.Read($"{specimen.Name}.{i}", "position", "*", filePath);
 
                 specimen.Area = IniHelper.Read(specimen.Name, "area", "10.0", filePath);
             }
@@ -26,7 +26,7 @@ namespace DataAccess {
             for (var i = 0; i < specimen.TestPoint; i++) {
                 IniHelper.Write($"{specimen.Name}.{i}", "channel", specimen.Channel[i], filePath);
                 IniHelper.Write($"{specimen.Name}.{i}", "position",
-                    specimen.Channel[i] == "0" ? "0.0" : specimen.Position[i], filePath);
+                    specimen.Channel[i] == "*" ? "0.0" : specimen.Position[i], filePath);
             }
         }
 
@@ -56,7 +56,7 @@ namespace DataAccess {
         public static void ReadTempPara(ref Specimen specimen, string filePath) {
 
             for (var i = 0; i < specimen.TestPoint; i++)
-                if (specimen.Channel[i] != "0") {
+                if (specimen.Channel[i] != "*") {
                     switch ((ProbeType) Enum.Parse(typeof(ProbeType),
                         IniHelper.Read(specimen.Channel[i], "type", "NULL", filePath))) {
                         case ProbeType.VOLTAGE: {

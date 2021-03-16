@@ -165,14 +165,14 @@ namespace BusinessLogic {
         }
 
         private static string LinearFitLower(Specimen specimen, ref double k, ref double b) {
-            var numPosition = specimen.Position.Where(i => i != "0").Select(i => double.Parse(i) * -1).ToArray();
+            var numPosition = specimen.Position.Where(i => i != "*").Select(i => double.Parse(i) * -1).ToArray();
             for (var i = 1; i < numPosition.Length; i++) numPosition[i] += numPosition[i - 1];
 
             return LinearFit(numPosition, specimen.Temp.ToArray(), ref k, ref b);
         }
 
         private static string LinearFitUpper(Specimen specimen, ref double k, ref double b) {
-            var numPosition = specimen.Position.Where(i => i != "0").Select(double.Parse).ToArray();
+            var numPosition = specimen.Position.Where(i => i != "*").Select(double.Parse).ToArray();
             for (var i = numPosition.Length - 2; i >= 0; i--) numPosition[i] += numPosition[i + 1];
             return LinearFit(numPosition, specimen.Temp.ToArray(), ref k, ref b);
         }
@@ -181,5 +181,5 @@ namespace BusinessLogic {
             var sum = x.Sum(d => Math.Pow(d - aveX, 2));
             return Math.Sqrt(sum / x.Length);
         }
-    }ix
+    }
 }

@@ -12,14 +12,14 @@ namespace BusinessLogic {
         public static void SetTemp(ref Specimen specimen, Dictionary<string, double> testResult) {
             if (specimen == null) return;
             for (var i = 0; i < specimen.TestPoint; i++)
-                if (specimen.Channel[i] != "0")
+                if (specimen.Channel[i] != "*")
                     specimen.Probes[i].SetTemp(testResult[specimen.Channel[i]]);
         }
 
         public static void ReadTemp(ref Specimen specimen, Dictionary<string, double> testResult) {
             if (specimen == null) return;
             for (var i = 0; i < specimen.TestPoint; i++)
-                if (specimen.Channel[i] != "0")
+                if (specimen.Channel[i] != "*")
                     specimen.Probes[i].Temp = testResult[specimen.Channel[i]];
         }
 

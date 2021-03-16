@@ -113,7 +113,7 @@ namespace multimeter {
                     Thread.Sleep(1);
                     try {
                         serialPort1.WriteLine(":READ?");
-                        Thread.Sleep(_appCfg.SysPara.ScanInterval.Value);
+                        Thread.Sleep(_appCfg.SysPara.ScanInterval.Value*_multiMeter.TotalNum);
                     }
                     catch (Exception ex) {
                         Log.Error(ex);

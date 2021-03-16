@@ -245,7 +245,7 @@ namespace multimeter {
             TextBox areaBox) {
             for (var i = 0; i < sample.TestPoint; i++) {
                 channelBoxes[i].Text = sample.Channel[i];
-                positionBoxes[i].Text = sample.Channel[i] == "0" ? @"0" : sample.Position[i];
+                positionBoxes[i].Text = sample.Channel[i] == "*" ? @"*" : sample.Position[i];
             }
 
             areaBox.Text = sample.Area;

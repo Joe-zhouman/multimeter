@@ -206,8 +206,9 @@ namespace multimeter {
 
             for (var i = 0; i < specimen.TestPoint; i++) {
                 var position = positionBoxes[i].Text.Replace(" ", "");
-                if (specimen.Channel[i] == "0" && position != "0") {
-                    MessageBox.Show($@"{specimen.Name}未启用探测点的位置坐标不为0，请重新设置", @"错误", MessageBoxButtons.OK,
+                if (specimen.Channel[i] == "*" && position != "*") {
+                    MessageBox.Show($@"{specimen.Name}未启用探测点的位置坐标应设为*，请重新设置！
+注意，此时位置坐标应为实际测试点位之间的距离", @"错误", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return false;
                 }

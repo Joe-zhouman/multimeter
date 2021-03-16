@@ -80,7 +80,7 @@ namespace Model {
 
         private void AddRange(ref List<string> channels, Specimen specimen) {
             if (specimen == null) return;
-            channels.AddRange(specimen.Channel.Where(channel => channel != "0"));
+            channels.AddRange(specimen.Channel.Where(channel => channel != "*"));
         }
     }
 }

@@ -15,23 +15,19 @@ namespace DataAccess {
             WriteChannelPara(app.SerialPortPara, IniFilePath);
             WritePara(app.SysPara, IniFilePath);
             WriteDevicePara(device, IniFilePath);
-            for (var i = 101; i < 129; i++) {
-                IniHelper.Write(i.ToString(), "type", $"{(int) ProbeType.NULL}", IniFilePath);
-                IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
-                IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
-                IniHelper.Write(i.ToString(), "A2", "0.0", IniFilePath);
-                IniHelper.Write(i.ToString(), "A3", "0.0", IniFilePath);
-            }
-
-            for (var i = 201; i < 229; i++) {
-                IniHelper.Write(i.ToString(), "type", $"{(int) ProbeType.NULL}", IniFilePath);
-                IniHelper.Write(i.ToString(), "A0", "0.0", IniFilePath);
-                IniHelper.Write(i.ToString(), "A1", "0.0", IniFilePath);
-                IniHelper.Write(i.ToString(), "A2", "0.0", IniFilePath);
-                IniHelper.Write(i.ToString(), "A3", "0.0", IniFilePath);
-            }
-
+            WriteChnInfo(app.SerialPortPara.MaxChannel, 101);
+            WriteChnInfo(app.SerialPortPara.MaxChannel, 201);
+            
             #endregion
+        }
+
+        private static void WriteChnInfo(int maxChannel, int initVal) {
+            for (var i = initVal; i < initVal + maxChannel; i++) {
+                IniHelper.Write(i.ToString(), "type", $"{(int) ProbeType.NULL}", IniFilePath);
+                for (int j = 0; j < 4; j++) {
+                    IniHelper.Write(i.ToString(), $"A{j}", "0.0", IniFilePath);
+                }
+            }
         }
         //public static string CreateDefaultSettingIni() {
         //    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "setting.ini"); //在当前程序路径创建
