@@ -18,8 +18,8 @@ namespace Model {
             Position = new string[TestPoint];
             Probes = new Probe[TestPoint];
             for (var i = 0; i < TestPoint; i++) {
-                Channel[i] = "201";
-                Position[i] = "0.0";
+                Channel[i] = "*";
+                Position[i] = "*";
                 Probes[i] = null;
             }
         }

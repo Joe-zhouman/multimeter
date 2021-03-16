@@ -117,8 +117,6 @@ ThermocoupleChn:{Math.Round(a.YValues[0],2)}";
 
             var interval = (int) Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
             if (interval >= 7) {
-                TestTime.Text = "";
-                TestTime_Timer.Enabled = false;
                 StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!\n";
             } //每隔*S检测采集是否正常
 

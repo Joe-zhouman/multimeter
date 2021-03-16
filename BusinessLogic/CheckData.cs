@@ -5,6 +5,7 @@ using Model;
 namespace BusinessLogic {
     public static class CheckData {
         public static bool CheckDouble(string doubleStr) {
+            if (doubleStr == "*") return true;
             if (!double.TryParse(doubleStr, out var result)) return false;
             return result >= 0;
         }

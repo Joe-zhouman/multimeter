@@ -6190,7 +6190,6 @@
             // 
             // SerialPort_Timer
             // 
-            this.SerialPort_Timer.Interval = 1;
             this.SerialPort_Timer.Tick += new System.EventHandler(this.SerialPort_Timer_Tick);
             // 
             // ChartShow_Timer
@@ -7133,7 +7132,7 @@
             // 
             // SetupTest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 945);

@@ -212,8 +212,14 @@ namespace multimeter {
                         MessageBoxIcon.Error);
                     return false;
                 }
+                if (specimen.Channel[i] != "*" && position == "*")
+                {
+                    MessageBox.Show($@"{specimen.Name}已启用探测点的位置坐标被设为*，请重新设置！", @"错误", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return false;
+                }
 
-                ;
+
                 if (!CheckData.CheckDouble(position)) {
                     MessageBox.Show($@"{specimen.Name}存在不合理的位置坐标,请重新设置!", @"错误", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);

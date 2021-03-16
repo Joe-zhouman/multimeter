@@ -26,7 +26,7 @@ namespace DataAccess {
             for (var i = 0; i < specimen.TestPoint; i++) {
                 IniHelper.Write($"{specimen.Name}.{i}", "channel", specimen.Channel[i], filePath);
                 IniHelper.Write($"{specimen.Name}.{i}", "position",
-                    specimen.Channel[i] == "*" ? "0.0" : specimen.Position[i], filePath);
+                    specimen.Channel[i] == "*" ? "*" : specimen.Position[i], filePath);
             }
         }
 
@@ -41,6 +41,7 @@ namespace DataAccess {
         }
 
         public static void ReadTempPara(ref Probe probe, string channel, string filePath) {
+            if (probe is null) return;
             for (var i = 0; i < probe.Paras.Length; i++) 
                 probe.Paras[i] = double.Parse(IniHelper.Read(channel, $"A{i}", "10.0", filePath));
             probe.Init();
@@ -59,6 +60,9 @@ namespace DataAccess {
                 if (specimen.Channel[i] != "*") {
                     switch ((ProbeType) Enum.Parse(typeof(ProbeType),
                         IniHelper.Read(specimen.Channel[i], "type", "NULL", filePath))) {
+                        case ProbeType.NULL:
+                            specimen.Probes[i] = null;
+                            break;
                         case ProbeType.VOLTAGE: {
                             specimen.Probes[i] = new Voltage();
                         }
