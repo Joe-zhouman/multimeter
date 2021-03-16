@@ -17,6 +17,10 @@ namespace multimeter {
             StatusTextBox.BringToFront();
             StatusTextBox.Location = new Point(903, 2);
             StatusTextBox.Size = new Size(353, 82);
+        }
+
+        private void StatusTextBox_TextChanged(object sender, EventArgs e) {
+            StatusTextBox.SelectionStart = StatusTextBox.Text.Length;
             StatusTextBox.ScrollToCaret();
         }
     }

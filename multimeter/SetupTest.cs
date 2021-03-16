@@ -95,6 +95,7 @@ namespace multimeter {
                 btn_start();
                 if (!serialPort1.IsOpen) return;
                 Chart_Init();
+                StatusTextBox_Init();
                 TestChooseFormShow_Enable(false);
                 TestRun_Enable(false);
                 Monitor_Enable(true);
@@ -289,6 +290,7 @@ namespace multimeter {
 
         private int _count;
         private bool _enableScan;
+
 
 
 
