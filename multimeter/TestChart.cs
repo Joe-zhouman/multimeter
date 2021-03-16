@@ -10,6 +10,7 @@ namespace multimeter {
         private int _timerCyclesNum;
         private DateTime _xMaxValue; //采样最近时间
         private DateTime _xMinValue; //采样初始时间
+        private bool _serialPortFine = true;
 
         private void Chart_Init() {
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
@@ -103,7 +104,7 @@ namespace multimeter {
                 var datetime = DateTime.FromOADate(a.XValue);
                 chartValue.Text = $@"Ch{a.LegendText}
 Time:{datetime}
-ThermocoupleChn:{Math.Round(a.YValues[0],2)}";
+Temp:{Math.Round(a.YValues[0],2)}";
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
                 Cursor = Cursors.Default;
@@ -112,14 +113,14 @@ ThermocoupleChn:{Math.Round(a.YValues[0],2)}";
         }
 
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
-            var sec = (int) (0.001 * _timerCyclesNum * TestTime_Timer.Interval);
-            TestTime.Text = $@"测试时长 {SecToTimeSpan(sec)}";
-
             var interval = (int) Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
-            if (interval >= 7) {
+            if (interval >= 7) _serialPortFine = false; //每隔*S检测采集是否正常
+            if(!_serialPortFine)
                 StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!\n";
-            } //每隔*S检测采集是否正常
-
+            else {
+                var sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
+                TestTime.Text = $@"测试时长 {SecToTimeSpan(sec)}";
+            }
             _timerCyclesNum++;
         }
 

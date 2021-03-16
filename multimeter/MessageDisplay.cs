@@ -5,6 +5,7 @@ namespace multimeter {
     public partial class SetupTest {
         private void StatusTextBox_MouseLeave(object sender, EventArgs e) {
             StatusTextBox.Height = 82;
+            StatusTextBox_TextChanged(sender, e);
         }
 
         private void StatusTextBox_MouseEnter(object sender, EventArgs e) {
