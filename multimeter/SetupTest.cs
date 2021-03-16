@@ -22,13 +22,13 @@ namespace multimeter {
         private string _autoSaveFilePath;
         private bool _convergent;
         private TestDevice _device;
-        private List<string> _lastTemp;
+        private List<double[]> _lastTemp;
         private string _latestDataFile;
         private string _latestOriginFile;
         private string _latestResultFile;
         private MultiMeterInfo _multiMeter;
         private bool _saveParameter;
-        private List<string> _temp;
+        private List<double[]> _temp;
         private readonly Dictionary<string, double> _testResult = new Dictionary<string, double>();
         private bool _testResultChartUpdate;
         public UserType User;

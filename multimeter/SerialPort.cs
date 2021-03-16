@@ -75,11 +75,12 @@ namespace multimeter {
             #endregion
             _multiMeter = new MultiMeterInfo(_appCfg.SerialPortPara);
             SendMsg();
-            _temp = new List<string>();
+            _temp = new List<double[]>();
             try {
                 StreamWriter tempWrite = new StreamWriter(_latestDataFile);
                 tempWrite.WriteLine("step," + string.Join(",", _device.Channels));
                 tempWrite.Close();
+
                 StreamWriter write = new StreamWriter(_latestOriginFile);
                 write.WriteLine("step," + _multiMeter.TotalChn);
                 write.Close();
@@ -247,7 +248,7 @@ namespace multimeter {
                         }
 
                         recStr = "";
-                        _temp.Add(temp);
+                        _temp.Add(_device.Temp.ToArray());
 
 
                         if (_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
@@ -300,14 +301,14 @@ namespace multimeter {
             }
         }
 
-        private void SaveToData(string name,List<string> temp) {
+        private void SaveToData(string name,List<double[]> temp) {
             #region
             
             File.Copy(IniReadAndWrite.IniFilePath, name);
             //MessageBox.Show(filePath);
             try {
                 for (int i = 0; i < temp.Count; i++)
-                    IniHelper.Write("Data", i.ToString(), temp[i], name);
+                    IniHelper.Write("Data", i.ToString(), string.Join(",",temp[i]), name);
             }
             catch {
                 // ignored
@@ -323,8 +324,8 @@ namespace multimeter {
         }
 
         private void IsConvergent() {
-            double[] lastTempArray = Solution.AveTemp(_lastTemp.ToArray(), _multiMeter.TotalNum);
-            double[] currentTempArray = Solution.AveTemp(_temp.ToArray(), _multiMeter.TotalNum);
+            double[] lastTempArray = Solution.AveTemp(_lastTemp);
+            double[] currentTempArray = Solution.AveTemp(_temp);
             for (int i = 0; i < _multiMeter.TotalNum; i++)
                 if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > _appCfg.SysPara.ConvergentLim) {
                     _convergent = false;
