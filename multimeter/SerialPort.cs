@@ -25,7 +25,8 @@ using Model;
 
 namespace multimeter {
     public partial class SetupTest {
-        string recStr;
+        private string recStr;
+
         private void btn_start() {
             #region //开始串口采集
 
@@ -140,49 +141,47 @@ namespace multimeter {
             Application.Exit();
         }
 
-        private void SerialPort_Timer_Tick(object sender, EventArgs e)
-        {
+        private void SerialPort_Timer_Tick(object sender, EventArgs e) {
             #region
 
-            if (serialPort1.BytesToRead != 0)
-            {
-                var str = serialPort1.ReadExisting();
+            if (serialPort1.BytesToRead != 0) {
+                string str = serialPort1.ReadExisting();
 
-                if (str.IndexOf((char)19) != -1)
-                    str = str.Substring(str.IndexOf((char)19), str.Length - str.IndexOf((char)19));
-                if (str.IndexOf((char)13) != -1)
-                {
-                    str = str.Substring(0, str.IndexOf((char)13));
+                if (str.IndexOf((char) 19) != -1)
+                    str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
+                if (str.IndexOf((char) 13) != -1) {
+                    str = str.Substring(0, str.IndexOf((char) 13));
                     recStr += str;
-                    if (recStr.Length > 0)
-                    {
-                        recStr = recStr.Replace((char)19, (char)0);
-                        recStr = recStr.Replace((char)13, (char)0);
-                        recStr = recStr.Replace((char)0x11, (char)0);
+                    if (recStr.Length > 0) {
+                        recStr = recStr.Replace((char) 19, (char) 0);
+                        recStr = recStr.Replace((char) 13, (char) 0);
+                        recStr = recStr.Replace((char) 0x11, (char) 0);
                         recStr = recStr.Replace("\0", "");
 
                         double[] dataList;
-                        try
-                        {
-                            dataList = recStr.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        try {
+                            dataList = recStr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
                                 .Select(double.Parse).ToArray();
                         }
-                        catch (FormatException)
-                        {
+#if DEBUG
+                        catch (FormatException) {
                             StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!\n";
+                            StatusTextBox.Text += recStr + "\n";
                             recStr = "";
                             return;
                         }
-                        catch (Exception ex)
-                        {
+#endif
+                        catch (Exception ex) {
                             Log.Error(ex);
                             recStr = "";
                             return;
                         }
 
-                        if (dataList.Length != _multiMeter.Channels.Length)
-                        {
+                        if (dataList.Length != _multiMeter.Channels.Length) {
+#if DEBUG
                             StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
+                            StatusTextBox.Text += recStr + "\n";
+#endif
                             recStr = "";
                             return;
                         }
@@ -192,41 +191,47 @@ namespace multimeter {
                         _testResult.Clear();
                         for (int i = 0; i < _multiMeter.Channels.Length; i++)
                             _testResult.Add(_multiMeter.Channels[i], dataList[i]);
-                        try
-                        {
+                        try {
                             DeviceOpt.SetTemp(ref _device, _testResult);
                         }
-                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN)
-                        {
+                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
                             StatusTextBox.Text +=
-                                $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n";
+                                $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n";
+#if DEBUG
+                            StatusTextBox.Text += recStr + "\n";
+                            StatusTextBox.Text += temp + "\n";
+#endif
                             recStr = "";
                             return;
                         }
-                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN)
-                        {
+                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
                             StatusTextBox.Text +=
                                 $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
+#if DEBUG
+                            StatusTextBox.Text += recStr + "\n";
+                            StatusTextBox.Text += temp + "\n";
+#endif
                             recStr = "";
                             return;
                         }
-                        catch (ValOutOfRangeException ex)
-                        {
+#if DEBUG
+                        catch (ValOutOfRangeException ex) {
                             StatusTextBox.Text +=
                                 $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
+                            StatusTextBox.Text += recStr + "\n";
+                            StatusTextBox.Text += temp + "\n";
                             recStr = "";
                             return;
                         }
-                        catch (Exception ex)
-                        {
+#endif
+                        catch (Exception ex) {
                             Log.Error(ex);
                             recStr = "";
                             return;
                         }
 
                         DeviceOpt.GetTempList(ref temp, _device);
-                        try
-                        {
+                        try {
                             StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
                             tempWrite.WriteLine(temp);
                             tempWrite.Close();
@@ -234,17 +239,16 @@ namespace multimeter {
                             write.WriteLine(_count.ToString() + ',' + recStr);
                             write.Close();
                         }
-                        catch (Exception ex)
-                        {
+                        catch (Exception ex) {
                             StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
                             Log.Error(ex);
                         }
+
                         recStr = "";
                         _temp.Add(temp);
 
                         if (_count % _appCfg.SysPara.SaveInterval.Value == 0)
-                            if (TempOk())
-                            {
+                            if (TempOk()) {
                                 if (!_convergent) IsConvergent();
                                 SaveToData(_method + "-" + _count + ".rst");
                                 _temp.Clear();
@@ -260,8 +264,7 @@ namespace multimeter {
                     //if(str.IndexOf((char)13)!=)
                     //recvstr = str.Substring(str.IndexOf((char)13), str.Length - str.IndexOf((char)13));
                 }
-                else
-                {
+                else {
                     recStr += str;
                 }
 
