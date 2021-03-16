@@ -103,7 +103,7 @@ namespace multimeter {
                 var datetime = DateTime.FromOADate(a.XValue);
                 chartValue.Text = $@"Ch{a.LegendText}
 Time:{datetime}
-ThermocoupleChn:{a.YValues[0]}";
+ThermocoupleChn:{Math.Round(a.YValues[0],2)}";
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
                 Cursor = Cursors.Default;

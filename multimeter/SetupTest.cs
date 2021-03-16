@@ -69,6 +69,7 @@ namespace multimeter {
                 _saveParameter = true;
                 ModifyParameterLabel.Text = @"确定参数";
             }
+            HideChart_Click(sender, e);
         }
 
         private void TestRun_Click(object sender, EventArgs e) {
