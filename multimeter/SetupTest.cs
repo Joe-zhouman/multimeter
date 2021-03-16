@@ -174,7 +174,6 @@ namespace multimeter {
         private void SetupTest_Load(object sender, EventArgs e) {
             
             IniReadAndWrite.CreateDefaultIni();
-
             #region //不同设置窗口默认显示
 
             //EmptyGroupBox.Size = new Size(1250, 855);

@@ -127,6 +127,9 @@ namespace multimeter {
                         Thread.Sleep(10);
                         if (serialPort1.BytesToRead != 0) _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
                         Thread.Sleep(100);
+#if DEBUG
+                        StatusTextBox.AppendText($"[{DateTime.Now:MM-dd-hh:mm:ss}] 1 \n");
+#endif
                         //Thread.Sleep(_appCfg.SysPara.ScanInterval.Value * _multiMeter.TotalNum);
                     }
                     catch (Exception ex) {
@@ -252,16 +255,19 @@ namespace multimeter {
                 if (_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
                     if (!_convergent) IsConvergent();
                     _latestResultFile = Path.Combine(_autoSaveFilePath, _method + "-" + _count + ".rst");
-                    Thread rstThread = new Thread(() => { SaveToData(_latestResultFile, _lastTemp); }
-                    );
+                    SaveDataThread t = new SaveDataThread(_latestResultFile, _lastTemp);
+                    Thread rstThread = new Thread(t.SaveToData);
+                    
                     _temp.Clear();
-                    StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
-";
+                    StatusTextBox.AppendText($@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
+");
                     rstThread.Start();
                 }
 
                 _testResultChartUpdate = true;
-
+#if DEBUG
+                StatusTextBox.AppendText( $"[{DateTime.Now:MM-dd-hh:mm:ss}] 2 \n");
+#endif
 
                 //int flag = 0;
                 //foreach (char i in str)
@@ -298,24 +304,47 @@ namespace multimeter {
             }
         }
 
-        private void SaveToData(string name, List<double[]> temp) {
-            #region
-
-            File.Copy(IniReadAndWrite.IniFilePath, name);
-            //MessageBox.Show(filePath);
-            try {
-                for (int i = 0; i < temp.Count; i++)
-                    IniHelper.Write("Data", i.ToString(), string.Join(",", temp[i]), name);
+        internal class SaveDataThread
+        {
+            private string _name;
+            private List<double[]> _temp;
+            public SaveDataThread(string name, List<double[]> tempList)
+            {
+                _name = name;
+                _temp = new List<double[]>();
+                foreach (var temp in tempList)
+                {
+                    var tempC = new double[temp.Length];
+                    for (int i = 0; i < temp.Length; i++)
+                    {
+                        tempC[i] = temp[i];
+                    }
+                    _temp.Add(tempC);
+                }
             }
-            catch {
-                StatusTextBox.Text += $@"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]保存失败！";
-                return;
+            public void SaveToData()
+            {
+                #region
+
+                File.Copy(IniReadAndWrite.IniFilePath, _name);
+                //MessageBox.Show(filePath);
+                try
+                {
+                    for (int i = 0; i < _temp.Count; i++)
+                        IniHelper.Write("Data", i.ToString(), string.Join(",", _temp[i]), _name);
+                }
+                catch
+                {
+                    //StatusTextBox.AppendText($@"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]保存失败！");
+                    return;
+                }
+
+                //StatusTextBox.AppendText($@"![INFO][{DateTime.Now:MM-dd-hh:mm:ss}]保存成功！");
+
+                #endregion
             }
-
-            StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]保存成功！";
-
-            #endregion
-        }
+        } 
+        
 
         private bool TempOk() {
             if (_temp.Count == 0) return false;
