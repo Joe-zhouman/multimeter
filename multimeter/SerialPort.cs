@@ -17,7 +17,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
-using System.Runtime.Remoting.Channels;
 using System.Threading;
 using System.Windows.Forms;
 using BusinessLogic;
@@ -26,29 +25,10 @@ using Model;
 
 namespace multimeter {
     public partial class SetupTest {
-        private string _recStr;
-        private string _str;
-        private Thread _serialPortThread;
-        private void SerialPortEnable(bool enable) {
-            if (enable) {
-                _serialPortThread = new Thread(new ThreadStart(SerialPortRead));
-                _serialPortThread.Start();
-            }
-            else {
-                _serialPortThread.Abort();
-            }
-            
-        }  
+        //private string str;
+        private Queue<string> _serialPortData;
 
-        private void SerialPortRead() {
-            if (serialPort1.BytesToRead != 0) {
-                string str = serialPort1.ReadExisting();
-            }
-
-        }
-
-
-         private void btn_start() {
+        private void btn_start() {
             #region //开始串口采集
 
             //btn_stop.Enabled = true;
@@ -57,6 +37,7 @@ namespace multimeter {
             _latestDataFile = "";
             _latestResultFile = "";
             _latestOriginFile = "";
+            _serialPortData = new Queue<string>();
             string fileName = _method + "-TempAutoSave.csv";
             _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
                 _method + "-" + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss.ffff"));
@@ -93,6 +74,7 @@ namespace multimeter {
             serialPort1.DiscardInBuffer(); //丢弃来自串口驱动程序的接收缓冲区的数据
 
             #endregion
+
             _multiMeter = new MultiMeterInfo(_appCfg.SerialPortPara);
             SendMsg();
             _temp = new List<double[]>();
@@ -112,8 +94,13 @@ namespace multimeter {
                 StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
                 Log.Error(ex);
             }
-            SerialPortEnable(true);
-         }
+
+            //Thread serialPortThread = new Thread(() => {
+               
+            //});
+            //serialPortThread.Start(); //启动线程
+            //serialPortThread.IsBackground = true;
+        }
 
         public void SendMsg() {
             #region
@@ -137,7 +124,10 @@ namespace multimeter {
                     Thread.Sleep(1);
                     try {
                         serialPort1.WriteLine(":READ?");
-                        Thread.Sleep(_appCfg.SysPara.ScanInterval.Value*_multiMeter.TotalNum);
+                        Thread.Sleep(10);
+                        if (serialPort1.BytesToRead != 0) _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
+                        Thread.Sleep(100);
+                        //Thread.Sleep(_appCfg.SysPara.ScanInterval.Value * _multiMeter.TotalNum);
                     }
                     catch (Exception ex) {
                         Log.Error(ex);
@@ -154,7 +144,6 @@ namespace multimeter {
             serialPort1.Close();
             _temp.Clear();
             _enableScan = false;
-            SerialPortEnable(false);
         }
 
         private void SetupTest_FormClosing(object sender, FormClosingEventArgs e) {
@@ -167,133 +156,112 @@ namespace multimeter {
 
         private void SerialPort_Timer_Tick(object sender, EventArgs e) {
             #region
-            if (serialPort1.BytesToRead != 0) {
-                string str = serialPort1.ReadExisting();
 
-                if (str.IndexOf((char) 19) != -1)
-                    str = str.Substring(str.IndexOf((char) 19), str.Length - str.IndexOf((char) 19));
-                if (str.IndexOf((char) 13) == -1) {
-                    recStr += str;
+            if (_serialPortData.Count != 0) {
+                string str = _serialPortData.Dequeue();
+
+                str = str.Replace((char) 19, (char) 0);
+                str = str.Replace((char) 13, (char) 0);
+                str = str.Replace((char) 0x11, (char) 0);
+                str = str.Replace("\0", "");
+                if (str.Length == 0) return;
+                double[] dataList;
+                try {
+                    dataList = str.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(double.Parse).ToArray();
                 }
-                else {
-                    str = str.Substring(0, str.IndexOf((char) 13));
-                    _recStr += str;
-                    if (_recStr.Length > 0) {
-                        _recStr = _recStr.Replace((char) 19, (char) 0);
-                        _recStr = _recStr.Replace((char) 13, (char) 0);
-                        _recStr = _recStr.Replace((char) 0x11, (char) 0);
-                        _recStr = _recStr.Replace("\0", "");
-
-                        double[] dataList;
-                        try {
-                            dataList = _recStr.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
-                                .Select(double.Parse).ToArray();
-                        }
 #if DEBUG
-                        catch (FormatException) {
-                            StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!\n";
-                            StatusTextBox.Text += _recStr + "\n";
-                            _recStr = "";
-                            return;
-                        }
+                catch (FormatException) {
+                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!\n";
+                    StatusTextBox.Text += str + "\n";
+                    return;
+                }
 #endif
-                        catch (Exception ex) {
-                            Log.Error(ex);
-                            _recStr = "";
-                            return;
-                        }
+                catch (Exception ex) {
+                    Log.Error(ex);
 
-                        var channels = _multiMeter.Channels;
-                        if (dataList.Length != channels.Length) {
+                    return;
+                }
+
+                string[] channels = _multiMeter.Channels;
+                if (dataList.Length != channels.Length) {
 #if DEBUG
-                            StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
-                            StatusTextBox.Text += _recStr + "\n";
+                    StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
+                    StatusTextBox.Text += str + "\n";
 #endif
-                            _recStr = "";
-                            return;
-                        }
+                    return;
+                }
 
-                        _count++;
-                        string temp = _count.ToString() + ',';
-                        _testResult.Clear();
-                        for (int i = 0; i < channels.Length; i++)
-                            _testResult.Add(channels[i], dataList[i]);
-                        try {
-                            DeviceOpt.SetTemp(ref _device, _testResult);
-                        }
-                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
-                            StatusTextBox.Text +=
-                                $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n";
+                _count++;
+                string temp = _count.ToString() + ',';
+                _testResult.Clear();
+                for (int i = 0; i < channels.Length; i++)
+                    _testResult.Add(channels[i], dataList[i]);
+                try {
+                    DeviceOpt.SetTemp(ref _device, _testResult);
+                }
+                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
+                    StatusTextBox.Text +=
+                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n";
 #if DEBUG
-                            StatusTextBox.Text += _recStr + "\n";
-                            StatusTextBox.Text += temp + "\n";
+                    StatusTextBox.Text += str + "\n";
+                    StatusTextBox.Text += temp + "\n";
 #endif
-                            _recStr = "";
-                            return;
-                        }
-                        catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
-                            StatusTextBox.Text +=
-                                $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
+                    return;
+                }
+                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
+                    StatusTextBox.Text +=
+                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
 #if DEBUG
-                            StatusTextBox.Text += _recStr + "\n";
-                            StatusTextBox.Text += temp + "\n";
+                    StatusTextBox.Text += str + "\n";
+                    StatusTextBox.Text += temp + "\n";
 #endif
-                            _recStr = "";
-                            return;
-                        }
+                    return;
+                }
 #if DEBUG
-                        catch (ValOutOfRangeException ex) {
-                            StatusTextBox.Text +=
-                                $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
-                            StatusTextBox.Text += _recStr + "\n";
-                            StatusTextBox.Text += temp + "\n";
-                            _recStr = "";
-                            return;
-                        }
+                catch (ValOutOfRangeException ex) {
+                    StatusTextBox.Text +=
+                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n";
+                    StatusTextBox.Text += str + "\n";
+                    StatusTextBox.Text += temp + "\n";
+                    return;
+                }
 #endif
-                        catch (Exception ex) {
-                            Log.Error(ex);
-                            _recStr = "";
-                            return;
-                        }
+                catch (Exception ex) {
+                    Log.Error(ex);
+                    return;
+                }
 
-                        temp += string.Join(",", _device.Temp);
-                        try {
-                            StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
-                            tempWrite.WriteLine(temp);
-                            tempWrite.Close();
-                            StreamWriter write = new StreamWriter(_latestOriginFile, true);
-                            write.WriteLine(_count.ToString() + ',' + _recStr);
-                            write.Close();
-                        }
-                        catch (Exception ex) {
-                            StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
-                            Log.Error(ex);
-                        }
+                temp += string.Join(",", _device.Temp);
+                try {
+                    StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
+                    tempWrite.WriteLine(temp);
+                    tempWrite.Close();
+                    StreamWriter write = new StreamWriter(_latestOriginFile, true);
+                    write.WriteLine(_count.ToString() + ',' + str);
+                    write.Close();
+                }
+                catch (Exception ex) {
+                    StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
+                    Log.Error(ex);
+                }
 
-                        recStr = "";
-                        _temp.Add(_device.Temp.ToArray());
+                _temp.Add(_device.Temp.ToArray());
 
 
-                        if (_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
-                            if (!_convergent) IsConvergent();
-                            _latestResultFile = Path.Combine(_autoSaveFilePath, _method + "-" + _count + ".rst");
-                            Thread rstThread = new Thread(() => {
-                                    SaveToData(_latestResultFile,_lastTemp);
-                                }
-                            );
-                            _temp.Clear();
-                            StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
+                if (_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
+                    if (!_convergent) IsConvergent();
+                    _latestResultFile = Path.Combine(_autoSaveFilePath, _method + "-" + _count + ".rst");
+                    Thread rstThread = new Thread(() => { SaveToData(_latestResultFile, _lastTemp); }
+                    );
+                    _temp.Clear();
+                    StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
 ";
-                            rstThread.Start();
-                        }
+                    rstThread.Start();
+                }
 
-                        _testResultChartUpdate = true;
-                    }
-                }
-                else {
-                    _recStr += str;
-                }
+                _testResultChartUpdate = true;
+
 
                 //int flag = 0;
                 //foreach (char i in str)
@@ -330,20 +298,22 @@ namespace multimeter {
             }
         }
 
-        private void SaveToData(string name,List<double[]> temp) {
+        private void SaveToData(string name, List<double[]> temp) {
             #region
-            
+
             File.Copy(IniReadAndWrite.IniFilePath, name);
             //MessageBox.Show(filePath);
             try {
                 for (int i = 0; i < temp.Count; i++)
-                    IniHelper.Write("Data", i.ToString(), string.Join(",",temp[i]), name);
+                    IniHelper.Write("Data", i.ToString(), string.Join(",", temp[i]), name);
             }
             catch {
                 StatusTextBox.Text += $@"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]保存失败！";
                 return;
             }
+
             StatusTextBox.Text += $@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]保存成功！";
+
             #endregion
         }
 
