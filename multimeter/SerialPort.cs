@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Threading;
 using System.Windows.Forms;
 using BusinessLogic;
@@ -177,7 +178,8 @@ namespace multimeter {
                             return;
                         }
 
-                        if (dataList.Length != _multiMeter.Channels.Length) {
+                        var channels = _multiMeter.Channels;
+                        if (dataList.Length != channels.Length) {
 #if DEBUG
                             StatusTextBox.Text += $"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n";
                             StatusTextBox.Text += recStr + "\n";
@@ -189,8 +191,8 @@ namespace multimeter {
                         _count++;
                         string temp = _count.ToString() + ',';
                         _testResult.Clear();
-                        for (int i = 0; i < _multiMeter.Channels.Length; i++)
-                            _testResult.Add(_multiMeter.Channels[i], dataList[i]);
+                        for (int i = 0; i < channels.Length; i++)
+                            _testResult.Add(channels[i], dataList[i]);
                         try {
                             DeviceOpt.SetTemp(ref _device, _testResult);
                         }

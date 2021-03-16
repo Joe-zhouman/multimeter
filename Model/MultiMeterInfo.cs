@@ -8,17 +8,17 @@ using System.Collections.Generic;
 namespace Model {
     public class MultiMeterInfo {
         /// <summary>
-        ///     四线电阻
+        ///     四线电阻频道
         /// </summary>
         public string ResistanceChn;
 
         /// <summary>
-        ///     多少路四线电阻
+        ///     四线电阻数量
         /// </summary>
         public int ResistanceNum;
 
         /// <summary>
-        ///     热电偶
+        ///     热电偶（温度由采集仪计算得出）
         /// </summary>
         public string ThermocoupleChn;
 
@@ -28,7 +28,7 @@ namespace Model {
         public int ThermocoupleNum;
 
         /// <summary>
-        ///     两线电阻
+        ///     电压探头（一般为热电偶，但测定温度由本软件计算得出）
         /// </summary>
         public string VoltageChn;
 
@@ -59,7 +59,13 @@ namespace Model {
         }
 
         public int TotalNum => VoltageNum + ThermocoupleNum + ResistanceNum;
-        public string[] Channels => TotalChn.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+        public string[] Channels {
+            get {
+                var chn = TotalChn.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+                Array.Sort(chn);
+                return chn;
+            }
+        }
 
         public string TotalChn {
             get {
