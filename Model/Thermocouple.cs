@@ -7,12 +7,12 @@ using System;
 namespace Model {
     public class Thermocouple : Probe {
         public Thermocouple() {
-            Paras = new[] {0.0, 0.0, 0.0};
+            Paras = new[] {0.0, 0.0};
             Temp = 0;
         }
 
         public override void SetTemp(double voltage) {
-            Temp = Math.Round(Paras[0] + Paras[1] * voltage + Paras[2] * voltage * voltage, 4);
+            Temp = Paras[0] + Paras[1] * voltage;
         }
 
         public override void Init() {

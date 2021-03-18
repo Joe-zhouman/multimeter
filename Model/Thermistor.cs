@@ -13,9 +13,9 @@ namespace Model {
 
         public override void SetTemp(double resistance) {
             var tempVar = Math.Log(resistance);
-            Temp = Math.Round(
+            Temp = 
                 -273.15 + 1 / (Paras[0] + Paras[1] * tempVar +
-                               Paras[2] * Math.Pow(tempVar, 3)), 4);
+                               Paras[2] * Math.Pow(tempVar, 3));
         }
 
         public override void Init() {
