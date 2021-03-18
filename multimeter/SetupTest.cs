@@ -56,7 +56,7 @@ namespace multimeter {
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
                 if (!apply_btm()) return;
-                StatusTextBox_AddText($"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]修改参数成功!");
+                StatusTextBox_AddText(PromptType.INFO,$"[{DateTime.Now:MM-dd-hh:mm:ss}]修改参数成功!");
                 if (User == UserType.NORMAL) NormalTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
@@ -102,7 +102,7 @@ namespace multimeter {
                 SerialPort_Enable(true);
                 AdvancedSetting_Enable(true);
                 ModifyParameter_Enable(true, true);
-                StatusTextBox_AddText($"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]测试结束!");
+                StatusTextBox_AddText(PromptType.INFO,$"[{DateTime.Now:MM-dd-hh:mm:ss}]测试结束!");
                 TestRunLabel.Text = @"  运行  ";
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
@@ -123,7 +123,7 @@ namespace multimeter {
                 SerialPort_Enable(false);
                 AdvancedSetting_Enable(false);
                 ModifyParameter_Enable(false, false);
-                StatusTextBox_AddText($"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]测试开始!");
+                StatusTextBox_AddText(PromptType.INFO,$"[{DateTime.Now:MM-dd-hh:mm:ss}]测试开始!");
                 TestRunLabel.Text = @"  停止  ";
                 Monitor_Click(sender, e);
                 SerialPort_Timer.Enabled = true;

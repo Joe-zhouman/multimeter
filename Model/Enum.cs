@@ -26,4 +26,9 @@ namespace Model {
         THERMOCOUPLE,
         THERMISTOR
     }
+    public enum PromptType {
+        INFO,
+        WARNING,
+        ERROR
+    }
 }
