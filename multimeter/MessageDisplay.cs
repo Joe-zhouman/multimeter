@@ -4,8 +4,8 @@ using System.Drawing;
 namespace multimeter {
     public partial class SetupTest {
         private void StatusTextBox_MouseLeave(object sender, EventArgs e) {
+            if (StatusTextBox.PointToClient(MousePosition).X >= (0.8*StatusTextBox.Width)) return;
             StatusTextBox.Height = 82;
-            //StatusTextBox_TextChanged(sender, e);
         }
 
         private void StatusTextBox_MouseEnter(object sender, EventArgs e) {
