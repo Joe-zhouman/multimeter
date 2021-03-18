@@ -7095,7 +7095,6 @@
             this.StatusTextBox.TabIndex = 139;
             this.StatusTextBox.Text = "";
             this.StatusTextBox.Visible = false;
-            this.StatusTextBox.TextChanged += new System.EventHandler(this.StatusTextBox_TextChanged);
             this.StatusTextBox.MouseEnter += new System.EventHandler(this.StatusTextBox_MouseEnter);
             this.StatusTextBox.MouseLeave += new System.EventHandler(this.StatusTextBox_MouseLeave);
             // 
@@ -7133,7 +7132,7 @@
             // 
             // SetupTest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 945);
