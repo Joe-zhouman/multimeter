@@ -25,7 +25,6 @@ using Model;
 
 namespace multimeter {
     public partial class SetupTest {
-        //private string str;
         private Queue<string> _serialPortData;
 
         private void btn_start() {
@@ -66,8 +65,6 @@ namespace multimeter {
             catch (Exception ex) {
                 Log.Error(ex);
                 MessageBox.Show(@"无法打开串口！");
-                //btn_start.Enabled = true;
-                //btn_stop.Enabled = false;
                 return;
             }
 
@@ -86,20 +83,15 @@ namespace multimeter {
                 StreamWriter write = new StreamWriter(_latestOriginFile);
                 write.WriteLine("step," + _multiMeter.TotalChn);
                 write.Close();
-                StatusTextBox.Text += $@"![INFO][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存成果!
+                StatusTextBox_AddText(PromptType.INFO,$@"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存成果!
 测试仪原始数据保存在 {_latestOriginFile}
-温度历史数据保存在 {_latestDataFile}";
+温度历史数据保存在 {_latestDataFile}");
             }
             catch (Exception ex) {
-                StatusTextBox.Text += $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n";
+                StatusTextBox_AddText( PromptType.WARNING,$"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");
                 Log.Error(ex);
             }
 
-            //Thread serialPortThread = new Thread(() => {
-               
-            //});
-            //serialPortThread.Start(); //启动线程
-            //serialPortThread.IsBackground = true;
         }
 
         public void SendMsg() {
@@ -172,8 +164,8 @@ namespace multimeter {
                 }
 #if DEBUG
                 catch (FormatException) {
-                    StatusTextBox.AppendText($"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!\n");
-                    StatusTextBox.AppendText(str + "\n");
+                    StatusTextBox_AddText(PromptType.ERROR,$"[{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!");
+                    StatusTextBox_AddText(PromptType.ERROR, str);
                     return;
                 }
 #endif
@@ -186,8 +178,8 @@ namespace multimeter {
                 string[] channels = _multiMeter.Channels;
                 if (dataList.Length != channels.Length) {
 #if DEBUG
-                    StatusTextBox.AppendText($"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!\n");
-                    StatusTextBox.AppendText(str + "\n");
+                    StatusTextBox_AddText(PromptType.ERROR,$"[{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!");
+                    StatusTextBox_AddText(PromptType.ERROR, str);
 #endif
                     return;
                 }
@@ -201,29 +193,29 @@ namespace multimeter {
                     DeviceOpt.SetTemp(ref _device, _testResult);
                 }
                 catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
-                    StatusTextBox.AppendText(
-                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!\n");
+                    StatusTextBox_AddText(PromptType.WARNING,
+                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!");
 #if DEBUG
-                    StatusTextBox.AppendText(str + "\n");
-                    StatusTextBox.AppendText(temp + "\n");
+                    StatusTextBox_AddText(PromptType.WARNING, str);
+                    StatusTextBox_AddText(PromptType.WARNING, temp);
 #endif
                     return;
                 }
                 catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
-                    StatusTextBox.AppendText(
-                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n");
+                    StatusTextBox_AddText( PromptType.WARNING,
+                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
 #if DEBUG
-                    StatusTextBox.AppendText(str + "\n");
-                    StatusTextBox.AppendText(temp + "\n");
+                    StatusTextBox_AddText(PromptType.WARNING, str);
+                    StatusTextBox_AddText(PromptType.WARNING, temp);
 #endif
                     return;
                 }
 #if DEBUG
                 catch (ValOutOfRangeException ex) {
-                    StatusTextBox.AppendText(
-                        $"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!\n");
-                    StatusTextBox.AppendText(str + "\n");
-                    StatusTextBox.AppendText(temp + "\n");
+                    StatusTextBox_AddText(PromptType.WARNING,
+                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
+                    StatusTextBox_AddText(PromptType.WARNING, str);
+                    StatusTextBox_AddText(PromptType.WARNING, temp);
                     return;
                 }
 #endif
@@ -242,7 +234,7 @@ namespace multimeter {
                     write.Close();
                 }
                 catch (Exception ex) {
-                    StatusTextBox.AppendText($"![WARNING][{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!\n");
+                    StatusTextBox_AddText(PromptType.WARNING, $"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");
                     Log.Error(ex);
                 }
 
@@ -256,7 +248,7 @@ namespace multimeter {
                     Thread rstThread = new Thread(t.SaveToData);
                     
                     _temp.Clear();
-                    StatusTextBox.AppendText($@"![Info][{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
+                    StatusTextBox_AddText(PromptType.INFO, $@"[{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
 ");
                     rstThread.Start();
                 }
