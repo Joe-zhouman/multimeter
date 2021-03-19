@@ -13,23 +13,26 @@ namespace Model {
         }
 
         public override void SetTemp(double voltage) {
-            //Equation.GetRoot(_cubeRootPara, (Paras[0] - voltage)/Paras[3], out var root);
-            //for (int i = 0; i < 3; i++) {
-            //    try {
-            //        Temp = root[i];
-            //    }
-            //    catch (ValOutOfRangeException) {
-            //        continue;
-            //    }
-            //    return;
-            //}
+            Equation.GetRoot(_cubeRootPara, (Paras[0] - voltage) / Paras[3], out var root);
+            for (int i = 0; i < 3; i++)
+            {
+                try
+                {
+                    Temp = root[i];
+                }
+                catch (ValOutOfRangeException)
+                {
+                    continue;
+                }
+                return;
+            }
 
-            //if (root[2]>TempUb) { 
-            //    throw new ValOutOfRangeException(ValOutOfRangeType.GREATER_THAN);
-            //}
-            //throw new ValOutOfRangeException(ValOutOfRangeType.LESS_THAN);
+            if (root[2] > TempUb)
+            {
+                throw new ValOutOfRangeException(ValOutOfRangeType.GREATER_THAN);
+            }
+            throw new ValOutOfRangeException(ValOutOfRangeType.LESS_THAN);
 
-            Temp = Paras[0] + Paras[1] * voltage;
         }
 
         public override void Init() {
