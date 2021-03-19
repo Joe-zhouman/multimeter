@@ -118,7 +118,7 @@ namespace multimeter {
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(10);
                         if (serialPort1.BytesToRead != 0) _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
-                        Thread.Sleep(100);
+                        Thread.Sleep(500);
                         //Thread.Sleep(_appCfg.SysPara.ScanInterval.Value * _multiMeter.TotalNum);
                     }
                     catch (Exception ex) {

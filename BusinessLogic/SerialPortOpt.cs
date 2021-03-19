@@ -34,20 +34,26 @@ ROUT:SCAN:LSEL INT";
 
             if (multiMeter.VoltageNum > 0) {
                 var str = $@"SENS:FUNC 'VOLT:DC',(@{multiMeter.VoltageChn}
-SENS:VOLT:DC:NPLC 1,(@{multiMeter.VoltageChn}
-SNES:VOLT:DC:RANG:AUTO ON,(@{multiMeter.VoltageChn}";
-                st = st.Replace("*s2*", str);
+SENS:VOLT:DC:NPLC 1,(@{multiMeter.VoltageChn})
+SNES:VOLT:DC:RANG:AUTO ON,(@{multiMeter.VoltageChn})";
+                st = st.Replace("*s1*", str);
             }
 
-            if (multiMeter.ThermocoupleNum > 0) {
-                var str = $@"SENS:FUNC 'TEMP',(@{multiMeter.ThermocoupleChn})   
-SENS:TEMP:NPLC 1,(@{multiMeter.ThermocoupleChn})   
-:TEMP:TRAN TC,(@{multiMeter.ThermocoupleChn})   
-:TEMP:TC:TYPE K,(@{multiMeter.ThermocoupleChn})
-:TEMP:TC:ODET OFF";
+//            if (multiMeter.ThermocoupleNum > 0) {
+//                var str = $@"SENS:FUNC 'TEMP',(@{multiMeter.ThermocoupleChn})   
+//SENS:TEMP:NPLC 1,(@{multiMeter.ThermocoupleChn})   
+//:TEMP:TRAN TC,(@{multiMeter.ThermocoupleChn})   
+//:TEMP:TC:TYPE K,(@{multiMeter.ThermocoupleChn})
+//:TEMP:TC:ODET OFF";
+//                st = st.Replace("*s2*", str);
+//            }
+            if (multiMeter.ThermocoupleNum > 0)
+            {
+                var str = $@"SENS: FUNC 'VOLT:DC',(@{multiMeter.ThermocoupleChn})   
+SENS:VOLT:DC:NPLC 1,(@{multiMeter.ThermocoupleChn})   
+SNES:VOLT:DC:RANG:AUTO ON,(@{multiMeter.ThermocoupleChn})";
                 st = st.Replace("*s2*", str);
             }
-
             if (multiMeter.ResistanceNum > 0) {
                 var str = $@"SENS:FUNC 'FRES',(@{multiMeter.ResistanceChn})   
 SENS:RES:NPLC 1,(@{multiMeter.ResistanceChn})   
