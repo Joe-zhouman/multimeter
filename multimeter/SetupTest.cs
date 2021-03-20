@@ -223,7 +223,7 @@ namespace multimeter {
             _latestDataFile = "";
             _latestResultFile = "";
             _appCfg = new AppCfg();
-
+            _serialPortData = new Queue<string>();
             #endregion
 
             #region //串口设置 

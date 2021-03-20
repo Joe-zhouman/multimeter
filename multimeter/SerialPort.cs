@@ -36,7 +36,7 @@ namespace multimeter {
             _latestDataFile = "";
             _latestResultFile = "";
             _latestOriginFile = "";
-            _serialPortData = new Queue<string>();
+            _serialPortData.Clear();
             string fileName = _method + "-TempAutoSave.csv";
             _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
                 _method + "-" + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss.ffff"));
@@ -118,7 +118,7 @@ namespace multimeter {
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(10);
                         if (serialPort1.BytesToRead != 0) _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
-                        Thread.Sleep(500);
+                        Thread.Sleep(1500);
                         //Thread.Sleep(_appCfg.SysPara.ScanInterval.Value * _multiMeter.TotalNum);
                     }
                     catch (Exception ex) {
@@ -178,8 +178,9 @@ namespace multimeter {
                 string[] channels = _multiMeter.Channels;
                 if (dataList.Length != channels.Length) {
 #if DEBUG
-                    StatusTextBox_AddText(PromptType.ERROR,$"[{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目小于频道数，请检查串口!");
+                    StatusTextBox_AddText(PromptType.ERROR,$"[{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目不等于频道数，请检查串口!");
                     StatusTextBox_AddText(PromptType.ERROR, str);
+                    StatusTextBox_AddText(PromptType.ERROR, $"{dataList.Length},{channels.Length}");
 #endif
                     return;
                 }
@@ -191,6 +192,7 @@ namespace multimeter {
                     _testResult.Add(channels[i], dataList[i]);
                 try {
                     DeviceOpt.SetTemp(ref _device, _testResult);
+                    temp += string.Join(",", _device.Temp);
                 }
                 catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
                     StatusTextBox_AddText(PromptType.WARNING,
@@ -224,7 +226,7 @@ namespace multimeter {
                     return;
                 }
 
-                temp += string.Join(",", _device.Temp);
+                
                 try {
                     StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
                     tempWrite.WriteLine(temp);
