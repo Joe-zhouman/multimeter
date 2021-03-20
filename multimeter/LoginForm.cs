@@ -14,6 +14,7 @@ namespace multimeter {
 
         private void login_Click(object sender, EventArgs e) {
             var setupTest = (SetupTest) Owner;
+            setupTest.AllTextBoxEnable(false);
             _user.Name = usernameTBox.Text;
             _user.Password = userpasswordTBox.Text;
             switch (comboBox.SelectedIndex) {
@@ -35,7 +36,6 @@ namespace multimeter {
                 case 1 when CheckUserInfo.CheckAdvanceUser(_user):
                     setupTest.User = _user.Type;
                     setupTest.TestChooseFormShow_Click(sender, e);
-                    setupTest.AllTextBoxEnable();
                     setupTest.SerialPort.Visible = true;
                     setupTest.SerialPortLabel.Visible = true;
                     setupTest.AdvancedSetting.Visible = true;

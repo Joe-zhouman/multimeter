@@ -115,8 +115,10 @@ Temp:{Math.Round(a.YValues[0],2)}";
         private void TestTime_Timer_Tick(object sender, EventArgs e) {
             var interval = (int) Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
             if (interval >= 7) _serialPortFine = false; //每隔*S检测采集是否正常
-            if (!_serialPortFine)
-                StatusTextBox_AddText(PromptType.ERROR,$"[{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!");
+            if (!_serialPortFine) {
+                StatusTextBox_AddText(PromptType.ERROR, $"[{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!");
+                _serialPortFine = true;
+            }
             else {
                 var sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
                 TestTime.Text = $@"测试时长 {SecToTimeSpan(sec)}";

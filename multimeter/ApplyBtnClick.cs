@@ -251,12 +251,12 @@ namespace multimeter {
             return BoxToSpecimen(ref specimen, positionBoxes, channelBoxes, areaBox);
         }
 
-        public void AllTextBoxEnable() {
+        public void AllTextBoxEnable(bool enable) {
             var groupBoxs = new List<GroupBox> {TextGroupbox1, TextGroupbox2, TextGroupbox3, TextGroupbox4};
             groupBoxs.ForEach(c => {
                 foreach (var control in c.Controls)
                     if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
-                        ((TextBox) control).Enabled = true;
+                        ((TextBox) control).Enabled = enable;
             });
         }
 

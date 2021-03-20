@@ -57,7 +57,7 @@ namespace multimeter {
             if (_saveParameter) {
                 if (!apply_btm()) return;
                 StatusTextBox_AddText(PromptType.INFO,$"[{DateTime.Now:MM-dd-hh:mm:ss}]修改参数成功!");
-                if (User == UserType.NORMAL) NormalTextBoxEnable(false);
+                AllTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
                 _saveParameter = false;
@@ -65,6 +65,7 @@ namespace multimeter {
             }
             else {
                 if (User == UserType.NORMAL) NormalTextBoxEnable(true);
+                else AllTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
                 _saveParameter = true;
