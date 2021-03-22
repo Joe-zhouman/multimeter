@@ -181,7 +181,7 @@ namespace multimeter {
         }
 
         private void HelpButton_Click(object sender, EventArgs e) {
-            Process.Start(@"..\..\HelpDocument\help.pdf");
+            Process.Start(@"./doc/help.pdf");
         }
 
         //private void TestResultChart_FormClosing(object sender, EventArgs e) {
@@ -221,6 +221,7 @@ namespace multimeter {
 
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
+            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "doc"));
             _latestDataFile = "";
             _latestResultFile = "";
             _appCfg = new AppCfg();
