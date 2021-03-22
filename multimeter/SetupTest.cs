@@ -181,7 +181,19 @@ namespace multimeter {
         }
 
         private void HelpButton_Click(object sender, EventArgs e) {
-            Process.Start(@"./doc/help.pdf");
+            try
+            {
+                Process.Start(@"doc\help.pdf");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(@"无法正确的打开帮助文档，帮助文档可能不存在。");
+#if DEBUG
+                MessageBox.Show(ex.Message);
+#endif
+            }
+            
         }
 
         //private void TestResultChart_FormClosing(object sender, EventArgs e) {
