@@ -151,7 +151,6 @@
     <EmbeddedResource Include="SetupTest.resx">
       <DependentUpon>SetupTest.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="HelpDocument\help.pdf" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

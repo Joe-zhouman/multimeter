@@ -1,8 +1,0 @@
-\begin{exercise}\label{exer:43}
-设 $f \notin\in L(\mathcal{R}^1)$，$g$ 是 $\mathcal{R}^1$ 上的有界可测函数。证明函数
-\begin{equation}
-   \label{ex:1}
-   I(t) = \int_{\mathcal{R}^1} f(x+t)g(x)dx \quad t \in \mathcal{R}^1
-\end{equation}
-是 $\mathcal{R}^1$ 上的连续函数。
-\end{exercise}
