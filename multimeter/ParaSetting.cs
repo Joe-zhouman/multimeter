@@ -39,10 +39,7 @@ namespace multimeter {
                 RisistGridView["channel", i].ReadOnly = true;
                 switch (typeId) {
                     case 0: {
-                        for (var j = 2; j < 6; j++) {
-                            RisistGridView[j, i].Value = '-';
-                            RisistGridView[j, i].ReadOnly = true;
-                        }
+                        ShowNoValue(i, 2);
                     }
                         break;
                     case 1: {
@@ -53,15 +50,13 @@ namespace multimeter {
                     case 2: {
                         Probe voltage = new Thermocouple();
                         ShowProbePara(voltage, channels[i], i);
-                        RisistGridView[5, i].Value = '-';
-                        RisistGridView[5, i].ReadOnly = true;
+                        ShowNoValue(i, 4);
                     }
                         break;
                     case 3: {
                         Probe voltage = new Thermistor();
                         ShowProbePara(voltage, channels[i], i);
-                        RisistGridView[5, i].Value = '-';
-                        RisistGridView[5, i].ReadOnly = true;
+                        ShowNoValue(i, 5);
                     }
                         break;
                 }
@@ -106,7 +101,10 @@ namespace multimeter {
                         ChangeGridCellStyle(idx, 6);
                     }
                         break;
-                    case 2:
+                    case 2:{
+                        ChangeGridCellStyle(idx, 4);
+                        }
+                        break;
                     case 3: {
                         ChangeGridCellStyle(idx, 5);
                     }
@@ -114,7 +112,14 @@ namespace multimeter {
                 }
             } //更新读取对应行数据  
         }
-
+        private void ShowNoValue(int idx, int midPoint)
+        {
+            for (var j = midPoint; j < 6; j++)
+            {
+                RisistGridView[j, idx].Value = '-';
+                RisistGridView[j, idx].ReadOnly = true;
+            }
+        }
         private void ChangeGridCellStyle(int idx, int midPoint) {
             for (var i = 2; i < midPoint; i++) {
                 RisistGridView[i, idx].Value = "0.0";
@@ -122,10 +127,7 @@ namespace multimeter {
                 RisistGridView[i, idx].ValueType = typeof(double);
             }
 
-            for (var i = midPoint; i < 6; i++) {
-                RisistGridView[i, idx].Value = "-";
-                RisistGridView[i, idx].ReadOnly = true;
-            }
+            ShowNoValue(idx, midPoint);
         }
 
         private void Confirm_Click(object sender, EventArgs e) {
@@ -154,7 +156,7 @@ namespace multimeter {
                         case "K型热电偶": {
                             card.Type = ProbeType.THERMOCOUPLE;
                             Probe probe = new Thermocouple();
-                            for (var j = 0; j < 3; j++)
+                            for (var j = 0; j < 2; j++)
                                 probe.Paras[j] = double.Parse(RisistGridView.Rows[i].Cells[j + 2].Value.ToString());
                             IniReadAndWrite.WriteTempPara(probe, channel, IniReadAndWrite.IniFilePath);
                             channels.Add(channel);

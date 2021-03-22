@@ -72,7 +72,7 @@ namespace multimeter {
             if (T.Count != 0) _xMaxValue = DateTime.Now;
 
             for (var i = 0; i < T.Count; i++)
-                if (T[i] >= 0 && T[i] <= 500)
+                if (T[i] >= _appCfg.SysPara.TempLb && T[i] <= _appCfg.SysPara.TempUb)
                     chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();
             XAdapt();
