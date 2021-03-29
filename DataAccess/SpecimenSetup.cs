@@ -11,7 +11,7 @@ namespace DataAccess {
         public static void ReadBasicPara(ref Specimen specimen, string filePath) {
             if (specimen.SpecimenType == SpecimenType.HEAT_METER)
                 specimen.Kappa = IniHelper.Read(specimen.Name, "kappa", "10.0", filePath);
-            for (var i = 0; i < specimen.TestPoint; i++) {
+            for (int i = 0; i < specimen.TestPoint; i++) {
                 specimen.Channel[i] = IniHelper.Read($"{specimen.Name}.{i}", "channel", "*", filePath);
                 specimen.Position[i] = IniHelper.Read($"{specimen.Name}.{i}", "position", "*", filePath);
 
@@ -23,7 +23,7 @@ namespace DataAccess {
             if (specimen.SpecimenType == SpecimenType.HEAT_METER)
                 IniHelper.Write(specimen.Name, "kappa", specimen.Kappa, filePath);
             IniHelper.Write(specimen.Name, "area", specimen.Area, filePath);
-            for (var i = 0; i < specimen.TestPoint; i++) {
+            for (int i = 0; i < specimen.TestPoint; i++) {
                 IniHelper.Write($"{specimen.Name}.{i}", "channel", specimen.Channel[i], filePath);
                 IniHelper.Write($"{specimen.Name}.{i}", "position",
                     specimen.Channel[i] == "*" ? "*" : specimen.Position[i], filePath);
@@ -42,7 +42,7 @@ namespace DataAccess {
 
         public static void ReadTempPara(ref Probe probe, string channel, string filePath) {
             if (probe is null) return;
-            for (var i = 0; i < probe.Paras.Length; i++) 
+            for (int i = 0; i < probe.Paras.Length; i++)
                 probe.Paras[i] = double.Parse(IniHelper.Read(channel, $"A{i}", "10.0", filePath));
             probe.Init();
             probe.TempLb = double.Parse(IniHelper.Read("SYS", "tempLb", "0.0", filePath));
@@ -50,40 +50,16 @@ namespace DataAccess {
         }
 
         public static void WriteTempPara(Probe probe, string channel, string filePath) {
-            for (var i = 0; i < probe.Paras.Length; i++)
+            for (int i = 0; i < probe.Paras.Length; i++)
                 IniHelper.Write(channel, $"A{i}", probe.Paras[i].ToString(CultureInfo.InvariantCulture), filePath);
         }
 
         public static void ReadTempPara(ref Specimen specimen, string filePath) {
-
-            for (var i = 0; i < specimen.TestPoint; i++)
-                if (specimen.Channel[i] != "*") {
-                    switch ((ProbeType) Enum.Parse(typeof(ProbeType),
-                        IniHelper.Read(specimen.Channel[i], "type", "NULL", filePath))) {
-                        case ProbeType.NULL:
-                            specimen.Probes[i] = null;
-                            break;
-                        case ProbeType.VOLTAGE: {
-                            specimen.Probes[i] = new Voltage();
-                        }
-                            break;
-                        case ProbeType.THERMOCOUPLE: {
-                            specimen.Probes[i] = new Thermocouple();
-                        }
-                            break;
-                        case ProbeType.THERMISTOR: {
-                            specimen.Probes[i] = new Thermistor();
-                        }
-                            break;
-                        default:
-                            throw new ValOutOfRangeException("未知的探头类型");
-                    }
-
-                    ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);
-                }
-                else {
-                    specimen.Probes[i] = null;
-                }
+            for (int i = 0; i < specimen.TestPoint; i++) {
+                specimen.Probes[i] = ProbeFactory.Create((ProbeType) Enum.Parse(typeof(ProbeType),
+                    IniHelper.Read(specimen.Channel[i], "type", "NULL", filePath)));
+                ReadTempPara(ref specimen.Probes[i], specimen.Channel[i], filePath);
+            }
         }
 
         public static string ReadTestMethod(string filePath) {

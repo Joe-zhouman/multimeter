@@ -24,5 +24,16 @@ namespace multimeter {
             var logger = LogManager.GetLogger("Unexcepted Exception");
             logger.Fatal(e);
         }
+        //Program TodoList
+        
+        //TODO fix solution bugs
+        //TODO 自定义自动保存文件夹
+        //TODO 多类型探头测试可能有bug
+        //TODO 收敛判断
+        //TODO 查询更新情况，若有要求，跳转至更新页面
+        //TODO 用户注册功能（数据库实现）
+        //TODO 输出数据到数据库
+        //TODO 帮助文档跳转对应位置
+
     }
 }
