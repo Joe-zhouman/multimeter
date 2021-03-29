@@ -164,6 +164,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="sys.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -188,51 +191,6 @@
       <Project>{d6037d48-6617-411f-907f-74b4d955220f}</Project>
       <Name>Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\AdvancedSetting_Disable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\AdvancedSetting_Enable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\CurrentDataProcess_Disable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\CurrentDataProcess_Enable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\HistoryDataProcess_Disable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\HistoryDataProcess_Enable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\Monitor_Disable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\Monitor_Enable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\SerialPort_Disable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\SerialPort_Enable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\TestChooseFormShow_disable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\TestChooseFormShow_Enable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\TestRun_Diable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\TestRun_Enable.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ButtonImage\TestStop.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ButtonImage\ModifyParameter_Disable.png" />
