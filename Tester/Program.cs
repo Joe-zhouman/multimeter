@@ -11,14 +11,13 @@ using SolveEquation;
 using System.Numerics;
 using Complex = System.Numerics.Complex;
 using Model;
+using DataAccess;
 namespace Tester {
     internal class Program {
         private static void Main(string[] args) {
-            Probe x = new Voltage();
-            x.TempLb = 0;
-            x.TempUb = 100;
-            //x.Temp = double.NaN;
-            Console.WriteLine($"{double.NaN==double.NaN}");
+            var result =
+                GetUpdateInfo.Get("https://api.github.com/repos/Joe-zhouman/multimeter-public/releases/latest");
+            Console.WriteLine(result);
         }
 
     }
