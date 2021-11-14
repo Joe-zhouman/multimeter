@@ -12,15 +12,12 @@ namespace Model {
 
         public virtual double Temp { get=>_temp;
             set {
-                if(double.IsNaN(value))
+                if(double.IsNaN(value)|| value < TempLb)
                 {
-                    throw new ValOutOfRangeException();
+                    _temp = TempLb;
                 }
                 if (value > TempUb) {
-                    throw new ValOutOfRangeException(ValOutOfRangeType.GREATER_THAN);
-                }
-                if (value < TempLb) {
-                    throw new ValOutOfRangeException(ValOutOfRangeType.LESS_THAN);
+                    _temp = TempUb;
                 }
                 _temp = value;
             }

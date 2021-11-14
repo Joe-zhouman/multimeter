@@ -194,6 +194,8 @@ namespace multimeter {
                     DeviceOpt.SetTemp(ref _device, _testResult);
                     temp += string.Join(",", _device.Temp);
                 }
+/*现在不会报错了*/
+/*
                 catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
                     StatusTextBox_AddText(PromptType.WARNING,
                         $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!");
@@ -221,6 +223,7 @@ namespace multimeter {
                     return;
                 }
 #endif
+*/
                 catch (Exception ex) {
                     Log.Error(ex);
                     return;
