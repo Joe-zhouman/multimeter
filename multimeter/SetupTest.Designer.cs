@@ -606,6 +606,7 @@
             this.ParSetting = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ConvergentHolding_Timer = new System.Windows.Forms.Timer(this.components);
+            this.SerialPortCheck_Timer = new System.Windows.Forms.Timer(this.components);
             this.TextGroupbox1.SuspendLayout();
             this.TextResultGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
@@ -6739,7 +6740,7 @@
             this.IsAutoStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.IsAutoStop.Location = new System.Drawing.Point(780, 11);
             this.IsAutoStop.Name = "IsAutoStop";
-            this.IsAutoStop.Size = new System.Drawing.Size(115, 20);
+            this.IsAutoStop.Size = new System.Drawing.Size(114, 20);
             this.IsAutoStop.TabIndex = 108;
             this.IsAutoStop.Text = "数据稳定自动停止";
             this.IsAutoStop.UseVisualStyleBackColor = true;
@@ -7007,7 +7008,7 @@
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(5, 1066);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(152, 16);
+            this.label13.Size = new System.Drawing.Size(151, 16);
             this.label13.TabIndex = 99;
             this.label13.Text = "最近一次扫描结果：";
             // 
@@ -7129,6 +7130,11 @@
             // 
             this.ConvergentHolding_Timer.Interval = 1000;
             this.ConvergentHolding_Timer.Tick += new System.EventHandler(this.ConvergentHolding_Timer_Tick);
+            // 
+            // SerialPortCheck_Timer
+            // 
+            this.SerialPortCheck_Timer.Interval = 10000;
+            this.SerialPortCheck_Timer.Tick += new System.EventHandler(this.SerialPortCheck_Timer_Tick);
             // 
             // SetupTest
             // 
@@ -7760,5 +7766,6 @@
         private System.Windows.Forms.RichTextBox Test4_remark;
         private System.Windows.Forms.RichTextBox Test3_remark;
         public System.Windows.Forms.RichTextBox StatusTextBox;
+        private System.Windows.Forms.Timer SerialPortCheck_Timer;
     }
 }

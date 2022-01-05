@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Model;
+using System.Threading;
 
 namespace multimeter {
     public partial class SetupTest {
@@ -102,23 +103,47 @@ namespace multimeter {
                 var datetime = DateTime.FromOADate(a.XValue);
                 chartValue.Text = $@"Ch{a.LegendText}
 Time:{datetime}
-Temp:{Math.Round(a.YValues[0],2)}";
+Temp:{Math.Round(a.YValues[0], 2)}";
             }
             else if (result.ChartElementType != ChartElementType.Nothing) {
                 Cursor = Cursors.Default;
                 chartValue.Text = "";
             }
         }
-
-        private void TestTime_Timer_Tick(object sender, EventArgs e) {
-            var interval = (int) Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
-            if (interval >= 7) 
-                StatusTextBox_AddText(PromptType.ERROR, 
+        private void SerialPortCheck_Timer_Tick(object sender, EventArgs e) {
+            var interval = (int)Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
+            if (interval >= 40) 
+                StatusTextBox_AddText(PromptType.ERROR,
                     $"[{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!"); //每隔*S检测采集是否正常
-            else {
-                var sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
-                TestTime.Text = $@"测试时长 {SecToTimeSpan(sec)}";
+            else if (interval >= 20) {
+                _enableScan = false;
+                try {
+                    _readDataThread.Suspend();
+                    Thread.Sleep(100);
+                    _readDataThread.Abort();//调用Thread.Abort方法试图强制终止thread线程
+
+                    //上面调用Thread.Abort方法后线程thread不一定马上就被终止了，所以我们在这里写了个循环来做检查，看线程thread是否已经真正停止。其实也可以在这里使用Thread.Join方法来等待线程thread终止，Thread.Join方法做的事情和我们在这里写的循环效果是一样的，都是阻塞主线程直到thread线程终止为止
+                    while (_readDataThread.ThreadState != ThreadState.Aborted) {
+                        //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止
+                        Thread.Sleep(100);
+                    }
+                    CloseSerialPort();
+                    _serialPortData.Clear();
+                    serialPort1.Open();
+                    serialPort1.DiscardInBuffer();
+                    serialPort1.DiscardOutBuffer();
+                    SendMsg();
+                }
+                catch (Exception ex) {
+
+                    Log.Error(ex);
+                }
             }
+        }
+        private void TestTime_Timer_Tick(object sender, EventArgs e) {
+            var sec = (int)(0.001 * _timerCyclesNum * TestTime_Timer.Interval);
+            TestTime.Text = $@"测试时长 {SecToTimeSpan(sec)}";
+
             _timerCyclesNum++;
         }
 
@@ -140,24 +165,24 @@ Temp:{Math.Round(a.YValues[0],2)}";
             TestChartGroupBox.Size = new Size(0, 0);
             switch (_method) {
                 case TestMethod.KAPPA: {
-                    TextGroupbox1.Size = new Size(1250, 855);
-                }
+                        TextGroupbox1.Size = new Size(1250, 855);
+                    }
                     break;
                 case TestMethod.ITC: {
-                    TextGroupbox2.Size = new Size(1250, 855);
-                }
+                        TextGroupbox2.Size = new Size(1250, 855);
+                    }
                     break;
                 case TestMethod.ITM: {
-                    TextGroupbox3.Size = new Size(1250, 855);
-                }
+                        TextGroupbox3.Size = new Size(1250, 855);
+                    }
                     break;
                 case TestMethod.ITMS: {
-                    TextGroupbox4.Size = new Size(1250, 855);
-                }
+                        TextGroupbox4.Size = new Size(1250, 855);
+                    }
                     break;
                 default: {
-                    return;
-                }
+                        return;
+                    }
             }
         }
 
@@ -251,7 +276,7 @@ Temp:{Math.Round(a.YValues[0],2)}";
 
         private void XAdapt() {
             if (!XAxis_checkBox.Checked && _xMaxValue > _xMinValue) {
-                var interval = (int) ((_xMaxValue - _xMinValue).TotalSeconds / 10);
+                var interval = (int)((_xMaxValue - _xMinValue).TotalSeconds / 10);
                 chart1.ChartAreas[0].AxisX.LabelStyle.Interval = interval; //坐标值间隔*S
                 chart1.ChartAreas[0].AxisX.MajorGrid.Interval = interval; //网格间隔
                 chart1.ChartAreas[0].AxisX.Minimum = _xMinValue.ToOADate();

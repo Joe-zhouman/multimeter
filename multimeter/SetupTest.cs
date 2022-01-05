@@ -238,6 +238,8 @@ namespace multimeter {
             _latestResultFile = "";
             _appCfg = new AppCfg();
             _serialPortData = new Queue<string>();
+            SerialPort_Timer.Interval = _appCfg.SysPara.ScanInterval.Value / 2;
+            ChartShow_Timer.Interval = _appCfg.SysPara.ScanInterval.Value / 2;
             #endregion
 
             #region //串口设置 
@@ -335,5 +337,6 @@ namespace multimeter {
 
         #endregion
 
+       
     }
 }
