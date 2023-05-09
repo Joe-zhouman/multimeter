@@ -9,7 +9,11 @@ namespace BusinessLogic {
             if (!double.TryParse(doubleStr, out var result)) return false;
             return result >= 0;
         }
-
+        public static bool Compare(string a, string b) { 
+            double.TryParse(a,out var numA);
+            double.TryParse(b,out var numB);
+            return System.Math.Abs(1 - numA / numB) < 0.5;
+        }
         public static bool HasSameElem<T>(IReadOnlyCollection<T> list) {
             if (list == null)
                 return false;

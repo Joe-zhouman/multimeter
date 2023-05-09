@@ -77,7 +77,6 @@ namespace multimeter {
             device.Force = force;
             return true;
         }
-
         private bool apply_btm_2_Click() {
             if (User == UserType.ADVANCE) {
                 var heatMeterPositionBoxes1 = new List<TextBox>
@@ -134,16 +133,23 @@ namespace multimeter {
             }
 
             if (!ForceToDevice(ref _device, ForceTextBox3)) return false;
-            return BoxToItm(ref _device.Itm, FilmThickness1);
+            return BoxToItm(ref _device.Itm, FilmThickness1, TimAreaTextBox3, S1TextBox3_1);
         }
 
-        private bool BoxToItm(ref Itm deviceItm, TextBox textBox) {
-            if (!CheckData.CheckDouble(textBox.Text)) {
+        private bool BoxToItm(ref Itm deviceItm, TextBox lengthBox, TextBox areaBox, TextBox compareBox) {
+            if (!CheckData.CheckDouble(lengthBox.Text)) {
                 MessageBox.Show(@"存在不合理的热界面材料厚度,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            deviceItm.Thickness = textBox.Text;
+            if (!CheckData.CheckDouble(areaBox.Text)) {
+                MessageBox.Show(@"存在不合理的热界面材料面积,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!CheckData.Compare(areaBox.Text, compareBox.Text)) {
+                if (DialogResult.No == MessageBox.Show(@"界面材料面积与试件/热流计面积相差过大，将影响实验结果的精度，是否继续？", @"警告", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) return false;
+            }
+            deviceItm.Thickness = lengthBox.Text;
+            deviceItm.Area = areaBox.Text;
             return true;
         }
 
@@ -182,7 +188,7 @@ namespace multimeter {
             };
             if (!BoxToSpecimen(ref _device.Sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox4_2))
                 return false;
-            return BoxToItm(ref _device.Itm, FilmThickness2);
+            return BoxToItm(ref _device.Itm, FilmThickness2, TimAreaTextBox4, SuTextBox4_1);
         }
 
 
@@ -285,7 +291,7 @@ namespace multimeter {
                     break;
                 case TestMethod.ITM: {
                     var textBoxes3 = new List<TextBox> {
-                        ForceTextBox3, FilmThickness1
+                        ForceTextBox3, FilmThickness1,TimAreaTextBox3
                     };
                     textBoxes.AddRange(textBoxes3);
                 }
@@ -296,7 +302,7 @@ namespace multimeter {
                         ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7, ChannelTextBox4_8,
                         LengthTextBox4_9, LengthTextBox4_10, LengthTextBox4_11, LengthTextBox4_12,
                         ChannelTextBox4_9, ChannelTextBox4_10, ChannelTextBox4_11, ChannelTextBox4_12,
-                        SuTextBox4_1, SlTextBox4_2, ForceTextBox4, FilmThickness2
+                        SuTextBox4_1, SlTextBox4_2, ForceTextBox4, FilmThickness2,TimAreaTextBox4
                     };
                     textBoxes.AddRange(textBoxes4);
                 }

@@ -135,17 +135,21 @@ namespace BusinessLogic {
             }
 
             if (device.Sample2 != null) {
-                var errInfoSample2 = LinearFitLower(device.Sample2, ref k[1], ref b[2]);
+                var errInfoSample2 = LinearFitLower(device.Sample2, ref k[1], ref b[1]);
                 device.Sample2.Kappa =
                     (heatFlow / double.Parse(device.Sample2.Area) / k[0]).ToString("0.000e+0", CultureInfo
                         .InvariantCulture);
                 if (errInfoSample2 != "") errInfo += errInfoSample2 + "（试件2）\n";
                 area = (double.Parse(device.Sample1.Area) + double.Parse(device.Sample2.Area)) / 2;
             }
-
+            if (device.Itm != null&& device.Itm.Area != "0.0") {
+                double.TryParse(device.Itm.Area, out area);
+                
+            }
             device.Itc = (b[0] - b[1]) / heatFlow * area * 1000;
-            if (device.Itm != null) device.Itm.Kappa = double.Parse(device.Itm.Thickness) / device.Itc;
-
+            if (device.Itm != null) {
+                device.Itm.Kappa = double.Parse(device.Itm.Thickness) / device.Itc;
+            }
             return errInfo;
         }
 
