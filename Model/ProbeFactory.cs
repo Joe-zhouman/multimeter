@@ -12,8 +12,6 @@
 // *Github*    : https://github.com/Joe-zhouman
 // *LeetCode*  : https://leetcode-cn.com/u/joe_zm/
 
-using System;
-
 namespace Model {
     /// <summary>
     /// simple factory to create probe instance
@@ -24,17 +22,19 @@ namespace Model {
                 case 0:
                     return null;
                 case 1:
-                    return new Voltage();
+                    return new CubicPolyVoltageProbe();
                 case 2:
                     return new Thermocouple();
                 case 3:
                     return new Thermistor();
+                case 4:
+                    return new CubicPolyResistanceProbe();
                 default:
-                    throw new NotSupportedException();
+                    return null;
             }
         }
         public static Probe Create(ProbeType type) {
-            return Create((int) type);
+            return Create((int)type);
         }
     }
 }

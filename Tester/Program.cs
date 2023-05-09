@@ -14,7 +14,7 @@ using Model;
 namespace Tester {
     internal class Program {
         private static void Main(string[] args) {
-            Probe x = new Voltage();
+            Probe x = new CubicPolyProbe();
             x.TempLb = 0;
             x.TempUb = 100;
             //x.Temp = double.NaN;

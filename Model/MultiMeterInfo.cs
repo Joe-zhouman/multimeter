@@ -59,7 +59,7 @@ namespace Model {
         }
 
         public int TotalNum => VoltageNum + ThermocoupleNum + ResistanceNum;
-        public string[] Channels => TotalChn.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries);
+        public string[] Channels => TotalChn.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
         public string TotalChn {
             get {
@@ -84,19 +84,20 @@ namespace Model {
                     case 0:
                         break;
                     case 1: {
-                        VoltageNum++;
-                        AddChn(ref VoltageChn, card.Chn);
-                    }
+                            VoltageNum++;
+                            AddChn(ref VoltageChn, card.Chn);
+                        }
                         break;
                     case 2: {
-                        ThermocoupleNum++;
-                        AddChn(ref ThermocoupleChn, card.Chn);
-                    }
+                            ThermocoupleNum++;
+                            AddChn(ref ThermocoupleChn, card.Chn);
+                        }
                         break;
-                    case 3: {
-                        ResistanceNum++;
-                        AddChn(ref ResistanceChn, card.Chn);
-                    }
+                    case 3:
+                    case 4: {
+                            ResistanceNum++;
+                            AddChn(ref ResistanceChn, card.Chn);
+                        }
                         break;
                 }
         }

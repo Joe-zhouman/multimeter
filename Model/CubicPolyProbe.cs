@@ -5,30 +5,26 @@
 using System;
 
 namespace Model {
-    public class Voltage : Probe {
+    public class CubicPolyProbe : Probe {
         private CubeRootPara _cubeRootPara;
 
-        public Voltage() {
-            Paras = new[] {0.0, 0.0, 0.0, 0.0};
+        public CubicPolyProbe() {
+            Paras = new[] { 0.0, 0.0, 0.0, 0.0 };
         }
 
-        public override void SetTemp(double voltage) {
-            Equation.GetRoot(_cubeRootPara, (Paras[0] - voltage) / Paras[3], out var root);
-            for (int i = 0; i < 3; i++)
-            {
-                try
-                {
+        public override void SetTemp(double para) {
+            Equation.GetRoot(_cubeRootPara, (Paras[0] - para) / Paras[3], out var root);
+            for (int i = 0; i < 3; i++) {
+                try {
                     Temp = root[i];
                 }
-                catch (ValOutOfRangeException)
-                {
+                catch (ValOutOfRangeException) {
                     continue;
                 }
                 return;
             }
 
-            if (root[2] > TempUb)
-            {
+            if (root[2] > TempUb) {
                 throw new ValOutOfRangeException(ValOutOfRangeType.GREATER_THAN);
             }
             throw new ValOutOfRangeException(ValOutOfRangeType.LESS_THAN);
@@ -40,7 +36,7 @@ namespace Model {
         }
     }
 
-    public readonly struct CubeRootPara{
+    public readonly struct CubeRootPara {
         public double Q3 { get; }
         public double R0 { get; }
         public double SqrtQ { get; }
@@ -54,7 +50,7 @@ namespace Model {
             Q3 = q * q * q;
             R0 = (9.0 * a2 * a1 - 2 * a2 * a2 * a2) / 54.0;
             Shift = -a2 / 3d;
-            if (q<=0) {
+            if (q <= 0) {
                 SqrtQ = Math.Sqrt(-q);
                 SqrtQ3 = Math.Sqrt(-Q3);
             }

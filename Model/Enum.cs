@@ -22,9 +22,10 @@ namespace Model {
 
     public enum ProbeType {
         NULL,
-        VOLTAGE,
+        CUBIC_POLY_VOLTAGE,
         THERMOCOUPLE,
-        THERMISTOR
+        THERMISTOR,
+        CUBIC_POLY_RESISTANCE
     }
     public enum PromptType {
         INFO,
