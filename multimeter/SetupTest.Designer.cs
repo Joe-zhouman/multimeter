@@ -282,6 +282,8 @@
             this.LengthTextBox2_9 = new System.Windows.Forms.TextBox();
             this.LengthTextBox2_8 = new System.Windows.Forms.TextBox();
             this.TextGroupbox3 = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.TimAreaTextBox3 = new System.Windows.Forms.TextBox();
             this.label165 = new System.Windows.Forms.Label();
             this.LengthTextBox3_4 = new System.Windows.Forms.TextBox();
             this.ChannelTextBox3_4 = new System.Windows.Forms.TextBox();
@@ -359,7 +361,9 @@
             this.LengthTextBox3_6 = new System.Windows.Forms.TextBox();
             this.LengthTextBox3_5 = new System.Windows.Forms.TextBox();
             this.TextGroupbox4 = new System.Windows.Forms.GroupBox();
+            this.label176 = new System.Windows.Forms.Label();
             this.label175 = new System.Windows.Forms.Label();
+            this.TimAreaTextBox4 = new System.Windows.Forms.TextBox();
             this.LengthTextBox4_16 = new System.Windows.Forms.TextBox();
             this.label174 = new System.Windows.Forms.Label();
             this.LengthTextBox4_15 = new System.Windows.Forms.TextBox();
@@ -607,10 +611,6 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ConvergentHolding_Timer = new System.Windows.Forms.Timer(this.components);
             this.SerialPortCheck_Timer = new System.Windows.Forms.Timer(this.components);
-            this.TimAreaTextBox3 = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label176 = new System.Windows.Forms.Label();
-            this.TimAreaTextBox4 = new System.Windows.Forms.TextBox();
             this.TextGroupbox1.SuspendLayout();
             this.TextResultGroupbox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTest1)).BeginInit();
@@ -3202,6 +3202,7 @@
             // 
             // TextGroupbox3
             // 
+            this.TextGroupbox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TextGroupbox3.BackColor = System.Drawing.SystemColors.Control;
             this.TextGroupbox3.Controls.Add(this.label47);
             this.TextGroupbox3.Controls.Add(this.TimAreaTextBox3);
@@ -3265,6 +3266,24 @@
             this.TextGroupbox3.Size = new System.Drawing.Size(1250, 855);
             this.TextGroupbox3.TabIndex = 69;
             this.TextGroupbox3.TabStop = false;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label47.Location = new System.Drawing.Point(612, 390);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(46, 22);
+            this.label47.TabIndex = 137;
+            this.label47.Text = "mm²";
+            // 
+            // TimAreaTextBox3
+            // 
+            this.TimAreaTextBox3.Location = new System.Drawing.Point(546, 387);
+            this.TimAreaTextBox3.Name = "TimAreaTextBox3";
+            this.TimAreaTextBox3.Size = new System.Drawing.Size(64, 26);
+            this.TimAreaTextBox3.TabIndex = 136;
             // 
             // label165
             // 
@@ -4148,6 +4167,17 @@
             this.TextGroupbox4.TabIndex = 69;
             this.TextGroupbox4.TabStop = false;
             // 
+            // label176
+            // 
+            this.label176.AutoSize = true;
+            this.label176.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label176.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label176.Location = new System.Drawing.Point(740, 406);
+            this.label176.Name = "label176";
+            this.label176.Size = new System.Drawing.Size(46, 22);
+            this.label176.TabIndex = 147;
+            this.label176.Text = "mm²";
+            // 
             // label175
             // 
             this.label175.AutoSize = true;
@@ -4157,6 +4187,13 @@
             this.label175.Size = new System.Drawing.Size(42, 23);
             this.label175.TabIndex = 151;
             this.label175.Text = "mm";
+            // 
+            // TimAreaTextBox4
+            // 
+            this.TimAreaTextBox4.Location = new System.Drawing.Point(674, 406);
+            this.TimAreaTextBox4.Name = "TimAreaTextBox4";
+            this.TimAreaTextBox4.Size = new System.Drawing.Size(64, 26);
+            this.TimAreaTextBox4.TabIndex = 146;
             // 
             // LengthTextBox4_16
             // 
@@ -7144,46 +7181,11 @@
             this.SerialPortCheck_Timer.Interval = 10000;
             this.SerialPortCheck_Timer.Tick += new System.EventHandler(this.SerialPortCheck_Timer_Tick);
             // 
-            // TimAreaTextBox3
-            // 
-            this.TimAreaTextBox3.Location = new System.Drawing.Point(546, 387);
-            this.TimAreaTextBox3.Name = "TimAreaTextBox3";
-            this.TimAreaTextBox3.Size = new System.Drawing.Size(64, 26);
-            this.TimAreaTextBox3.TabIndex = 136;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label47.Location = new System.Drawing.Point(612, 390);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(46, 22);
-            this.label47.TabIndex = 137;
-            this.label47.Text = "mm²";
-            // 
-            // label176
-            // 
-            this.label176.AutoSize = true;
-            this.label176.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label176.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label176.Location = new System.Drawing.Point(740, 406);
-            this.label176.Name = "label176";
-            this.label176.Size = new System.Drawing.Size(46, 22);
-            this.label176.TabIndex = 147;
-            this.label176.Text = "mm²";
-            // 
-            // TimAreaTextBox4
-            // 
-            this.TimAreaTextBox4.Location = new System.Drawing.Point(674, 406);
-            this.TimAreaTextBox4.Name = "TimAreaTextBox4";
-            this.TimAreaTextBox4.Size = new System.Drawing.Size(64, 26);
-            this.TimAreaTextBox4.TabIndex = 146;
-            // 
             // SetupTest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1264, 945);
             this.Controls.Add(this.TestChartGroupBox);

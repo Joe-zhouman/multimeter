@@ -6,6 +6,14 @@ using System;
 using System.Runtime.Serialization;
 
 namespace Model {
+    /// <summary>
+    /// 有允许范围的值.当将值设为范围外时,会抛出异常
+    /// </summary>
+    /// <typeparam name="T">值的原类型</typeparam>
+    /// <para name="Value">值</para>
+    /// <para name="LowerBound">值的允许下限</para>
+    /// <para name="UpperBound"></para>
+    /// <exception cref="ValOutOfRangeException"></exception>
     public class RangeValue<T> where T : IComparable {
         private T _value;
 
