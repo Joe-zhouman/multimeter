@@ -26,16 +26,17 @@ using Model;
 namespace multimeter {
     public partial class SetupTest {
         private Queue<string> _serialPortData;
-
+        private static StreamWriter _originDataWriter;
+        private static StreamWriter _tempDataWriter;
+        private static Thread _readDataThread;
+        private static string[] _serialPortStr;
         private void btn_start() {
             #region //开始串口采集
 
             //btn_stop.Enabled = true;
             //btn_start.Enabled = false;
             _count = 0;
-            _latestDataFile = "";
             _latestResultFile = "";
-            _latestOriginFile = "";
             _serialPortData.Clear();
             string fileName = _method + "-TempAutoSave.csv";
             _autoSaveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave",
@@ -50,16 +51,17 @@ namespace multimeter {
                 btn_stop();
                 return;
             }
-
-            _latestDataFile = Path.Combine(_autoSaveFilePath, fileName);
-            _latestOriginFile = Path.Combine(_autoSaveFilePath, _method + "-OriginalDataAutoSave.csv");
+            _latestOriginFile = Path.Combine(_autoSaveFilePath, fileName);
+            _latestDataFile = Path.Combine(_autoSaveFilePath, _method + "-OriginalDataAutoSave.csv");
+            _originDataWriter = new StreamWriter(_latestOriginFile);
+            _tempDataWriter = new StreamWriter(_latestDataFile);
             try {
                 serialPort1.BaudRate = int.Parse(_appCfg.SerialPortPara.SerialBaudRate);
                 serialPort1.PortName = _appCfg.SerialPortPara.SerialPort;
-                serialPort1.Parity = (Parity) Enum.Parse(typeof(Parity), _appCfg.SerialPortPara.SerialParity);
-                serialPort1.StopBits = (StopBits) Enum.Parse(typeof(StopBits), _appCfg.SerialPortPara.SerialStopBits);
+                serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), _appCfg.SerialPortPara.SerialParity);
+                serialPort1.StopBits = (StopBits)Enum.Parse(typeof(StopBits), _appCfg.SerialPortPara.SerialStopBits);
                 serialPort1.DataBits = int.Parse(_appCfg.SerialPortPara.SerialDataBits);
-
+                CloseSerialPort();
                 serialPort1.Open();
             }
             catch (Exception ex) {
@@ -73,16 +75,14 @@ namespace multimeter {
             #endregion
 
             _multiMeter = new MultiMeterInfo(_appCfg.SerialPortPara);
+
+            _serialPortStr = SerialPortOpt.ResolveCmd(_multiMeter).Split('\n');
             SendMsg();
             _temp = new List<double[]>();
             try {
-                StreamWriter tempWrite = new StreamWriter(_latestDataFile);
-                tempWrite.WriteLine("step," + string.Join(",", _device.Channels));
-                tempWrite.Close();
-
-                StreamWriter write = new StreamWriter(_latestOriginFile);
-                write.WriteLine("step," + _multiMeter.TotalChn);
-                write.Close();
+                _originDataWriter.WriteLine("step," + string.Join(",", _device.Channels));
+                _tempDataWriter.WriteLine("step," + _multiMeter.TotalChn);
+                
                 StatusTextBox_AddText(PromptType.INFO,$@"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存成果!
 测试仪原始数据保存在 {_latestOriginFile}
 温度历史数据保存在 {_latestDataFile}");
@@ -91,16 +91,20 @@ namespace multimeter {
                 StatusTextBox_AddText( PromptType.WARNING,$"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");
                 Log.Error(ex);
             }
+        }
 
+        private void CloseSerialPort() {
+            if (serialPort1.IsOpen) {
+                serialPort1.Close();
+            }
+            do {
+                Thread.Sleep(100);
+            } while (serialPort1.IsOpen);
         }
 
         public void SendMsg() {
             #region
-
-            string st3 = SerialPortOpt.ResolveCmd(_multiMeter);
-
-            string[] str = st3.Split('\n');
-            foreach (string i in str) {
+            foreach (string i in _serialPortStr) {
                 serialPort1.WriteLine(i);
                 Thread.Sleep(100);
             }
@@ -109,7 +113,7 @@ namespace multimeter {
 
             //MessageBox.Show(TotalCHN);
             _enableScan = true;
-            Thread thread = new Thread(() => //新开线程，执行接收数据操作
+            _readDataThread = new Thread(() => //新开线程，执行接收数据操作
             {
                 while (_enableScan) //如果标识为true
                 {
@@ -118,7 +122,7 @@ namespace multimeter {
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(10);
                         if (serialPort1.BytesToRead != 0) _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
-                        Thread.Sleep(1500);
+                        Thread.Sleep(_appCfg.SysPara.ScanInterval.Value);
                         //Thread.Sleep(_appCfg.SysPara.ScanInterval.Value * _multiMeter.TotalNum);
                     }
                     catch (Exception ex) {
@@ -126,23 +130,22 @@ namespace multimeter {
                     }
                 }
             });
-            thread.Start(); //启动线程
-            thread.IsBackground = true;
+            _readDataThread.Start(); //启动线程
+            _readDataThread.IsBackground = true;
 
             #endregion
         }
 
         private void btn_stop() {
-            serialPort1.Close();
             _temp.Clear();
             _enableScan = false;
+            _originDataWriter.Close();
+            _tempDataWriter.Close();
+            CloseSerialPort();
         }
 
         private void SetupTest_FormClosing(object sender, FormClosingEventArgs e) {
-            serialPort1.Close();
-            while (serialPort1.IsOpen) {
-            }
-
+            CloseSerialPort();
             Application.Exit();
         }
 
@@ -231,12 +234,9 @@ namespace multimeter {
 
                 
                 try {
-                    StreamWriter tempWrite = new StreamWriter(_latestDataFile, true);
-                    tempWrite.WriteLine(temp);
-                    tempWrite.Close();
-                    StreamWriter write = new StreamWriter(_latestOriginFile, true);
-                    write.WriteLine(_count.ToString() + ',' + str);
-                    write.Close();
+                    _originDataWriter.WriteLine(temp);
+                    
+                    _tempDataWriter.WriteLine(_count.ToString() + ',' + str);
                 }
                 catch (Exception ex) {
                     StatusTextBox_AddText(PromptType.WARNING, $"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");

@@ -110,7 +110,7 @@ namespace multimeter {
         private void FileToBoxItm(out TestDevice device, string settingFilePath) {
             DeviceInit(out device, settingFilePath, TestMethod.ITM);
             ForceTextBox3.Text = device.Force;
-            ItmToBox(device.Itm, FilmThickness1);
+            ItmToBox(device.Itm, FilmThickness1, TimAreaTextBox3);
             var heatMeterPositionBoxes1 = new List<TextBox>
                 {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3, LengthTextBox3_4};
             var heatMeterPositionBoxes2 = new List<TextBox>
@@ -146,7 +146,7 @@ namespace multimeter {
         private void FileToBoxItms(out TestDevice device, string settingFilePath) {
             DeviceInit(out device, settingFilePath, TestMethod.ITMS);
             ForceTextBox4.Text = device.Force;
-            ItmToBox(device.Itm, FilmThickness2);
+            ItmToBox(device.Itm, FilmThickness2, TimAreaTextBox4);
             var heatMeterPositionBoxes1 = new List<TextBox>
                 {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3, LengthTextBox4_4};
             var heatMeterPositionBoxes2 = new List<TextBox>
@@ -251,8 +251,9 @@ namespace multimeter {
             areaBox.Text = sample.Area;
         }
 
-        public void ItmToBox(Itm itm, TextBox thicknessBox) {
+        public void ItmToBox(Itm itm, TextBox thicknessBox, TextBox areaBox) {
             thicknessBox.Text = itm.Thickness;
+            areaBox.Text = itm.Area;
         }
     }
 }
