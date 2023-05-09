@@ -1,13 +1,13 @@
-﻿using System;
+﻿using DataAccess;
+using log4net;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using DataAccess;
-using log4net;
-using Model;
 
 namespace multimeter {
     public partial class SetupTest : Form {
@@ -56,7 +56,7 @@ namespace multimeter {
         private void ModifyParameter_Click(object sender, EventArgs e) {
             if (_saveParameter) {
                 if (!apply_btm()) return;
-                StatusTextBox_AddText(PromptType.INFO,$"[{DateTime.Now:MM-dd-hh:mm:ss}]修改参数成功!");
+                StatusTextBox_AddText(PromptType.INFO, $"[{DateTime.Now:MM-dd-hh:mm:ss}]修改参数成功!");
                 AllTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
                 TestChooseFormShow_Enable(true);
@@ -72,8 +72,7 @@ namespace multimeter {
                 ModifyParameterLabel.Text = @"确定参数";
             }
             HideChart_Click(sender, e);
-            switch (_method)
-            {
+            switch (_method) {
                 case TestMethod.KAPPA:
                     TestChoosiest1_Click(sender, e);
                     break;
@@ -103,7 +102,7 @@ namespace multimeter {
                 SerialPort_Enable(true);
                 AdvancedSetting_Enable(true);
                 ModifyParameter_Enable(true, true);
-                StatusTextBox_AddText(PromptType.INFO,$"[{DateTime.Now:MM-dd-hh:mm:ss}]测试结束!");
+                StatusTextBox_AddText(PromptType.INFO, $"[{DateTime.Now:MM-dd-hh:mm:ss}]测试结束!");
                 TestRunLabel.Text = @"  运行  ";
                 SerialPort_Timer.Enabled = false;
                 ChartShow_Timer.Enabled = false;
@@ -124,7 +123,7 @@ namespace multimeter {
                 SerialPort_Enable(false);
                 AdvancedSetting_Enable(false);
                 ModifyParameter_Enable(false, false);
-                StatusTextBox_AddText(PromptType.INFO,$"[{DateTime.Now:MM-dd-hh:mm:ss}]测试开始!");
+                StatusTextBox_AddText(PromptType.INFO, $"[{DateTime.Now:MM-dd-hh:mm:ss}]测试开始!");
                 TestRunLabel.Text = @"  停止  ";
                 Monitor_Click(sender, e);
                 SerialPort_Timer.Enabled = true;
@@ -138,9 +137,35 @@ namespace multimeter {
             TextGroupbox2.Size = new Size(0, 0);
             TextGroupbox3.Size = new Size(0, 0);
             TextGroupbox4.Size = new Size(0, 0);
-            TestChartGroupBox.Size = new Size(1250, 855);
+            SetChartGroupSize();
         }
 
+        private void SetChartGroupSize() {
+            //var scaleFactor = Math.Min(this.Width * 0.98 / 1250, (this.Height - MenuGroupBox.Height) * 0.98 / 855);
+            //MessageBox.Show($"Width:{Width} | Height:{Height}");
+            TestChartGroupBox.Size = new Size(1250, 855);
+
+            //ScaleControls(TestChartGroupBox, scaleFactor);
+        }
+
+        private void ScaleControls(Control control, double scaleFactor) {
+            // 缩放控件的大小和位置
+            control.Width = (int)Math.Round(control.Width * scaleFactor);
+            control.Height = (int)Math.Round(control.Height * scaleFactor);
+            control.Left = (int)Math.Round(control.Left * scaleFactor);
+            control.Top = (int)Math.Round(control.Top * scaleFactor);
+            // 如果是 Label 控件，则同时缩放字体大小
+            if (control is Label) {
+                Label label = (Label)control;
+                label.Font = new Font(label.Font.FontFamily, (float)(label.Font.Size * scaleFactor));
+            }
+            // 缩放控件中的所有子控件
+            foreach (Control childControl in control.Controls) {
+                ScaleControls(childControl, scaleFactor);
+            }
+
+
+        }
         private void SerialPort_Click(object sender, EventArgs e) {
             skinGroupBox1.BringToFront();
             skinGroupBox1.Size = new Size(253, 201);
@@ -161,16 +186,16 @@ namespace multimeter {
                 return;
             }
 
-//            try
-//            {
-//                _appCfg.SysPara.ScanInterval.Value = int.Parse(edit_scan_interval.Text);
-//            }
-//            catch (Exception exception)
-//            {
-//                MessageBox.Show(@"错误的采集频率" + @"
-//" + exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//                return;
-//            }
+            //            try
+            //            {
+            //                _appCfg.SysPara.ScanInterval.Value = int.Parse(edit_scan_interval.Text);
+            //            }
+            //            catch (Exception exception)
+            //            {
+            //                MessageBox.Show(@"错误的采集频率" + @"
+            //" + exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //                return;
+            //            }
             IniReadAndWrite.WriteBasicPara(_appCfg.SerialPortPara, IniReadAndWrite.IniFilePath);
             skinGroupBox1.Size = new Size(0, 0);
         }
@@ -181,19 +206,17 @@ namespace multimeter {
         }
 
         private void HelpButton_Click(object sender, EventArgs e) {
-            try
-            {
+            try {
                 Process.Start(@"doc\help.pdf");
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
 
                 MessageBox.Show(@"无法正确的打开帮助文档，帮助文档可能不存在。");
 #if DEBUG
                 MessageBox.Show(ex.Message);
 #endif
             }
-            
+
         }
 
         //private void TestResultChart_FormClosing(object sender, EventArgs e) {
@@ -205,7 +228,7 @@ namespace multimeter {
         //    CurrentTestResult_Click(this, e);
         //}
         private void SetupTest_Load(object sender, EventArgs e) {
-            
+
             IniReadAndWrite.CreateDefaultIni();
             #region //不同设置窗口默认显示
 
@@ -337,6 +360,6 @@ namespace multimeter {
 
         #endregion
 
-       
+
     }
 }

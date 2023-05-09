@@ -30,27 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupTest));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series49 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series50 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series51 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series52 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series53 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series54 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series55 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series56 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series57 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series58 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series59 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series60 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series61 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series62 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series63 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series64 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.ChannelLabel1_1 = new System.Windows.Forms.Label();
             this.ChannelLabel1_2 = new System.Windows.Forms.Label();
             this.ChannelLabel1_3 = new System.Windows.Forms.Label();
@@ -909,7 +909,7 @@
             this.TextGroupbox1.Controls.Add(this.LengthTextBox1_7);
             this.TextGroupbox1.Controls.Add(this.LengthTextBox1_9);
             this.TextGroupbox1.Controls.Add(this.LengthTextBox1_8);
-            this.TextGroupbox1.Font = new System.Drawing.Font("宋体", 12F);
+            this.TextGroupbox1.Font = new System.Drawing.Font("SimSun", 12F);
             this.TextGroupbox1.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox1.Name = "TextGroupbox1";
             this.TextGroupbox1.Size = new System.Drawing.Size(0, 0);
@@ -1033,7 +1033,7 @@
             // 
             this.Test1_remark.BackColor = System.Drawing.SystemColors.Control;
             this.Test1_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test1_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test1_remark.Font = new System.Drawing.Font("Microsoft YaHei", 17F);
             this.Test1_remark.ForeColor = System.Drawing.Color.Red;
             this.Test1_remark.Location = new System.Drawing.Point(2, 627);
             this.Test1_remark.Name = "Test1_remark";
@@ -1044,7 +1044,7 @@
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.Location = new System.Drawing.Point(7, 582);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(110, 30);
@@ -1074,7 +1074,7 @@
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label75.Location = new System.Drawing.Point(6, 306);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(110, 30);
@@ -1084,7 +1084,7 @@
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label90.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label90.Location = new System.Drawing.Point(2, 36);
             this.label90.Name = "label90";
             this.label90.Size = new System.Drawing.Size(98, 21);
@@ -1094,7 +1094,7 @@
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label91.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label91.Location = new System.Drawing.Point(2, 69);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(147, 21);
@@ -1125,7 +1125,7 @@
             // label89
             // 
             this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label89.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label89.Location = new System.Drawing.Point(7, 548);
             this.label89.Name = "label89";
             this.label89.Size = new System.Drawing.Size(110, 30);
@@ -1146,7 +1146,7 @@
             // label88
             // 
             this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label88.Location = new System.Drawing.Point(6, 514);
             this.label88.Name = "label88";
             this.label88.Size = new System.Drawing.Size(110, 30);
@@ -1167,7 +1167,7 @@
             // label87
             // 
             this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label87.Location = new System.Drawing.Point(6, 475);
             this.label87.Name = "label87";
             this.label87.Size = new System.Drawing.Size(110, 30);
@@ -1188,7 +1188,7 @@
             // label86
             // 
             this.label86.AutoSize = true;
-            this.label86.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label86.ForeColor = System.Drawing.Color.Red;
             this.label86.Location = new System.Drawing.Point(7, 430);
             this.label86.Name = "label86";
@@ -1209,7 +1209,7 @@
             // label84
             // 
             this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label84.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label84.ForeColor = System.Drawing.Color.Red;
             this.label84.Location = new System.Drawing.Point(7, 397);
             this.label84.Name = "label84";
@@ -1230,7 +1230,7 @@
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label81.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label81.ForeColor = System.Drawing.Color.Red;
             this.label81.Location = new System.Drawing.Point(4, 368);
             this.label81.Name = "label81";
@@ -1251,7 +1251,7 @@
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label78.ForeColor = System.Drawing.Color.Red;
             this.label78.Location = new System.Drawing.Point(7, 338);
             this.label78.Name = "label78";
@@ -1272,7 +1272,7 @@
             // label72
             // 
             this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label72.Location = new System.Drawing.Point(7, 270);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(110, 30);
@@ -1292,7 +1292,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label71.Location = new System.Drawing.Point(6, 230);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(110, 30);
@@ -1312,7 +1312,7 @@
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label68.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label68.Location = new System.Drawing.Point(5, 176);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(85, 19);
@@ -1322,7 +1322,7 @@
             // label67
             // 
             this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label67.Location = new System.Drawing.Point(6, 198);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(110, 30);
@@ -1332,7 +1332,7 @@
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label62.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label62.ForeColor = System.Drawing.Color.Black;
             this.label62.Location = new System.Drawing.Point(391, 25);
             this.label62.Name = "label62";
@@ -1532,7 +1532,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.Location = new System.Drawing.Point(495, 755);
             this.label1.Name = "label1";
@@ -1830,7 +1830,7 @@
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_7);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_9);
             this.TextGroupbox2.Controls.Add(this.LengthTextBox2_8);
-            this.TextGroupbox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TextGroupbox2.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox2.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox2.Name = "TextGroupbox2";
             this.TextGroupbox2.Size = new System.Drawing.Size(0, 0);
@@ -2004,7 +2004,7 @@
             // 
             this.Test2_remark.BackColor = System.Drawing.SystemColors.Control;
             this.Test2_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test2_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test2_remark.Font = new System.Drawing.Font("Microsoft YaHei", 17F);
             this.Test2_remark.ForeColor = System.Drawing.Color.Red;
             this.Test2_remark.Location = new System.Drawing.Point(6, 701);
             this.Test2_remark.Name = "Test2_remark";
@@ -2015,7 +2015,7 @@
             // label161
             // 
             this.label161.AutoSize = true;
-            this.label161.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label161.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label161.Location = new System.Drawing.Point(1, 660);
             this.label161.Name = "label161";
             this.label161.Size = new System.Drawing.Size(110, 30);
@@ -2035,7 +2035,7 @@
             // label159
             // 
             this.label159.AutoSize = true;
-            this.label159.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label159.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label159.Location = new System.Drawing.Point(1, 630);
             this.label159.Name = "label159";
             this.label159.Size = new System.Drawing.Size(110, 30);
@@ -2065,7 +2065,7 @@
             // label157
             // 
             this.label157.AutoSize = true;
-            this.label157.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label157.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label157.Location = new System.Drawing.Point(4, 253);
             this.label157.Name = "label157";
             this.label157.Size = new System.Drawing.Size(110, 30);
@@ -2158,7 +2158,7 @@
             // label109
             // 
             this.label109.AutoSize = true;
-            this.label109.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label109.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label109.Location = new System.Drawing.Point(1, 602);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(110, 30);
@@ -2179,7 +2179,7 @@
             // label108
             // 
             this.label108.AutoSize = true;
-            this.label108.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label108.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label108.Location = new System.Drawing.Point(2, 570);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(110, 30);
@@ -2200,7 +2200,7 @@
             // label107
             // 
             this.label107.AutoSize = true;
-            this.label107.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label107.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label107.ForeColor = System.Drawing.Color.Red;
             this.label107.Location = new System.Drawing.Point(1, 542);
             this.label107.Name = "label107";
@@ -2222,7 +2222,7 @@
             // label106
             // 
             this.label106.AutoSize = true;
-            this.label106.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label106.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label106.ForeColor = System.Drawing.Color.Red;
             this.label106.Location = new System.Drawing.Point(1, 511);
             this.label106.Name = "label106";
@@ -2244,7 +2244,7 @@
             // label105
             // 
             this.label105.AutoSize = true;
-            this.label105.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label105.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label105.ForeColor = System.Drawing.Color.Red;
             this.label105.Location = new System.Drawing.Point(2, 481);
             this.label105.Name = "label105";
@@ -2265,7 +2265,7 @@
             // label104
             // 
             this.label104.AutoSize = true;
-            this.label104.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label104.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label104.ForeColor = System.Drawing.Color.Red;
             this.label104.Location = new System.Drawing.Point(2, 449);
             this.label104.Name = "label104";
@@ -2286,7 +2286,7 @@
             // label103
             // 
             this.label103.AutoSize = true;
-            this.label103.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label103.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label103.ForeColor = System.Drawing.Color.Red;
             this.label103.Location = new System.Drawing.Point(2, 375);
             this.label103.Name = "label103";
@@ -2307,7 +2307,7 @@
             // label102
             // 
             this.label102.AutoSize = true;
-            this.label102.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label102.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label102.ForeColor = System.Drawing.Color.Red;
             this.label102.Location = new System.Drawing.Point(2, 343);
             this.label102.Name = "label102";
@@ -2329,7 +2329,7 @@
             // label101
             // 
             this.label101.AutoSize = true;
-            this.label101.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label101.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label101.ForeColor = System.Drawing.Color.Red;
             this.label101.Location = new System.Drawing.Point(2, 309);
             this.label101.Name = "label101";
@@ -2350,7 +2350,7 @@
             // label100
             // 
             this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label100.ForeColor = System.Drawing.Color.Red;
             this.label100.Location = new System.Drawing.Point(2, 279);
             this.label100.Name = "label100";
@@ -2371,7 +2371,7 @@
             // label98
             // 
             this.label98.AutoSize = true;
-            this.label98.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label98.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label98.Location = new System.Drawing.Point(4, 222);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(110, 30);
@@ -2391,7 +2391,7 @@
             // label97
             // 
             this.label97.AutoSize = true;
-            this.label97.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label97.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label97.Location = new System.Drawing.Point(2, 188);
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(110, 30);
@@ -2411,7 +2411,7 @@
             // label95
             // 
             this.label95.AutoSize = true;
-            this.label95.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label95.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label95.Location = new System.Drawing.Point(9, 137);
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(85, 19);
@@ -2421,7 +2421,7 @@
             // label94
             // 
             this.label94.AutoSize = true;
-            this.label94.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label94.Location = new System.Drawing.Point(2, 154);
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(110, 30);
@@ -2431,7 +2431,7 @@
             // label93
             // 
             this.label93.AutoSize = true;
-            this.label93.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label93.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label93.ForeColor = System.Drawing.Color.Black;
             this.label93.Location = new System.Drawing.Point(374, 16);
             this.label93.Name = "label93";
@@ -2442,7 +2442,7 @@
             // SlTextBox2_2
             // 
             this.SlTextBox2_2.Enabled = false;
-            this.SlTextBox2_2.Font = new System.Drawing.Font("宋体", 12F);
+            this.SlTextBox2_2.Font = new System.Drawing.Font("SimSun", 12F);
             this.SlTextBox2_2.ForeColor = System.Drawing.Color.DarkGreen;
             this.SlTextBox2_2.Location = new System.Drawing.Point(584, 423);
             this.SlTextBox2_2.Name = "SlTextBox2_2";
@@ -2475,7 +2475,7 @@
             // SuTextBox2_1
             // 
             this.SuTextBox2_1.Enabled = false;
-            this.SuTextBox2_1.Font = new System.Drawing.Font("宋体", 12F);
+            this.SuTextBox2_1.Font = new System.Drawing.Font("SimSun", 12F);
             this.SuTextBox2_1.ForeColor = System.Drawing.Color.DarkGreen;
             this.SuTextBox2_1.Location = new System.Drawing.Point(584, 395);
             this.SuTextBox2_1.Name = "SuTextBox2_1";
@@ -2783,7 +2783,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label8.ForeColor = System.Drawing.Color.DarkGreen;
             this.label8.Location = new System.Drawing.Point(516, 797);
             this.label8.Name = "label8";
@@ -3259,7 +3259,7 @@
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_7);
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_6);
             this.TextGroupbox3.Controls.Add(this.LengthTextBox3_5);
-            this.TextGroupbox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TextGroupbox3.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextGroupbox3.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox3.Name = "TextGroupbox3";
@@ -3358,7 +3358,7 @@
             // 
             this.Test3_remark.BackColor = System.Drawing.SystemColors.Control;
             this.Test3_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test3_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test3_remark.Font = new System.Drawing.Font("Microsoft YaHei", 17F);
             this.Test3_remark.ForeColor = System.Drawing.Color.Red;
             this.Test3_remark.Location = new System.Drawing.Point(8, 610);
             this.Test3_remark.Name = "Test3_remark";
@@ -3379,7 +3379,7 @@
             // label166
             // 
             this.label166.AutoSize = true;
-            this.label166.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label166.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label166.Location = new System.Drawing.Point(2, 324);
             this.label166.Name = "label166";
             this.label166.Size = new System.Drawing.Size(110, 30);
@@ -3389,7 +3389,7 @@
             // label124
             // 
             this.label124.AutoSize = true;
-            this.label124.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label124.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label124.Location = new System.Drawing.Point(3, 31);
             this.label124.Name = "label124";
             this.label124.Size = new System.Drawing.Size(98, 21);
@@ -3399,7 +3399,7 @@
             // label126
             // 
             this.label126.AutoSize = true;
-            this.label126.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label126.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label126.Location = new System.Drawing.Point(3, 91);
             this.label126.Name = "label126";
             this.label126.Size = new System.Drawing.Size(168, 21);
@@ -3419,7 +3419,7 @@
             // label125
             // 
             this.label125.AutoSize = true;
-            this.label125.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label125.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label125.Location = new System.Drawing.Point(3, 62);
             this.label125.Name = "label125";
             this.label125.Size = new System.Drawing.Size(189, 21);
@@ -3449,7 +3449,7 @@
             // label123
             // 
             this.label123.AutoSize = true;
-            this.label123.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label123.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label123.Location = new System.Drawing.Point(6, 184);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(85, 19);
@@ -3469,7 +3469,7 @@
             // label122
             // 
             this.label122.AutoSize = true;
-            this.label122.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label122.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label122.Location = new System.Drawing.Point(3, 569);
             this.label122.Name = "label122";
             this.label122.Size = new System.Drawing.Size(110, 30);
@@ -3489,7 +3489,7 @@
             // label121
             // 
             this.label121.AutoSize = true;
-            this.label121.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label121.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label121.Location = new System.Drawing.Point(2, 530);
             this.label121.Name = "label121";
             this.label121.Size = new System.Drawing.Size(110, 30);
@@ -3509,7 +3509,7 @@
             // label120
             // 
             this.label120.AutoSize = true;
-            this.label120.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label120.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label120.Location = new System.Drawing.Point(2, 489);
             this.label120.Name = "label120";
             this.label120.Size = new System.Drawing.Size(110, 30);
@@ -3529,7 +3529,7 @@
             // label119
             // 
             this.label119.AutoSize = true;
-            this.label119.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label119.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label119.Location = new System.Drawing.Point(4, 451);
             this.label119.Name = "label119";
             this.label119.Size = new System.Drawing.Size(110, 30);
@@ -3549,7 +3549,7 @@
             // label117
             // 
             this.label117.AutoSize = true;
-            this.label117.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label117.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label117.Location = new System.Drawing.Point(2, 287);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(110, 30);
@@ -3569,7 +3569,7 @@
             // label116
             // 
             this.label116.AutoSize = true;
-            this.label116.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label116.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label116.Location = new System.Drawing.Point(3, 244);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(110, 30);
@@ -3579,7 +3579,7 @@
             // label115
             // 
             this.label115.AutoSize = true;
-            this.label115.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label115.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label115.Location = new System.Drawing.Point(3, 205);
             this.label115.Name = "label115";
             this.label115.Size = new System.Drawing.Size(110, 30);
@@ -3589,7 +3589,7 @@
             // label114
             // 
             this.label114.AutoSize = true;
-            this.label114.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label114.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label114.ForeColor = System.Drawing.Color.Black;
             this.label114.Location = new System.Drawing.Point(337, 22);
             this.label114.Name = "label114";
@@ -3685,7 +3685,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
             this.label4.Location = new System.Drawing.Point(259, 389);
             this.label4.Name = "label4";
@@ -3789,7 +3789,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label36.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label36.ForeColor = System.Drawing.Color.DarkGreen;
             this.label36.Location = new System.Drawing.Point(509, 754);
             this.label36.Name = "label36";
@@ -4160,7 +4160,7 @@
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_7);
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_9);
             this.TextGroupbox4.Controls.Add(this.LengthTextBox4_8);
-            this.TextGroupbox4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TextGroupbox4.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TextGroupbox4.Location = new System.Drawing.Point(6, 90);
             this.TextGroupbox4.Name = "TextGroupbox4";
             this.TextGroupbox4.Size = new System.Drawing.Size(0, 0);
@@ -4354,7 +4354,7 @@
             // 
             this.Test4_remark.BackColor = System.Drawing.SystemColors.Control;
             this.Test4_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Test4_remark.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.Test4_remark.Font = new System.Drawing.Font("Microsoft YaHei", 17F);
             this.Test4_remark.ForeColor = System.Drawing.Color.Red;
             this.Test4_remark.Location = new System.Drawing.Point(12, 699);
             this.Test4_remark.Name = "Test4_remark";
@@ -4365,7 +4365,7 @@
             // label173
             // 
             this.label173.AutoSize = true;
-            this.label173.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label173.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label173.Location = new System.Drawing.Point(8, 653);
             this.label173.Name = "label173";
             this.label173.Size = new System.Drawing.Size(110, 30);
@@ -4385,7 +4385,7 @@
             // label171
             // 
             this.label171.AutoSize = true;
-            this.label171.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label171.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label171.Location = new System.Drawing.Point(8, 624);
             this.label171.Name = "label171";
             this.label171.Size = new System.Drawing.Size(110, 30);
@@ -4415,7 +4415,7 @@
             // label169
             // 
             this.label169.AutoSize = true;
-            this.label169.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label169.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label169.Location = new System.Drawing.Point(3, 242);
             this.label169.Name = "label169";
             this.label169.Size = new System.Drawing.Size(110, 30);
@@ -4425,7 +4425,7 @@
             // label143
             // 
             this.label143.AutoSize = true;
-            this.label143.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label143.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label143.Location = new System.Drawing.Point(3, 15);
             this.label143.Name = "label143";
             this.label143.Size = new System.Drawing.Size(98, 21);
@@ -4435,7 +4435,7 @@
             // label147
             // 
             this.label147.AutoSize = true;
-            this.label147.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label147.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label147.Location = new System.Drawing.Point(3, 65);
             this.label147.Name = "label147";
             this.label147.Size = new System.Drawing.Size(168, 21);
@@ -4455,7 +4455,7 @@
             // label146
             // 
             this.label146.AutoSize = true;
-            this.label146.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label146.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label146.Location = new System.Drawing.Point(3, 41);
             this.label146.Name = "label146";
             this.label146.Size = new System.Drawing.Size(189, 21);
@@ -4476,7 +4476,7 @@
             // label145
             // 
             this.label145.AutoSize = true;
-            this.label145.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label145.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label145.Location = new System.Drawing.Point(3, 111);
             this.label145.Name = "label145";
             this.label145.Size = new System.Drawing.Size(158, 21);
@@ -4497,7 +4497,7 @@
             // label144
             // 
             this.label144.AutoSize = true;
-            this.label144.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label144.Font = new System.Drawing.Font("SimSun", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label144.Location = new System.Drawing.Point(3, 86);
             this.label144.Name = "label144";
             this.label144.Size = new System.Drawing.Size(158, 21);
@@ -4529,7 +4529,7 @@
             // label142
             // 
             this.label142.AutoSize = true;
-            this.label142.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label142.Location = new System.Drawing.Point(6, 140);
             this.label142.Name = "label142";
             this.label142.Size = new System.Drawing.Size(85, 19);
@@ -4550,7 +4550,7 @@
             // label141
             // 
             this.label141.AutoSize = true;
-            this.label141.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label141.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label141.Location = new System.Drawing.Point(8, 595);
             this.label141.Name = "label141";
             this.label141.Size = new System.Drawing.Size(110, 30);
@@ -4571,7 +4571,7 @@
             // label140
             // 
             this.label140.AutoSize = true;
-            this.label140.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label140.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label140.Location = new System.Drawing.Point(7, 569);
             this.label140.Name = "label140";
             this.label140.Size = new System.Drawing.Size(110, 30);
@@ -4592,7 +4592,7 @@
             // label139
             // 
             this.label139.AutoSize = true;
-            this.label139.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label139.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label139.ForeColor = System.Drawing.Color.Red;
             this.label139.Location = new System.Drawing.Point(7, 540);
             this.label139.Name = "label139";
@@ -4613,7 +4613,7 @@
             // label138
             // 
             this.label138.AutoSize = true;
-            this.label138.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label138.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label138.ForeColor = System.Drawing.Color.Red;
             this.label138.Location = new System.Drawing.Point(8, 509);
             this.label138.Name = "label138";
@@ -4634,7 +4634,7 @@
             // label137
             // 
             this.label137.AutoSize = true;
-            this.label137.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label137.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label137.ForeColor = System.Drawing.Color.Red;
             this.label137.Location = new System.Drawing.Point(7, 482);
             this.label137.Name = "label137";
@@ -4655,7 +4655,7 @@
             // label136
             // 
             this.label136.AutoSize = true;
-            this.label136.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label136.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label136.ForeColor = System.Drawing.Color.Red;
             this.label136.Location = new System.Drawing.Point(7, 452);
             this.label136.Name = "label136";
@@ -4677,7 +4677,7 @@
             // label135
             // 
             this.label135.AutoSize = true;
-            this.label135.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label135.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label135.ForeColor = System.Drawing.Color.Red;
             this.label135.Location = new System.Drawing.Point(7, 359);
             this.label135.Name = "label135";
@@ -4698,7 +4698,7 @@
             // label134
             // 
             this.label134.AutoSize = true;
-            this.label134.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label134.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label134.ForeColor = System.Drawing.Color.Red;
             this.label134.Location = new System.Drawing.Point(3, 329);
             this.label134.Name = "label134";
@@ -4719,7 +4719,7 @@
             // label133
             // 
             this.label133.AutoSize = true;
-            this.label133.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label133.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label133.ForeColor = System.Drawing.Color.Red;
             this.label133.Location = new System.Drawing.Point(3, 304);
             this.label133.Name = "label133";
@@ -4740,7 +4740,7 @@
             // label132
             // 
             this.label132.AutoSize = true;
-            this.label132.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label132.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label132.ForeColor = System.Drawing.Color.Red;
             this.label132.Location = new System.Drawing.Point(2, 270);
             this.label132.Name = "label132";
@@ -4761,7 +4761,7 @@
             // label130
             // 
             this.label130.AutoSize = true;
-            this.label130.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label130.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label130.Location = new System.Drawing.Point(3, 213);
             this.label130.Name = "label130";
             this.label130.Size = new System.Drawing.Size(110, 30);
@@ -4781,7 +4781,7 @@
             // label129
             // 
             this.label129.AutoSize = true;
-            this.label129.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label129.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label129.Location = new System.Drawing.Point(2, 181);
             this.label129.Name = "label129";
             this.label129.Size = new System.Drawing.Size(110, 30);
@@ -4791,7 +4791,7 @@
             // label128
             // 
             this.label128.AutoSize = true;
-            this.label128.Font = new System.Drawing.Font("微软雅黑", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label128.Font = new System.Drawing.Font("Microsoft YaHei", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label128.Location = new System.Drawing.Point(2, 152);
             this.label128.Name = "label128";
             this.label128.Size = new System.Drawing.Size(110, 30);
@@ -4801,7 +4801,7 @@
             // label127
             // 
             this.label127.AutoSize = true;
-            this.label127.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label127.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label127.ForeColor = System.Drawing.Color.Black;
             this.label127.Location = new System.Drawing.Point(319, 16);
             this.label127.Name = "label127";
@@ -5020,7 +5020,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label11.ForeColor = System.Drawing.Color.DarkGreen;
             this.label11.Location = new System.Drawing.Point(258, 408);
             this.label11.Name = "label11";
@@ -5183,7 +5183,7 @@
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label64.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label64.ForeColor = System.Drawing.Color.DarkGreen;
             this.label64.Location = new System.Drawing.Point(480, 792);
             this.label64.Name = "label64";
@@ -5605,7 +5605,7 @@
             this.skinButton10.BackColor = System.Drawing.Color.Transparent;
             this.skinButton10.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinButton10.DownBack = null;
-            this.skinButton10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinButton10.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinButton10.Location = new System.Drawing.Point(386, -202);
             this.skinButton10.MouseBack = null;
             this.skinButton10.Name = "skinButton10";
@@ -5652,24 +5652,24 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "通道";
             this.Column1.Name = "Column1";
             this.Column1.Width = 80;
             // 
             // Column2
             // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column2.HeaderText = "系数1";
             this.Column2.Name = "Column2";
             this.Column2.Width = 80;
             // 
             // Column3
             // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column3.HeaderText = "系数2";
             this.Column3.Name = "Column3";
             this.Column3.Width = 80;
@@ -5689,7 +5689,7 @@
             this.skinLabel4.AutoSize = true;
             this.skinLabel4.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel4.BorderColor = System.Drawing.Color.White;
-            this.skinLabel4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel4.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel4.Location = new System.Drawing.Point(142, 65);
             this.skinLabel4.Name = "skinLabel4";
             this.skinLabel4.Size = new System.Drawing.Size(59, 20);
@@ -5701,7 +5701,7 @@
             this.skinLabel5.AutoSize = true;
             this.skinLabel5.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel5.BorderColor = System.Drawing.Color.White;
-            this.skinLabel5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel5.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel5.Location = new System.Drawing.Point(479, 67);
             this.skinLabel5.Name = "skinLabel5";
             this.skinLabel5.Size = new System.Drawing.Size(59, 20);
@@ -5729,7 +5729,7 @@
             this.skinGroupBox1.Controls.Add(this.skinLabel3);
             this.skinGroupBox1.Controls.Add(this.skinLabel9);
             this.skinGroupBox1.Controls.Add(this.skinLabel8);
-            this.skinGroupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinGroupBox1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinGroupBox1.ForeColor = System.Drawing.Color.Black;
             this.skinGroupBox1.Location = new System.Drawing.Point(480, 85);
             this.skinGroupBox1.Name = "skinGroupBox1";
@@ -5744,7 +5744,7 @@
             // 
             // SerialPortEnsure
             // 
-            this.SerialPortEnsure.Font = new System.Drawing.Font("微软雅黑", 11F);
+            this.SerialPortEnsure.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
             this.SerialPortEnsure.Location = new System.Drawing.Point(151, 162);
             this.SerialPortEnsure.Name = "SerialPortEnsure";
             this.SerialPortEnsure.Size = new System.Drawing.Size(90, 30);
@@ -5765,7 +5765,7 @@
             this.skinLabel10.AutoSize = true;
             this.skinLabel10.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel10.BorderColor = System.Drawing.Color.White;
-            this.skinLabel10.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel10.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel10.Location = new System.Drawing.Point(27, 40);
             this.skinLabel10.Name = "skinLabel10";
             this.skinLabel10.Size = new System.Drawing.Size(51, 20);
@@ -5800,7 +5800,7 @@
             this.skinLabel6.AutoSize = true;
             this.skinLabel6.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel6.BorderColor = System.Drawing.Color.White;
-            this.skinLabel6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel6.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel6.Location = new System.Drawing.Point(27, 80);
             this.skinLabel6.Name = "skinLabel6";
             this.skinLabel6.Size = new System.Drawing.Size(65, 20);
@@ -5826,7 +5826,7 @@
             this.skinLabel1.AutoSize = true;
             this.skinLabel1.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel1.BorderColor = System.Drawing.Color.White;
-            this.skinLabel1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel1.Location = new System.Drawing.Point(271, 35);
             this.skinLabel1.Name = "skinLabel1";
             this.skinLabel1.Size = new System.Drawing.Size(65, 20);
@@ -5891,7 +5891,7 @@
             this.skinLabel7.AutoSize = true;
             this.skinLabel7.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel7.BorderColor = System.Drawing.Color.White;
-            this.skinLabel7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel7.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel7.Location = new System.Drawing.Point(275, 152);
             this.skinLabel7.Name = "skinLabel7";
             this.skinLabel7.Size = new System.Drawing.Size(79, 20);
@@ -5903,7 +5903,7 @@
             this.skinLabel2.AutoSize = true;
             this.skinLabel2.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel2.BorderColor = System.Drawing.Color.White;
-            this.skinLabel2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel2.Location = new System.Drawing.Point(271, 82);
             this.skinLabel2.Name = "skinLabel2";
             this.skinLabel2.Size = new System.Drawing.Size(65, 20);
@@ -5915,7 +5915,7 @@
             this.skinLabel11.AutoSize = true;
             this.skinLabel11.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel11.BorderColor = System.Drawing.Color.White;
-            this.skinLabel11.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel11.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel11.Location = new System.Drawing.Point(125, 122);
             this.skinLabel11.Name = "skinLabel11";
             this.skinLabel11.Size = new System.Drawing.Size(107, 20);
@@ -5927,7 +5927,7 @@
             this.skinLabel3.AutoSize = true;
             this.skinLabel3.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel3.BorderColor = System.Drawing.Color.White;
-            this.skinLabel3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel3.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel3.Location = new System.Drawing.Point(274, 121);
             this.skinLabel3.Name = "skinLabel3";
             this.skinLabel3.Size = new System.Drawing.Size(51, 20);
@@ -5939,7 +5939,7 @@
             this.skinLabel9.AutoSize = true;
             this.skinLabel9.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel9.BorderColor = System.Drawing.Color.White;
-            this.skinLabel9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel9.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel9.Location = new System.Drawing.Point(27, 122);
             this.skinLabel9.Name = "skinLabel9";
             this.skinLabel9.Size = new System.Drawing.Size(37, 20);
@@ -5951,7 +5951,7 @@
             this.skinLabel8.AutoSize = true;
             this.skinLabel8.BackColor = System.Drawing.Color.Transparent;
             this.skinLabel8.BorderColor = System.Drawing.Color.White;
-            this.skinLabel8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinLabel8.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinLabel8.Location = new System.Drawing.Point(425, 152);
             this.skinLabel8.Name = "skinLabel8";
             this.skinLabel8.Size = new System.Drawing.Size(37, 20);
@@ -5988,7 +5988,7 @@
             // label92
             // 
             this.label92.AutoSize = true;
-            this.label92.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label92.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label92.Location = new System.Drawing.Point(63, 17);
             this.label92.Name = "label92";
             this.label92.Size = new System.Drawing.Size(42, 20);
@@ -6004,7 +6004,7 @@
             this.testchoose1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.testchoose1.FlatAppearance.BorderSize = 0;
             this.testchoose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testchoose1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose1.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.testchoose1.ForeColor = System.Drawing.Color.Black;
             this.testchoose1.Location = new System.Drawing.Point(21, 75);
             this.testchoose1.Name = "testchoose1";
@@ -6020,7 +6020,7 @@
             // label96
             // 
             this.label96.AutoSize = true;
-            this.label96.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label96.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label96.Location = new System.Drawing.Point(20, 52);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(135, 20);
@@ -6044,7 +6044,7 @@
             // label148
             // 
             this.label148.AutoSize = true;
-            this.label148.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label148.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label148.Location = new System.Drawing.Point(49, 72);
             this.label148.Name = "label148";
             this.label148.Size = new System.Drawing.Size(116, 20);
@@ -6054,7 +6054,7 @@
             // label149
             // 
             this.label149.AutoSize = true;
-            this.label149.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label149.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label149.Location = new System.Drawing.Point(77, 17);
             this.label149.Name = "label149";
             this.label149.Size = new System.Drawing.Size(42, 20);
@@ -6064,7 +6064,7 @@
             // label150
             // 
             this.label150.AutoSize = true;
-            this.label150.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label150.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label150.Location = new System.Drawing.Point(19, 52);
             this.label150.Name = "label150";
             this.label150.Size = new System.Drawing.Size(156, 20);
@@ -6080,7 +6080,7 @@
             this.testchoose4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.testchoose4.FlatAppearance.BorderSize = 0;
             this.testchoose4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testchoose4.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose4.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.testchoose4.ForeColor = System.Drawing.Color.Black;
             this.testchoose4.Location = new System.Drawing.Point(23, 107);
             this.testchoose4.Name = "testchoose4";
@@ -6095,7 +6095,7 @@
             // SoftwareNameLabel
             // 
             this.SoftwareNameLabel.AutoSize = true;
-            this.SoftwareNameLabel.Font = new System.Drawing.Font("微软雅黑", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SoftwareNameLabel.Font = new System.Drawing.Font("Microsoft YaHei", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SoftwareNameLabel.Location = new System.Drawing.Point(51, 43);
             this.SoftwareNameLabel.Name = "SoftwareNameLabel";
             this.SoftwareNameLabel.Size = new System.Drawing.Size(844, 83);
@@ -6105,7 +6105,7 @@
             // label151
             // 
             this.label151.AutoSize = true;
-            this.label151.Font = new System.Drawing.Font("微软雅黑", 16F);
+            this.label151.Font = new System.Drawing.Font("Microsoft YaHei", 16F);
             this.label151.Location = new System.Drawing.Point(392, 179);
             this.label151.Name = "label151";
             this.label151.Size = new System.Drawing.Size(167, 30);
@@ -6129,7 +6129,7 @@
             // label152
             // 
             this.label152.AutoSize = true;
-            this.label152.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label152.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label152.ForeColor = System.Drawing.Color.Green;
             this.label152.Location = new System.Drawing.Point(51, 72);
             this.label152.Name = "label152";
@@ -6140,7 +6140,7 @@
             // label153
             // 
             this.label153.AutoSize = true;
-            this.label153.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label153.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label153.ForeColor = System.Drawing.Color.Green;
             this.label153.Location = new System.Drawing.Point(86, 17);
             this.label153.Name = "label153";
@@ -6151,7 +6151,7 @@
             // label154
             // 
             this.label154.AutoSize = true;
-            this.label154.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label154.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label154.ForeColor = System.Drawing.Color.Green;
             this.label154.Location = new System.Drawing.Point(33, 52);
             this.label154.Name = "label154";
@@ -6168,7 +6168,7 @@
             this.testchoose3.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.testchoose3.FlatAppearance.BorderSize = 0;
             this.testchoose3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testchoose3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose3.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.testchoose3.ForeColor = System.Drawing.Color.Black;
             this.testchoose3.Location = new System.Drawing.Point(37, 122);
             this.testchoose3.Name = "testchoose3";
@@ -6196,7 +6196,7 @@
             // label155
             // 
             this.label155.AutoSize = true;
-            this.label155.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label155.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label155.Location = new System.Drawing.Point(90, 17);
             this.label155.Name = "label155";
             this.label155.Size = new System.Drawing.Size(42, 20);
@@ -6206,7 +6206,7 @@
             // label156
             // 
             this.label156.AutoSize = true;
-            this.label156.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label156.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label156.Location = new System.Drawing.Point(16, 52);
             this.label156.Name = "label156";
             this.label156.Size = new System.Drawing.Size(188, 20);
@@ -6222,7 +6222,7 @@
             this.testchoose2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.testchoose2.FlatAppearance.BorderSize = 0;
             this.testchoose2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testchoose2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.testchoose2.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.testchoose2.ForeColor = System.Drawing.Color.Black;
             this.testchoose2.Location = new System.Drawing.Point(36, 122);
             this.testchoose2.Name = "testchoose2";
@@ -6283,7 +6283,7 @@
             this.checkBox16.AutoSize = true;
             this.checkBox16.Checked = true;
             this.checkBox16.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox16.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox16.Location = new System.Drawing.Point(1056, 67);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(56, 25);
@@ -6297,7 +6297,7 @@
             this.checkBox15.AutoSize = true;
             this.checkBox15.Checked = true;
             this.checkBox15.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox15.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox15.Location = new System.Drawing.Point(991, 67);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(56, 25);
@@ -6311,7 +6311,7 @@
             this.checkBox14.AutoSize = true;
             this.checkBox14.Checked = true;
             this.checkBox14.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox14.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox14.Location = new System.Drawing.Point(926, 67);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(56, 25);
@@ -6323,7 +6323,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label55.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.label55.Location = new System.Drawing.Point(1175, 67);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(65, 20);
@@ -6339,7 +6339,7 @@
             this.HideChart.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.HideChart.FlatAppearance.BorderSize = 0;
             this.HideChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HideChart.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.HideChart.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HideChart.Location = new System.Drawing.Point(1186, 25);
             this.HideChart.Name = "HideChart";
             this.HideChart.Size = new System.Drawing.Size(40, 40);
@@ -6351,7 +6351,7 @@
             // YAxis_checkBox
             // 
             this.YAxis_checkBox.AutoSize = true;
-            this.YAxis_checkBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.YAxis_checkBox.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.YAxis_checkBox.ForeColor = System.Drawing.Color.Red;
             this.YAxis_checkBox.Location = new System.Drawing.Point(247, 814);
             this.YAxis_checkBox.Name = "YAxis_checkBox";
@@ -6366,7 +6366,7 @@
             this.XAxis_checkBox.AutoSize = true;
             this.XAxis_checkBox.Checked = true;
             this.XAxis_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.XAxis_checkBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.XAxis_checkBox.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.XAxis_checkBox.ForeColor = System.Drawing.Color.Red;
             this.XAxis_checkBox.Location = new System.Drawing.Point(96, 814);
             this.XAxis_checkBox.Name = "XAxis_checkBox";
@@ -6381,7 +6381,7 @@
             this.checkBox13.AutoSize = true;
             this.checkBox13.Checked = true;
             this.checkBox13.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox13.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox13.Location = new System.Drawing.Point(861, 67);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(56, 25);
@@ -6395,7 +6395,7 @@
             this.checkBox12.AutoSize = true;
             this.checkBox12.Checked = true;
             this.checkBox12.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox12.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox12.Location = new System.Drawing.Point(796, 67);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(56, 25);
@@ -6409,7 +6409,7 @@
             this.checkBox11.AutoSize = true;
             this.checkBox11.Checked = true;
             this.checkBox11.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox11.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox11.Location = new System.Drawing.Point(731, 67);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(56, 25);
@@ -6423,7 +6423,7 @@
             this.checkBox10.AutoSize = true;
             this.checkBox10.Checked = true;
             this.checkBox10.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox10.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox10.Location = new System.Drawing.Point(666, 67);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(56, 25);
@@ -6437,7 +6437,7 @@
             this.checkBox9.AutoSize = true;
             this.checkBox9.Checked = true;
             this.checkBox9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox9.Location = new System.Drawing.Point(601, 67);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(56, 25);
@@ -6451,7 +6451,7 @@
             this.checkBox8.AutoSize = true;
             this.checkBox8.Checked = true;
             this.checkBox8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox8.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox8.Location = new System.Drawing.Point(536, 67);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(56, 25);
@@ -6465,7 +6465,7 @@
             this.checkBox7.AutoSize = true;
             this.checkBox7.Checked = true;
             this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox7.Location = new System.Drawing.Point(471, 67);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(56, 25);
@@ -6479,7 +6479,7 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.Checked = true;
             this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox6.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox6.Location = new System.Drawing.Point(406, 67);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(56, 25);
@@ -6493,7 +6493,7 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.Checked = true;
             this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox5.Location = new System.Drawing.Point(341, 67);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(56, 25);
@@ -6507,7 +6507,7 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Checked = true;
             this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox4.Location = new System.Drawing.Point(274, 67);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(56, 25);
@@ -6521,7 +6521,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox3.Location = new System.Drawing.Point(211, 67);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(56, 25);
@@ -6535,7 +6535,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox2.Location = new System.Drawing.Point(146, 67);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(56, 25);
@@ -6549,7 +6549,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox1.Location = new System.Drawing.Point(81, 67);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(56, 25);
@@ -6561,7 +6561,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label53.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label53.ForeColor = System.Drawing.Color.Black;
             this.label53.Location = new System.Drawing.Point(578, 26);
             this.label53.Name = "label53";
@@ -6574,153 +6574,153 @@
             this.chart1.BackColor = System.Drawing.SystemColors.Control;
             this.chart1.BorderlineColor = System.Drawing.SystemColors.Control;
             this.chart1.BorderlineWidth = 0;
-            chartArea4.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea4.AxisX.InterlacedColor = System.Drawing.Color.White;
-            chartArea4.AxisX.IsLabelAutoFit = false;
-            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisX.LabelStyle.Interval = 2D;
-            chartArea4.AxisX.LabelStyle.IntervalOffset = 0D;
-            chartArea4.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisX.MajorGrid.Enabled = false;
-            chartArea4.AxisX.MajorGrid.Interval = 0D;
-            chartArea4.AxisX.MajorGrid.IntervalOffset = 0D;
-            chartArea4.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisX.MajorTickMark.Interval = 0D;
-            chartArea4.AxisX.MajorTickMark.IntervalOffset = 0D;
-            chartArea4.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea4.AxisX.MaximumAutoSize = 100F;
-            chartArea4.AxisX.ScaleBreakStyle.Enabled = true;
-            chartArea4.AxisX.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
-            chartArea4.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
-            chartArea4.AxisX.Title = "Real time";
-            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisY.MajorGrid.Interval = 0D;
-            chartArea4.AxisY.MajorGrid.IntervalOffset = 0D;
-            chartArea4.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisY.MajorTickMark.Interval = 0D;
-            chartArea4.AxisY.MajorTickMark.IntervalOffset = 0D;
-            chartArea4.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-            chartArea4.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea4.AxisY.Title = "Temperature(°C)";
-            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Alignment = System.Drawing.StringAlignment.Center;
-            legend4.BackColor = System.Drawing.SystemColors.Control;
-            legend4.BorderColor = System.Drawing.SystemColors.Control;
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend4.Enabled = false;
-            legend4.InterlacedRowsColor = System.Drawing.Color.White;
-            legend4.Name = "Legend1";
-            legend4.TitleBackColor = System.Drawing.SystemColors.Control;
-            this.chart1.Legends.Add(legend4);
+            chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea2.AxisX.InterlacedColor = System.Drawing.Color.White;
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LabelStyle.Interval = 2D;
+            chartArea2.AxisX.LabelStyle.IntervalOffset = 0D;
+            chartArea2.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX.MajorGrid.Interval = 0D;
+            chartArea2.AxisX.MajorGrid.IntervalOffset = 0D;
+            chartArea2.AxisX.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisX.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisX.MajorTickMark.Interval = 0D;
+            chartArea2.AxisX.MajorTickMark.IntervalOffset = 0D;
+            chartArea2.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea2.AxisX.MaximumAutoSize = 100F;
+            chartArea2.AxisX.ScaleBreakStyle.Enabled = true;
+            chartArea2.AxisX.ScaleView.SizeType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Seconds;
+            chartArea2.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea2.AxisX.Title = "Real time";
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.MajorGrid.Interval = 0D;
+            chartArea2.AxisY.MajorGrid.IntervalOffset = 0D;
+            chartArea2.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisY.MajorTickMark.Interval = 0D;
+            chartArea2.AxisY.MajorTickMark.IntervalOffset = 0D;
+            chartArea2.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+            chartArea2.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea2.AxisY.Title = "Temperature(°C)";
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Alignment = System.Drawing.StringAlignment.Center;
+            legend2.BackColor = System.Drawing.SystemColors.Control;
+            legend2.BorderColor = System.Drawing.SystemColors.Control;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.Enabled = false;
+            legend2.InterlacedRowsColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            legend2.TitleBackColor = System.Drawing.SystemColors.Control;
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(-39, 79);
             this.chart1.Name = "chart1";
-            series49.ChartArea = "ChartArea1";
-            series49.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series49.Color = System.Drawing.Color.Red;
-            series49.IsVisibleInLegend = false;
-            series49.Legend = "Legend1";
-            series49.Name = "Series0";
-            series49.YValuesPerPoint = 2;
-            series50.ChartArea = "ChartArea1";
-            series50.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series50.Color = System.Drawing.SystemColors.Highlight;
-            series50.IsVisibleInLegend = false;
-            series50.Legend = "Legend1";
-            series50.Name = "Series1";
-            series51.ChartArea = "ChartArea1";
-            series51.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series51.IsVisibleInLegend = false;
-            series51.Legend = "Legend1";
-            series51.Name = "Series2";
-            series52.ChartArea = "ChartArea1";
-            series52.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series52.IsVisibleInLegend = false;
-            series52.Legend = "Legend1";
-            series52.Name = "Series3";
-            series53.ChartArea = "ChartArea1";
-            series53.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series53.IsVisibleInLegend = false;
-            series53.Legend = "Legend1";
-            series53.Name = "Series4";
-            series54.ChartArea = "ChartArea1";
-            series54.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series54.IsVisibleInLegend = false;
-            series54.Legend = "Legend1";
-            series54.Name = "Series5";
-            series55.ChartArea = "ChartArea1";
-            series55.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series55.IsVisibleInLegend = false;
-            series55.Legend = "Legend1";
-            series55.Name = "Series6";
-            series56.ChartArea = "ChartArea1";
-            series56.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series56.IsVisibleInLegend = false;
-            series56.Legend = "Legend1";
-            series56.Name = "Series7";
-            series57.ChartArea = "ChartArea1";
-            series57.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series57.IsVisibleInLegend = false;
-            series57.Legend = "Legend1";
-            series57.Name = "Series8";
-            series58.ChartArea = "ChartArea1";
-            series58.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series58.IsVisibleInLegend = false;
-            series58.Legend = "Legend1";
-            series58.Name = "Series9";
-            series59.ChartArea = "ChartArea1";
-            series59.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series59.IsVisibleInLegend = false;
-            series59.Legend = "Legend1";
-            series59.Name = "Series10";
-            series60.ChartArea = "ChartArea1";
-            series60.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series60.IsVisibleInLegend = false;
-            series60.Legend = "Legend1";
-            series60.Name = "Series11";
-            series61.ChartArea = "ChartArea1";
-            series61.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series61.IsVisibleInLegend = false;
-            series61.Legend = "Legend1";
-            series61.Name = "Series12";
-            series62.ChartArea = "ChartArea1";
-            series62.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series62.IsVisibleInLegend = false;
-            series62.Legend = "Legend1";
-            series62.Name = "Series13";
-            series63.ChartArea = "ChartArea1";
-            series63.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series63.Legend = "Legend1";
-            series63.Name = "Series14";
-            series64.ChartArea = "ChartArea1";
-            series64.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series64.Legend = "Legend1";
-            series64.Name = "Series15";
-            this.chart1.Series.Add(series49);
-            this.chart1.Series.Add(series50);
-            this.chart1.Series.Add(series51);
-            this.chart1.Series.Add(series52);
-            this.chart1.Series.Add(series53);
-            this.chart1.Series.Add(series54);
-            this.chart1.Series.Add(series55);
-            this.chart1.Series.Add(series56);
-            this.chart1.Series.Add(series57);
-            this.chart1.Series.Add(series58);
-            this.chart1.Series.Add(series59);
-            this.chart1.Series.Add(series60);
-            this.chart1.Series.Add(series61);
-            this.chart1.Series.Add(series62);
-            this.chart1.Series.Add(series63);
-            this.chart1.Series.Add(series64);
+            series17.ChartArea = "ChartArea1";
+            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series17.Color = System.Drawing.Color.Red;
+            series17.IsVisibleInLegend = false;
+            series17.Legend = "Legend1";
+            series17.Name = "Series0";
+            series17.YValuesPerPoint = 2;
+            series18.ChartArea = "ChartArea1";
+            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series18.Color = System.Drawing.SystemColors.Highlight;
+            series18.IsVisibleInLegend = false;
+            series18.Legend = "Legend1";
+            series18.Name = "Series1";
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series19.IsVisibleInLegend = false;
+            series19.Legend = "Legend1";
+            series19.Name = "Series2";
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series20.IsVisibleInLegend = false;
+            series20.Legend = "Legend1";
+            series20.Name = "Series3";
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series21.IsVisibleInLegend = false;
+            series21.Legend = "Legend1";
+            series21.Name = "Series4";
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series22.IsVisibleInLegend = false;
+            series22.Legend = "Legend1";
+            series22.Name = "Series5";
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series23.IsVisibleInLegend = false;
+            series23.Legend = "Legend1";
+            series23.Name = "Series6";
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series24.IsVisibleInLegend = false;
+            series24.Legend = "Legend1";
+            series24.Name = "Series7";
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series25.IsVisibleInLegend = false;
+            series25.Legend = "Legend1";
+            series25.Name = "Series8";
+            series26.ChartArea = "ChartArea1";
+            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series26.IsVisibleInLegend = false;
+            series26.Legend = "Legend1";
+            series26.Name = "Series9";
+            series27.ChartArea = "ChartArea1";
+            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series27.IsVisibleInLegend = false;
+            series27.Legend = "Legend1";
+            series27.Name = "Series10";
+            series28.ChartArea = "ChartArea1";
+            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series28.IsVisibleInLegend = false;
+            series28.Legend = "Legend1";
+            series28.Name = "Series11";
+            series29.ChartArea = "ChartArea1";
+            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series29.IsVisibleInLegend = false;
+            series29.Legend = "Legend1";
+            series29.Name = "Series12";
+            series30.ChartArea = "ChartArea1";
+            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series30.IsVisibleInLegend = false;
+            series30.Legend = "Legend1";
+            series30.Name = "Series13";
+            series31.ChartArea = "ChartArea1";
+            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series31.Legend = "Legend1";
+            series31.Name = "Series14";
+            series32.ChartArea = "ChartArea1";
+            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series32.Legend = "Legend1";
+            series32.Name = "Series15";
+            this.chart1.Series.Add(series17);
+            this.chart1.Series.Add(series18);
+            this.chart1.Series.Add(series19);
+            this.chart1.Series.Add(series20);
+            this.chart1.Series.Add(series21);
+            this.chart1.Series.Add(series22);
+            this.chart1.Series.Add(series23);
+            this.chart1.Series.Add(series24);
+            this.chart1.Series.Add(series25);
+            this.chart1.Series.Add(series26);
+            this.chart1.Series.Add(series27);
+            this.chart1.Series.Add(series28);
+            this.chart1.Series.Add(series29);
+            this.chart1.Series.Add(series30);
+            this.chart1.Series.Add(series31);
+            this.chart1.Series.Add(series32);
             this.chart1.Size = new System.Drawing.Size(1336, 792);
             this.chart1.TabIndex = 104;
             this.chart1.Text = "chart1";
@@ -6730,7 +6730,7 @@
             // 
             this.chartValue.AutoSize = true;
             this.chartValue.BackColor = System.Drawing.Color.Transparent;
-            this.chartValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chartValue.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.chartValue.Location = new System.Drawing.Point(687, 38);
             this.chartValue.Name = "chartValue";
             this.chartValue.Size = new System.Drawing.Size(0, 16);
@@ -6781,7 +6781,7 @@
             this.IsAutoStop.AutoSize = true;
             this.IsAutoStop.Checked = true;
             this.IsAutoStop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IsAutoStop.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.IsAutoStop.Font = new System.Drawing.Font("Microsoft YaHei", 8F);
             this.IsAutoStop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.IsAutoStop.Location = new System.Drawing.Point(780, 11);
             this.IsAutoStop.Name = "IsAutoStop";
@@ -6795,7 +6795,7 @@
             // HelpLabel
             // 
             this.HelpLabel.AutoSize = true;
-            this.HelpLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.HelpLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.HelpLabel.Location = new System.Drawing.Point(634, 44);
             this.HelpLabel.Name = "HelpLabel";
             this.HelpLabel.Size = new System.Drawing.Size(57, 20);
@@ -6811,7 +6811,7 @@
             this.HelpButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.HelpButton.FlatAppearance.BorderSize = 0;
             this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HelpButton.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.HelpButton.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HelpButton.Location = new System.Drawing.Point(640, 10);
             this.HelpButton.Name = "HelpButton";
             this.HelpButton.Size = new System.Drawing.Size(40, 40);
@@ -6823,7 +6823,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label50.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.label50.Location = new System.Drawing.Point(412, 44);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(65, 20);
@@ -6833,7 +6833,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label56.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.label56.Location = new System.Drawing.Point(343, 44);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(65, 20);
@@ -6843,7 +6843,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label54.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.label54.Location = new System.Drawing.Point(11, 44);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(65, 20);
@@ -6857,7 +6857,7 @@
             this.ExportResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ExportResult.FlatAppearance.BorderSize = 0;
             this.ExportResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExportResult.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ExportResult.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ExportResult.Location = new System.Drawing.Point(424, 12);
             this.ExportResult.Name = "ExportResult";
             this.ExportResult.Size = new System.Drawing.Size(40, 35);
@@ -6869,7 +6869,7 @@
             // TestTime
             // 
             this.TestTime.AutoSize = true;
-            this.TestTime.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestTime.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TestTime.Location = new System.Drawing.Point(713, 34);
             this.TestTime.Name = "TestTime";
@@ -6883,7 +6883,7 @@
             this.TestChooseFormShow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.TestChooseFormShow.FlatAppearance.BorderSize = 0;
             this.TestChooseFormShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestChooseFormShow.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestChooseFormShow.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestChooseFormShow.ForeColor = System.Drawing.Color.Black;
             this.TestChooseFormShow.Location = new System.Drawing.Point(20, 8);
             this.TestChooseFormShow.Name = "TestChooseFormShow";
@@ -6900,7 +6900,7 @@
             this.HistoryTestResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.HistoryTestResult.FlatAppearance.BorderSize = 0;
             this.HistoryTestResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HistoryTestResult.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.HistoryTestResult.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.HistoryTestResult.Location = new System.Drawing.Point(354, 12);
             this.HistoryTestResult.Name = "HistoryTestResult";
             this.HistoryTestResult.Size = new System.Drawing.Size(40, 33);
@@ -6912,7 +6912,7 @@
             // ModifyParameterLabel
             // 
             this.ModifyParameterLabel.AutoSize = true;
-            this.ModifyParameterLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.ModifyParameterLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.ModifyParameterLabel.Location = new System.Drawing.Point(82, 44);
             this.ModifyParameterLabel.Name = "ModifyParameterLabel";
             this.ModifyParameterLabel.Size = new System.Drawing.Size(65, 20);
@@ -6922,7 +6922,7 @@
             // AdvancedLabel
             // 
             this.AdvancedLabel.AutoSize = true;
-            this.AdvancedLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.AdvancedLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.AdvancedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.AdvancedLabel.Location = new System.Drawing.Point(563, 70);
             this.AdvancedLabel.Name = "AdvancedLabel";
@@ -6933,7 +6933,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label58.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label58.Location = new System.Drawing.Point(343, 70);
             this.label58.Name = "label58";
@@ -6948,7 +6948,7 @@
             this.ModifyParameter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ModifyParameter.FlatAppearance.BorderSize = 0;
             this.ModifyParameter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ModifyParameter.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ModifyParameter.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ModifyParameter.Location = new System.Drawing.Point(89, 7);
             this.ModifyParameter.Name = "ModifyParameter";
             this.ModifyParameter.Size = new System.Drawing.Size(40, 40);
@@ -6960,7 +6960,7 @@
             // lable80
             // 
             this.lable80.AutoSize = true;
-            this.lable80.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.lable80.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.lable80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lable80.Location = new System.Drawing.Point(110, 70);
             this.lable80.Name = "lable80";
@@ -6971,7 +6971,7 @@
             // AdvancedSettingLabel
             // 
             this.AdvancedSettingLabel.AutoSize = true;
-            this.AdvancedSettingLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.AdvancedSettingLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.AdvancedSettingLabel.Location = new System.Drawing.Point(563, 44);
             this.AdvancedSettingLabel.Name = "AdvancedSettingLabel";
             this.AdvancedSettingLabel.Size = new System.Drawing.Size(65, 20);
@@ -6981,7 +6981,7 @@
             // SerialPortLabel
             // 
             this.SerialPortLabel.AutoSize = true;
-            this.SerialPortLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.SerialPortLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.SerialPortLabel.Location = new System.Drawing.Point(488, 44);
             this.SerialPortLabel.Name = "SerialPortLabel";
             this.SerialPortLabel.Size = new System.Drawing.Size(65, 20);
@@ -6991,7 +6991,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label52.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.label52.Location = new System.Drawing.Point(270, 44);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(65, 20);
@@ -7001,7 +7001,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label51.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.label51.Location = new System.Drawing.Point(195, 44);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(65, 20);
@@ -7011,7 +7011,7 @@
             // TestRunLabel
             // 
             this.TestRunLabel.AutoSize = true;
-            this.TestRunLabel.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.TestRunLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.TestRunLabel.Location = new System.Drawing.Point(147, 44);
             this.TestRunLabel.Name = "TestRunLabel";
             this.TestRunLabel.Size = new System.Drawing.Size(53, 20);
@@ -7024,7 +7024,7 @@
             this.AdvancedSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AdvancedSetting.FlatAppearance.BorderSize = 0;
             this.AdvancedSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdvancedSetting.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AdvancedSetting.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AdvancedSetting.ForeColor = System.Drawing.Color.Black;
             this.AdvancedSetting.Location = new System.Drawing.Point(573, 14);
             this.AdvancedSetting.Name = "AdvancedSetting";
@@ -7038,7 +7038,7 @@
             // 
             this.ResultGroupBox.Controls.Add(this.label13);
             this.ResultGroupBox.Controls.Add(this.LastScan);
-            this.ResultGroupBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ResultGroupBox.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ResultGroupBox.Location = new System.Drawing.Point(270, 8);
             this.ResultGroupBox.Name = "ResultGroupBox";
             this.ResultGroupBox.Size = new System.Drawing.Size(0, 0);
@@ -7049,7 +7049,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(5, 1066);
             this.label13.Name = "label13";
@@ -7059,7 +7059,7 @@
             // 
             // LastScan
             // 
-            this.LastScan.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LastScan.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LastScan.Location = new System.Drawing.Point(150, 1063);
             this.LastScan.Name = "LastScan";
             this.LastScan.Size = new System.Drawing.Size(495, 26);
@@ -7072,7 +7072,7 @@
             this.TestRun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.TestRun.FlatAppearance.BorderSize = 0;
             this.TestRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestRun.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TestRun.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestRun.Location = new System.Drawing.Point(152, 8);
             this.TestRun.Name = "TestRun";
             this.TestRun.Size = new System.Drawing.Size(40, 40);
@@ -7090,7 +7090,7 @@
             this.SerialPort.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.SerialPort.FlatAppearance.BorderSize = 0;
             this.SerialPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SerialPort.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SerialPort.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SerialPort.Location = new System.Drawing.Point(501, 8);
             this.SerialPort.Name = "SerialPort";
             this.SerialPort.Size = new System.Drawing.Size(40, 40);
@@ -7105,7 +7105,7 @@
             this.Monitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Monitor.FlatAppearance.BorderSize = 0;
             this.Monitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Monitor.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Monitor.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Monitor.Location = new System.Drawing.Point(206, 9);
             this.Monitor.Name = "Monitor";
             this.Monitor.Size = new System.Drawing.Size(40, 40);
@@ -7121,7 +7121,7 @@
             this.CurrentTestResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CurrentTestResult.FlatAppearance.BorderSize = 0;
             this.CurrentTestResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CurrentTestResult.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CurrentTestResult.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CurrentTestResult.Location = new System.Drawing.Point(282, 14);
             this.CurrentTestResult.Name = "CurrentTestResult";
             this.CurrentTestResult.Size = new System.Drawing.Size(40, 30);
@@ -7133,7 +7133,7 @@
             // StatusTextBox
             // 
             this.StatusTextBox.BackColor = System.Drawing.Color.White;
-            this.StatusTextBox.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.StatusTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
             this.StatusTextBox.Location = new System.Drawing.Point(897, 101);
             this.StatusTextBox.Name = "StatusTextBox";
             this.StatusTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
@@ -7150,7 +7150,7 @@
             this.EmptyGroupBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EmptyGroupBox.BackgroundImage")));
             this.EmptyGroupBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EmptyGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EmptyGroupBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EmptyGroupBox.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.EmptyGroupBox.Location = new System.Drawing.Point(6, 90);
             this.EmptyGroupBox.Name = "EmptyGroupBox";
             this.EmptyGroupBox.Size = new System.Drawing.Size(0, 0);
@@ -7162,7 +7162,7 @@
             this.ParSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ParSetting.BackgroundImage")));
             this.ParSetting.FlatAppearance.BorderSize = 0;
             this.ParSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ParSetting.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ParSetting.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ParSetting.Location = new System.Drawing.Point(50, 92);
             this.ParSetting.Name = "ParSetting";
             this.ParSetting.Size = new System.Drawing.Size(0, 0);
@@ -7183,7 +7183,7 @@
             // 
             // SetupTest
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
