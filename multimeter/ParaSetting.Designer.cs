@@ -93,6 +93,7 @@ namespace multimeter
             this.RisistGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellContentClick);
             this.RisistGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView_DataError);
             this.RisistGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.RisistGridView_EditingControlShowing);
+            this.RisistGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RisistGridView_KeyDown);
             // 
             // Cancel
             // 

@@ -65,7 +65,7 @@ namespace multimeter
             this.LoginGroupBox.Controls.Add(this.label70);
             this.LoginGroupBox.Controls.Add(this.usernameTBox);
             this.LoginGroupBox.Controls.Add(this.userpasswordTBox);
-            this.LoginGroupBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginGroupBox.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginGroupBox.Location = new System.Drawing.Point(0, -15);
             this.LoginGroupBox.Name = "LoginGroupBox";
             this.LoginGroupBox.Size = new System.Drawing.Size(360, 432);
@@ -76,7 +76,7 @@ namespace multimeter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 17F);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 17F);
             this.label1.Location = new System.Drawing.Point(13, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(302, 30);
@@ -90,11 +90,12 @@ namespace multimeter
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(18, 110);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 96;
+            this.button1.TabStop = false;
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -105,23 +106,24 @@ namespace multimeter
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.Location = new System.Drawing.Point(18, 208);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(35, 35);
             this.button3.TabIndex = 98;
+            this.button3.TabStop = false;
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = false;
             // 
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label50.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label50.Location = new System.Drawing.Point(56, 167);
             this.label50.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(58, 21);
-            this.label50.TabIndex = 0;
+            this.label50.TabIndex = 6;
             this.label50.Text = "用户名";
             // 
             // button2
@@ -131,35 +133,36 @@ namespace multimeter
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(18, 161);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(35, 35);
             this.button2.TabIndex = 97;
+            this.button2.TabStop = false;
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = false;
             // 
             // label69
             // 
             this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label69.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label69.Location = new System.Drawing.Point(56, 217);
             this.label69.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(42, 21);
-            this.label69.TabIndex = 1;
+            this.label69.TabIndex = 7;
             this.label69.Text = "密码";
             // 
             // login
             // 
             this.login.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.login.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.login.Font = new System.Drawing.Font("Microsoft YaHei", 13F);
             this.login.ForeColor = System.Drawing.Color.Black;
             this.login.Location = new System.Drawing.Point(19, 265);
             this.login.Margin = new System.Windows.Forms.Padding(5);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(294, 56);
-            this.login.TabIndex = 2;
+            this.login.TabIndex = 3;
             this.login.Text = "确认登录";
             this.login.UseVisualStyleBackColor = false;
             this.login.Click += new System.EventHandler(this.login_Click);
@@ -168,7 +171,7 @@ namespace multimeter
             // 
             this.comboBox.BackColor = System.Drawing.SystemColors.Window;
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox.FormattingEnabled = true;
             this.comboBox.Items.AddRange(new object[] {
             "普通用户",
@@ -176,18 +179,18 @@ namespace multimeter
             this.comboBox.Location = new System.Drawing.Point(124, 116);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(189, 29);
-            this.comboBox.TabIndex = 7;
+            this.comboBox.TabIndex = 0;
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.UserType_SelectedIndexChanged);
             // 
             // cancel
             // 
             this.cancel.BackColor = System.Drawing.Color.Gold;
-            this.cancel.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.cancel.Font = new System.Drawing.Font("Microsoft YaHei", 13F);
             this.cancel.Location = new System.Drawing.Point(19, 331);
             this.cancel.Margin = new System.Windows.Forms.Padding(5);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(294, 56);
-            this.cancel.TabIndex = 3;
+            this.cancel.TabIndex = 4;
             this.cancel.Text = "取消登录";
             this.cancel.UseVisualStyleBackColor = false;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
@@ -195,12 +198,12 @@ namespace multimeter
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label70.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label70.Location = new System.Drawing.Point(56, 119);
             this.label70.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(42, 21);
-            this.label70.TabIndex = 6;
+            this.label70.TabIndex = 5;
             this.label70.Text = "类型";
             // 
             // usernameTBox
@@ -209,7 +212,7 @@ namespace multimeter
             this.usernameTBox.Margin = new System.Windows.Forms.Padding(5);
             this.usernameTBox.Name = "usernameTBox";
             this.usernameTBox.Size = new System.Drawing.Size(189, 29);
-            this.usernameTBox.TabIndex = 4;
+            this.usernameTBox.TabIndex = 1;
             // 
             // userpasswordTBox
             // 
@@ -217,7 +220,7 @@ namespace multimeter
             this.userpasswordTBox.Margin = new System.Windows.Forms.Padding(5);
             this.userpasswordTBox.Name = "userpasswordTBox";
             this.userpasswordTBox.Size = new System.Drawing.Size(189, 29);
-            this.userpasswordTBox.TabIndex = 5;
+            this.userpasswordTBox.TabIndex = 2;
             this.userpasswordTBox.TextChanged += new System.EventHandler(this.userPasswordTBox_TextChanged);
             // 
             // groupBox1
@@ -238,7 +241,7 @@ namespace multimeter
             this.LoginCompanyName.Enabled = false;
             this.LoginCompanyName.FlatAppearance.BorderSize = 0;
             this.LoginCompanyName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginCompanyName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginCompanyName.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LoginCompanyName.ForeColor = System.Drawing.Color.Black;
             this.LoginCompanyName.Location = new System.Drawing.Point(48, 306);
             this.LoginCompanyName.Name = "LoginCompanyName";
@@ -255,7 +258,7 @@ namespace multimeter
             this.CompanyLogo.Enabled = false;
             this.CompanyLogo.FlatAppearance.BorderSize = 0;
             this.CompanyLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompanyLogo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CompanyLogo.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CompanyLogo.ForeColor = System.Drawing.Color.Black;
             this.CompanyLogo.Location = new System.Drawing.Point(48, 20);
             this.CompanyLogo.Name = "CompanyLogo";

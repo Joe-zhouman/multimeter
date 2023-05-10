@@ -8,20 +8,27 @@ using System.Windows.Forms;
 namespace multimeter {
     /// <summary>
     /// 温度探头参数设置界面
-    /// <para name="_app">应用设置</para>
-    /// <para name="_MAX_COL">列表的最大列数</para>
-    /// <para name="_START_COL">列表每行的起始非参数单元格</para>
     /// </summary>
     public partial class ParaSetting : Form {
-
+        /// <summary>
+        /// 应用设置
+        /// </summary>
         private readonly AppCfg _app;
+        /// <summary>
+        /// 列表的最大列数
+        /// </summary>
         private static readonly int _MAX_COL = 6;
+        /// <summary>
+        /// 列表每行的起始非参数单元格
+        /// </summary>
         private static readonly int _START_COL = 2;
         public ParaSetting(AppCfg app) {
             InitializeComponent();
             _app = app;
         }
-
+        /// <summary>
+        /// 参数设置表格load事件
+        /// </summary>
         private void ParaSetting_Load(object sender, EventArgs e) {
             ColInit();
             RowInit();
@@ -39,8 +46,9 @@ namespace multimeter {
                 var typeId = (int)card.Type;
                 RisistGridView.Rows.Add(Constant.ProbeType[typeId], channels[i], "", "", "", "");
                 RisistGridView["channel", i].ReadOnly = true;
-                Probe voltage = ProbeFactory.Create(typeId);
-                ShowProbePara(voltage, channels[i], i);
+                Probe probe = ProbeFactory.Create(typeId);
+                IniReadAndWrite.ReadTempPara(ref probe, channels[i], IniReadAndWrite.IniFilePath);
+                ShowProbePara(probe, i);
             } //默认读取双线热敏电阻
         }
 
@@ -65,28 +73,35 @@ namespace multimeter {
             }
         }
         /// <summary>
-        /// 显示列表的一行
+        /// 将probe的参数显示在列表的一行,对于不使用的单元格,显示'-',且无法编辑;
+        /// 对于参数单元格,可编辑,但只能输入double值
         /// </summary>
         /// <param name="probe">温度探头</param>
-        /// <param name="channel">温度探头所在频道</param>
         /// <param name="rowIdx">显示的列的索引</param>
-        private void ShowProbePara(Probe probe, string channel, int rowIdx) {
-            var paraIdx = 0;
+        private void ShowProbePara(Probe probe, int rowIdx) {
+            var colIdx = _START_COL;
             if (!(probe is null)) {
-                IniReadAndWrite.ReadTempPara(ref probe, channel, IniReadAndWrite.IniFilePath);
-                for (; paraIdx < probe.Paras.Length; paraIdx++) {
-                    RisistGridView[paraIdx + _START_COL, rowIdx].Value = probe.Paras[paraIdx];
-                    RisistGridView[paraIdx + _START_COL, rowIdx].ValueType = typeof(double);
+                for (; colIdx < probe.Paras.Length + _START_COL; colIdx++) {
+                    RisistGridView[colIdx, rowIdx].Value = probe.Paras[colIdx - _START_COL];
+                    RisistGridView[colIdx, rowIdx].ValueType = typeof(double);
                 }
             }
-            ShowNoValue(rowIdx, paraIdx + _START_COL);
+            for (; colIdx < _MAX_COL; colIdx++) {
+                RisistGridView[colIdx, rowIdx].Value = '-';
+                RisistGridView[colIdx, rowIdx].ReadOnly = true;
+            }
         }
 
         private void Delay_Timer_Tick(object sender, EventArgs e) {
             RisistGridView.Refresh();
             Delay_Timer.Enabled = false;
         }
-
+        /// <summary>
+        /// 用户开始编辑 RisistGridViewGridView 控件中的单元格时触发的事件.
+        /// 此处用于控制探头类型的选择ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RisistGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e) {
             if (e.Control is ComboBox combo) {
                 combo.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
@@ -94,29 +109,18 @@ namespace multimeter {
                 e.CellStyle.BackColor = RisistGridView.DefaultCellStyle.BackColor;
             }
         }
-
+        /// <summary>
+        /// 探头类型的选择ComboBox的选择值发生变化时触发的效果
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e) {
             var combo = (ComboBox)sender;
             if (combo != null) {
-                var idx = RisistGridView.CurrentCell.RowIndex;
+                var rowIdx = RisistGridView.CurrentCell.RowIndex;
                 Probe p = ProbeFactory.Create(combo.SelectedIndex);
-                var numPara = p is null ? 0 : p.Paras.Length;
-                ChangeGridCellStyle(idx, _START_COL + numPara);
+                ShowProbePara(p, rowIdx);
             } //更新读取对应行数据  
-        }
-        private void ShowNoValue(int idx, int midPoint) {
-            for (var j = midPoint; j < _MAX_COL; j++) {
-                RisistGridView[j, idx].Value = '-';
-                RisistGridView[j, idx].ReadOnly = true;
-            }
-        }
-        private void ChangeGridCellStyle(int idx, int midPoint) {
-            for (var i = _START_COL; i < midPoint; i++) {
-                RisistGridView[i, idx].Value = "0.0";
-                RisistGridView[i, idx].ReadOnly = false;
-                RisistGridView[i, idx].ValueType = typeof(double);
-            }
-            ShowNoValue(idx, midPoint);
         }
 
         private void Confirm_Click(object sender, EventArgs e) {
@@ -178,9 +182,15 @@ namespace multimeter {
         private void Cancel_Click(object sender, EventArgs e) {
             Close();
         }
-
+        /// <summary>
+        /// 点击列表单元格时触发的事件.此处使用户无法修改channel的值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            if (e.ColumnIndex == 1 && e.RowIndex > 0) RisistGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
+            if (e.ColumnIndex == 1 && e.RowIndex > 0) {
+                RisistGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
+            }
         }
 
         private void DataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e) {
@@ -191,6 +201,43 @@ namespace multimeter {
         private Card FindChnIdx(string chn, SerialPortPara serialPort) {
             var chnNum = int.Parse(chn);
             return chnNum < 200 ? serialPort.CardList1[chnNum - 101] : serialPort.CardList2[chnNum - 201];
+        }
+        /// <summary>
+        /// 实现单元格的复制粘贴操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RisistGridView_KeyDown(object sender, KeyEventArgs e) {
+            if (e.Control && e.KeyCode == Keys.C) {
+                // 复制选中单元格到剪贴板
+                Clipboard.SetDataObject(RisistGridView.GetClipboardContent());
+                e.Handled = true;
+            }
+            else if (e.Control && e.KeyCode == Keys.V) {
+                // 从剪贴板粘贴数据到选中单元格,并分割数据
+                var lines = Clipboard.GetText().Split(new[] { "\r\n", "\r", "\n", " ", ",", "\t" }, StringSplitOptions.RemoveEmptyEntries);
+                var cellToPaste = RisistGridView.SelectedCells;
+                if (lines.Length != cellToPaste.Count) {
+                    MessageBox.Show(@"复制的数据和所选单元格大小不一致", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Handled = true;
+                    return;
+                }
+                foreach (DataGridViewCell cell in cellToPaste) {
+                    if (cell.ReadOnly) {
+                        MessageBox.Show(@"无法编辑所选单元格", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Handled = true;
+                        return;
+                    }
+                }
+                for (int i = 0; i < lines.Length; i++) {
+                    if (!double.TryParse(lines[i], out double value)) {
+                        MessageBox.Show(@"复制的元素有误", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Handled = true;
+                        return;
+                    };
+                    cellToPaste[cellToPaste.Count - i - 1].Value = value;
+                }
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using BusinessLogic;
+﻿using BusinessLogic;
 using DataAccess;
 using Model;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace multimeter {
     public partial class SetupTest {
@@ -24,9 +24,9 @@ namespace multimeter {
                     if (!apply_btm_4_Click()) return false;
                     break;
                 default: {
-                    MessageBox.Show(@"请选择测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
+                        MessageBox.Show(@"请选择测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
             }
 
             if (!CheckData.CheckChannelList(_device)) {
@@ -218,8 +218,7 @@ namespace multimeter {
                         MessageBoxIcon.Error);
                     return false;
                 }
-                if (specimen.Channel[i] != "*" && position == "*")
-                {
+                if (specimen.Channel[i] != "*" && position == "*") {
                     MessageBox.Show($@"{specimen.Name}已启用探测点的位置坐标被设为*，请重新设置！", @"错误", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return false;
@@ -258,11 +257,11 @@ namespace multimeter {
         }
 
         public void AllTextBoxEnable(bool enable) {
-            var groupBoxs = new List<GroupBox> {TextGroupbox1, TextGroupbox2, TextGroupbox3, TextGroupbox4};
+            var groupBoxs = new List<GroupBox> { TextGroupbox1, TextGroupbox2, TextGroupbox3, TextGroupbox4 };
             groupBoxs.ForEach(c => {
                 foreach (var control in c.Controls)
                     if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
-                        ((TextBox) control).Enabled = enable;
+                        ((TextBox)control).Enabled = enable;
             });
         }
 
@@ -270,46 +269,46 @@ namespace multimeter {
             var textBoxes = new List<TextBox>();
             switch (_method) {
                 case TestMethod.KAPPA: {
-                    var textBoxes1 = new List<TextBox> {
+                        var textBoxes1 = new List<TextBox> {
                         LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7, LengthTextBox1_8,
                         ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7, ChannelTextBox1_8,
                         STextBox1_1, ForceTextBox1
                     };
-                    textBoxes.AddRange(textBoxes1);
-                }
+                        textBoxes.AddRange(textBoxes1);
+                    }
                     break;
                 case TestMethod.ITC: {
-                    var textBoxes2 = new List<TextBox> {
+                        var textBoxes2 = new List<TextBox> {
                         LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7, LengthTextBox2_8,
                         ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7, ChannelTextBox2_8,
                         LengthTextBox2_9, LengthTextBox2_10, LengthTextBox2_11, LengthTextBox2_12,
                         ChannelTextBox2_9, ChannelTextBox2_10, ChannelTextBox2_11, ChannelTextBox2_12,
                         SuTextBox2_1, SlTextBox2_2, ForceTextBox2
                     };
-                    textBoxes.AddRange(textBoxes2);
-                }
+                        textBoxes.AddRange(textBoxes2);
+                    }
                     break;
                 case TestMethod.ITM: {
-                    var textBoxes3 = new List<TextBox> {
+                        var textBoxes3 = new List<TextBox> {
                         ForceTextBox3, FilmThickness1,TimAreaTextBox3
                     };
-                    textBoxes.AddRange(textBoxes3);
-                }
+                        textBoxes.AddRange(textBoxes3);
+                    }
                     break;
                 case TestMethod.ITMS: {
-                    var textBoxes4 = new List<TextBox> {
+                        var textBoxes4 = new List<TextBox> {
                         LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7, LengthTextBox4_8,
                         ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7, ChannelTextBox4_8,
                         LengthTextBox4_9, LengthTextBox4_10, LengthTextBox4_11, LengthTextBox4_12,
                         ChannelTextBox4_9, ChannelTextBox4_10, ChannelTextBox4_11, ChannelTextBox4_12,
                         SuTextBox4_1, SlTextBox4_2, ForceTextBox4, FilmThickness2,TimAreaTextBox4
                     };
-                    textBoxes.AddRange(textBoxes4);
-                }
+                        textBoxes.AddRange(textBoxes4);
+                    }
                     break;
                 default: {
-                    return;
-                }
+                        return;
+                    }
             }
 
             foreach (var textBox in textBoxes) textBox.Enabled = enable;
