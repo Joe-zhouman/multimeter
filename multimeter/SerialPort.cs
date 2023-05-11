@@ -12,6 +12,9 @@
 // *Github*    : https://github.com/Joe-zhouman
 // *LeetCode*  : https://leetcode-cn.com/u/joe_zm/
 
+using BusinessLogic;
+using DataAccess;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,9 +22,6 @@ using System.IO.Ports;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using BusinessLogic;
-using DataAccess;
-using Model;
 
 namespace multimeter {
     public partial class SetupTest {
@@ -82,13 +82,13 @@ namespace multimeter {
             try {
                 _originDataWriter.WriteLine("step," + string.Join(",", _device.Channels));
                 _tempDataWriter.WriteLine("step," + _multiMeter.TotalChn);
-                
-                StatusTextBox_AddText(PromptType.INFO,$@"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存成果!
+
+                StatusTextBox_AddText(PromptType.INFO, $@"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存成果!
 测试仪原始数据保存在 {_latestOriginFile}
 温度历史数据保存在 {_latestDataFile}");
             }
             catch (Exception ex) {
-                StatusTextBox_AddText( PromptType.WARNING,$"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");
+                StatusTextBox_AddText(PromptType.WARNING, $"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");
                 Log.Error(ex);
             }
         }
@@ -155,14 +155,14 @@ namespace multimeter {
             if (_serialPortData.Count != 0) {
                 string str = _serialPortData.Dequeue();
 
-                str = str.Replace((char) 19, (char) 0);
-                str = str.Replace((char) 13, (char) 0);
-                str = str.Replace((char) 0x11, (char) 0);
+                str = str.Replace((char)19, (char)0);
+                str = str.Replace((char)13, (char)0);
+                str = str.Replace((char)0x11, (char)0);
                 str = str.Replace("\0", "");
                 if (str.Length == 0) return;
                 double[] dataList;
                 try {
-                    dataList = str.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                    dataList = str.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToArray();
                 }
 #if DEBUG
@@ -194,48 +194,48 @@ namespace multimeter {
                 for (int i = 0; i < channels.Length; i++)
                     _testResult.Add(channels[i], dataList[i]);
                 try {
-                    DeviceOpt.SetTemp(ref _device, _testResult);
+                    DeviceOpt.CalTemp(ref _device, _testResult);
                     temp += string.Join(",", _device.Temp);
                 }
-/*现在不会报错了*/
-/*
-                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
-                    StatusTextBox_AddText(PromptType.WARNING,
-                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!");
-#if DEBUG
-                    StatusTextBox_AddText(PromptType.WARNING, str);
-                    StatusTextBox_AddText(PromptType.WARNING, temp);
-#endif
-                    return;
-                }
-                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
-                    StatusTextBox_AddText( PromptType.WARNING,
-                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
-#if DEBUG
-                    StatusTextBox_AddText(PromptType.WARNING, str);
-                    StatusTextBox_AddText(PromptType.WARNING, temp);
-#endif
-                    return;
-                }
-#if DEBUG
-                catch (ValOutOfRangeException ex) {
-                    StatusTextBox_AddText(PromptType.WARNING,
-                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
-                    StatusTextBox_AddText(PromptType.WARNING, str);
-                    StatusTextBox_AddText(PromptType.WARNING, temp);
-                    return;
-                }
-#endif
-*/
+                /*现在不会报错了*/
+                /*
+                                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
+                                    StatusTextBox_AddText(PromptType.WARNING,
+                                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!");
+                #if DEBUG
+                                    StatusTextBox_AddText(PromptType.WARNING, str);
+                                    StatusTextBox_AddText(PromptType.WARNING, temp);
+                #endif
+                                    return;
+                                }
+                                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
+                                    StatusTextBox_AddText( PromptType.WARNING,
+                                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
+                #if DEBUG
+                                    StatusTextBox_AddText(PromptType.WARNING, str);
+                                    StatusTextBox_AddText(PromptType.WARNING, temp);
+                #endif
+                                    return;
+                                }
+                #if DEBUG
+                                catch (ValOutOfRangeException ex) {
+                                    StatusTextBox_AddText(PromptType.WARNING,
+                                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
+                                    StatusTextBox_AddText(PromptType.WARNING, str);
+                                    StatusTextBox_AddText(PromptType.WARNING, temp);
+                                    return;
+                                }
+                #endif
+                */
                 catch (Exception ex) {
                     Log.Error(ex);
                     return;
                 }
 
-                
+
                 try {
                     _originDataWriter.WriteLine(temp);
-                    
+
                     _tempDataWriter.WriteLine(_count.ToString() + ',' + str);
                 }
                 catch (Exception ex) {
@@ -251,7 +251,7 @@ namespace multimeter {
                     _latestResultFile = Path.Combine(_autoSaveFilePath, _method + "-" + _count + ".rst");
                     SaveDataThread t = new SaveDataThread(_latestResultFile, _lastTemp);
                     Thread rstThread = new Thread(t.SaveToData);
-                    
+
                     _temp.Clear();
                     StatusTextBox_AddText(PromptType.INFO, $@"[{DateTime.Now:MM-dd-hh:mm:ss}]开始保存结果数据 {_latestResultFile}!
 ");
@@ -295,37 +295,30 @@ namespace multimeter {
             }
         }
 
-        internal class SaveDataThread
-        {
+        internal class SaveDataThread {
             private string _name;
             private List<double[]> _temp;
-            public SaveDataThread(string name, List<double[]> tempList)
-            {
+            public SaveDataThread(string name, List<double[]> tempList) {
                 _name = name;
                 _temp = new List<double[]>();
-                foreach (var temp in tempList)
-                {
+                foreach (var temp in tempList) {
                     var tempC = new double[temp.Length];
-                    for (int i = 0; i < temp.Length; i++)
-                    {
+                    for (int i = 0; i < temp.Length; i++) {
                         tempC[i] = temp[i];
                     }
                     _temp.Add(tempC);
                 }
             }
-            public void SaveToData()
-            {
+            public void SaveToData() {
                 #region
 
                 File.Copy(IniReadAndWrite.IniFilePath, _name);
                 //MessageBox.Show(filePath);
-                try
-                {
+                try {
                     for (int i = 0; i < _temp.Count; i++)
                         IniHelper.Write("Data", i.ToString(), string.Join(",", _temp[i]), _name);
                 }
-                catch
-                {
+                catch {
                     //StatusTextBox.AppendText($@"![ERROR][{DateTime.Now:MM-dd-hh:mm:ss}]保存失败！");
                     return;
                 }
@@ -334,8 +327,8 @@ namespace multimeter {
 
                 #endregion
             }
-        } 
-        
+        }
+
 
         private bool TempOk() {
             if (_temp.Count == 0) return false;

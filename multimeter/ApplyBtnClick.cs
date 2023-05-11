@@ -34,7 +34,7 @@ namespace multimeter {
                 return false;
             }
 
-            IniReadAndWrite.DeviceToApp(_device, ref _appCfg.SerialPortPara);
+            IniReadAndWrite.DeviceToApp(_device.Channels, ref _appCfg.SerialPortPara);
             IniReadAndWrite.WriteChannelPara(_appCfg.SerialPortPara, IniReadAndWrite.IniFilePath);
             IniReadAndWrite.WriteDevicePara(_device, IniReadAndWrite.IniFilePath);
             return true;
@@ -136,7 +136,7 @@ namespace multimeter {
             return BoxToItm(ref _device.Itm, FilmThickness1, TimAreaTextBox3, S1TextBox3_1);
         }
 
-        private bool BoxToItm(ref Itm deviceItm, TextBox lengthBox, TextBox areaBox, TextBox compareBox) {
+        private bool BoxToItm(ref Tim deviceItm, TextBox lengthBox, TextBox areaBox, TextBox compareBox) {
             if (!CheckData.CheckDouble(lengthBox.Text)) {
                 MessageBox.Show(@"存在不合理的热界面材料厚度,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

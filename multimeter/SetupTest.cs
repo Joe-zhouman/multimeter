@@ -46,7 +46,6 @@ namespace multimeter {
             TextGroupbox4.Size = new Size(0, 0);
             skinGroupBox1.Size = new Size(0, 0);
             TestChartGroupBox.Size = new Size(0, 0);
-
             SoftwareNameLabel.Visible = true;
             MenuGroupBox.Visible = false;
             TestChoiseGroupBox.BringToFront();
@@ -230,33 +229,14 @@ namespace multimeter {
         private void SetupTest_Load(object sender, EventArgs e) {
 
             IniReadAndWrite.CreateDefaultIni();
-            #region //不同设置窗口默认显示
-
-            //EmptyGroupBox.Size = new Size(1250, 855);
-            TextGroupbox1.Size = new Size(0, 0);
-            TextGroupbox2.Size = new Size(0, 0);
-            TextGroupbox3.Size = new Size(0, 0);
-            TextGroupbox4.Size = new Size(0, 0);
-            skinGroupBox1.Size = new Size(0, 0);
-            TestChoiseGroupBox.Size = new Size(969, 581);
-            TestChartGroupBox.Size = new Size(0, 0);
-            MenuGroupBox.Visible = false;
-            TestChoiseGroupBox.Visible = false;
-            SoftwareNameLabel.Visible = false;
-            TestTime.Text = "";
-            _saveParameter = false;
-
-
-
-            #endregion
-
+            ShowDefaultWindows();
             CheckForIllegalCrossThreadCalls = false; //去掉线程安全
-
             #region //初始化变量
 
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AutoSave"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak"));
             Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "doc"));
+            _saveParameter = false;
             _latestDataFile = "";
             _latestResultFile = "";
             _appCfg = new AppCfg();
@@ -272,36 +252,8 @@ namespace multimeter {
             edit_scan_interval.Text = _appCfg.SysPara.ScanInterval.Value.ToString();
             edit_save_interval.Text = _appCfg.SysPara.SaveInterval.Value.ToString();
 
-            switch (_appCfg.SerialPortPara.SerialPort) {
-                case "COM1":
-                    combox_comport.SelectedIndex = 0;
-                    break;
-                case "COM2":
-                    combox_comport.SelectedIndex = 1;
-                    break;
-                case "COM3":
-                    combox_comport.SelectedIndex = 2;
-                    break;
-                case "COM4":
-                    combox_comport.SelectedIndex = 3;
-                    break;
-                case "COM5":
-                    combox_comport.SelectedIndex = 4;
-                    break;
-                case "COM6":
-                    combox_comport.SelectedIndex = 5;
-                    break;
-                case "COM7":
-                    combox_comport.SelectedIndex = 6;
-                    break;
-                case "COM8":
-                    combox_comport.SelectedIndex = 7;
-                    break;
-                default:
-                    combox_comport.SelectedIndex = 0;
-                    break;
-            }
-
+            var comIdx = _appCfg.SerialPortPara.SerialPort.Replace("COM", "");
+            combox_comport.SelectedIndex = int.Parse(comIdx) - 1;
 
             switch (_appCfg.SerialPortPara.SerialBaudRate) {
                 case "4800":
@@ -332,12 +284,29 @@ namespace multimeter {
 
             #endregion
 
-            #region //显示登录窗口
+            GroupTextBox();
 
+            #region //显示登录窗口
             var loginForm = new LoginForm();
             loginForm.Show(this);
-
             #endregion
+        }
+        /// <summary>
+        /// 初始窗口显示
+        /// </summary>
+        private void ShowDefaultWindows() {
+            //EmptyGroupBox.Size = new Size(1250, 855);
+            TextGroupbox1.Size = new Size(0, 0);
+            TextGroupbox2.Size = new Size(0, 0);
+            TextGroupbox3.Size = new Size(0, 0);
+            TextGroupbox4.Size = new Size(0, 0);
+            skinGroupBox1.Size = new Size(0, 0);
+            TestChoiseGroupBox.Size = new Size(969, 581);
+            TestChartGroupBox.Size = new Size(0, 0);
+            MenuGroupBox.Visible = false;
+            TestChoiseGroupBox.Visible = false;
+            SoftwareNameLabel.Visible = false;
+            TestTime.Text = "";
         }
 
         private void ChartShow_Timer_Tick(object sender, EventArgs e) {
@@ -345,21 +314,7 @@ namespace multimeter {
             ShowChart();
             _testResultChartUpdate = false;
         }
-
-        #region //串口采集
-
         private int _count;
         private bool _enableScan;
-
-
-
-
-
-
-
-
-        #endregion
-
-
     }
 }

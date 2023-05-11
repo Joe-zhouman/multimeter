@@ -1,8 +1,8 @@
-﻿using System;
+﻿using DataAccess;
+using Model;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using DataAccess;
-using Model;
 
 namespace multimeter {
     public partial class LoginForm : Form {
@@ -13,7 +13,7 @@ namespace multimeter {
         }
 
         private void login_Click(object sender, EventArgs e) {
-            var setupTest = (SetupTest) Owner;
+            var setupTest = (SetupTest)Owner;
             setupTest.AllTextBoxEnable(false);
             _user.Name = usernameTBox.Text;
             _user.Password = userpasswordTBox.Text;
@@ -26,12 +26,9 @@ namespace multimeter {
                     setupTest.AdvancedSetting.Visible = false;
                     setupTest.AdvancedSettingLabel.Visible = false;
                     setupTest.AdvancedLabel.Visible = false;
-                    setupTest.HelpButton.Location= new Point(500, 10);
-                    setupTest.HelpLabel.Location = new Point(494,44);
+                    setupTest.HelpButton.Location = new Point(500, 10);
+                    setupTest.HelpLabel.Location = new Point(494, 44);
                     Close();
-
-
-
                     break;
                 case 1 when CheckUserInfo.CheckAdvanceUser(_user):
                     setupTest.User = _user.Type;
@@ -66,7 +63,7 @@ namespace multimeter {
         }
 
         private void LoginForm_Load(object sender, EventArgs e) {
-            _user = new User {Type = UserType.NORMAL};
+            _user = new User { Type = UserType.NORMAL };
             comboBox.SelectedIndex = 0;
         }
 

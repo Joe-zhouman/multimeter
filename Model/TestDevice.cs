@@ -10,7 +10,7 @@ namespace Model {
     public class TestDevice {
         public Specimen HeatMeter1;
         public Specimen HeatMeter2;
-        public Itm Itm;
+        public Tim Itm;
         public Specimen Sample1;
         public Specimen Sample2;
 
@@ -33,13 +33,13 @@ namespace Model {
                 case TestMethod.ITM: {
                     Sample1 = null;
                     Sample2 = null;
-                    Itm = new Itm();
+                    Itm = new Tim();
                 }
                     break;
                 case TestMethod.ITMS: {
                     Sample1 = new Specimen("Sample1", SpecimenType.SAMPLE);
                     Sample2 = new Specimen("Sample2", SpecimenType.SAMPLE);
-                    Itm = new Itm();
+                    Itm = new Tim();
                 }
                     break;
                 default:

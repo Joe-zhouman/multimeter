@@ -2,16 +2,21 @@
 // 周漫
 // 2021012511:43
 
+using Model;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Model;
 
 namespace DataAccess {
     public static partial class IniReadAndWrite {
         public static readonly string IniFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sys.ini");
-
+        /// <summary>
+        /// 读取系统配置参数
+        /// </summary>
+        /// <param name="sys"></param>
+        /// <param name="filePath"></param>
         public static void ReadPara(ref SysPara sys, string filePath) {
             sys.ScanInterval.LowerBound = int.Parse(IniHelper.Read("SYS", "scanIntervalLb", "2000", filePath));
             sys.ScanInterval.UpperBound = int.Parse(IniHelper.Read("SYS", "scanIntervalUb", "5000", filePath));
@@ -25,11 +30,15 @@ namespace DataAccess {
             sys.ConvergentLim = double.Parse(IniHelper.Read("SYS", "convergentLim", "1e-3", filePath));
 
             sys.AllowedChannels = IniHelper.Read("SYS", "allowedChannel", "", filePath)
-                .Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries).ToList();
+                .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             sys.TempLb = double.Parse(IniHelper.Read("SYS", "tempLb", "0.0", filePath));
             sys.TempUb = double.Parse(IniHelper.Read("SYS", "tempUb", "120.0", filePath));
         }
-
+        /// <summary>
+        /// 写入系统配置参数
+        /// </summary>
+        /// <param name="sys"></param>
+        /// <param name="filePath"></param>
         public static void WritePara(SysPara sys, string filePath) {
             IniHelper.Write("SYS", "scanInterval", sys.ScanInterval.Value.ToString(), filePath);
             IniHelper.Write("SYS", "scanIntervalLb", sys.ScanInterval.LowerBound.ToString(), filePath);
@@ -46,7 +55,11 @@ namespace DataAccess {
             IniHelper.Write("SYS", "tempLb", sys.TempLb.ToString(), filePath);
             IniHelper.Write("SYS", "tempUb", sys.TempUb.ToString(), filePath);
         }
-
+        /// <summary>
+        /// 读取串口的配置参数
+        /// </summary>
+        /// <param name="serialPort">串口</param>
+        /// <param name="filePath">配置文件路径</param>
         public static void ReadPara(ref SerialPortPara serialPort, string filePath) {
             serialPort.SerialPort = IniHelper.Read("Serial", "port", "COM1", filePath);
             serialPort.SerialBaudRate = IniHelper.Read("Serial", "baudrate", "9600", filePath);
@@ -56,12 +69,12 @@ namespace DataAccess {
             serialPort.SerialParity = IniHelper.Read("Serial", "parity", "None", filePath);
             foreach (var i in serialPort.CardList1) {
                 i.Func = int.Parse(IniHelper.Read(i.Chn, "func", "0", filePath));
-                i.Type = (ProbeType) int.Parse(IniHelper.Read(i.Chn, "type", "0", filePath));
+                i.Type = (ProbeType)int.Parse(IniHelper.Read(i.Chn, "type", "0", filePath));
             }
 
             foreach (var i in serialPort.CardList2) {
                 i.Func = int.Parse(IniHelper.Read(i.Chn, "func", "0", filePath));
-                i.Type = (ProbeType) int.Parse(IniHelper.Read(i.Chn, "type", "0", filePath));
+                i.Type = (ProbeType)int.Parse(IniHelper.Read(i.Chn, "type", "0", filePath));
             }
 
             serialPort.Card1Enable = int.Parse(IniHelper.Read("Card1", "enable", "", filePath));
@@ -79,12 +92,12 @@ namespace DataAccess {
 
         public static void WriteChannelPara(SerialPortPara serialPort, string filePath) {
             foreach (var i in serialPort.CardList1) {
-                IniHelper.Write(i.Chn, "type", $"{(int) i.Type}", filePath);
+                IniHelper.Write(i.Chn, "type", $"{(int)i.Type}", filePath);
                 IniHelper.Write(i.Chn, "func", i.Func.ToString(), filePath);
             }
 
             foreach (var i in serialPort.CardList2) {
-                IniHelper.Write(i.Chn, "type", $"{(int) i.Type}", filePath);
+                IniHelper.Write(i.Chn, "type", $"{(int)i.Type}", filePath);
                 IniHelper.Write(i.Chn, "func", i.Func.ToString(), filePath);
             }
 
@@ -96,19 +109,22 @@ namespace DataAccess {
             ReadPara(ref app.SysPara, filePath);
             ReadPara(ref app.SerialPortPara, filePath);
         }
-
-        public static void DeviceToApp(TestDevice device, ref SerialPortPara serialPort) {
-            var channelList = device.Channels;
+        /// <summary>
+        /// 配置串口.如果在频道列表中则开启,否则关闭
+        /// </summary>
+        /// <param name="allowedChannels">频道列表</param>
+        /// <param name="serialPort">串口</param>
+        public static void DeviceToApp(List<String> allowedChannels, ref SerialPortPara serialPort) {
             if (serialPort.Card1Enable == 1)
                 foreach (var card in serialPort.CardList1)
-                    if (channelList.Contains(card.Chn))
-                        card.Func = (int) card.Type;
+                    if (allowedChannels.Contains(card.Chn))
+                        card.Func = (int)card.Type;
                     else
                         card.Func = 0;
             if (serialPort.Card2Enable == 1)
                 foreach (var card in serialPort.CardList2)
-                    if (channelList.Contains(card.Chn))
-                        card.Func = (int) card.Type;
+                    if (allowedChannels.Contains(card.Chn))
+                        card.Func = (int)card.Type;
                     else
                         card.Func = 0;
         }

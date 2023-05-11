@@ -3,8 +3,8 @@
 // 2021012417:14
 
 namespace Model {
-    public class Itm {
-        public Itm() {
+    public class Tim {
+        public Tim() {
             Thickness = "1.0";
             Kappa = 0.0;
             Area = "0.0";

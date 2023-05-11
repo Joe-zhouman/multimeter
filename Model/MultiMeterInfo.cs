@@ -59,8 +59,13 @@ namespace Model {
         }
 
         public int TotalNum => VoltageNum + ThermocoupleNum + ResistanceNum;
+        /// <summary>
+        /// 
+        /// </summary>
         public string[] Channels => TotalChn.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-
+        /// <summary>
+        /// 包含所有频道的字符串,由','隔开,依次为电压探头,四线电阻探头,热电偶探头
+        /// </summary>
         public string TotalChn {
             get {
                 var temp = VoltageChn;
