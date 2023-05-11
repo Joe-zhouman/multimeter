@@ -1033,6 +1033,7 @@
             // 
             this.Test1_remark.BackColor = System.Drawing.SystemColors.Control;
             this.Test1_remark.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Test1_remark.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.Test1_remark.Font = new System.Drawing.Font("Microsoft YaHei", 17F);
             this.Test1_remark.ForeColor = System.Drawing.Color.Red;
             this.Test1_remark.Location = new System.Drawing.Point(2, 627);
@@ -6014,8 +6015,8 @@
             this.testchoose1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.testchoose1.UseVisualStyleBackColor = false;
             this.testchoose1.Click += new System.EventHandler(this.TestChoosiest1_Click);
-            this.testchoose1.MouseLeave += new System.EventHandler(this.testchoose1_MouseLeave);
-            this.testchoose1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose1_MouseMove);
+            this.testchoose1.MouseLeave += new System.EventHandler(this.TestChoose_MouseLeave);
+            this.testchoose1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TestChoose_MouseMove);
             // 
             // label96
             // 
@@ -6089,8 +6090,8 @@
             this.testchoose4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.testchoose4.UseVisualStyleBackColor = false;
             this.testchoose4.Click += new System.EventHandler(this.TestChoose4_Click);
-            this.testchoose4.MouseLeave += new System.EventHandler(this.testchoose4_MouseLeave);
-            this.testchoose4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose4_MouseMove);
+            this.testchoose4.MouseLeave += new System.EventHandler(this.TestChoose_MouseLeave);
+            this.testchoose4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TestChoose_MouseMove);
             // 
             // SoftwareNameLabel
             // 
@@ -6177,8 +6178,8 @@
             this.testchoose3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.testchoose3.UseVisualStyleBackColor = false;
             this.testchoose3.Click += new System.EventHandler(this.TestChoosiest3_Click);
-            this.testchoose3.MouseLeave += new System.EventHandler(this.testchoose3_MouseLeave);
-            this.testchoose3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose3_MouseMove);
+            this.testchoose3.MouseLeave += new System.EventHandler(this.TestChoose_MouseLeave);
+            this.testchoose3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TestChoose_MouseMove);
             // 
             // test2
             // 
@@ -6231,8 +6232,8 @@
             this.testchoose2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.testchoose2.UseVisualStyleBackColor = false;
             this.testchoose2.Click += new System.EventHandler(this.TestChoosiest2_Click);
-            this.testchoose2.MouseLeave += new System.EventHandler(this.testchoose2_MouseLeave);
-            this.testchoose2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.testchoose2_MouseMove);
+            this.testchoose2.MouseLeave += new System.EventHandler(this.TestChoose_MouseLeave);
+            this.testchoose2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TestChoose_MouseMove);
             // 
             // SerialPort_Timer
             // 

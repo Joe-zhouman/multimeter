@@ -42,29 +42,13 @@ namespace multimeter {
 
         private bool apply_btm_1_Click() {
             if (User == UserType.ADVANCE) {
-                var heatMeterPositionBoxes1 = new List<TextBox>
-                    {LengthTextBox1_1, LengthTextBox1_2, LengthTextBox1_3, LengthTextBox1_4};
-                var heatMeterChannelBoxes1 = new List<TextBox> {
-                    ChannelTextBox1_1, ChannelTextBox1_2, ChannelTextBox1_3, ChannelTextBox1_4
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,
+                if (!BoxToSpecimen(ref _device.HeatMeter1, _KAPPA_HEATMETER_1_POSITION_BOXES, _KAPPA_HEATMETER_1_CHANNEL_BOXES,
                     K1TextBox1_1, S1TextBox1_1)) return false;
-                var heatMeterPositionBoxes2 = new List<TextBox>
-                    {LengthTextBox1_9, LengthTextBox1_10, LengthTextBox1_11, LengthTextBox1_12};
-                var heatMeterChannelBoxes2 = new List<TextBox> {
-                    ChannelTextBox1_9, ChannelTextBox1_10, ChannelTextBox1_11, ChannelTextBox1_12
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,
+                if (!BoxToSpecimen(ref _device.HeatMeter2, _KAPPA_HEATMETER_2_POSITION_BOXES, _KAPPA_HEATMETER_2_CHANNEL_BOXES,
                     K2TextBox1_2, S2TextBox1_2)) return false;
             }
-
             if (!ForceToDevice(ref _device, ForceTextBox1)) return false;
-            var samplePositionBoxes = new List<TextBox>
-                {LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7, LengthTextBox1_8};
-            var sampleChannelBoxes = new List<TextBox> {
-                ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7, ChannelTextBox1_8
-            };
-            return BoxToSpecimen(ref _device.Sample1, samplePositionBoxes, sampleChannelBoxes, STextBox1_1);
+            return BoxToSpecimen(ref _device.Sample1, _KAPPA_SAMPLE_POSITION_BOXES, _KAPPA_SAMPLE_CHANNEL_BOXES, STextBox1_1);
         }
 
         private bool ForceToDevice(ref TestDevice device, TextBox forceBox) {
@@ -79,59 +63,27 @@ namespace multimeter {
         }
         private bool apply_btm_2_Click() {
             if (User == UserType.ADVANCE) {
-                var heatMeterPositionBoxes1 = new List<TextBox>
-                    {LengthTextBox2_1, LengthTextBox2_2, LengthTextBox2_3, LengthTextBox2_4};
-                var heatMeterChannelBoxes1 = new List<TextBox> {
-                    ChannelTextBox2_1, ChannelTextBox2_2, ChannelTextBox2_3, ChannelTextBox2_4
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,
+                if (!BoxToSpecimen(ref _device.HeatMeter1, _TCR_HEATMETER_1_POSITION_BOXES, _TCR_HEATMETER_1_CHANNEL_BOXES,
                     K1TextBox2_1, S1TextBox2_1)) return false;
-                var heatMeterPositionBoxes2 = new List<TextBox>
-                    {LengthTextBox2_13, LengthTextBox2_14, LengthTextBox2_15, LengthTextBox2_16};
-                var heatMeterChannelBoxes2 = new List<TextBox> {
-                    ChannelTextBox2_13, ChannelTextBox2_14, ChannelTextBox2_15, ChannelTextBox2_16
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,
+
+                if (!BoxToSpecimen(ref _device.HeatMeter2, _TCR_HEATMETER_2_POSITION_BOXES, _TCR_HEATMETER_2_CHANNEL_BOXES,
                     K2TextBox2_2,
                     S2TextBox2_2)) return false;
             }
-
             if (!ForceToDevice(ref _device, ForceTextBox2)) return false;
-            var samplePositionBoxes1 = new List<TextBox>
-                {LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7, LengthTextBox2_8};
-            var sampleChannelBoxes1 = new List<TextBox> {
-                ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7, ChannelTextBox2_8
-            };
-            if (!BoxToSpecimen(ref _device.Sample1, samplePositionBoxes1, sampleChannelBoxes1, SuTextBox2_1))
-                return false;
-            var samplePositionBoxes2 = new List<TextBox>
-                {LengthTextBox2_9, LengthTextBox2_10, LengthTextBox2_11, LengthTextBox2_12};
-            var sampleChannelBoxes2 = new List<TextBox> {
-                ChannelTextBox2_9, ChannelTextBox2_10, ChannelTextBox2_11, ChannelTextBox2_12
-            };
-            return BoxToSpecimen(ref _device.Sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox2_2);
+            if (!BoxToSpecimen(ref _device.Sample1, _TCR_SAMPLE_1_POSITION_BOXES, _TCR_SAMPLE_1_CHANNEL_BOXES, SuTextBox2_1)) return false;
+            return BoxToSpecimen(ref _device.Sample2, _TCR_SAMPLE_2_POSITION_BOXES, _TCR_SAMPLE_2_CHANNEL_BOXES, SlTextBox2_2);
         }
 
         private bool apply_btm_3_Click() {
             if (User == UserType.ADVANCE) {
-                var heatMeterPositionBoxes1 = new List<TextBox>
-                    {LengthTextBox3_1, LengthTextBox3_2, LengthTextBox3_3, LengthTextBox3_4};
-                var heatMeterChannelBoxes1 = new List<TextBox> {
-                    ChannelTextBox3_1, ChannelTextBox3_2, ChannelTextBox3_3, ChannelTextBox3_4
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,
+                if (!BoxToSpecimen(ref _device.HeatMeter1, _TIM_HEATMETER_1_POSITION_BOXES, _TIM_HEATMETER_1_CHANNEL_BOXES,
                     K1TextBox3_1,
                     S1TextBox3_1)) return false;
-                var heatMeterPositionBoxes2 = new List<TextBox>
-                    {LengthTextBox3_5, LengthTextBox3_6, LengthTextBox3_7, LengthTextBox3_8};
-                var heatMeterChannelBoxes2 = new List<TextBox> {
-                    ChannelTextBox3_5, ChannelTextBox3_6, ChannelTextBox3_7, ChannelTextBox3_8
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,
+                if (!BoxToSpecimen(ref _device.HeatMeter2, _TIM_HEATMETER_2_POSITION_BOXES, _TIM_HEATMETER_2_CHANNEL_BOXES,
                     K2TextBox3_2,
                     S2TextBox3_2)) return false;
             }
-
             if (!ForceToDevice(ref _device, ForceTextBox3)) return false;
             return BoxToItm(ref _device.Itm, FilmThickness1, TimAreaTextBox3, S1TextBox3_1);
         }
@@ -155,43 +107,28 @@ namespace multimeter {
 
         private bool apply_btm_4_Click() {
             if (User == UserType.ADVANCE) {
-                var heatMeterPositionBoxes1 = new List<TextBox>
-                    {LengthTextBox4_1, LengthTextBox4_2, LengthTextBox4_3, LengthTextBox4_4};
-                var heatMeterChannelBoxes1 = new List<TextBox> {
-                    ChannelTextBox4_1, ChannelTextBox4_2, ChannelTextBox4_3, ChannelTextBox4_4
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter1, heatMeterPositionBoxes1, heatMeterChannelBoxes1,
+                if (!BoxToSpecimen(ref _device.HeatMeter1, _TIM_S_HEATMETER_1_POSITION_BOXES, _TIM_S_HEATMETER_1_CHANNEL_BOXES,
                     K1TextBox4_1,
                     S1TextBox4_1)) return false;
-                var heatMeterPositionBoxes2 = new List<TextBox>
-                    {LengthTextBox4_13, LengthTextBox4_14, LengthTextBox4_15, LengthTextBox4_16};
-                var heatMeterChannelBoxes2 = new List<TextBox> {
-                    ChannelTextBox4_13, ChannelTextBox4_14, ChannelTextBox4_15, ChannelTextBox4_16
-                };
-                if (!BoxToSpecimen(ref _device.HeatMeter2, heatMeterPositionBoxes2, heatMeterChannelBoxes2,
+                if (!BoxToSpecimen(ref _device.HeatMeter2, _TIM_S_HEATMETER_2_POSITION_BOXES, _TIM_S_HEATMETER_2_CHANNEL_BOXES,
                     K4TextBox4_2,
                     S2TextBox4_2)) return false;
             }
-
             if (!ForceToDevice(ref _device, ForceTextBox4)) return false;
-            var samplePositionBoxes1 = new List<TextBox>
-                {LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7, LengthTextBox4_8};
-            var sampleChannelBoxes1 = new List<TextBox> {
-                ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7, ChannelTextBox4_8
-            };
-            if (!BoxToSpecimen(ref _device.Sample1, samplePositionBoxes1, sampleChannelBoxes1, SuTextBox4_1))
+            if (!BoxToSpecimen(ref _device.Sample1, _TIM_S_SAMPLE_1_POSITION_BOXES, _TIM_S_SAMPLE_1_CHANNEL_BOXES, SuTextBox4_1))
                 return false;
-            var samplePositionBoxes2 = new List<TextBox>
-                {LengthTextBox4_9, LengthTextBox4_10, LengthTextBox4_11, LengthTextBox4_12};
-            var sampleChannelBoxes2 = new List<TextBox> {
-                ChannelTextBox4_9, ChannelTextBox4_10, ChannelTextBox4_11, ChannelTextBox4_12
-            };
-            if (!BoxToSpecimen(ref _device.Sample2, samplePositionBoxes2, sampleChannelBoxes2, SlTextBox4_2))
+            if (!BoxToSpecimen(ref _device.Sample2, _TIM_S_SAMPLE_2_POSITION_BOXES, _TIM_S_SAMPLE_2_CHANNEL_BOXES, SlTextBox4_2))
                 return false;
             return BoxToItm(ref _device.Itm, FilmThickness2, TimAreaTextBox4, SuTextBox4_1);
         }
-
-
+        /// <summary>
+        /// 将试件的测试点位置,频道,面积信息写入文本框中
+        /// </summary>
+        /// <param name="specimen"></param>
+        /// <param name="positionBoxes"></param>
+        /// <param name="channelBoxes"></param>
+        /// <param name="areaBox"></param>
+        /// <returns></returns>
         private bool BoxToSpecimen(ref Specimen specimen, List<TextBox> positionBoxes, List<TextBox> channelBoxes,
             TextBox areaBox) {
             for (var i = 0; i < specimen.TestPoint; i++) {
@@ -201,15 +138,12 @@ namespace multimeter {
                         MessageBoxIcon.Error);
                     return false;
                 }
-
                 specimen.Channel[i] = channel;
             }
-
             if (specimen.Channel.Length < 3) {
                 MessageBox.Show($@"{specimen.Name}的测温点太少,请重新设置!", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
             for (var i = 0; i < specimen.TestPoint; i++) {
                 var position = positionBoxes[i].Text.Replace(" ", "");
                 if (specimen.Channel[i] == "*" && position != "*") {
@@ -223,23 +157,18 @@ namespace multimeter {
                         MessageBoxIcon.Error);
                     return false;
                 }
-
-
                 if (!CheckData.CheckDouble(position)) {
                     MessageBox.Show($@"{specimen.Name}存在不合理的位置坐标,请重新设置!", @"错误", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return false;
                 }
-
                 specimen.Position[i] = position;
             }
-
             var area = areaBox.Text.Replace(" ", "");
             if (!CheckData.CheckDouble(areaBox.Text)) {
                 MessageBox.Show($@"{specimen.Name}存在不合理的面积,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
             specimen.Area = area;
             return true;
         }
@@ -251,7 +180,6 @@ namespace multimeter {
                 MessageBox.Show($@"{specimen.Name}存在不合理的热导率,请重新设置!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
             specimen.Kappa = kappaBox.Text;
             return BoxToSpecimen(ref specimen, positionBoxes, channelBoxes, areaBox);
         }
@@ -269,48 +197,44 @@ namespace multimeter {
             var textBoxes = new List<TextBox>();
             switch (_method) {
                 case TestMethod.KAPPA: {
-                        var textBoxes1 = new List<TextBox> {
-                        LengthTextBox1_5, LengthTextBox1_6, LengthTextBox1_7, LengthTextBox1_8,
-                        ChannelTextBox1_5, ChannelTextBox1_6, ChannelTextBox1_7, ChannelTextBox1_8,
-                        STextBox1_1, ForceTextBox1
-                    };
-                        textBoxes.AddRange(textBoxes1);
+                        textBoxes.AddRange(_KAPPA_SAMPLE_POSITION_BOXES);
+                        textBoxes.AddRange(_KAPPA_SAMPLE_CHANNEL_BOXES);
+                        textBoxes.Add(STextBox1_1);
+                        textBoxes.Add(ForceTextBox1);
                     }
                     break;
                 case TestMethod.ITC: {
-                        var textBoxes2 = new List<TextBox> {
-                        LengthTextBox2_5, LengthTextBox2_6, LengthTextBox2_7, LengthTextBox2_8,
-                        ChannelTextBox2_5, ChannelTextBox2_6, ChannelTextBox2_7, ChannelTextBox2_8,
-                        LengthTextBox2_9, LengthTextBox2_10, LengthTextBox2_11, LengthTextBox2_12,
-                        ChannelTextBox2_9, ChannelTextBox2_10, ChannelTextBox2_11, ChannelTextBox2_12,
-                        SuTextBox2_1, SlTextBox2_2, ForceTextBox2
-                    };
-                        textBoxes.AddRange(textBoxes2);
+                        textBoxes.AddRange(_TCR_SAMPLE_1_POSITION_BOXES);
+                        textBoxes.AddRange(_TCR_SAMPLE_1_CHANNEL_BOXES);
+                        textBoxes.AddRange(_TCR_SAMPLE_2_POSITION_BOXES);
+                        textBoxes.AddRange(_TCR_SAMPLE_2_CHANNEL_BOXES);
+                        textBoxes.Add(SuTextBox2_1);
+                        textBoxes.Add(SlTextBox2_2);
+                        textBoxes.Add(ForceTextBox2);
                     }
                     break;
                 case TestMethod.ITM: {
-                        var textBoxes3 = new List<TextBox> {
-                        ForceTextBox3, FilmThickness1,TimAreaTextBox3
-                    };
-                        textBoxes.AddRange(textBoxes3);
+                        textBoxes.Add(ForceTextBox3);
+                        textBoxes.Add(FilmThickness1);
+                        textBoxes.Add(TimAreaTextBox3);
                     }
                     break;
                 case TestMethod.ITMS: {
-                        var textBoxes4 = new List<TextBox> {
-                        LengthTextBox4_5, LengthTextBox4_6, LengthTextBox4_7, LengthTextBox4_8,
-                        ChannelTextBox4_5, ChannelTextBox4_6, ChannelTextBox4_7, ChannelTextBox4_8,
-                        LengthTextBox4_9, LengthTextBox4_10, LengthTextBox4_11, LengthTextBox4_12,
-                        ChannelTextBox4_9, ChannelTextBox4_10, ChannelTextBox4_11, ChannelTextBox4_12,
-                        SuTextBox4_1, SlTextBox4_2, ForceTextBox4, FilmThickness2,TimAreaTextBox4
-                    };
-                        textBoxes.AddRange(textBoxes4);
+                        textBoxes.AddRange(_TIM_S_SAMPLE_1_POSITION_BOXES);
+                        textBoxes.AddRange(_TIM_S_SAMPLE_1_CHANNEL_BOXES);
+                        textBoxes.AddRange(_TIM_S_SAMPLE_2_CHANNEL_BOXES);
+                        textBoxes.AddRange(_TIM_S_SAMPLE_2_POSITION_BOXES);
+                        textBoxes.Add(SuTextBox4_1);
+                        textBoxes.Add(SlTextBox4_2);
+                        textBoxes.Add(ForceTextBox4);
+                        textBoxes.Add(FilmThickness2);
+                        textBoxes.Add(TimAreaTextBox4);
                     }
                     break;
                 default: {
                         return;
                     }
             }
-
             foreach (var textBox in textBoxes) textBox.Enabled = enable;
         }
     }

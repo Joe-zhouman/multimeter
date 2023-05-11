@@ -252,37 +252,28 @@ namespace multimeter {
             TextGroupbox4.Size = new Size(1250, 855);
             TestChartGroupBox.Size = new Size(0, 0);
         }
-
-        private void testchoose1_MouseMove(object sender, MouseEventArgs e) {
-            test1.BackColor = Color.DodgerBlue;
+        /// <summary>
+        /// 将选中按钮所在的groupbox
+        /// </summary>
+        /// <param name="button"></param>
+        /// <param name="e"></param>
+        /// <param name="color"></param>
+        private void SetSenderGroupBpxColor(object button, Color color) {
+            if (!(button is Control control)) {
+                return;
+            }
+            if (!(control.Parent is System.Windows.Forms.GroupBox groupBox)) {
+                return;
+            }
+            groupBox.BackColor = color;
+        }
+        private void TestChoose_MouseLeave(object sender, EventArgs e) {
+            SetSenderGroupBpxColor(sender, ColorTranslator.FromHtml("#f0f0f0"));
         }
 
-        private void testchoose1_MouseLeave(object sender, EventArgs e) {
-            test1.BackColor = Color.White;
-        }
+        private void TestChoose_MouseMove(object sender, MouseEventArgs e) {
+            SetSenderGroupBpxColor(sender, Color.DodgerBlue);
 
-        private void testchoose2_MouseMove(object sender, MouseEventArgs e) {
-            test2.BackColor = Color.DodgerBlue;
-        }
-
-        private void testchoose2_MouseLeave(object sender, EventArgs e) {
-            test2.BackColor = Color.White;
-        }
-
-        private void testchoose3_MouseMove(object sender, MouseEventArgs e) {
-            test3.BackColor = Color.DodgerBlue;
-        }
-
-        private void testchoose3_MouseLeave(object sender, EventArgs e) {
-            test3.BackColor = Color.White;
-        }
-
-        private void testchoose4_MouseMove(object sender, MouseEventArgs e) {
-            test4.BackColor = Color.DodgerBlue;
-        }
-
-        private void testchoose4_MouseLeave(object sender, EventArgs e) {
-            test4.BackColor = Color.White;
         }
 
         private void ButtonEnable() {
@@ -310,7 +301,13 @@ namespace multimeter {
             SpecimenToBox(heatMeter, positionBoxes, channelBoxes, areaBox);
             kappaBox.Text = heatMeter.Kappa;
         }
-
+        /// <summary>
+        /// 将试件的属性参数填入文本框中
+        /// </summary>
+        /// <param name="sample"></param>
+        /// <param name="positionBoxes"></param>
+        /// <param name="channelBoxes"></param>
+        /// <param name="areaBox"></param>
         private void SpecimenToBox(Specimen sample, List<TextBox> positionBoxes, List<TextBox> channelBoxes,
             TextBox areaBox) {
             for (var i = 0; i < sample.TestPoint; i++) {

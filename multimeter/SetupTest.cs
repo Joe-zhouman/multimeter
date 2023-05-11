@@ -316,5 +316,12 @@ namespace multimeter {
         }
         private int _count;
         private bool _enableScan;
+
+        private void TestChoose_Leave(object sender, EventArgs e) {
+            var groupBox = sender as GroupBox;
+            if (groupBox != null) {
+                groupBox.BackColor = ColorTranslator.FromHtml("#f0f0f0");
+            }
+        }
     }
 }
