@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using Model;
+using Model.Probe;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,14 @@ namespace multimeter {
         /// 列表每行的起始非参数单元格
         /// </summary>
         private static readonly int _START_COL = 2;
+        /// <summary>
+        /// 探头类型所在列索引
+        /// </summary>
+        private static readonly int _PROBE_TYPE_COL = 0;
+        /// <summary>
+        /// 频道信息所在列索引
+        /// </summary>
+        private static readonly int _CANNEL_COL = 1;
         public ParaSetting(AppCfg app) {
             InitializeComponent();
             _app = app;
@@ -46,7 +55,7 @@ namespace multimeter {
                 var typeId = (int)card.Type;
                 RisistGridView.Rows.Add(Constant.ProbeType[typeId], channels[i], "", "", "", "");
                 RisistGridView["channel", i].ReadOnly = true;
-                Probe probe = ProbeFactory.Create(typeId);
+                ProbeBase probe = ProbeFactory.Create(typeId);
                 IniReadAndWrite.ReadTempPara(ref probe, channels[i], IniReadAndWrite.IniFilePath);
                 ShowProbePara(probe, i);
             } //默认读取双线热敏电阻
@@ -78,7 +87,7 @@ namespace multimeter {
         /// </summary>
         /// <param name="probe">温度探头</param>
         /// <param name="rowIdx">显示的列的索引</param>
-        private void ShowProbePara(Probe probe, int rowIdx) {
+        private void ShowProbePara(ProbeBase probe, int rowIdx) {
             var colIdx = _START_COL;
             if (!(probe is null)) {
                 for (; colIdx < probe.Paras.Length + _START_COL; colIdx++) {
@@ -118,41 +127,46 @@ namespace multimeter {
             var combo = (ComboBox)sender;
             if (combo != null) {
                 var rowIdx = RisistGridView.CurrentCell.RowIndex;
-                Probe p = ProbeFactory.Create(combo.SelectedIndex);
+                ProbeBase p = ProbeFactory.Create(combo.SelectedIndex);
                 ShowProbePara(p, rowIdx);
             } //更新读取对应行数据  
         }
-
+        /// <summary>
+        /// 确认修改按钮点击后触发的事件:
+        /// 创建备份文件;
+        /// 修改配置文件里的频道配置;
+        /// 修改许用频道;
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Confirm_Click(object sender, EventArgs e) {
             var bakFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bak",
                 $"sys.ini.{DateTime.Now:yyyy-MM-dd-hh-mm-ss}.bak");
+            File.Copy(IniReadAndWrite.IniFilePath, bakFilePath);
             try {
-                File.Copy(IniReadAndWrite.IniFilePath, bakFilePath);
                 var channels = new List<string> { "*" };
-                for (var i = 0; i < RisistGridView.Rows.Count - 1; i++) {
-                    var channel = RisistGridView[1, i].Value.ToString();
+                for (var rowIdx = 0; rowIdx < RisistGridView.Rows.Count - 1; rowIdx++) {
+                    var channel = RisistGridView[_CANNEL_COL, rowIdx].Value.ToString();
                     var card = FindChnIdx(channel, _app.SerialPortPara);
 
-                    int probeTypeIdx = Array.IndexOf(Constant.ProbeType, RisistGridView[0, i].Value.ToString());
+                    int probeTypeIdx = Array.IndexOf(Constant.ProbeType, RisistGridView[_PROBE_TYPE_COL, rowIdx].Value.ToString());
                     if (probeTypeIdx == -1) { return; }
                     card.Type = (ProbeType)probeTypeIdx;
-                    Probe probe = ProbeFactory.Create(probeTypeIdx);
+                    ProbeBase probe = ProbeFactory.Create(probeTypeIdx);
                     if (probe != null) {
                         for (var j = 0; j < probe.Paras.Length; j++) {
-                            probe.Paras[j] = double.Parse(RisistGridView.Rows[i].Cells[j + _START_COL].Value.ToString());
+                            probe.Paras[j] = double.Parse(RisistGridView.Rows[rowIdx].Cells[j + _START_COL].Value.ToString());
                         }
                         IniReadAndWrite.WriteTempPara(probe, channel, IniReadAndWrite.IniFilePath);
                         channels.Add(channel);
                     }
                 }
-
                 _app.SysPara.AllowedChannels = channels;
             }
             catch (Exception ex) {
                 MessageBox.Show($@"保存失败，请重试{ex}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             IniReadAndWrite.WritePara(_app.SysPara, IniReadAndWrite.IniFilePath);
             IniReadAndWrite.WriteChannelPara(_app.SerialPortPara, IniReadAndWrite.IniFilePath);
             MessageBox.Show($@"修改成功!
@@ -188,22 +202,33 @@ namespace multimeter {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            if (e.ColumnIndex == 1 && e.RowIndex > 0) {
+            if (e.ColumnIndex == _CANNEL_COL && e.RowIndex > 0) {
                 RisistGridView[e.ColumnIndex, e.RowIndex].ReadOnly = true;
             }
         }
-
+        /// <summary>
+        /// 当用户键入错误数值时,提醒用户.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e) {
             MessageBox.Show(@"请输入一个正确的数字,如: 
 1.2345,1.2345e-3,1.2353E+04", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        /// <summary>
+        /// 返回指定指定频道对象 
+        /// 1号板卡从101开始,2号板卡从201开始
+        /// </summary>
+        /// <param name="chn"></param>
+        /// <param name="serialPort"></param>
+        /// <returns></returns>
         private Card FindChnIdx(string chn, SerialPortPara serialPort) {
             var chnNum = int.Parse(chn);
             return chnNum < 200 ? serialPort.CardList1[chnNum - 101] : serialPort.CardList2[chnNum - 201];
         }
         /// <summary>
         /// 实现单元格的复制粘贴操作
+        /// 支持多行操作,及从excel等文件中复制,但复制内容和所选单元格长度必须一致
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -1,16 +1,22 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Model;
-using System.Threading;
 
 namespace multimeter {
     public partial class SetupTest {
         private int _timerCyclesNum;
-        private DateTime _xMaxValue; //采样最近时间
-        private DateTime _xMinValue; //采样初始时间
+        /// <summary>
+        /// 采样最近时间
+        /// </summary>
+        private DateTime _xMaxValue;
+        /// <summary>
+        /// 采样初始时间
+        /// </summary>
+        private DateTime _xMinValue;
         private void Chart_Init() {
             chart1.ChartAreas[0].AxisX.ScrollBar.Enabled = true;
             chart1.ChartAreas[0].AxisY.IsStartedFromZero = false; //y轴自适应
@@ -112,7 +118,7 @@ Temp:{Math.Round(a.YValues[0], 2)}";
         }
         private void SerialPortCheck_Timer_Tick(object sender, EventArgs e) {
             var interval = (int)Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
-            if (interval >= 40) 
+            if (interval >= 40)
                 StatusTextBox_AddText(PromptType.ERROR,
                     $"[{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!"); //每隔*S检测采集是否正常
             else if (interval >= 20) {

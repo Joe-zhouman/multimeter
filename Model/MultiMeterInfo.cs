@@ -33,7 +33,7 @@ namespace Model {
         public string VoltageChn;
 
         /// <summary>
-        ///     多少路两线电阻
+        ///     多少路电压探头
         /// </summary>
         public int VoltageNum;
 

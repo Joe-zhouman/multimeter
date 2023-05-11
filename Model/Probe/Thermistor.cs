@@ -4,16 +4,16 @@
 
 using System;
 
-namespace Model {
-    public class Thermistor : Probe {
+namespace Model.Probe {
+    public class Thermistor : ProbeBase {
         public Thermistor() {
-            Paras = new[] {0.0, 0.0, 0.0};
+            Paras = new[] { 0.0, 0.0, 0.0 };
             Temp = 0;
         }
 
         public override void SetTemp(double resistance) {
             var tempVar = Math.Log(resistance);
-            Temp = 
+            Temp =
                 -273.15 + 1 / (Paras[0] + Paras[1] * tempVar +
                                Paras[2] * Math.Pow(tempVar, 3));
         }

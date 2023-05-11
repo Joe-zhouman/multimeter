@@ -5,8 +5,10 @@
 using System;
 using System.Globalization;
 using Model;
+using Model.Probe;
 
-namespace DataAccess {
+namespace DataAccess
+{
     public static partial class IniReadAndWrite {
         public static void ReadBasicPara(ref Specimen specimen, string filePath) {
             if (specimen.SpecimenType == SpecimenType.HEAT_METER)
@@ -40,7 +42,7 @@ namespace DataAccess {
             IniHelper.Write("ITM", "area", itm.Area, filePath);
         }
 
-        public static void ReadTempPara(ref Probe probe, string channel, string filePath) {
+        public static void ReadTempPara(ref ProbeBase probe, string channel, string filePath) {
             if (probe is null) return;
             for (int i = 0; i < probe.Paras.Length; i++)
                 probe.Paras[i] = double.Parse(IniHelper.Read(channel, $"A{i}", "10.0", filePath));
@@ -49,7 +51,7 @@ namespace DataAccess {
             probe.TempUb = double.Parse(IniHelper.Read("SYS", "tempUb", "120.0", filePath));
         }
 
-        public static void WriteTempPara(Probe probe, string channel, string filePath) {
+        public static void WriteTempPara(ProbeBase probe, string channel, string filePath) {
             for (int i = 0; i < probe.Paras.Length; i++)
                 IniHelper.Write(channel, $"A{i}", probe.Paras[i].ToString(CultureInfo.InvariantCulture), filePath);
         }

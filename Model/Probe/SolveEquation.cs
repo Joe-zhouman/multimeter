@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Globalization;
-using System.Runtime.Serialization;
 
-namespace Model {
+namespace Model.Probe {
     public static class Equation {
         /// <summary>
         ///     盛金公式求解一元三次方程
@@ -11,9 +9,9 @@ namespace Model {
         /// <param name="a0"></param>
         /// <param name="x">结果为null则没有实根</param>
 
-        public static void GetRoot(CubeRootPara para,double a0, out double[] x) {
-            double R = para.R0-a0/2.0;
-            
+        public static void GetRoot(CubeRootPara para, double a0, out double[] x) {
+            double R = para.R0 - a0 / 2.0;
+
             var D = para.Q3 + R * R;
 
             x = new double[3];

@@ -6,7 +6,7 @@ namespace Model {
     ///     测试件基类
     /// </summary>
     public class Specimen {
-        public Probe[] Probes;
+        public Probe.ProbeBase[] Probes;
 
         public Specimen(string name, SpecimenType specimenType, int testPoint = 4) {
             Name = name;
@@ -16,7 +16,7 @@ namespace Model {
             Area = "10.0";
             Channel = new string[TestPoint];
             Position = new string[TestPoint];
-            Probes = new Probe[TestPoint];
+            Probes = new Probe.ProbeBase[TestPoint];
             for (var i = 0; i < TestPoint; i++) {
                 Channel[i] = "*";
                 Position[i] = "*";
@@ -25,7 +25,7 @@ namespace Model {
         }
 
         public void SetTempRange(double lb, double ub) {
-            foreach (Probe probe in Probes) {
+            foreach (Probe.ProbeBase probe in Probes) {
                 if (probe == null) continue;
                 probe.TempLb = lb;
                 probe.TempUb = ub;

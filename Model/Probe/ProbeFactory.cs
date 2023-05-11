@@ -12,12 +12,12 @@
 // *Github*    : https://github.com/Joe-zhouman
 // *LeetCode*  : https://leetcode-cn.com/u/joe_zm/
 
-namespace Model {
+namespace Model.Probe {
     /// <summary>
     /// simple factory to create probe instance
     /// </summary>
     public static class ProbeFactory {
-        public static Probe Create(int i) {
+        public static ProbeBase Create(int i) {
             switch (i) {
                 case 0:
                     return null;
@@ -33,7 +33,7 @@ namespace Model {
                     return null;
             }
         }
-        public static Probe Create(ProbeType type) {
+        public static ProbeBase Create(ProbeType type) {
             return Create((int)type);
         }
     }

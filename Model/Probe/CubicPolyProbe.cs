@@ -4,8 +4,8 @@
 
 using System;
 
-namespace Model {
-    public class CubicPolyProbe : Probe {
+namespace Model.Probe {
+    public class CubicPolyProbe : ProbeBase {
         private CubeRootPara _cubeRootPara;
 
         public CubicPolyProbe() {
@@ -30,12 +30,19 @@ namespace Model {
             throw new ValOutOfRangeException(ValOutOfRangeType.LESS_THAN);
 
         }
-
+        /// <summary>
+        /// 初始化求解三次方程所需的参数.
+        /// </summary>
+        /// 运行过程中从头计算较费时间.
+        /// 注意到一旦探头参数确定,求解过程中很多中间参数已经确定,因此先将一些中间参数计算出来.
+        /// 本质上是用空间换时间
         public override void Init() {
             _cubeRootPara = new CubeRootPara(Paras[3], Paras[2], Paras[1]);
         }
     }
-
+    /// <summary>
+    /// 求解三次方程所需的参数
+    /// </summary>
     public readonly struct CubeRootPara {
         public double Q3 { get; }
         public double R0 { get; }

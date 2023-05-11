@@ -2,12 +2,10 @@
 // 周漫
 // 2021012712:09
 
-using System;
-
-namespace Model {
-    public class Thermocouple : Probe {
+namespace Model.Probe {
+    public class Thermocouple : ProbeBase {
         public Thermocouple() {
-            Paras = new[] {0.0, 0.0};
+            Paras = new[] { 0.0, 0.0 };
             Temp = 0;
         }
 

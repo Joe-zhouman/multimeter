@@ -5,8 +5,10 @@ using System.Windows.Forms;
 using BusinessLogic;
 using DataAccess;
 using Model;
+using Model.Probe;
 
-namespace multimeter {
+namespace multimeter
+{
     public partial class SetupTest {
         private void CurrentTestResult_Click(object sender, EventArgs e) {
             #region //数据结果
@@ -162,7 +164,7 @@ namespace multimeter {
             k1_s.Text = $@"{device.Sample1.Kappa}W/mK";
         }
 
-        private string TempString(string s, Probe probe) {
+        private string TempString(string s, ProbeBase probe) {
             return probe == null ? @"测试点位未启动" : $@"{s}{probe.Temp:G4} ℃";
         }
 
