@@ -10,7 +10,7 @@ namespace multimeter {
             var filePath = IniReadAndWrite.IniFilePath;
             switch (_method) {
                 case TestMethod.KAPPA:
-                    if (!apply_btm_1_Click()) return false;
+                    if (!ModifyKappaPara()) return false;
                     break;
                 case TestMethod.ITC:
                     if (!apply_btm_2_Click()) return false;
@@ -40,7 +40,7 @@ namespace multimeter {
             return true;
         }
 
-        private bool apply_btm_1_Click() {
+        private bool ModifyKappaPara() {
             if (User == UserType.ADVANCE) {
                 if (!BoxToSpecimen(ref _device.HeatMeter1, _KAPPA_HEATMETER_1_POSITION_BOXES, _KAPPA_HEATMETER_1_CHANNEL_BOXES,
                     K1TextBox1_1, S1TextBox1_1)) return false;
