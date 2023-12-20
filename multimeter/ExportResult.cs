@@ -1,40 +1,40 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Model;
 
 namespace multimeter {
     public partial class SetupTest {
         private void ExportResult_Click(object sender, EventArgs e) {
             var bitmap = new Bitmap(1250, 855);
-            switch (_method) {
+            switch(_method) {
                 case TestMethod.KAPPA: {
-                    pictureTest1.BringToFront();
-                    TextGroupbox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                    pictureTest1.SendToBack();
-                }
+                        pictureTest1.BringToFront();
+                        TextGroupbox1.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+                        pictureTest1.SendToBack();
+                    }
                     break;
                 case TestMethod.ITC: {
-                    pictureTest2.BringToFront();
-                    TextGroupbox2.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                    pictureTest2.SendToBack();
-                }
+                        pictureTest2.BringToFront();
+                        TextGroupbox2.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+                        pictureTest2.SendToBack();
+                    }
                     break;
                 case TestMethod.ITM: {
-                    pictureTest3.BringToFront();
-                    TextGroupbox3.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                    pictureTest3.SendToBack();
-                }
+                        pictureTest3.BringToFront();
+                        TextGroupbox3.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+                        pictureTest3.SendToBack();
+                    }
                     break;
                 case TestMethod.ITMS: {
-                    pictureTest4.BringToFront();
-                    TextGroupbox4.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                    pictureTest4.SendToBack();
-                }
+                        pictureTest4.BringToFront();
+                        TextGroupbox4.DrawToBitmap(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+                        pictureTest4.SendToBack();
+                    }
                     break;
                 default: {
-                    return;
-                }
+                        return;
+                    }
             }
 
             try {

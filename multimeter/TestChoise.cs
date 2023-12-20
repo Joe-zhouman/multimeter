@@ -177,7 +177,7 @@ namespace multimeter {
             ForceTextBox2.Text = device.Force;
             SpecimenToBox(device.HeatMeter1, _TCR_HEATMETER_1_POSITION_BOXES, _TCR_HEATMETER_1_CHANNEL_BOXES, S1TextBox2_1,
                 K1TextBox2_1);
-            SpecimenToBox(device.HeatMeter2, _TCR_HEATMETER_2_CHANNEL_BOXES, _TCR_HEATMETER_2_CHANNEL_BOXES, S2TextBox2_2,
+            SpecimenToBox(device.HeatMeter2, _TCR_HEATMETER_2_POSITION_BOXES, _TCR_HEATMETER_2_CHANNEL_BOXES, S2TextBox2_2,
                 K2TextBox2_2);
             SpecimenToBox(device.Sample1, _TCR_SAMPLE_1_POSITION_BOXES, _TCR_SAMPLE_1_CHANNEL_BOXES, SuTextBox2_1);
 
@@ -259,10 +259,10 @@ namespace multimeter {
         /// <param name="e"></param>
         /// <param name="color"></param>
         private void SetSenderGroupBpxColor(object button, Color color) {
-            if (!(button is Control control)) {
+            if(!(button is Control control)) {
                 return;
             }
-            if (!(control.Parent is System.Windows.Forms.GroupBox groupBox)) {
+            if(!(control.Parent is System.Windows.Forms.GroupBox groupBox)) {
                 return;
             }
             groupBox.BackColor = color;
@@ -310,7 +310,7 @@ namespace multimeter {
         /// <param name="areaBox"></param>
         private void SpecimenToBox(Specimen sample, List<TextBox> positionBoxes, List<TextBox> channelBoxes,
             TextBox areaBox) {
-            for (var i = 0; i < sample.TestPoint; i++) {
+            for(var i = 0; i < sample.TestPoint; i++) {
                 channelBoxes[i].Text = sample.Channel[i];
                 positionBoxes[i].Text = sample.Channel[i] == "*" ? @"*" : sample.Position[i];
             }

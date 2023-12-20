@@ -204,6 +204,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\equation.png" />
     <None Include="sys.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -252,8 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HEMT.ico" />
-    <None Include="Resources\equation1.png" />
-    <None Include="Resources\equation.png" />
+    <None Include="Resources\equation.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

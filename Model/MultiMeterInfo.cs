@@ -53,9 +53,11 @@ namespace Model {
             VoltageNum = 0;
             ResistanceNum = 0;
             ThermocoupleNum = 0;
-            if (serialPort.Card1Enable != 0) GetChannels(serialPort.CardList1);
+            if(serialPort.Card1Enable != 0)
+                GetChannels(serialPort.CardList1);
 
-            if (serialPort.Card2Enable != 0) GetChannels(serialPort.CardList2);
+            if(serialPort.Card2Enable != 0)
+                GetChannels(serialPort.CardList2);
         }
 
         public int TotalNum => VoltageNum + ThermocoupleNum + ResistanceNum;
@@ -69,12 +71,12 @@ namespace Model {
         public string TotalChn {
             get {
                 var temp = VoltageChn;
-                if (ThermocoupleChn.Length != 0) {
+                if(ThermocoupleChn.Length != 0) {
                     temp += temp.Length == 0 ? "" : ",";
                     temp += ThermocoupleChn;
                 }
 
-                if (ResistanceChn.Length != 0) {
+                if(ResistanceChn.Length != 0) {
                     temp += temp.Length == 0 ? "" : ",";
                     temp += ResistanceChn;
                 }
@@ -84,8 +86,8 @@ namespace Model {
         }
 
         private void GetChannels(List<Card> cardList) {
-            foreach (var card in cardList)
-                switch (card.Func) {
+            foreach(var card in cardList)
+                switch(card.Func) {
                     case 0:
                         break;
                     case 1: {
@@ -108,7 +110,7 @@ namespace Model {
         }
 
         private void AddChn(ref string list, string chn) {
-            if (list.Length == 0)
+            if(list.Length == 0)
                 list = chn;
             else
                 list += "," + chn;
