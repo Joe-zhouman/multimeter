@@ -137,6 +137,7 @@ namespace multimeter {
             _method = TestMethod.KAPPA;
             ShowKappaMenu();
             FileToBoxKappa(out _device, IniReadAndWrite.IniFilePath);
+            KappaTestPressUnitLabel.Text = _appCfg.SysPara.PressureUnit;
         }
 
         private void FileToBoxKappa(out TestDevice device, string settingFilePath) {
@@ -170,6 +171,7 @@ namespace multimeter {
             _method = TestMethod.ITC;
             ShowItcMenu();
             FileToBoxItc(out _device, IniReadAndWrite.IniFilePath);
+            TcrTestPressUnitLabel.Text = _appCfg.SysPara.PressureUnit;
         }
 
         private void FileToBoxItc(out TestDevice device, string settingFilePath) {
@@ -200,6 +202,7 @@ namespace multimeter {
             ShowItmMenu();
 
             FileToBoxItm(out _device, IniReadAndWrite.IniFilePath);
+            TimTestPressUnitLabel.Text = _appCfg.SysPara.PressureUnit;
         }
 
         private void FileToBoxItm(out TestDevice device, string settingFilePath) {
@@ -229,6 +232,7 @@ namespace multimeter {
 
             ShowItmsMenu();
             FileToBoxItms(out _device, IniReadAndWrite.IniFilePath);
+            TimTcrTestPressUnitLabel.Text = _appCfg.SysPara.PressureUnit;
         }
 
         private void FileToBoxItms(out TestDevice device, string settingFilePath) {

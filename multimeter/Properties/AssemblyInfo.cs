@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using log4net.Config;
 
@@ -35,3 +35,4 @@ using log4net.Config;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("0.2.0")]
 [assembly: XmlConfigurator(ConfigFile = "log4net.config")]
+[assembly: AssemblyInformationalVersion("1.0.9")]

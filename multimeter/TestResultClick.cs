@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows.Forms;
-using BusinessLogic;
+﻿using BusinessLogic;
 using DataAccess;
 using Model;
 using Model.Probe;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 
-namespace multimeter
-{
+namespace multimeter {
     public partial class SetupTest {
         private void CurrentTestResult_Click(object sender, EventArgs e) {
             #region //数据结果
 
-            if (_latestResultFile == "") {
+            if(_latestResultFile == "") {
                 MessageBox.Show(@"数据未采集完成,无法计算测试结果!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -29,7 +28,7 @@ namespace multimeter
 
         private void HistoryTestResult_Click(object sender, EventArgs e) {
             var dataFile = SetCsvFileName();
-            if (dataFile == "") {
+            if(dataFile == "") {
                 MessageBox.Show(@"请选择数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -38,46 +37,46 @@ namespace multimeter
         }
 
         private void GetResult(string dataFile) {
-            if (!Enum.TryParse(IniReadAndWrite.ReadTestMethod(dataFile), out TestMethod method)) {
+            if(!Enum.TryParse(IniReadAndWrite.ReadTestMethod(dataFile), out TestMethod method)) {
                 MessageBox.Show(@"无效的数据文件!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             _method = method;
             TestDevice device;
-            switch (method) {
+            switch(method) {
                 case TestMethod.KAPPA: {
-                    FileToBoxKappa(out device, dataFile);
-                    ShowKappaMenu();
-                }
+                        FileToBoxKappa(out device, dataFile);
+                        ShowKappaMenu();
+                    }
                     break;
                 case TestMethod.ITC: {
-                    FileToBoxItc(out device, dataFile);
-                    ShowItcMenu();
-                }
+                        FileToBoxItc(out device, dataFile);
+                        ShowItcMenu();
+                    }
                     break;
                 case TestMethod.ITMS: {
-                    //显示对应监视窗口TEST2
-                    FileToBoxItms(out device, dataFile);
-                    ShowItmsMenu();
-                }
+                        //显示对应监视窗口TEST2
+                        FileToBoxItms(out device, dataFile);
+                        ShowItmsMenu();
+                    }
                     break;
                 case TestMethod.ITM: {
-                    FileToBoxItm(out device, dataFile);
-                    ShowItmMenu();
-                }
+                        FileToBoxItm(out device, dataFile);
+                        ShowItmMenu();
+                    }
                     break;
                 default: {
-                    MessageBox.Show(@"无效的测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                        MessageBox.Show(@"无效的测试方法!", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
             }
 
             var testResult = new Dictionary<string, double>();
             try {
                 Solution.GetTestResult(ref testResult, dataFile, device.Channels.ToArray());
             }
-            catch (Exception exception) {
+            catch(Exception exception) {
                 Log.Error(exception);
                 MessageBox.Show($@"数据文件读取失败!
 {exception.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -86,30 +85,30 @@ namespace multimeter
 
             DeviceOpt.ReadTemp(ref device, testResult);
             var errInfo = Solution.GetResults(ref device);
-            switch (method) {
+            switch(method) {
                 case TestMethod.KAPPA: {
-                    ShowResultErrorInfo(Test1_remark, errInfo);
-                    ShowKappa(device);
-                    TextResultGroupbox1.Visible = true;
-                }
+                        ShowResultErrorInfo(Test1_remark, errInfo);
+                        ShowKappa(device);
+                        TextResultGroupbox1.Visible = true;
+                    }
                     break;
                 case TestMethod.ITC: {
-                    ShowResultErrorInfo(Test2_remark, errInfo);
-                    ShowItc(device);
-                    TextResultGroupbox2.Visible = true;
-                }
+                        ShowResultErrorInfo(Test2_remark, errInfo);
+                        ShowItc(device);
+                        TextResultGroupbox2.Visible = true;
+                    }
                     break;
                 case TestMethod.ITM: {
-                    ShowResultErrorInfo(Test3_remark, errInfo);
-                    ShowItm(device);
-                    TextResultGroupbox3.Visible = true;
-                }
+                        ShowResultErrorInfo(Test3_remark, errInfo);
+                        ShowItm(device);
+                        TextResultGroupbox3.Visible = true;
+                    }
                     break;
                 case TestMethod.ITMS: {
-                    ShowResultErrorInfo(Test4_remark, errInfo);
-                    ShowItms(device);
-                    TextResultGroupbox4.Visible = true;
-                }
+                        ShowResultErrorInfo(Test4_remark, errInfo);
+                        ShowItms(device);
+                        TextResultGroupbox4.Visible = true;
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -131,7 +130,8 @@ namespace multimeter
 
         private static void ShowResultErrorInfo(RichTextBox label, string errInfo) {
             label.Text = errInfo;
-            if (errInfo == "") return;
+            if(errInfo == "")
+                return;
             Log.Info("计算误差过大");
             MessageBox.Show(@"计算失败,数据误差过大", @"警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -185,8 +185,11 @@ namespace multimeter
             Tlable2_14.Text = TempString(@"Tl2 = ", device.HeatMeter2.Probes[1]);
             Tlable2_15.Text = TempString(@"Tl3 = ", device.HeatMeter2.Probes[2]);
             Tlable2_16.Text = TempString(@"Tl4 = ", device.HeatMeter2.Probes[3]);
-            K2_s1.Text = $@"{device.Sample1.Kappa}W/mK";
-            K2_s2.Text = $@"{device.Sample2.Kappa}W/mK";
+
+            TcrTestKappaLabel1.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? "试件1导热系数:" : "";
+            TcrTestKappaLabel2.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? "试件2导热系数:" : "";
+            K2_s1.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? $@"{device.Sample1.Kappa}W/mK" : "";
+            K2_s2.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? $@"{device.Sample2.Kappa}W/mK" : "";
             TCRtest2.Text = $@"{device.Itc:0.000e+0}mm²K/W";
         }
 
@@ -220,8 +223,10 @@ namespace multimeter
             Tlable4_14.Text = TempString(@"Tl2 = ", device.HeatMeter2.Probes[1]);
             Tlable4_15.Text = TempString(@"Tl3 = ", device.HeatMeter2.Probes[2]);
             Tlable4_16.Text = TempString(@"Tl4 = ", device.HeatMeter2.Probes[3]);
-            k4_s1.Text = $@"Ks1 = {device.Sample1.Kappa}W/mK";
-            k4_s2.Text = $@"Ks2 = {device.Sample2.Kappa}W/mK";
+            TimTcrTestKappaLabel1.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? "试件1导热系数:" : "";
+            TimTcrTestKappaLabel2.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? "试件2导热系数:" : "";
+            k4_s1.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? $@"{device.Sample1.Kappa}W/mK" : "";
+            k4_s2.Text = _appCfg.SysPara.ShowKappaInResistanceTest ? $@"{device.Sample2.Kappa}W/mK" : "";
             k4_f.Text = $@"Ks = {device.Itm.Kappa:0.000e+0}W/mK";
             TCRtest4.Text = $@"Rt = {device.Itc:0.000e+0}mm²K/W";
         }

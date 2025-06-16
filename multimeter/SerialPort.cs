@@ -35,6 +35,7 @@ namespace multimeter {
 
             //btn_stop.Enabled = true;
             //btn_start.Enabled = false;
+            _convergent = false;
             _count = 0;
             _latestResultFile = "";
             _serialPortData.Clear();
@@ -44,7 +45,7 @@ namespace multimeter {
             try {
                 DirectoryInfo di = Directory.CreateDirectory(_autoSaveFilePath);
             }
-            catch (Exception ex) {
+            catch(Exception ex) {
                 MessageBox.Show($@"自动保存文件创建失败,请重试
 {ex.Message}", @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Error(ex);
@@ -64,7 +65,7 @@ namespace multimeter {
                 CloseSerialPort();
                 serialPort1.Open();
             }
-            catch (Exception ex) {
+            catch(Exception ex) {
                 Log.Error(ex);
                 MessageBox.Show(@"无法打开串口！");
                 return;
@@ -87,24 +88,24 @@ namespace multimeter {
 测试仪原始数据保存在 {_latestOriginFile}
 温度历史数据保存在 {_latestDataFile}");
             }
-            catch (Exception ex) {
+            catch(Exception ex) {
                 StatusTextBox_AddText(PromptType.WARNING, $"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");
                 Log.Error(ex);
             }
         }
 
         private void CloseSerialPort() {
-            if (serialPort1.IsOpen) {
+            if(serialPort1.IsOpen) {
                 serialPort1.Close();
             }
             do {
                 Thread.Sleep(100);
-            } while (serialPort1.IsOpen);
+            } while(serialPort1.IsOpen);
         }
 
         public void SendMsg() {
             #region
-            foreach (string i in _serialPortStr) {
+            foreach(string i in _serialPortStr) {
                 serialPort1.WriteLine(i);
                 Thread.Sleep(100);
             }
@@ -115,17 +116,18 @@ namespace multimeter {
             _enableScan = true;
             _readDataThread = new Thread(() => //新开线程，执行接收数据操作
             {
-                while (_enableScan) //如果标识为true
+                while(_enableScan) //如果标识为true
                 {
                     Thread.Sleep(1);
                     try {
                         serialPort1.WriteLine(":READ?");
                         Thread.Sleep(10);
-                        if (serialPort1.BytesToRead != 0) _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
+                        if(serialPort1.BytesToRead != 0)
+                            _serialPortData.Enqueue(serialPort1.ReadTo(((char)0x11).ToString()));
                         Thread.Sleep(_appCfg.SysPara.ScanInterval.Value);
                         //Thread.Sleep(_appCfg.SysPara.ScanInterval.Value * _multiMeter.TotalNum);
                     }
-                    catch (Exception ex) {
+                    catch(Exception ex) {
                         Log.Error(ex);
                     }
                 }
@@ -152,82 +154,41 @@ namespace multimeter {
         private void SerialPort_Timer_Tick(object sender, EventArgs e) {
             #region
 
-            if (_serialPortData.Count != 0) {
+            if(_serialPortData.Count != 0) {
                 string str = _serialPortData.Dequeue();
 
                 str = str.Replace((char)19, (char)0);
                 str = str.Replace((char)13, (char)0);
                 str = str.Replace((char)0x11, (char)0);
                 str = str.Replace("\0", "");
-                if (str.Length == 0) return;
+                if(str.Length == 0)
+                    return;
                 double[] dataList;
                 try {
                     dataList = str.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(double.Parse).ToArray();
                 }
-#if DEBUG
-                catch (FormatException) {
-                    StatusTextBox_AddText(PromptType.ERROR,$"[{DateTime.Now:MM-dd-hh:mm:ss}]数据转换失败，请检查串口!");
-                    StatusTextBox_AddText(PromptType.ERROR, str);
-                    return;
-                }
-#endif
-                catch (Exception ex) {
+                catch(Exception ex) {
                     Log.Error(ex);
 
                     return;
                 }
 
                 string[] channels = _multiMeter.Channels;
-                if (dataList.Length != channels.Length) {
-#if DEBUG
-                    StatusTextBox_AddText(PromptType.ERROR,$"[{DateTime.Now:MM-dd-hh:mm:ss}]接收到的数据数目不等于频道数，请检查串口!");
-                    StatusTextBox_AddText(PromptType.ERROR, str);
-                    StatusTextBox_AddText(PromptType.ERROR, $"{dataList.Length},{channels.Length}");
-#endif
+                if(dataList.Length != channels.Length) {
                     return;
                 }
 
                 _count++;
                 string temp = _count.ToString() + ',';
                 _testResult.Clear();
-                for (int i = 0; i < channels.Length; i++)
+                for(int i = 0; i < channels.Length; i++)
                     _testResult.Add(channels[i], dataList[i]);
                 try {
                     DeviceOpt.CalTemp(ref _device, _testResult);
                     temp += string.Join(",", _device.Temp);
                 }
-                /*现在不会报错了*/
-                /*
-                                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.LESS_THAN) {
-                                    StatusTextBox_AddText(PromptType.WARNING,
-                                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度小于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查串口或标定参数!");
-                #if DEBUG
-                                    StatusTextBox_AddText(PromptType.WARNING, str);
-                                    StatusTextBox_AddText(PromptType.WARNING, temp);
-                #endif
-                                    return;
-                                }
-                                catch (ValOutOfRangeException ex) when (ex.Type == ValOutOfRangeType.GREATER_THAN) {
-                                    StatusTextBox_AddText( PromptType.WARNING,
-                                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]温度大于测试范围({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
-                #if DEBUG
-                                    StatusTextBox_AddText(PromptType.WARNING, str);
-                                    StatusTextBox_AddText(PromptType.WARNING, temp);
-                #endif
-                                    return;
-                                }
-                #if DEBUG
-                                catch (ValOutOfRangeException ex) {
-                                    StatusTextBox_AddText(PromptType.WARNING,
-                                        $"[{DateTime.Now:MM-dd-hh:mm:ss}]求解错误({_appCfg.SysPara.TempLb:G4}℃~{_appCfg.SysPara.TempUb:G4}℃)，请检查标定参数或减小加热功率!");
-                                    StatusTextBox_AddText(PromptType.WARNING, str);
-                                    StatusTextBox_AddText(PromptType.WARNING, temp);
-                                    return;
-                                }
-                #endif
-                */
-                catch (Exception ex) {
+                catch(Exception ex) {
                     Log.Error(ex);
                     return;
                 }
@@ -238,16 +199,14 @@ namespace multimeter {
 
                     _tempDataWriter.WriteLine(_count.ToString() + ',' + str);
                 }
-                catch (Exception ex) {
+                catch(Exception ex) {
                     StatusTextBox_AddText(PromptType.WARNING, $"[{DateTime.Now:MM-dd-hh:mm:ss}]数据保存失败!");
                     Log.Error(ex);
                 }
-
                 _temp.Add(_device.Temp.ToArray());
-
-
-                if (_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
-                    if (!_convergent) IsConvergent();
+                if(_count % _appCfg.SysPara.SaveInterval.Value == 0 && TempOk()) {
+                    // 至少测试600000 ms(10分钟)后才保存数据
+                    if(!_convergent && _timerCyclesNum * TestTime_Timer.Interval > 600000) { IsConvergent(sender, e); }
                     _latestResultFile = Path.Combine(_autoSaveFilePath, _method + "-" + _count + ".rst");
                     SaveDataThread t = new SaveDataThread(_latestResultFile, _lastTemp);
                     Thread rstThread = new Thread(t.SaveToData);
@@ -257,40 +216,7 @@ namespace multimeter {
 ");
                     rstThread.Start();
                 }
-
                 _testResultChartUpdate = true;
-
-                //int flag = 0;
-                //foreach (char i in str)
-                //{
-
-                //    if (i == 0x2b || i == 0x2d)
-                //    {
-                //        break;
-                //    }
-                //    flag++;
-                //}
-
-                //string recvcontent = str.Substring(flag, str.Length - flag);
-                //if (recvcontent.Length > 0)
-                //{
-                //    count++;
-                //    recvcontent=recvcontent.Replace((char)13, (char)0);          
-                //    recvcontent = recvcontent.Replace((char)0x11, (char)0);
-                //    recvcontent = recvcontent.Replace("\0", "");
-
-                //    string tmp = count.ToString() + "," + recvcontent;
-                //    ListViewItem item = new ListViewItem(tmp.Split(','));
-                //    listView_main.Items.Add(item);
-                //    textBox1.Text = recvcontent;
-
-                //    if(count%AppCfg.devicepara.Save_interval==0)
-                //    {         
-                //        SaveToData("sss", listView_main);
-                //        listView_main.Items.Clear();
-                //    }         
-                //}
-
                 #endregion
             }
         }
@@ -301,9 +227,9 @@ namespace multimeter {
             public SaveDataThread(string name, List<double[]> tempList) {
                 _name = name;
                 _temp = new List<double[]>();
-                foreach (var temp in tempList) {
+                foreach(var temp in tempList) {
                     var tempC = new double[temp.Length];
-                    for (int i = 0; i < temp.Length; i++) {
+                    for(int i = 0; i < temp.Length; i++) {
                         tempC[i] = temp[i];
                     }
                     _temp.Add(tempC);
@@ -315,7 +241,7 @@ namespace multimeter {
                 File.Copy(IniReadAndWrite.IniFilePath, _name);
                 //MessageBox.Show(filePath);
                 try {
-                    for (int i = 0; i < _temp.Count; i++)
+                    for(int i = 0; i < _temp.Count; i++)
                         IniHelper.Write("Data", i.ToString(), string.Join(",", _temp[i]), _name);
                 }
                 catch {
@@ -331,27 +257,11 @@ namespace multimeter {
 
 
         private bool TempOk() {
-            if (_temp.Count == 0) return false;
+            if(_temp.Count == 0) { return false; }
             _lastTemp = _temp;
             return true;
         }
 
-        private void IsConvergent() {
-            double[] lastTempArray = Solution.AveTemp(_lastTemp);
-            double[] currentTempArray = Solution.AveTemp(_temp);
-            for (int i = 0; i < _multiMeter.TotalNum; i++)
-                if (Math.Abs(1 - lastTempArray[i] / currentTempArray[i]) > _appCfg.SysPara.ConvergentLim) {
-                    _convergent = false;
-                    return;
-                }
 
-            _convergent = true;
-
-            /*    if (ConvergentHolding_Timer.Enabled) return;
-                ConvergentHolding_Timer.Enabled = true;
-                string countDown = SecToTimeSpan(AppCfg.devicepara.AutoCloseInterval);
-                MessageBox.Show($@"所有通道数据已经稳定
-    自动停止测试倒计时长{countDown}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);   */
-        }
     }
 }

@@ -33,6 +33,9 @@ namespace DataAccess {
                 .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             sys.TempLb = double.Parse(IniHelper.Read("SYS", "tempLb", "0.0", filePath));
             sys.TempUb = double.Parse(IniHelper.Read("SYS", "tempUb", "120.0", filePath));
+            sys.ShowKappaInResistanceTest =
+                bool.Parse(IniHelper.Read("SYS", "showKappaInResistanceTest", "False", filePath));
+            sys.PressureUnit = IniHelper.Read("SYS", "pressureUnit", "kg", filePath);
         }
         /// <summary>
         /// 写入系统配置参数
@@ -54,6 +57,8 @@ namespace DataAccess {
                 sys.AllowedChannels.Aggregate("", (current, s) => current + s + ","), filePath);
             IniHelper.Write("SYS", "tempLb", sys.TempLb.ToString(), filePath);
             IniHelper.Write("SYS", "tempUb", sys.TempUb.ToString(), filePath);
+            IniHelper.Write("SYS", "showKappaInResistanceTest", sys.ShowKappaInResistanceTest.ToString(), filePath);
+            IniHelper.Write("SYS", "pressureUnit", sys.PressureUnit, filePath);
         }
         /// <summary>
         /// 读取串口的配置参数
@@ -67,12 +72,12 @@ namespace DataAccess {
 
             serialPort.SerialStopBits = IniHelper.Read("Serial", "stopbites", "One", filePath);
             serialPort.SerialParity = IniHelper.Read("Serial", "parity", "None", filePath);
-            foreach (var i in serialPort.CardList1) {
+            foreach(var i in serialPort.CardList1) {
                 i.Func = int.Parse(IniHelper.Read(i.Chn, "func", "0", filePath));
                 i.Type = (ProbeType)int.Parse(IniHelper.Read(i.Chn, "type", "0", filePath));
             }
 
-            foreach (var i in serialPort.CardList2) {
+            foreach(var i in serialPort.CardList2) {
                 i.Func = int.Parse(IniHelper.Read(i.Chn, "func", "0", filePath));
                 i.Type = (ProbeType)int.Parse(IniHelper.Read(i.Chn, "type", "0", filePath));
             }
@@ -91,12 +96,12 @@ namespace DataAccess {
         }
 
         public static void WriteChannelPara(SerialPortPara serialPort, string filePath) {
-            foreach (var i in serialPort.CardList1) {
+            foreach(var i in serialPort.CardList1) {
                 IniHelper.Write(i.Chn, "type", $"{(int)i.Type}", filePath);
                 IniHelper.Write(i.Chn, "func", i.Func.ToString(), filePath);
             }
 
-            foreach (var i in serialPort.CardList2) {
+            foreach(var i in serialPort.CardList2) {
                 IniHelper.Write(i.Chn, "type", $"{(int)i.Type}", filePath);
                 IniHelper.Write(i.Chn, "func", i.Func.ToString(), filePath);
             }
@@ -115,15 +120,15 @@ namespace DataAccess {
         /// <param name="allowedChannels">频道列表</param>
         /// <param name="serialPort">串口</param>
         public static void DeviceToApp(List<String> allowedChannels, ref SerialPortPara serialPort) {
-            if (serialPort.Card1Enable == 1)
-                foreach (var card in serialPort.CardList1)
-                    if (allowedChannels.Contains(card.Chn))
+            if(serialPort.Card1Enable == 1)
+                foreach(var card in serialPort.CardList1)
+                    if(allowedChannels.Contains(card.Chn))
                         card.Func = (int)card.Type;
                     else
                         card.Func = 0;
-            if (serialPort.Card2Enable == 1)
-                foreach (var card in serialPort.CardList2)
-                    if (allowedChannels.Contains(card.Chn))
+            if(serialPort.Card2Enable == 1)
+                foreach(var card in serialPort.CardList2)
+                    if(allowedChannels.Contains(card.Chn))
                         card.Func = (int)card.Type;
                     else
                         card.Func = 0;

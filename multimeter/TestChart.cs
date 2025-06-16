@@ -44,7 +44,7 @@ namespace multimeter {
             };
             var channelList = _device.Channels;
             var numChannel = channelList.Count;
-            for (var i = 0; i < numChannel; i++) {
+            for(var i = 0; i < numChannel; i++) {
                 checkBoxes[i].Visible = true;
                 checkBoxes[i].Text = channelList[i];
                 checkBoxes[i].ForeColor = chart1.Series[i].Color;
@@ -53,7 +53,7 @@ namespace multimeter {
                 chart1.Series[i].Points.Clear();
             }
 
-            for (var i = numChannel; i < 16; i++) {
+            for(var i = numChannel; i < 16; i++) {
                 checkBoxes[i].Visible = false;
                 chart1.Series[i].Points.Clear();
             }
@@ -76,34 +76,37 @@ namespace multimeter {
 
         private void ShowChart() {
             var T = _device.Temp;
-            if (T.Count != 0) _xMaxValue = DateTime.Now;
+            if(T.Count != 0)
+                _xMaxValue = DateTime.Now;
 
-            for (var i = 0; i < T.Count; i++)
-                if (T[i] >= _appCfg.SysPara.TempLb && T[i] <= _appCfg.SysPara.TempUb)
+            for(var i = 0; i < T.Count; i++)
+                if(T[i] >= _appCfg.SysPara.TempLb && T[i] <= _appCfg.SysPara.TempUb)
                     chart1.Series[i].Points.AddXY(DateTime.Now.ToOADate(), T[i]);
             chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddSeconds(5).ToOADate();
             XAdapt();
 
-            /*double residual = 1;
-            if (_latestTempList != null) {
-                for (int i = 0; i < T.Count; i++) {
-                    residual = Math.Abs(1 - T[i] / _latestTempList[i]);
-                    if (residual > 1e-4) break;
-                }
+            //double residual = 1;
+            //if(_latestTempList != null) {
+            //    for(int i = 0; i < T.Count; i++) {
+            //        residual = Math.Abs(1 - T[i] / _latestTempList[i]);
+            //        if(residual > 1e-4)
+            //            break;
+            //    }
 
-                if (residual < 1e-4) {
-                    DialogResult = DialogResult.Yes;
-                    TestResultChart_FormClosing(this, new FormClosingEventArgs(CloseReason.ApplicationExitCall, true));
-                }
-            }
+            //    if(residual < 1e-4) {
+            //        DialogResult = DialogResult.Yes;
+            //        TestResultChart_FormClosing(this, new FormClosingEventArgs(CloseReason.ApplicationExitCall, true));
+            //    }
+            //}
 
-            _latestTempList = T;*/
+            //_latestTempList = T;
         }
 
         private void chart1_MouseMove(object sender, MouseEventArgs e) {
             var result = chart1.HitTest(e.X, e.Y);
-            if (result.ChartElementType == ChartElementType.DataPoint) {
-                if (!(result.Object is DataPoint a)) return;
+            if(result.ChartElementType == ChartElementType.DataPoint) {
+                if(!(result.Object is DataPoint a))
+                    return;
                 chartValue.BringToFront();
                 chartValue.Location = e.Location;
                 var datetime = DateTime.FromOADate(a.XValue);
@@ -111,17 +114,17 @@ namespace multimeter {
 Time:{datetime}
 Temp:{Math.Round(a.YValues[0], 2)}";
             }
-            else if (result.ChartElementType != ChartElementType.Nothing) {
+            else if(result.ChartElementType != ChartElementType.Nothing) {
                 Cursor = Cursors.Default;
                 chartValue.Text = "";
             }
         }
         private void SerialPortCheck_Timer_Tick(object sender, EventArgs e) {
             var interval = (int)Math.Abs((DateTime.Now - _xMaxValue).TotalSeconds);
-            if (interval >= 40)
+            if(interval >= 40)
                 StatusTextBox_AddText(PromptType.ERROR,
                     $"[{DateTime.Now:MM-dd-hh:mm:ss}]采集数据异常，请尝试重启软件和数采仪!"); //每隔*S检测采集是否正常
-            else if (interval >= 20) {
+            else if(interval >= 20) {
                 _enableScan = false;
                 try {
                     _readDataThread.Suspend();
@@ -129,7 +132,7 @@ Temp:{Math.Round(a.YValues[0], 2)}";
                     _readDataThread.Abort();//调用Thread.Abort方法试图强制终止thread线程
 
                     //上面调用Thread.Abort方法后线程thread不一定马上就被终止了，所以我们在这里写了个循环来做检查，看线程thread是否已经真正停止。其实也可以在这里使用Thread.Join方法来等待线程thread终止，Thread.Join方法做的事情和我们在这里写的循环效果是一样的，都是阻塞主线程直到thread线程终止为止
-                    while (_readDataThread.ThreadState != ThreadState.Aborted) {
+                    while(_readDataThread.ThreadState != ThreadState.Aborted) {
                         //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止
                         Thread.Sleep(100);
                     }
@@ -140,7 +143,7 @@ Temp:{Math.Round(a.YValues[0], 2)}";
                     serialPort1.DiscardOutBuffer();
                     SendMsg();
                 }
-                catch (Exception ex) {
+                catch(Exception ex) {
 
                     Log.Error(ex);
                 }
@@ -156,20 +159,21 @@ Temp:{Math.Round(a.YValues[0], 2)}";
         public string SecToTimeSpan(int sec) {
             var timespan = "";
             var ts = new TimeSpan(0, 0, sec);
-            if (ts.Hours > 0)
+            if(ts.Hours > 0)
                 timespan = $"{ts.Hours:00}"
                            + ":" + $"{ts.Minutes:00}"
                            + ":" + $"{ts.Seconds:00}";
-            if (ts.Hours == 0 && ts.Minutes > 0)
+            if(ts.Hours == 0 && ts.Minutes > 0)
                 timespan = "00:" + $"{ts.Minutes:00}"
                                  + ":" + $"{ts.Seconds:00}";
-            if (ts.Hours == 0 && ts.Minutes == 0) timespan = "00:00:" + $"{ts.Seconds:00}";
+            if(ts.Hours == 0 && ts.Minutes == 0)
+                timespan = "00:00:" + $"{ts.Seconds:00}";
             return timespan;
         } //将秒转换成hh:mm:ss
 
         private void HideChart_Click(object sender, EventArgs e) {
             TestChartGroupBox.Size = new Size(0, 0);
-            switch (_method) {
+            switch(_method) {
                 case TestMethod.KAPPA: {
                         TextGroupbox1.Size = new Size(1250, 855);
                     }
@@ -261,7 +265,7 @@ Temp:{Math.Round(a.YValues[0], 2)}";
         }
 
         private void YAxis_checkBox_CheckedChanged(object sender, EventArgs e) {
-            if (YAxis_checkBox.Checked) {
+            if(YAxis_checkBox.Checked) {
                 chart1.ChartAreas[0].CursorY.IsUserEnabled = true;
                 chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
             } //允许纵轴放大
@@ -274,14 +278,14 @@ Temp:{Math.Round(a.YValues[0], 2)}";
         private void CheckedChanged(CheckBox checkBox) {
             var str = checkBox.Name.Replace("checkBox", "");
             var i = int.Parse(str) - 1;
-            if (checkBox.Checked)
+            if(checkBox.Checked)
                 chart1.Series[i].Enabled = true;
             else
                 chart1.Series[i].Enabled = false;
         }
 
         private void XAdapt() {
-            if (!XAxis_checkBox.Checked && _xMaxValue > _xMinValue) {
+            if(!XAxis_checkBox.Checked && _xMaxValue > _xMinValue) {
                 var interval = (int)((_xMaxValue - _xMinValue).TotalSeconds / 10);
                 chart1.ChartAreas[0].AxisX.LabelStyle.Interval = interval; //坐标值间隔*S
                 chart1.ChartAreas[0].AxisX.MajorGrid.Interval = interval; //网格间隔

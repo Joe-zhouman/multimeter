@@ -11,10 +11,14 @@ namespace Model {
             ScanInterval = new RangeValue<int>(2000, 2000, 5000);
             AutoCloseInterval = 1800;
             ConvergentLim = 1e-3;
-            AllowedChannels = new List<string> {"*"};
-            for (var i = 201; i < 226; i++) AllowedChannels.Add(i.ToString());
+            AllowedChannels = new List<string> { "*" };
+            for(var i = 201; i < 226; i++) {
+                AllowedChannels.Add(i.ToString());
+            }
             TempLb = 0.0;
             TempUb = 120.0;
+            ShowKappaInResistanceTest = false;
+            PressureUnit = "MPa";
         }
         /// <summary>
         /// 允许使用的频道列表
@@ -47,5 +51,14 @@ namespace Model {
         /// 温度测试下限
         /// </summary>
         public double TempLb { get; set; }
+        /// <summary>
+        /// 是否在热阻测试中显示上下试件热导率
+        /// </summary>
+        public bool ShowKappaInResistanceTest { get; set; }
+        /// <summary>
+        /// 界面显示的测试压力单位
+        /// </summary>
+        public string PressureUnit { get; set; }
+
     }
 }

@@ -53,8 +53,9 @@ namespace multimeter {
         }
 
         private void ModifyParameter_Click(object sender, EventArgs e) {
-            if (_saveParameter) {
-                if (!apply_btm()) return;
+            if(_saveParameter) {
+                if(!apply_btm())
+                    return;
                 StatusTextBox_AddText(PromptType.INFO, $"[{DateTime.Now:MM-dd-hh:mm:ss}]修改参数成功!");
                 AllTextBoxEnable(false);
                 ModifyParameter_Enable(true, true);
@@ -63,15 +64,17 @@ namespace multimeter {
                 ModifyParameterLabel.Text = @"修改参数";
             }
             else {
-                if (User == UserType.NORMAL) NormalTextBoxEnable(true);
-                else AllTextBoxEnable(true);
+                if(User == UserType.NORMAL)
+                    NormalTextBoxEnable(true);
+                else
+                    AllTextBoxEnable(true);
                 ModifyParameter_Enable(true, false);
                 TestChooseFormShow_Enable(false);
                 _saveParameter = true;
                 ModifyParameterLabel.Text = @"确定参数";
             }
             HideChart_Click(sender, e);
-            switch (_method) {
+            switch(_method) {
                 case TestMethod.KAPPA:
                     TestChoosiest1_Click(sender, e);
                     break;
@@ -91,7 +94,7 @@ namespace multimeter {
 
         private void TestRun_Click(object sender, EventArgs e) {
             TestTime.Text = "";
-            if (serialPort1.IsOpen) {
+            if(serialPort1.IsOpen) {
                 btn_stop();
                 TestChooseFormShow_Enable(true);
                 TestRun_Enable(true);
@@ -108,10 +111,13 @@ namespace multimeter {
                 TestTime_Timer.Enabled = false;
             }
             else {
-                if (_saveParameter) ModifyParameter_Click(sender, e);
-                if (!apply_btm()) return;
+                if(_saveParameter)
+                    ModifyParameter_Click(sender, e);
+                if(!apply_btm())
+                    return;
                 btn_start();
-                if (!serialPort1.IsOpen) return;
+                if(!serialPort1.IsOpen)
+                    return;
                 Chart_Init();
                 StatusTextBox_Init();
                 TestChooseFormShow_Enable(false);
@@ -154,12 +160,12 @@ namespace multimeter {
             control.Left = (int)Math.Round(control.Left * scaleFactor);
             control.Top = (int)Math.Round(control.Top * scaleFactor);
             // 如果是 Label 控件，则同时缩放字体大小
-            if (control is Label) {
+            if(control is Label) {
                 Label label = (Label)control;
                 label.Font = new Font(label.Font.FontFamily, (float)(label.Font.Size * scaleFactor));
             }
             // 缩放控件中的所有子控件
-            foreach (Control childControl in control.Controls) {
+            foreach(Control childControl in control.Controls) {
                 ScaleControls(childControl, scaleFactor);
             }
 
@@ -179,7 +185,7 @@ namespace multimeter {
             try {
                 _appCfg.SysPara.SaveInterval.Value = int.Parse(edit_save_interval.Text);
             }
-            catch (Exception exception) {
+            catch(Exception exception) {
                 MessageBox.Show(@"错误的保存频率" + @"
 " + exception.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -208,7 +214,7 @@ namespace multimeter {
             try {
                 Process.Start(@"doc\help.pdf");
             }
-            catch (Exception ex) {
+            catch(Exception ex) {
 
                 MessageBox.Show(@"无法正确的打开帮助文档，帮助文档可能不存在。");
 #if DEBUG
@@ -255,7 +261,7 @@ namespace multimeter {
             var comIdx = _appCfg.SerialPortPara.SerialPort.Replace("COM", "");
             combox_comport.SelectedIndex = int.Parse(comIdx) - 1;
 
-            switch (_appCfg.SerialPortPara.SerialBaudRate) {
+            switch(_appCfg.SerialPortPara.SerialBaudRate) {
                 case "4800":
                     combox_baudrate.SelectedIndex = 0;
                     break;
@@ -310,7 +316,8 @@ namespace multimeter {
         }
 
         private void ChartShow_Timer_Tick(object sender, EventArgs e) {
-            if (!_testResultChartUpdate) return;
+            if(!_testResultChartUpdate)
+                return;
             ShowChart();
             _testResultChartUpdate = false;
         }
@@ -319,7 +326,7 @@ namespace multimeter {
 
         private void TestChoose_Leave(object sender, EventArgs e) {
             var groupBox = sender as GroupBox;
-            if (groupBox != null) {
+            if(groupBox != null) {
                 groupBox.BackColor = ColorTranslator.FromHtml("#f0f0f0");
             }
         }
